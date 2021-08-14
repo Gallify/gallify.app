@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4B926C82F6B00323BCB /* GallifyApp.swift */; };
+		3004D4BC26C82F6B00323BCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4BB26C82F6B00323BCB /* ContentView.swift */; };
+		3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4BD26C82F6D00323BCB /* Assets.xcassets */; };
+		3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */; };
+		3004D4CC26C82F6E00323BCB /* GallifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4CB26C82F6E00323BCB /* GallifyTests.swift */; };
+		3004D4D726C82F6E00323BCB /* GallifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4D626C82F6E00323BCB /* GallifyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3004D4C826C82F6E00323BCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3004D4AE26C82F6A00323BCB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3004D4B526C82F6B00323BCB;
+			remoteInfo = Gallify;
+		};
+		3004D4D326C82F6E00323BCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3004D4AE26C82F6A00323BCB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3004D4B526C82F6B00323BCB;
+			remoteInfo = Gallify;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3004D4B626C82F6B00323BCB /* Gallify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3004D4B926C82F6B00323BCB /* GallifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyApp.swift; sourceTree = "<group>"; };
+		3004D4BB26C82F6B00323BCB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3004D4BD26C82F6D00323BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3004D4C226C82F6D00323BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3004D4C726C82F6E00323BCB /* GallifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GallifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3004D4CB26C82F6E00323BCB /* GallifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyTests.swift; sourceTree = "<group>"; };
+		3004D4CD26C82F6E00323BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3004D4D226C82F6E00323BCB /* GallifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GallifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3004D4D626C82F6E00323BCB /* GallifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyUITests.swift; sourceTree = "<group>"; };
+		3004D4D826C82F6E00323BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3004D4B326C82F6B00323BCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4C426C82F6E00323BCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4CF26C82F6E00323BCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3004D4AD26C82F6A00323BCB = {
+			isa = PBXGroup;
+			children = (
+				3004D4B826C82F6B00323BCB /* Gallify */,
+				3004D4CA26C82F6E00323BCB /* GallifyTests */,
+				3004D4D526C82F6E00323BCB /* GallifyUITests */,
+				3004D4B726C82F6B00323BCB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3004D4B726C82F6B00323BCB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4B626C82F6B00323BCB /* Gallify.app */,
+				3004D4C726C82F6E00323BCB /* GallifyTests.xctest */,
+				3004D4D226C82F6E00323BCB /* GallifyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3004D4B826C82F6B00323BCB /* Gallify */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4B926C82F6B00323BCB /* GallifyApp.swift */,
+				3004D4BB26C82F6B00323BCB /* ContentView.swift */,
+				3004D4BD26C82F6D00323BCB /* Assets.xcassets */,
+				3004D4C226C82F6D00323BCB /* Info.plist */,
+				3004D4BF26C82F6D00323BCB /* Preview Content */,
+			);
+			path = Gallify;
+			sourceTree = "<group>";
+		};
+		3004D4BF26C82F6D00323BCB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3004D4CA26C82F6E00323BCB /* GallifyTests */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4CB26C82F6E00323BCB /* GallifyTests.swift */,
+				3004D4CD26C82F6E00323BCB /* Info.plist */,
+			);
+			path = GallifyTests;
+			sourceTree = "<group>";
+		};
+		3004D4D526C82F6E00323BCB /* GallifyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4D626C82F6E00323BCB /* GallifyUITests.swift */,
+				3004D4D826C82F6E00323BCB /* Info.plist */,
+			);
+			path = GallifyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3004D4B526C82F6B00323BCB /* Gallify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3004D4DB26C82F6E00323BCB /* Build configuration list for PBXNativeTarget "Gallify" */;
+			buildPhases = (
+				3004D4B226C82F6B00323BCB /* Sources */,
+				3004D4B326C82F6B00323BCB /* Frameworks */,
+				3004D4B426C82F6B00323BCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gallify;
+			productName = Gallify;
+			productReference = 3004D4B626C82F6B00323BCB /* Gallify.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3004D4C626C82F6E00323BCB /* GallifyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3004D4DE26C82F6E00323BCB /* Build configuration list for PBXNativeTarget "GallifyTests" */;
+			buildPhases = (
+				3004D4C326C82F6E00323BCB /* Sources */,
+				3004D4C426C82F6E00323BCB /* Frameworks */,
+				3004D4C526C82F6E00323BCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3004D4C926C82F6E00323BCB /* PBXTargetDependency */,
+			);
+			name = GallifyTests;
+			productName = GallifyTests;
+			productReference = 3004D4C726C82F6E00323BCB /* GallifyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3004D4D126C82F6E00323BCB /* GallifyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3004D4E126C82F6E00323BCB /* Build configuration list for PBXNativeTarget "GallifyUITests" */;
+			buildPhases = (
+				3004D4CE26C82F6E00323BCB /* Sources */,
+				3004D4CF26C82F6E00323BCB /* Frameworks */,
+				3004D4D026C82F6E00323BCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3004D4D426C82F6E00323BCB /* PBXTargetDependency */,
+			);
+			name = GallifyUITests;
+			productName = GallifyUITests;
+			productReference = 3004D4D226C82F6E00323BCB /* GallifyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3004D4AE26C82F6A00323BCB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					3004D4B526C82F6B00323BCB = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					3004D4C626C82F6E00323BCB = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 3004D4B526C82F6B00323BCB;
+					};
+					3004D4D126C82F6E00323BCB = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 3004D4B526C82F6B00323BCB;
+					};
+				};
+			};
+			buildConfigurationList = 3004D4B126C82F6A00323BCB /* Build configuration list for PBXProject "Gallify" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3004D4AD26C82F6A00323BCB;
+			productRefGroup = 3004D4B726C82F6B00323BCB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3004D4B526C82F6B00323BCB /* Gallify */,
+				3004D4C626C82F6E00323BCB /* GallifyTests */,
+				3004D4D126C82F6E00323BCB /* GallifyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3004D4B426C82F6B00323BCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */,
+				3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4C526C82F6E00323BCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4D026C82F6E00323BCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3004D4B226C82F6B00323BCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3004D4BC26C82F6B00323BCB /* ContentView.swift in Sources */,
+				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4C326C82F6E00323BCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3004D4CC26C82F6E00323BCB /* GallifyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4CE26C82F6E00323BCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3004D4D726C82F6E00323BCB /* GallifyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3004D4C926C82F6E00323BCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3004D4B526C82F6B00323BCB /* Gallify */;
+			targetProxy = 3004D4C826C82F6E00323BCB /* PBXContainerItemProxy */;
+		};
+		3004D4D426C82F6E00323BCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3004D4B526C82F6B00323BCB /* Gallify */;
+			targetProxy = 3004D4D326C82F6E00323BCB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3004D4D926C82F6E00323BCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3004D4DA26C82F6E00323BCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3004D4DC26C82F6E00323BCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Gallify/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3004D4DD26C82F6E00323BCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Gallify/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3004D4DF26C82F6E00323BCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GallifyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.GallifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gallify.app/Gallify";
+			};
+			name = Debug;
+		};
+		3004D4E026C82F6E00323BCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GallifyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.GallifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gallify.app/Gallify";
+			};
+			name = Release;
+		};
+		3004D4E226C82F6E00323BCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GallifyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.GallifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gallify;
+			};
+			name = Debug;
+		};
+		3004D4E326C82F6E00323BCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GallifyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.GallifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gallify;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3004D4B126C82F6A00323BCB /* Build configuration list for PBXProject "Gallify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3004D4D926C82F6E00323BCB /* Debug */,
+				3004D4DA26C82F6E00323BCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3004D4DB26C82F6E00323BCB /* Build configuration list for PBXNativeTarget "Gallify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3004D4DC26C82F6E00323BCB /* Debug */,
+				3004D4DD26C82F6E00323BCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3004D4DE26C82F6E00323BCB /* Build configuration list for PBXNativeTarget "GallifyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3004D4DF26C82F6E00323BCB /* Debug */,
+				3004D4E026C82F6E00323BCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3004D4E126C82F6E00323BCB /* Build configuration list for PBXNativeTarget "GallifyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3004D4E226C82F6E00323BCB /* Debug */,
+				3004D4E326C82F6E00323BCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3004D4AE26C82F6A00323BCB /* Project object */;
+}
