@@ -13,7 +13,7 @@ __Sprint 4:__ August 8th - August 22nd. 8 Days Left!
 
 [Slack](https://app.slack.com/client/T025Q30ABNY/)
 
-## Design
+## design
 
 [UI](https://www.figma.com/file/zuARCUmckmDlEHHEQvdl1B/Gallify?node-id=0%3A1)
 
