@@ -2,7 +2,7 @@
 
 __Mission:__  *To change the art world forever.* . . . . . [Gallify.app](https://www.gallify.app/) , [Litepaper]()
 
-__Sprint 4:__ August 8th - August 22nd. 7 Days Left!
+__Sprint 4:__ August 8th - August 22nd. 4 Days Left!
       
 ## issue boards
 
