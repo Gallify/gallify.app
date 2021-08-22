@@ -1,8 +1,8 @@
 <img src="https://user-images.githubusercontent.com/51454024/129453015-b43e918e-7335-4f79-948a-d4c552978509.png" height="100" />. 
 
-__Mission:__  *To change the art world forever.* . . . . . [Gallify.app](https://www.gallify.app/) , [Litepaper]()
+__Mission:__  *To change the art world forever.* . . . . . [Gallify.app](https://www.gallify.app/) , [Whitepaper]()
 
-__Sprint 4:__ August 8th - August 22nd. 4 Days Left!
+__Sprint 5:__ August 22nd - August 29th. 7 Days Left!
       
 ## issue boards
 
