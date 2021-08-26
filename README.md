@@ -1,9 +1,9 @@
 
 <img src="https://user-images.githubusercontent.com/51454024/129453015-b43e918e-7335-4f79-948a-d4c552978509.png" height="100" />. 
 
-__Mission:__  *To change the art world forever.* . . . . . [Gallify.app](https://www.gallify.app/) , [Litepaper]()
+__Mission:__  *To change the art world forever.* . . . . . [Gallify.app](https://www.gallify.app/) , [Litepaper](https://www.canva.com/design/DAEgfhl5PjU/hrzMDeSBWvdyQFlguJovuQ/view?utm_content=DAEgfhl5PjU&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
 
-__Sprint 5:__ August 22nd - August 29th. 7 Days Left!
+__Sprint 5:__ August 22nd - August 29th. 3 Days Left!
       
 ## issue boards
 
@@ -12,6 +12,8 @@ __Sprint 5:__ August 22nd - August 29th. 7 Days Left!
 [Drive](https://drive.google.com/drive/folders/1UyKb6CiN1pJHJfxkywHUzAGlFqLM_7Pe?usp=sharing)
 
 [Slack](https://app.slack.com/client/T025Q30ABNY/)
+
+[Firebase](https://console.firebase.google.com/project/gallify-64bbb/overview)
 
 ## design
 
