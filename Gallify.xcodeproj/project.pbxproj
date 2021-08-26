@@ -1,0 +1,865 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4B926C82F6B00323BCB /* GallifyApp.swift */; };
+		3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4BD26C82F6D00323BCB /* Assets.xcassets */; };
+		3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */; };
+		3004D4CC26C82F6E00323BCB /* GallifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4CB26C82F6E00323BCB /* GallifyTests.swift */; };
+		3004D4D726C82F6E00323BCB /* GallifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4D626C82F6E00323BCB /* GallifyUITests.swift */; };
+		3004D4E626CC971500323BCB /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4E526CC971400323BCB /* Logo.swift */; };
+		3004D4E826CC97F400323BCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4E726CC97F400323BCB /* GoogleService-Info.plist */; };
+		3004D4F026CD405D00323BCB /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4EF26CD405D00323BCB /* Artist.swift */; };
+		3004D4F226CD407600323BCB /* Art.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4F126CD407600323BCB /* Art.swift */; };
+		3004D4F426CD40AC00323BCB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4F326CD40AC00323BCB /* Profile.swift */; };
+		3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4F726CD4D5F00323BCB /* AuthManager.swift */; };
+		3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4F926CD4D7A00323BCB /* APICaller.swift */; };
+		3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4FB26CD4D9A00323BCB /* HapticsManager.swift */; };
+		3004D4FF26CD579000323BCB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4FE26CD579000323BCB /* SettingsViewController.swift */; };
+		3004D50126CD57A800323BCB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50026CD57A800323BCB /* TabBarViewController.swift */; };
+		3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50226CD57C100323BCB /* SearchViewController.swift */; };
+		3004D50526CD57F000323BCB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50426CD57F000323BCB /* ProfileViewController.swift */; };
+		3004D50726CD581600323BCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50626CD581600323BCB /* HomeViewController.swift */; };
+		3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50826CD586A00323BCB /* LoginViewController.swift */; };
+		3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50A26CD588500323BCB /* CreateAccountViewController.swift */; };
+		3004D50D26CD6CF400323BCB /* EmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50C26CD6CF400323BCB /* EmailVerificationViewController.swift */; };
+		3004D50F26CD7EF800323BCB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50E26CD7EF800323BCB /* SignUpViewController.swift */; };
+		3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51026CDB90100323BCB /* BuyViewController.swift */; };
+		3004D51326CDB91200323BCB /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51226CDB91200323BCB /* SellViewController.swift */; };
+		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
+		49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */; };
+		8F74D4B0DD6ECDB488245090 /* Pods_Gallify_GallifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */; };
+		F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3004D4C826C82F6E00323BCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3004D4AE26C82F6A00323BCB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3004D4B526C82F6B00323BCB;
+			remoteInfo = Gallify;
+		};
+		3004D4D326C82F6E00323BCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3004D4AE26C82F6A00323BCB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3004D4B526C82F6B00323BCB;
+			remoteInfo = Gallify;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DC08BFB2C764F85E922F716 /* Pods-Gallify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify.debug.xcconfig"; path = "Target Support Files/Pods-Gallify/Pods-Gallify.debug.xcconfig"; sourceTree = "<group>"; };
+		2E7780D649915F9CC1596DBF /* Pods-Gallify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify.release.xcconfig"; path = "Target Support Files/Pods-Gallify/Pods-Gallify.release.xcconfig"; sourceTree = "<group>"; };
+		3004D4B626C82F6B00323BCB /* Gallify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3004D4B926C82F6B00323BCB /* GallifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyApp.swift; sourceTree = "<group>"; };
+		3004D4BD26C82F6D00323BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3004D4C226C82F6D00323BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3004D4C726C82F6E00323BCB /* GallifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GallifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3004D4CB26C82F6E00323BCB /* GallifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyTests.swift; sourceTree = "<group>"; };
+		3004D4CD26C82F6E00323BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3004D4D226C82F6E00323BCB /* GallifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GallifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3004D4D626C82F6E00323BCB /* GallifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyUITests.swift; sourceTree = "<group>"; };
+		3004D4D826C82F6E00323BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3004D4E526CC971400323BCB /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		3004D4E726CC97F400323BCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3004D4EF26CD405D00323BCB /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		3004D4F126CD407600323BCB /* Art.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Art.swift; sourceTree = "<group>"; };
+		3004D4F326CD40AC00323BCB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		3004D4F726CD4D5F00323BCB /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		3004D4F926CD4D7A00323BCB /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		3004D4FB26CD4D9A00323BCB /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		3004D4FE26CD579000323BCB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3004D50026CD57A800323BCB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		3004D50226CD57C100323BCB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3004D50426CD57F000323BCB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3004D50626CD581600323BCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3004D50826CD586A00323BCB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3004D50A26CD588500323BCB /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		3004D50C26CD6CF400323BCB /* EmailVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationViewController.swift; sourceTree = "<group>"; };
+		3004D50E26CD7EF800323BCB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3004D51026CDB90100323BCB /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
+		3004D51226CDB91200323BCB /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
+		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
+		41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GallifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.debug.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9B47B46B9072CE5E90CC4719 /* Pods-Gallify-GallifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.release.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.release.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.release.xcconfig"; sourceTree = "<group>"; };
+		FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify_GallifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3004D4B326C82F6B00323BCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4C426C82F6E00323BCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4CF26C82F6E00323BCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F74D4B0DD6ECDB488245090 /* Pods_Gallify_GallifyUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1835EAB9B3C746C57E654419 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1DC08BFB2C764F85E922F716 /* Pods-Gallify.debug.xcconfig */,
+				2E7780D649915F9CC1596DBF /* Pods-Gallify.release.xcconfig */,
+				41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */,
+				9B47B46B9072CE5E90CC4719 /* Pods-Gallify-GallifyUITests.release.xcconfig */,
+				67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */,
+				F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3004D4AD26C82F6A00323BCB = {
+			isa = PBXGroup;
+			children = (
+				3004D4B826C82F6B00323BCB /* Gallify */,
+				3004D4CA26C82F6E00323BCB /* GallifyTests */,
+				3004D4D526C82F6E00323BCB /* GallifyUITests */,
+				3004D4B726C82F6B00323BCB /* Products */,
+				1835EAB9B3C746C57E654419 /* Pods */,
+				A96154C97DFA996DB49CA66E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3004D4B726C82F6B00323BCB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4B626C82F6B00323BCB /* Gallify.app */,
+				3004D4C726C82F6E00323BCB /* GallifyTests.xctest */,
+				3004D4D226C82F6E00323BCB /* GallifyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3004D4B826C82F6B00323BCB /* Gallify */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4F626CD4D3F00323BCB /* Managers */,
+				3004D4F526CD49AD00323BCB /* Resources */,
+				3004D4E926CD3DDB00323BCB /* ViewControllers */,
+				3004D4EA26CD3DF100323BCB /* Models */,
+				3004D4BD26C82F6D00323BCB /* Assets.xcassets */,
+				3004D4C226C82F6D00323BCB /* Info.plist */,
+				3004D4E726CC97F400323BCB /* GoogleService-Info.plist */,
+				3004D4BF26C82F6D00323BCB /* Preview Content */,
+			);
+			path = Gallify;
+			sourceTree = "<group>";
+		};
+		3004D4BF26C82F6D00323BCB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3004D4CA26C82F6E00323BCB /* GallifyTests */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4CB26C82F6E00323BCB /* GallifyTests.swift */,
+				3004D4CD26C82F6E00323BCB /* Info.plist */,
+			);
+			path = GallifyTests;
+			sourceTree = "<group>";
+		};
+		3004D4D526C82F6E00323BCB /* GallifyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4D626C82F6E00323BCB /* GallifyUITests.swift */,
+				3004D4D826C82F6E00323BCB /* Info.plist */,
+			);
+			path = GallifyUITests;
+			sourceTree = "<group>";
+		};
+		3004D4E926CD3DDB00323BCB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4FD26CD506800323BCB /* Transactions */,
+				3004D4EC26CD402A00323BCB /* Core */,
+				3004D4EB26CD402000323BCB /* Login */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3004D4EA26CD3DF100323BCB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4EF26CD405D00323BCB /* Artist.swift */,
+				3004D4F126CD407600323BCB /* Art.swift */,
+				3004D4F326CD40AC00323BCB /* Profile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3004D4EB26CD402000323BCB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3004D50826CD586A00323BCB /* LoginViewController.swift */,
+				3004D50A26CD588500323BCB /* CreateAccountViewController.swift */,
+				3004D50E26CD7EF800323BCB /* SignUpViewController.swift */,
+				3004D50C26CD6CF400323BCB /* EmailVerificationViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3004D4EC26CD402A00323BCB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3004D50026CD57A800323BCB /* TabBarViewController.swift */,
+				3004D50226CD57C100323BCB /* SearchViewController.swift */,
+				3004D50426CD57F000323BCB /* ProfileViewController.swift */,
+				3004D50626CD581600323BCB /* HomeViewController.swift */,
+				3004D4FE26CD579000323BCB /* SettingsViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3004D4F526CD49AD00323BCB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4B926C82F6B00323BCB /* GallifyApp.swift */,
+				3004D4E526CC971400323BCB /* Logo.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3004D4F626CD4D3F00323BCB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3004D4F726CD4D5F00323BCB /* AuthManager.swift */,
+				3004D4F926CD4D7A00323BCB /* APICaller.swift */,
+				3004D4FB26CD4D9A00323BCB /* HapticsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		3004D4FD26CD506800323BCB /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				3004D51026CDB90100323BCB /* BuyViewController.swift */,
+				3004D51226CDB91200323BCB /* SellViewController.swift */,
+				3004D51426CDB92300323BCB /* BidViewController.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		A96154C97DFA996DB49CA66E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */,
+				FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */,
+				65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3004D4B526C82F6B00323BCB /* Gallify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3004D4DB26C82F6E00323BCB /* Build configuration list for PBXNativeTarget "Gallify" */;
+			buildPhases = (
+				10966089275BB1E489B0205A /* [CP] Check Pods Manifest.lock */,
+				3004D4B226C82F6B00323BCB /* Sources */,
+				3004D4B326C82F6B00323BCB /* Frameworks */,
+				3004D4B426C82F6B00323BCB /* Resources */,
+				DAF5F28BE4B5E37BF0B8EFEE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gallify;
+			productName = Gallify;
+			productReference = 3004D4B626C82F6B00323BCB /* Gallify.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3004D4C626C82F6E00323BCB /* GallifyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3004D4DE26C82F6E00323BCB /* Build configuration list for PBXNativeTarget "GallifyTests" */;
+			buildPhases = (
+				7B51DA813A6A610FAECDF7D1 /* [CP] Check Pods Manifest.lock */,
+				3004D4C326C82F6E00323BCB /* Sources */,
+				3004D4C426C82F6E00323BCB /* Frameworks */,
+				3004D4C526C82F6E00323BCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3004D4C926C82F6E00323BCB /* PBXTargetDependency */,
+			);
+			name = GallifyTests;
+			productName = GallifyTests;
+			productReference = 3004D4C726C82F6E00323BCB /* GallifyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3004D4D126C82F6E00323BCB /* GallifyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3004D4E126C82F6E00323BCB /* Build configuration list for PBXNativeTarget "GallifyUITests" */;
+			buildPhases = (
+				72126595FBE060E7D1CF1E0A /* [CP] Check Pods Manifest.lock */,
+				3004D4CE26C82F6E00323BCB /* Sources */,
+				3004D4CF26C82F6E00323BCB /* Frameworks */,
+				3004D4D026C82F6E00323BCB /* Resources */,
+				F859E3873D82C1A2D33B12C4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3004D4D426C82F6E00323BCB /* PBXTargetDependency */,
+			);
+			name = GallifyUITests;
+			productName = GallifyUITests;
+			productReference = 3004D4D226C82F6E00323BCB /* GallifyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3004D4AE26C82F6A00323BCB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					3004D4B526C82F6B00323BCB = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					3004D4C626C82F6E00323BCB = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 3004D4B526C82F6B00323BCB;
+					};
+					3004D4D126C82F6E00323BCB = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 3004D4B526C82F6B00323BCB;
+					};
+				};
+			};
+			buildConfigurationList = 3004D4B126C82F6A00323BCB /* Build configuration list for PBXProject "Gallify" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3004D4AD26C82F6A00323BCB;
+			productRefGroup = 3004D4B726C82F6B00323BCB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3004D4B526C82F6B00323BCB /* Gallify */,
+				3004D4C626C82F6E00323BCB /* GallifyTests */,
+				3004D4D126C82F6E00323BCB /* GallifyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3004D4B426C82F6B00323BCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */,
+				3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */,
+				3004D4E826CC97F400323BCB /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4C526C82F6E00323BCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4D026C82F6E00323BCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10966089275BB1E489B0205A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gallify-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72126595FBE060E7D1CF1E0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gallify-GallifyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B51DA813A6A610FAECDF7D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GallifyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAF5F28BE4B5E37BF0B8EFEE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F859E3873D82C1A2D33B12C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3004D4B226C82F6B00323BCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */,
+				3004D50126CD57A800323BCB /* TabBarViewController.swift in Sources */,
+				3004D4E626CC971500323BCB /* Logo.swift in Sources */,
+				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
+				3004D4FF26CD579000323BCB /* SettingsViewController.swift in Sources */,
+				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
+				3004D50F26CD7EF800323BCB /* SignUpViewController.swift in Sources */,
+				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
+				3004D50726CD581600323BCB /* HomeViewController.swift in Sources */,
+				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
+				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
+				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
+				3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */,
+				3004D50D26CD6CF400323BCB /* EmailVerificationViewController.swift in Sources */,
+				3004D4F426CD40AC00323BCB /* Profile.swift in Sources */,
+				3004D4F026CD405D00323BCB /* Artist.swift in Sources */,
+				3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */,
+				3004D50526CD57F000323BCB /* ProfileViewController.swift in Sources */,
+				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
+				3004D4F226CD407600323BCB /* Art.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4C326C82F6E00323BCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3004D4CC26C82F6E00323BCB /* GallifyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3004D4CE26C82F6E00323BCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3004D4D726C82F6E00323BCB /* GallifyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3004D4C926C82F6E00323BCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3004D4B526C82F6B00323BCB /* Gallify */;
+			targetProxy = 3004D4C826C82F6E00323BCB /* PBXContainerItemProxy */;
+		};
+		3004D4D426C82F6E00323BCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3004D4B526C82F6B00323BCB /* Gallify */;
+			targetProxy = 3004D4D326C82F6E00323BCB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3004D4D926C82F6E00323BCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3004D4DA26C82F6E00323BCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3004D4DC26C82F6E00323BCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DC08BFB2C764F85E922F716 /* Pods-Gallify.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Gallify/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3004D4DD26C82F6E00323BCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E7780D649915F9CC1596DBF /* Pods-Gallify.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Gallify/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3004D4DF26C82F6E00323BCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GallifyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.GallifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gallify.app/Gallify";
+			};
+			name = Debug;
+		};
+		3004D4E026C82F6E00323BCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GallifyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.GallifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gallify.app/Gallify";
+			};
+			name = Release;
+		};
+		3004D4E226C82F6E00323BCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GallifyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.GallifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gallify;
+			};
+			name = Debug;
+		};
+		3004D4E326C82F6E00323BCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B47B46B9072CE5E90CC4719 /* Pods-Gallify-GallifyUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GallifyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.GallifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gallify;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3004D4B126C82F6A00323BCB /* Build configuration list for PBXProject "Gallify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3004D4D926C82F6E00323BCB /* Debug */,
+				3004D4DA26C82F6E00323BCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3004D4DB26C82F6E00323BCB /* Build configuration list for PBXNativeTarget "Gallify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3004D4DC26C82F6E00323BCB /* Debug */,
+				3004D4DD26C82F6E00323BCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3004D4DE26C82F6E00323BCB /* Build configuration list for PBXNativeTarget "GallifyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3004D4DF26C82F6E00323BCB /* Debug */,
+				3004D4E026C82F6E00323BCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3004D4E126C82F6E00323BCB /* Build configuration list for PBXNativeTarget "GallifyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3004D4E226C82F6E00323BCB /* Debug */,
+				3004D4E326C82F6E00323BCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3004D4AE26C82F6A00323BCB /* Project object */;
+}
