@@ -20,15 +20,24 @@ struct ProfileView : View {
     
     @EnvironmentObject var viewModel : ProfileViewModel
         var body: some View {
-            VStack(alignment: .leading){
+            VStack{
                 
                 Text("Profile")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color.black)
-                    
-
-            
+                
+                NavigationLink(
+                    destination: SettingsView(),
+                    label: {
+                        Image(systemName: "gearshape.fill")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                        
+                    })
+                
         }
     }
 }
+
+
