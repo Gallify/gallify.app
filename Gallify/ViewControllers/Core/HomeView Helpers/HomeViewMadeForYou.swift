@@ -80,6 +80,7 @@ struct HomeViewMadeForYou: View {
             }
             
         }
+        .padding(.bottom, screenWidth / 25)
         
     }
     
