@@ -9,11 +9,13 @@ import SwiftUI
 
 struct HomeViewPortfolio: View {
     
+    let screenWidth: CGFloat
+    
     var body: some View {
         
-            Image("icybay")
+            Image("graph")
                 .resizable()
-                .frame(width: 250, height: 250)
+                .frame(width: screenWidth / 1.2, height: screenWidth / 1.8)
             
     }
     
@@ -21,6 +23,6 @@ struct HomeViewPortfolio: View {
 
 struct HomeViewPortfolio_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewPortfolio()
+        HomeViewPortfolio(screenWidth: UIScreen.main.bounds.width)
     }
 }

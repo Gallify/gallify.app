@@ -1,13 +1,13 @@
 //
-//  HomeViewDiscover.swift
+//  HomeViewMuseums.swift
 //  Gallify
 //
-//  Created by Patron on 9/5/21.
+//  Created by Patron on 9/10/21.
 //
 
 import SwiftUI
 
-struct HomeViewDiscover: View {
+struct HomeViewMuseums: View {
     
     let screenWidth: CGFloat
     
@@ -23,17 +23,17 @@ struct HomeViewDiscover: View {
                         
                         Image(systemName: "squareshape.fill")
                             .resizable()
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.purple)
                             .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
                             .cornerRadius(screenWidth / 15)
                         
                         VStack {
                             
-                            Text("New Local")
+                            Text("Dance")
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color.white)
-                            Text("Artists")
+                            Text("Museum")
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color.white)
@@ -41,7 +41,7 @@ struct HomeViewDiscover: View {
                             
                     }
                     
-                    Text("Local Artists")
+                    Text("Dance Museum")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .frame(width: screenWidth / 2.8)
@@ -57,63 +57,44 @@ struct HomeViewDiscover: View {
                         
                         Image(systemName: "squareshape.fill")
                             .resizable()
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.green)
                             .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
                             .cornerRadius(screenWidth / 15)
                         
-                        Image(systemName: "arrow.up.circle.fill")
-                            .resizable()
-                            .foregroundColor(Color.blue)
-                            .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
-                        
+                        VStack {
+                            
+                            Text("Green")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+                            Text("Museum")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+                        }
+                            
                     }
                     
-                    Text("Top Collectors")
+                    Text("Green Museum")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .frame(width: screenWidth / 2.8)
                         .lineLimit(1)
                         .allowsTightening(true)
+                    
                 }
                 .padding(.leading, screenWidth / 37.5)
-                
-                VStack() {
-                    
-                    ZStack {
-                        
-                        Image(systemName: "squareshape.fill")
-                            .resizable()
-                            .foregroundColor(Color.black)
-                            .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
-                            .cornerRadius(screenWidth / 15)
-                        
-                        Image(systemName: "star.fill")
-                            .resizable()
-                            .foregroundColor(Color.orange)
-                            .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
-                        
-                    }
-                    
-                    Text("Popular Artists")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .frame(width: screenWidth / 2.8)
-                        .lineLimit(1)
-                        .allowsTightening(true)
-                }
                 .padding(.trailing, screenWidth / 25)
-                .padding(.leading, screenWidth / 37.5)
                 
             }
             
         }
         
     }
-    
 }
 
-struct HomeViewDiscover_Previews: PreviewProvider {
+struct HomeViewMuseums_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewDiscover(screenWidth: UIScreen.main.bounds.width)
+        HomeViewMuseums(screenWidth: UIScreen.main.bounds.width)
     }
 }

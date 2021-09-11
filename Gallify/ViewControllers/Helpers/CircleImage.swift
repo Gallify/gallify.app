@@ -20,17 +20,21 @@ struct CircleImage: View {
     var color: Color
 
     var body: some View {
-        image
-            .resizable()
-            .frame(width: length, height: breadth)
-            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-            .overlay(Circle().stroke(color, lineWidth: 4))
-            .shadow(radius: 7)
-    }
-}
+            
+            image
+                .resizable()
+                .frame(width: length, height: breadth)
+                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                .overlay(Circle().stroke(color, lineWidth: 4))
+                .shadow(radius: 3)
+        
+        }
 
 struct CircleImage_Previews: PreviewProvider {
     static var previews: some View {
         CircleImage(image: Image("logo"), length: 100, breadth: 100, color: .white)
+        }
+    
     }
+
 }

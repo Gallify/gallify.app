@@ -14,25 +14,29 @@ class HomeViewModel: ObservableObject {
 
 struct HomeView : View {
     
-    @EnvironmentObject var viewModel : HomeViewModel
+    @EnvironmentObject var viewModel : TabBarViewModel
+    
         var body: some View {
+            
+            let width = viewModel.screenWidth
+            let pad = width / 25
             
             VStack {
                 
-                HomeViewHeader()
+                HomeViewHeader(screenWidth: width)
                 
                 ScrollView(showsIndicators: false) {
                     
                     VStack {
                             
-                        HomeViewStories()
+                        HomeViewStories(screenWidth: width)
                         
                         HStack {
                             
                             Text("Good evening!")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
-                                .padding(15.0)
+                                .padding([.leading, .bottom], pad)
                             
                             Spacer()
                             
@@ -43,39 +47,58 @@ struct HomeView : View {
                             Text("Your Portfolio")
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .padding(.leading)
+                                .padding(.leading, pad)
                             
                             Spacer()
                             
                         }
                         
-                        //HomeViewPortfolio()
+                        HomeViewPortfolio(screenWidth: width)
                         
                         HStack {
                             
-                            Text("Recent")
+                            Text("Auctions")
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .padding([.top, .leading])
+                                .padding([.top, .leading], pad)
                             
+                            Button(action: {
+                                
+                                
+                                
+                            }, label: {
+                                
+                                Image(systemName: "greaterthan")
+                                    .resizable()
+                                    .foregroundColor(Color.black)
+                                    .frame(width: width / 15, height: width / 15)
+                                    .padding(.top, pad)
+                                    .padding(.leading, pad / 2)
+                                
+                            })
+                                
                             Spacer()
+                            
+                            Location(screenWidth: width)
+                                .padding([.top, .trailing], pad)
                             
                         }
                         
-                        HomeViewRecent()
-                        
+                        HomeViewAuction(screenWidth: width)
+
                         HStack {
                             
-                            Text("Discover")
+                            Text("Museums")
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .padding([.top, .leading])
+                                .padding([.top, .leading], pad)
                             
                             Spacer()
                             
                         }
                         
-                        HomeViewDiscover()
+                        HomeViewMuseums(screenWidth: width)
+                        
                     }
                     
                     
@@ -83,30 +106,43 @@ struct HomeView : View {
                         
                         HStack {
                             
-                            Text("Made for you")
+                            Text("Recent")
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .padding([.top, .leading])
+                                .padding([.top, .leading], pad)
                             
                             Spacer()
                             
                         }
                         
-                        HomeViewMadeForYou()
+                        HomeViewRecent(screenWidth: width)
                         
                         HStack {
                             
-                            Text("Auctions")
+                            Text("Discover")
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .padding([.top, .leading])
-                                
+                                .padding([.top, .leading], pad)
+                            
                             Spacer()
                             
                         }
                         
-                        HomeViewAuction()
-                    
+                        HomeViewDiscover(screenWidth: width)
+                        
+                        HStack {
+                            
+                            Text("Made for you")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding([.top, .leading], pad)
+                            
+                            Spacer()
+                            
+                        }
+                        
+                        HomeViewMadeForYou(screenWidth: width)
+                                                
                     }
                     
                 }
@@ -120,6 +156,6 @@ struct HomeView : View {
 // Remove preview after done coding home screen
 struct HomeScreenPreview: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView().environmentObject(TabBarViewModel())
     }
 }

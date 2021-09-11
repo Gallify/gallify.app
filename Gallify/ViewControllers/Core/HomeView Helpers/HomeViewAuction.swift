@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeViewAuction: View {
+    
+    let screenWidth: CGFloat
+    
     var body: some View {
         
         ZStack {
@@ -15,8 +18,8 @@ struct HomeViewAuction: View {
             Image(systemName: "squareshape.fill")
                 .resizable()
                 .foregroundColor(Color.red)
-                .frame(width: 250, height: 250)
-                .cornerRadius(50)
+                .frame(width: screenWidth / 1.5, height: screenWidth / 1.5)
+                .cornerRadius(screenWidth / 7.5)
             
             VStack {
                 
@@ -24,12 +27,12 @@ struct HomeViewAuction: View {
                     
                     Image(systemName: "hammer.fill")
                         .resizable()
-                        .frame(width: 50, height: 50)
+                        .frame(width: screenWidth / 7.5, height: screenWidth / 7.5)
                     
                     Image(systemName: "banknote.fill")
                         .resizable()
                         .foregroundColor(Color.green)
-                        .frame(width: 50, height: 30)
+                        .frame(width: screenWidth / 7.5, height: screenWidth / 12.5)
                     
                 }
                 
@@ -48,6 +51,6 @@ struct HomeViewAuction: View {
 
 struct HomeViewAuction_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewAuction()
+        HomeViewAuction(screenWidth: UIScreen.main.bounds.width)
     }
 }

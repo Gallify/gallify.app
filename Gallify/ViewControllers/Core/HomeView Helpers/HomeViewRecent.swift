@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeViewRecent: View {
+    
+    let screenWidth: CGFloat
+    
     var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
@@ -20,26 +23,25 @@ struct HomeViewRecent: View {
                                 
                         Image(systemName: "squareshape.fill")
                             .resizable()
-                            .foregroundColor(Color.pink)
-                            .frame(width:100, height:100)
-                            .padding()
-                            .background(Color.pink)
-                            .cornerRadius(20)
+                            .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                            .foregroundColor(.pink)
+                            .cornerRadius(screenWidth / 15)
                                 
                         Image(systemName: "suit.heart.fill")
                             .resizable()
                             .foregroundColor(Color.white)
-                            .frame(width: 70, height: 70)
+                            .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
                                 
                     }
-                    .padding(.leading)
                             
                     Text("Liked")
                         .font(.title3)
                         .fontWeight(.semibold)
-                        .padding(.leading)
-                        
+                        .frame(width: screenWidth / 2.8)
+                        .lineLimit(1)
+                        .allowsTightening(true)
                 }
+                .padding(.leading, screenWidth / 25)
                 
                 VStack() {
                     
@@ -48,11 +50,8 @@ struct HomeViewRecent: View {
                         Image(systemName: "squareshape.fill")
                             .resizable()
                             .foregroundColor(Color.yellow)
-                            .frame(width:100, height:100)
-                            .padding()
-                            .background(Color.yellow)
-                            .cornerRadius(20)
-                            .padding(.leading)
+                            .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                            .cornerRadius(screenWidth / 15)
                         
                         VStack {
                             
@@ -63,44 +62,50 @@ struct HomeViewRecent: View {
                                 .font(.title2)
                                 .fontWeight(.bold)
                         }
-                        .padding(.leading)
                             
                     }
                     
                     Text("Friends Feed")
                         .font(.title3)
                         .fontWeight(.semibold)
-                        .padding(.leading)
-                    
+                        .frame(width: screenWidth / 2.8)
+                        .lineLimit(1)
+                        .allowsTightening(true)
                 }
+                .padding(.leading, screenWidth / 37.5)
                 
                 VStack() {
                     
                     Image("lakemcdonald")
                         .resizable()
-                        .frame(width: 132, height: 132)
-                        .cornerRadius(20)
+                        .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                        .cornerRadius(screenWidth / 15)
                     
                     Text("Lakes")
                         .font(.title3)
                         .fontWeight(.semibold)
-                        
+                        .frame(width: screenWidth / 2.8)
+                        .lineLimit(1)
+                        .allowsTightening(true)
                 }
-                .padding(.leading)
+                .padding(.leading, screenWidth / 37.5)
                 
                 VStack() {
                     
                     Image("charleyrivers")
                         .resizable()
-                        .frame(width: 132, height: 132)
-                        .cornerRadius(20)
-                        .padding(.leading)
+                        .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                        .cornerRadius(screenWidth / 15)
                     
                     Text("Surreal")
                         .font(.title3)
                         .fontWeight(.semibold)
-                        .padding(.leading)
+                        .frame(width: screenWidth / 2.8)
+                        .lineLimit(1)
+                        .allowsTightening(true)
+                    
                 }
+                .padding(.leading, screenWidth / 37.5)
                 
                 VStack() {
                     
@@ -109,11 +114,8 @@ struct HomeViewRecent: View {
                         Image(systemName: "squareshape.fill")
                             .resizable()
                             .foregroundColor(Color.black)
-                            .frame(width:100, height:100)
-                            .padding()
-                            .background(Color.black)
-                            .cornerRadius(20)
-                            .padding(.leading)
+                            .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                            .cornerRadius(screenWidth / 15)
                         
                         VStack {
                             
@@ -126,17 +128,18 @@ struct HomeViewRecent: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(Color.white)
                         }
-                        .padding(.leading)
                             
                     }
                     
                     Text("Local Artists")
                         .font(.title3)
                         .fontWeight(.semibold)
-                        .padding(.leading)
-                    
+                        .frame(width: screenWidth / 2.8)
+                        .lineLimit(1)
+                        .allowsTightening(true)
                 }
-                .padding(.trailing)
+                .padding(.trailing, screenWidth / 25)
+                .padding(.leading, screenWidth / 37.5)
                 
             }
             
@@ -148,6 +151,6 @@ struct HomeViewRecent: View {
 
 struct HomeViewRecent_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewRecent()
+        HomeViewRecent(screenWidth: UIScreen.main.bounds.width)
     }
 }

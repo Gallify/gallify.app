@@ -10,8 +10,11 @@ import SwiftUI
 import Firebase
 
 
-class TabBarViewController: UITabBarController {
-
+class TabBarViewModel: UITabBarController, ObservableObject {
+    
+    let screenWidth: CGFloat = UIScreen.main.bounds.width
+    let screenHeight: CGFloat = UIScreen.main.bounds.height
+    
 }
 
 struct TabBarView: View {
@@ -63,7 +66,7 @@ struct TabBarView: View {
 
 struct TabBarPreview: PreviewProvider {
     static var previews: some View {
-        TabBarView()
+        TabBarView().environmentObject(TabBarViewModel())
     }
 }
 

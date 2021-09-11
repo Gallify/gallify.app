@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct HomeViewStories: View {
+    
+    let screenWidth: CGFloat
+    
     var body: some View {
+        
+        let pad = screenWidth / 75
         
         ScrollView(.horizontal, showsIndicators: false) {
             
@@ -16,55 +21,74 @@ struct HomeViewStories: View {
                 
                 VStack {
                     
-                    CircleImage(image: Image("turtlerock"), length: 90, breadth: 90, color: .purple)
-                        .padding(5.0)
+                    CircleImage(image: Image("turtlerock"), length: screenWidth / 5, breadth: screenWidth / 5, color: .purple)
+                        .padding(pad)
                     
                     Text("LoggedUser")
                         .foregroundColor(Color.gray)
-                        .offset(y: -5)
+                        .offset(y: -pad)
+                        .frame(width: screenWidth / 5 + 2 * pad)
+                        .lineLimit(1)
+                        .allowsTightening(true)
                 }
-                .padding(.leading)
+                .padding(.leading, pad + screenWidth / 125)
                 
                 VStack {
                     
-                    CircleImage(image: Image("twinlake"), length: 90, breadth: 90, color: .white)
-                        .padding(5.0)
+                    CircleImage(image: Image("twinlake"), length: screenWidth / 5, breadth: screenWidth / 5, color: .white)
+                        .padding(pad)
                     
                     Text("Artist1")
                         .foregroundColor(Color.gray)
-                        .offset(y: -5)
+                        .offset(y: -pad)
+                        .frame(width: screenWidth / 5 + 2 * pad)
+                        .lineLimit(1)
+                        .allowsTightening(true)
+                    
                 }
                 
                 VStack {
                     
-                    CircleImage(image: Image("icybay"), length: 90, breadth: 90, color: .white)
-                        .padding(5.0)
+                    CircleImage(image: Image("icybay"), length: screenWidth / 5, breadth: screenWidth / 5, color: .white)
+                        .padding(pad)
                     
                     Text("Artist2")
                         .foregroundColor(Color.gray)
-                        .offset(y: -5)
+                        .offset(y: -pad)
+                        .frame(width: screenWidth / 5 + 2 * pad)
+                        .lineLimit(1)
+                        .allowsTightening(true)
+                    
                 }
                 
                 VStack {
                     
-                    CircleImage(image: Image("chincoteague"), length: 90, breadth: 90, color: .white)
-                        .padding(5.0)
+                    CircleImage(image: Image("chincoteague"), length: screenWidth / 5, breadth: screenWidth / 5, color: .white)
+                        .padding(pad)
                     
                     Text("Artist3")
                         .foregroundColor(Color.gray)
-                        .offset(y: -5)
+                        .offset(y: -pad)
+                        .frame(width: screenWidth / 5 + 2 * pad)
+                        .lineLimit(1)
+                        .allowsTightening(true)
+                    
                 }
                 
                 VStack {
                     
-                    CircleImage(image: Image("umbagog"), length: 90, breadth: 90, color: .white)
-                        .padding(5.0)
+                    CircleImage(image: Image("umbagog"), length: screenWidth / 5, breadth: screenWidth / 5, color: .white)
+                        .padding(pad)
                     
                     Text("Artist4")
                         .foregroundColor(Color.gray)
-                        .offset(y: -5)
+                        .offset(y: -pad)
+                        .frame(width: screenWidth / 5 + 2 * pad)
+                        .lineLimit(1)
+                        .allowsTightening(true)
+                    
                 }
-                .padding(.trailing)
+                .padding(.trailing, pad * 2)
             }
             
         }
@@ -75,6 +99,6 @@ struct HomeViewStories: View {
 
 struct HomeViewStories_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewStories()
+        HomeViewStories(screenWidth: UIScreen.main.bounds.width)
     }
 }

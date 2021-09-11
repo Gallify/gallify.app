@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct HomeViewHeader: View {
+    
+    let screenWidth: CGFloat
+    
     var body: some View {
         
         HStack {
             
             Image("logo")
                 .resizable()
-                .frame(width: 70, height: 70)
-                .padding(.leading)
+                .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
+                .padding(.leading, screenWidth / 37.5)
+                .padding(.trailing, -screenWidth / 25)
             
             Text("Gallify")
                 .font(.largeTitle)
                 .foregroundColor(Color.black)
-                .offset(x: -15)
             
             Spacer()
             
@@ -30,8 +33,8 @@ struct HomeViewHeader: View {
                 Image(systemName: "plus.square")
                     .resizable()
                     .foregroundColor(Color.black)
-                    .padding(/*@START_MENU_TOKEN@*/.all, 7.0/*@END_MENU_TOKEN@*/)
-                    .frame(width: 50.0, height: 50.0)
+                    .padding(.all, screenWidth / 55)
+                    .frame(width: screenWidth / 7.5, height: screenWidth / 7.5)
                 })
             
             Button(action: {
@@ -40,12 +43,13 @@ struct HomeViewHeader: View {
                 Image(systemName: "waveform.path.ecg")
                     .resizable()
                     .foregroundColor(Color.black)
-                    .padding(.all, 7.0)
-                    .frame(width: 50, height: 50)
-                    .padding(.trailing)
+                    .padding(.all, screenWidth / 55)
+                    .frame(width: screenWidth / 7.5, height: screenWidth / 7.5)
+                    .padding(.trailing, screenWidth / 37.5)
             })
         }
-        .padding(.bottom, -3)
+        .padding(.bottom, -screenWidth / 125)
+        
         
         Divider()
     }
@@ -53,6 +57,6 @@ struct HomeViewHeader: View {
 
 struct HomeViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewHeader()
+        HomeViewHeader(screenWidth: UIScreen.main.bounds.width)
     }
 }

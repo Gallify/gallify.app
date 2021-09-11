@@ -32,6 +32,12 @@
 		3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51026CDB90100323BCB /* BuyViewController.swift */; };
 		3004D51326CDB91200323BCB /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51226CDB91200323BCB /* SellViewController.swift */; };
 		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
+		3111174226EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
+		3111174326EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
+		3111174426EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
+		3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */; };
+		3111174726EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */; };
+		3111174826EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */; };
 		318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
 		318B42F126E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
 		318B42F226E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
@@ -113,6 +119,8 @@
 		3004D51026CDB90100323BCB /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		3004D51226CDB91200323BCB /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
+		3111174126EC08E6001B8E55 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMuseums.swift; sourceTree = "<group>"; };
 		318B42EF26E0190B00D6D722 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		319F25B026E56722009B811E /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
 		319F25B426E56935009B811E /* HomeViewStories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewStories.swift; sourceTree = "<group>"; };
@@ -311,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				318B42EF26E0190B00D6D722 /* CircleImage.swift */,
+				3111174126EC08E6001B8E55 /* Location.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -325,6 +334,7 @@
 				319F25C026E571B7009B811E /* HomeViewDiscover.swift */,
 				319F25C426E57236009B811E /* HomeViewMadeForYou.swift */,
 				319F25C826E572BA009B811E /* HomeViewAuction.swift */,
+				3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */,
 			);
 			path = "HomeView Helpers";
 			sourceTree = "<group>";
@@ -583,6 +593,7 @@
 				319F25C526E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
 				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
 				319F25B926E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
+				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
 				3004D4FF26CD579000323BCB /* SettingsViewController.swift in Sources */,
 				319F25C126E571B7009B811E /* HomeViewDiscover.swift in Sources */,
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
@@ -591,6 +602,7 @@
 				3004D50726CD581600323BCB /* HomeViewController.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
+				3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
 				3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */,
@@ -614,6 +626,7 @@
 			files = (
 				319F25BE26E56D57009B811E /* HomeViewRecent.swift in Sources */,
 				319F25CA26E572BA009B811E /* HomeViewAuction.swift in Sources */,
+				3111174326EC08E6001B8E55 /* Location.swift in Sources */,
 				319F25C226E571B7009B811E /* HomeViewDiscover.swift in Sources */,
 				319F25C626E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
 				3004D4CC26C82F6E00323BCB /* GallifyTests.swift in Sources */,
@@ -621,6 +634,7 @@
 				319F25B626E56935009B811E /* HomeViewStories.swift in Sources */,
 				319F25B226E56722009B811E /* HomeViewHeader.swift in Sources */,
 				318B42F126E0190B00D6D722 /* CircleImage.swift in Sources */,
+				3111174726EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +644,7 @@
 			files = (
 				319F25BF26E56D57009B811E /* HomeViewRecent.swift in Sources */,
 				319F25CB26E572BA009B811E /* HomeViewAuction.swift in Sources */,
+				3111174426EC08E6001B8E55 /* Location.swift in Sources */,
 				319F25C326E571B7009B811E /* HomeViewDiscover.swift in Sources */,
 				319F25C726E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
 				3004D4D726C82F6E00323BCB /* GallifyUITests.swift in Sources */,
@@ -637,6 +652,7 @@
 				319F25B726E56935009B811E /* HomeViewStories.swift in Sources */,
 				319F25B326E56722009B811E /* HomeViewHeader.swift in Sources */,
 				318B42F226E0190B00D6D722 /* CircleImage.swift in Sources */,
+				3111174826EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
