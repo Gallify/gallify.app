@@ -9,7 +9,9 @@
 //  image: The image who you want to convert into a circle image
 //  length: Frame width for the desired image
 //  breadth: Frame height for the desired image
-//  color: Color of the border of the desired image
+//  overlayColor: Color of the border of the desired image
+//  overlayRadius: Radius of the border
+//  shadowRadius: Radius of the shadow
 
 import SwiftUI
 
@@ -17,7 +19,9 @@ struct CircleImage: View {
     var image: Image
     var length: CGFloat
     var breadth: CGFloat
-    var color: Color
+    var overlayColor: Color
+    var overlayRadius: CGFloat
+    var shadowRadius: CGFloat
 
     var body: some View {
             
@@ -25,14 +29,14 @@ struct CircleImage: View {
                 .resizable()
                 .frame(width: length, height: breadth)
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                .overlay(Circle().stroke(color, lineWidth: 4))
-                .shadow(radius: 3)
+                .overlay(Circle().stroke(overlayColor, lineWidth: overlayRadius))
+                .shadow(radius: shadowRadius)
         
         }
 
 struct CircleImage_Previews: PreviewProvider {
     static var previews: some View {
-        CircleImage(image: Image("logo"), length: 100, breadth: 100, color: .white)
+        CircleImage(image: Image("logo"), length: 100, breadth: 100, overlayColor: .white, overlayRadius: 4, shadowRadius: 3)
         }
     
     }

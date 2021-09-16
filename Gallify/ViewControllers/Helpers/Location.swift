@@ -26,9 +26,10 @@ struct Location: View {
                 Image(systemName: "circle.fill")
                     .resizable()
                     .foregroundColor(Color.green)
-                    .frame(width: screenWidth / 25, height: screenWidth / 25)
+                    .frame(width: screenWidth / 30, height: screenWidth / 30)
             
                 Text("Madison, WI")
+                    .font(.footnote)
                     .frame(width: screenWidth / 5)
                     .lineLimit(1)
                     .allowsTightening(true)

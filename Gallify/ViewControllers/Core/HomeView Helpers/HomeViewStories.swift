@@ -21,7 +21,7 @@ struct HomeViewStories: View {
                 
                 VStack {
                     
-                    CircleImage(image: Image("turtlerock"), length: screenWidth / 5, breadth: screenWidth / 5, color: .purple)
+                    CircleImage(image: Image("turtlerock"), length: screenWidth / 5, breadth: screenWidth / 5, overlayColor: .purple, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                         .padding(pad)
                     
                     Text("LoggedUser")
@@ -35,7 +35,7 @@ struct HomeViewStories: View {
                 
                 VStack {
                     
-                    CircleImage(image: Image("twinlake"), length: screenWidth / 5, breadth: screenWidth / 5, color: .white)
+                    CircleImage(image: Image("twinlake"), length: screenWidth / 5, breadth: screenWidth / 5, overlayColor: .white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                         .padding(pad)
                     
                     Text("Artist1")
@@ -49,7 +49,7 @@ struct HomeViewStories: View {
                 
                 VStack {
                     
-                    CircleImage(image: Image("icybay"), length: screenWidth / 5, breadth: screenWidth / 5, color: .white)
+                    CircleImage(image: Image("icybay"), length: screenWidth / 5, breadth: screenWidth / 5, overlayColor: .white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                         .padding(pad)
                     
                     Text("Artist2")
@@ -63,7 +63,7 @@ struct HomeViewStories: View {
                 
                 VStack {
                     
-                    CircleImage(image: Image("chincoteague"), length: screenWidth / 5, breadth: screenWidth / 5, color: .white)
+                    CircleImage(image: Image("chincoteague"), length: screenWidth / 5, breadth: screenWidth / 5, overlayColor: .white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                         .padding(pad)
                     
                     Text("Artist3")
@@ -77,7 +77,7 @@ struct HomeViewStories: View {
                 
                 VStack {
                     
-                    CircleImage(image: Image("umbagog"), length: screenWidth / 5, breadth: screenWidth / 5, color: .white)
+                    CircleImage(image: Image("umbagog"), length: screenWidth / 5, breadth: screenWidth / 5, overlayColor: .white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                         .padding(pad)
                     
                     Text("Artist4")

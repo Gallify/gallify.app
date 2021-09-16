@@ -62,6 +62,15 @@
 		319F25C926E572BA009B811E /* HomeViewAuction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F25C826E572BA009B811E /* HomeViewAuction.swift */; };
 		319F25CA26E572BA009B811E /* HomeViewAuction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F25C826E572BA009B811E /* HomeViewAuction.swift */; };
 		319F25CB26E572BA009B811E /* HomeViewAuction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F25C826E572BA009B811E /* HomeViewAuction.swift */; };
+		31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
+		31AE71AF26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
+		31AE71B026F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
+		31CD2E9F26EFBF84008FFE49 /* ProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD2E9E26EFBF84008FFE49 /* ProfileViewHeader.swift */; };
+		31CD2EA026EFBF84008FFE49 /* ProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD2E9E26EFBF84008FFE49 /* ProfileViewHeader.swift */; };
+		31CD2EA126EFBF84008FFE49 /* ProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD2E9E26EFBF84008FFE49 /* ProfileViewHeader.swift */; };
+		31CD2EA326EFCFFF008FFE49 /* ProfileViewUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD2EA226EFCFFF008FFE49 /* ProfileViewUserDetails.swift */; };
+		31CD2EA426EFCFFF008FFE49 /* ProfileViewUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD2EA226EFCFFF008FFE49 /* ProfileViewUserDetails.swift */; };
+		31CD2EA526EFCFFF008FFE49 /* ProfileViewUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD2EA226EFCFFF008FFE49 /* ProfileViewUserDetails.swift */; };
 		49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */; };
 		8F74D4B0DD6ECDB488245090 /* Pods_Gallify_GallifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */; };
 		F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */; };
@@ -129,6 +138,9 @@
 		319F25C026E571B7009B811E /* HomeViewDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDiscover.swift; sourceTree = "<group>"; };
 		319F25C426E57236009B811E /* HomeViewMadeForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMadeForYou.swift; sourceTree = "<group>"; };
 		319F25C826E572BA009B811E /* HomeViewAuction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAuction.swift; sourceTree = "<group>"; };
+		31AE71AD26F1245600C973E3 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
+		31CD2E9E26EFBF84008FFE49 /* ProfileViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewHeader.swift; sourceTree = "<group>"; };
+		31CD2EA226EFCFFF008FFE49 /* ProfileViewUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewUserDetails.swift; sourceTree = "<group>"; };
 		41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GallifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.debug.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +288,7 @@
 		3004D4EC26CD402A00323BCB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				31CD2E9D26EFB679008FFE49 /* ProfileView Helpers */,
 				319F25CD26E577F4009B811E /* HomeView Helpers */,
 				3004D50026CD57A800323BCB /* TabBarViewController.swift */,
 				3004D50226CD57C100323BCB /* SearchViewController.swift */,
@@ -320,6 +333,7 @@
 			children = (
 				318B42EF26E0190B00D6D722 /* CircleImage.swift */,
 				3111174126EC08E6001B8E55 /* Location.swift */,
+				31AE71AD26F1245600C973E3 /* FollowButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -337,6 +351,15 @@
 				3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */,
 			);
 			path = "HomeView Helpers";
+			sourceTree = "<group>";
+		};
+		31CD2E9D26EFB679008FFE49 /* ProfileView Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				31CD2E9E26EFBF84008FFE49 /* ProfileViewHeader.swift */,
+				31CD2EA226EFCFFF008FFE49 /* ProfileViewUserDetails.swift */,
+			);
+			path = "ProfileView Helpers";
 			sourceTree = "<group>";
 		};
 		A96154C97DFA996DB49CA66E /* Frameworks */ = {
@@ -595,7 +618,10 @@
 				319F25B926E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
 				3004D4FF26CD579000323BCB /* SettingsViewController.swift in Sources */,
+				31CD2EA326EFCFFF008FFE49 /* ProfileViewUserDetails.swift in Sources */,
 				319F25C126E571B7009B811E /* HomeViewDiscover.swift in Sources */,
+				31CD2E9F26EFBF84008FFE49 /* ProfileViewHeader.swift in Sources */,
+				31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */,
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
 				3004D50F26CD7EF800323BCB /* SignUpViewController.swift in Sources */,
 				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
@@ -631,9 +657,12 @@
 				319F25C626E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
 				3004D4CC26C82F6E00323BCB /* GallifyTests.swift in Sources */,
 				319F25BA26E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
+				31CD2EA426EFCFFF008FFE49 /* ProfileViewUserDetails.swift in Sources */,
+				31CD2EA026EFBF84008FFE49 /* ProfileViewHeader.swift in Sources */,
 				319F25B626E56935009B811E /* HomeViewStories.swift in Sources */,
 				319F25B226E56722009B811E /* HomeViewHeader.swift in Sources */,
 				318B42F126E0190B00D6D722 /* CircleImage.swift in Sources */,
+				31AE71AF26F1245600C973E3 /* FollowButton.swift in Sources */,
 				3111174726EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,9 +678,12 @@
 				319F25C726E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
 				3004D4D726C82F6E00323BCB /* GallifyUITests.swift in Sources */,
 				319F25BB26E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
+				31CD2EA526EFCFFF008FFE49 /* ProfileViewUserDetails.swift in Sources */,
+				31CD2EA126EFBF84008FFE49 /* ProfileViewHeader.swift in Sources */,
 				319F25B726E56935009B811E /* HomeViewStories.swift in Sources */,
 				319F25B326E56722009B811E /* HomeViewHeader.swift in Sources */,
 				318B42F226E0190B00D6D722 /* CircleImage.swift in Sources */,
+				31AE71B026F1245600C973E3 /* FollowButton.swift in Sources */,
 				3111174826EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

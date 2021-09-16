@@ -33,11 +33,11 @@ struct TabBarView: View {
                 
                 switch selectedTabIndex {
                 case 0:
-                    HomeView()
+                    HomeView().environmentObject(TabBarViewModel())
                 case 1:
                     SearchView()
                 case 2:
-                    ProfileView()
+                    ProfileView().environmentObject(TabBarViewModel())
                 default:
                     HomeView()
                 }

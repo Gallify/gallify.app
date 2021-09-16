@@ -15,29 +15,26 @@ class ProfileViewModel: ObservableObject {
 }
 
 struct ProfileView : View {
-    @State var email = ""
-    @State var password = ""
     
-    @EnvironmentObject var viewModel : ProfileViewModel
+    @EnvironmentObject var viewModel : TabBarViewModel
+    
         var body: some View {
-            VStack{
+            
+            let width = viewModel.screenWidth
+
+            ScrollView(showsIndicators: false) {
                 
-                Text("Profile")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.black)
+                ProfileViewHeader(screenWidth: width)
+                    .padding(.bottom, width / 25)
                 
-                NavigationLink(
-                    destination: SettingsView(),
-                    label: {
-                        Image(systemName: "gearshape.fill")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                        
-                    })
-                
+                ProfileViewUserDetails(screenWidth: width)
+                                
         }
     }
 }
 
-
+struct ProfileScreenPreview: PreviewProvider {
+    static var previews: some View {
+        ProfileView().environmentObject(TabBarViewModel())
+    }
+}
