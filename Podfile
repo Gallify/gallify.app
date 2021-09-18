@@ -7,6 +7,9 @@ target 'Gallify' do
 
   # Pods for Gallify
 
+    # For AlgoliaSearch
+  pod 'AlgoliaSearchClient', '~> 8.10'
+
     # Add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
 

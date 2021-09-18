@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,11 +20,6 @@
 		3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4F726CD4D5F00323BCB /* AuthManager.swift */; };
 		3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4F926CD4D7A00323BCB /* APICaller.swift */; };
 		3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4FB26CD4D9A00323BCB /* HapticsManager.swift */; };
-		3004D4FF26CD579000323BCB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4FE26CD579000323BCB /* SettingsViewController.swift */; };
-		3004D50126CD57A800323BCB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50026CD57A800323BCB /* TabBarViewController.swift */; };
-		3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50226CD57C100323BCB /* SearchViewController.swift */; };
-		3004D50526CD57F000323BCB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50426CD57F000323BCB /* ProfileViewController.swift */; };
-		3004D50726CD581600323BCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50626CD581600323BCB /* HomeViewController.swift */; };
 		3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50826CD586A00323BCB /* LoginViewController.swift */; };
 		3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50A26CD588500323BCB /* CreateAccountViewController.swift */; };
 		3004D50D26CD6CF400323BCB /* EmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50C26CD6CF400323BCB /* EmailVerificationViewController.swift */; };
@@ -32,6 +27,13 @@
 		3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51026CDB90100323BCB /* BuyViewController.swift */; };
 		3004D51326CDB91200323BCB /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51226CDB91200323BCB /* SellViewController.swift */; };
 		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
+		319AA83926DF0AB3003975B7 /* AlgoliaSearchClient in Frameworks */ = {isa = PBXBuildFile; productRef = 319AA83826DF0AB3003975B7 /* AlgoliaSearchClient */; };
+		319AA83D26DFFB8E003975B7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AA83C26DFFB8E003975B7 /* SearchViewController.swift */; };
+		319AA83F26DFFBA9003975B7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AA83E26DFFBA9003975B7 /* HomeViewController.swift */; };
+		319AA84126DFFBB2003975B7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AA84026DFFBB2003975B7 /* ProfileViewController.swift */; };
+		319AA84326DFFBBB003975B7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AA84226DFFBBA003975B7 /* SettingsViewController.swift */; };
+		319AA84526DFFBC5003975B7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AA84426DFFBC5003975B7 /* TabBarViewController.swift */; };
+		319AA84726DFFC4D003975B7 /* SearchBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AA84626DFFC4D003975B7 /* SearchBackend.swift */; };
 		49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */; };
 		8F74D4B0DD6ECDB488245090 /* Pods_Gallify_GallifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */; };
 		F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */; };
@@ -77,11 +79,6 @@
 		3004D4F726CD4D5F00323BCB /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		3004D4F926CD4D7A00323BCB /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		3004D4FB26CD4D9A00323BCB /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
-		3004D4FE26CD579000323BCB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		3004D50026CD57A800323BCB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		3004D50226CD57C100323BCB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		3004D50426CD57F000323BCB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		3004D50626CD581600323BCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3004D50826CD586A00323BCB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3004D50A26CD588500323BCB /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		3004D50C26CD6CF400323BCB /* EmailVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +86,12 @@
 		3004D51026CDB90100323BCB /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		3004D51226CDB91200323BCB /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
+		319AA83C26DFFB8E003975B7 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = ../../../../../../.Trash/Core/SearchViewController.swift; sourceTree = "<group>"; };
+		319AA83E26DFFBA9003975B7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../../../../../../.Trash/Core/HomeViewController.swift; sourceTree = "<group>"; };
+		319AA84026DFFBB2003975B7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../../../../../../.Trash/Core/ProfileViewController.swift; sourceTree = "<group>"; };
+		319AA84226DFFBBA003975B7 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../../../../../../.Trash/Core/SettingsViewController.swift; sourceTree = "<group>"; };
+		319AA84426DFFBC5003975B7 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = ../../../../../../.Trash/Core/TabBarViewController.swift; sourceTree = "<group>"; };
+		319AA84626DFFC4D003975B7 /* SearchBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchBackend.swift; path = Gallify/ViewControllers/SearchBackend.swift; sourceTree = SOURCE_ROOT; };
 		41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GallifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.debug.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */,
+				319AA83926DF0AB3003975B7 /* AlgoliaSearchClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,11 +239,12 @@
 		3004D4EC26CD402A00323BCB /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				3004D50026CD57A800323BCB /* TabBarViewController.swift */,
-				3004D50226CD57C100323BCB /* SearchViewController.swift */,
-				3004D50426CD57F000323BCB /* ProfileViewController.swift */,
-				3004D50626CD581600323BCB /* HomeViewController.swift */,
-				3004D4FE26CD579000323BCB /* SettingsViewController.swift */,
+				319AA83E26DFFBA9003975B7 /* HomeViewController.swift */,
+				319AA84426DFFBC5003975B7 /* TabBarViewController.swift */,
+				319AA83C26DFFB8E003975B7 /* SearchViewController.swift */,
+				319AA84226DFFBBA003975B7 /* SettingsViewController.swift */,
+				319AA84026DFFBB2003975B7 /* ProfileViewController.swift */,
+				319AA84626DFFC4D003975B7 /* SearchBackend.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -301,6 +306,9 @@
 			dependencies = (
 			);
 			name = Gallify;
+			packageProductDependencies = (
+				319AA83826DF0AB3003975B7 /* AlgoliaSearchClient */,
+			);
 			productName = Gallify;
 			productReference = 3004D4B626C82F6B00323BCB /* Gallify.app */;
 			productType = "com.apple.product-type.application";
@@ -375,6 +383,9 @@
 				Base,
 			);
 			mainGroup = 3004D4AD26C82F6A00323BCB;
+			packageReferences = (
+				319AA83726DF0AB3003975B7 /* XCRemoteSwiftPackageReference "algoliasearch-client-swift" */,
+			);
 			productRefGroup = 3004D4B726C82F6B00323BCB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -522,25 +533,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */,
-				3004D50126CD57A800323BCB /* TabBarViewController.swift in Sources */,
 				3004D4E626CC971500323BCB /* Logo.swift in Sources */,
 				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
-				3004D4FF26CD579000323BCB /* SettingsViewController.swift in Sources */,
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
+				319AA84726DFFC4D003975B7 /* SearchBackend.swift in Sources */,
 				3004D50F26CD7EF800323BCB /* SignUpViewController.swift in Sources */,
+				319AA83F26DFFBA9003975B7 /* HomeViewController.swift in Sources */,
 				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
-				3004D50726CD581600323BCB /* HomeViewController.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
-				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
+				319AA84526DFFBC5003975B7 /* TabBarViewController.swift in Sources */,
 				3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */,
 				3004D50D26CD6CF400323BCB /* EmailVerificationViewController.swift in Sources */,
+				319AA84126DFFBB2003975B7 /* ProfileViewController.swift in Sources */,
 				3004D4F426CD40AC00323BCB /* Profile.swift in Sources */,
+				319AA83D26DFFB8E003975B7 /* SearchViewController.swift in Sources */,
 				3004D4F026CD405D00323BCB /* Artist.swift in Sources */,
 				3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */,
-				3004D50526CD57F000323BCB /* ProfileViewController.swift in Sources */,
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
 				3004D4F226CD407600323BCB /* Art.swift in Sources */,
+				319AA84326DFFBBB003975B7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,6 +872,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		319AA83726DF0AB3003975B7 /* XCRemoteSwiftPackageReference "algoliasearch-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/algolia/algoliasearch-client-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		319AA83826DF0AB3003975B7 /* AlgoliaSearchClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 319AA83726DF0AB3003975B7 /* XCRemoteSwiftPackageReference "algoliasearch-client-swift" */;
+			productName = AlgoliaSearchClient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3004D4AE26C82F6A00323BCB /* Project object */;
 }
