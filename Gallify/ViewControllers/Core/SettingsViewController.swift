@@ -18,6 +18,7 @@ struct SettingsView : View {
     @State var password = ""
     
     @EnvironmentObject var viewModel : LoginAppViewModel
+    
         var body: some View {
             VStack{
                 
@@ -36,9 +37,7 @@ struct SettingsView : View {
                         .foregroundColor(Color.blue)
                         .padding()
                 })
-                    
-
-            
+                
         }
     }
 }

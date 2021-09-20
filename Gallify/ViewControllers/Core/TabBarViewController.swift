@@ -9,7 +9,6 @@ import UIKit
 import SwiftUI
 import Firebase
 
-
 class TabBarViewModel: UITabBarController, ObservableObject {
     
     let screenWidth: CGFloat = UIScreen.main.bounds.width
@@ -37,7 +36,7 @@ struct TabBarView: View {
                 case 1:
                     SearchView()
                 case 2:
-                    ProfileView().environmentObject(TabBarViewModel())
+                    SelfProfileView().environmentObject(TabBarViewModel())
                 default:
                     HomeView()
                 }

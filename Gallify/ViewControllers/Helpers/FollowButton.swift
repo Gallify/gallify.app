@@ -9,15 +9,36 @@ import SwiftUI
 
 struct FollowButton: View {
     
-    
+    @State var isFollowing: Bool
+    var buttonWidth: CGFloat
+    var buttonHeight: CGFloat
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Button(action: {
+            isFollowing.toggle()
+        }) {
+            ZStack {
+                
+                RoundedRectangle(cornerRadius: buttonWidth / 8)
+                    .foregroundColor(isFollowing ? .white : .pink)
+                    .frame(width: buttonWidth, height: buttonHeight)
+                    .overlay(isFollowing ? RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.gray, lineWidth: buttonWidth / 50) : RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.pink, lineWidth: buttonWidth / 50))
+                
+                Text(isFollowing ? "Following" : "Follow")
+                    .font(.footnote)
+                    .fontWeight(.bold)
+                    .foregroundColor(isFollowing ? .black : .white)
+                
+            }
+        }
+        
     }
+    
 }
 
 struct FollowButton_Previews: PreviewProvider {
     static var previews: some View {
-        FollowButton()
+        FollowButton(isFollowing: true, buttonWidth: UIScreen.main.bounds.width / 3, buttonHeight: UIScreen.main.bounds.width / 12)
     }
 }

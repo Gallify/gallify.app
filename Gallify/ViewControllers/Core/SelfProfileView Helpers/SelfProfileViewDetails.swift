@@ -1,5 +1,5 @@
 //
-//  ProfileViewUserDetails.swift
+//  SelfProfileViewDetails.swift
 //  Gallify
 //
 //  Created by Patron on 9/13/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileViewUserDetails: View {
+struct SelfProfileViewDetails: View {
     
     let screenWidth: CGFloat
     
@@ -15,11 +15,10 @@ struct ProfileViewUserDetails: View {
         
         ZStack() {
             
-            RoundedRectangle(cornerRadius: screenWidth / 7.5)
+            RoundedRectangle(cornerRadius: screenWidth / 10)
                 .fill(Color.white)
                 .frame(width: screenWidth / 1.1, height: screenWidth / 1.5)
-                .overlay(RoundedRectangle(cornerRadius: screenWidth / 7.5).stroke(Color.black, lineWidth: screenWidth / 200))
-                .shadow(radius: screenWidth / 125)
+                .overlay(RoundedRectangle(cornerRadius: screenWidth / 10).stroke(Color.black, lineWidth: screenWidth / 200))
                 
             VStack() {
                 
@@ -97,10 +96,12 @@ struct ProfileViewUserDetails: View {
                     .frame(width: screenWidth / 1.75)
                     
                 }
+                .padding(.top, screenWidth / 25)
                 
                 HStack {
                     
                     Text("Jack F. Brown")
+                        .fontWeight(.medium)
                     
                     Spacer()
                     
@@ -110,24 +111,23 @@ struct ProfileViewUserDetails: View {
                     
                     Text("Hi, I am Jack Brown and I commission art.")
                         .font(.callout)
-                        .foregroundColor(Color.gray)
+                        .fontWeight(.light)
                     
                     Spacer()
                 
-                    
                 }
                 
-                
+                Spacer()
                 
             }
-            .frame(width: screenWidth / 1.16)
+            .frame(width: screenWidth / 1.16, height: screenWidth / 1.6)
                 
         }
     }
 }
 
-struct ProfileViewUserDetails_Previews: PreviewProvider {
+struct SelfProfileViewDetails_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileViewUserDetails(screenWidth: UIScreen.main.bounds.width)
+        SelfProfileViewDetails(screenWidth: UIScreen.main.bounds.width)
     }
 }
