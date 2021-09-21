@@ -26,11 +26,15 @@
 		3004D50726CD581600323BCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50626CD581600323BCB /* HomeViewController.swift */; };
 		3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50826CD586A00323BCB /* LoginViewController.swift */; };
 		3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50A26CD588500323BCB /* CreateAccountViewController.swift */; };
-		3004D50D26CD6CF400323BCB /* EmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50C26CD6CF400323BCB /* EmailVerificationViewController.swift */; };
+		3004D50D26CD6CF400323BCB /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50C26CD6CF400323BCB /* PhoneVerificationViewController.swift */; };
 		3004D50F26CD7EF800323BCB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50E26CD7EF800323BCB /* SignUpViewController.swift */; };
 		3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51026CDB90100323BCB /* BuyViewController.swift */; };
 		3004D51326CDB91200323BCB /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51226CDB91200323BCB /* SellViewController.swift */; };
 		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
+		303DB8D026F9833C0005AC51 /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADE026F41AB600172808 /* OtherProfileViewController.swift */; };
+		303DB8D126F9833C0005AC51 /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADE026F41AB600172808 /* OtherProfileViewController.swift */; };
+		303DB8D326F985A50005AC51 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303DB8D226F985A50005AC51 /* ForgotPasswordViewController.swift */; };
+		303DB8D526F985E30005AC51 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303DB8D426F985E30005AC51 /* PrivacyPolicyViewController.swift */; };
 		3111174226EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174326EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174426EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
@@ -53,8 +57,6 @@
 		3129ADDE26F4172900172808 /* OtherProfileViewDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADDC26F4172900172808 /* OtherProfileViewDetails.swift */; };
 		3129ADDF26F4172900172808 /* OtherProfileViewDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADDC26F4172900172808 /* OtherProfileViewDetails.swift */; };
 		3129ADE126F41AB600172808 /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADE026F41AB600172808 /* OtherProfileViewController.swift */; };
-		3129ADE226F41AB600172808 /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADE026F41AB600172808 /* OtherProfileViewController.swift */; };
-		3129ADE326F41AB600172808 /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADE026F41AB600172808 /* OtherProfileViewController.swift */; };
 		3129ADE526F439AC00172808 /* SelfProfileViewRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADE426F439AC00172808 /* SelfProfileViewRooms.swift */; };
 		3129ADE626F439AC00172808 /* SelfProfileViewRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADE426F439AC00172808 /* SelfProfileViewRooms.swift */; };
 		3129ADE726F439AC00172808 /* SelfProfileViewRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADE426F439AC00172808 /* SelfProfileViewRooms.swift */; };
@@ -139,11 +141,13 @@
 		3004D50626CD581600323BCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3004D50826CD586A00323BCB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3004D50A26CD588500323BCB /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
-		3004D50C26CD6CF400323BCB /* EmailVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationViewController.swift; sourceTree = "<group>"; };
+		3004D50C26CD6CF400323BCB /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
 		3004D50E26CD7EF800323BCB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3004D51026CDB90100323BCB /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		3004D51226CDB91200323BCB /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
+		303DB8D226F985A50005AC51 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		303DB8D426F985E30005AC51 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		3111174126EC08E6001B8E55 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMuseums.swift; sourceTree = "<group>"; };
 		3129ADCB26F40E3B00172808 /* SelfProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewController.swift; sourceTree = "<group>"; };
@@ -302,7 +306,9 @@
 				3004D50826CD586A00323BCB /* LoginViewController.swift */,
 				3004D50A26CD588500323BCB /* CreateAccountViewController.swift */,
 				3004D50E26CD7EF800323BCB /* SignUpViewController.swift */,
-				3004D50C26CD6CF400323BCB /* EmailVerificationViewController.swift */,
+				3004D50C26CD6CF400323BCB /* PhoneVerificationViewController.swift */,
+				303DB8D226F985A50005AC51 /* ForgotPasswordViewController.swift */,
+				303DB8D426F985E30005AC51 /* PrivacyPolicyViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -310,15 +316,11 @@
 		3004D4EC26CD402A00323BCB /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				3129ADD726F4109000172808 /* OtherProfileView Helpers */,
-				31CD2E9D26EFB679008FFE49 /* SelfProfileView Helpers */,
-				319F25CD26E577F4009B811E /* HomeView Helpers */,
+				303DB8CF26F97CE50005AC51 /* Home */,
+				303DB8CE26F97C9C0005AC51 /* Profiles */,
 				3004D50026CD57A800323BCB /* TabBarViewController.swift */,
 				3004D50226CD57C100323BCB /* SearchViewController.swift */,
-				3004D50626CD581600323BCB /* HomeViewController.swift */,
 				3004D4FE26CD579000323BCB /* SettingsViewController.swift */,
-				3129ADCB26F40E3B00172808 /* SelfProfileViewController.swift */,
-				3129ADE026F41AB600172808 /* OtherProfileViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -350,6 +352,26 @@
 				3004D51426CDB92300323BCB /* BidViewController.swift */,
 			);
 			path = Transactions;
+			sourceTree = "<group>";
+		};
+		303DB8CE26F97C9C0005AC51 /* Profiles */ = {
+			isa = PBXGroup;
+			children = (
+				3129ADE026F41AB600172808 /* OtherProfileViewController.swift */,
+				3129ADCB26F40E3B00172808 /* SelfProfileViewController.swift */,
+				31CD2E9D26EFB679008FFE49 /* SelfProfileView Helpers */,
+				3129ADD726F4109000172808 /* OtherProfileView Helpers */,
+			);
+			path = Profiles;
+			sourceTree = "<group>";
+		};
+		303DB8CF26F97CE50005AC51 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				319F25CD26E577F4009B811E /* HomeView Helpers */,
+				3004D50626CD581600323BCB /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		3129ADD726F4109000172808 /* OtherProfileView Helpers */ = {
@@ -668,9 +690,11 @@
 				3129ADD426F40FC100172808 /* SelfProfileViewDetails.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
+				303DB8D326F985A50005AC51 /* ForgotPasswordViewController.swift in Sources */,
 				3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */,
-				3004D50D26CD6CF400323BCB /* EmailVerificationViewController.swift in Sources */,
+				3004D50D26CD6CF400323BCB /* PhoneVerificationViewController.swift in Sources */,
 				3004D4F426CD40AC00323BCB /* Profile.swift in Sources */,
+				303DB8D526F985E30005AC51 /* PrivacyPolicyViewController.swift in Sources */,
 				3004D4F026CD405D00323BCB /* Artist.swift in Sources */,
 				3129ADDD26F4172900172808 /* OtherProfileViewDetails.swift in Sources */,
 				3129ADE526F439AC00172808 /* SelfProfileViewRooms.swift in Sources */,
@@ -700,7 +724,7 @@
 				3129ADD526F40FC100172808 /* SelfProfileViewDetails.swift in Sources */,
 				3129ADCD26F40E3B00172808 /* SelfProfileViewController.swift in Sources */,
 				3129ADD126F40ED900172808 /* SelfProfileViewHeader.swift in Sources */,
-				3129ADE226F41AB600172808 /* OtherProfileViewController.swift in Sources */,
+				303DB8D126F9833C0005AC51 /* OtherProfileViewController.swift in Sources */,
 				319F25BA26E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
 				319F25B626E56935009B811E /* HomeViewStories.swift in Sources */,
 				319F25B226E56722009B811E /* HomeViewHeader.swift in Sources */,
@@ -727,7 +751,7 @@
 				3129ADD626F40FC100172808 /* SelfProfileViewDetails.swift in Sources */,
 				3129ADCE26F40E3B00172808 /* SelfProfileViewController.swift in Sources */,
 				3129ADD226F40ED900172808 /* SelfProfileViewHeader.swift in Sources */,
-				3129ADE326F41AB600172808 /* OtherProfileViewController.swift in Sources */,
+				303DB8D026F9833C0005AC51 /* OtherProfileViewController.swift in Sources */,
 				319F25BB26E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
 				319F25B726E56935009B811E /* HomeViewStories.swift in Sources */,
 				319F25B326E56722009B811E /* HomeViewHeader.swift in Sources */,

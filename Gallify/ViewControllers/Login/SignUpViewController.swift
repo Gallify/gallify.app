@@ -4,7 +4,6 @@
 //
 //  Created by Tejvir Mann on 8/18/21.
 //
-
 import SwiftUI
 import Firebase
 
@@ -13,6 +12,7 @@ import Firebase
 struct SignInView : View {
     @State var email = ""
     @State var password = ""
+    
     
     @EnvironmentObject var viewModel : LoginAppViewModel
     var body: some View {
@@ -66,20 +66,20 @@ struct SignInView : View {
 
             
             HStack{
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("Privacy Policy")
+                //change width of nav link
+                NavigationLink("Privacy Policy", destination: PrivacyPolicyView())
+                    .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                    .padding()
+                    
+                
+//                .padding(.leading, -110.0)
+//                .padding(.horizontal, 105.0)
+                
+               NavigationLink("Forgot Password", destination: ForgotPasswordView())
                         .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                        .padding()
                 }
                 
-                .padding(.leading, -110.0)
-                .padding(.horizontal, 105.0)
-                
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("Forgot Password")
-                        .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                }
-            }
-            
             Button(action: {
                 guard !email.isEmpty, !password.isEmpty else {
                     return
@@ -97,7 +97,7 @@ struct SignInView : View {
             }
             
             .padding(.vertical, 15)
-        
+            
             NavigationLink("Sign Up", destination: CreateAccountView())
                 .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
                 .padding()
@@ -105,3 +105,10 @@ struct SignInView : View {
     }
     
 }
+
+struct SignUpViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        SignInView()
+    }
+}
+
