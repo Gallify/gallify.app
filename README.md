@@ -2,7 +2,7 @@
 
 __Mission:__  *To change the art world forever.* . . . . . [Gallify.app](https://www.gallify.app/) , [Whitepaper]()
 
-__Sprint 5:__ August 22nd - August 29th. 7 Days Left!
+__Sprint 6:__ September 19th - September 26th . 6 Days Left!
       
 ## issue boards
 
@@ -19,6 +19,12 @@ __Sprint 5:__ August 22nd - August 29th. 7 Days Left!
 [System Design](https://www.figma.com/file/3x3LpTRo1HNUjGDeLfeORH/Gallify---System-Design?node-id=0%3A1)
 
 [Figma](https://www.figma.com/files/project/32547938/Team-project?fuid=963550657994127578)
+
+## features
+1. Homescreen v1
+2. Profile v1
+3. Login Functionality v1 
+4. Algolia v1
 
 ## How to run Gallify.app
 1. Download Big Sur and Xcode 
