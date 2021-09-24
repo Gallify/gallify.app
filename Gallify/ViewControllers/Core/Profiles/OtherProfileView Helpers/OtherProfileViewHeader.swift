@@ -15,17 +15,17 @@ struct OtherProfileViewHeader: View {
         
         HStack {
             
-            NavigationLink(
-                destination: TabBarView(),
-                label: {
-                    
-                    Image(systemName: "lessthan")
-                        .resizable()
-                        .foregroundColor(Color.black)
-                        .frame(width: screenWidth / 15, height: screenWidth / 15)
-                        .padding(.leading, screenWidth / 25)
-                    
-                })
+            Button(action: {
+                
+            }, label: {
+                
+                Image(systemName: "lessthan")
+                    .resizable()
+                    .foregroundColor(Color.black)
+                    .frame(width: screenWidth / 15, height: screenWidth / 15)
+                    .padding(.leading, screenWidth / 25)
+                
+            })
             
             Spacer()
             
@@ -36,11 +36,18 @@ struct OtherProfileViewHeader: View {
             
             Spacer()
                     
+            Button(action: {
+                
+            }, label: {
+                
                 Image(systemName: "list.bullet")
                     .resizable()
+                    .foregroundColor(Color.black)
                     .frame(width: screenWidth / 15, height: screenWidth / 15)
                     .padding(.trailing, screenWidth / 25)
-                    
+                
+            })
+            
         }
         
     }

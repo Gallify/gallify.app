@@ -35,7 +35,7 @@ struct SelfProfileView : View {
                 Divider()
                     .padding(.vertical, width / 25)
                 
-                
+                SelfProfileCollectionList(screenWidth: width)
                                 
         }
     }

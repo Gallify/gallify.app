@@ -34,6 +34,8 @@ struct OtherProfileView : View {
                 
                 Divider()
                     .padding(.vertical, width / 25)
+                
+                OtherProfileCollectionList(screenWidth: width)
                                 
         }
     }

@@ -29,7 +29,7 @@ struct HomeViewStories: View {
                         .offset(y: -pad)
                         .frame(width: screenWidth / 5 + 2 * pad)
                         .lineLimit(1)
-                        .allowsTightening(true)
+                    
                 }
                 .padding(.leading, pad + screenWidth / 125)
                 
@@ -43,7 +43,6 @@ struct HomeViewStories: View {
                         .offset(y: -pad)
                         .frame(width: screenWidth / 5 + 2 * pad)
                         .lineLimit(1)
-                        .allowsTightening(true)
                     
                 }
                 
@@ -57,7 +56,6 @@ struct HomeViewStories: View {
                         .offset(y: -pad)
                         .frame(width: screenWidth / 5 + 2 * pad)
                         .lineLimit(1)
-                        .allowsTightening(true)
                     
                 }
                 
@@ -71,7 +69,6 @@ struct HomeViewStories: View {
                         .offset(y: -pad)
                         .frame(width: screenWidth / 5 + 2 * pad)
                         .lineLimit(1)
-                        .allowsTightening(true)
                     
                 }
                 
@@ -85,7 +82,6 @@ struct HomeViewStories: View {
                         .offset(y: -pad)
                         .frame(width: screenWidth / 5 + 2 * pad)
                         .lineLimit(1)
-                        .allowsTightening(true)
                     
                 }
                 .padding(.trailing, pad * 2)

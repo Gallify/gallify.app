@@ -40,7 +40,7 @@ struct HomeViewMadeForYou: View {
                         .fontWeight(.semibold)
                         .frame(width: screenWidth / 2.8)
                         .lineLimit(1)
-                        .allowsTightening(true)
+                    
                 }
                 .padding(.leading, screenWidth / 25)
                 
@@ -56,7 +56,7 @@ struct HomeViewMadeForYou: View {
                         .fontWeight(.semibold)
                         .frame(width: screenWidth / 2.8)
                         .lineLimit(1)
-                        .allowsTightening(true)
+                    
                 }
                 .padding(.leading, screenWidth / 37.5)
                 
@@ -72,7 +72,7 @@ struct HomeViewMadeForYou: View {
                         .fontWeight(.semibold)
                         .frame(width: screenWidth / 2.8)
                         .lineLimit(1)
-                        .allowsTightening(true)
+                    
                 }
                 .padding(.trailing, screenWidth / 25)
                 .padding(.leading, screenWidth / 37.5)

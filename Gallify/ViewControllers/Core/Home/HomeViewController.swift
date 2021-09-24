@@ -28,7 +28,7 @@ struct HomeView : View {
                 ScrollView(showsIndicators: false) {
                     
                     VStack {
-                            
+                        
                         HomeViewStories(screenWidth: width)
                         
                         HStack {
@@ -36,11 +36,25 @@ struct HomeView : View {
                             Text("Good evening!")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
-                                .padding([.leading, .bottom], pad)
+                                .padding(.leading, pad)
+                                .padding(.bottom, pad / 2)
                             
                             Spacer()
                             
                         }
+                        
+                        HStack {
+                                                    
+                            Text("Recent")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding(.leading, pad)
+                                                    
+                            Spacer()
+                                                
+                        }
+                                                
+                        HomeViewRecent(screenWidth: width)
                         
                         HStack {
                             
@@ -85,7 +99,12 @@ struct HomeView : View {
                         }
                         
                         HomeViewAuction(screenWidth: width)
-
+                        
+                    }
+                    
+                    
+                    VStack {
+                        
                         HStack {
                             
                             Text("Museums")
@@ -98,24 +117,6 @@ struct HomeView : View {
                         }
                         
                         HomeViewMuseums(screenWidth: width)
-                        
-                    }
-                    
-                    
-                    VStack {
-                        
-                        HStack {
-                            
-                            Text("Recent")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .padding([.top, .leading], pad)
-                            
-                            Spacer()
-                            
-                        }
-                        
-                        HomeViewRecent(screenWidth: width)
                         
                         HStack {
                             
