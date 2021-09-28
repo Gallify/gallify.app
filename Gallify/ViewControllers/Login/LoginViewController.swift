@@ -96,9 +96,9 @@ struct LoginView: View {
 struct Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LoginView()
-            CreateAccountView()
-            SignInView()
+            LoginView().environmentObject(LoginAppViewModel())
+            CreateAccountView().environmentObject(LoginAppViewModel())
+            SignInView().environmentObject(LoginAppViewModel())
         }
     }
 }

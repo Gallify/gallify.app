@@ -93,7 +93,7 @@ struct CreateAccountView : View {
 
 struct CreateAccountViewController: PreviewProvider {
     static var previews: some View {
-        CreateAccountView()
+        CreateAccountView().environmentObject(LoginAppViewModel())
     }
 }
 

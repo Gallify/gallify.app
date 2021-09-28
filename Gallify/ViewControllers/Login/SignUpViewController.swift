@@ -108,7 +108,7 @@ struct SignInView : View {
 
 struct SignUpViewController_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView()
+        SignInView().environmentObject(LoginAppViewModel())
     }
 }
 
