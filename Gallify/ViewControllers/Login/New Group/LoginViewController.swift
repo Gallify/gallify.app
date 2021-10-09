@@ -13,6 +13,9 @@ class LoginAppViewModel: ObservableObject {
     
     let auth = Auth.auth()
     
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
+    
     @Published var signedIn = false
     @Published var newUserCreated = false
     
@@ -53,12 +56,6 @@ class LoginAppViewModel: ObservableObject {
     
 }
 
-//func handleSignIn(){
-//    let mainAppTabBarVC = TabBarViewController()
-//    mainAppTabBarVC.modalPresentationStyle = .fullScreen
-//    present(mainAppTabBarVC, animated: true)
-//}
-
 struct LoginView: View {
     @State var email = ""
     @State var password = ""
@@ -66,28 +63,36 @@ struct LoginView: View {
     @EnvironmentObject var viewModel : LoginAppViewModel
     
     var body: some View {
+        
         NavigationView {
+            
             if viewModel.signedIn {
-              TabBarView()
-
-            } else if viewModel.newUserCreated {
-//                VStack {
-//                    Text("Your account has been created!")
-//                    //tab bar view
-//                    NavigationLink("Sign In", destination: SignInView())
-//                        .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-//                        .padding()
-//
-//                }
                 TabBarView()
             }
-            else {
-                SignInView()
+            
+            else if viewModel.newUserCreated {
+                TabBarView()
             }
+            
+            else {
+                
+                let width = viewModel.screenWidth
+                
+                VStack {
+                
+                    LoginViewLogoAndSubtext(screenWidth: width)
+                    
+                    Spacer()
+                        
+                    LoginViewNavLinks().environmentObject(viewModel)
+                    
+                }
+                
+            }
+            
          }
-        .onAppear {
-            viewModel.signedIn = viewModel.isSignedIn
-        }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
        
     }
     
@@ -97,8 +102,6 @@ struct Previews: PreviewProvider {
     static var previews: some View {
         Group {
             LoginView().environmentObject(LoginAppViewModel())
-            CreateAccountView().environmentObject(LoginAppViewModel())
-            SignInView().environmentObject(LoginAppViewModel())
         }
     }
 }

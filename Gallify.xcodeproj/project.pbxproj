@@ -27,12 +27,14 @@
 		3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50826CD586A00323BCB /* LoginViewController.swift */; };
 		3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50A26CD588500323BCB /* CreateAccountViewController.swift */; };
 		3004D50D26CD6CF400323BCB /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50C26CD6CF400323BCB /* PhoneVerificationViewController.swift */; };
-		3004D50F26CD7EF800323BCB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50E26CD7EF800323BCB /* SignUpViewController.swift */; };
+		3004D50F26CD7EF800323BCB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D50E26CD7EF800323BCB /* SignInViewController.swift */; };
 		3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51026CDB90100323BCB /* BuyViewController.swift */; };
 		3004D51326CDB91200323BCB /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51226CDB91200323BCB /* SellViewController.swift */; };
 		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
 		303DB8D326F985A50005AC51 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303DB8D226F985A50005AC51 /* ForgotPasswordViewController.swift */; };
 		303DB8D526F985E30005AC51 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303DB8D426F985E30005AC51 /* PrivacyPolicyViewController.swift */; };
+		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
+		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3111174226EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174326EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174426EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
@@ -63,6 +65,15 @@
 		31B4CB8526FD2FE700FF86ED /* SelfProfileCollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8426FD2FE700FF86ED /* SelfProfileCollectionList.swift */; };
 		31B4CB8A26FD300A00FF86ED /* OtherProfileCollectionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8926FD300A00FF86ED /* OtherProfileCollectionTab.swift */; };
 		31B4CB8E26FD301A00FF86ED /* OtherProfileCollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8D26FD301A00FF86ED /* OtherProfileCollectionList.swift */; };
+		31BDD938270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD937270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift */; };
+		31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */; };
+		31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */; };
+		31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */; };
+		31F1530F270B881400238459 /* OvalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1530E270B881400238459 /* OvalTextField.swift */; };
+		31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */; };
+		31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15314270CF3E000238459 /* CreateAccountViewBody.swift */; };
+		31F15318270CF78D00238459 /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15317270CF78D00238459 /* SetPasswordViewController.swift */; };
+		31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1531A270CFB8100238459 /* SetPasswordViewHeader.swift */; };
 		49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */; };
 		8F74D4B0DD6ECDB488245090 /* Pods_Gallify_GallifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */; };
 		F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */; };
@@ -112,15 +123,17 @@
 		3004D50026CD57A800323BCB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3004D50226CD57C100323BCB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3004D50626CD581600323BCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		3004D50826CD586A00323BCB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3004D50826CD586A00323BCB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "../New Group/LoginViewController.swift"; sourceTree = "<group>"; };
 		3004D50A26CD588500323BCB /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		3004D50C26CD6CF400323BCB /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
-		3004D50E26CD7EF800323BCB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3004D50E26CD7EF800323BCB /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3004D51026CDB90100323BCB /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		3004D51226CDB91200323BCB /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
 		303DB8D226F985A50005AC51 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
-		303DB8D426F985E30005AC51 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		303DB8D426F985E30005AC51 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyPolicyViewController.swift; path = "../New Group1/PrivacyPolicyViewController.swift"; sourceTree = "<group>"; };
+		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
+		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3111174126EC08E6001B8E55 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMuseums.swift; sourceTree = "<group>"; };
 		3129ADCB26F40E3B00172808 /* SelfProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +158,15 @@
 		31B4CB8426FD2FE700FF86ED /* SelfProfileCollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionList.swift; sourceTree = "<group>"; };
 		31B4CB8926FD300A00FF86ED /* OtherProfileCollectionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileCollectionTab.swift; sourceTree = "<group>"; };
 		31B4CB8D26FD301A00FF86ED /* OtherProfileCollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileCollectionList.swift; sourceTree = "<group>"; };
+		31BDD937270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewLogoAndSubtext.swift; sourceTree = "<group>"; };
+		31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewNavLinks.swift; sourceTree = "<group>"; };
+		31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewHeader.swift; sourceTree = "<group>"; };
+		31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewBody.swift; sourceTree = "<group>"; };
+		31F1530E270B881400238459 /* OvalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalTextField.swift; sourceTree = "<group>"; };
+		31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewHeader.swift; sourceTree = "<group>"; };
+		31F15314270CF3E000238459 /* CreateAccountViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewBody.swift; sourceTree = "<group>"; };
+		31F15317270CF78D00238459 /* SetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
+		31F1531A270CFB8100238459 /* SetPasswordViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewHeader.swift; sourceTree = "<group>"; };
 		41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GallifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.debug.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -281,12 +303,13 @@
 		3004D4EB26CD402000323BCB /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				3004D50826CD586A00323BCB /* LoginViewController.swift */,
-				3004D50A26CD588500323BCB /* CreateAccountViewController.swift */,
-				3004D50E26CD7EF800323BCB /* SignUpViewController.swift */,
+				3103E0DE271128DE00135F08 /* PrivacyPolicyView */,
+				31F15316270CF76000238459 /* SetPasswordView */,
+				31F15310270CDEBE00238459 /* CreateAccountView */,
+				31BDD93C2707720800AB2CD1 /* SignInView */,
+				31BDD936270723A700AB2CD1 /* LoginView */,
 				3004D50C26CD6CF400323BCB /* PhoneVerificationViewController.swift */,
 				303DB8D226F985A50005AC51 /* ForgotPasswordViewController.swift */,
-				303DB8D426F985E30005AC51 /* PrivacyPolicyViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -352,6 +375,23 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		3103E0DE271128DE00135F08 /* PrivacyPolicyView */ = {
+			isa = PBXGroup;
+			children = (
+				3103E0DF27112D7200135F08 /* PrivacyPolicyViewHelpers */,
+				303DB8D426F985E30005AC51 /* PrivacyPolicyViewController.swift */,
+			);
+			path = PrivacyPolicyView;
+			sourceTree = "<group>";
+		};
+		3103E0DF27112D7200135F08 /* PrivacyPolicyViewHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */,
+			);
+			path = PrivacyPolicyViewHelpers;
+			sourceTree = "<group>";
+		};
 		3129ADD726F4109000172808 /* OtherProfileView Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +409,7 @@
 				318B42EF26E0190B00D6D722 /* CircleImage.swift */,
 				3111174126EC08E6001B8E55 /* Location.swift */,
 				31AE71AD26F1245600C973E3 /* FollowButton.swift */,
+				31F1530E270B881400238459 /* OvalTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -415,6 +456,42 @@
 			path = OtherProfileCollection;
 			sourceTree = "<group>";
 		};
+		31BDD936270723A700AB2CD1 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				31BDD93B27072B6000AB2CD1 /* LoginViewHelpers */,
+				3004D50826CD586A00323BCB /* LoginViewController.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		31BDD93B27072B6000AB2CD1 /* LoginViewHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */,
+				31BDD937270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift */,
+			);
+			path = LoginViewHelpers;
+			sourceTree = "<group>";
+		};
+		31BDD93C2707720800AB2CD1 /* SignInView */ = {
+			isa = PBXGroup;
+			children = (
+				31BDD93F2707D56700AB2CD1 /* SignInViewHelpers */,
+				3004D50E26CD7EF800323BCB /* SignInViewController.swift */,
+			);
+			path = SignInView;
+			sourceTree = "<group>";
+		};
+		31BDD93F2707D56700AB2CD1 /* SignInViewHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */,
+				31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */,
+			);
+			path = SignInViewHelpers;
+			sourceTree = "<group>";
+		};
 		31CD2E9D26EFB679008FFE49 /* SelfProfileView Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +501,42 @@
 				3129ADE426F439AC00172808 /* SelfProfileViewRooms.swift */,
 			);
 			path = "SelfProfileView Helpers";
+			sourceTree = "<group>";
+		};
+		31F15310270CDEBE00238459 /* CreateAccountView */ = {
+			isa = PBXGroup;
+			children = (
+				31F15313270CF37700238459 /* CreateAccountViewHelpers */,
+				3004D50A26CD588500323BCB /* CreateAccountViewController.swift */,
+			);
+			path = CreateAccountView;
+			sourceTree = "<group>";
+		};
+		31F15313270CF37700238459 /* CreateAccountViewHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */,
+				31F15314270CF3E000238459 /* CreateAccountViewBody.swift */,
+			);
+			path = CreateAccountViewHelpers;
+			sourceTree = "<group>";
+		};
+		31F15316270CF76000238459 /* SetPasswordView */ = {
+			isa = PBXGroup;
+			children = (
+				31F15319270CFB4000238459 /* SetPasswordViewHelpers */,
+				31F15317270CF78D00238459 /* SetPasswordViewController.swift */,
+			);
+			path = SetPasswordView;
+			sourceTree = "<group>";
+		};
+		31F15319270CFB4000238459 /* SetPasswordViewHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				31F1531A270CFB8100238459 /* SetPasswordViewHeader.swift */,
+				3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */,
+			);
+			path = SetPasswordViewHelpers;
 			sourceTree = "<group>";
 		};
 		A96154C97DFA996DB49CA66E /* Frameworks */ = {
@@ -675,11 +788,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */,
+				3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */,
+				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
 				3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */,
 				3004D50126CD57A800323BCB /* TabBarViewController.swift in Sources */,
 				3004D4E626CC971500323BCB /* Logo.swift in Sources */,
+				31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */,
 				319F25C526E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
+				31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */,
 				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
+				3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */,
+				31F15318270CF78D00238459 /* SetPasswordViewController.swift in Sources */,
 				319F25B926E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
 				31B4CB8A26FD300A00FF86ED /* OtherProfileCollectionTab.swift in Sources */,
@@ -690,10 +809,11 @@
 				3129ADD926F410B100172808 /* OtherProfileViewHeader.swift in Sources */,
 				31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */,
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
-				3004D50F26CD7EF800323BCB /* SignUpViewController.swift in Sources */,
+				3004D50F26CD7EF800323BCB /* SignInViewController.swift in Sources */,
 				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
 				3004D50726CD581600323BCB /* HomeViewController.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
+				31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
 				3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
 				31B4CB8126FD2FD700FF86ED /* SelfProfileCollectionTab.swift in Sources */,
@@ -703,12 +823,15 @@
 				303DB8D326F985A50005AC51 /* ForgotPasswordViewController.swift in Sources */,
 				3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */,
 				3004D50D26CD6CF400323BCB /* PhoneVerificationViewController.swift in Sources */,
+				31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */,
+				31F1530F270B881400238459 /* OvalTextField.swift in Sources */,
 				3004D4F426CD40AC00323BCB /* Profile.swift in Sources */,
 				303DB8D526F985E30005AC51 /* PrivacyPolicyViewController.swift in Sources */,
 				3004D4F026CD405D00323BCB /* Artist.swift in Sources */,
 				3129ADDD26F4172900172808 /* OtherProfileViewDetails.swift in Sources */,
 				3129ADE526F439AC00172808 /* SelfProfileViewRooms.swift in Sources */,
 				319F25B126E56722009B811E /* HomeViewHeader.swift in Sources */,
+				31BDD938270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift in Sources */,
 				3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */,
 				3129ADCC26F40E3B00172808 /* SelfProfileViewController.swift in Sources */,
 				31B4CB8E26FD301A00FF86ED /* OtherProfileCollectionList.swift in Sources */,
@@ -716,6 +839,7 @@
 				318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */,
 				319F25B526E56935009B811E /* HomeViewStories.swift in Sources */,
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
+				31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */,
 				31B4CB8526FD2FE700FF86ED /* SelfProfileCollectionList.swift in Sources */,
 				3004D4F226CD407600323BCB /* Art.swift in Sources */,
 				319F25C926E572BA009B811E /* HomeViewAuction.swift in Sources */,

@@ -9,6 +9,8 @@ import SwiftUI
 struct Logo: View {
     var body: some View {
         Image("logo")
+            .resizable()
+            .frame(width: UIScreen.main.bounds.width / 1.45, height: UIScreen.main.bounds.width / 1.4)
     }
 }
 

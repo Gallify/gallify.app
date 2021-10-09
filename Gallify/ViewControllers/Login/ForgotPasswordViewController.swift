@@ -29,7 +29,8 @@ struct ForgotPasswordView: View {
  
             TextField("you@gmail.com", text: $email)
                 .padding(.all)
-                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(hue: 1.0, saturation: 0.001, brightness: 0.901)/*@END_MENU_TOKEN@*/)
+                .background(Color.white)
+                .border(Color.black)
                 .padding(.horizontal, 15)
             
            
