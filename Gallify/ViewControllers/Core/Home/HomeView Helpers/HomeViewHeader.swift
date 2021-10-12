@@ -50,6 +50,7 @@ struct HomeViewHeader: View {
             
         }
         .padding(.bottom, -screenWidth / 125)
+        .padding(.top, screenWidth / 25)
         
         Divider()
         

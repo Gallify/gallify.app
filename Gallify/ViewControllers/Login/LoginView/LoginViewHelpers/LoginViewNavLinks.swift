@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginViewNavLinks: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: LoginAppViewModel
     
     var body: some View {

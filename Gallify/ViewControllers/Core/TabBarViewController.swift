@@ -27,7 +27,9 @@ struct TabBarView: View {
     }
     
     var body: some View {
-        ZStack {
+        
+        NavigationView {
+            
             VStack {
                 
                 switch selectedTabIndex {
@@ -38,14 +40,17 @@ struct TabBarView: View {
                 case 2:
                     SelfProfileView().environmentObject(TabBarViewModel())
                 default:
-                    HomeView()
+                    HomeView().environmentObject(TabBarViewModel())
                 }
                 
                 Spacer()
                 
                 HStack {
+                    
                     ForEach(0..<3, id: \.self) { num in
+                        
                         HStack {
+                            
                             Button(action: {
                                 self.selectedTabIndex = num
                             }, label: {
@@ -55,12 +60,21 @@ struct TabBarView: View {
                                 
                                 Spacer()
                             })
+                            
                         }.font(.system(size: 25, weight: .semibold))
+                        
                     }
+                    
                 }
+                
             }
+            
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        
     }
+    
 }
 
 struct TabBarPreview: PreviewProvider {

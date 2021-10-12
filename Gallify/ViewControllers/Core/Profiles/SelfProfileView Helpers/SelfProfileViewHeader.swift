@@ -31,6 +31,7 @@ struct SelfProfileViewHeader: View {
                     
                     Image(systemName: "gearshape.fill")
                         .resizable()
+                        .foregroundColor(.gray)
                         .frame(width: screenWidth / 15, height: screenWidth / 15)
                         .padding(.trailing, screenWidth / 25)
                     

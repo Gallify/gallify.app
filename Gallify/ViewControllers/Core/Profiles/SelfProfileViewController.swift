@@ -25,7 +25,7 @@ struct SelfProfileView : View {
             ScrollView(showsIndicators: false) {
                 
                 SelfProfileViewHeader(screenWidth: width)
-                    .padding(.bottom, width / 25)
+                    .padding(.vertical, width / 25)
                 
                 SelfProfileViewDetails(screenWidth: width)
                     .padding(.bottom, width / 25)
@@ -38,7 +38,11 @@ struct SelfProfileView : View {
                 SelfProfileCollectionList(screenWidth: width)
                                 
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+            
     }
+    
 }
 
 struct SelfProfileScreenPreview: PreviewProvider {

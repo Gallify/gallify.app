@@ -44,7 +44,7 @@ struct PrivacyPolicyViewHeader: View {
                 
             }
             .padding(.leading, width / 12)
-            .padding(.bottom, width / 15)
+            .padding(.bottom, width / 25)
             
         }
         

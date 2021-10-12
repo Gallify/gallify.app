@@ -116,10 +116,12 @@ struct SearchView : View {
     
     var body: some View {
         NavigationView {
+            
                     VStack {
 
                         // Search view
                         HStack {
+                            
                             HStack {
 
                                 Image(systemName: "magnifyingglass")
@@ -162,9 +164,15 @@ struct SearchView : View {
                         }
                         .navigationBarTitle(Text("Search"))
                         .resignKeyboardOnDragGesture()
+                        
                     }
+            
                 }
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+        
             }
+    
         }
 
 struct SearchViewController: PreviewProvider {

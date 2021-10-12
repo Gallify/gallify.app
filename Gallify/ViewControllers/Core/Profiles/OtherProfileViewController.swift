@@ -25,7 +25,7 @@ struct OtherProfileView : View {
             ScrollView(showsIndicators: false) {
                 
                 OtherProfileViewHeader(screenWidth: width)
-                    .padding(.bottom, width / 25)
+                    .padding(.vertical, width / 25)
                 
                 OtherProfileViewDetails(screenWidth: width)
                     .padding(.bottom, width / 25)
@@ -38,7 +38,11 @@ struct OtherProfileView : View {
                 OtherProfileCollectionList(screenWidth: width)
                                 
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+            
     }
+    
 }
 
 struct OtherProfileScreenPreview: PreviewProvider {
