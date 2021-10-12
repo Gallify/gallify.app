@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginViewNavLinks: View {
     
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var viewModel: LoginAppViewModel
     
     var body: some View {
@@ -19,8 +19,9 @@ struct LoginViewNavLinks: View {
         VStack {
             
             NavigationLink(destination: SignInView().environmentObject(viewModel).navigationBarBackButtonHidden(true),
-                           label: {
-                HStack{
+                            label: {
+                
+                HStack {
                     Text("Sign In")
                         .font(.title3)
                         .fontWeight(.bold)
