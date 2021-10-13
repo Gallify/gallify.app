@@ -100,8 +100,6 @@ struct LoginView: View {
 
 struct Previews: PreviewProvider {
     static var previews: some View {
-        Group {
             LoginView().environmentObject(LoginAppViewModel())
-        }
     }
 }

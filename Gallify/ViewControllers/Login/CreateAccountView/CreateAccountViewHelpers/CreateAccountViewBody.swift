@@ -10,6 +10,8 @@ import SwiftUI
 struct CreateAccountViewBody: View {
     
     @State var email = ""
+    @State var firstName = ""
+    @State var lastName = ""
     
     @EnvironmentObject var viewModel: LoginAppViewModel
     
@@ -30,7 +32,7 @@ struct CreateAccountViewBody: View {
             }
             .padding(.leading, width / 12)
  
-            TextField("", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+            TextField("", text: $firstName)
                 .disableAutocorrection(true)
                 .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
                 .padding(.horizontal, width / 15)
@@ -46,7 +48,7 @@ struct CreateAccountViewBody: View {
             }
             .padding(.leading, width / 12)
             
-            TextField("", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+            TextField("", text: $lastName)
                 .disableAutocorrection(true)
                 .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
                 .padding(.horizontal, width / 15)
