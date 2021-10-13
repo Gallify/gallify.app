@@ -4,7 +4,6 @@
 //
 //  Created by Patron on 10/5/21.
 //
-
 import SwiftUI
 
 struct SetPasswordViewController: View {

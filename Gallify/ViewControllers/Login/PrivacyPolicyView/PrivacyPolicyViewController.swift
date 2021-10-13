@@ -41,3 +41,4 @@ struct PrivacyPolicyView_Previews: PreviewProvider {
         PrivacyPolicyView().environmentObject(LoginAppViewModel())
     }
 }
+
