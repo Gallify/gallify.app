@@ -31,6 +31,19 @@
 		3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51026CDB90100323BCB /* BuyViewController.swift */; };
 		3004D51326CDB91200323BCB /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51226CDB91200323BCB /* SellViewController.swift */; };
 		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
+		30ADA9A7271B3ACD00887E48 /* Modeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9A6271B3ACD00887E48 /* Modeling.swift */; };
+		30ADA9A9271B3AD400887E48 /* DataModelingProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9A8271B3AD400887E48 /* DataModelingProcessor.swift */; };
+		30ADA9AB271B3B2300887E48 /* NavigationViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9AA271B3B2200887E48 /* NavigationViewAnimation.swift */; };
+		30ADA9AD271B3B3A00887E48 /* RecentActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9AC271B3B3A00887E48 /* RecentActivityView.swift */; };
+		30ADA9AF271B3B4200887E48 /* ExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9AE271B3B4200887E48 /* ExpandedView.swift */; };
+		30ADA9B1271B3B4800887E48 /* LikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9B0271B3B4800887E48 /* LikedView.swift */; };
+		30ADA9B9271B3C3D00887E48 /* LikedHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9B7271B3C3D00887E48 /* LikedHeader.swift */; };
+		30ADA9BA271B3C3D00887E48 /* LikedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9B8271B3C3D00887E48 /* LikedRow.swift */; };
+		30ADA9C0271B3CDC00887E48 /* RecentActivityHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9BE271B3CDC00887E48 /* RecentActivityHeader.swift */; };
+		30ADA9C1271B3CDC00887E48 /* RecentActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9BF271B3CDC00887E48 /* RecentActivityRow.swift */; };
+		30ADA9C7271B3CE600887E48 /* ExpandedDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9C4271B3CE600887E48 /* ExpandedDescription.swift */; };
+		30ADA9C8271B3CE600887E48 /* ExpandedHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9C5271B3CE600887E48 /* ExpandedHeader.swift */; };
+		30ADA9C9271B3CE600887E48 /* ExpandedListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADA9C6271B3CE600887E48 /* ExpandedListing.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -131,6 +144,19 @@
 		3004D51026CDB90100323BCB /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		3004D51226CDB91200323BCB /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
+		30ADA9A6271B3ACD00887E48 /* Modeling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Modeling.swift; path = ../../../luke/gallify.app/Gallify/Models/Modeling.swift; sourceTree = "<group>"; };
+		30ADA9A8271B3AD400887E48 /* DataModelingProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataModelingProcessor.swift; path = ../../../luke/gallify.app/Gallify/Models/DataModelingProcessor.swift; sourceTree = "<group>"; };
+		30ADA9AA271B3B2200887E48 /* NavigationViewAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationViewAnimation.swift; path = "../../../../luke/gallify.app/Gallify/ViewControllers/Non-View Helpers/NavigationViewAnimation.swift"; sourceTree = "<group>"; };
+		30ADA9AC271B3B3A00887E48 /* RecentActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecentActivityView.swift; path = ../../../../luke/gallify.app/Gallify/ViewControllers/Core/RecentActivityView.swift; sourceTree = "<group>"; };
+		30ADA9AE271B3B4200887E48 /* ExpandedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpandedView.swift; path = ../../../../luke/gallify.app/Gallify/ViewControllers/Core/ExpandedView.swift; sourceTree = "<group>"; };
+		30ADA9B0271B3B4800887E48 /* LikedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LikedView.swift; path = ../../../../luke/gallify.app/Gallify/ViewControllers/Core/LikedView.swift; sourceTree = "<group>"; };
+		30ADA9B7271B3C3D00887E48 /* LikedHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedHeader.swift; sourceTree = "<group>"; };
+		30ADA9B8271B3C3D00887E48 /* LikedRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedRow.swift; sourceTree = "<group>"; };
+		30ADA9BE271B3CDC00887E48 /* RecentActivityHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentActivityHeader.swift; sourceTree = "<group>"; };
+		30ADA9BF271B3CDC00887E48 /* RecentActivityRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentActivityRow.swift; sourceTree = "<group>"; };
+		30ADA9C4271B3CE600887E48 /* ExpandedDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedDescription.swift; sourceTree = "<group>"; };
+		30ADA9C5271B3CE600887E48 /* ExpandedHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedHeader.swift; sourceTree = "<group>"; };
+		30ADA9C6271B3CE600887E48 /* ExpandedListing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedListing.swift; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -295,6 +321,8 @@
 		3004D4EA26CD3DF100323BCB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				30ADA9A6271B3ACD00887E48 /* Modeling.swift */,
+				30ADA9A8271B3AD400887E48 /* DataModelingProcessor.swift */,
 				3004D4EF26CD405D00323BCB /* Artist.swift */,
 				3004D4F126CD407600323BCB /* Art.swift */,
 				3004D4F326CD40AC00323BCB /* Profile.swift */,
@@ -305,11 +333,17 @@
 		3004D4EC26CD402A00323BCB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				30ADA9C2271B3CE600887E48 /* ExpandedView Helpers */,
+				30ADA9BD271B3CDC00887E48 /* RecentActivityView Helpers */,
+				30ADA9B6271B3C3D00887E48 /* LikedView Helpers */,
 				303DB8CF26F97CE50005AC51 /* Home */,
 				303DB8CE26F97C9C0005AC51 /* Profiles */,
 				3004D50026CD57A800323BCB /* TabBarViewController.swift */,
 				3004D50226CD57C100323BCB /* SearchViewController.swift */,
 				3004D4FE26CD579000323BCB /* SettingsViewController.swift */,
+				30ADA9AC271B3B3A00887E48 /* RecentActivityView.swift */,
+				30ADA9AE271B3B4200887E48 /* ExpandedView.swift */,
+				30ADA9B0271B3B4800887E48 /* LikedView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -361,6 +395,34 @@
 				3004D50626CD581600323BCB /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		30ADA9B6271B3C3D00887E48 /* LikedView Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				30ADA9B7271B3C3D00887E48 /* LikedHeader.swift */,
+				30ADA9B8271B3C3D00887E48 /* LikedRow.swift */,
+			);
+			path = "LikedView Helpers";
+			sourceTree = "<group>";
+		};
+		30ADA9BD271B3CDC00887E48 /* RecentActivityView Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				30ADA9BE271B3CDC00887E48 /* RecentActivityHeader.swift */,
+				30ADA9BF271B3CDC00887E48 /* RecentActivityRow.swift */,
+			);
+			path = "RecentActivityView Helpers";
+			sourceTree = "<group>";
+		};
+		30ADA9C2271B3CE600887E48 /* ExpandedView Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				30ADA9C4271B3CE600887E48 /* ExpandedDescription.swift */,
+				30ADA9C5271B3CE600887E48 /* ExpandedHeader.swift */,
+				30ADA9C6271B3CE600887E48 /* ExpandedListing.swift */,
+			);
+			path = "ExpandedView Helpers";
 			sourceTree = "<group>";
 		};
 		3103E0DF27112D7200135F08 /* PrivacyPolicyViewHelpers */ = {
@@ -481,6 +543,7 @@
 				3111174126EC08E6001B8E55 /* Location.swift */,
 				31AE71AD26F1245600C973E3 /* FollowButton.swift */,
 				31F1530E270B881400238459 /* OvalTextField.swift */,
+				30ADA9AA271B3B2200887E48 /* NavigationViewAnimation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -830,9 +893,11 @@
 				3004D4E626CC971500323BCB /* Logo.swift in Sources */,
 				31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */,
 				319F25C526E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
+				30ADA9A7271B3ACD00887E48 /* Modeling.swift in Sources */,
 				31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */,
 				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
 				3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */,
+				30ADA9C8271B3CE600887E48 /* ExpandedHeader.swift in Sources */,
 				319F25B926E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
 				31B4CB8A26FD300A00FF86ED /* OtherProfileCollectionTab.swift in Sources */,
@@ -842,6 +907,7 @@
 				3129ADE126F41AB600172808 /* OtherProfileViewController.swift in Sources */,
 				3129ADD926F410B100172808 /* OtherProfileViewHeader.swift in Sources */,
 				31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */,
+				30ADA9C1271B3CDC00887E48 /* RecentActivityRow.swift in Sources */,
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
 				3004D50F26CD7EF800323BCB /* SignInViewController.swift in Sources */,
 				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
@@ -849,13 +915,18 @@
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
 				3152F6A22717508D0061F72E /* ForgotPasswordViewController.swift in Sources */,
 				31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */,
+				30ADA9C0271B3CDC00887E48 /* RecentActivityHeader.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
 				3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
+				30ADA9B9271B3C3D00887E48 /* LikedHeader.swift in Sources */,
 				31B4CB8126FD2FD700FF86ED /* SelfProfileCollectionTab.swift in Sources */,
 				3152F6A62717519B0061F72E /* PrivacyPolicyViewController.swift in Sources */,
 				3129ADD426F40FC100172808 /* SelfProfileViewDetails.swift in Sources */,
+				30ADA9B1271B3B4800887E48 /* LikedView.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
+				30ADA9C9271B3CE600887E48 /* ExpandedListing.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
+				30ADA9AB271B3B2300887E48 /* NavigationViewAnimation.swift in Sources */,
 				3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */,
 				3004D50D26CD6CF400323BCB /* PhoneVerificationViewController.swift in Sources */,
 				31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */,
@@ -872,13 +943,18 @@
 				3129ADE926F4447500172808 /* OtherProfileViewRooms.swift in Sources */,
 				318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */,
 				3152F6A4271751670061F72E /* SetPasswordViewController.swift in Sources */,
+				30ADA9A9271B3AD400887E48 /* DataModelingProcessor.swift in Sources */,
+				30ADA9BA271B3C3D00887E48 /* LikedRow.swift in Sources */,
 				319F25B526E56935009B811E /* HomeViewStories.swift in Sources */,
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
 				31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */,
 				3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */,
+				30ADA9AF271B3B4200887E48 /* ExpandedView.swift in Sources */,
 				31B4CB8526FD2FE700FF86ED /* SelfProfileCollectionList.swift in Sources */,
 				3004D4F226CD407600323BCB /* Art.swift in Sources */,
+				30ADA9C7271B3CE600887E48 /* ExpandedDescription.swift in Sources */,
 				319F25C926E572BA009B811E /* HomeViewAuction.swift in Sources */,
+				30ADA9AD271B3B3A00887E48 /* RecentActivityView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,6 +1120,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
+				DEVELOPMENT_TEAM = K35JM9B532;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gallify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1066,6 +1143,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
+				DEVELOPMENT_TEAM = K35JM9B532;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gallify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
