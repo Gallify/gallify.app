@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealityKit
 
 struct ExpandedHeader: View {
     let screenWidth: CGFloat
@@ -15,10 +16,10 @@ struct ExpandedHeader: View {
             NavigationLink (
                 destination: LikedView(screenWidth: screenWidth),
                 label: {
-                Image (systemName: "chevron.down")
+                Image (systemName: "chevron.left")
                     .resizable()
                     .foregroundColor(Color.black)
-                    .frame(width: screenWidth / 10, height: screenWidth / 15)
+                    .frame(width: screenWidth / 15, height: screenWidth / 15)
                     .padding(.leading, screenWidth / 25)
                 })
                 .buttonStyle(ThemeAnimationStyle())
@@ -29,7 +30,7 @@ struct ExpandedHeader: View {
             Spacer()
             
             NavigationLink (
-                destination: TabBarView(),
+                destination: LikedView(screenWidth: screenWidth),
                 label: {
                 Image (systemName: "perspective")
                     .resizable()

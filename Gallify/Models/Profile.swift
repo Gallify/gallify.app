@@ -7,9 +7,4 @@
 
 import Foundation
 
-struct Profile: Identifiable {
-    var id: String
-    var name: String
-    var Location: String
-    var PortfolioValue: String
-}
+

@@ -9,6 +9,15 @@ import SwiftUI
 
 struct RecentActivityRow: View {
     let screenWidth: CGFloat
+    
+    @State var showActionSheet: Bool = false
+    var actionSheet: ActionSheet {
+        ActionSheet(title: Text("Add to a Collection"), message: Text("Your Collections:"), buttons: [
+            .default(Text("Collection 1")),
+            .default(Text("Collection 2")),
+            .destructive(Text("Cancel"))
+        ])
+    }
     var body: some View {
         HStack {
             
@@ -64,12 +73,14 @@ struct RecentActivityRow: View {
             .frame(width: screenWidth / 3, height: screenWidth / 8)
             .padding()
             
-            Button(action: {
-                print("")
+            Button(action: {self.showActionSheet.toggle()
             }) {
-                Image(systemName: "ellipsis")
-                .foregroundColor(Color.black)
-            }
+                Image(systemName: "ellipsis.circle")
+                    .font(.system(size: 30))
+                    .foregroundColor(.black)
+                        }
+            .actionSheet(isPresented: $showActionSheet, content: {
+                        self.actionSheet })
             
         }
         .padding()
@@ -129,12 +140,14 @@ struct RecentActivityRow: View {
             .frame(width: screenWidth / 3, height: screenWidth / 8)
             .padding()
             
-            Button(action: {
-                print("")
+            Button(action: {self.showActionSheet.toggle()
             }) {
-                Image(systemName: "ellipsis")
-                .foregroundColor(Color.black)
-            }
+                Image(systemName: "ellipsis.circle")
+                    .font(.system(size: 30))
+                    .foregroundColor(.black)
+                        }
+            .actionSheet(isPresented: $showActionSheet, content: {
+                        self.actionSheet })
             
         }
         .padding()
@@ -194,12 +207,14 @@ struct RecentActivityRow: View {
             .frame(width: screenWidth / 3, height: screenWidth / 8)
             .padding()
             
-            Button(action: {
-                print("")
+            Button(action: {self.showActionSheet.toggle()
             }) {
-                Image(systemName: "ellipsis")
-                .foregroundColor(Color.black)
-            }
+                Image(systemName: "ellipsis.circle")
+                    .font(.system(size: 30))
+                    .foregroundColor(.black)
+                        }
+            .actionSheet(isPresented: $showActionSheet, content: {
+                        self.actionSheet })
             
         }
         .padding()

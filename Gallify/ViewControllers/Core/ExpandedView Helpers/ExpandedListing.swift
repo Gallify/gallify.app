@@ -6,10 +6,32 @@
 //
 
 import SwiftUI
-
 struct ExpandedListing: View {
+    
+    //Expanded Listing Functionality
+    @State private var isExpanded1 = false
+    @State private var isExpanded2 = false
+    @State private var isExpanded3 = false
+    
+    // Setting The Screen Width
     let screenWidth: CGFloat
+    
+    // Double Tap To Like Integration
     @State private var didTap:Bool = false
+    @State private var fgColor1: Color = .black
+    @State private var fgColor2: Color = .black
+    @State private var fgColor3: Color = .black
+    
+    // Add To Collection Pop-Up Integration
+    @State var showActionSheet: Bool = false
+    var actionSheet: ActionSheet {
+        ActionSheet(title: Text("Add to a Collection"), message: Text("Your Collections:"), buttons: [
+            .default(Text("Collection 1")),
+            .default(Text("Collection 2")),
+            .destructive(Text("Cancel"))
+        ])
+    }
+    
     var body: some View {
         
         VStack {
@@ -18,55 +40,55 @@ struct ExpandedListing: View {
             .resizable()
             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
             .frame(width: screenWidth / 1, height: screenWidth / 1)
-            
-            VStack (alignment: .leading){
+            .onTapGesture (count: 2) {
+                fgColor1 = .red
+            }
                 HStack {
-                    VStack (alignment: .leading) {
-                        Text("Leonardo Da Vinci")
-                            .font(.system(size: 19))
-                        HStack {
-                            Text("1/43")
-                                .font(.system(size: 19))
-                                .fontWeight(.bold)
-                            Button(action: {
-                                print("")
-                            }) {
-                                Image(systemName: "chevron.down")
-                                .resizable()
-                                .foregroundColor(Color.black)
-                                .frame(width: screenWidth / 20, height: screenWidth / 30)
-                            }
-                            .padding(.leading)
-                        }
-                    }
                     
-                    .padding(.leading)
+                    Text("Leonardo Da Vinci  - ")
+                        .font(.system(size: 19))
+                        .fontWeight(.semibold)
+                                        
+                    Text("$43,000")
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .font(.system(size: 19))
                     
                     Spacer()
-                    
-                    Button(action: {
-                        print("")
-                    }) {
-                        Image(systemName: "ellipsis")
-                        .foregroundColor(Color.black)
-                    }
-                    
-                    Text("$43,000")
-                        .font(.system(size: 19))
-                        .padding()
 
+                    Button(action: {self.showActionSheet.toggle()
+                    }) {
+                        Image(systemName: "ellipsis.circle")
+                            .font(.system(size: 30))
+                            .foregroundColor(.black)
+                                }
+                    .actionSheet(isPresented: $showActionSheet, content: {
+                                self.actionSheet })
+                    
                     Button(action: {
                         self.didTap = true
                     }) {
                         Image(systemName: "heart.circle.fill")
-                    }
-                    .foregroundColor(didTap ? Color.red : Color.black)
-                    .padding(.trailing)
+                            .foregroundColor(fgColor1)
+                            .font(.system(size: 30))
+                            .onTapGesture(count: 2) {
+                                fgColor1 = .red
+                                }
+                        }
                 }
+                .padding(.leading, 8)
+                .padding(.trailing, 11.5)
+            HStack {
+                Spacer()
+                DisclosureGroup("Edition 2", isExpanded: $isExpanded1) {
+                    ExpandedDescription(screenWidth: screenWidth)
+                }
+                .font(.system(size: 17))
+                Spacer()
+                Spacer()
             }
-        ExpandedDescription(screenWidth: screenWidth)
-        Spacer()
+            Spacer()
         }
+        .frame(width: screenWidth)
         
         VStack {
             
@@ -74,118 +96,117 @@ struct ExpandedListing: View {
             .resizable()
             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
             .frame(width: screenWidth / 1, height: screenWidth / 1)
-            
-            VStack (alignment: .leading) {
-                HStack{
+            .onTapGesture (count: 2) {
+                fgColor1 = .red
+            }
+                HStack {
                     
-                    VStack (alignment: .leading) {
-                        Text("Bobby")
-                            .font(.system(size: 19))
-                        HStack {
-                            Text("1/1")
-                                .fontWeight(.bold)
-                                .font(.system(size: 19))
-                            Button(action: {
-                                print("")
-                            }) {
-                                Image(systemName: "chevron.down")
-                                .resizable()
-                                .foregroundColor(Color.black)
-                                .frame(width: screenWidth / 20, height: screenWidth / 30)
-                            }
-                            .padding(.leading)
-                            
-                        }
-                    }
-                    .padding(.leading)
+                    Text("Leonardo Da Vinci  - ")
+                        .font(.system(size: 19))
+                        .fontWeight(.semibold)
+                                        
+                    Text("$43,000")
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .font(.system(size: 19))
                     
                     Spacer()
-                    
-                    Button(action: {
-                        print("")
+
+                    Button(action: {self.showActionSheet.toggle()
                     }) {
-                        Image(systemName: "ellipsis")
-                        .foregroundColor(Color.black)
-                    }
+                        Image(systemName: "ellipsis.circle")
+                            .font(.system(size: 30))
+                            .foregroundColor(.black)
+                                }
+                    .actionSheet(isPresented: $showActionSheet, content: {
+                                self.actionSheet })
                     
-                    Text("$100")
-                        .padding()
-                        .font(.system(size: 19))
-                                       
                     Button(action: {
                         self.didTap = true
                     }) {
                         Image(systemName: "heart.circle.fill")
-                    }
-                    .foregroundColor(didTap ? Color.red : Color.black)
-                    .padding(.trailing)
-                    
+                            .foregroundColor(fgColor2)
+                            .font(.system(size: 30))
+                            .onTapGesture(count: 2) {
+                                fgColor2 = .red
+                                }
+                        }
                 }
+                .padding(.leading, 8)
+                .padding(.trailing, 11.5)
+            HStack {
+                Spacer()
+                DisclosureGroup("Edition 2", isExpanded: $isExpanded1) {
+                    ExpandedDescription(screenWidth: screenWidth)
+                }
+                .font(.system(size: 17))
+                Spacer()
+                Spacer()
             }
-            ExpandedDescription(screenWidth: screenWidth)
             Spacer()
         }
-        
+        .frame(width: screenWidth)
+
         VStack {
             
             Image("starry-night")
             .resizable()
             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
             .frame(width: screenWidth / 1, height: screenWidth / 1)
-            
-            VStack (alignment: .leading) {
-                HStack{
-                    VStack (alignment: .leading) {
-                        Text("Jack Brown")
-                            .font(.system(size: 19))
-                        HStack {
-                            Text("1/10")
-                                .fontWeight(.bold)
-                                .font(.system(size: 19))
-                            Button(action: {
-                                print("")
-                            }) {
-                                Image(systemName: "chevron.down")
-                                .resizable()
-                                .foregroundColor(Color.black)
-                                .frame(width: screenWidth / 20, height: screenWidth / 30)
-                            }
-                            .padding(.leading)
-                            
-                        }
-                    }
-                    .padding(.leading)
+            .onTapGesture (count: 2) {
+                fgColor1 = .red
+            }
+                HStack {
+                    
+                    Text("Leonardo Da Vinci  - ")
+                        .font(.system(size: 19))
+                        .fontWeight(.semibold)
+                                        
+                    Text("$43,000")
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .font(.system(size: 19))
                     
                     Spacer()
-                    
-                    Button(action: {
-                        print("")
+
+                    Button(action: {self.showActionSheet.toggle()
                     }) {
-                        Image(systemName: "ellipsis")
-                        .foregroundColor(Color.black)
-                    }
+                        Image(systemName: "ellipsis.circle")
+                            .font(.system(size: 30))
+                            .foregroundColor(.black)
+                                }
+                    .actionSheet(isPresented: $showActionSheet, content: {
+                                self.actionSheet })
                     
-                    Text("$15,000")
-                        .padding()
-                        .font(.system(size: 19))
-                                                
                     Button(action: {
                         self.didTap = true
                     }) {
                         Image(systemName: "heart.circle.fill")
-                    }
-                    .foregroundColor(didTap ? Color.red : Color.black)
-                    .padding(.trailing)
+                            .foregroundColor(fgColor3)
+                            .font(.system(size: 30))
+                            .onTapGesture(count: 2) {
+                                fgColor3 = .red
+                                }
+                        }
                 }
+                .padding(.leading, 8)
+                .padding(.trailing, 11.5)
+            HStack {
+                Spacer()
+                DisclosureGroup("Edition 2", isExpanded: $isExpanded1) {
+                    ExpandedDescription(screenWidth: screenWidth)
+                }
+                .font(.system(size: 17))
+                Spacer()
+                Spacer()
             }
-            ExpandedDescription(screenWidth: screenWidth)
             Spacer()
         }
+        .frame(width: screenWidth)
+        }
     }
-}
 
 struct ExpandedListing_Previews: PreviewProvider {
     static var previews: some View {
         ExpandedListing(screenWidth: UIScreen.main.bounds.width)
     }
 }
+
