@@ -1,21 +1,21 @@
 //
-//  SignInViewHeader.swift
+//  ForgotPasswordViewHeader.swift
 //  Gallify
 //
-//  Created by Patron on 10/1/21.
+//  Created by Patron on 10/16/21.
 //
 
 import SwiftUI
 
-struct SignInViewHeader: View {
+struct ForgotPasswordViewHeader: View {
     
-    @EnvironmentObject var viewModel : LoginAppViewModel
+    @EnvironmentObject var viewModel: LoginAppViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
         let width = viewModel.screenWidth
-            
+                    
         VStack {
             
             HStack {
@@ -29,27 +29,25 @@ struct SignInViewHeader: View {
             }
             
             HStack {
-                        
-                Text("Sign in to Gallify")
+                    
+                Text("Forgot My Password")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
-                        
+                    
                 Spacer()
-                        
+                    
             }
             .padding(.leading, width / 12)
             .padding(.bottom, width / 15)
             
         }
-        
-        
             
     }
     
 }
 
-struct SignInViewHeader_Previews: PreviewProvider {
+struct ForgotPasswordViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        SignInViewHeader().environmentObject(LoginAppViewModel())
+        ForgotPasswordViewHeader().environmentObject(LoginAppViewModel())
     }
 }

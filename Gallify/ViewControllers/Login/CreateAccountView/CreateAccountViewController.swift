@@ -11,6 +11,7 @@ import Firebase
 struct CreateAccountView : View {
     
     @EnvironmentObject var viewModel : LoginAppViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
@@ -20,17 +21,19 @@ struct CreateAccountView : View {
             
             VStack {
                 
-                CreateAccountViewHeader().environmentObject(viewModel)
+                CreateAccountViewHeader(presentationMode: _presentationMode)
+                    .environmentObject(viewModel)
                     .padding(.top, width / 75)
 
-                CreateAccountViewBody().environmentObject(viewModel)
+                CreateAccountViewBody()
+                    .environmentObject(viewModel)
                 
                 Spacer()
                 
             }
             
         }
-        .navigationBarTitle("")
+        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         
     }

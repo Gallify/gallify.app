@@ -63,10 +63,12 @@
 		31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
 		31AE71AF26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
 		31AE71B026F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
+		31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */; };
 		31B4CB8126FD2FD700FF86ED /* SelfProfileCollectionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8026FD2FD600FF86ED /* SelfProfileCollectionTab.swift */; };
 		31B4CB8526FD2FE700FF86ED /* SelfProfileCollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8426FD2FE700FF86ED /* SelfProfileCollectionList.swift */; };
 		31B4CB8A26FD300A00FF86ED /* OtherProfileCollectionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8926FD300A00FF86ED /* OtherProfileCollectionTab.swift */; };
 		31B4CB8E26FD301A00FF86ED /* OtherProfileCollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8D26FD301A00FF86ED /* OtherProfileCollectionList.swift */; };
+		31B828C4272376BE0067DB05 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B828C3272376BE0067DB05 /* CustomBackButton.swift */; };
 		31BDD938270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD937270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift */; };
 		31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */; };
 		31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */; };
@@ -157,10 +159,12 @@
 		319F25C426E57236009B811E /* HomeViewMadeForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMadeForYou.swift; sourceTree = "<group>"; };
 		319F25C826E572BA009B811E /* HomeViewAuction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAuction.swift; sourceTree = "<group>"; };
 		31AE71AD26F1245600C973E3 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
+		31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewHeader.swift; sourceTree = "<group>"; };
 		31B4CB8026FD2FD600FF86ED /* SelfProfileCollectionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionTab.swift; sourceTree = "<group>"; };
 		31B4CB8426FD2FE700FF86ED /* SelfProfileCollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionList.swift; sourceTree = "<group>"; };
 		31B4CB8926FD300A00FF86ED /* OtherProfileCollectionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileCollectionTab.swift; sourceTree = "<group>"; };
 		31B4CB8D26FD301A00FF86ED /* OtherProfileCollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileCollectionList.swift; sourceTree = "<group>"; };
+		31B828C3272376BE0067DB05 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		31BDD937270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewLogoAndSubtext.swift; sourceTree = "<group>"; };
 		31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewNavLinks.swift; sourceTree = "<group>"; };
 		31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewHeader.swift; sourceTree = "<group>"; };
@@ -470,6 +474,7 @@
 		3152F6A0271750740061F72E /* ForgotPasswordViewHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */,
 			);
 			path = ForgotPasswordViewHelpers;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				3111174126EC08E6001B8E55 /* Location.swift */,
 				31AE71AD26F1245600C973E3 /* FollowButton.swift */,
 				31F1530E270B881400238459 /* OvalTextField.swift */,
+				31B828C3272376BE0067DB05 /* CustomBackButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -835,6 +841,7 @@
 				3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */,
 				319F25B926E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
+				31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */,
 				31B4CB8A26FD300A00FF86ED /* OtherProfileCollectionTab.swift in Sources */,
 				3129ADD026F40ED900172808 /* SelfProfileViewHeader.swift in Sources */,
 				3004D4FF26CD579000323BCB /* SettingsViewController.swift in Sources */,
@@ -873,6 +880,7 @@
 				318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */,
 				3152F6A4271751670061F72E /* SetPasswordViewController.swift in Sources */,
 				319F25B526E56935009B811E /* HomeViewStories.swift in Sources */,
+				31B828C4272376BE0067DB05 /* CustomBackButton.swift in Sources */,
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
 				31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */,
 				3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */,

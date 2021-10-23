@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoginViewNavLinks: View {
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var viewModel: LoginAppViewModel
     
     var body: some View {
@@ -18,7 +17,7 @@ struct LoginViewNavLinks: View {
         
         VStack {
             
-            NavigationLink(destination: SignInView().environmentObject(viewModel).navigationBarBackButtonHidden(true),
+            NavigationLink(destination: SignInView().environmentObject(viewModel),
                             label: {
                 
                 HStack {
@@ -33,10 +32,9 @@ struct LoginViewNavLinks: View {
                 }
                 .padding(width / 30)
             })
-            .navigationBarTitle("")
             .navigationBarHidden(true)
             
-            NavigationLink(destination: CreateAccountView().environmentObject(viewModel).navigationBarBackButtonHidden(true),
+            NavigationLink(destination: CreateAccountView().environmentObject(viewModel),
                            label: {
                 
                 Text("Create Account")
@@ -46,7 +44,6 @@ struct LoginViewNavLinks: View {
                     .padding(width / 30)
                 
             })
-            .navigationBarTitle("")
             .navigationBarHidden(true)
             
         }

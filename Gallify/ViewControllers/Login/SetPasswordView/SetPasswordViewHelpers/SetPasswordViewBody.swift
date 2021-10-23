@@ -54,7 +54,7 @@ struct SetPasswordViewBody: View {
                 .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
                 .padding(.horizontal, width / 15)
             
-            NavigationLink(destination: PrivacyPolicyView().environmentObject(viewModel).navigationBarBackButtonHidden(true),
+            NavigationLink(destination: PrivacyPolicyView().environmentObject(viewModel),
                            label: {
                 
                 Text("Next")
@@ -68,7 +68,6 @@ struct SetPasswordViewBody: View {
                 
             })
             .padding(.vertical, width / 25)
-            .navigationBarTitle("")
             .navigationBarHidden(true)
             .disabled(password != rePassword)
             

@@ -11,6 +11,7 @@ struct SetPasswordViewController: View {
     var email: String
     
     @EnvironmentObject var viewModel: LoginAppViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
@@ -20,17 +21,19 @@ struct SetPasswordViewController: View {
             
             VStack {
                 
-                SetPasswordViewHeader().environmentObject(viewModel)
+                SetPasswordViewHeader(presentationMode: _presentationMode)
+                    .environmentObject(viewModel)
                     .padding(.top, width / 75)
                 
-                SetPasswordViewBody().environmentObject(viewModel)
+                SetPasswordViewBody()
+                    .environmentObject(viewModel)
                 
                 Spacer()
                 
             }
             
         }
-        .navigationBarTitle("")
+        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         
     }

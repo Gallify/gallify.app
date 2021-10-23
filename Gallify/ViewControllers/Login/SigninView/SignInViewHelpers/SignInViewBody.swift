@@ -11,6 +11,7 @@ struct SignInViewBody: View {
     
     @State var email = ""
     @State var password = ""
+    @State var buttonPressed = false
     
     @EnvironmentObject var viewModel: LoginAppViewModel
     
@@ -19,7 +20,17 @@ struct SignInViewBody: View {
         let width = viewModel.screenWidth
         
         VStack {
-            
+                
+            if buttonPressed && !viewModel.isSignedIn {
+                Text("Whoops! Email or Password is incorrect.")
+                    .foregroundColor(Color.white)
+                    .multilineTextAlignment(.center)
+                    .padding(width / 25)
+                    .background(Color.red)
+                    .cornerRadius(width / 15)
+                    .padding(.bottom, width / 30)
+            }
+
             HStack {
                 
                 Text("Email")
@@ -58,21 +69,20 @@ struct SignInViewBody: View {
                 
                 HStack {
                     
-                    NavigationLink(destination: PrivacyPolicyView().environmentObject(viewModel).navigationBarBackButtonHidden(true),
+                    NavigationLink(destination: PrivacyPolicyView().environmentObject(viewModel),
                                    label: {
                         
                         Text("Privacy Policy")
-                                    .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                                    .padding(.top , width / 50)
-                        .padding([.leading, .bottom], width / 15)
+                            .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                            .padding(.top , width / 50)
+                            .padding([.leading, .bottom], width / 15)
                         
                     })
-                    .navigationBarTitle("")
                     .navigationBarHidden(true)
                     
                     Spacer()
                     
-                    NavigationLink(destination: ForgotPasswordView().navigationBarBackButtonHidden(true),
+                    NavigationLink(destination: ForgotPasswordView().environmentObject(viewModel),
                                    label: {
                         
                         Text("Forgot Password")
@@ -81,20 +91,20 @@ struct SignInViewBody: View {
                             .padding([.trailing, .bottom], width / 15)
                         
                     })
-                    .navigationBarTitle("")
                     .navigationBarHidden(true)
                     
                 }
                 
                 Button(action:
                     {
-                        guard !email.isEmpty, !password.isEmpty else {
-                            return
-                        }
                         viewModel.signIn(email: email, password: password)
-                    }) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
+                        {
+                            buttonPressed = true
+                        }
+                }) {
                         
-                        HStack{
+                        HStack {
                             
                             Text("Sign In")
                                 .font(.title3)
@@ -107,13 +117,11 @@ struct SignInViewBody: View {
                             
                         }
                         
-                }
+                    }
                 
             }
-
+            
         }
-        
-        
         
     }
     

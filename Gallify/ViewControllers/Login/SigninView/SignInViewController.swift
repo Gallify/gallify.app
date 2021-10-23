@@ -7,11 +7,10 @@
 import SwiftUI
 import Firebase
 
-
-
 struct SignInView : View {
     
-    @EnvironmentObject var viewModel : LoginAppViewModel
+    @EnvironmentObject var viewModel: LoginAppViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
@@ -21,17 +20,19 @@ struct SignInView : View {
             
             VStack {
                         
-                SignInViewHeader().environmentObject(viewModel)
-                        .padding(.top, width / 75)
+                SignInViewHeader(presentationMode: _presentationMode)
+                    .environmentObject(viewModel)
+                    .padding(.top, width / 75)
                     
-                SignInViewBody().environmentObject(viewModel)
+                SignInViewBody()
+                    .environmentObject(viewModel)
                     
                 Spacer()
                         
             }
             
         }
-        .navigationBarTitle("")
+        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         
     }

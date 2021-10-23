@@ -12,7 +12,6 @@ import UIKit
 class LoginAppViewModel: ObservableObject {
     
     let auth = Auth.auth()
-    
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     
@@ -20,7 +19,7 @@ class LoginAppViewModel: ObservableObject {
     @Published var newUserCreated = false
     
     var isSignedIn: Bool {
-        return auth.currentUser != nil
+        return signedIn
     }
     
     func signIn(email: String, password: String) {
@@ -28,8 +27,6 @@ class LoginAppViewModel: ObservableObject {
             guard result != nil, error == nil else {
                 return
             }
-            
-            //Success
             DispatchQueue.main.async {
                 self?.signedIn = true
             }
@@ -41,7 +38,6 @@ class LoginAppViewModel: ObservableObject {
             guard result != nil, error == nil else {
                 return
             }
-            
             DispatchQueue.main.async {
                 self?.newUserCreated = true
             }
@@ -57,8 +53,6 @@ class LoginAppViewModel: ObservableObject {
 }
 
 struct LoginView: View {
-    @State var email = ""
-    @State var password = ""
     
     @EnvironmentObject var viewModel : LoginAppViewModel
     
@@ -91,7 +85,6 @@ struct LoginView: View {
             }
             
          }
-        .navigationBarTitle("")
         .navigationBarHidden(true)
        
     }

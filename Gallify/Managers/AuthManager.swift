@@ -8,7 +8,7 @@
 import FirebaseAuth
 import Foundation
 
-final class AuthManager{
+final class AuthManager {
     static let shared = AuthManager()
     
     private init(){}

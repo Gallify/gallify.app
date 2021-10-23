@@ -9,6 +9,7 @@ import SwiftUI
 struct PrivacyPolicyView: View {
     
     @EnvironmentObject var viewModel: LoginAppViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
@@ -18,18 +19,21 @@ struct PrivacyPolicyView: View {
             
             VStack() {
                 
-                PrivacyPolicyViewHeader().environmentObject(viewModel)
-                
-                ScrollView {
+                PrivacyPolicyViewHeader(presentationMode: _presentationMode)
+                    .environmentObject(viewModel)
+                    .padding(.top, width / 75)
                         
-                    PrivacyPolicyViewBody().environmentObject(viewModel)
-                             
+                ScrollView(showsIndicators: false) {
+                    
+                    PrivacyPolicyViewBody()
+                        .environmentObject(viewModel)
+                    
                 }
 
             }
             
         }
-        .navigationBarTitle("")
+        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         
     }

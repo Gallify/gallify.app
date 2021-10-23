@@ -12,11 +12,15 @@ struct CreateAccountViewBody: View {
     @State var email = ""
     @State var firstName = ""
     @State var lastName = ""
+    @State var navLinkPressed = false
     
     @EnvironmentObject var viewModel: LoginAppViewModel
     
     var body: some View {
         
+        var emailEmpty = email.isEmpty
+        var firstNameEmpty = firstName.isEmpty
+        var lastNameEmpty = lastName.isEmpty
         let width = viewModel.screenWidth
         
         VStack {
@@ -70,7 +74,8 @@ struct CreateAccountViewBody: View {
                 .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
                 .padding(.horizontal, width / 15)
             
-            NavigationLink(destination: SetPasswordViewController(email: email).environmentObject(viewModel).navigationBarBackButtonHidden(true), label: {
+            NavigationLink(destination: SetPasswordViewController(email: email).environmentObject(viewModel),
+                           label: {
                 
                 Text("Next")
                     .font(.title3)
@@ -83,7 +88,6 @@ struct CreateAccountViewBody: View {
                 
             })
             .padding(.vertical, width / 25)
-            .navigationBarTitle("")
             .navigationBarHidden(true)
             
         }
