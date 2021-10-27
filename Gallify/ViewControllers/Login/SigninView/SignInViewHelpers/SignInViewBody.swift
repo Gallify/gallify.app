@@ -69,7 +69,7 @@ struct SignInViewBody: View {
                 
                 HStack {
                     
-                    NavigationLink(destination: PrivacyPolicyView().environmentObject(viewModel),
+                    NavigationLink(destination: PrivacyPolicyView(email: "", password: "").environmentObject(viewModel),
                                    label: {
                         
                         Text("Privacy Policy")

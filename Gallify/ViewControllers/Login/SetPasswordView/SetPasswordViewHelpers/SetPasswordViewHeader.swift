@@ -9,12 +9,11 @@ import SwiftUI
 
 struct SetPasswordViewHeader: View {
     
-    @EnvironmentObject var viewModel: LoginAppViewModel
+    var width: CGFloat
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-        
-        let width = viewModel.screenWidth
                     
         VStack {
             
@@ -48,6 +47,6 @@ struct SetPasswordViewHeader: View {
 
 struct SetPasswordViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        SetPasswordViewHeader().environmentObject(LoginAppViewModel())
+        SetPasswordViewHeader(width: UIScreen.main.bounds.width)
     }
 }

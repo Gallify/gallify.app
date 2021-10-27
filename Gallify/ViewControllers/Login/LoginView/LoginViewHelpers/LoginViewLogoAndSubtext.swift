@@ -9,20 +9,20 @@ import SwiftUI
 
 struct LoginViewLogoAndSubtext: View {
     
-    let screenWidth: CGFloat
+    let width: CGFloat
     
     var body: some View {
         
         VStack {
             
             Logo()
-                .padding(.top, screenWidth / 7.5)
+                .padding(.top, width / 7.5)
             
             Text("Gallify")
                 .font(.system(size: 40))
                 .fontWeight(.bold)
                 .foregroundColor(Color.black)
-                .padding(.top, -screenWidth / 25)
+                .padding(.top, -width / 25)
             
             HStack{
                 Text("Changing the Art World Forever.")
@@ -39,6 +39,6 @@ struct LoginViewLogoAndSubtext: View {
 
 struct MainLogoAndSubtext_Previews: PreviewProvider {
     static var previews: some View {
-        LoginViewLogoAndSubtext(screenWidth: UIScreen.main.bounds.width)
+        LoginViewLogoAndSubtext(width: UIScreen.main.bounds.width)
     }
 }

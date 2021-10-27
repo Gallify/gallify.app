@@ -20,8 +20,7 @@ struct SignInView : View {
             
             VStack {
                         
-                SignInViewHeader(presentationMode: _presentationMode)
-                    .environmentObject(viewModel)
+                SignInViewHeader(width: width, presentationMode: _presentationMode)
                     .padding(.top, width / 75)
                     
                 SignInViewBody()

@@ -9,12 +9,11 @@ import SwiftUI
 
 struct CreateAccountViewHeader: View {
     
-    @EnvironmentObject var viewModel : LoginAppViewModel
+    var width: CGFloat
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-        
-        let width = viewModel.screenWidth
         
         VStack {
             
@@ -48,6 +47,6 @@ struct CreateAccountViewHeader: View {
 
 struct CreateAccountViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccountViewHeader().environmentObject(LoginAppViewModel())
+        CreateAccountViewHeader(width: UIScreen.main.bounds.width)
     }
 }

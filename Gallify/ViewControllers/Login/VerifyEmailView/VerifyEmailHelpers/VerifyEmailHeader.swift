@@ -1,19 +1,19 @@
 //
-//  SignInViewHeader.swift
+//  VerifyEmailHeader.swift
 //  Gallify
 //
-//  Created by Patron on 10/1/21.
+//  Created by Patron on 10/26/21.
 //
 
 import SwiftUI
 
-struct SignInViewHeader: View {
+struct VerifyEmailHeader: View {
     
     let width: CGFloat
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-            
+                    
         VStack {
             
             HStack {
@@ -27,27 +27,25 @@ struct SignInViewHeader: View {
             }
             
             HStack {
-                        
-                Text("Sign in to Gallify")
+                
+                Text("Verify Email")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
-                        
+                    
                 Spacer()
-                        
+                    
             }
             .padding(.leading, width / 12)
             .padding(.bottom, width / 15)
             
         }
         
-        
-            
     }
     
 }
 
-struct SignInViewHeader_Previews: PreviewProvider {
+struct VerifyEmailHeader_Previews: PreviewProvider {
     static var previews: some View {
-        SignInViewHeader(width: UIScreen.main.bounds.width)
+        VerifyEmailHeader(width: UIScreen.main.bounds.width)
     }
 }

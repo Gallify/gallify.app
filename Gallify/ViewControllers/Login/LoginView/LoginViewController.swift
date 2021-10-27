@@ -60,11 +60,7 @@ struct LoginView: View {
         
         NavigationView {
             
-            if viewModel.signedIn {
-                TabBarView()
-            }
-            
-            else if viewModel.newUserCreated {
+            if viewModel.signedIn || viewModel.newUserCreated {
                 TabBarView()
             }
             
@@ -74,7 +70,7 @@ struct LoginView: View {
                 
                 VStack {
                 
-                    LoginViewLogoAndSubtext(screenWidth: width)
+                    LoginViewLogoAndSubtext(width: width)
                     
                     Spacer()
                         

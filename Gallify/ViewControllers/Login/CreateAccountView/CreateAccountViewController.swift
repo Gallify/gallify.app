@@ -21,8 +21,7 @@ struct CreateAccountView : View {
             
             VStack {
                 
-                CreateAccountViewHeader(presentationMode: _presentationMode)
-                    .environmentObject(viewModel)
+                CreateAccountViewHeader(width: width, presentationMode: _presentationMode)
                     .padding(.top, width / 75)
 
                 CreateAccountViewBody()

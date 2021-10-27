@@ -9,12 +9,11 @@ import SwiftUI
 
 struct ForgotPasswordViewHeader: View {
     
-    @EnvironmentObject var viewModel: LoginAppViewModel
+    var width: CGFloat
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-        
-        let width = viewModel.screenWidth
                     
         VStack {
             
@@ -48,6 +47,6 @@ struct ForgotPasswordViewHeader: View {
 
 struct ForgotPasswordViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        ForgotPasswordViewHeader().environmentObject(LoginAppViewModel())
+        ForgotPasswordViewHeader(width: UIScreen.main.bounds.width)
     }
 }

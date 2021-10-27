@@ -10,22 +10,14 @@ import SwiftUI
 struct OtherProfileViewHeader: View {
     
     let screenWidth: CGFloat
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
         HStack {
             
-            Button(action: {
-                
-            }, label: {
-                
-                Image(systemName: "lessthan")
-                    .resizable()
-                    .foregroundColor(Color.black)
-                    .frame(width: screenWidth / 15, height: screenWidth / 15)
-                    .padding(.leading, screenWidth / 25)
-                
-            })
+            CustomBackButton(width: screenWidth, presentationMode: _presentationMode)
+                .padding(.leading, screenWidth / 25)
             
             Spacer()
             
@@ -43,7 +35,7 @@ struct OtherProfileViewHeader: View {
                 Image(systemName: "list.bullet")
                     .resizable()
                     .foregroundColor(Color.black)
-                    .frame(width: screenWidth / 15, height: screenWidth / 15)
+                    .frame(width: screenWidth / 18, height: screenWidth / 18)
                     .padding(.trailing, screenWidth / 25)
                 
             })

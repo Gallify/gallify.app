@@ -1,14 +1,16 @@
 //
-//  SetPasswordViewController.swift
+//  VerifyEmailViewController.swift
 //  Gallify
 //
-//  Created by Patron on 10/5/21.
+//  Created by Patron on 10/26/21.
 //
+
 import SwiftUI
 
-struct SetPasswordView: View {
+struct VerifyEmailView: View {
     
     let email: String
+    let password: String
     
     @EnvironmentObject var viewModel: LoginAppViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -21,27 +23,27 @@ struct SetPasswordView: View {
             
             VStack {
                 
-                SetPasswordViewHeader(width: width, presentationMode: _presentationMode)
+                VerifyEmailHeader(width: width, presentationMode: _presentationMode)
                     .padding(.top, width / 75)
                 
-                SetPasswordViewBody(email: email)
+                VerifyEmailBody(email: email, password: password)
                     .environmentObject(viewModel)
                 
                 Spacer()
                 
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
             
         }
-        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         
     }
     
 }
 
-struct SetPasswordViewController_Previews: PreviewProvider {
+struct VerifyEmailViewController_Previews: PreviewProvider {
     static var previews: some View {
-        SetPasswordView(email: "")
-            .environmentObject(LoginAppViewModel())
+        VerifyEmailView(email: "", password: "").environmentObject(LoginAppViewModel())
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SetPasswordViewBody: View {
     
+    let email: String
     @State var password = ""
     @State var rePassword = ""
     
@@ -54,7 +55,7 @@ struct SetPasswordViewBody: View {
                 .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
                 .padding(.horizontal, width / 15)
             
-            NavigationLink(destination: PrivacyPolicyView().environmentObject(viewModel),
+            NavigationLink(destination: VerifyEmailView(email: email, password: password).environmentObject(viewModel),
                            label: {
                 
                 Text("Next")
@@ -69,7 +70,6 @@ struct SetPasswordViewBody: View {
             })
             .padding(.vertical, width / 25)
             .navigationBarHidden(true)
-            .disabled(password != rePassword)
             
         }
         
@@ -79,6 +79,6 @@ struct SetPasswordViewBody: View {
 
 struct SetPasswordViewBody_Previews: PreviewProvider {
     static var previews: some View {
-        SetPasswordViewBody().environmentObject(LoginAppViewModel())
+        SetPasswordViewBody(email: "").environmentObject(LoginAppViewModel())
     }
 }

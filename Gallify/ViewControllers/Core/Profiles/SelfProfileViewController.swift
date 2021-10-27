@@ -22,24 +22,25 @@ struct SelfProfileView : View {
             
             let width = viewModel.screenWidth
 
-            ScrollView(showsIndicators: false) {
+            VStack {
                 
                 SelfProfileViewHeader(screenWidth: width)
-                    .padding(.vertical, width / 25)
+                    .padding(.top, width / 25)
                 
-                SelfProfileViewDetails(screenWidth: width)
-                    .padding(.bottom, width / 25)
+                ScrollView(showsIndicators: false) {
+                    
+                    SelfProfileViewDetails(screenWidth: width)
+                    
+                    SelfProfileViewRooms(screenWidth: width)
+                        .padding(.vertical, width / 37.5)
+                    
+                    SelfProfileCollectionList(screenWidth: width)
+                                    
+            }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
                 
-                SelfProfileViewRooms(screenWidth: width)
-                
-                Divider()
-                    .padding(.vertical, width / 25)
-                
-                SelfProfileCollectionList(screenWidth: width)
-                                
         }
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
             
     }
     

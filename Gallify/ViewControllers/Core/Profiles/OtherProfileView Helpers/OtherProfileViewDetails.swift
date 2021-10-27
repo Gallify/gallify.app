@@ -12,127 +12,119 @@ struct OtherProfileViewDetails: View {
     let screenWidth: CGFloat
     
     var body: some View {
-        
-        ZStack() {
-            
-            RoundedRectangle(cornerRadius: screenWidth / 10)
-                .fill(Color.white)
-                .frame(width: screenWidth / 1.1, height: screenWidth / 1.5)
-                .overlay(RoundedRectangle(cornerRadius: screenWidth / 10).stroke(Color.black, lineWidth: screenWidth / 200))
                 
-            VStack() {
+        VStack() {
                 
-                HStack() {
+            HStack() {
                     
-                    CircleImage(image: Image("chincoteague"), length: screenWidth / 4, breadth: screenWidth / 4, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
+                CircleImage(image: Image("chincoteague"), length: screenWidth / 4, breadth: screenWidth / 4, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                     
-                    VStack {
+                VStack {
                         
-                        HStack {
+                    HStack {
                             
-                            VStack {
+                        VStack {
                                 
-                                Text("420K")
-                                    .font(.title2)
+                            Text("420K")
+                                .font(.title2)
                                 
-                                Text("Followers")
-                                    .font(.callout)
-                                    .foregroundColor(Color.gray)
+                            Text("Followers")
+                                .font(.callout)
+                                .foregroundColor(Color.gray)
                                 
-                            }
-                            
-                            VStack {
-                                
-                                Text("956")
-                                    .font(.title2)
-                                
-                                Text("Following")
-                                    .font(.callout)
-                                    .foregroundColor(Color.gray)
-                                
-                            }
-                            
-                            VStack {
-                                
-                                Text("30B")
-                                    .font(.title2)
-                                
-                                Text("Likes")
-                                    .font(.callout)
-                                    .foregroundColor(Color.gray)
-                                
-                            }
-
                         }
-                        
-                        HStack {
                             
-                            VStack {
-                                                            
-                                Text("7")
-                                    .font(.title2)
+                        VStack {
                                 
-                                Text("Rarity")
-                                    .font(.callout)
-                                    .foregroundColor(Color.gray)
+                            Text("956")
+                                .font(.title2)
                                 
-                            }
-                            
-                            VStack {
+                            Text("Following")
+                                .font(.callout)
+                                .foregroundColor(Color.gray)
                                 
-                                Text("1.3B")
-                                    .font(.title2)
-                                
-                                Text("Views")
-                                    .font(.callout)
-                                    .foregroundColor(Color.gray)
-                                
-                            }
-
                         }
-                        .padding(.top, screenWidth / 37.5)
-                        
+                            
+                        VStack {
+                                
+                            Text("30B")
+                                .font(.title2)
+                                
+                            Text("Likes")
+                                .font(.callout)
+                                .foregroundColor(Color.gray)
+                                
+                        }
+
                     }
-                    .frame(width: screenWidth / 1.75)
-                    
+                        
+                    HStack {
+                            
+                        VStack {
+                                                            
+                            Text("7")
+                                .font(.title2)
+                                
+                            Text("Rarity")
+                                .font(.callout)
+                                .foregroundColor(Color.gray)
+                                
+                        }
+                            
+                        VStack {
+                                
+                            Text("1.3B")
+                                .font(.title2)
+                                
+                            Text("Views")
+                                .font(.callout)
+                                .foregroundColor(Color.gray)
+                                
+                        }
+
+                    }
+                    .padding(.top, screenWidth / 37.5)
+                        
                 }
-                .padding(.top, screenWidth / 25)
-                
-                HStack {
+                .frame(width: screenWidth / 1.75)
                     
-                    Text("Jack F. Brown")
-                        .fontWeight(.medium)
-                    
-                    Spacer()
-                    
-                }
-                
-                HStack {
-                    
-                    Text("Hi, I am Jack Brown and I commission art.")
-                        .font(.callout)
-                        .fontWeight(.light)
-                    
-                    Spacer()
-                    
-                }
-                
-                HStack {
-                    
-                    FollowButton(isFollowing: true, buttonWidth: screenWidth / 3, buttonHeight: screenWidth / 12)
-                        .padding(.leading, screenWidth / 40)
-                    
-                    Spacer()
-                    
-                }
-                
-                Spacer()
-                
             }
-            .frame(width: screenWidth / 1.16, height: screenWidth / 1.6)
+            .padding(.top, screenWidth / 25)
+                
+            HStack {
+                    
+                Text("Jack F. Brown")
+                    .fontWeight(.medium)
+                    
+                Spacer()
+                    
+            }
+            .padding(.leading, screenWidth / 25)
+                
+            HStack {
+                    
+                Text("Hi, I am Jack Brown and I commission art.")
+                    .font(.callout)
+                    .fontWeight(.light)
+                    
+                Spacer()
+                    
+            }
+            .padding(.leading, screenWidth / 25)
+                
+            HStack {
+                    
+                FollowButton(isFollowing: true, buttonWidth: screenWidth / 3, buttonHeight: screenWidth / 12)
+                    
+                //Spacer()
+                    
+            }
+            .padding(screenWidth / 75)
                 
         }
+             
     }
+    
 }
 
 struct OtherProfileViewDetails_Previews: PreviewProvider {

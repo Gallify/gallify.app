@@ -12,6 +12,8 @@ struct CreateAccountViewBody: View {
     @State var email = ""
     @State var firstName = ""
     @State var lastName = ""
+    @State var phoneNumber = ""
+    @State var location = ""
     @State var navLinkPressed = false
     
     @EnvironmentObject var viewModel: LoginAppViewModel
@@ -21,6 +23,8 @@ struct CreateAccountViewBody: View {
         var emailEmpty = email.isEmpty
         var firstNameEmpty = firstName.isEmpty
         var lastNameEmpty = lastName.isEmpty
+        var phoneNumberEmpty = phoneNumber.isEmpty
+        var locationEmpty = location.isEmpty
         let width = viewModel.screenWidth
         
         VStack {
@@ -74,7 +78,44 @@ struct CreateAccountViewBody: View {
                 .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
                 .padding(.horizontal, width / 15)
             
-            NavigationLink(destination: SetPasswordViewController(email: email).environmentObject(viewModel),
+            HStack {
+                
+                Text("Phone Number")
+                    .font(.body)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+            }
+            .padding(.leading, width / 12)
+ 
+            TextField("", text: $firstName)
+                .disableAutocorrection(true)
+                .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
+                .padding(.horizontal, width / 15)
+            
+            VStack {
+                
+                HStack {
+                    
+                    Text("Location")
+                        .font(.body)
+                        .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                }
+                .padding(.leading, width / 12)
+                
+                
+                           TextField("", text: $firstName)
+                               .disableAutocorrection(true)
+                               .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
+                               .padding(.horizontal, width / 15)
+                
+            }
+            
+            NavigationLink(destination: SetPasswordView(email: email).environmentObject(viewModel),
                            label: {
                 
                 Text("Next")

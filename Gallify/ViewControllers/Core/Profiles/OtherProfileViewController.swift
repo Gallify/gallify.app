@@ -17,29 +17,31 @@ class OtherProfileViewModel: ObservableObject {
 struct OtherProfileView : View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
         var body: some View {
             
             let width = viewModel.screenWidth
 
-            ScrollView(showsIndicators: false) {
+            VStack {
                 
-                OtherProfileViewHeader(screenWidth: width)
-                    .padding(.vertical, width / 25)
+                OtherProfileViewHeader(screenWidth: width, presentationMode: _presentationMode)
+                    .padding(.top, width / 25)
                 
-                OtherProfileViewDetails(screenWidth: width)
-                    .padding(.bottom, width / 25)
+                ScrollView(showsIndicators: false) {
+                    
+                    OtherProfileViewDetails(screenWidth: width)
+                    
+                    OtherProfileViewRooms(screenWidth: width)
+                        .padding(.vertical, width / 37.5)
+                    
+                    OtherProfileCollectionList(screenWidth: width)
+                                    
+            }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
                 
-                OtherProfileViewRooms(screenWidth: width)
-                
-                Divider()
-                    .padding(.vertical, width / 25)
-                
-                OtherProfileCollectionList(screenWidth: width)
-                                
         }
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
             
     }
     

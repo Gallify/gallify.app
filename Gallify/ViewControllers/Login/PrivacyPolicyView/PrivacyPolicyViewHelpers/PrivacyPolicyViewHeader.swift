@@ -9,12 +9,11 @@ import SwiftUI
 
 struct PrivacyPolicyViewHeader: View {
     
-    @EnvironmentObject var viewModel: LoginAppViewModel
+    var width: CGFloat
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-        
-        let width = viewModel.screenWidth
             
         VStack {
             
@@ -30,7 +29,7 @@ struct PrivacyPolicyViewHeader: View {
             
             HStack {
                     
-                Text("Privacy Policy")
+                Text("User Agreement")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
                     
@@ -40,6 +39,17 @@ struct PrivacyPolicyViewHeader: View {
             .padding(.leading, width / 12)
             .padding(.bottom, width / 25)
             
+            HStack {
+                
+                Text("Last updated: May 23rd 2021")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                
+                Spacer()
+                
+            }
+            .padding(.leading, width / 12)
+            
         }
             
     }
@@ -48,6 +58,6 @@ struct PrivacyPolicyViewHeader: View {
 
 struct PrivacyPolicyViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        PrivacyPolicyViewHeader().environmentObject(LoginAppViewModel())
+        PrivacyPolicyViewHeader(width: UIScreen.main.bounds.width)
     }
 }
