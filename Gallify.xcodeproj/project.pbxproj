@@ -67,6 +67,7 @@
 		31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
 		31AE71AF26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
 		31AE71B026F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
+		31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2F1EF272DEC3F007FCF2B /* ErrorText.swift */; };
 		31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */; };
 		31B4CB8126FD2FD700FF86ED /* SelfProfileCollectionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8026FD2FD600FF86ED /* SelfProfileCollectionTab.swift */; };
 		31B4CB8526FD2FE700FF86ED /* SelfProfileCollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8426FD2FE700FF86ED /* SelfProfileCollectionList.swift */; };
@@ -77,6 +78,7 @@
 		31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */; };
 		31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */; };
 		31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */; };
+		31BF38A8272F44AB007C918B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BF38A7272F44AB007C918B /* User.swift */; };
 		31F1530F270B881400238459 /* OvalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1530E270B881400238459 /* OvalTextField.swift */; };
 		31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */; };
 		31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15314270CF3E000238459 /* CreateAccountViewBody.swift */; };
@@ -167,6 +169,7 @@
 		319F25C426E57236009B811E /* HomeViewMadeForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMadeForYou.swift; sourceTree = "<group>"; };
 		319F25C826E572BA009B811E /* HomeViewAuction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAuction.swift; sourceTree = "<group>"; };
 		31AE71AD26F1245600C973E3 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
+		31B2F1EF272DEC3F007FCF2B /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewHeader.swift; sourceTree = "<group>"; };
 		31B4CB8026FD2FD600FF86ED /* SelfProfileCollectionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionTab.swift; sourceTree = "<group>"; };
 		31B4CB8426FD2FE700FF86ED /* SelfProfileCollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionList.swift; sourceTree = "<group>"; };
@@ -177,6 +180,7 @@
 		31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewNavLinks.swift; sourceTree = "<group>"; };
 		31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewHeader.swift; sourceTree = "<group>"; };
 		31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewBody.swift; sourceTree = "<group>"; };
+		31BF38A7272F44AB007C918B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		31F1530E270B881400238459 /* OvalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalTextField.swift; sourceTree = "<group>"; };
 		31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewHeader.swift; sourceTree = "<group>"; };
 		31F15314270CF3E000238459 /* CreateAccountViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewBody.swift; sourceTree = "<group>"; };
@@ -310,6 +314,7 @@
 				3004D4EF26CD405D00323BCB /* Artist.swift */,
 				3004D4F126CD407600323BCB /* Art.swift */,
 				3004D4F326CD40AC00323BCB /* Profile.swift */,
+				31BF38A7272F44AB007C918B /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -515,6 +520,7 @@
 				31AE71AD26F1245600C973E3 /* FollowButton.swift */,
 				31F1530E270B881400238459 /* OvalTextField.swift */,
 				31B828C3272376BE0067DB05 /* CustomBackButton.swift */,
+				31B2F1EF272DEC3F007FCF2B /* ErrorText.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -869,6 +875,7 @@
 				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
 				3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */,
 				319F25B926E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
+				31BF38A8272F44AB007C918B /* User.swift in Sources */,
 				316C527527287C2800E28609 /* VerifyEmailHeader.swift in Sources */,
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
 				31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */,
@@ -881,6 +888,7 @@
 				316ACAC22725AE240065CE6A /* ForgotPasswordViewBody.swift in Sources */,
 				31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */,
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
+				31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */,
 				3004D50F26CD7EF800323BCB /* SignInViewController.swift in Sources */,
 				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
 				3004D50726CD581600323BCB /* HomeViewController.swift in Sources */,

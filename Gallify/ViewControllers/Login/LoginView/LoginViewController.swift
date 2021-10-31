@@ -54,7 +54,7 @@ class LoginAppViewModel: ObservableObject {
 
 struct LoginView: View {
     
-    @EnvironmentObject var viewModel : LoginAppViewModel
+    @EnvironmentObject var viewModel: LoginAppViewModel
     
     var body: some View {
         
@@ -89,6 +89,6 @@ struct LoginView: View {
 
 struct Previews: PreviewProvider {
     static var previews: some View {
-            LoginView().environmentObject(LoginAppViewModel())
+        LoginView().environmentObject(LoginAppViewModel())
     }
 }

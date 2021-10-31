@@ -9,9 +9,9 @@ import SwiftUI
 
 struct VerifyEmailView: View {
     
-    let email: String
     let password: String
     
+    @EnvironmentObject var user: User
     @EnvironmentObject var viewModel: LoginAppViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -26,7 +26,8 @@ struct VerifyEmailView: View {
                 VerifyEmailHeader(width: width, presentationMode: _presentationMode)
                     .padding(.top, width / 75)
                 
-                VerifyEmailBody(email: email, password: password)
+                VerifyEmailBody(password: password)
+                    .environmentObject(user)
                     .environmentObject(viewModel)
                 
                 Spacer()
@@ -44,6 +45,8 @@ struct VerifyEmailView: View {
 
 struct VerifyEmailViewController_Previews: PreviewProvider {
     static var previews: some View {
-        VerifyEmailView(email: "", password: "").environmentObject(LoginAppViewModel())
+        VerifyEmailView(password: "")
+            .environmentObject(User())
+            .environmentObject(LoginAppViewModel())
     }
 }

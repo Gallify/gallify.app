@@ -22,13 +22,9 @@ struct SignInViewBody: View {
         VStack {
                 
             if buttonPressed && !viewModel.isSignedIn {
-                Text("Whoops! Email or Password is incorrect.")
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.center)
-                    .padding(width / 25)
-                    .background(Color.red)
-                    .cornerRadius(width / 15)
-                    .padding(.bottom, width / 30)
+                
+                ErrorText(text: "Whoops! Email or Password is incorrect.", width: width)
+                    
             }
 
             HStack {
@@ -69,7 +65,9 @@ struct SignInViewBody: View {
                 
                 HStack {
                     
-                    NavigationLink(destination: PrivacyPolicyView(email: "", password: "").environmentObject(viewModel),
+                    NavigationLink(destination: PrivacyPolicyView(password: "")
+                        .environmentObject(User())
+                        .environmentObject(viewModel),
                                    label: {
                         
                         Text("Privacy Policy")
@@ -95,13 +93,19 @@ struct SignInViewBody: View {
                     
                 }
                 
-                Button(action:
+                Button(action: {
+                    
+                    viewModel.signIn(email: email, password: password)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
                     {
-                        viewModel.signIn(email: email, password: password)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
-                        {
-                            buttonPressed = true
-                        }
+                        buttonPressed = true
+                    }
+                     
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5)
+                    {
+                        buttonPressed = false
+                    }
+                    
                 }) {
                         
                         HStack {

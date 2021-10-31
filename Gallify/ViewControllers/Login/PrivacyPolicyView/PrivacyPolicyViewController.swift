@@ -8,9 +8,9 @@ import SwiftUI
 
 struct PrivacyPolicyView: View {
     
-    let email: String
     let password: String
     
+    @EnvironmentObject var user: User
     @EnvironmentObject var viewModel: LoginAppViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -26,8 +26,9 @@ struct PrivacyPolicyView: View {
                         .environmentObject(viewModel)
                         .padding(.top, width / 75)
                             
-                PrivacyPolicyViewBody(email: email, password: password)
-                        .environmentObject(viewModel)
+                PrivacyPolicyViewBody(password: password)
+                    .environmentObject(user)
+                    .environmentObject(viewModel)
                 
                     Spacer()
                         
@@ -44,7 +45,9 @@ struct PrivacyPolicyView: View {
 
 struct PrivacyPolicyView_Previews: PreviewProvider {
     static var previews: some View {
-        PrivacyPolicyView(email: "", password: "").environmentObject(LoginAppViewModel())
+        PrivacyPolicyView(password: "")
+            .environmentObject(User())
+            .environmentObject(LoginAppViewModel())
     }
 }
 

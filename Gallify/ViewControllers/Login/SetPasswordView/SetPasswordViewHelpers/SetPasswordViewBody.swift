@@ -9,10 +9,12 @@ import SwiftUI
 
 struct SetPasswordViewBody: View {
     
-    let email: String
     @State var password = ""
     @State var rePassword = ""
+    @State var buttonPressed = false
+    @State var goForward: Bool? = false
     
+    @EnvironmentObject var user: User
     @EnvironmentObject var viewModel: LoginAppViewModel
     
     var body: some View {
@@ -20,6 +22,34 @@ struct SetPasswordViewBody: View {
         let width = viewModel.screenWidth
         
         VStack {
+            
+            if buttonPressed {
+                
+                if password.isEmpty {
+                    
+                    ErrorText(text: "Password cannot be empty.", width: width)
+                    
+                }
+                
+                else if rePassword.isEmpty {
+                    
+                    ErrorText(text: "Re enter your password in the given field.", width: width)
+                    
+                }
+                
+                else if password.count < 6 {
+                    
+                    ErrorText(text: "Password should be atleast 6 characters long", width: width)
+                    
+                }
+                
+                else if password != rePassword {
+                    
+                    ErrorText(text: "The password don't match, try again.", width: width)
+                    
+                }
+                
+            }
             
             HStack {
                 
@@ -55,8 +85,25 @@ struct SetPasswordViewBody: View {
                 .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
                 .padding(.horizontal, width / 15)
             
-            NavigationLink(destination: VerifyEmailView(email: email, password: password).environmentObject(viewModel),
-                           label: {
+            Button(action: {
+                
+                if !(password.isEmpty || rePassword.isEmpty) {
+                    if (password.count >= 6 && password == rePassword) {
+                        goForward = true
+                    }
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
+                {
+                    buttonPressed = true
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5)
+                {
+                    buttonPressed = false
+                }
+                
+            }, label: {
                 
                 Text("Next")
                     .font(.title3)
@@ -69,6 +116,11 @@ struct SetPasswordViewBody: View {
                 
             })
             .padding(.vertical, width / 25)
+            
+            NavigationLink(destination: VerifyEmailView(password: password)
+                            .environmentObject(user)
+                            .environmentObject(viewModel),
+                        tag: true, selection: $goForward) { EmptyView() }
             .navigationBarHidden(true)
             
         }
@@ -79,6 +131,8 @@ struct SetPasswordViewBody: View {
 
 struct SetPasswordViewBody_Previews: PreviewProvider {
     static var previews: some View {
-        SetPasswordViewBody(email: "").environmentObject(LoginAppViewModel())
+        SetPasswordViewBody()
+            .environmentObject(User())
+            .environmentObject(LoginAppViewModel())
     }
 }

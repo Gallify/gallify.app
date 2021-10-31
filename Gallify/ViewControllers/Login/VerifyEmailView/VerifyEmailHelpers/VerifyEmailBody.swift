@@ -9,10 +9,10 @@ import SwiftUI
 
 struct VerifyEmailBody: View {
     
-    let email: String
     let password: String
     @State var verificationCode = ""
     
+    @EnvironmentObject var user: User
     @EnvironmentObject var viewModel: LoginAppViewModel
     
     var body: some View {
@@ -67,7 +67,9 @@ struct VerifyEmailBody: View {
                 
             }
             
-            NavigationLink(destination: PrivacyPolicyView(email: email, password: password).environmentObject(viewModel),
+            NavigationLink(destination: PrivacyPolicyView(password: password)
+                            .environmentObject(user)
+                            .environmentObject(viewModel),
                            label: {
                 
                 Text("Next")
@@ -90,7 +92,8 @@ struct VerifyEmailBody: View {
 
 struct VerifyEmailBody_Previews: PreviewProvider {
     static var previews: some View {
-        VerifyEmailBody(email: "", password: "")
+        VerifyEmailBody(password: "")
+            .environmentObject(User())
             .environmentObject(LoginAppViewModel())
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Artist{
+struct Artist {
     var id: String
     var name: String
     var popularity: String

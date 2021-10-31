@@ -8,8 +8,7 @@ import SwiftUI
 
 struct SetPasswordView: View {
     
-    let email: String
-    
+    @EnvironmentObject var user: User
     @EnvironmentObject var viewModel: LoginAppViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -24,7 +23,8 @@ struct SetPasswordView: View {
                 SetPasswordViewHeader(width: width, presentationMode: _presentationMode)
                     .padding(.top, width / 75)
                 
-                SetPasswordViewBody(email: email)
+                SetPasswordViewBody()
+                    .environmentObject(user)
                     .environmentObject(viewModel)
                 
                 Spacer()
@@ -41,7 +41,8 @@ struct SetPasswordView: View {
 
 struct SetPasswordViewController_Previews: PreviewProvider {
     static var previews: some View {
-        SetPasswordView(email: "")
+        SetPasswordView()
             .environmentObject(LoginAppViewModel())
+            .environmentObject(User())
     }
 }

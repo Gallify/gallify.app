@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct PrivacyPolicyViewBody: View {
-    
-    let email: String
     let password: String
     
+    @EnvironmentObject var user: User
     @EnvironmentObject var viewModel: LoginAppViewModel
     
     var body: some View {
@@ -71,7 +70,7 @@ struct PrivacyPolicyViewBody: View {
                 }
                 .padding([.horizontal, .bottom], width / 25)
                 
-                if !(email.isEmpty || password.isEmpty)
+                if !(password.isEmpty)
                 {
                     
                     HStack {
@@ -86,7 +85,7 @@ struct PrivacyPolicyViewBody: View {
                     
                     Button(action:
                         {
-                            viewModel.createAccount(email: email, password: password)
+                        viewModel.createAccount(email: user.email, password: password)
                     }) {
                                 
                             Text("Create Account")
@@ -112,6 +111,8 @@ struct PrivacyPolicyViewBody: View {
 
 struct PrivacyPolicyViewBody_Previews: PreviewProvider {
     static var previews: some View {
-        PrivacyPolicyViewBody(email: "", password: "").environmentObject(LoginAppViewModel())
+        PrivacyPolicyViewBody(password: "")
+            .environmentObject(User())
+            .environmentObject(LoginAppViewModel())
     }
 }

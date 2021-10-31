@@ -8,18 +8,12 @@
 import UIKit
 import SwiftUI
 
-class SettingsViewModel: ObservableObject {
-
-
-}
-
 struct SettingsView : View {
-    @State var email = ""
-    @State var password = ""
     
     @EnvironmentObject var viewModel : LoginAppViewModel
     
         var body: some View {
+            
             VStack{
                 
                 Text("Settings")
@@ -39,5 +33,7 @@ struct SettingsView : View {
                 })
                 
         }
+            
     }
+    
 }
