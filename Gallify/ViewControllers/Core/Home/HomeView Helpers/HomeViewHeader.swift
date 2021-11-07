@@ -27,26 +27,28 @@ struct HomeViewHeader: View {
             
             Spacer()
             
-            Button(action: {
-                
-            }, label: {
-                
-                ZStack {
-                    
-                    RoundedRectangle(cornerRadius: screenWidth / 37.5)
-                        .foregroundColor(Color.pink)
-                        .padding(.all, screenWidth / 55)                        .frame(width: screenWidth / 7.5, height: screenWidth / 7.5)
-                    
-                    Image(systemName: "plus")
-                        .resizable()
-                        .foregroundColor(Color.white)
-                        .frame(width: screenWidth / 20, height: screenWidth / 20)
+            NavigationLink (
+                destination: CreateLandingView(screenWidth: screenWidth),
+                label: {
+                    ZStack {
                         
-                    
-                }
-                .padding(.trailing, screenWidth / 37.5)
-
+                        RoundedRectangle(cornerRadius: screenWidth / 37.5)
+                            .foregroundColor(Color.pink)
+                            .padding(.all, screenWidth / 55)                        .frame(width: screenWidth / 7.5, height: screenWidth / 7.5)
+                        
+                        Image(systemName: "plus")
+                            .resizable()
+                            .foregroundColor(Color.white)
+                            .frame(width: screenWidth / 20, height: screenWidth / 20)
+                            
+                        
+                    }
+                    .padding(.trailing, screenWidth / 37.5)
                 })
+                .buttonStyle(ThemeAnimationStyle())
+                .navigationBarBackButtonHidden(true)
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
             
         }
         .padding(.bottom, -screenWidth / 125)

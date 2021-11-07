@@ -87,7 +87,7 @@ struct CreateLandingOptions: View {
                 self.createModelVideoShowingSheet = true;
                 self.createModelImageShowingSheet = true;
             }) {
-                Text("Create Model")
+                Text("Create")
                     .font(.title3)
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)

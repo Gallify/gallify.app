@@ -1,16 +1,16 @@
 //
-//  RecentActivityFooter.swift
+//  CollectionLikedFooter.swift
 //  Gallify
 //
-//  Created by Gianluca Profio on 10/31/21.
+//  Created by Gianluca Profio on 11/7/21.
 //
 
 import SwiftUI
 
-struct CollectionRecentActivityFooter: View {
+struct CollectionLikedFooter: View {
     
     let screenWidth: CGFloat
-    
+
     var body: some View {
         HStack {
             NavigationLink(
@@ -56,8 +56,9 @@ struct CollectionRecentActivityFooter: View {
     }
 }
 
-struct CollectionRecentActivityFooter_Previews: PreviewProvider {
+
+struct CollectionLikedFooter_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionRecentActivityFooter(screenWidth: UIScreen.main.bounds.width)
+        CollectionLikedFooter(screenWidth: UIScreen.main.bounds.width)
     }
 }

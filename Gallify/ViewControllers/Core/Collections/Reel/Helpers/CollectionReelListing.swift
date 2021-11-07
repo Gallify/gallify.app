@@ -8,6 +8,11 @@
 import SwiftUI
 struct CollectionReelListing: View {
     
+    @State private var showDetail1 = false
+    @State private var showDetail2 = false
+    @State private var showDetail3 = false
+
+    
     //New Liked System
     
     @State private var animate1 = false
@@ -99,8 +104,9 @@ struct CollectionReelListing: View {
                         .fontWeight(.semibold)
                                         
                     Text("$43,000")
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
                         .font(.system(size: 19))
+                        .bold()
                     
                     Spacer()
 
@@ -119,30 +125,52 @@ struct CollectionReelListing: View {
                         Image(systemName: isLiked1 ? "heart.circle.fill": "heart.circle")
                             .foregroundColor(isLiked1 ? Color.red: Color.black)
                             .font(.system(size: 30))
-                            .scaleEffect(animate1 ? animationScale1: 1)
-                            .animation(.easeIn(duration: duration))
                         }
                 }
+                .padding(.top, 20)
                 .padding(.leading, 8)
                 .padding(.trailing, 11.5)
-            HStack {
+            
                 Spacer()
-                DisclosureGroup("Edition 2", isExpanded: $isExpanded1) {
-                    CollectionReelDescription(screenWidth: screenWidth)
+                            
+                HStack {
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            showDetail1.toggle()
+                        }
+                    } label: {
+                        VStack {
+                            
+                            Label("", systemImage: "chevron.down.circle")
+                                .imageScale(.large)
+                                .rotationEffect(.degrees(showDetail1 ? 180 : 0))
+                                .animation(.spring(), value: showDetail1)
+                                .font(.system(size: 25))
+                                .foregroundColor(.black)
+                                .padding(.top, 25)
+        
+                            Spacer()
+                        }
+                    }
+                    .font(.system(size: 17))
                 }
-                .font(.system(size: 17))
+                                
+                if showDetail1 {
+                    CollectionReelDescription(screenWidth: screenWidth)
+                        .offset(x: -screenWidth/95)
+                }
+                
                 Spacer()
-                Spacer()
-            }
-            Spacer()
+                                
         }
         .frame(width: screenWidth)
+
         
         VStack {
             
             ZStack (alignment: .center) {
                 Image("cat")
-                .resizable()
+                    .resizable()
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                 .frame(width: screenWidth / 1, height: screenWidth / 1)
                 .onTapGesture (count: 2) {
@@ -162,13 +190,14 @@ struct CollectionReelListing: View {
             }
                 HStack {
                     
-                    Text("Bobby  - ")
+                    Text("Leonardo Da Vinci  - ")
                         .font(.system(size: 19))
                         .fontWeight(.semibold)
                                         
-                    Text("$500")
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    Text("$43,000")
+                        .foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
                         .font(.system(size: 19))
+                        .bold()
                     
                     Spacer()
 
@@ -187,30 +216,52 @@ struct CollectionReelListing: View {
                         Image(systemName: isLiked2 ? "heart.circle.fill": "heart.circle")
                             .foregroundColor(isLiked2 ? Color.red: Color.black)
                             .font(.system(size: 30))
-                            .scaleEffect(animate2 ? animationScale2: 1)
-                            .animation(.easeIn(duration: duration))
                         }
                 }
+                .padding(.top, 20)
                 .padding(.leading, 8)
                 .padding(.trailing, 11.5)
-            HStack {
+            
                 Spacer()
-                DisclosureGroup("Edition 15", isExpanded: $isExpanded1) {
-                    CollectionReelDescription(screenWidth: screenWidth)
+                            
+                HStack {
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            showDetail2.toggle()
+                        }
+                    } label: {
+                        VStack {
+                            
+                            Label("", systemImage: "chevron.down.circle")
+                                .imageScale(.large)
+                                .rotationEffect(.degrees(showDetail2 ? 180 : 0))
+                                .animation(.spring(), value: showDetail2)
+                                .font(.system(size: 25))
+                                .foregroundColor(.black)
+                                .padding(.top, 25)
+        
+                            Spacer()
+                        }
+                    }
+                    .font(.system(size: 17))
                 }
-                .font(.system(size: 17))
+                                
+                if showDetail2 {
+                    CollectionReelDescription(screenWidth: screenWidth)
+                        .offset(x: -screenWidth/95)
+                }
+                
                 Spacer()
-                Spacer()
-            }
-            Spacer()
+                                
         }
         .frame(width: screenWidth)
 
+        
         VStack {
             
             ZStack (alignment: .center) {
                 Image("starry-night")
-                .resizable()
+                    .resizable()
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                 .frame(width: screenWidth / 1, height: screenWidth / 1)
                 .onTapGesture (count: 2) {
@@ -230,13 +281,14 @@ struct CollectionReelListing: View {
             }
                 HStack {
                     
-                    Text("Starry Night  - ")
+                    Text("Leonardo Da Vinci  - ")
                         .font(.system(size: 19))
                         .fontWeight(.semibold)
                                         
-                    Text("$100")
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    Text("$43,000")
+                        .foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
                         .font(.system(size: 19))
+                        .bold()
                     
                     Spacer()
 
@@ -250,27 +302,48 @@ struct CollectionReelListing: View {
                                 self.actionSheet })
                     
                     Button(action: {
-                            self.isLiked3.toggle()
+                            self.isLiked1.toggle()
                     }) {
                         Image(systemName: isLiked3 ? "heart.circle.fill": "heart.circle")
                             .foregroundColor(isLiked3 ? Color.red: Color.black)
                             .font(.system(size: 30))
-                            .scaleEffect(animate3 ? animationScale3: 1)
-                            .animation(.easeIn(duration: duration))
                         }
                 }
+                .padding(.top, 20)
                 .padding(.leading, 8)
                 .padding(.trailing, 11.5)
-            HStack {
+            
                 Spacer()
-                DisclosureGroup("Edition 2", isExpanded: $isExpanded1) {
-                    CollectionReelDescription(screenWidth: screenWidth)
+                            
+                HStack {
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            showDetail3.toggle()
+                        }
+                    } label: {
+                        VStack {
+                            
+                            Label("", systemImage: "chevron.down.circle")
+                                .imageScale(.large)
+                                .rotationEffect(.degrees(showDetail3 ? 180 : 0))
+                                .animation(.spring(), value: showDetail3)
+                                .font(.system(size: 25))
+                                .foregroundColor(.black)
+                                .padding(.top, 25)
+        
+                            Spacer()
+                        }
+                    }
+                    .font(.system(size: 17))
                 }
-                .font(.system(size: 17))
+                                
+                if showDetail3 {
+                    CollectionReelDescription(screenWidth: screenWidth)
+                        .offset(x: -screenWidth/95)
+                }
+                
                 Spacer()
-                Spacer()
-            }
-            Spacer()
+                                
         }
         .frame(width: screenWidth)
     }

@@ -13,14 +13,12 @@ struct CollectionReelHeader: View {
     var body: some View {
         HStack {
             
-            NavigationLink (
+            NavigationLink(
                 destination: CollectionRecentActivityView(screenWidth: screenWidth),
                 label: {
-                Image (systemName: "chevron.left")
-                    .resizable()
-                    .foregroundColor(Color.black)
-                    .frame(width: screenWidth / 15, height: screenWidth / 15)
-                    .padding(.leading, screenWidth / 25)
+                    Image(systemName: "chevron.up.circle")
+                        .font(.system(size: 40))
+                        .padding(.leading)
                 })
                 .buttonStyle(ThemeAnimationStyle())
                 .navigationBarBackButtonHidden(true)

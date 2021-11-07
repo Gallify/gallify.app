@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct CollectionRecentActivityView: View {
+struct CollectionGenericView: View {
     let screenWidth: CGFloat
     var body: some View {
         NavigationView {
             VStack{
-                CollectionRecentActivityHeader(screenWidth: screenWidth)
+                CollectionGenericHeader(screenWidth: screenWidth)
                     .padding()
                 ScrollView (showsIndicators: false) {
-                    CollectionRecentActivityRow(screenWidth: screenWidth)
+                    CollectionGenericRow(screenWidth: screenWidth)
                 }
                 Spacer()
-                CollectionRecentActivityFooter(screenWidth: screenWidth)
+                CollectionGenericFooter(screenWidth: screenWidth)
                 
             }
         }
@@ -27,9 +27,9 @@ struct CollectionRecentActivityView: View {
     }
 }
 
-struct CollectionRecentActivityView_Previews: PreviewProvider {
+struct CollectionGenericView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionRecentActivityView(screenWidth: UIScreen.main.bounds.width)
+        CollectionGenericView(screenWidth: UIScreen.main.bounds.width)
     }
 }
 

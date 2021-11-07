@@ -13,6 +13,7 @@ struct CollectionReelView: View {
         NavigationView {
             VStack{
                 CollectionReelHeader(screenWidth: screenWidth)
+                    .padding()
                 ScrollView {
                     CollectionReelListing(screenWidth: screenWidth)
                 }

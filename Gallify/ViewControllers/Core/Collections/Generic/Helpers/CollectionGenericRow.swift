@@ -7,35 +7,8 @@
 
 import SwiftUI
 
-struct CollectionLikedRow: View {
-    
+struct CollectionGenericRow: View {
     let screenWidth: CGFloat
-    
-    @State private var animate1 = false
-    @State private var animate2 = false
-    @State private var animate3 = false
-    
-    @State private var isLiked1 = false
-    @State private var isLiked2 = false
-    @State private var isLiked3 = false
-    
-    private let duration: Double = 0.4
-    
-    private var animationScale1: CGFloat {
-        isLiked1 ? 0.6: 2.0
-    }
-    private var animationScale2: CGFloat {
-        isLiked2 ? 0.6: 2.0
-    }
-    private var animationScale3: CGFloat {
-        isLiked3 ? 0.6: 2.0
-    }
-    
-    @State private var didTap:Bool = false
-    
-    @State private var fgColor1: Color = .black
-    @State private var fgColor2: Color = .black
-    @State private var fgColor3: Color = .black
     
     @State var showActionSheet: Bool = false
     
@@ -53,7 +26,7 @@ struct CollectionLikedRow: View {
             NavigationLink(
                 destination: CollectionReelView(screenWidth: screenWidth),
                 label: {
-                    Image("leonardo")
+                    Image("logo")
                         .resizable()
                         .frame(width: screenWidth / 6, height: screenWidth / 6)
                         .cornerRadius(15)
@@ -65,22 +38,13 @@ struct CollectionLikedRow: View {
                 .padding(.leading)
             Spacer()
             VStack{
-                Text("Leonardo Da Vinci")
+                Text("[Collection_Name]")
                     .fontWeight(.bold)
-                Text("Sotherbys")
+                Text("Gallify")
             }
             .padding()
-            Spacer()
             
-            Button(action: {
-                    self.isLiked1.toggle()
-            }) {
-                Image(systemName: isLiked1 ? "heart.circle.fill": "heart.circle")
-                    .foregroundColor(isLiked1 ? Color.red: Color.black)
-                    .font(.system(size: 30))
-                    .scaleEffect(animate1 ? animationScale1: 1)
-                    .animation(.easeIn(duration: duration))
-                }
+            Spacer()
             
             Button(action: {self.showActionSheet.toggle()
             }) {
@@ -96,7 +60,7 @@ struct CollectionLikedRow: View {
             NavigationLink(
                 destination: CollectionReelView(screenWidth: screenWidth),
                 label: {
-                    Image("cat")
+                    Image("logo")
                         .resizable()
                         .frame(width: screenWidth / 6, height: screenWidth / 6)
                         .cornerRadius(15)
@@ -108,22 +72,13 @@ struct CollectionLikedRow: View {
                 .padding(.leading)
             Spacer()
             VStack{
-                Text("Cat")
+                Text("[Collection_Name]")
                     .fontWeight(.bold)
-                Text("Bobby")
+                Text("[Collection_Artist]")
             }
             .padding()
-            Spacer()
             
-            Button(action: {
-                    self.isLiked2.toggle()
-            }) {
-                Image(systemName: isLiked2 ? "heart.circle.fill": "heart.circle")
-                    .foregroundColor(isLiked2 ? Color.red: Color.black)
-                    .font(.system(size: 30))
-                    .scaleEffect(animate2 ? animationScale2: 1)
-                    .animation(.easeIn(duration: duration))
-                }
+            Spacer()
             
             Button(action: {self.showActionSheet.toggle()
             }) {
@@ -139,7 +94,7 @@ struct CollectionLikedRow: View {
             NavigationLink(
                 destination: CollectionReelView(screenWidth: screenWidth),
                 label: {
-                    Image("starry-night")
+                    Image("logo")
                         .resizable()
                         .frame(width: screenWidth / 6, height: screenWidth / 6)
                         .cornerRadius(15)
@@ -151,22 +106,13 @@ struct CollectionLikedRow: View {
                 .padding(.leading)
             Spacer()
             VStack{
-                Text("Starry Night")
+                Text("[Collection_Name]")
                     .fontWeight(.bold)
-                Text("Joe Ingles")
+                Text("[Collection_Artist]")
             }
             .padding()
-            Spacer()
             
-            Button(action: {
-                    self.isLiked3.toggle()
-            }) {
-                Image(systemName: isLiked3 ? "heart.circle.fill": "heart.circle")
-                    .foregroundColor(isLiked3 ? Color.red: Color.black)
-                    .font(.system(size: 30))
-                    .scaleEffect(animate3 ? animationScale3: 1)
-                    .animation(.easeIn(duration: duration))
-                }
+            Spacer()
             
             Button(action: {self.showActionSheet.toggle()
             }) {
@@ -181,9 +127,9 @@ struct CollectionLikedRow: View {
     
 }
 
-struct CollectionLikedRow_Previews: PreviewProvider {
+struct CollectionGenericRow_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionLikedRow(screenWidth: UIScreen.main.bounds.width)
+        CollectionGenericRow(screenWidth: UIScreen.main.bounds.width)
     }
 }
 

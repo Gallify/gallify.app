@@ -1,22 +1,22 @@
 //
-//  RecentActivityFooter.swift
+//  CollectionLikedFooter.swift
 //  Gallify
 //
-//  Created by Gianluca Profio on 10/31/21.
+//  Created by Gianluca Profio on 11/7/21.
 //
 
 import SwiftUI
 
-struct CollectionRecentActivityFooter: View {
+struct CollectionGenericFooter: View {
     
     let screenWidth: CGFloat
-    
+
     var body: some View {
         HStack {
             NavigationLink(
                 destination: CollectionReelView(screenWidth: screenWidth),
                 label: {
-                    Image("leonardo")
+                    Image("logo")
                         .resizable()
                         .frame(width: screenWidth / 6, height: screenWidth / 6)
                         .cornerRadius(15)
@@ -27,13 +27,13 @@ struct CollectionRecentActivityFooter: View {
                 .navigationBarHidden(true)
                 .padding()
             
-            Text("2 of 15")
+            Text("# of #")
                 .font(.system(size: 19))
                 .fontWeight(.bold)
                 .padding(.trailing)
                 .multilineTextAlignment(.center)
             
-            Text("Leonardo Da Vinci")
+            Text("Gallify")
                 .fontWeight(.semibold)
                 .font(.system(size: 19))
                 .multilineTextAlignment(.center)
@@ -56,8 +56,9 @@ struct CollectionRecentActivityFooter: View {
     }
 }
 
-struct CollectionRecentActivityFooter_Previews: PreviewProvider {
+
+struct CollectionGenericFooter_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionRecentActivityFooter(screenWidth: UIScreen.main.bounds.width)
+        CollectionGenericFooter(screenWidth: UIScreen.main.bounds.width)
     }
 }

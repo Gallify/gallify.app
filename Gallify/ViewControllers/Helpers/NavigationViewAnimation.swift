@@ -12,6 +12,7 @@ struct ThemeAnimationStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .scaleEffect(configuration.isPressed ? 0.75 : 1.0)
+            .transition(.scale)
     }
 }
 

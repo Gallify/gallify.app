@@ -13,9 +13,11 @@ struct CollectionLikedView: View {
     var body: some View {
         VStack{
             CollectionLikedHeader(screenWidth: screenWidth)
+                .padding()
             ScrollView (showsIndicators: false) {
                 CollectionLikedRow(screenWidth: screenWidth)
             }
+            CollectionLikedFooter(screenWidth: screenWidth)
             Spacer()
         }
     }
