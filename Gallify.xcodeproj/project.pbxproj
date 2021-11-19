@@ -31,6 +31,8 @@
 		3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51026CDB90100323BCB /* BuyViewController.swift */; };
 		3004D51326CDB91200323BCB /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51226CDB91200323BCB /* SellViewController.swift */; };
 		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
+		3067FBD22742F233009B5D4D /* ARPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3067FBD12742F233009B5D4D /* ARPlayerViewController.swift */; };
+		3067FBE227460D5C009B5D4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3067FBE427460D5C009B5D4D /* Main.storyboard */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -165,6 +167,8 @@
 		3004D51026CDB90100323BCB /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		3004D51226CDB91200323BCB /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
+		3067FBD12742F233009B5D4D /* ARPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlayerViewController.swift; sourceTree = "<group>"; };
+		3067FBE327460D5C009B5D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 				3004D4EA26CD3DF100323BCB /* Models */,
 				3004D4BD26C82F6D00323BCB /* Assets.xcassets */,
 				3004D4C226C82F6D00323BCB /* Info.plist */,
+				3067FBE427460D5C009B5D4D /* Main.storyboard */,
 				3004D4E726CC97F400323BCB /* GoogleService-Info.plist */,
 				3004D4BF26C82F6D00323BCB /* Preview Content */,
 			);
@@ -374,10 +379,10 @@
 		3004D4EC26CD402A00323BCB /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				92794D0B273813010012B184 /* Discover */,
 				92794CE2273811760012B184 /* Collections */,
 				92DB7C52273167F90035B788 /* Create */,
 				303DB8CF26F97CE50005AC51 /* Home */,
+				92794D0B273813010012B184 /* Discover */,
 				303DB8CE26F97C9C0005AC51 /* Profiles */,
 				3004D50026CD57A800323BCB /* TabBarViewController.swift */,
 				3004D50226CD57C100323BCB /* SearchViewController.swift */,
@@ -433,6 +438,14 @@
 				3004D50626CD581600323BCB /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		3067FBD02742F1FF009B5D4D /* ARPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				3067FBD12742F233009B5D4D /* ARPlayerViewController.swift */,
+			);
+			path = ARPlayer;
 			sourceTree = "<group>";
 		};
 		3103E0DF27112D7200135F08 /* PrivacyPolicyViewHelpers */ = {
@@ -673,6 +686,7 @@
 		92794CE2273811760012B184 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				3067FBD02742F1FF009B5D4D /* ARPlayer */,
 				92794CE3273811760012B184 /* Reel */,
 				92794CE9273811760012B184 /* Recent Activity */,
 				92794CEF273811760012B184 /* Liked */,
@@ -949,6 +963,7 @@
 				3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */,
 				3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */,
 				3004D4E826CC97F400323BCB /* GoogleService-Info.plist in Resources */,
+				3067FBE227460D5C009B5D4D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1138,6 +1153,7 @@
 				3004D50D26CD6CF400323BCB /* PhoneVerificationViewController.swift in Sources */,
 				92794CFF273811760012B184 /* CollectionRecentActivityView.swift in Sources */,
 				31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */,
+				3067FBD22742F233009B5D4D /* ARPlayerViewController.swift in Sources */,
 				92DB7C6B2731810F0035B788 /* CreateLandingOptions.swift in Sources */,
 				31F1530F270B881400238459 /* OvalTextField.swift in Sources */,
 				92DB7C6F273186330035B788 /* CreatePublishListing.swift in Sources */,
@@ -1206,6 +1222,17 @@
 			targetProxy = 3004D4D326C82F6E00323BCB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3067FBE427460D5C009B5D4D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3067FBE327460D5C009B5D4D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3004D4D926C82F6E00323BCB /* Debug */ = {
@@ -1332,6 +1359,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
+				DEVELOPMENT_TEAM = K35JM9B532;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gallify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1354,6 +1382,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
+				DEVELOPMENT_TEAM = K35JM9B532;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gallify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
