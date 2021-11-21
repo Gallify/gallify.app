@@ -4,11 +4,11 @@
 //
 //  Created by Patron on 9/21/21.
 //
-
 import SwiftUI
 
 struct AuctionTab: View {
     
+    let screenHeight: CGFloat
     let screenWidth: CGFloat
     let image: Image
     let daysLeft: Int
@@ -28,13 +28,13 @@ struct AuctionTab: View {
                 
             RoundedRectangle(cornerRadius: screenWidth / 30)
                 .foregroundColor(Color.gray)
-                .frame(width: screenWidth / 2.4, height: screenWidth / 7.5)
+                .frame(width: screenWidth / 2.4, height: screenHeight / 16.25)
                 
             HStack {
                     
                 image
                     .resizable()
-                    .frame(width: screenWidth / 7.5, height: screenWidth / 7.5)
+                    .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                     .cornerRadius(screenWidth / 30)
                 
                 Spacer()
@@ -42,12 +42,12 @@ struct AuctionTab: View {
                 VStack {
                     
                     Text(Time)
-                        .font(.footnote)
+                        .font(.system(size: screenWidth / 29))
                         .foregroundColor(Time.prefix(1) == "<" ? Color.red : Color.white)
                         .lineLimit(1)
                     
                     Text(auctioneer)
-                        .font(.footnote)
+                        .font(.system(size: screenWidth / 29))
                         .foregroundColor(Color.white)
                         .lineLimit(1)
                     
@@ -56,7 +56,7 @@ struct AuctionTab: View {
                 Spacer()
                     
             }
-            .frame(width: screenWidth / 2.4, height: screenWidth / 7.5)
+            .frame(width: screenWidth / 2.4, height: screenHeight / 16.25)
                     
         }
                     
@@ -65,6 +65,6 @@ struct AuctionTab: View {
 
 struct AuctionTab_Previews: PreviewProvider {
     static var previews: some View {
-        AuctionTab(screenWidth: UIScreen.main.bounds.width, image: Image("rainbowlake"), daysLeft: 1, hoursLeft: 2, minutesLeft: 10, auctioneer: "Beeple Auction")
+        AuctionTab(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width, image: Image("rainbowlake"), daysLeft: 1, hoursLeft: 2, minutesLeft: 10, auctioneer: "Beeple Auction")
     }
 }

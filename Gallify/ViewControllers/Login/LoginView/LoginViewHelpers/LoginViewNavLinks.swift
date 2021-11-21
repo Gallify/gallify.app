@@ -4,7 +4,6 @@
 //
 //  Created by Patron on 10/1/21.
 //
-
 import SwiftUI
 
 struct LoginViewNavLinks: View {
@@ -13,41 +12,45 @@ struct LoginViewNavLinks: View {
     
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         VStack {
             
-            NavigationLink(destination: SignInView().environmentObject(viewModel),
+            NavigationLink(destination: SignInView(),
                             label: {
                 
                 HStack {
+                    
                     Text("Sign In")
-                        .font(.title3)
-                        .fontWeight(.bold)
+                        .font(.system(size: screenWidth / 18.5, weight: .bold))
                         .foregroundColor(Color.white)
-                        .padding(.vertical, width / 35)
-                        .padding(.horizontal, width / 3)
+                        .padding(.horizontal, screenWidth / 3)
+                        .padding(.vertical, screenHeight / 75)
                         .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                        .cornerRadius(width / 10)
+                        .cornerRadius(screenWidth / 10)
+                        .padding(.horizontal, screenWidth / 30)
+                        .padding(.vertical, screenHeight / 65)
+                    
                 }
-                .padding(width / 30)
+                
             })
             .navigationBarHidden(true)
             
-            NavigationLink(destination: CreateAccountView().environmentObject(viewModel),
+            NavigationLink(destination: CreateAccountView(),
                            label: {
                 
                 Text("Create Account")
-                    .font(.title3)
-                    .fontWeight(.bold)
+                    .font(.system(size: screenWidth / 18.5, weight: .bold))
                     .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                    .padding(width / 30)
+                    .padding(.horizontal, screenWidth / 30)
+                    .padding(.vertical, screenHeight / 65)
                 
             })
             .navigationBarHidden(true)
             
         }
-        .padding(.bottom, width / 30)
+        .padding(.bottom, screenHeight / 65)
         
     }
     

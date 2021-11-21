@@ -4,14 +4,14 @@
 //
 //  Created by Patron on 10/31/21.
 //
-
 import Foundation
 import Swift
+import FirebaseFirestore
 
 class User: Encodable, Decodable, ObservableObject {
-    
+
     enum CodingKeys: CodingKey {
-        
+
         case uid
         case firstName
         case lastName
@@ -24,9 +24,9 @@ class User: Encodable, Decodable, ObservableObject {
         case ArtPlaylist
         case MembershipStatus
         case profileImageURL
-        
+
     }
-    
+
     @Published var uid : String
     @Published var firstName: String
     @Published var lastName: String
@@ -39,9 +39,11 @@ class User: Encodable, Decodable, ObservableObject {
     @Published var ArtPlaylist : [String]
     @Published var MembershipStatus : String
     @Published var profileImageUrl: String
-    
+
+
+
     init() {
-        
+
         uid = ""
         firstName = ""
         lastName = ""
@@ -54,11 +56,11 @@ class User: Encodable, Decodable, ObservableObject {
         ArtPlaylist = [String]()
         MembershipStatus = ""
         profileImageUrl = ""
-        
+
     }
-    
+
     required init(from decoder: Decoder) throws {
-        
+
         let container = try decoder.container(keyedBy: CodingKeys.self)
         uid = try container.decode(String.self, forKey: .uid)
         firstName = try container.decode(String.self, forKey: .firstName)
@@ -72,11 +74,11 @@ class User: Encodable, Decodable, ObservableObject {
         ArtPlaylist = try container.decode([String].self, forKey: .ArtPlaylist)
         MembershipStatus = try container.decode(String.self, forKey: .MembershipStatus)
         profileImageUrl = try container.decode(String.self, forKey: .profileImageURL)
-        
+
     }
-    
+//
     func encode(to encoder: Encoder) throws {
-        
+
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(uid, forKey: .uid)
         try container.encode(firstName, forKey: .firstName)
@@ -90,7 +92,7 @@ class User: Encodable, Decodable, ObservableObject {
         try container.encode(ArtPlaylist, forKey: .ArtPlaylist)
         try container.encode(MembershipStatus, forKey: .MembershipStatus)
         try container.encode(profileImageUrl, forKey: .profileImageURL)
-        
+
     }
-    
+
 }

@@ -7,15 +7,21 @@
 import SwiftUI
 
 struct Logo: View {
+    
+    let height: CGFloat
+    let width: CGFloat
+    
     var body: some View {
+        
         Image("logo")
             .resizable()
-            .frame(width: UIScreen.main.bounds.width / 1.45, height: UIScreen.main.bounds.width / 1.4)
+            .frame(width: width, height: height)
+        
     }
 }
 
 struct Logo_Previews: PreviewProvider {
     static var previews: some View {
-        Logo()
+        Logo(height: UIScreen.main.bounds.height / 3, width: UIScreen.main.bounds.width / 1.45)
     }
 }

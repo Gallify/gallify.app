@@ -4,7 +4,6 @@
 //
 //  Created by Tejvir Mann on 8/18/21.
 //
-
 import SwiftUI
 import Firebase
 import UIKit
@@ -17,10 +16,18 @@ class LoginAppViewModel: ObservableObject {
     
     @Published var signedIn = false
     @Published var newUserCreated = false
+    @State private var confirmationMessage = ""
+    @State private var showingConfirmation = false
     
     var isSignedIn: Bool {
-        return signedIn
+        if(auth.currentUser != nil){
+            return true
+        }
+        else{
+            return false
+        }
     }
+        
     
     func signIn(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
@@ -33,16 +40,36 @@ class LoginAppViewModel: ObservableObject {
         }
     }
     
-    func createAccount(email: String, password: String) {
-        auth.createUser(withEmail: email, password: password) {[weak self] result, error in
+    
+    func createAccount(password: String, user: User) {
+        auth.createUser(withEmail: user.email, password: password) {[weak self] result, error in
             guard result != nil, error == nil else {
                 return
             }
+        
+            let db = Firestore.firestore()
+                do {
+                    try db.collection("users").document(UUID().uuidString).setData(user.asDictionary())
+                } catch {
+                    //print(error)
+                }
+            }
+            
             DispatchQueue.main.async {
-                self?.newUserCreated = true
+                self.newUserCreated = true
             }
         }
-    }
+    
+//    public func sendVerificationMail() {
+//        if self.authUser != nil && !self.authUser!.isEmailVerified {
+//            self.authUser!.sendEmailVerification(completion: { (error) in
+//                // Notify the user that the mail has sent or couldn't because of an error.
+//            })
+//        }
+//        else {
+//            // Either the user is not available, or the user is already verified.
+//        }
+//    }
     
     func signOut() {
         try? auth.signOut()
@@ -51,30 +78,30 @@ class LoginAppViewModel: ObservableObject {
     }
     
 }
-
 struct LoginView: View {
     
-    @EnvironmentObject var viewModel: LoginAppViewModel
+    @StateObject var viewModel = LoginAppViewModel()
     
     var body: some View {
         
         NavigationView {
             
-            if viewModel.signedIn || viewModel.newUserCreated {
+            if viewModel.isSignedIn || viewModel.newUserCreated {
                 TabBarView()
             }
             
             else {
                 
-                let width = viewModel.screenWidth
+                let screenHeight = viewModel.screenHeight
+                let screenWidth = viewModel.screenWidth
                 
                 VStack {
                 
-                    LoginViewLogoAndSubtext(width: width)
+                    LoginViewLogoAndSubtext(screenHeight: screenHeight, screenWidth: screenWidth)
                     
                     Spacer()
                         
-                    LoginViewNavLinks().environmentObject(viewModel)
+                    LoginViewNavLinks()
                     
                 }
                 
@@ -82,6 +109,7 @@ struct LoginView: View {
             
          }
         .navigationBarHidden(true)
+        .environmentObject(viewModel)
        
     }
     
@@ -89,6 +117,6 @@ struct LoginView: View {
 
 struct Previews: PreviewProvider {
     static var previews: some View {
-        LoginView().environmentObject(LoginAppViewModel())
+        LoginView()
     }
 }

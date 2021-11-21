@@ -14,14 +14,15 @@ struct SignInView : View {
     
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
             
         NavigationView {
             
             VStack {
                         
-                SignInViewHeader(width: width, presentationMode: _presentationMode)
-                    .padding(.top, width / 75)
+                SignInViewHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
+
                     
                 SignInViewBody()
                     .environmentObject(viewModel)

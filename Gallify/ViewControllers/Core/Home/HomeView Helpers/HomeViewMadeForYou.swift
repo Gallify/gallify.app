@@ -4,11 +4,11 @@
 //
 //  Created by Patron on 9/5/21.
 //
-
 import SwiftUI
 
 struct HomeViewMadeForYou: View {
     
+    let screenHeight: CGFloat
     let screenWidth: CGFloat
     
     var body: some View {
@@ -18,26 +18,25 @@ struct HomeViewMadeForYou: View {
             
             HStack {
                 
-                VStack() {
+                VStack {
                     
                     ZStack {
                         
                         Image(systemName: "squareshape.fill")
                             .resizable()
                             .foregroundColor(Color.black)
-                            .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                            .frame(width: screenWidth / 2.8, height: screenHeight / 6)
                             .cornerRadius(screenWidth / 15)
                         
                         Image(systemName: "flame.fill")
                             .resizable()
                             .foregroundColor(Color.yellow)
-                            .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
+                            .frame(width: screenWidth / 5.5, height: screenHeight / 12)
                         
                     }
                     
                     Text("Hottest Art")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                        .font(.system(size: screenWidth / 18.5, weight: .semibold))
                         .frame(width: screenWidth / 2.8)
                         .lineLimit(1)
                     
@@ -48,28 +47,26 @@ struct HomeViewMadeForYou: View {
                     
                     Image("silversalmoncreek")
                         .resizable()
-                        .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                        .frame(width: screenWidth / 2.8, height: screenHeight / 6)
                         .cornerRadius(screenWidth / 15)
                     
                     Text("Mountains")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                        .font(.system(size: screenWidth / 18.5, weight: .semibold))
                         .frame(width: screenWidth / 2.8)
                         .lineLimit(1)
                     
                 }
                 .padding(.leading, screenWidth / 37.5)
                 
-                VStack() {
+                VStack {
                     
                     Image("hiddenlake")
                         .resizable()
-                        .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                        .frame(width: screenWidth / 2.8, height: screenHeight / 6)
                         .cornerRadius(screenWidth / 15)
                     
                     Text("Snowy Areas")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                        .font(.system(size: screenWidth / 18.5, weight: .semibold))
                         .frame(width: screenWidth / 2.8)
                         .lineLimit(1)
                     
@@ -80,7 +77,7 @@ struct HomeViewMadeForYou: View {
             }
             
         }
-        .padding(.bottom, screenWidth / 25)
+        .padding(.bottom, screenHeight / 54)
         
     }
     
@@ -88,6 +85,6 @@ struct HomeViewMadeForYou: View {
 
 struct HomeViewMadeForYou_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewMadeForYou(screenWidth: UIScreen.main.bounds.width)
+        HomeViewMadeForYou(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
     }
 }

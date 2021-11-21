@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CollectionGenericRow: View {
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
+
+    
     
     @State var showActionSheet: Bool = false
     
@@ -24,7 +27,7 @@ struct CollectionGenericRow: View {
         
         HStack {
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth),
+                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
                 label: {
                     Image("logo")
                         .resizable()
@@ -58,7 +61,7 @@ struct CollectionGenericRow: View {
         
         HStack {
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth),
+                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
                 label: {
                     Image("logo")
                         .resizable()
@@ -92,7 +95,7 @@ struct CollectionGenericRow: View {
         
         HStack {
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth),
+                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
                 label: {
                     Image("logo")
                         .resizable()
@@ -129,7 +132,7 @@ struct CollectionGenericRow: View {
 
 struct CollectionGenericRow_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionGenericRow(screenWidth: UIScreen.main.bounds.width)
+        CollectionGenericRow(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }
 

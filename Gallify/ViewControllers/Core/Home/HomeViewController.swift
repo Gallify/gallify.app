@@ -4,7 +4,6 @@
 //
 //  Created by Tejvir Mann on 8/18/21.
 //
-
 import UIKit
 import SwiftUI
 
@@ -18,26 +17,27 @@ struct HomeView : View {
     
         var body: some View {
             
-            let width = viewModel.screenWidth
-            let pad = width / 25
+            let screenHeight = viewModel.screenHeight
+            let screenWidth = viewModel.screenWidth
+            let heightPad = screenHeight / 54
+            let widthPad = screenWidth / 25
             
             VStack {
                 
-                HomeViewHeader(screenWidth: width)
+                HomeViewHeader(screenHeight: screenHeight, screenWidth: screenWidth)
                 
                 ScrollView(showsIndicators: false) {
                     
                     VStack {
                         
-                        HomeViewStories(screenWidth: width)
+                        HomeViewStories(screenHeight: screenHeight, screenWidth: screenWidth)
                         
                         HStack {
                             
                             Text("Good evening!")
-                                .font(.largeTitle)
-                                .fontWeight(.bold)
-                                .padding(.leading, pad)
-                                .padding(.bottom, pad / 2)
+                                .font(.system(size: screenWidth / 11, weight: .bold))
+                                .padding(.leading, widthPad)
+                                .padding(.bottom, heightPad / 2)
                             
                             Spacer()
                             
@@ -46,35 +46,33 @@ struct HomeView : View {
                         HStack {
                                                     
                             Text("Recent")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .padding(.leading, pad)
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+                                .padding(.leading, widthPad)
                                                     
                             Spacer()
                                                 
                         }
                                                 
-                        HomeViewRecent(screenWidth: width)
+                        HomeViewRecent(screenHeight: screenHeight, screenWidth: screenWidth)
                         
                         HStack {
                             
                             Text("Your Portfolio")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .padding(.leading, pad)
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+                                .padding(.leading, widthPad)
+                                .padding(.top, heightPad)
                             
                             Spacer()
                             
                         }
                         
-                        HomeViewPortfolio(screenWidth: width)
+                        HomeViewPortfolio(screenHeight: screenHeight, screenWidth: screenWidth)
                         
                         HStack {
                             
                             Text("Auctions")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .padding([.top, .leading], pad)
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+                                .padding(.leading, widthPad)
                             
                             Button(action: {
                                 
@@ -85,71 +83,69 @@ struct HomeView : View {
                                 Image(systemName: "greaterthan")
                                     .resizable()
                                     .foregroundColor(Color.black)
-                                    .frame(width: width / 15, height: width / 15)
-                                    .padding(.top, pad)
-                                    .padding(.leading, pad / 2)
+                                    .frame(width: screenWidth / 15, height: screenHeight / 32.5)
+                                    .padding(.leading, widthPad / 2)
                                 
                             })
                                 
                             Spacer()
                             
-                            Location(screenWidth: width)
-                                .padding([.top, .trailing], pad)
+                            Location(screenHeight: screenHeight, screenWidth: screenWidth)
+                                .padding(.trailing, widthPad)
                             
                         }
+                        .padding(.top, heightPad)
                         
-                        HomeViewAuction(screenWidth: width)
+                        HomeViewAuction(screenHeight: screenHeight, screenWidth: screenWidth)
                         
                     }
-                    
                     
                     VStack {
                         
                         HStack {
                             
                             Text("Museums")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .padding([.top, .leading], pad)
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+                                .padding(.leading, widthPad)
+                                .padding(.top, heightPad)
                             
                             Spacer()
                             
                         }
                         
-                        HomeViewMuseums(screenWidth: width)
+                        HomeViewMuseums(screenHeight: screenHeight, screenWidth: screenWidth)
                         
                         HStack {
                             
                             Text("Discover")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .padding([.top, .leading], pad)
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+                                .padding(.leading, widthPad)
+                                .padding(.top, heightPad)
                             
                             Spacer()
                             
                         }
                         
-                        HomeViewDiscover(screenWidth: width)
+                        HomeViewDiscover(screenHeight: screenHeight, screenWidth: screenWidth)
                         
                         HStack {
                             
                             Text("Made for you")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .padding([.top, .leading], pad)
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+                                .padding(.leading, widthPad)
+                                .padding(.top, heightPad)
                             
                             Spacer()
                             
                         }
                         
-                        HomeViewMadeForYou(screenWidth: width)
+                        HomeViewMadeForYou(screenHeight: screenHeight, screenWidth: screenWidth)
                                                 
                     }
                     
                 }
                 
             }
-            .navigationBarTitle("")
             .navigationBarHidden(true)
             
     }

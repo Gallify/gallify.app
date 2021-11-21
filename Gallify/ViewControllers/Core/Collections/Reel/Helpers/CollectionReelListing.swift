@@ -62,6 +62,7 @@ struct CollectionReelListing: View {
     
     // Setting The Screen Width
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
     
     // Add To Collection Pop-Up Integration
     @State var showActionSheet: Bool = false
@@ -156,7 +157,7 @@ struct CollectionReelListing: View {
                 }
                                 
                 if showDetail1 {
-                    CollectionReelDescription(screenWidth: screenWidth)
+                    CollectionReelDescription(screenWidth: screenWidth, screenHeight: screenHeight)
                         .offset(x: -screenWidth/95)
                 }
                 
@@ -247,7 +248,7 @@ struct CollectionReelListing: View {
                 }
                                 
                 if showDetail2 {
-                    CollectionReelDescription(screenWidth: screenWidth)
+                    CollectionReelDescription(screenWidth: screenWidth, screenHeight: screenHeight)
                         .offset(x: -screenWidth/95)
                 }
                 
@@ -338,7 +339,7 @@ struct CollectionReelListing: View {
                 }
                                 
                 if showDetail3 {
-                    CollectionReelDescription(screenWidth: screenWidth)
+                    CollectionReelDescription(screenWidth: screenWidth,screenHeight: screenHeight)
                         .offset(x: -screenWidth/95)
                 }
                 
@@ -351,7 +352,7 @@ struct CollectionReelListing: View {
 
 struct CollectionReelListing_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionReelListing(screenWidth: UIScreen.main.bounds.width)
+        CollectionReelListing(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }
 

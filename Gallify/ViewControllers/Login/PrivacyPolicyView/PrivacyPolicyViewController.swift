@@ -16,19 +16,16 @@ struct PrivacyPolicyView: View {
     
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         NavigationView {
             
             VStack {
                     
-                PrivacyPolicyViewHeader(width: width, presentationMode: _presentationMode)
-                        .environmentObject(viewModel)
-                        .padding(.top, width / 75)
+                PrivacyPolicyViewHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                             
                 PrivacyPolicyViewBody(password: password)
-                    .environmentObject(user)
-                    .environmentObject(viewModel)
                 
                     Spacer()
                         
@@ -50,4 +47,3 @@ struct PrivacyPolicyView_Previews: PreviewProvider {
             .environmentObject(LoginAppViewModel())
     }
 }
-

@@ -10,14 +10,18 @@ import UIKit
 
 struct CollectionLikedView: View {
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
+
     var body: some View {
         VStack{
             CollectionLikedHeader(screenWidth: screenWidth)
                 .padding()
             ScrollView (showsIndicators: false) {
-                CollectionLikedRow(screenWidth: screenWidth)
+                CollectionLikedRow(screenWidth: screenWidth, screenHeight: screenHeight
+)
             }
-            CollectionLikedFooter(screenWidth: screenWidth)
+            CollectionLikedFooter(screenWidth: screenWidth, screenHeight: screenHeight
+)
             Spacer()
         }
     }
@@ -25,7 +29,7 @@ struct CollectionLikedView: View {
 
 struct CollectionLikedView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionLikedView(screenWidth: UIScreen.main.bounds.width)
+        CollectionLikedView(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }
 

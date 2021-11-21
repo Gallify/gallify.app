@@ -4,23 +4,24 @@
 //
 //  Created by Patron on 10/30/21.
 //
-
 import SwiftUI
 
 struct ErrorText: View {
     
-    let text: String
-    let width: CGFloat
+    let errorText: String
+    let screenHeight: CGFloat
+    let screenWidth: CGFloat
     
     var body: some View {
         
-        Text(text)
+        Text(errorText)
+            .font(.system(size: screenWidth / 22))
             .foregroundColor(Color.white)
-            .multilineTextAlignment(.center)
-            .padding(width / 25)
+            .padding(.horizontal, screenWidth / 25)
+            .padding(.vertical, screenHeight / 54)
             .background(Color.red)
-            .cornerRadius(width / 15)
-            .padding(.bottom, width / 30)
+            .cornerRadius(screenWidth / 15)
+            .padding(.bottom, screenHeight / 65)
         
     }
     
@@ -28,6 +29,6 @@ struct ErrorText: View {
 
 struct ErrorText_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorText(text: "Hello World!!", width: UIScreen.main.bounds.width)
+        ErrorText(errorText: "Hello World", screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
     }
 }

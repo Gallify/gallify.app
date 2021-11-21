@@ -4,11 +4,11 @@
 //
 //  Created by Patron on 9/5/21.
 //
-
 import SwiftUI
 
 struct HomeViewDiscover: View {
     
+    let screenHeight: CGFloat
     let screenWidth: CGFloat
     
     var body: some View {
@@ -17,85 +17,81 @@ struct HomeViewDiscover: View {
             
             HStack {
                 
-                VStack() {
+                VStack {
                     
                     ZStack {
                         
                         Image(systemName: "squareshape.fill")
                             .resizable()
                             .foregroundColor(Color.black)
-                            .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                            .frame(width: screenWidth / 2.8, height: screenHeight / 6)
                             .cornerRadius(screenWidth / 15)
                         
                         VStack {
                             
                             Text("New Local")
-                                .font(.title2)
-                                .fontWeight(.bold)
+                                .font(.system(size: screenWidth / 17, weight: .bold))
                                 .foregroundColor(Color.white)
+                            
                             Text("Artists")
-                                .font(.title2)
-                                .fontWeight(.bold)
+                                .font(.system(size: screenWidth / 17, weight: .bold))
                                 .foregroundColor(Color.white)
                         }
                             
                     }
                     
                     Text("Local Artists")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                        .font(.system(size: screenWidth / 18.5, weight: .semibold))
                         .frame(width: screenWidth / 2.8)
                         .lineLimit(1)
                     
                 }
                 .padding(.leading, screenWidth / 25)
                 
-                VStack() {
+                VStack {
                     
                     ZStack {
                         
                         Image(systemName: "squareshape.fill")
                             .resizable()
                             .foregroundColor(Color.black)
-                            .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                            .frame(width: screenWidth / 2.8, height: screenHeight / 6)
                             .cornerRadius(screenWidth / 15)
                         
                         Image(systemName: "arrow.up.circle.fill")
                             .resizable()
                             .foregroundColor(Color.blue)
-                            .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
+                            .frame(width: screenWidth / 5.5, height: screenHeight / 12)
                         
                     }
                     
                     Text("Top Collectors")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                        .font(.system(size: screenWidth / 18.5, weight: .semibold))
                         .frame(width: screenWidth / 2.8)
                         .lineLimit(1)
                     
                 }
                 .padding(.leading, screenWidth / 37.5)
                 
-                VStack() {
+                VStack {
                     
                     ZStack {
                         
                         Image(systemName: "squareshape.fill")
                             .resizable()
                             .foregroundColor(Color.black)
-                            .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                            .frame(width: screenWidth / 2.8, height: screenHeight / 6)
                             .cornerRadius(screenWidth / 15)
                         
                         Image(systemName: "star.fill")
                             .resizable()
                             .foregroundColor(Color.orange)
-                            .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
+                            .frame(width: screenWidth / 5.5, height: screenHeight / 12)
                         
                     }
                     
                     Text("Popular Artists")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                        .font(.system(size: screenWidth / 18.5, weight: .semibold))
                         .frame(width: screenWidth / 2.8)
                         .lineLimit(1)
                     
@@ -113,6 +109,6 @@ struct HomeViewDiscover: View {
 
 struct HomeViewDiscover_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewDiscover(screenWidth: UIScreen.main.bounds.width)
+        HomeViewDiscover(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
     }
 }

@@ -4,7 +4,6 @@
 //
 //  Created by Patron on 10/26/21.
 //
-
 import SwiftUI
 
 struct VerifyEmailView: View {
@@ -17,18 +16,16 @@ struct VerifyEmailView: View {
     
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         NavigationView {
             
             VStack {
                 
-                VerifyEmailHeader(width: width, presentationMode: _presentationMode)
-                    .padding(.top, width / 75)
+                VerifyEmailHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                 
                 VerifyEmailBody(password: password)
-                    .environmentObject(user)
-                    .environmentObject(viewModel)
                 
                 Spacer()
                 

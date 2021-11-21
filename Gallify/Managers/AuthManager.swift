@@ -15,7 +15,17 @@ final class AuthManager {
         
     let auth = Auth.auth()
     
-    var isSignedIn: Bool {
-        return auth.currentUser != nil
+//    var isSignedIn: Bool {
+//        return auth.currentUser != nil
+//    }
+    
+    var isSignedIn: Bool{
+            if FirebaseAuth.Auth.auth().currentUser != nil{
+                return false
+            }
+            else{
+                return false //then would have to log in.
+            }
     }
+    
 }

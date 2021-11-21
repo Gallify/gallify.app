@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CollectionReelDescription: View {
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
+
     var body: some View {
         VStack {
             HStack {
@@ -22,7 +24,7 @@ struct CollectionReelDescription: View {
                         Text("Owned by:")
                             .font(.system(size: 16))
                         NavigationLink (
-                            destination: CollectionLikedView(screenWidth: screenWidth),
+                            destination: CollectionLikedView(screenWidth: screenWidth, screenHeight: screenHeight),
                             label: {
                                 Text("JackBrown_3")
                                     .font(.system(size: 16))
@@ -38,7 +40,7 @@ struct CollectionReelDescription: View {
                         Text("Created by:")
                             .font(.system(size: 16))
                         NavigationLink (
-                            destination: CollectionLikedView(screenWidth: screenWidth),
+                            destination: CollectionLikedView(screenWidth: screenWidth, screenHeight: screenHeight),
                             label: {
                                 Text("MustyMondedas")
                                     .font(.system(size: 16))
@@ -54,7 +56,7 @@ struct CollectionReelDescription: View {
                         Text("Collection:")
                             .font(.system(size: 16))
                         NavigationLink (
-                            destination: CollectionLikedView(screenWidth: screenWidth),
+                            destination: CollectionLikedView(screenWidth: screenWidth, screenHeight: screenHeight),
                             label: {
                                 Text("MustyCollection")
                                     .font(.system(size: 16))
@@ -126,6 +128,6 @@ struct CollectionReelDescription: View {
 
 struct CollectionReelDescription_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionReelDescription(screenWidth: UIScreen.main.bounds.width)
+        CollectionReelDescription(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }

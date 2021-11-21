@@ -4,12 +4,13 @@
 //
 //  Created by Patron on 10/22/21.
 //
-
 import SwiftUI
 
 struct CustomBackButton: View {
     
-    let width: CGFloat
+    let buttonHeight: CGFloat
+    let buttonWidth: CGFloat
+    let image: Image
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -19,10 +20,10 @@ struct CustomBackButton: View {
             }) {
                 HStack {
                     
-                    Image(systemName: "lessthan")
+                    image
                         .resizable()
                         .foregroundColor(Color.black)
-                        .frame(width: width / 18, height: width / 18)
+                        .frame(width: buttonWidth, height: buttonHeight)
                     
                 }
                 
@@ -34,6 +35,6 @@ struct CustomBackButton: View {
 
 struct CustomBackButton_Previews: PreviewProvider {
     static var previews: some View {
-        CustomBackButton(width: UIScreen.main.bounds.width)
+        CustomBackButton(buttonHeight: UIScreen.main.bounds.height / 39, buttonWidth: UIScreen.main.bounds.width / 18, image: Image(systemName: "lessthan"))
     }
 }

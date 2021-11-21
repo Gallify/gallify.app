@@ -17,6 +17,8 @@ target 'Gallify' do
     # For example, to use Firebase Authentication and Cloud Firestore
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Core'
    
     # Search - Algolia
     pod 'AlgoliaSearchClient', '~> 8.10'

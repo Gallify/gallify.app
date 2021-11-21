@@ -4,11 +4,11 @@
 //
 //  Created by Patron on 9/23/21.
 //
-
 import SwiftUI
 
 struct SelfProfileCollectionTab: View {
     
+    let screenHeight: CGFloat
     let screenWidth: CGFloat
     let image: Image
     let collectionName: String
@@ -20,17 +20,17 @@ struct SelfProfileCollectionTab: View {
             
             image
                 .resizable()
-                .frame(width: screenWidth / 6, height: screenWidth / 6)
+                .frame(width: screenWidth / 6, height: screenHeight / 13)
                 .cornerRadius(screenWidth / 37.5)
             
-            VStack(alignment: .leading){
+            VStack(alignment: .leading) {
                 
                 Text(collectionName)
-                    .font(.title3)
-                    .fontWeight(.bold)
+                    .font(.system(size: screenWidth / 18.5, weight: .bold))
                     .lineLimit(1)
                 
                 Text("by " + artist)
+                    .font(.system(size: screenWidth / 22))
                     .lineLimit(1)
                 
             }
@@ -46,6 +46,6 @@ struct SelfProfileCollectionTab: View {
 
 struct SelfProfileCollectionTab_Previews: PreviewProvider {
     static var previews: some View {
-        SelfProfileCollectionTab(screenWidth: UIScreen.main.bounds.width, image: Image("lakemcdonald"), collectionName: "My TopCollection", artist: "jackbrown")
+        SelfProfileCollectionTab(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width, image: Image("lakemcdonald"), collectionName: "My TopCollection", artist: "jackbrown")
     }
 }

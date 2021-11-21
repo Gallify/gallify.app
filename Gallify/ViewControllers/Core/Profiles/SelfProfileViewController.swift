@@ -4,13 +4,10 @@
 //
 //  Created by Tejvir Mann on 8/18/21.
 //
-
 import UIKit
 import SwiftUI
 
-
 class SelfProfileViewModel: ObservableObject {
-
 
 }
 
@@ -18,26 +15,24 @@ struct SelfProfileView : View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
     
-        var body: some View {
+    var body: some View {
             
-            let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
 
-            VStack {
+        VStack {
                 
-                SelfProfileViewHeader(screenWidth: width)
-                    .padding(.top, width / 25)
+            SelfProfileViewHeader(screenHeight: screenHeight, screenWidth: screenWidth)
                 
-                ScrollView(showsIndicators: false) {
+            ScrollView(showsIndicators: false) {
                     
-                    SelfProfileViewDetails(screenWidth: width)
+                SelfProfileViewDetails(screenHeight: screenHeight, screenWidth: screenWidth)
                     
-                    SelfProfileViewRooms(screenWidth: width)
-                        .padding(.vertical, width / 37.5)
+                SelfProfileViewRooms(screenHeight: screenHeight, screenWidth: screenWidth)
                     
-                    SelfProfileCollectionList(screenWidth: width)
+                SelfProfileCollectionList(screenHeight: screenHeight, screenWidth: screenWidth)
                                     
             }
-            .navigationBarTitle("")
             .navigationBarHidden(true)
                 
         }

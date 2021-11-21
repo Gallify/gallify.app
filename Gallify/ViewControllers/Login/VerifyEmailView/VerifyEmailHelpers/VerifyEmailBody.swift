@@ -4,7 +4,6 @@
 //
 //  Created by Patron on 10/26/21.
 //
-
 import SwiftUI
 
 struct VerifyEmailBody: View {
@@ -17,32 +16,33 @@ struct VerifyEmailBody: View {
     
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         VStack {
             
             HStack {
                 
                 Text("Verification Code")
-                    .font(.body)
-                    .fontWeight(.semibold)
+                    .font(.system(size: screenWidth / 22, weight: .semibold))
                 
                 Spacer()
                 
             }
-            .padding(.leading, width / 12)
+            .padding(.leading, screenWidth / 12)
             
             TextField("", text: $verificationCode)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
-                .padding(.horizontal, width / 15)
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                .padding(.horizontal, screenWidth / 15)
             
             VStack {
                 
                 HStack {
                     
                     Text("Type in the six digit code sent to your")
-                        .padding(.leading, width / 12)
+                        .font(.system(size: screenWidth / 22))
+                        .padding(.leading, screenWidth / 12)
                     
                     Spacer()
                     
@@ -51,14 +51,16 @@ struct VerifyEmailBody: View {
                 HStack {
                     
                     Text("email. Didn't get it? ")
-                        .padding(.leading, width / 12)
+                        .font(.system(size: screenWidth / 22))
+                        .padding(.leading, screenWidth / 12)
                     
                     Button(action: {
                         
                     }) {
                         Text("Resend Code")
+                            .font(.system(size: screenWidth / 22))
                             .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                            .padding(.leading, -width / 50)
+                            .padding(.leading, -screenWidth / 50)
                     }
                     
                     Spacer()
@@ -67,22 +69,19 @@ struct VerifyEmailBody: View {
                 
             }
             
-            NavigationLink(destination: PrivacyPolicyView(password: password)
-                            .environmentObject(user)
-                            .environmentObject(viewModel),
+            NavigationLink(destination: PrivacyPolicyView(password: password),
                            label: {
                 
                 Text("Next")
-                    .font(.title3)
-                    .fontWeight(.bold)
+                    .font(.system(size: screenWidth / 18.5, weight: .bold))
                     .foregroundColor(Color.white)
-                    .padding(width / 30)
-                    .padding(.horizontal, width / 9)
+                    .padding(.horizontal, screenWidth / 8.5)
+                    .padding(.vertical, screenHeight / 65)
                     .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                    .cornerRadius(width / 15)
+                    .cornerRadius(screenWidth / 15)
                 
             })
-            .padding(.vertical, width / 25)
+            .padding(.vertical, screenHeight / 54)
             
         }
         

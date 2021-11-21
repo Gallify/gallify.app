@@ -10,30 +10,32 @@ import Firebase
 
 struct CreateAccountView : View {
     
+    @StateObject var user = User()
     @EnvironmentObject var viewModel : LoginAppViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         NavigationView {
-            
+                    
             VStack {
                 
-                CreateAccountViewHeader(width: width, presentationMode: _presentationMode)
-                    .padding(.top, width / 75)
+                CreateAccountViewHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
 
                 CreateAccountViewBody()
-                    .environmentObject(viewModel)
                 
                 Spacer()
                 
             }
+            .navigationBarHidden(true)
             
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
+        .environmentObject(user)
         
     }
     
@@ -44,4 +46,5 @@ struct CreateAccountViewController: PreviewProvider {
         CreateAccountView().environmentObject(LoginAppViewModel())
     }
 }
+
 

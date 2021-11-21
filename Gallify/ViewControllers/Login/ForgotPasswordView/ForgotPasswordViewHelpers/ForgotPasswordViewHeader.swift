@@ -4,13 +4,12 @@
 //
 //  Created by Patron on 10/16/21.
 //
-
 import SwiftUI
 
 struct ForgotPasswordViewHeader: View {
     
-    var width: CGFloat
-    
+    let screenHeight: CGFloat
+    let screenWidth: CGFloat
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -19,9 +18,9 @@ struct ForgotPasswordViewHeader: View {
             
             HStack {
                 
-                CustomBackButton(width: width, presentationMode: _presentationMode)
-                    .padding(.horizontal, width / 25)
-                    .padding(.vertical, width / 50)
+                CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
+                    .padding(.horizontal, screenWidth / 25)
+                    .padding(.vertical, screenHeight / 100)
                 
                 Spacer()
                 
@@ -30,16 +29,16 @@ struct ForgotPasswordViewHeader: View {
             HStack {
                     
                 Text("Forgot My Password")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
+                    .font(.system(size: screenWidth / 11, weight: .semibold))
                     
                 Spacer()
                     
             }
-            .padding(.leading, width / 12)
-            .padding(.bottom, width / 15)
+            .padding(.leading, screenWidth / 12)
+            .padding(.bottom, screenHeight / 32.5)
             
         }
+        .padding(.top, screenHeight / 160)
             
     }
     
@@ -47,6 +46,6 @@ struct ForgotPasswordViewHeader: View {
 
 struct ForgotPasswordViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        ForgotPasswordViewHeader(width: UIScreen.main.bounds.width)
+        ForgotPasswordViewHeader(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
     }
 }

@@ -4,11 +4,11 @@
 //
 //  Created by Patron on 9/13/21.
 //
-
 import SwiftUI
 
 struct OtherProfileViewHeader: View {
     
+    let screenHeight: CGFloat
     let screenWidth: CGFloat
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -16,14 +16,12 @@ struct OtherProfileViewHeader: View {
         
         HStack {
             
-            CustomBackButton(width: screenWidth, presentationMode: _presentationMode)
-                .padding(.leading, screenWidth / 25)
+            CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
             
             Spacer()
             
             Text("jack_brown2")
-                .font(.title2)
-                .fontWeight(.bold)
+                .font(.system(size: screenWidth / 17, weight: .bold))
                 .foregroundColor(Color.black)
             
             Spacer()
@@ -35,18 +33,19 @@ struct OtherProfileViewHeader: View {
                 Image(systemName: "list.bullet")
                     .resizable()
                     .foregroundColor(Color.black)
-                    .frame(width: screenWidth / 18, height: screenWidth / 18)
-                    .padding(.trailing, screenWidth / 25)
+                    .frame(width: screenWidth / 18, height: screenHeight / 39)
                 
             })
             
         }
+        .padding(.horizontal, screenWidth / 25)
+        .padding(.top, screenHeight / 54)
         
     }
 }
 
 struct OtherProfileViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        OtherProfileViewHeader(screenWidth: UIScreen.main.bounds.width)
+        OtherProfileViewHeader(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
     }
 }

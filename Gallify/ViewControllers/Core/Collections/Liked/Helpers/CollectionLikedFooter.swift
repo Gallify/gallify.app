@@ -10,11 +10,12 @@ import SwiftUI
 struct CollectionLikedFooter: View {
     
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
 
     var body: some View {
         HStack {
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth),
+                destination: CollectionReelView(screenWidth: screenWidth,screenHeight: screenHeight),
                 label: {
                     Image("leonardo")
                         .resizable()
@@ -39,7 +40,7 @@ struct CollectionLikedFooter: View {
                 .multilineTextAlignment(.center)
             
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth),
+                destination: CollectionReelView(screenWidth: screenWidth,screenHeight: screenHeight),
                 label: {
                     Image(systemName: "chevron.down.circle")
                         .font(.system(size: 25))
@@ -59,6 +60,6 @@ struct CollectionLikedFooter: View {
 
 struct CollectionLikedFooter_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionLikedFooter(screenWidth: UIScreen.main.bounds.width)
+        CollectionLikedFooter(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }

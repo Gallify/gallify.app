@@ -4,7 +4,6 @@
 //
 //  Created by Patron on 10/1/21.
 //
-
 import SwiftUI
 
 struct SignInViewBody: View {
@@ -17,76 +16,77 @@ struct SignInViewBody: View {
     
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         VStack {
                 
             if buttonPressed && !viewModel.isSignedIn {
                 
-                ErrorText(text: "Whoops! Email or Password is incorrect.", width: width)
+                ErrorText(errorText: "Whoops! Email or Password is incorrect.", screenHeight: screenHeight, screenWidth: screenWidth)
                     
             }
 
             HStack {
                 
                 Text("Email")
-                    .font(.body)
-                    .fontWeight(.semibold)
+                    .font(.system(size: screenWidth / 22, weight: .semibold))
                 
                 Spacer()
                 
             }
-            .padding(.leading, width / 12)
+            .padding(.leading, screenWidth / 12)
             
             TextField("you@gmail.com", text: $email)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
-                .padding(.horizontal, width / 15)
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                .padding(.horizontal, screenWidth / 15)
             
             HStack{
                 
                 Text("Password")
-                    .font(.body)
-                    .fontWeight(.semibold)
+                    .font(.system(size: screenWidth / 22, weight: .semibold))
                 
                 Spacer()
                 
             }
-            .padding(.leading, width / 12)
+            .padding(.leading, screenWidth / 12)
             
             SecureField("", text: $password)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
-                .padding(.horizontal, width / 15)
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                .padding(.horizontal, screenWidth / 15)
             
             VStack {
                 
                 HStack {
                     
-                    NavigationLink(destination: PrivacyPolicyView(password: "")
-                        .environmentObject(User())
-                        .environmentObject(viewModel),
+                    NavigationLink(destination: PrivacyPolicyView(password: ""),
                                    label: {
                         
                         Text("Privacy Policy")
+                            .font(.system(size: screenWidth / 22))
                             .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                            .padding(.top , width / 50)
-                            .padding([.leading, .bottom], width / 15)
+                            .padding(.top , screenHeight / 100)
+                            .padding(.leading, screenWidth / 15)
+                            .padding(.bottom, screenHeight / 32.5)
                         
                     })
                     .navigationBarHidden(true)
                     
                     Spacer()
                     
-                    NavigationLink(destination: ForgotPasswordView().environmentObject(viewModel),
+                    NavigationLink(destination: ForgotPasswordView(),
                                    label: {
                         
                         Text("Forgot Password")
+                            .font(.system(size: screenWidth / 22))
                             .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                            .padding(.top, width / 50)
-                            .padding([.trailing, .bottom], width / 15)
+                            .padding(.top, screenHeight / 100)
+                            .padding(.trailing, screenWidth / 15)
+                            .padding(.bottom, screenHeight / 32.5)
                         
                     })
                     .navigationBarHidden(true)
@@ -111,13 +111,12 @@ struct SignInViewBody: View {
                         HStack {
                             
                             Text("Sign In")
-                                .font(.title3)
-                                .fontWeight(.bold)
+                                .font(.system(size: screenWidth / 18.5, weight: .bold))
                                 .foregroundColor(Color.white)
-                                .padding(width / 30)
-                                .padding(.horizontal, width / 12)
+                                .padding(.horizontal, screenWidth / 8.5)
+                                .padding(.vertical, screenHeight / 65)
                                 .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                                .cornerRadius(width / 15)
+                                .cornerRadius(screenWidth / 15)
                             
                         }
                         

@@ -4,11 +4,11 @@
 //
 //  Created by Patron on 9/10/21.
 //
-
 import SwiftUI
 
 struct HomeViewMuseums: View {
     
+    let screenHeight: CGFloat
     let screenWidth: CGFloat
     
     var body: some View {
@@ -17,66 +17,60 @@ struct HomeViewMuseums: View {
             
             HStack {
                 
-                VStack() {
+                VStack {
                     
                     ZStack {
                         
                         Image(systemName: "squareshape.fill")
                             .resizable()
                             .foregroundColor(Color.purple)
-                            .frame(width: screenWidth / 1.7, height: screenWidth / 1.7)
+                            .frame(width: screenWidth / 1.7, height: screenHeight / 3.65)
                             .cornerRadius(screenWidth / 15)
                         
                         VStack {
                             
                             Text("Dance")
-                                .font(.title)
-                                .fontWeight(.bold)
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
                                 .foregroundColor(Color.white)
                             Text("Museum")
-                                .font(.title)
-                                .fontWeight(.bold)
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
                                 .foregroundColor(Color.white)
                         }
                             
                     }
                     
                     Text("Dance Museum")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                        .font(.system(size: screenWidth / 18.5, weight: .semibold))
                         .frame(width: screenWidth / 1.7)
                         .lineLimit(1)
                     
                 }
                 .padding(.leading, screenWidth / 25)
                 
-                VStack() {
+                VStack {
                     
                     ZStack {
                         
                         Image(systemName: "squareshape.fill")
                             .resizable()
                             .foregroundColor(Color.green)
-                            .frame(width: screenWidth / 1.7, height: screenWidth / 1.7)
+                            .frame(width: screenWidth / 1.7, height: screenHeight / 3.65)
                             .cornerRadius(screenWidth / 15)
                         
                         VStack {
                             
                             Text("Green")
-                                .font(.title)
-                                .fontWeight(.bold)
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
                                 .foregroundColor(Color.white)
                             Text("Museum")
-                                .font(.title)
-                                .fontWeight(.bold)
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
                                 .foregroundColor(Color.white)
                         }
                             
                     }
                     
                     Text("Green Museum")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                        .font(.system(size: screenWidth / 18.5, weight: .semibold))
                         .frame(width: screenWidth / 1.7)
                         .lineLimit(1)
                     
@@ -93,6 +87,6 @@ struct HomeViewMuseums: View {
 
 struct HomeViewMuseums_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewMuseums(screenWidth: UIScreen.main.bounds.width)
+        HomeViewMuseums(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
     }
 }

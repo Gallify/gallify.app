@@ -4,31 +4,30 @@
 //
 //  Created by Patron on 10/1/21.
 //
-
 import SwiftUI
 
 struct LoginViewLogoAndSubtext: View {
     
-    let width: CGFloat
+    let screenHeight: CGFloat
+    let screenWidth: CGFloat
     
     var body: some View {
         
         VStack {
             
-            Logo()
-                .padding(.top, width / 7.5)
+            Logo(height: screenHeight / 3, width: screenWidth / 1.45)
+                .padding(.top, screenHeight / 16.25)
             
             Text("Gallify")
-                .font(.system(size: 40))
-                .fontWeight(.bold)
+                .font(.system(size: screenWidth / 9, weight: .bold))
                 .foregroundColor(Color.black)
-                .padding(.top, -width / 25)
+                .padding(.top, -screenHeight / 54)
             
             HStack{
                 Text("Changing the Art World Forever.")
-                    .font(.body)
-                    .fontWeight(.regular)
+                    .font(.system(size: screenWidth / 21))
                     .foregroundColor(Color.gray)
+                
             }
             
         }
@@ -39,6 +38,6 @@ struct LoginViewLogoAndSubtext: View {
 
 struct MainLogoAndSubtext_Previews: PreviewProvider {
     static var previews: some View {
-        LoginViewLogoAndSubtext(width: UIScreen.main.bounds.width)
+        LoginViewLogoAndSubtext(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
     }
 }

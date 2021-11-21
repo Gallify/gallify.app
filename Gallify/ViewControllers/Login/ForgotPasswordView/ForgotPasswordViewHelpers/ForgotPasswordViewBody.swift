@@ -19,30 +19,32 @@ struct ForgotPasswordViewBody: View {
     
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         VStack {
             
             Text("We will send an email to you on your registered email with a link to reset your password and other instructions.")
+                .font(.system(size: screenWidth / 21))
                 .multilineTextAlignment(.center)
-                .padding([.leading, .bottom, .trailing], width / 25)
+                .padding(.horizontal, screenWidth / 25)
+                .padding(.bottom, screenHeight / 54)
             
             HStack {
-                                
+                
                 Text("Email")
-                    .font(.body)
-                    .fontWeight(.semibold)
-                                
+                    .font(.system(size: screenWidth / 22, weight: .semibold))
+                
                 Spacer()
-                                
+                
             }
-            .padding(.leading, width / 12)
+            .padding(.leading, screenWidth / 12)
                             
             TextField("you@gmail.com", text: $email)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
-                .padding(.horizontal, width / 15)
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                .padding(.horizontal, screenWidth / 15)
                            
             Button(action: {
                 Auth.auth().sendPasswordReset(withEmail: email) { error in
@@ -54,17 +56,17 @@ struct ForgotPasswordViewBody: View {
                 }
             }) {
             
-            Text("Send")
-                .font(.title3)
-                .fontWeight(.bold)
-                .foregroundColor(Color.white)
-                .padding(width / 30)
-                .padding(.horizontal, width / 9)
-                .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                .cornerRadius(width / 15)
+                Text("Send")
+                    .font(.system(size: screenWidth / 18.5, weight: .bold))
+                    .foregroundColor(Color.white)
+                    .padding(.horizontal, screenWidth / 8.5)
+                    .padding(.vertical, screenHeight / 65)
+                    .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                    .cornerRadius(screenWidth / 15)
                 
             }
-            .padding(width / 25)
+            .padding(.horizontal, screenWidth / 25)
+            .padding(.vertical, screenHeight / 54)
                             
                             
             }

@@ -4,13 +4,10 @@
 //
 //  Created by Tejvir Mann on 8/18/21.
 //
-
 import UIKit
 import SwiftUI
 
-
 class OtherProfileViewModel: ObservableObject {
-
 
 }
 
@@ -19,26 +16,24 @@ struct OtherProfileView : View {
     @EnvironmentObject var viewModel : TabBarViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-        var body: some View {
+    var body: some View {
             
-            let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
 
-            VStack {
+        VStack {
                 
-                OtherProfileViewHeader(screenWidth: width, presentationMode: _presentationMode)
-                    .padding(.top, width / 25)
+            OtherProfileViewHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                 
-                ScrollView(showsIndicators: false) {
+            ScrollView(showsIndicators: false) {
                     
-                    OtherProfileViewDetails(screenWidth: width)
+                OtherProfileViewDetails(screenHeight: screenHeight, screenWidth: screenWidth)
                     
-                    OtherProfileViewRooms(screenWidth: width)
-                        .padding(.vertical, width / 37.5)
+                OtherProfileViewRooms(screenHeight: screenHeight, screenWidth: screenWidth)
                     
-                    OtherProfileCollectionList(screenWidth: width)
+                OtherProfileCollectionList(screenHeight: screenHeight, screenWidth: screenWidth)
                                     
             }
-            .navigationBarTitle("")
             .navigationBarHidden(true)
                 
         }

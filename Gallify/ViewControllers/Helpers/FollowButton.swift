@@ -4,7 +4,6 @@
 //
 //  Created by Patron on 9/14/21.
 //
-
 import SwiftUI
 
 struct FollowButton: View {
@@ -26,8 +25,7 @@ struct FollowButton: View {
                     .overlay(isFollowing ? RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.gray, lineWidth: buttonWidth / 50) : RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.pink, lineWidth: buttonWidth / 50))
                 
                 Text(isFollowing ? "Following" : "Follow")
-                    .font(.footnote)
-                    .fontWeight(.bold)
+                    .font(.system(size: buttonWidth / 10, weight: .bold))
                     .foregroundColor(isFollowing ? .black : .white)
                 
             }

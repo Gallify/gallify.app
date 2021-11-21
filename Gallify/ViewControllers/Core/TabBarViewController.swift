@@ -4,7 +4,6 @@
 //
 //  Created by Tejvir Mann on 8/18/21.
 //
-
 import UIKit
 import SwiftUI
 import Firebase
@@ -18,6 +17,7 @@ class TabBarViewModel: UITabBarController, ObservableObject {
 
 struct TabBarView: View {
     
+    @StateObject var viewModel = TabBarViewModel()
     @State var selectedTabIndex = 0
     
     private let tabBarImageNames = ["house.fill", "magnifyingglass", "person.fill"]
@@ -33,14 +33,16 @@ struct TabBarView: View {
             VStack {
                 
                 switch selectedTabIndex {
+                    
                 case 0:
-                    HomeView().environmentObject(TabBarViewModel())
+                    HomeView()
                 case 1:
-                    SearchView()
+                    DiscoverMainView()
                 case 2:
-                    SelfProfileView().environmentObject(TabBarViewModel())
+                    SelfProfileView()
                 default:
-                    HomeView().environmentObject(TabBarViewModel())
+                    HomeView()
+                    
                 }
                 
                 Spacer()
@@ -61,7 +63,7 @@ struct TabBarView: View {
                                 Spacer()
                             })
                             
-                        }.font(.system(size: 25, weight: .semibold))
+                        }.font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
                         
                     }
                     
@@ -72,6 +74,7 @@ struct TabBarView: View {
         }
         .navigationBarTitle("")
         .navigationBarHidden(true)
+        .environmentObject(viewModel)
         
     }
     
@@ -79,7 +82,7 @@ struct TabBarView: View {
 
 struct TabBarPreview: PreviewProvider {
     static var previews: some View {
-        TabBarView().environmentObject(TabBarViewModel())
+        TabBarView()
     }
 }
 

@@ -9,16 +9,18 @@ import SwiftUI
 
 struct CollectionGenericView: View {
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
+
     var body: some View {
         NavigationView {
             VStack{
                 CollectionGenericHeader(screenWidth: screenWidth)
                     .padding()
                 ScrollView (showsIndicators: false) {
-                    CollectionGenericRow(screenWidth: screenWidth)
+                    CollectionGenericRow(screenWidth: screenWidth, screenHeight: screenHeight)
                 }
                 Spacer()
-                CollectionGenericFooter(screenWidth: screenWidth)
+                CollectionGenericFooter(screenWidth: screenWidth, screenHeight: screenHeight)
                 
             }
         }
@@ -29,7 +31,7 @@ struct CollectionGenericView: View {
 
 struct CollectionGenericView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionGenericView(screenWidth: UIScreen.main.bounds.width)
+        CollectionGenericView(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }
 

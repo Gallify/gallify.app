@@ -14,14 +14,14 @@ struct ForgotPasswordView: View {
     
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         NavigationView {
             
             VStack {
                 
-                ForgotPasswordViewHeader(width: width, presentationMode: _presentationMode)
-                    .padding(.top, width / 75)
+                ForgotPasswordViewHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                 
                 ForgotPasswordViewBody(presentationMode: _presentationMode)
                     .environmentObject(viewModel)

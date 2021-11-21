@@ -14,18 +14,16 @@ struct SetPasswordView: View {
     
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         NavigationView {
             
             VStack {
                 
-                SetPasswordViewHeader(width: width, presentationMode: _presentationMode)
-                    .padding(.top, width / 75)
+                SetPasswordViewHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                 
                 SetPasswordViewBody()
-                    .environmentObject(user)
-                    .environmentObject(viewModel)
                 
                 Spacer()
                 

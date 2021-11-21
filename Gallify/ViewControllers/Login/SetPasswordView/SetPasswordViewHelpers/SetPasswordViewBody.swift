@@ -4,7 +4,6 @@
 //
 //  Created by Patron on 10/8/21.
 //
-
 import SwiftUI
 
 struct SetPasswordViewBody: View {
@@ -19,7 +18,8 @@ struct SetPasswordViewBody: View {
     
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         VStack {
             
@@ -27,25 +27,25 @@ struct SetPasswordViewBody: View {
                 
                 if password.isEmpty {
                     
-                    ErrorText(text: "Password cannot be empty.", width: width)
+                    ErrorText(errorText: "Password cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
                     
                 }
                 
                 else if rePassword.isEmpty {
                     
-                    ErrorText(text: "Re enter your password in the given field.", width: width)
+                    ErrorText(errorText: "Re enter your password in the given field.", screenHeight: screenHeight, screenWidth: screenWidth)
                     
                 }
                 
                 else if password.count < 6 {
                     
-                    ErrorText(text: "Password should be atleast 6 characters long", width: width)
+                    ErrorText(errorText: "Password should be atleast 6 characters long", screenHeight: screenHeight, screenWidth: screenWidth)
                     
                 }
                 
                 else if password != rePassword {
                     
-                    ErrorText(text: "The password don't match, try again.", width: width)
+                    ErrorText(errorText: "The password don't match, try again.", screenHeight: screenHeight, screenWidth: screenWidth)
                     
                 }
                 
@@ -54,36 +54,34 @@ struct SetPasswordViewBody: View {
             HStack {
                 
                 Text("Password")
-                    .font(.body)
-                    .fontWeight(.semibold)
+                    .font(.system(size: screenWidth / 22, weight: .semibold))
                 
                 Spacer()
                 
             }
-            .padding(.leading, width / 12)
+            .padding(.leading, screenWidth / 12)
             
             SecureField("", text: $password)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
-                .padding(.horizontal, width / 15)
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                .padding(.horizontal, screenWidth / 15)
             
             HStack {
                 
                 Text("Re-enter Password")
-                    .font(.body)
-                    .fontWeight(.semibold)
+                    .font(.system(size: screenWidth / 22, weight: .semibold))
                 
                 Spacer()
                 
             }
-            .padding(.leading, width / 12)
+            .padding(.leading, screenWidth / 12)
             
             SecureField("", text: $rePassword)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
-                .padding(.horizontal, width / 15)
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                .padding(.horizontal, screenWidth / 15)
             
             Button(action: {
                 
@@ -106,22 +104,19 @@ struct SetPasswordViewBody: View {
             }, label: {
                 
                 Text("Next")
-                    .font(.title3)
-                    .fontWeight(.bold)
+                    .font(.system(size: screenWidth / 18.5, weight: .bold))
                     .foregroundColor(Color.white)
-                    .padding(width / 30)
-                    .padding(.horizontal, width / 9)
+                    .padding(.horizontal, screenWidth / 8.5)
+                    .padding(.vertical, screenHeight / 65)
                     .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                    .cornerRadius(width / 15)
+                    .cornerRadius(screenWidth / 15)
                 
             })
-            .padding(.vertical, width / 25)
+            .padding(.vertical, screenHeight / 54)
             
-            NavigationLink(destination: VerifyEmailView(password: password)
-                            .environmentObject(user)
-                            .environmentObject(viewModel),
+            NavigationLink(destination: VerifyEmailView(password: password),
                         tag: true, selection: $goForward) { EmptyView() }
-            .navigationBarHidden(true)
+                .navigationBarHidden(true)
             
         }
         

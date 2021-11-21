@@ -4,20 +4,20 @@
 //
 //  Created by Patron on 9/13/21.
 //
-
 import SwiftUI
 
 struct SelfProfileViewDetails: View {
     
+    let screenHeight: CGFloat
     let screenWidth: CGFloat
     
     var body: some View {
                 
-        VStack() {
+        VStack {
                 
-            HStack() {
+            HStack {
                     
-                CircleImage(image: Image("chincoteague"), length: screenWidth / 4, breadth: screenWidth / 4, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
+                CircleImage(image: Image("chincoteague"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                     
                 VStack {
                         
@@ -26,10 +26,10 @@ struct SelfProfileViewDetails: View {
                         VStack {
                                 
                             Text("420K")
-                                .font(.title2)
+                                .font(.system(size: screenWidth / 17))
                                 
                             Text("Followers")
-                                .font(.callout)
+                                .font(.system(size: screenWidth / 23.5))
                                 .foregroundColor(Color.gray)
                                 
                         }
@@ -37,10 +37,10 @@ struct SelfProfileViewDetails: View {
                         VStack {
                                 
                             Text("956")
-                                .font(.title2)
+                                .font(.system(size: screenWidth / 17))
                                 
                             Text("Following")
-                                .font(.callout)
+                                .font(.system(size: screenWidth / 23.5))
                                 .foregroundColor(Color.gray)
                                 
                         }
@@ -48,10 +48,10 @@ struct SelfProfileViewDetails: View {
                         VStack {
                                 
                             Text("30B")
-                                .font(.title2)
+                                .font(.system(size: screenWidth / 17))
                                 
                             Text("Likes")
-                                .font(.callout)
+                                .font(.system(size: screenWidth / 23.5))
                                 .foregroundColor(Color.gray)
                                 
                         }
@@ -63,10 +63,10 @@ struct SelfProfileViewDetails: View {
                         VStack {
                                                             
                             Text("7")
-                                .font(.title2)
+                                .font(.system(size: screenWidth / 17))
                                 
                             Text("Rarity")
-                                .font(.callout)
+                                .font(.system(size: screenWidth / 23.5))
                                 .foregroundColor(Color.gray)
                                 
                         }
@@ -74,27 +74,27 @@ struct SelfProfileViewDetails: View {
                         VStack {
                                 
                             Text("1.3B")
-                                .font(.title2)
-                        
+                                .font(.system(size: screenWidth / 17))
+                                
                             Text("Views")
-                                .font(.callout)
+                                .font(.system(size: screenWidth / 23.5))
                                 .foregroundColor(Color.gray)
                                 
                         }
 
                     }
-                    .padding(.top, screenWidth / 37.5)
+                    .padding(.top, screenHeight / 80)
                         
                 }
                 .frame(width: screenWidth / 1.75)
                     
             }
-            .padding(.top, screenWidth / 25)
+            .padding(.top, screenHeight / 54)
                 
             HStack {
                     
                 Text("Jack F. Brown")
-                    .fontWeight(.medium)
+                    .font(.system(size: screenWidth / 22, weight: .medium))
                     
                 Spacer()
                     
@@ -104,13 +104,12 @@ struct SelfProfileViewDetails: View {
             HStack {
                     
                 Text("Hi, I am Jack Brown and I commission art.")
-                    .font(.callout)
-                    .fontWeight(.light)
+                    .font(.system(size: screenWidth / 23.5, weight: .light))
                 
                 Spacer()
                 
             }
-            .padding(.leading, screenWidth / 15)
+            .padding(.horizontal, screenWidth / 15)
                 
         }
                 
@@ -120,6 +119,6 @@ struct SelfProfileViewDetails: View {
 
 struct SelfProfileViewDetails_Previews: PreviewProvider {
     static var previews: some View {
-        SelfProfileViewDetails(screenWidth: UIScreen.main.bounds.width)
+        SelfProfileViewDetails(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
     }
 }

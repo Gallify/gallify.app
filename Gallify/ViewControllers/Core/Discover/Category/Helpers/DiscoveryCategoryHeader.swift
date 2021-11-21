@@ -10,12 +10,19 @@ import SwiftUI
 struct DiscoveryCategoryHeader: View {
     
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     
     var body: some View {
             
         VStack {
             
             HStack {
+                
+                CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
+                                    .padding(.horizontal, screenWidth / 25)
+                                    .padding(.vertical, screenHeight / 100)
                 
                 NavigationLink(
                     destination: TabBarView(),
@@ -58,6 +65,6 @@ struct DiscoveryCategoryHeader: View {
 
 struct DiscoveryCategoryHeader_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoveryCategoryHeader(screenWidth: UIScreen.main.bounds.width)
+        DiscoveryCategoryHeader(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }

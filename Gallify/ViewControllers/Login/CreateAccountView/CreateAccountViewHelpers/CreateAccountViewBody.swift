@@ -1,15 +1,17 @@
+
+
 //
 //  CreateAccountViewBody.swift
 //  Gallify
 //
 //  Created by Patron on 10/5/21.
 //
-
 import SwiftUI
 
 struct CreateAccountViewBody: View {
     
-    @StateObject var user = User()
+    @EnvironmentObject var user: User
+    @EnvironmentObject var viewModel: LoginAppViewModel
     @State var buttonPressed = false
     @State var goForward: Bool? = false
     
@@ -57,197 +59,187 @@ struct CreateAccountViewBody: View {
         
     }
     
-    @EnvironmentObject var viewModel: LoginAppViewModel
-    
     var body: some View {
         
-        let width = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         VStack {
-            
+                
             if buttonPressed {
-                    
+                        
                 if user.firstName.isEmpty {
-                    
-                    ErrorText(text: "First Name cannot be empty.", width: width)
-                    
+                        
+                    ErrorText(errorText: "First Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+                        
                 }
-                    
+                        
                 else if user.lastName.isEmpty {
-                        
-                    ErrorText(text: "Last Name cannot be empty.", width: width)
-                        
-                }
-                    
-                else if user.email.isEmpty {
-                        
-                    ErrorText(text: "Email address cannot be empty.", width: width)
-                        
-                }
-                
-                else if user.phoneNumber.isEmpty {
-                    
-                    ErrorText(text: "Phone number cannot be empty.", width: width)
-                    
-                }
-                
-                else if user.location.isEmpty {
-                    
-                    ErrorText(text: "Location cannot be empty.", width: width)
-                    
-                }
-                
-                else if hasDigit(user.firstName) {
-                    
-                    ErrorText(text: "First Name cannot contain numbers.", width: width)
-                    
-                }
-                
-                else if hasDigit(user.lastName) {
-                    
-                    ErrorText(text: "Last Name cannot contain numbers.", width: width)
-                    
-                }
                             
-                else if !isValidEmail(email: user.email) {
-                 
-                    ErrorText(text: "Enter a valid email address.", width: width)
-                 
+                    ErrorText(errorText: "Last Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+                            
                 }
-                
+                        
+                else if user.email.isEmpty {
+                            
+                    ErrorText(errorText: "Email address cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+                            
+                }
+                    
+                else if user.phoneNumber.isEmpty {
+                        
+                    ErrorText(errorText: "Phone number cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+                        
+                }
+                    
+                else if user.location.isEmpty {
+                        
+                    ErrorText(errorText: "Location cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+                        
+                }
+                    
+                else if hasDigit(user.firstName) {
+                        
+                    ErrorText(errorText: "First Name cannot contain numbers.", screenHeight: screenHeight, screenWidth: screenWidth)
+                        
+                }
+                    
+                else if hasDigit(user.lastName) {
+                        
+                    ErrorText(errorText: "Last Name cannot contain numbers.", screenHeight: screenHeight, screenWidth: screenWidth)
+                        
+                }
+                                
+                else if !isValidEmail(email: user.email) {
+                     
+                    ErrorText(errorText: "Enter a valid email address.", screenHeight: screenHeight, screenWidth: screenWidth)
+                     
+                }
+                    
                 else if !hasAllDigits(user.phoneNumber) {
-                    
-                    ErrorText(text: "Enter a valid phone number.", width: width)
-                    
+                        
+                    ErrorText(errorText: "Enter a valid phone number.", screenHeight: screenHeight, screenWidth: screenWidth)
+                        
                 }
 
             }
-            
+                
             HStack {
-                
+                    
                 Text("First Name")
-                    .font(.body)
-                    .fontWeight(.semibold)
-                
+                    .font(.system(size: screenWidth / 22, weight: .semibold))
+                    
                 Spacer()
-                
+                    
             }
-            .padding(.leading, width / 12)
- 
+            .padding(.leading, screenWidth / 12)
+     
             TextField("", text: $user.firstName)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
-                .padding(.horizontal, width / 15)
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                .padding(.horizontal, screenWidth / 15)
 
             HStack {
-                
+                    
                 Text("Last Name")
-                    .font(.body)
-                    .fontWeight(.semibold)
-                
+                    .font(.system(size: screenWidth / 22, weight: .semibold))
+                    
                 Spacer()
-                
+                    
             }
-            .padding(.leading, width / 12)
-            
+            .padding(.leading, screenWidth / 12)
+                
             TextField("", text: $user.lastName)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
-                .padding(.horizontal, width / 15)
-    
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                .padding(.horizontal, screenWidth / 15)
+        
             HStack {
-                
+                    
                 Text("Email")
-                    .font(.body)
-                    .fontWeight(.semibold)
-                
+                    .font(.system(size: screenWidth / 22, weight: .semibold))
+                    
                 Spacer()
-                
+                    
             }
-            .padding(.leading, width / 12)
-            
+            .padding(.leading, screenWidth / 12)
+                
             TextField("you@gmail.com", text: $user.email)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
-                .padding(.horizontal, width / 15)
-            
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                .padding(.horizontal, screenWidth / 15)
+                
             HStack {
-                
+                    
                 Text("Phone Number")
-                    .font(.body)
-                    .fontWeight(.semibold)
-                
+                    .font(.system(size: screenWidth / 22, weight: .semibold))
+                    
                 Spacer()
-                
+                    
             }
-            .padding(.leading, width / 12)
- 
+            .padding(.leading, screenWidth / 12)
+     
             TextField("", text: $user.phoneNumber)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
-                .padding(.horizontal, width / 15)
-            
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                .padding(.horizontal, screenWidth / 15)
+                
             VStack {
-                
+                    
                 HStack {
-                    
+                        
                     Text("Location")
-                        .font(.body)
-                        .fontWeight(.semibold)
-                    
+                        .font(.system(size: screenWidth / 22, weight: .semibold))
+                        
                     Spacer()
-                    
+                        
                 }
-                .padding(.leading, width / 12)
-                
-                
+                .padding(.leading, screenWidth / 12)
+                    
+                    
                 TextField("", text: $user.location)
                     .disableAutocorrection(true)
-                    .textFieldStyle(OvalTextFieldStyle(screenWidth: width))
-                    .padding(.horizontal, width / 15)
-                
-                Button(action: {
+                    .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                    .padding(.horizontal, screenWidth / 15)
                     
+                Button(action: {
+                        
                     if !(user.firstName.isEmpty || user.lastName.isEmpty || user.email.isEmpty || user.phoneNumber.isEmpty || user.location.isEmpty) {
                         if !(hasDigit(user.firstName) || hasDigit(user.lastName) || !isValidEmail(email: user.email) || !hasAllDigits(user.phoneNumber)) {
                             goForward = true
                         }
                     }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
-                    {
+                        
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         buttonPressed = true
                     }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5)
-                    {
+                        
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                         buttonPressed = false
                     }
-                    
+                        
                 }, label: {
-                    
+                        
                     Text("Next")
-                        .font(.title3)
-                        .fontWeight(.bold)
+                        .font(.system(size: screenWidth / 18.5, weight: .bold))
                         .foregroundColor(Color.white)
-                        .padding(width / 30)
-                        .padding(.horizontal, width / 9)
+                        .padding(.horizontal, screenWidth / 8.5)
+                        .padding(.vertical, screenHeight / 65)
                         .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                        .cornerRadius(width / 15)
+                        .cornerRadius(screenWidth / 15)
                     
                 })
-                .padding(.vertical, width / 25)
-                
-                NavigationLink(destination: SetPasswordView()
-                                .environmentObject(user)
-                                .environmentObject(viewModel),
-                            tag: true, selection: $goForward) { EmptyView() }
-                .navigationBarHidden(true)
-                
+                .padding(.vertical, screenHeight / 54)
+                    
+                NavigationLink(destination: SetPasswordView(),
+                    tag: true, selection: $goForward) { EmptyView() }
+                    .navigationBarHidden(true)
+                    
             }
-            
+                
         }
+        .environmentObject(user)
         
     }
     

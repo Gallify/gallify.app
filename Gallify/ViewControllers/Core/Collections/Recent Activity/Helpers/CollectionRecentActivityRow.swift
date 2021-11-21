@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CollectionRecentActivityRow: View {
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
     
     @State var showActionSheet: Bool = false
     var actionSheet: ActionSheet {
@@ -22,7 +23,7 @@ struct CollectionRecentActivityRow: View {
         HStack {
             
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth),
+                destination: CollectionReelView(screenWidth: screenWidth,screenHeight: screenHeight),
                 label: {
                     Image("leonardo")
                         .resizable()
@@ -90,7 +91,7 @@ struct CollectionRecentActivityRow: View {
         HStack {
             
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth),
+                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
                 label: {
                     Image("cat")
                         .resizable()
@@ -158,7 +159,7 @@ struct CollectionRecentActivityRow: View {
         HStack {
             
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth),
+                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
                 label: {
                     Image("starry-night")
                         .resizable()
@@ -227,7 +228,7 @@ struct CollectionRecentActivityRow: View {
 
 struct CollectionRecentActivityRow_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionRecentActivityRow(screenWidth: UIScreen.main.bounds.width)
+        CollectionRecentActivityRow(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }
 

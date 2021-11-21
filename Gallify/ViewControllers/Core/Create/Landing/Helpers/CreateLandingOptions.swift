@@ -10,6 +10,8 @@ import SwiftUI
 struct CreateLandingOptions: View {
     
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
+
     
     @State private var uploadModelShowingSheet = false
     @State private var uploadVideoShowingSheet = false
@@ -48,11 +50,11 @@ struct CreateLandingOptions: View {
                     EmptyView()
                 }
                 
-                NavigationLink(destination: CollectionRecentActivityView(screenWidth: screenWidth), isActive: $uploadVideoShowingHelp) {
+                NavigationLink(destination: CollectionRecentActivityView(screenWidth: screenWidth, screenHeight: screenHeight), isActive: $uploadVideoShowingHelp) {
                     EmptyView()
                 }
                 
-                NavigationLink(destination: CollectionLikedView(screenWidth: screenWidth), isActive: $uploadImageShowingHelp) {
+                NavigationLink(destination: CollectionLikedView(screenWidth: screenWidth, screenHeight: screenHeight), isActive: $uploadImageShowingHelp) {
                     EmptyView()
                 }
                 
@@ -102,7 +104,7 @@ struct CreateLandingOptions: View {
                     EmptyView()
                 }
                 
-                NavigationLink(destination: CollectionRecentActivityView(screenWidth: screenWidth), isActive: $createModelImageShowingHelp) {
+                NavigationLink(destination: CollectionRecentActivityView(screenWidth: screenWidth, screenHeight: screenHeight), isActive: $createModelImageShowingHelp) {
                     EmptyView()
                 }
                 
@@ -131,6 +133,6 @@ struct CreateLandingOptions: View {
 
 struct CreateLandingOptions_Previews: PreviewProvider {
     static var previews: some View {
-        CreateLandingOptions(screenWidth: UIScreen.main.bounds.width)
+        CreateLandingOptions(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }

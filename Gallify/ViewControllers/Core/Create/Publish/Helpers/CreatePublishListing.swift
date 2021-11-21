@@ -18,6 +18,7 @@ struct CreatePublishListing: View {
 
     
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
 
     var body: some View {
         ScrollView {
@@ -38,7 +39,7 @@ struct CreatePublishListing: View {
             TextField("Gallify", text: $listingName)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: screenWidth))
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
                 .padding(.horizontal, screenWidth / 15)
             
         }
@@ -52,10 +53,10 @@ struct CreatePublishListing: View {
             }
             .padding(.horizontal, screenWidth / 15)
 
-            TextField("Metaverse, AR, VR, NFT, Etherium", text: $listingTags)
+            TextField("Metaverse, AR, VR, NFT, Ethereum", text: $listingTags)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: screenWidth))
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
                 .padding(.horizontal, screenWidth / 15)
         }
             
@@ -71,7 +72,7 @@ struct CreatePublishListing: View {
             TextField("", value: $listingQuantity, formatter: NumberFormatter())
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: screenWidth))
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
                 .padding(.horizontal, screenWidth / 15)
         }
         
@@ -87,7 +88,7 @@ struct CreatePublishListing: View {
             TextField("", value: $listingRoyalities, formatter: NumberFormatter())
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: screenWidth))
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
                 .padding(.horizontal, screenWidth / 15)
         }
         
@@ -103,7 +104,7 @@ struct CreatePublishListing: View {
             TextField("", value: $listingQuantity, formatter: NumberFormatter())
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: screenWidth))
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
                 .padding(.horizontal, screenWidth / 15)
         }
         
@@ -119,8 +120,7 @@ struct CreatePublishListing: View {
             TextField("Changing the Art World, Forever.", text: $listingDescription)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenWidth: screenWidth))
-                .padding(.horizontal, screenWidth / 15)
+                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
         }
             
             NavigationLink(
@@ -152,6 +152,6 @@ struct CreatePublishListing: View {
 
 struct CreatePublishListing_Previews: PreviewProvider {
     static var previews: some View {
-        CreatePublishListing(screenWidth: UIScreen.main.bounds.width)
+        CreatePublishListing(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }

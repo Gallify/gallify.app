@@ -9,16 +9,18 @@ import SwiftUI
 
 struct CollectionRecentActivityView: View {
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
+
     var body: some View {
         NavigationView {
             VStack{
                 CollectionRecentActivityHeader(screenWidth: screenWidth)
                     .padding()
                 ScrollView (showsIndicators: false) {
-                    CollectionRecentActivityRow(screenWidth: screenWidth)
+                    CollectionRecentActivityRow(screenWidth: screenWidth, screenHeight: screenHeight)
                 }
                 Spacer()
-                CollectionRecentActivityFooter(screenWidth: screenWidth)
+                CollectionRecentActivityFooter(screenWidth: screenWidth, screenHeight: screenHeight)
                 
             }
         }
@@ -29,7 +31,7 @@ struct CollectionRecentActivityView: View {
 
 struct CollectionRecentActivityView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionRecentActivityView(screenWidth: UIScreen.main.bounds.width)
+        CollectionRecentActivityView(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }
 
