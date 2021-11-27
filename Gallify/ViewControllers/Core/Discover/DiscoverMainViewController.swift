@@ -4,7 +4,7 @@
 //
 //  Created by Patron on 11/12/21.
 //
-import SwiftUI
+/*import SwiftUI
 
 struct DiscoverMainView: View {
     
@@ -104,3 +104,4 @@ struct DiscoverMain_Previews: PreviewProvider {
             .environmentObject(TabBarViewModel())
     }
 }
+*/

@@ -99,20 +99,20 @@
 		31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1531A270CFB8100238459 /* SetPasswordViewHeader.swift */; };
 		49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */; };
 		8F74D4B0DD6ECDB488245090 /* Pods_Gallify_GallifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */; };
+		9262AF81275293C8003D0D1C /* MiniPlayerBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262AF80275293C8003D0D1C /* MiniPlayerBlur.swift */; };
+		9262AF8327529514003D0D1C /* MiniPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262AF8227529514003D0D1C /* MiniPlayerViewController.swift */; };
+		9262AF85275296AF003D0D1C /* MiniPlayerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262AF84275296AF003D0D1C /* MiniPlayerMain.swift */; };
 		92794CFB273811760012B184 /* CollectionReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CE4273811760012B184 /* CollectionReelView.swift */; };
 		92794CFC273811760012B184 /* CollectionReelListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CE6273811760012B184 /* CollectionReelListing.swift */; };
 		92794CFD273811760012B184 /* CollectionReelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CE7273811760012B184 /* CollectionReelHeader.swift */; };
 		92794CFE273811760012B184 /* CollectionReelDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CE8273811760012B184 /* CollectionReelDescription.swift */; };
 		92794CFF273811760012B184 /* CollectionRecentActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CEA273811760012B184 /* CollectionRecentActivityView.swift */; };
-		92794D00273811760012B184 /* CollectionRecentActivityFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CEC273811760012B184 /* CollectionRecentActivityFooter.swift */; };
 		92794D01273811760012B184 /* CollectionRecentActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CED273811760012B184 /* CollectionRecentActivityRow.swift */; };
 		92794D02273811760012B184 /* CollectionRecentActivityHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CEE273811760012B184 /* CollectionRecentActivityHeader.swift */; };
 		92794D03273811760012B184 /* CollectionLikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CF0273811760012B184 /* CollectionLikedView.swift */; };
 		92794D04273811760012B184 /* CollectionLikedHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CF2273811760012B184 /* CollectionLikedHeader.swift */; };
-		92794D05273811760012B184 /* CollectionLikedFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CF3273811760012B184 /* CollectionLikedFooter.swift */; };
 		92794D06273811760012B184 /* CollectionLikedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CF4273811760012B184 /* CollectionLikedRow.swift */; };
 		92794D07273811760012B184 /* CollectionGenericView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CF6273811760012B184 /* CollectionGenericView.swift */; };
-		92794D08273811760012B184 /* CollectionGenericFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CF8273811760012B184 /* CollectionGenericFooter.swift */; };
 		92794D09273811760012B184 /* CollectionGenericHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CF9273811760012B184 /* CollectionGenericHeader.swift */; };
 		92794D0A273811760012B184 /* CollectionGenericRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CFA273811760012B184 /* CollectionGenericRow.swift */; };
 		92794D0F273814B80012B184 /* DiscoveryCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794D0E273814B80012B184 /* DiscoveryCategoryView.swift */; };
@@ -242,20 +242,20 @@
 		41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GallifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.debug.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9262AF80275293C8003D0D1C /* MiniPlayerBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerBlur.swift; sourceTree = "<group>"; };
+		9262AF8227529514003D0D1C /* MiniPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewController.swift; sourceTree = "<group>"; };
+		9262AF84275296AF003D0D1C /* MiniPlayerMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerMain.swift; sourceTree = "<group>"; };
 		92794CE4273811760012B184 /* CollectionReelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReelView.swift; sourceTree = "<group>"; };
 		92794CE6273811760012B184 /* CollectionReelListing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReelListing.swift; sourceTree = "<group>"; };
 		92794CE7273811760012B184 /* CollectionReelHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReelHeader.swift; sourceTree = "<group>"; };
 		92794CE8273811760012B184 /* CollectionReelDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReelDescription.swift; sourceTree = "<group>"; };
 		92794CEA273811760012B184 /* CollectionRecentActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionRecentActivityView.swift; sourceTree = "<group>"; };
-		92794CEC273811760012B184 /* CollectionRecentActivityFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionRecentActivityFooter.swift; sourceTree = "<group>"; };
 		92794CED273811760012B184 /* CollectionRecentActivityRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionRecentActivityRow.swift; sourceTree = "<group>"; };
 		92794CEE273811760012B184 /* CollectionRecentActivityHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionRecentActivityHeader.swift; sourceTree = "<group>"; };
 		92794CF0273811760012B184 /* CollectionLikedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionLikedView.swift; sourceTree = "<group>"; };
 		92794CF2273811760012B184 /* CollectionLikedHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionLikedHeader.swift; sourceTree = "<group>"; };
-		92794CF3273811760012B184 /* CollectionLikedFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionLikedFooter.swift; sourceTree = "<group>"; };
 		92794CF4273811760012B184 /* CollectionLikedRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionLikedRow.swift; sourceTree = "<group>"; };
 		92794CF6273811760012B184 /* CollectionGenericView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionGenericView.swift; sourceTree = "<group>"; };
-		92794CF8273811760012B184 /* CollectionGenericFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionGenericFooter.swift; sourceTree = "<group>"; };
 		92794CF9273811760012B184 /* CollectionGenericHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionGenericHeader.swift; sourceTree = "<group>"; };
 		92794CFA273811760012B184 /* CollectionGenericRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionGenericRow.swift; sourceTree = "<group>"; };
 		92794D0E273814B80012B184 /* DiscoveryCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCategoryView.swift; sourceTree = "<group>"; };
@@ -755,9 +755,28 @@
 			path = SetPasswordViewHelpers;
 			sourceTree = "<group>";
 		};
+		9262AF7E27529375003D0D1C /* MiniPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				9262AF7F275293B3003D0D1C /* Helpers */,
+				9262AF8227529514003D0D1C /* MiniPlayerViewController.swift */,
+			);
+			path = MiniPlayer;
+			sourceTree = "<group>";
+		};
+		9262AF7F275293B3003D0D1C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9262AF80275293C8003D0D1C /* MiniPlayerBlur.swift */,
+				9262AF84275296AF003D0D1C /* MiniPlayerMain.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		92794CE2273811760012B184 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				9262AF7E27529375003D0D1C /* MiniPlayer */,
 				3067FBD02742F1FF009B5D4D /* ARPlayer */,
 				92794CE3273811760012B184 /* Reel */,
 				92794CE9273811760012B184 /* Recent Activity */,
@@ -798,7 +817,6 @@
 		92794CEB273811760012B184 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				92794CEC273811760012B184 /* CollectionRecentActivityFooter.swift */,
 				92794CED273811760012B184 /* CollectionRecentActivityRow.swift */,
 				92794CEE273811760012B184 /* CollectionRecentActivityHeader.swift */,
 			);
@@ -818,7 +836,6 @@
 			isa = PBXGroup;
 			children = (
 				92794CF2273811760012B184 /* CollectionLikedHeader.swift */,
-				92794CF3273811760012B184 /* CollectionLikedFooter.swift */,
 				92794CF4273811760012B184 /* CollectionLikedRow.swift */,
 			);
 			path = Helpers;
@@ -836,7 +853,6 @@
 		92794CF7273811760012B184 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				92794CF8273811760012B184 /* CollectionGenericFooter.swift */,
 				92794CF9273811760012B184 /* CollectionGenericHeader.swift */,
 				92794CFA273811760012B184 /* CollectionGenericRow.swift */,
 			);
@@ -1178,7 +1194,6 @@
 				3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */,
 				3004D50126CD57A800323BCB /* TabBarViewController.swift in Sources */,
 				3004D4E626CC971500323BCB /* Logo.swift in Sources */,
-				92794D00273811760012B184 /* CollectionRecentActivityFooter.swift in Sources */,
 				92794CFC273811760012B184 /* CollectionReelListing.swift in Sources */,
 				30836FAD2749E77800E83735 /* ImagePicker.swift in Sources */,
 				31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */,
@@ -1190,7 +1205,6 @@
 				3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */,
 				319F25B926E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
 				31BF38A8272F44AB007C918B /* User.swift in Sources */,
-				92794D05273811760012B184 /* CollectionLikedFooter.swift in Sources */,
 				316C527527287C2800E28609 /* VerifyEmailHeader.swift in Sources */,
 				30836FA92749E3D200E83735 /* FirestoreQueryService.swift in Sources */,
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
@@ -1216,7 +1230,9 @@
 				30836FC2274A053900E83735 /* DiscoverViewTag.swift in Sources */,
 				30836FAB2749E65200E83735 /* Extensions.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
+				9262AF85275296AF003D0D1C /* MiniPlayerMain.swift in Sources */,
 				92794D11273814D80012B184 /* DiscoveryCategoryHeader.swift in Sources */,
+				9262AF8327529514003D0D1C /* MiniPlayerViewController.swift in Sources */,
 				3152F6A22717508D0061F72E /* ForgotPasswordViewController.swift in Sources */,
 				30836FB0274A035D00E83735 /* DiscoverMainViewController.swift in Sources */,
 				31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */,
@@ -1245,7 +1261,6 @@
 				30836FBA274A048B00E83735 /* DiscoverPostView.swift in Sources */,
 				30836FBD274A04C900E83735 /* DiscoverPagePosts.swift in Sources */,
 				92794CFE273811760012B184 /* CollectionReelDescription.swift in Sources */,
-				92794D08273811760012B184 /* CollectionGenericFooter.swift in Sources */,
 				3004D4F026CD405D00323BCB /* Artist.swift in Sources */,
 				30836FC0274A050800E83735 /* DiscoverPostsViewTags.swift in Sources */,
 				3129ADDD26F4172900172808 /* OtherProfileViewDetails.swift in Sources */,
@@ -1263,6 +1278,7 @@
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
 				30836FB5274A041600E83735 /* ArtistSearchTemplate.swift in Sources */,
 				31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */,
+				9262AF81275293C8003D0D1C /* MiniPlayerBlur.swift in Sources */,
 				3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */,
 				92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */,
 				92794D03273811760012B184 /* CollectionLikedView.swift in Sources */,

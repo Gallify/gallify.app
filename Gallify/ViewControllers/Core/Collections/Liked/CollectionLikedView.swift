@@ -14,14 +14,13 @@ struct CollectionLikedView: View {
 
     var body: some View {
         VStack{
-            CollectionLikedHeader(screenWidth: screenWidth)
+            CollectionLikedHeader(screenHeight: screenHeight, screenWidth: screenWidth)
                 .padding()
             ScrollView (showsIndicators: false) {
                 CollectionLikedRow(screenWidth: screenWidth, screenHeight: screenHeight
 )
             }
-            CollectionLikedFooter(screenWidth: screenWidth, screenHeight: screenHeight
-)
+            MiniPlayerViewController(screenWidth: screenWidth, screenHeight: screenHeight)
             Spacer()
         }
     }

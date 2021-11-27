@@ -14,13 +14,13 @@ struct CollectionGenericView: View {
     var body: some View {
         NavigationView {
             VStack{
-                CollectionGenericHeader(screenWidth: screenWidth)
+                CollectionGenericHeader(screenHeight:screenHeight, screenWidth:screenWidth)
                     .padding()
                 ScrollView (showsIndicators: false) {
                     CollectionGenericRow(screenWidth: screenWidth, screenHeight: screenHeight)
                 }
                 Spacer()
-                CollectionGenericFooter(screenWidth: screenWidth, screenHeight: screenHeight)
+                MiniPlayerViewController(screenWidth: screenWidth, screenHeight: screenHeight)
                 
             }
         }

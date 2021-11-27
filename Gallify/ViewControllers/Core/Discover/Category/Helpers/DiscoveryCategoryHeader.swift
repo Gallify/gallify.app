@@ -24,22 +24,6 @@ struct DiscoveryCategoryHeader: View {
                                     .padding(.horizontal, screenWidth / 25)
                                     .padding(.vertical, screenHeight / 100)
                 
-                NavigationLink(
-                    destination: TabBarView(),
-                    label: {
-                        
-                        Image(systemName: "lessthan")
-                            .resizable()
-                            .foregroundColor(Color.black)
-                            .frame(width: screenWidth / 15, height: screenWidth / 15)
-                            .padding(.leading, screenWidth / 25)
-                        
-                    })
-                    .buttonStyle(ThemeAnimationStyle())
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
-                
                 Spacer()
                 
             }

@@ -15,7 +15,7 @@ struct CollectionReelDescription: View {
         VStack {
             HStack {
                 VStack (alignment: .leading) {
-                    Text("Edition of 15")
+                    Text("Features:")
                         .fontWeight(.bold)
                         .font(.system(size: 18))
                         .underline()

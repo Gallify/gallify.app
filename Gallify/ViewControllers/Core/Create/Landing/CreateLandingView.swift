@@ -15,7 +15,7 @@ struct CreateLandingView: View {
 
     var body: some View {
         VStack {
-            CreateLandingHeader(screenWidth: screenWidth)
+            CreateLandingHeader(screenHeight:screenHeight,screenWidth:screenWidth)
             Spacer()
             CreateLandingOptions(screenWidth: screenWidth, screenHeight: screenHeight)
             Spacer()

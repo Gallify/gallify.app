@@ -14,13 +14,13 @@ struct CollectionRecentActivityView: View {
     var body: some View {
         NavigationView {
             VStack{
-                CollectionRecentActivityHeader(screenWidth: screenWidth)
+                CollectionRecentActivityHeader(screenWidth:screenWidth,screenHeight:screenHeight)
                     .padding()
                 ScrollView (showsIndicators: false) {
                     CollectionRecentActivityRow(screenWidth: screenWidth, screenHeight: screenHeight)
                 }
                 Spacer()
-                CollectionRecentActivityFooter(screenWidth: screenWidth, screenHeight: screenHeight)
+                MiniPlayerViewController(screenWidth: screenWidth, screenHeight: screenHeight)
                 
             }
         }

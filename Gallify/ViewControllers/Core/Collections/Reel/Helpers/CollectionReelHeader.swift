@@ -47,22 +47,9 @@ struct CollectionReelHeader: View {
     var body: some View {
         HStack {
             
-            NavigationLink(
-                destination: CollectionRecentActivityView(screenWidth: screenWidth, screenHeight: screenHeight),
-                label: {
-                    Image(systemName: "chevron.up.circle")
-                        .font(.system(size: 40))
-                        .padding(.leading)
-                })
-                .buttonStyle(ThemeAnimationStyle())
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
-            
-            
-//            CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "chevron.up.circle"), presentationMode: _presentationMode)
-//                                .padding(.horizontal, screenWidth / 25)
-//                                .padding(.vertical, screenHeight / 100)
+            CustomBackButton(buttonHeight: screenHeight / 21.08, buttonWidth: screenWidth / 9.73, image: Image(systemName: "chevron.down.circle"), presentationMode: _presentationMode)
+                .padding(.horizontal, screenWidth / 25)
+                .padding(.vertical, screenHeight / 100)
             
             Spacer()
             
