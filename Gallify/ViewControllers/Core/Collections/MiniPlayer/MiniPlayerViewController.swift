@@ -20,7 +20,7 @@ struct MiniPlayerViewController: View {
     var body: some View {
         
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
-            MiniPlayerMain(animation: animation, expand: $expand, screenWidth: screenWidth)
+            MiniPlayerMain(animation: animation, expand: $expand, screenHeight: screenHeight/3, screenWidth: screenWidth)
         }
         )
     }
