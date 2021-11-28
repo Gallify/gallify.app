@@ -1,5 +1,3 @@
-
-
 //
 //  CreateAccountViewBody.swift
 //  Gallify
@@ -247,6 +245,8 @@ struct CreateAccountViewBody: View {
 
 struct CreateAccountViewBody_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccountViewBody().environmentObject(LoginAppViewModel())
+        CreateAccountViewBody()
+            .environmentObject(LoginAppViewModel())
+            .environmentObject(User())
     }
 }

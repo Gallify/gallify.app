@@ -4,6 +4,7 @@
 //
 //  Created by Patron on 11/14/21.
 //
+
 import SwiftUI
 
 struct DiscoverPostsView: View {
@@ -21,7 +22,16 @@ struct DiscoverPostsView: View {
             
             DiscoverPagePosts()
             
+            DiscoverPagePosts()
+            
+            //DiscoverPagePosts()
+            
+            //DiscoverPagePosts()
+            
+            //DiscoverPagePosts()
+            
         }
+        .padding(.top, screenHeight / 160)
         
     }
     

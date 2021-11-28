@@ -15,16 +15,16 @@ struct DiscoverViewTag: View {
     
     var body: some View {
         
-//        Text(tag)
-//            .fontWeight(.bold)
-//            .foregroundColor(.white)
-//            .padding(.horizontal, screenWidth / 20)
-//            .padding(.vertical, screenHeight / 100)
-//            .background(bgColor)
-//            .cornerRadius(screenWidth / 30)
+        Text(tag)
+            .fontWeight(.bold)
+            .foregroundColor(.white)
+            .padding(.horizontal, screenWidth / 20)
+            .padding(.vertical, screenHeight / 100)
+            .background(bgColor)
+            .cornerRadius(screenWidth / 30)
         
         
-        NavigationLink(destination: DiscoveryCategoryView(screenWidth: screenWidth, screenHeight: screenHeight),
+/*        NavigationLink(destination: DiscoveryCategoryView(screenWidth: screenWidth, screenHeight: screenHeight),
                        label: {
             
             Text(tag)
@@ -37,6 +37,7 @@ struct DiscoverViewTag: View {
             
         })
         .navigationBarHidden(true)
+ */
         
         
     }
