@@ -2,7 +2,7 @@
 //  OtherProfileViewHeader.swift
 //  Gallify
 //
-//  Created by Patron on 9/13/21.
+//  Created by Anshul on 9/13/21.
 //
 import SwiftUI
 
@@ -20,7 +20,7 @@ struct OtherProfileViewHeader: View {
             
             Spacer()
             
-            Text("jack_brown2")
+            Text("i_love_me")
                 .font(.system(size: screenWidth / 17, weight: .bold))
                 .foregroundColor(Color.black)
             

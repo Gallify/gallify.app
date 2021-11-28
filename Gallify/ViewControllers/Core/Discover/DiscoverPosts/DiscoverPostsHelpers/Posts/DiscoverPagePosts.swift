@@ -2,7 +2,7 @@
 //  DiscoverPagePosts.swift
 //  Gallify
 //
-//  Created by Patron on 11/17/21.
+//  Created by Anshul on 11/17/21.
 //
 
 import SwiftUI

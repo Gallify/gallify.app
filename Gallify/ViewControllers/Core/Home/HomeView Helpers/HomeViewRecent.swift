@@ -2,7 +2,7 @@
 //  HomeViewRecent.swift
 //  Gallify
 //
-//  Created by Patron on 9/5/21.
+//  Created by Anshul on 9/5/21.
 //
 import SwiftUI
 

@@ -2,7 +2,7 @@
 //  LoginViewNavLinks.swift
 //  Gallify
 //
-//  Created by Patron on 10/1/21.
+//  Created by Anshul on 10/1/21.
 //
 import SwiftUI
 

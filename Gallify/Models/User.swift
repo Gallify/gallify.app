@@ -2,7 +2,7 @@
 //  User.swift
 //  Gallify
 //
-//  Created by Patron on 10/31/21.
+//  Created by Anshul on 10/31/21.
 //
 import Foundation
 import Swift

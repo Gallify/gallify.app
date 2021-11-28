@@ -2,7 +2,7 @@
 //  DiscoverViewTag.swift
 //  Gallify
 //
-//  Created by Patron on 11/14/21.
+//  Created by Anshul on 11/14/21.
 //
 import SwiftUI
 

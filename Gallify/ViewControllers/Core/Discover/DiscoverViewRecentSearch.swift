@@ -2,8 +2,9 @@
 //  DiscoverViewRecentSearch.swift
 //  Gallify
 //
-//  Created by Patron on 11/13/21.
+//  Created by Anshul on 11/13/21.
 //
+
 import SwiftUI
 
 struct DiscoverViewRecentSearch: View {
@@ -64,7 +65,7 @@ struct DiscoverViewRecentSearch: View {
                     
                     NavigationLink(destination: OtherProfileView(), label: {
                         
-                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("lakemcdonald"), title: "Mountains", searchType: "Playlist", artistName: "Hiker")
+                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("stmarylake"), title: "Sunsets", searchType: "Playlist", artistName: "Photographer")
                         
                     })
                     
@@ -90,7 +91,7 @@ struct DiscoverViewRecentSearch: View {
                     
                     NavigationLink(destination: OtherProfileView(), label: {
                         
-                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("charleyrivers"), title: "Dreamy Nights", searchType: "Collection", artistName: "Pablo Escobar")
+                        ArtistSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("kanye-west"), artistName: "Kanye West")
                         
                     })
                     
@@ -116,8 +117,7 @@ struct DiscoverViewRecentSearch: View {
                     
                     NavigationLink(destination: OtherProfileView(), label: {
                         
-                        ArtistSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image(systemName: "face.smiling.fill"), artistName: "Alan Walker")
-                        
+                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("twinlake"), title: "Lakes", searchType: "Collection", artistName: "Fisherman")
                     })
                     
                     Button(action: {
@@ -142,7 +142,7 @@ struct DiscoverViewRecentSearch: View {
                     
                     NavigationLink(destination: OtherProfileView(), label: {
                         
-                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("twinlake"), title: "Lakes", searchType: "Collection", artistName: "Fisherman")
+                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("raging-bull"), title: "Raging Bull", searchType: "Art", artistName: "Martin Scorsese")
                         
                     })
                     

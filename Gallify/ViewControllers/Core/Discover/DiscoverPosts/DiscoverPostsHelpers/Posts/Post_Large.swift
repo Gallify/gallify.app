@@ -2,7 +2,7 @@
 //  Post_Large.swift
 //  Gallify
 //
-//  Created by Patron on 11/20/21.
+//  Created by Anshul on 11/20/21.
 //
 
 import SwiftUI

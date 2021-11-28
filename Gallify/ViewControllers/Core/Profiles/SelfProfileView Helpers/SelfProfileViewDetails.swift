@@ -2,7 +2,7 @@
 //  SelfProfileViewDetails.swift
 //  Gallify
 //
-//  Created by Patron on 9/13/21.
+//  Created by Anshul on 9/13/21.
 //
 import SwiftUI
 
@@ -17,7 +17,7 @@ struct SelfProfileViewDetails: View {
                 
             HStack {
                     
-                CircleImage(image: Image("chincoteague"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
+                CircleImage(image: Image("cat"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                     
                 VStack {
                         
@@ -93,7 +93,7 @@ struct SelfProfileViewDetails: View {
                 
             HStack {
                     
-                Text("Jack F. Brown")
+                Text("Meow!")
                     .font(.system(size: screenWidth / 22, weight: .medium))
                     
                 Spacer()
@@ -103,7 +103,7 @@ struct SelfProfileViewDetails: View {
                 
             HStack {
                     
-                Text("Hi, I am Jack Brown and I commission art.")
+                Text("Making the world a better place with my presence.")
                     .font(.system(size: screenWidth / 23.5, weight: .light))
                 
                 Spacer()

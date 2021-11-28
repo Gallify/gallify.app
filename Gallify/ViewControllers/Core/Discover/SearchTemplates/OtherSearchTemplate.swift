@@ -2,7 +2,7 @@
 //  OtherSearchTemplate.swift
 //  Gallify
 //
-//  Created by Patron on 11/13/21.
+//  Created by Anshul on 11/13/21.
 //
 import SwiftUI
 
@@ -29,7 +29,7 @@ struct OtherSearchTemplate: View {
                     .font(.system(size: screenWidth / 20, weight: .bold))
                     .foregroundColor(.black)
                     
-                Text(searchType + " - " + artistName)
+                Text(searchType + ", by " + artistName)
                     .font(.system(size: screenWidth / 25))
                     .foregroundColor(.black)
                     
