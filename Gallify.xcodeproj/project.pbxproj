@@ -14,7 +14,6 @@
 		3004D4D726C82F6E00323BCB /* GallifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4D626C82F6E00323BCB /* GallifyUITests.swift */; };
 		3004D4E626CC971500323BCB /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4E526CC971400323BCB /* Logo.swift */; };
 		3004D4E826CC97F400323BCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4E726CC97F400323BCB /* GoogleService-Info.plist */; };
-		3004D4F026CD405D00323BCB /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4EF26CD405D00323BCB /* Artist.swift */; };
 		3004D4F226CD407600323BCB /* Art.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4F126CD407600323BCB /* Art.swift */; };
 		3004D4F426CD40AC00323BCB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4F326CD40AC00323BCB /* Profile.swift */; };
 		3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4F726CD4D5F00323BCB /* AuthManager.swift */; };
@@ -45,6 +44,9 @@
 		30836FBD274A04C900E83735 /* DiscoverPagePosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FBC274A04C900E83735 /* DiscoverPagePosts.swift */; };
 		30836FC0274A050800E83735 /* DiscoverPostsViewTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FBF274A050800E83735 /* DiscoverPostsViewTags.swift */; };
 		30836FC2274A053900E83735 /* DiscoverViewTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FC1274A053900E83735 /* DiscoverViewTag.swift */; };
+		3087D26A274ED54C00ECD8CD /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D269274ED54C00ECD8CD /* Playlist.swift */; };
+		3087D26C275326F600ECD8CD /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D26B275326F600ECD8CD /* Home.swift */; };
+		3087D26E2753270700ECD8CD /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D26D2753270700ECD8CD /* Discover.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -162,7 +164,6 @@
 		3004D4D826C82F6E00323BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3004D4E526CC971400323BCB /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		3004D4E726CC97F400323BCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3004D4EF26CD405D00323BCB /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		3004D4F126CD407600323BCB /* Art.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Art.swift; sourceTree = "<group>"; };
 		3004D4F326CD40AC00323BCB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		3004D4F726CD4D5F00323BCB /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -193,6 +194,9 @@
 		30836FBC274A04C900E83735 /* DiscoverPagePosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPagePosts.swift; sourceTree = "<group>"; };
 		30836FBF274A050800E83735 /* DiscoverPostsViewTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPostsViewTags.swift; sourceTree = "<group>"; };
 		30836FC1274A053900E83735 /* DiscoverViewTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewTag.swift; sourceTree = "<group>"; };
+		3087D269274ED54C00ECD8CD /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		3087D26B275326F600ECD8CD /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3087D26D2753270700ECD8CD /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -393,11 +397,13 @@
 		3004D4EA26CD3DF100323BCB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3004D4EF26CD405D00323BCB /* Artist.swift */,
+				3087D269274ED54C00ECD8CD /* Playlist.swift */,
 				3004D4F126CD407600323BCB /* Art.swift */,
 				3004D4F326CD40AC00323BCB /* Profile.swift */,
 				31BF38A7272F44AB007C918B /* User.swift */,
 				30836FAA2749E65200E83735 /* Extensions.swift */,
+				3087D26B275326F600ECD8CD /* Home.swift */,
+				3087D26D2753270700ECD8CD /* Discover.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1235,6 +1241,7 @@
 				92794D0A273811760012B184 /* CollectionGenericRow.swift in Sources */,
 				3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */,
 				3004D50D26CD6CF400323BCB /* PhoneVerificationViewController.swift in Sources */,
+				3087D26E2753270700ECD8CD /* Discover.swift in Sources */,
 				92794CFF273811760012B184 /* CollectionRecentActivityView.swift in Sources */,
 				31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */,
 				3067FBD22742F233009B5D4D /* ARPlayerViewController.swift in Sources */,
@@ -1246,7 +1253,6 @@
 				30836FBD274A04C900E83735 /* DiscoverPagePosts.swift in Sources */,
 				92794CFE273811760012B184 /* CollectionReelDescription.swift in Sources */,
 				92794D08273811760012B184 /* CollectionGenericFooter.swift in Sources */,
-				3004D4F026CD405D00323BCB /* Artist.swift in Sources */,
 				30836FC0274A050800E83735 /* DiscoverPostsViewTags.swift in Sources */,
 				3129ADDD26F4172900172808 /* OtherProfileViewDetails.swift in Sources */,
 				3129ADE526F439AC00172808 /* SelfProfileViewRooms.swift in Sources */,
@@ -1261,8 +1267,10 @@
 				319F25B526E56935009B811E /* HomeViewStories.swift in Sources */,
 				31B828C4272376BE0067DB05 /* CustomBackButton.swift in Sources */,
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
+				3087D26C275326F600ECD8CD /* Home.swift in Sources */,
 				30836FB5274A041600E83735 /* ArtistSearchTemplate.swift in Sources */,
 				31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */,
+				3087D26A274ED54C00ECD8CD /* Playlist.swift in Sources */,
 				3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */,
 				92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */,
 				92794D03273811760012B184 /* CollectionLikedView.swift in Sources */,

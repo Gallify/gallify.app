@@ -40,36 +40,73 @@ class LoginAppViewModel: ObservableObject {
         }
     }
     
+    func sendVerificationMail() {
+        let actionCodeSettings = ActionCodeSettings()
+        actionCodeSettings.url = URL(string: "https://www.example.com")
+        // The sign-in operation has to always be completed in the app.
+        actionCodeSettings.handleCodeInApp = true
+        actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
+        actionCodeSettings.setAndroidPackageName("com.example.android",
+                                                 installIfNotAvailable: false, minimumVersion: "12")
+        
+//        if self.auth.currentUser != nil && !self.auth.currentUser!.isEmailVerified {
+//            self.auth.currentUser!.sendEmailVerification(completion: { (error) in
+//                // Notify the user that the mail has sent or couldn't because of an error.
+//
+//                guard error == nil else {
+//                    return
+//                }
+//
+//            })
+//        }
+//        else {
+//            // Either the user is not available, or the user is already verified.
+//            Text("An error occured")
+//        }
+    }
+    
+//    func createAccount(password: String, user: User) {
+//        auth.createUser(withEmail: user.email, password: password) {[weak self] result, error in
+//            guard result != nil, error == nil else {
+//                return
+//            }
+//
+//            let db = Firestore.firestore()
+//                do {
+//                    try db.collection("users").document(UUID().uuidString).setData(user.asDictionary())
+//                } catch {
+//                    //print(error)
+//                }
+//            }
+//
+//            DispatchQueue.main.async {
+//                self.newUserCreated = true
+//            }
+//        }
+    
     
     func createAccount(password: String, user: User) {
+        
         auth.createUser(withEmail: user.email, password: password) {[weak self] result, error in
             guard result != nil, error == nil else {
                 return
             }
         
-            let db = Firestore.firestore()
+            var db = Firestore.firestore()
                 do {
-                    try db.collection("users").document(UUID().uuidString).setData(user.asDictionary())
-                } catch {
-                    //print(error)
+                    try db.collection("users").document(user.email).setData(from: user)
+                    //self!.sendVerificationMail()
+                } catch let error {
+                    print("Error writing user to Firestore: \(error)")
                 }
             }
             
             DispatchQueue.main.async {
                 self.newUserCreated = true
             }
-        }
+    }
     
-//    public func sendVerificationMail() {
-//        if self.authUser != nil && !self.authUser!.isEmailVerified {
-//            self.authUser!.sendEmailVerification(completion: { (error) in
-//                // Notify the user that the mail has sent or couldn't because of an error.
-//            })
-//        }
-//        else {
-//            // Either the user is not available, or the user is already verified.
-//        }
-//    }
+    
     
     func signOut() {
         try? auth.signOut()

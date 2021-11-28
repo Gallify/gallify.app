@@ -54,19 +54,20 @@ struct HomeView : View {
                         }
                                                 
                         HomeViewRecent(screenHeight: screenHeight, screenWidth: screenWidth)
-                        
-                        HStack {
-                            
-                            Text("Your Portfolio")
-                                .font(.system(size: screenWidth / 13.5, weight: .bold))
-                                .padding(.leading, widthPad)
-                                .padding(.top, heightPad)
-                            
-                            Spacer()
-                            
-                        }
-                        
-                        HomeViewPortfolio(screenHeight: screenHeight, screenWidth: screenWidth)
+                    
+//Portfolio turned off for now.
+//                        HStack {
+//
+//                            Text("Your Portfolio")
+//                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+//                                .padding(.leading, widthPad)
+//                                .padding(.top, heightPad)
+//
+//                            Spacer()
+//
+//                        }
+//
+//                        HomeViewPortfolio(screenHeight: screenHeight, screenWidth: screenWidth)
                         
                         HStack {
                             

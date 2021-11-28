@@ -14,6 +14,7 @@ class SelfProfileViewModel: ObservableObject {
 struct SelfProfileView : View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
+    @EnvironmentObject var profileViewModel : SelfProfileViewModel
     
     var body: some View {
             

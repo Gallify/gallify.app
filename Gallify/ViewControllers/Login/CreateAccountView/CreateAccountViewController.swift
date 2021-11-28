@@ -24,8 +24,10 @@ struct CreateAccountView : View {
             VStack {
                 
                 CreateAccountViewHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
-
-                CreateAccountViewBody()
+                
+                ScrollView{
+                    CreateAccountViewBody()
+                }
                 
                 Spacer()
                 
