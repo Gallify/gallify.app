@@ -2,7 +2,7 @@
 //  ForgotPasswordViewBody.swift
 //  Gallify
 //
-//  Created by Patron on 10/24/21.
+//  Created by Anshul on 10/24/21.
 //
 
 import SwiftUI

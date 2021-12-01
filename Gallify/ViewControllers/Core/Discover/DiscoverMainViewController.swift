@@ -2,7 +2,7 @@
 //  DiscoverMain.swift
 //  Gallify
 //
-//  Created by Patron on 11/12/21.
+//  Created by Anshul on 11/12/21.
 //
 import SwiftUI
 
@@ -74,7 +74,7 @@ struct DiscoverMainView: View {
                         
                         else {
                             
-                            
+                            DiscoverSearch()
                             
                         }
                         

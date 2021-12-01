@@ -2,7 +2,7 @@
 //  SelfProfileCollectionTab.swift
 //  Gallify
 //
-//  Created by Patron on 9/23/21.
+//  Created by Anshul on 9/23/21.
 //
 import SwiftUI
 

@@ -2,7 +2,7 @@
 //  CustomBackButton.swift
 //  Gallify
 //
-//  Created by Patron on 10/22/21.
+//  Created by Anshul on 10/22/21.
 //
 import SwiftUI
 

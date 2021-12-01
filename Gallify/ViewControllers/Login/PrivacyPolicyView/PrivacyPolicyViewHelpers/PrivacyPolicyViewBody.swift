@@ -2,7 +2,7 @@
 //  PrivacyPolicyViewBody.swift
 //  Gallify
 //
-//  Created by Patron on 10/10/21.
+//  Created by Anshul on 10/10/21.
 //
 import SwiftUI
 

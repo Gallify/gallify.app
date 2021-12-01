@@ -2,7 +2,7 @@
 //  FollowButton.swift
 //  Gallify
 //
-//  Created by Patron on 9/14/21.
+//  Created by Anshul on 9/14/21.
 //
 import SwiftUI
 
@@ -22,7 +22,7 @@ struct FollowButton: View {
                 RoundedRectangle(cornerRadius: buttonWidth / 8)
                     .foregroundColor(isFollowing ? .white : .pink)
                     .frame(width: buttonWidth, height: buttonHeight)
-                    .overlay(isFollowing ? RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.gray, lineWidth: buttonWidth / 50) : RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.pink, lineWidth: buttonWidth / 50))
+                    .overlay(isFollowing ? RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.gray, lineWidth: buttonWidth / 125) : RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.pink, lineWidth: buttonWidth / 50))
                 
                 Text(isFollowing ? "Following" : "Follow")
                     .font(.system(size: buttonWidth / 10, weight: .bold))

@@ -2,7 +2,7 @@
 //  SelfProfileViewRooms.swift
 //  Gallify
 //
-//  Created by Patron on 9/16/21.
+//  Created by Anshul on 9/16/21.
 //
 import SwiftUI
 

@@ -2,7 +2,7 @@
 //  SetPasswordViewBody.swift
 //  Gallify
 //
-//  Created by Patron on 10/8/21.
+//  Created by Anshul on 10/8/21.
 //
 import SwiftUI
 

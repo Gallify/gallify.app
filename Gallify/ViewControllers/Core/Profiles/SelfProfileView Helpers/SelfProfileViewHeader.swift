@@ -2,7 +2,7 @@
 //  SelfProfileViewHeader.swift
 //  Gallify
 //
-//  Created by Patron on 9/13/21.
+//  Created by Anshul on 9/13/21.
 //
 import SwiftUI
 
@@ -17,7 +17,7 @@ struct SelfProfileViewHeader: View {
             
             Spacer()
             
-            Text("jack_brown")
+            Text("i_am_cute")
                 .font(.system(size: screenWidth / 17, weight: .bold))
                 .padding(.leading, screenWidth / 9.4)
             

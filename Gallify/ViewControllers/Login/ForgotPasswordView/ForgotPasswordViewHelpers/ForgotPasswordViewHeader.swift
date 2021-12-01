@@ -2,7 +2,7 @@
 //  ForgotPasswordViewHeader.swift
 //  Gallify
 //
-//  Created by Patron on 10/16/21.
+//  Created by Anshul on 10/16/21.
 //
 import SwiftUI
 

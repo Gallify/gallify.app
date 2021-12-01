@@ -2,8 +2,9 @@
 //  ArtistSearchTemplate.swift
 //  Gallify
 //
-//  Created by Patron on 11/13/21.
+//  Created by Anshul on 11/13/21.
 //
+
 import SwiftUI
 
 struct ArtistSearchTemplate: View {

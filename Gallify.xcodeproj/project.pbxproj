@@ -54,6 +54,10 @@
 		3111174326EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174426EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */; };
+		311E93832752FB1C005DFE12 /* Reels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93822752FB1C005DFE12 /* Reels.swift */; };
+		311E93852752FB3E005DFE12 /* Post_Small.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93842752FB3E005DFE12 /* Post_Small.swift */; };
+		311E93872752FB61005DFE12 /* Post_Large.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93862752FB61005DFE12 /* Post_Large.swift */; };
+		311E93892753C0BB005DFE12 /* DiscoverSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93882753C0BA005DFE12 /* DiscoverSearch.swift */; };
 		3129ADCC26F40E3B00172808 /* SelfProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADCB26F40E3B00172808 /* SelfProfileViewController.swift */; };
 		3129ADD026F40ED900172808 /* SelfProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADCF26F40ED900172808 /* SelfProfileViewHeader.swift */; };
 		3129ADD426F40FC100172808 /* SelfProfileViewDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADD326F40FC100172808 /* SelfProfileViewDetails.swift */; };
@@ -202,6 +206,10 @@
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
 		3111174126EC08E6001B8E55 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMuseums.swift; sourceTree = "<group>"; };
+		311E93822752FB1C005DFE12 /* Reels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reels.swift; sourceTree = "<group>"; };
+		311E93842752FB3E005DFE12 /* Post_Small.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Small.swift; sourceTree = "<group>"; };
+		311E93862752FB61005DFE12 /* Post_Large.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Large.swift; sourceTree = "<group>"; };
+		311E93882753C0BA005DFE12 /* DiscoverSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverSearch.swift; sourceTree = "<group>"; };
 		3129ADCB26F40E3B00172808 /* SelfProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewController.swift; sourceTree = "<group>"; };
 		3129ADCF26F40ED900172808 /* SelfProfileViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewHeader.swift; sourceTree = "<group>"; };
 		3129ADD326F40FC100172808 /* SelfProfileViewDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewDetails.swift; sourceTree = "<group>"; };
@@ -386,8 +394,8 @@
 		3004D4E926CD3DDB00323BCB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3152F69B27174CDB0061F72E /* Login */,
 				318B42EE26E018B000D6D722 /* Helpers */,
+				3152F69B27174CDB0061F72E /* Login */,
 				3004D4FD26CD506800323BCB /* Transactions */,
 				3004D4EC26CD402A00323BCB /* Core */,
 			);
@@ -490,20 +498,20 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		30836FB3274A037C00E83735 /* RecentSearchHelpers */ = {
+		30836FB3274A037C00E83735 /* SearchTemplates */ = {
 			isa = PBXGroup;
 			children = (
 				30836FB4274A041600E83735 /* ArtistSearchTemplate.swift */,
 				30836FB6274A043300E83735 /* OtherSearchTemplate.swift */,
 			);
-			path = RecentSearchHelpers;
+			path = SearchTemplates;
 			sourceTree = "<group>";
 		};
 		30836FB8274A046D00E83735 /* DiscoverPosts */ = {
 			isa = PBXGroup;
 			children = (
-				30836FBB274A049300E83735 /* DiscoverPostsHelpers */,
 				30836FB9274A048B00E83735 /* DiscoverPostView.swift */,
+				30836FBB274A049300E83735 /* DiscoverPostsHelpers */,
 			);
 			path = DiscoverPosts;
 			sourceTree = "<group>";
@@ -512,7 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				30836FBE274A04EA00E83735 /* Tags */,
-				30836FBC274A04C900E83735 /* DiscoverPagePosts.swift */,
+				311E93812752FAEB005DFE12 /* Posts */,
 			);
 			path = DiscoverPostsHelpers;
 			sourceTree = "<group>";
@@ -533,6 +541,17 @@
 				3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */,
 			);
 			path = PrivacyPolicyViewHelpers;
+			sourceTree = "<group>";
+		};
+		311E93812752FAEB005DFE12 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				311E93822752FB1C005DFE12 /* Reels.swift */,
+				311E93842752FB3E005DFE12 /* Post_Small.swift */,
+				311E93862752FB61005DFE12 /* Post_Large.swift */,
+				30836FBC274A04C900E83735 /* DiscoverPagePosts.swift */,
+			);
+			path = Posts;
 			sourceTree = "<group>";
 		};
 		3129ADD726F4109000172808 /* OtherProfileView Helpers */ = {
@@ -852,11 +871,12 @@
 		92794D0B273813010012B184 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
-				30836FB8274A046D00E83735 /* DiscoverPosts */,
-				30836FB3274A037C00E83735 /* RecentSearchHelpers */,
-				92794D0C273813080012B184 /* Category */,
 				30836FAF274A035D00E83735 /* DiscoverMainViewController.swift */,
 				30836FB1274A036E00E83735 /* DiscoverViewRecentSearch.swift */,
+				311E93882753C0BA005DFE12 /* DiscoverSearch.swift */,
+				30836FB8274A046D00E83735 /* DiscoverPosts */,
+				30836FB3274A037C00E83735 /* SearchTemplates */,
+				92794D0C273813080012B184 /* Category */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -1202,6 +1222,7 @@
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
 				31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */,
 				92DB7C6127316A6A0035B788 /* CreatePublishView.swift in Sources */,
+				311E93852752FB3E005DFE12 /* Post_Small.swift in Sources */,
 				31B4CB8A26FD300A00FF86ED /* OtherProfileCollectionTab.swift in Sources */,
 				92794D13273814EB0012B184 /* DiscoveryCategoryContent.swift in Sources */,
 				92794D07273811760012B184 /* CollectionGenericView.swift in Sources */,
@@ -1220,6 +1241,7 @@
 				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
 				3004D50726CD581600323BCB /* HomeViewController.swift in Sources */,
 				30836FC2274A053900E83735 /* DiscoverViewTag.swift in Sources */,
+				311E93892753C0BB005DFE12 /* DiscoverSearch.swift in Sources */,
 				30836FAB2749E65200E83735 /* Extensions.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
 				92794D11273814D80012B184 /* DiscoveryCategoryHeader.swift in Sources */,
@@ -1256,6 +1278,7 @@
 				30836FC0274A050800E83735 /* DiscoverPostsViewTags.swift in Sources */,
 				3129ADDD26F4172900172808 /* OtherProfileViewDetails.swift in Sources */,
 				3129ADE526F439AC00172808 /* SelfProfileViewRooms.swift in Sources */,
+				311E93872752FB61005DFE12 /* Post_Large.swift in Sources */,
 				319F25B126E56722009B811E /* HomeViewHeader.swift in Sources */,
 				31BDD938270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift in Sources */,
 				3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */,
@@ -1263,6 +1286,7 @@
 				31B4CB8E26FD301A00FF86ED /* OtherProfileCollectionList.swift in Sources */,
 				3129ADE926F4447500172808 /* OtherProfileViewRooms.swift in Sources */,
 				318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */,
+				311E93832752FB1C005DFE12 /* Reels.swift in Sources */,
 				3152F6A4271751670061F72E /* SetPasswordViewController.swift in Sources */,
 				319F25B526E56935009B811E /* HomeViewStories.swift in Sources */,
 				31B828C4272376BE0067DB05 /* CustomBackButton.swift in Sources */,

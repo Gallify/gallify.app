@@ -2,7 +2,7 @@
 //  HomeViewMuseums.swift
 //  Gallify
 //
-//  Created by Patron on 9/10/21.
+//  Created by Anshul on 9/10/21.
 //
 import SwiftUI
 

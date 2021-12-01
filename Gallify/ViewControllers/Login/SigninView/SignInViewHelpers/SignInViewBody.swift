@@ -2,12 +2,12 @@
 //  SignInViewBody.swift
 //  Gallify
 //
-//  Created by Patron on 10/1/21.
+//  Created by Anshul on 10/1/21.
 //
 import SwiftUI
 
 struct SignInViewBody: View {
-    
+
     @State var email = ""
     @State var password = ""
     @State var buttonPressed = false
@@ -21,7 +21,7 @@ struct SignInViewBody: View {
         
         VStack {
                 
-            if buttonPressed && !viewModel.isSignedIn {
+            if buttonPressed && !viewModel.signedIn {
                 
                 ErrorText(errorText: "Whoops! Email or Password is incorrect.", screenHeight: screenHeight, screenWidth: screenWidth)
                     

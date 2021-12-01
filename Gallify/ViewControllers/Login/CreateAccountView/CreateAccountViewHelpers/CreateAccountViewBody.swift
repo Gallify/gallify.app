@@ -1,10 +1,8 @@
-
-
 //
 //  CreateAccountViewBody.swift
 //  Gallify
 //
-//  Created by Patron on 10/5/21.
+//  Created by Anshul on 10/5/21.
 //
 import SwiftUI
 
@@ -247,6 +245,8 @@ struct CreateAccountViewBody: View {
 
 struct CreateAccountViewBody_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccountViewBody().environmentObject(LoginAppViewModel())
+        CreateAccountViewBody()
+            .environmentObject(LoginAppViewModel())
+            .environmentObject(User())
     }
 }
