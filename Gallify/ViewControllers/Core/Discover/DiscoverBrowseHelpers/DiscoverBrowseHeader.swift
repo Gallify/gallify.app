@@ -1,12 +1,13 @@
 //
-//  PrivacyPolicyViewHeader.swift
+//  DiscoverBrowseHeader.swift
 //  Gallify
 //
-//  Created by Anshul on 10/8/21.
+//  Created by Anshul on 11/29/21.
 //
+
 import SwiftUI
 
-struct PrivacyPolicyViewHeader: View {
+struct DiscoverBrowseHeader: View {
     
     let screenHeight: CGFloat
     let screenWidth: CGFloat
@@ -28,27 +29,14 @@ struct PrivacyPolicyViewHeader: View {
             
             HStack {
                         
-                Text("User Agreement")
+                Text("Recommended")
                     .font(.system(size: screenWidth / 11, weight: .semibold))
                         
                 Spacer()
                         
             }
             .padding(.leading, screenWidth / 12)
-            .padding(.bottom, screenHeight / 320)
-
-            
-            HStack {
-                
-                Text("Last updated: May 23rd 2021")
-                    .font(.system(size: screenWidth / 29))
-                    .foregroundColor(.gray)
-                
-                Spacer()
-                
-            }
-            .padding(.leading, screenWidth / 12)
-            .padding(.bottom, screenHeight / 160)
+            .padding(.bottom, screenHeight / 32.5)
             
         }
         .padding(.top, screenHeight / 160)
@@ -57,8 +45,8 @@ struct PrivacyPolicyViewHeader: View {
     
 }
 
-struct PrivacyPolicyViewHeader_Previews: PreviewProvider {
+struct DiscoverBrowseHeader_Previews: PreviewProvider {
     static var previews: some View {
-        PrivacyPolicyViewHeader(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
+        DiscoverBrowseHeader(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
     }
 }

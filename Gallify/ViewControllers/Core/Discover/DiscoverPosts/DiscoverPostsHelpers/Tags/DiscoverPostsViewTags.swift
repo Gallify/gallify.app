@@ -17,7 +17,11 @@ struct DiscoverPostsViewTags: View {
             
             HStack {
                 
-                DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Browse", bgColor: Color.gray.opacity(0.7))
+                NavigationLink(destination: DiscoverBrowse(), label: {
+                    
+                    DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Browse", bgColor: Color.gray.opacity(0.7))
+                    
+                })
                 
                 DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Abstract", bgColor: Color.gray.opacity(0.7))
                 

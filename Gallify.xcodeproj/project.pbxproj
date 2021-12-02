@@ -67,6 +67,11 @@
 		3152F6A22717508D0061F72E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152F6A12717508D0061F72E /* ForgotPasswordViewController.swift */; };
 		3152F6A4271751670061F72E /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152F6A3271751670061F72E /* SetPasswordViewController.swift */; };
 		3152F6A62717519B0061F72E /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152F6A52717519B0061F72E /* PrivacyPolicyViewController.swift */; };
+		315345772755760A00BD7B54 /* DiscoverBrowse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315345762755760A00BD7B54 /* DiscoverBrowse.swift */; };
+		3153457A275577FE00BD7B54 /* DiscoverBrowseHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31534579275577FE00BD7B54 /* DiscoverBrowseHeader.swift */; };
+		3153457E27557B8800BD7B54 /* BrowseSlabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3153457D27557B8800BD7B54 /* BrowseSlabsView.swift */; };
+		3153458027557BA500BD7B54 /* Slabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3153457F27557BA500BD7B54 /* Slabs.swift */; };
+		3153458227557F2300BD7B54 /* RecommendedSlabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3153458127557F2300BD7B54 /* RecommendedSlabsView.swift */; };
 		316ACAC22725AE240065CE6A /* ForgotPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316ACAC12725AE240065CE6A /* ForgotPasswordViewBody.swift */; };
 		316C527227287BA100E28609 /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C527127287BA100E28609 /* VerifyEmailViewController.swift */; };
 		316C527527287C2800E28609 /* VerifyEmailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C527427287C2800E28609 /* VerifyEmailHeader.swift */; };
@@ -217,6 +222,11 @@
 		3152F6A12717508D0061F72E /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		3152F6A3271751670061F72E /* SetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
 		3152F6A52717519B0061F72E /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		315345762755760A00BD7B54 /* DiscoverBrowse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverBrowse.swift; sourceTree = "<group>"; };
+		31534579275577FE00BD7B54 /* DiscoverBrowseHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverBrowseHeader.swift; sourceTree = "<group>"; };
+		3153457D27557B8800BD7B54 /* BrowseSlabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseSlabsView.swift; sourceTree = "<group>"; };
+		3153457F27557BA500BD7B54 /* Slabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slabs.swift; sourceTree = "<group>"; };
+		3153458127557F2300BD7B54 /* RecommendedSlabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedSlabsView.swift; sourceTree = "<group>"; };
 		316ACAC12725AE240065CE6A /* ForgotPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewBody.swift; sourceTree = "<group>"; };
 		316C527127287BA100E28609 /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
 		316C527427287C2800E28609 /* VerifyEmailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailHeader.swift; sourceTree = "<group>"; };
@@ -653,6 +663,17 @@
 			path = ForgotPasswordViewHelpers;
 			sourceTree = "<group>";
 		};
+		315345782755764200BD7B54 /* DiscoverBrowseHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				31534579275577FE00BD7B54 /* DiscoverBrowseHeader.swift */,
+				3153457F27557BA500BD7B54 /* Slabs.swift */,
+				3153457D27557B8800BD7B54 /* BrowseSlabsView.swift */,
+				3153458127557F2300BD7B54 /* RecommendedSlabsView.swift */,
+			);
+			path = DiscoverBrowseHelpers;
+			sourceTree = "<group>";
+		};
 		316C527027287B6B00E28609 /* VerifyEmailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -866,10 +887,12 @@
 			isa = PBXGroup;
 			children = (
 				30836FAF274A035D00E83735 /* DiscoverMainViewController.swift */,
+				30836FB8274A046D00E83735 /* DiscoverPosts */,
 				30836FB1274A036E00E83735 /* DiscoverViewRecentSearch.swift */,
 				311E93882753C0BA005DFE12 /* DiscoverSearch.swift */,
-				30836FB8274A046D00E83735 /* DiscoverPosts */,
 				30836FB3274A037C00E83735 /* SearchTemplates */,
+				315345762755760A00BD7B54 /* DiscoverBrowse.swift */,
+				315345782755764200BD7B54 /* DiscoverBrowseHelpers */,
 				92794D0C273813080012B184 /* Category */,
 			);
 			path = Discover;
@@ -1203,6 +1226,7 @@
 				30836FAD2749E77800E83735 /* ImagePicker.swift in Sources */,
 				31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */,
 				92DB7C69273181030035B788 /* CreateLandingHeader.swift in Sources */,
+				3153458227557F2300BD7B54 /* RecommendedSlabsView.swift in Sources */,
 				319F25C526E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
 				92794CFD273811760012B184 /* CollectionReelHeader.swift in Sources */,
 				31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */,
@@ -1221,6 +1245,7 @@
 				92794D13273814EB0012B184 /* DiscoveryCategoryContent.swift in Sources */,
 				92794D07273811760012B184 /* CollectionGenericView.swift in Sources */,
 				3129ADD026F40ED900172808 /* SelfProfileViewHeader.swift in Sources */,
+				3153457E27557B8800BD7B54 /* BrowseSlabsView.swift in Sources */,
 				3004D4FF26CD579000323BCB /* SettingsViewController.swift in Sources */,
 				319F25C126E571B7009B811E /* HomeViewDiscover.swift in Sources */,
 				3129ADE126F41AB600172808 /* OtherProfileViewController.swift in Sources */,
@@ -1244,6 +1269,7 @@
 				31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */,
 				316C527227287BA100E28609 /* VerifyEmailViewController.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
+				3153458027557BA500BD7B54 /* Slabs.swift in Sources */,
 				92794D0F273814B80012B184 /* DiscoveryCategoryView.swift in Sources */,
 				3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
 				31B4CB8126FD2FD700FF86ED /* SelfProfileCollectionTab.swift in Sources */,
@@ -1274,6 +1300,7 @@
 				3129ADE526F439AC00172808 /* SelfProfileViewRooms.swift in Sources */,
 				311E93872752FB61005DFE12 /* Post_Large.swift in Sources */,
 				319F25B126E56722009B811E /* HomeViewHeader.swift in Sources */,
+				3153457A275577FE00BD7B54 /* DiscoverBrowseHeader.swift in Sources */,
 				31BDD938270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift in Sources */,
 				3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */,
 				3129ADCC26F40E3B00172808 /* SelfProfileViewController.swift in Sources */,
@@ -1293,6 +1320,7 @@
 				31B4CB8526FD2FE700FF86ED /* SelfProfileCollectionList.swift in Sources */,
 				92794D06273811760012B184 /* CollectionLikedRow.swift in Sources */,
 				3004D4F226CD407600323BCB /* Art.swift in Sources */,
+				315345772755760A00BD7B54 /* DiscoverBrowse.swift in Sources */,
 				92DB7C6D273181240035B788 /* CreatePublishHeader.swift in Sources */,
 				319F25C926E572BA009B811E /* HomeViewAuction.swift in Sources */,
 			);

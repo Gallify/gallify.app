@@ -21,24 +21,8 @@ struct DiscoveryCategoryHeader: View {
             HStack {
                 
                 CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
-                                    .padding(.horizontal, screenWidth / 25)
-                                    .padding(.vertical, screenHeight / 100)
-                
-                NavigationLink(
-                    destination: TabBarView(),
-                    label: {
-                        
-                        Image(systemName: "lessthan")
-                            .resizable()
-                            .foregroundColor(Color.black)
-                            .frame(width: screenWidth / 15, height: screenWidth / 15)
-                            .padding(.leading, screenWidth / 25)
-                        
-                    })
-                    .buttonStyle(ThemeAnimationStyle())
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
+                    .padding(.horizontal, screenWidth / 25)
+                    .padding(.vertical, screenHeight / 100)
                 
                 Spacer()
                 
@@ -47,17 +31,16 @@ struct DiscoveryCategoryHeader: View {
             HStack {
                         
                 Text("Sample Category")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                    .padding(.top)
+                    .font(.system(size: screenWidth / 11, weight: .semibold))
                         
                 Spacer()
                         
             }
             .padding(.leading, screenWidth / 12)
-            .padding(.bottom, screenWidth / 15)
+            .padding(.bottom, screenHeight / 32.5)
             
         }
+        .padding(.top, screenHeight / 160)
             
     }
     
