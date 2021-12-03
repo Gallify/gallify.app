@@ -10,23 +10,6 @@ import RealityKit
 import UIKit
 import ARKit
 
-class collection2: UIViewController, ObservableObject, ARSessionDelegate {
-//
-//    @IBAction func showplayer(_ sender: Any){
-//        let test = ARPlayerViewController()
-//        navigationController?pushViewController(test, animated: true)
-//    }
-    //@IBOutlet weak var showPlayer: UIButton!
-    
-//    @IBAction func ar(_ sender: UIButton) {
-//        navigationController?.pushViewController(ARPlayerViewController(), animated: true)
-//    }
-    
-//    var name: String = ""
-//    func updatename (_name : String){
-//        self.name = "nae"
-//    }
-}
 
 
 struct SwiftUIView: View {
@@ -37,7 +20,7 @@ struct SwiftUIView: View {
 
 struct CollectionReelHeader: View {
     
-    @EnvironmentObject var viewModel: collection2
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
 
@@ -60,15 +43,12 @@ struct CollectionReelHeader: View {
                 .navigationBarHidden(true)
             
             
-//            CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "chevron.up.circle"), presentationMode: _presentationMode)
-//                                .padding(.horizontal, screenWidth / 25)
-//                                .padding(.vertical, screenHeight / 100)
             
             Spacer()
             
 
-            NavigationLink (
-                destination: SwiftUIView().edgesIgnoringSafeArea(.all),
+            NavigationLink (  //ARViewContainer used to be SwiftUIView()
+                destination: ARViewContainer().edgesIgnoringSafeArea(.all),
                 label: {
                 Image (systemName: "arkit")
                     .resizable()
