@@ -18,6 +18,7 @@ import RealityKit
 
 
 struct FullARView: View {
+    @State private var isControlsVisible: Bool = true
     let screenWidth: CGFloat
     let screenHeight: CGFloat
     var body: some View {
@@ -25,7 +26,7 @@ struct FullARView: View {
         
             ARViewContainer()
             
-            ARPlayerContentView()
+            ARPlayerContentView(isControlsVisible: $isControlsVisible)
             
         }
         .edgesIgnoringSafeArea(.all)

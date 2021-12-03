@@ -48,7 +48,9 @@ struct CollectionReelHeader: View {
             
 
             NavigationLink (  //ARViewContainer used to be SwiftUIView()
-                destination: FullARView(screenWidth: screenWidth, screenHeight: screenHeight).edgesIgnoringSafeArea(.all),
+                destination: FullARView(screenWidth: screenWidth, screenHeight: screenHeight).edgesIgnoringSafeArea(.all)
+                    //.navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true),
                 label: {
                 Image (systemName: "arkit")
                     .resizable()
@@ -60,7 +62,7 @@ struct CollectionReelHeader: View {
                 .buttonStyle(ThemeAnimationStyle())
                 .navigationBarBackButtonHidden(true)
                 .navigationBarTitle("")
-                .navigationBarHidden(true)
+                
             
            
        //     Spacer() //added

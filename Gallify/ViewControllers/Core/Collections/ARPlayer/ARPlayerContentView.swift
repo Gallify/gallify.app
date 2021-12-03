@@ -9,21 +9,60 @@ import SwiftUI
 import RealityKit
 
 struct ARPlayerContentView: View {
+    @Binding var isControlsVisible: Bool
     var body: some View {
         VStack {
-            ControlVisibiityToggleButton()
+            ControlVisibiityToggleButton(isControlsVisible: $isControlsVisible)
             
             Spacer()
             
-            ControlButtonBar()
+            if isControlsVisible {
+                ControlButtonBar()
+            }
             
         }
     }
 }
 
 struct ControlVisibiityToggleButton: View {
+    @Binding var isControlsVisible: Bool
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         HStack {
+            
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                Image(systemName: "lessthan")
+            }
+            .font(.system(size: 40))
+            .foregroundColor(.white)
+            .buttonStyle(PlainButtonStyle())
+            //.frame(width: 65, height: 65)
+            .padding(.top, 45)
+            .padding(.leading, 20)
+            
+            Spacer()
+            
+            ZStack {
+                
+                Color.black.opacity(0.25)
+                
+                Button(action: {
+                    print("Control Visibility Toggle button pressed")
+                    self.isControlsVisible.toggle()
+                }) {
+                    Image(systemName: self.isControlsVisible ? "rectangle" : "slider.horizontal.below.rectangle")
+                        .font(.system(size: 25))
+                        .foregroundColor(.white)
+                        .buttonStyle(PlainButtonStyle())
+                }
+            }
+            .frame(width: 50, height: 50)
+            .cornerRadius(8.0)
+            .padding(.top, 45)
+            .padding(.trailing, 20)
+            
             
         }
     }
