@@ -47,6 +47,12 @@
 		3087D26A274ED54C00ECD8CD /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D269274ED54C00ECD8CD /* Playlist.swift */; };
 		3087D26C275326F600ECD8CD /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D26B275326F600ECD8CD /* Home.swift */; };
 		3087D26E2753270700ECD8CD /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D26D2753270700ECD8CD /* Discover.swift */; };
+		3087D272275ABCA800ECD8CD /* ARPlayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D271275ABCA800ECD8CD /* ARPlayerContainer.swift */; };
+		3087D279275AC09C00ECD8CD /* cake.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3087D274275AC09B00ECD8CD /* cake.usdz */; };
+		3087D27A275AC09C00ECD8CD /* astro.reality in Resources */ = {isa = PBXBuildFile; fileRef = 3087D275275AC09B00ECD8CD /* astro.reality */; };
+		3087D27B275AC09C00ECD8CD /* pegasus.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3087D276275AC09C00ECD8CD /* pegasus.usdz */; };
+		3087D27C275AC09C00ECD8CD /* gangster.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3087D277275AC09C00ECD8CD /* gangster.usdz */; };
+		3087D27D275AC09C00ECD8CD /* nike.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3087D278275AC09C00ECD8CD /* nike.usdz */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -201,6 +207,12 @@
 		3087D269274ED54C00ECD8CD /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		3087D26B275326F600ECD8CD /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3087D26D2753270700ECD8CD /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		3087D271275ABCA800ECD8CD /* ARPlayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlayerContainer.swift; sourceTree = "<group>"; };
+		3087D274275AC09B00ECD8CD /* cake.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cake.usdz; sourceTree = "<group>"; };
+		3087D275275AC09B00ECD8CD /* astro.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = astro.reality; sourceTree = "<group>"; };
+		3087D276275AC09C00ECD8CD /* pegasus.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = pegasus.usdz; sourceTree = "<group>"; };
+		3087D277275AC09C00ECD8CD /* gangster.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = gangster.usdz; sourceTree = "<group>"; };
+		3087D278275AC09C00ECD8CD /* nike.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = nike.usdz; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -351,6 +363,7 @@
 		3004D4B826C82F6B00323BCB /* Gallify */ = {
 			isa = PBXGroup;
 			children = (
+				3087D273275AC06000ECD8CD /* 3DAssets */,
 				30836FA52749E39D00E83735 /* Services */,
 				3004D4F626CD4D3F00323BCB /* Managers */,
 				3004D4F526CD49AD00323BCB /* Resources */,
@@ -485,6 +498,7 @@
 			isa = PBXGroup;
 			children = (
 				3067FBD12742F233009B5D4D /* ARPlayerViewController.swift */,
+				3087D271275ABCA800ECD8CD /* ARPlayerContainer.swift */,
 			);
 			path = ARPlayer;
 			sourceTree = "<group>";
@@ -532,6 +546,18 @@
 				30836FC1274A053900E83735 /* DiscoverViewTag.swift */,
 			);
 			path = Tags;
+			sourceTree = "<group>";
+		};
+		3087D273275AC06000ECD8CD /* 3DAssets */ = {
+			isa = PBXGroup;
+			children = (
+				3087D275275AC09B00ECD8CD /* astro.reality */,
+				3087D274275AC09B00ECD8CD /* cake.usdz */,
+				3087D277275AC09C00ECD8CD /* gangster.usdz */,
+				3087D278275AC09C00ECD8CD /* nike.usdz */,
+				3087D276275AC09C00ECD8CD /* pegasus.usdz */,
+			);
+			path = 3DAssets;
 			sourceTree = "<group>";
 		};
 		3103E0DF27112D7200135F08 /* PrivacyPolicyViewHelpers */ = {
@@ -1062,7 +1088,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3087D27D275AC09C00ECD8CD /* nike.usdz in Resources */,
+				3087D27B275AC09C00ECD8CD /* pegasus.usdz in Resources */,
+				3087D27A275AC09C00ECD8CD /* astro.reality in Resources */,
 				3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */,
+				3087D279275AC09C00ECD8CD /* cake.usdz in Resources */,
+				3087D27C275AC09C00ECD8CD /* gangster.usdz in Resources */,
 				3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */,
 				3004D4E826CC97F400323BCB /* GoogleService-Info.plist in Resources */,
 				3067FBE227460D5C009B5D4D /* Main.storyboard in Resources */,
@@ -1259,6 +1290,7 @@
 				30836FB7274A043300E83735 /* OtherSearchTemplate.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
+				3087D272275ABCA800ECD8CD /* ARPlayerContainer.swift in Sources */,
 				92794CFB273811760012B184 /* CollectionReelView.swift in Sources */,
 				92794D0A273811760012B184 /* CollectionGenericRow.swift in Sources */,
 				3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */,
@@ -1487,7 +1519,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1510,7 +1542,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

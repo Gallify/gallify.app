@@ -17,15 +17,6 @@ class ViewController: UIViewController {
         return self.view as! ARSCNView
     }
     
-//    func makeFullScreen(){
-//            NSLayoutConstraint.activate([
-//            arView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
-//            arView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0),
-//            arView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0),
-//            arView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0),
-//            ])
-//        }
-    
     override func loadView() {
      
         self.view = ARSCNView(frame: .zero)
@@ -39,7 +30,7 @@ class ViewController: UIViewController {
         
         arView.delegate = self
         arView.scene = SCNScene()
-       // self.modalPresentationStyle = .fullScreen
+       
         
         #if DEBUG
        // arView.showsStatistics = false
@@ -71,6 +62,7 @@ class ViewController: UIViewController {
 
 extension ViewController: ARSCNViewDelegate {
     // Implement whichever delegate methods you want
+    
 }
 
 
