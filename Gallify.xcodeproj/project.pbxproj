@@ -138,6 +138,7 @@
 		92DB7C6F273186330035B788 /* CreatePublishListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C6E273186330035B788 /* CreatePublishListing.swift */; };
 		92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */; };
 		F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */; };
+		FC078049275ACA93003C7538 /* ARPlayerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC078048275ACA93003C7538 /* ARPlayerContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -294,6 +295,7 @@
 		92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewAnimation.swift; sourceTree = "<group>"; };
 		9B47B46B9072CE5E90CC4719 /* Pods-Gallify-GallifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.release.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.release.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.release.xcconfig"; sourceTree = "<group>"; };
+		FC078048275ACA93003C7538 /* ARPlayerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlayerContentView.swift; sourceTree = "<group>"; };
 		FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify_GallifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -499,6 +501,7 @@
 			children = (
 				3067FBD12742F233009B5D4D /* ARPlayerViewController.swift */,
 				3087D271275ABCA800ECD8CD /* ARPlayerContainer.swift */,
+				FC078048275ACA93003C7538 /* ARPlayerContentView.swift */,
 			);
 			path = ARPlayer;
 			sourceTree = "<group>";
@@ -1250,6 +1253,7 @@
 				92794D05273811760012B184 /* CollectionLikedFooter.swift in Sources */,
 				316C527527287C2800E28609 /* VerifyEmailHeader.swift in Sources */,
 				30836FA92749E3D200E83735 /* FirestoreQueryService.swift in Sources */,
+				FC078049275ACA93003C7538 /* ARPlayerContentView.swift in Sources */,
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
 				31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */,
 				92DB7C6127316A6A0035B788 /* CreatePublishView.swift in Sources */,
@@ -1519,7 +1523,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1542,7 +1546,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

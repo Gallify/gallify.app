@@ -48,7 +48,7 @@ struct CollectionReelHeader: View {
             
 
             NavigationLink (  //ARViewContainer used to be SwiftUIView()
-                destination: ARViewContainer().edgesIgnoringSafeArea(.all),
+                destination: FullARView(screenWidth: screenWidth, screenHeight: screenHeight).edgesIgnoringSafeArea(.all),
                 label: {
                 Image (systemName: "arkit")
                     .resizable()
