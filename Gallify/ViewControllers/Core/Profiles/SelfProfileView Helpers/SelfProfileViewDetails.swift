@@ -103,7 +103,7 @@ struct SelfProfileViewDetails: View {
                 
             HStack {
                     
-                Text("Making the world a better place with my presence.")
+                Text("Making the world a better place with my existence.")
                     .font(.system(size: screenWidth / 23.5, weight: .light))
                 
                 Spacer()

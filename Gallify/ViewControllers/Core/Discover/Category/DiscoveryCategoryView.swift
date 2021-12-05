@@ -11,17 +11,25 @@ struct DiscoveryCategoryView: View {
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
         NavigationView {
+            
             VStack{
-                DiscoveryCategoryHeader(screenWidth: screenWidth, screenHeight: screenHeight)
-                    .padding(.leading)
+                
+                DiscoveryCategoryHeader(screenWidth: screenWidth, screenHeight: screenHeight, presentationMode: _presentationMode)
+                
                 ScrollView (showsIndicators: false) {
+                    
                     DiscoveryCategoryContent(screenWidth: screenWidth)
+                    
                 }
+                .navigationBarHidden(true)
+                
             }
+            
         }
         .navigationBarHidden(true)
         .navigationBarTitle("")

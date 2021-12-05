@@ -17,7 +17,7 @@ struct DiscoveryCategoryContent: View {
             VStack {
                 HStack {
                     
-                    VStack() {
+                    VStack {
                         
                         ZStack {
                             
@@ -76,7 +76,7 @@ struct DiscoveryCategoryContent: View {
                     }
                     .padding(.leading, screenWidth / 37.5)
                     
-                    VStack() {
+                    VStack {
                         
                         ZStack {
                             
@@ -111,9 +111,10 @@ struct DiscoveryCategoryContent: View {
             {
                 
                 VStack {
+                    
                     HStack {
                         
-                        VStack() {
+                        VStack {
                             
                             ZStack {
                                 
@@ -155,7 +156,7 @@ struct DiscoveryCategoryContent: View {
                         }
                         .padding(.leading, screenWidth / 37.5)
                         
-                        VStack() {
+                        VStack {
                             
                             Image("hiddenlake")
                                 .resizable()
@@ -173,6 +174,7 @@ struct DiscoveryCategoryContent: View {
                         .padding(.leading, screenWidth / 37.5)
                         
                     }
+                    
                 }
                 
             }
