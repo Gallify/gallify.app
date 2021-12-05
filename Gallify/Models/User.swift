@@ -2,7 +2,7 @@
 //  User.swift
 //  Gallify
 //
-//  Created by Anshul on 10/31/21.
+//  Created by Patron on 10/31/21.
 //
 import Foundation
 import Swift
@@ -23,7 +23,7 @@ class User: Encodable, Decodable, ObservableObject {
         case ranking
         case ArtPlaylist
         case MembershipStatus
-        case profileImageURL
+        case profileImageUrl
 
     }
 
@@ -35,7 +35,7 @@ class User: Encodable, Decodable, ObservableObject {
     @Published var rarity: Int
     @Published var phoneNumber : String
     @Published var TrendsetterScore: Int
-    @Published var ranking: UInt64
+    @Published var ranking: Double
     @Published var ArtPlaylist : [String]
     @Published var MembershipStatus : String
     @Published var profileImageUrl: String
@@ -70,10 +70,10 @@ class User: Encodable, Decodable, ObservableObject {
         rarity = try container.decode(Int.self, forKey: .rarity)
         phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
         TrendsetterScore = try container.decode(Int.self, forKey: .TrensetterScore)
-        ranking = try container.decode(UInt64.self, forKey: .ranking)
+        ranking = try container.decode(Double.self, forKey: .ranking)
         ArtPlaylist = try container.decode([String].self, forKey: .ArtPlaylist)
         MembershipStatus = try container.decode(String.self, forKey: .MembershipStatus)
-        profileImageUrl = try container.decode(String.self, forKey: .profileImageURL)
+        profileImageUrl = try container.decode(String.self, forKey: .profileImageUrl)
 
     }
 //
@@ -91,7 +91,7 @@ class User: Encodable, Decodable, ObservableObject {
         try container.encode(ranking, forKey: .ranking)
         try container.encode(ArtPlaylist, forKey: .ArtPlaylist)
         try container.encode(MembershipStatus, forKey: .MembershipStatus)
-        try container.encode(profileImageUrl, forKey: .profileImageURL)
+        try container.encode(profileImageUrl, forKey: .profileImageUrl)
 
     }
 

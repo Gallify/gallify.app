@@ -52,13 +52,12 @@ struct SettingsView : View {
     
     @EnvironmentObject var viewModel : LoginAppViewModel
 
-    //@State var profile_image:Image?
     @State var pickedImage: UIImage?
     @State private var showActionSheet = false
     @State private var showImagePicker = false
     @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
     
-    @ObservedObject var settingViewModel = SettingsViewController()
+    @EnvironmentObject var settingsViewModel : SettingsViewController
     
     private var metadata = StorageMetadata()
     
@@ -114,12 +113,8 @@ struct SettingsView : View {
                 }
             
                 Button(action: {
-                    let data = settingViewModel.fetchData()
-//                    print("hhi")
-//                    print(data.email)
-//                    print("hi")
-//                    let mail = "tejvirmann11@gmail.com"
-                    StorageService.saveProfileImage(email: data.email, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
+                    StorageService.saveProfileImage(email: FirestoreQuery.fetchUser(), imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
+                    
                 }, label: {
                     Text("Save")
                         .frame(width: 200, height: 50)
@@ -149,6 +144,9 @@ struct SettingsView : View {
 
 struct SettingViewController: PreviewProvider {
     static var previews: some View {
-        SettingsView().environmentObject(LoginAppViewModel())
+        SettingsView()
+            .environmentObject(LoginAppViewModel())
+            .environmentObject(SettingsViewController())
+        
     }
 }

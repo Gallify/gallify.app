@@ -19,7 +19,11 @@ target 'Gallify' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'Firebase/Core'
+  pod 'FirebaseUI/Storage'
   pod 'FirebaseFirestoreSwift'
+
+    # For images
+  pod 'SDWebImageSwiftUI'
    
     # Search - Algolia
     pod 'AlgoliaSearchClient', '~> 8.10'

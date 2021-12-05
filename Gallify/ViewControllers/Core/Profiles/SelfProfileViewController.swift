@@ -45,5 +45,6 @@ struct SelfProfileView : View {
 struct SelfProfileScreenPreview: PreviewProvider {
     static var previews: some View {
         SelfProfileView().environmentObject(TabBarViewModel())
+            .environmentObject(SelfProfileViewModel())
     }
 }

@@ -4,14 +4,56 @@
 //
 //  Created by Anshul on 9/13/21.
 //
+import UIKit
 import SwiftUI
+import FirebaseStorage
+import FirebaseFirestore
+import FirebaseAuth
+import FirebaseUI
+import SDWebImageSwiftUI
 
 struct SelfProfileViewDetails: View {
+    
+    @EnvironmentObject var profileViewModel : SelfProfileViewModel
     
     let screenHeight: CGFloat
     let screenWidth: CGFloat
     
+    @State var photoUrl : String = ""
+        let downloadRef =  Storage.storage().reference(forURL: "gs://gallify-64bbb.appspot.com/profileImages/" + (Auth.auth().currentUser?.email!)!)
+    
+    func getProfileImage() {
+        downloadRef.downloadURL { (url, error) in
+            if let error = error {
+                // Handle any errors
+            } else {
+                // Get the download URL for 'images/stars.jpg'
+                self.photoUrl = url!.absoluteString
+            }
+        }
+            
+    }
+    
     var body: some View {
+        
+        WebImage(url: URL(string: photoUrl))
+                   // Supports options and context, like `.delayPlaceholder` to show placeholder only when error
+                   .onSuccess { image, data, cacheType in
+                       // Success
+                       // Note: Data exist only when queried from disk cache or network. Use `.queryMemoryData` if you really need data
+                   }
+                   .resizable() // Resizable like SwiftUI.Image, you must use this modifier or the view will use the image bitmap size
+                   .placeholder(Image(systemName: "photo")) // Placeholder Image
+                   // Supports ViewBuilder as well
+                   .placeholder {
+                       Rectangle().foregroundColor(.gray)
+                   }
+                   .indicator(.activity) // Activity Indicator
+                   .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                   .scaledToFit()
+                   .frame(width: 300, height: 300, alignment: .center)
+        
+        
                 
         VStack {
                 
@@ -111,6 +153,8 @@ struct SelfProfileViewDetails: View {
             }
             .padding(.horizontal, screenWidth / 15)
                 
+        }.onAppear{
+            self.getProfileImage()
         }
                 
     }

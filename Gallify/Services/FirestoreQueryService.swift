@@ -13,6 +13,36 @@ import FirebaseAuth
 
 class FirestoreQuery{
     
+    static let db = Firestore.firestore()
+    static var data : User = User()
+    static var email : String = ""
+    
+    static func fetchUser() -> String {
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.email!)
+         docRef.getDocument { (document, error) in
+             let result = Result {
+                try document?.data(as: User.self)
+             }
+             switch result {
+             case .success(let user):
+                 if let user = user {
+                     // A `User` value was successfully initialized from the DocumentSnapshot
+                     //set data to user
+                     self.data = user
+                     self.email = user.email
+                 } else {
+                     // A nil value was successfully initialized from the DocumentSnapshot,
+                     // or the DocumentSnapshot was nil.
+                     print("Document does not exist")
+                 }
+             case .failure(let error):
+                 // A `User` value could not be initialized from the DocumentSnapshot.
+                 print("Error decoding user: \(error)")
+             }
+         }
+        return self.email
+    }
+    
     // MARK: Base Methods
     
     private let db = Firestore.firestore()

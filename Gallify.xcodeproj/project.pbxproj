@@ -53,6 +53,9 @@
 		3087D27B275AC09C00ECD8CD /* pegasus.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3087D276275AC09C00ECD8CD /* pegasus.usdz */; };
 		3087D27C275AC09C00ECD8CD /* gangster.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3087D277275AC09C00ECD8CD /* gangster.usdz */; };
 		3087D27D275AC09C00ECD8CD /* nike.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3087D278275AC09C00ECD8CD /* nike.usdz */; };
+		3087D286275D4C4D00ECD8CD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D285275D4C4D00ECD8CD /* LoadingView.swift */; };
+		3087D288275D574300ECD8CD /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D287275D574300ECD8CD /* BrowseView.swift */; };
+		3087D28A275D622900ECD8CD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D289275D622900ECD8CD /* Model.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -219,6 +222,9 @@
 		3087D276275AC09C00ECD8CD /* pegasus.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = pegasus.usdz; sourceTree = "<group>"; };
 		3087D277275AC09C00ECD8CD /* gangster.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = gangster.usdz; sourceTree = "<group>"; };
 		3087D278275AC09C00ECD8CD /* nike.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = nike.usdz; sourceTree = "<group>"; };
+		3087D285275D4C4D00ECD8CD /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		3087D287275D574300ECD8CD /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
+		3087D289275D622900ECD8CD /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -419,6 +425,7 @@
 		3004D4E926CD3DDB00323BCB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3087D284275D4C3700ECD8CD /* Loading */,
 				318B42EE26E018B000D6D722 /* Helpers */,
 				3152F69B27174CDB0061F72E /* Login */,
 				3004D4FD26CD506800323BCB /* Transactions */,
@@ -512,6 +519,8 @@
 				3067FBD12742F233009B5D4D /* ARPlayerViewController.swift */,
 				3087D271275ABCA800ECD8CD /* ARPlayerContainer.swift */,
 				FC078048275ACA93003C7538 /* ARPlayerContentView.swift */,
+				3087D287275D574300ECD8CD /* BrowseView.swift */,
+				3087D289275D622900ECD8CD /* Model.swift */,
 			);
 			path = ARPlayer;
 			sourceTree = "<group>";
@@ -571,6 +580,14 @@
 				3087D276275AC09C00ECD8CD /* pegasus.usdz */,
 			);
 			path = 3DAssets;
+			sourceTree = "<group>";
+		};
+		3087D284275D4C3700ECD8CD /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				3087D285275D4C4D00ECD8CD /* LoadingView.swift */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		3103E0DF27112D7200135F08 /* PrivacyPolicyViewHelpers */ = {
@@ -1265,6 +1282,7 @@
 				92794CFC273811760012B184 /* CollectionReelListing.swift in Sources */,
 				30836FAD2749E77800E83735 /* ImagePicker.swift in Sources */,
 				31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */,
+				3087D28A275D622900ECD8CD /* Model.swift in Sources */,
 				92DB7C69273181030035B788 /* CreateLandingHeader.swift in Sources */,
 				3153458227557F2300BD7B54 /* RecommendedSlabsView.swift in Sources */,
 				319F25C526E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
@@ -1317,6 +1335,7 @@
 				3152F6A62717519B0061F72E /* PrivacyPolicyViewController.swift in Sources */,
 				30836FB2274A036E00E83735 /* DiscoverViewRecentSearch.swift in Sources */,
 				3129ADD426F40FC100172808 /* SelfProfileViewDetails.swift in Sources */,
+				3087D286275D4C4D00ECD8CD /* LoadingView.swift in Sources */,
 				30836FB7274A043300E83735 /* OtherSearchTemplate.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
@@ -1356,6 +1375,7 @@
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
 				3087D26C275326F600ECD8CD /* Home.swift in Sources */,
 				30836FB5274A041600E83735 /* ArtistSearchTemplate.swift in Sources */,
+				3087D288275D574300ECD8CD /* BrowseView.swift in Sources */,
 				31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */,
 				3087D26A274ED54C00ECD8CD /* Playlist.swift in Sources */,
 				3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */,
@@ -1543,7 +1563,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = 7583HPKNLX;
+				DEVELOPMENT_TEAM = K35JM9B532;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gallify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1551,7 +1571,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1566,7 +1586,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = 7583HPKNLX;
+				DEVELOPMENT_TEAM = K35JM9B532;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gallify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1574,7 +1594,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

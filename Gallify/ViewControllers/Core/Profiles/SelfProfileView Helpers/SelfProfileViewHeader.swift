@@ -24,7 +24,7 @@ struct SelfProfileViewHeader: View {
             Spacer()
             
             NavigationLink(
-                destination: SettingsView(),
+                destination: SettingsView().environmentObject(SettingsViewController()),
                 label: {
                         
                     Image(systemName: "gearshape.fill")

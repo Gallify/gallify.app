@@ -7,13 +7,18 @@
 import UIKit
 import SwiftUI
 
+
+
 class HomeViewModel: ObservableObject {
+    
+    //called here
     
 }
 
 struct HomeView : View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
+    @State private var isLoading = false
     
         var body: some View {
             
@@ -21,6 +26,10 @@ struct HomeView : View {
             let screenWidth = viewModel.screenWidth
             let heightPad = screenHeight / 54
             let widthPad = screenWidth / 25
+            
+            if isLoading {
+                LoadingView()
+            }
             
             VStack {
                 
@@ -148,7 +157,22 @@ struct HomeView : View {
                 
             }
             .navigationBarHidden(true)
+            .onAppear{ NetworkingCall() }
             
+    }
+    
+    func NetworkingCall(){
+        isLoading = true
+        DispatchQueue.main.async(){
+            
+            //get collections
+            
+            //get art
+            
+            
+            isLoading = false
+        
+        }
     }
     
 }

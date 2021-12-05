@@ -10,6 +10,8 @@ import RealityKit
 
 struct ARPlayerContentView: View {
     @Binding var isControlsVisible: Bool
+    @Binding var showBrowse: Bool
+    
     var body: some View {
         VStack {
             ControlVisibiityToggleButton(isControlsVisible: $isControlsVisible)
@@ -17,7 +19,7 @@ struct ARPlayerContentView: View {
             Spacer()
             
             if isControlsVisible {
-                ControlButtonBar()
+                ControlButtonBar(showBrowse: $showBrowse)
             }
             
         }
@@ -69,21 +71,29 @@ struct ControlVisibiityToggleButton: View {
 }
 
 struct ControlButtonBar: View {
+    @Binding var showBrowse: Bool
     var body: some View {
         HStack {
             
+            //most recent
             ControlButton(systemIconName: "clock.fill") {
                 print("Most recently placed button pressed");
             }
             
             Spacer()
             
+            //browse
             ControlButton(systemIconName: "square.grid.2x2") {
                 print("Browse button pressed");
-            }
+                self.showBrowse.toggle()
+            }.sheet(isPresented: $showBrowse, content:{
+                // BrowseView
+                BrowseView(showBrowse: $showBrowse)
+            } )
             
             Spacer()
             
+            //settings
             ControlButton(systemIconName: "slider.horizontal.3") {
                 print("Settings button pressed");
             }
