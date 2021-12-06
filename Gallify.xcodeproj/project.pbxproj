@@ -56,6 +56,8 @@
 		3087D286275D4C4D00ECD8CD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D285275D4C4D00ECD8CD /* LoadingView.swift */; };
 		3087D288275D574300ECD8CD /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D287275D574300ECD8CD /* BrowseView.swift */; };
 		3087D28A275D622900ECD8CD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D289275D622900ECD8CD /* Model.swift */; };
+		3087D28C275D890000ECD8CD /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D28B275D890000ECD8CD /* PlacementSettings.swift */; };
+		3087D28E275D8F8900ECD8CD /* PlacementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087D28D275D8F8900ECD8CD /* PlacementView.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -225,6 +227,8 @@
 		3087D285275D4C4D00ECD8CD /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		3087D287275D574300ECD8CD /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		3087D289275D622900ECD8CD /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3087D28B275D890000ECD8CD /* PlacementSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementSettings.swift; sourceTree = "<group>"; };
+		3087D28D275D8F8900ECD8CD /* PlacementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementView.swift; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -521,6 +525,8 @@
 				FC078048275ACA93003C7538 /* ARPlayerContentView.swift */,
 				3087D287275D574300ECD8CD /* BrowseView.swift */,
 				3087D289275D622900ECD8CD /* Model.swift */,
+				3087D28B275D890000ECD8CD /* PlacementSettings.swift */,
+				3087D28D275D8F8900ECD8CD /* PlacementView.swift */,
 			);
 			path = ARPlayer;
 			sourceTree = "<group>";
@@ -1317,6 +1323,7 @@
 				3004D50F26CD7EF800323BCB /* SignInViewController.swift in Sources */,
 				92794D09273811760012B184 /* CollectionGenericHeader.swift in Sources */,
 				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
+				3087D28C275D890000ECD8CD /* PlacementSettings.swift in Sources */,
 				3004D50726CD581600323BCB /* HomeViewController.swift in Sources */,
 				30836FC2274A053900E83735 /* DiscoverViewTag.swift in Sources */,
 				311E93892753C0BB005DFE12 /* DiscoverSearch.swift in Sources */,
@@ -1328,6 +1335,7 @@
 				31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */,
 				316C527227287BA100E28609 /* VerifyEmailViewController.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
+				3087D28E275D8F8900ECD8CD /* PlacementView.swift in Sources */,
 				3153458027557BA500BD7B54 /* Slabs.swift in Sources */,
 				92794D0F273814B80012B184 /* DiscoveryCategoryView.swift in Sources */,
 				3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
