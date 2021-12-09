@@ -19,7 +19,7 @@ class PlacementSettings: ObservableObject {
     }
     
     // When the user Taps confirm in PlacementView, the value of selectedModel is assigned to confirmed modek.
-    @Published var confirmModel: Model? {
+    @Published var confirmedModel: Model? {
         willSet(newValue){
             guard let model = newValue else {
                 print("Clearing confirmed Model")
@@ -30,4 +30,8 @@ class PlacementSettings: ObservableObject {
             
         }
     }
+    
+    // This property retains the cancellable object for our SceneEvents.Update subscriber
+    var sceneObserver: Cancellable?
+    
 }

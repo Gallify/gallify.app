@@ -74,27 +74,27 @@ struct Models{
     
     init(){
         //tables
-        let cake = Model(name: "cake", category: .table, scaleCompensation: 0.32/100)
-        let gangster = Model(name: "gangster", category: .table, scaleCompensation: 0.32/100)
-        let astro = Model(name: "astro", category: .table, scaleCompensation: 0.32/100)
-        let nike = Model(name: "nike", category: .table, scaleCompensation: 0.32/100)
-        let pegasus = Model(name: "pegasus", category: .table, scaleCompensation: 0.32/100)
+        let cake = Model(name: "cake", category: .table, scaleCompensation: 1)
+        let gangster = Model(name: "gangster", category: .table, scaleCompensation: 1)
+        let astro = Model(name: "astro", category: .table, scaleCompensation: 1)
+        let nike = Model(name: "nike", category: .table, scaleCompensation: 1)
+        let pegasus = Model(name: "pegasus", category: .table, scaleCompensation: 1)
         
         self.all += [cake, gangster, astro, nike, pegasus]
         
-        let cake2 = Model(name: "cake", category: .chair, scaleCompensation: 0.32/100)
-        let gangster2 = Model(name: "gangster", category: .chair, scaleCompensation: 0.32/100)
-        let astro2 = Model(name: "astro", category: .chair, scaleCompensation: 0.32/100)
-        let nike2 = Model(name: "nike", category: .chair, scaleCompensation: 0.32/100)
-        let pegasus2 = Model(name: "pegasus", category: .chair, scaleCompensation: 0.32/100)
+        let cake2 = Model(name: "cake", category: .chair, scaleCompensation: 1)
+        let gangster2 = Model(name: "gangster", category: .chair, scaleCompensation: 1)
+        let astro2 = Model(name: "astro", category: .chair, scaleCompensation: 1)
+        let nike2 = Model(name: "nike", category: .chair, scaleCompensation: 1)
+        let pegasus2 = Model(name: "pegasus", category: .chair, scaleCompensation: 1)
         
         self.all += [cake2, gangster2, astro2, nike2, pegasus2]
     
-        let cake3 = Model(name: "cake", category: .decor, scaleCompensation: 0.32/100)
-        let gangster3 = Model(name: "gangster", category: .decor, scaleCompensation: 0.32/100)
-        let astro3 = Model(name: "astro", category: .decor, scaleCompensation: 0.32/100)
-        let nike3 = Model(name: "nike", category: .decor, scaleCompensation: 0.32/100)
-        let pegasus3 = Model(name: "pegasus", category: .decor, scaleCompensation: 0.32/100)
+        let cake3 = Model(name: "cake", category: .decor, scaleCompensation: 1)
+        let gangster3 = Model(name: "gangster", category: .decor, scaleCompensation: 1)
+        let astro3 = Model(name: "astro", category: .decor, scaleCompensation: 1)
+        let nike3 = Model(name: "nike", category: .decor, scaleCompensation: 1)
+        let pegasus3 = Model(name: "pegasus", category: .decor, scaleCompensation: 1)
         
         self.all += [cake3, gangster3, astro3, nike3, pegasus3]
        
