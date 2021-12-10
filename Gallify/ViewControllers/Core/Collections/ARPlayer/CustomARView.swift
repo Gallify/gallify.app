@@ -112,7 +112,7 @@ class CustomARView: ARView {
         if self.debugOptions.contains(.showSceneUnderstanding) {
             self.debugOptions.remove(.showSceneUnderstanding)
         } else {
-            self.debugOptions.remove(.showSceneUnderstanding)
+            self.debugOptions.insert(.showSceneUnderstanding)
         }
     }
     
