@@ -20,7 +20,9 @@ import RealityKit
 struct FullARView: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     @State private var isControlsVisible: Bool = true
-    @State private var showBrowse: Bool = false 
+    @State private var showBrowse: Bool = false
+    @State private var showSettings: Bool = false
+    
     
     
     
@@ -32,7 +34,7 @@ struct FullARView: View {
             ARViewContainer()
             
             if self.placementSettings.selectedModel == nil{
-                ARPlayerContentView(isControlsVisible: $isControlsVisible, showBrowse: $showBrowse)
+                ARPlayerContentView(isControlsVisible: $isControlsVisible, showBrowse: $showBrowse, showSettings: $showSettings)
             }else{
                 PlacementView()
             }
@@ -92,3 +94,12 @@ struct ARViewContainer: UIViewRepresentable {
 //
 //    }
 //}
+
+struct ContentView_Previews: PreviewProvider{
+    static var previews: some View {
+        FullARView(screenWidth: UIScreen.main.bounds.width,screenHeight: UIScreen.main.bounds.height)
+            .environmentObject(PlacementSettings())
+            .environmentObject(SessionSettings())
+
+    }
+}

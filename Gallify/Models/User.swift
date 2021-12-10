@@ -21,10 +21,19 @@ class User: Encodable, Decodable, ObservableObject {
         case phoneNumber
         case TrensetterScore
         case ranking
-        case ArtPlaylist
+        case Library
         case MembershipStatus
         case profileImageUrl
-
+        case followers
+        case following
+        case connections
+        case are_following
+        case are_connected
+        case followersUrl
+        case followingUrl
+        case connectionsUrl
+        case job
+        case skill
     }
 
     @Published var uid : String
@@ -36,9 +45,20 @@ class User: Encodable, Decodable, ObservableObject {
     @Published var phoneNumber : String
     @Published var TrendsetterScore: Int
     @Published var ranking: Double
-    @Published var ArtPlaylist : [String]
+    @Published var Library : [String]   //library=museum
     @Published var MembershipStatus : String
     @Published var profileImageUrl: String
+//    @Published var followers: Int
+//    @Published var following: Int
+//    @Published var connections: Int
+//    @Published var are_following: Bool
+//    @Published var are_connected: Bool
+//    @Published var followersUrl: String
+//    @Published var followingUrl: String
+//    @Published var connectionsUrl: String
+//    @Published var job: String
+//    @Published var skill: Int
+
 
 
 
@@ -53,7 +73,7 @@ class User: Encodable, Decodable, ObservableObject {
         phoneNumber = ""
         TrendsetterScore = 0
         ranking = 0
-        ArtPlaylist = [String]()
+        Library = [String]()
         MembershipStatus = ""
         profileImageUrl = ""
 
@@ -71,7 +91,7 @@ class User: Encodable, Decodable, ObservableObject {
         phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
         TrendsetterScore = try container.decode(Int.self, forKey: .TrensetterScore)
         ranking = try container.decode(Double.self, forKey: .ranking)
-        ArtPlaylist = try container.decode([String].self, forKey: .ArtPlaylist)
+        Library = try container.decode([String].self, forKey: .Library)
         MembershipStatus = try container.decode(String.self, forKey: .MembershipStatus)
         profileImageUrl = try container.decode(String.self, forKey: .profileImageUrl)
 
@@ -89,7 +109,7 @@ class User: Encodable, Decodable, ObservableObject {
         try container.encode(phoneNumber, forKey: .phoneNumber)
         try container.encode(TrendsetterScore, forKey: .TrensetterScore)
         try container.encode(ranking, forKey: .ranking)
-        try container.encode(ArtPlaylist, forKey: .ArtPlaylist)
+        try container.encode(Library, forKey: .Library)
         try container.encode(MembershipStatus, forKey: .MembershipStatus)
         try container.encode(profileImageUrl, forKey: .profileImageUrl)
 

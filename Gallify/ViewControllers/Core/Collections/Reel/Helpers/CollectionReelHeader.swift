@@ -23,7 +23,9 @@ struct CollectionReelHeader: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var placementSettings = PlacementSettings() //this allows FullARView to pass the placement settings(where to place an object throughout many of it's connected views
-
+    @StateObject var sessionSettings = SessionSettings()
+    
+    
     let screenWidth: CGFloat
     let screenHeight: CGFloat
     
@@ -50,6 +52,7 @@ struct CollectionReelHeader: View {
             NavigationLink (  //ARViewContainer used to be SwiftUIView()
                 destination: FullARView(screenWidth: screenWidth, screenHeight: screenHeight)
                     .environmentObject(placementSettings)
+                    .environmentObject(sessionSettings)
                     .edgesIgnoringSafeArea(.all)
                     //.navigationBarBackButtonHidden(true)
                     .navigationBarHidden(true), //comma?
