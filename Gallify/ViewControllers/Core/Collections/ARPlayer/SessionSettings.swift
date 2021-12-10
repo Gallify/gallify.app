@@ -12,5 +12,5 @@ class SessionSettings: ObservableObject {
     @Published var isObjectOcclusionEnabled: Bool = false
     @Published var isLidarDebugEnabled: Bool = false
     @Published var isMultiUserEnabled: Bool = false
-
+ 
 }

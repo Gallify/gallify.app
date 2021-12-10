@@ -45,9 +45,10 @@ struct FullARView: View {
 
 struct ARViewContainer: UIViewRepresentable {
     @EnvironmentObject var placementSettings: PlacementSettings
+    @EnvironmentObject var sessionSettings: SessionSettings
     
     func makeUIView(context: Context) -> CustomARView {
-        let arView = CustomARView(frame: .zero)
+        let arView = CustomARView(frame: .zero, sessionSettings: sessionSettings)
         
         // Subscribe to SceneEvents.Update
         self.placementSettings.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { (event) in
