@@ -9,7 +9,7 @@ import SwiftUI
 import RealityKit
 import Combine
 
-enum ModelCategory: CaseIterable{
+enum ModelCategory: String, CaseIterable{
     case table
     case chair
     case decor
@@ -28,7 +28,9 @@ enum ModelCategory: CaseIterable{
     }
 }
 
-class Model {
+class Model: Identifiable {
+    
+    var id: String = UUID().uuidString
     var name: String
     var category: ModelCategory
     var thumbnail: UIImage
@@ -66,42 +68,5 @@ class Model {
                 
             })
         }
-    }
-
-//you may want a more elegant solution
-struct Models{
-    var all: [Model] = []
-    
-    init(){
-        //tables
-        let cake = Model(name: "cake", category: .table, scaleCompensation: 1)
-        let gangster = Model(name: "gangster", category: .table, scaleCompensation: 1)
-        let astro = Model(name: "astro", category: .table, scaleCompensation: 1)
-        let nike = Model(name: "nike", category: .table, scaleCompensation: 1)
-        let pegasus = Model(name: "pegasus", category: .table, scaleCompensation: 1)
-        
-        self.all += [cake, gangster, astro, nike, pegasus]
-        
-        let cake2 = Model(name: "cake", category: .chair, scaleCompensation: 1)
-        let gangster2 = Model(name: "gangster", category: .chair, scaleCompensation: 1)
-        let astro2 = Model(name: "astro", category: .chair, scaleCompensation: 1)
-        let nike2 = Model(name: "nike", category: .chair, scaleCompensation: 1)
-        let pegasus2 = Model(name: "pegasus", category: .chair, scaleCompensation: 1)
-        
-        self.all += [cake2, gangster2, astro2, nike2, pegasus2]
-    
-        let cake3 = Model(name: "cake", category: .decor, scaleCompensation: 1)
-        let gangster3 = Model(name: "gangster", category: .decor, scaleCompensation: 1)
-        let astro3 = Model(name: "astro", category: .decor, scaleCompensation: 1)
-        let nike3 = Model(name: "nike", category: .decor, scaleCompensation: 1)
-        let pegasus3 = Model(name: "pegasus", category: .decor, scaleCompensation: 1)
-        
-        self.all += [cake3, gangster3, astro3, nike3, pegasus3]
-       
-    }
-    
-    func get(category: ModelCategory) -> [Model]{
-        return all.filter({$0.category==category})
-    }
-    
 }
+
