@@ -33,6 +33,8 @@
 		301E4EAD276404730082B284 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301E4EAC276404730082B284 /* View+Extensions.swift */; };
 		301E4EAF2764075E0082B284 /* SessionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301E4EAE2764075E0082B284 /* SessionSettings.swift */; };
 		301E4EB1276408D50082B284 /* ARSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301E4EB0276408D50082B284 /* ARSettingsView.swift */; };
+		301E4EB3276428130082B284 /* ModelsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301E4EB2276428130082B284 /* ModelsViewModel.swift */; };
+		301E4EB5276434940082B284 /* FirebaseStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301E4EB4276434940082B284 /* FirebaseStorageHelper.swift */; };
 		3067FBD22742F233009B5D4D /* ARPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3067FBD12742F233009B5D4D /* ARPlayerViewController.swift */; };
 		3067FBE227460D5C009B5D4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3067FBE427460D5C009B5D4D /* Main.storyboard */; };
 		30836FA72749E3B800E83735 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FA62749E3B800E83735 /* StorageService.swift */; };
@@ -209,6 +211,8 @@
 		301E4EAC276404730082B284 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		301E4EAE2764075E0082B284 /* SessionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSettings.swift; sourceTree = "<group>"; };
 		301E4EB0276408D50082B284 /* ARSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSettingsView.swift; sourceTree = "<group>"; };
+		301E4EB2276428130082B284 /* ModelsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsViewModel.swift; sourceTree = "<group>"; };
+		301E4EB4276434940082B284 /* FirebaseStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageHelper.swift; sourceTree = "<group>"; };
 		3067FBD12742F233009B5D4D /* ARPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlayerViewController.swift; sourceTree = "<group>"; };
 		3067FBE327460D5C009B5D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30836FA62749E3B800E83735 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
@@ -535,6 +539,8 @@
 				3087D271275ABCA800ECD8CD /* ARPlayerContainer.swift */,
 				FC078048275ACA93003C7538 /* ARPlayerContentView.swift */,
 				301E4EB0276408D50082B284 /* ARSettingsView.swift */,
+				301E4EB2276428130082B284 /* ModelsViewModel.swift */,
+				301E4EB4276434940082B284 /* FirebaseStorageHelper.swift */,
 				FC9EED782762AD3800F831DC /* CustomARView.swift */,
 				3087D287275D574300ECD8CD /* BrowseView.swift */,
 				301E4EAC276404730082B284 /* View+Extensions.swift */,
@@ -1331,6 +1337,7 @@
 				31B4CB8A26FD300A00FF86ED /* OtherProfileCollectionTab.swift in Sources */,
 				92794D13273814EB0012B184 /* DiscoveryCategoryContent.swift in Sources */,
 				92794D07273811760012B184 /* CollectionGenericView.swift in Sources */,
+				301E4EB3276428130082B284 /* ModelsViewModel.swift in Sources */,
 				3129ADD026F40ED900172808 /* SelfProfileViewHeader.swift in Sources */,
 				3153457E27557B8800BD7B54 /* BrowseSlabsView.swift in Sources */,
 				3004D4FF26CD579000323BCB /* SettingsViewController.swift in Sources */,
@@ -1368,6 +1375,7 @@
 				3087D286275D4C4D00ECD8CD /* LoadingView.swift in Sources */,
 				30836FB7274A043300E83735 /* OtherSearchTemplate.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
+				301E4EB5276434940082B284 /* FirebaseStorageHelper.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
 				3087D272275ABCA800ECD8CD /* ARPlayerContainer.swift in Sources */,
 				92794CFB273811760012B184 /* CollectionReelView.swift in Sources */,
@@ -1595,7 +1603,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = 7583HPKNLX;
+				DEVELOPMENT_TEAM = K35JM9B532;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gallify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1603,7 +1611,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1618,7 +1626,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = 7583HPKNLX;
+				DEVELOPMENT_TEAM = K35JM9B532;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gallify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1626,7 +1634,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
