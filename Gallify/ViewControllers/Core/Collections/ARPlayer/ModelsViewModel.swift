@@ -23,6 +23,7 @@ class ModelsViewModel: ObservableObject {
             
             self.models = documents.map {(queryDocumentSnapshot) -> Model in
                 let data = queryDocumentSnapshot.data()
+                print(data)
                 
                 let name = data["name"] as? String ?? ""
                 let categoryText = data["category"] as? String ?? ""

@@ -28,12 +28,12 @@ enum ModelCategory: String, CaseIterable{
     }
 }
 
-class Model: Identifiable {
+class Model: ObservableObject, Identifiable {
     
     var id: String = UUID().uuidString
     var name: String
     var category: ModelCategory
-    var thumbnail: UIImage
+    @Published var thumbnail: UIImage
     var modelEntity: ModelEntity?
     var scaleCompensation: Float
     
@@ -42,31 +42,40 @@ class Model: Identifiable {
     init(name: String, category: ModelCategory, scaleCompensation: Float = 1.0){
         self.name = name
         self.category = category
-        self.thumbnail = UIImage(named: name) ?? UIImage(systemName: "photo")!
+        self.thumbnail = UIImage(systemName: "photo")!
         self.scaleCompensation = scaleCompensation
+        
+        FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: "thumbnail/\(self.name).png") { localUrl in
+            do {
+                let imageData = try Data(contentsOf: localUrl)
+                self.thumbnail = UIImage(data: imageData) ?? self.thumbnail
+            } catch {
+                print("Error loading image: \(error.localizedDescription)")
+            }
+        }
     }
     
     //Create a method to async load model Entity
     func asyncLoadModelEntity(){
-        let filename = self.name + ".usdz" //how about .reality.
-        
-        self.cancellable = ModelEntity.loadModelAsync(named: filename)
-            .sink(receiveCompletion: {loadCompletion in
-                
-                switch loadCompletion {
-                case .failure(let error): print("Unable to load modelEntityfor \(filename). Error: \(error.localizedDescription)")
-                case .finished:
-                    break
-                }
+        FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: "models/\(self.name).usdz") { localUrl in
+            self.cancellable = ModelEntity.loadModelAsync(contentsOf: localUrl)
+                .sink(receiveCompletion: {loadCompletion in
                     
-            }, receiveValue: { modelEntity in
-                
-                self.modelEntity = modelEntity
-                self.modelEntity?.scale *= self.scaleCompensation //scale? 
-                
-                print("modelEntity for \(self.name) has been loaded.")
-                
-            })
+                    switch loadCompletion {
+                    case .failure(let error): print("Unable to load modelEntityfor \(self.name). Error: \(error.localizedDescription)")
+                    case .finished:
+                        break
+                    }
+                        
+                }, receiveValue: { modelEntity in
+                    
+                    self.modelEntity = modelEntity
+                    self.modelEntity?.scale *= self.scaleCompensation //scale?
+                    
+                    print("modelEntity for \(self.name) has been loaded.")
+                    
+                })
+            }
         }
 }
 
