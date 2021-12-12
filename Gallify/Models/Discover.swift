@@ -12,4 +12,5 @@ struct Discover: Codable, Identifiable {
     
     let recentSearches: [Playlist]
     
+    
 }
