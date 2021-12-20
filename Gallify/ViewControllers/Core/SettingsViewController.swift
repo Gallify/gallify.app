@@ -19,6 +19,7 @@ class SettingsViewController : ObservableObject {
 struct SettingsView : View {
     
     @EnvironmentObject var viewModel : LoginAppViewModel
+    @ObservedObject var firestoreQuery = FirestoreQuery()
 
     @State var pickedImage: UIImage?
     @State private var showActionSheet = false
@@ -26,6 +27,10 @@ struct SettingsView : View {
     @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
     
     @EnvironmentObject var settingsViewModel : SettingsViewController
+    
+    init(){
+        firestoreQuery.fetchUser()
+    }
     
     private var metadata = StorageMetadata()
     
@@ -81,37 +86,7 @@ struct SettingsView : View {
                 }
             
                 Button(action: {
-                    let db = Firestore.firestore()
-                    func fetchUser() {
-                        let docRef = db.collection("users").document(Auth.auth().currentUser!.email!)
-                        docRef.getDocument { (document, error) in
-                            let result = Result {
-                                try document?.data(as: User.self)
-                            }
-                            switch result {
-                            case .success(let user):
-                                 if let user = user {
-                                     // A `User` value was successfully initialized from the DocumentSnapshot
-                                     //set data to user
-                                     
-                                     print("USER EMAIL = ", user.email)
-                                     StorageService.saveProfileImage(email: user.email, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
-                                 } else {
-                                     // A nil value was successfully initialized from the DocumentSnapshot,
-                                     // or the DocumentSnapshot was nil.
-                                     print("Document does not exist")
-                                 }
-                             case .failure(let error):
-                                 // A `User` value could not be initialized from the DocumentSnapshot.
-                                 print("Error decoding user: \(error)")
-                             }
-                         }
-                        
-                        //return self.email
-                    }
-                    
-                    fetchUser()
-                    
+                       StorageService.saveProfileImage(email: firestoreQuery.data.email, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
                 }, label: {
                     Text("Save")
                         .frame(width: 200, height: 50)
