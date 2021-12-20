@@ -14,7 +14,10 @@ class UserLight: Encodable, Decodable, ObservableObject {
     enum CodingKeys: CodingKey {
 
         case uid
+        case email
         case firstName
+        case phoneNumber
+        case location
         case lastName
         case username
         case profileUrl
@@ -29,6 +32,9 @@ class UserLight: Encodable, Decodable, ObservableObject {
     }
 
     @Published var uid : String
+    @Published var email : String
+    @Published var phoneNumber : String
+    @Published var location: String
     @Published var firstName: String
     @Published var lastName: String
     @Published var MembershipStatus : String
@@ -43,6 +49,9 @@ class UserLight: Encodable, Decodable, ObservableObject {
     init() {
 
         uid = ""
+        email = ""
+        phoneNumber = ""
+        location = ""
         firstName = ""
         lastName = ""
         MembershipStatus = ""
@@ -60,6 +69,9 @@ class UserLight: Encodable, Decodable, ObservableObject {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
         uid = try container.decode(String.self, forKey: .uid)
+        phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
+        email = try container.decode(String.self, forKey: .email)
+        location = try container.decode(String.self, forKey: .location)
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
         MembershipStatus = try container.decode(String.self, forKey: .MembershipStatus)
@@ -77,6 +89,9 @@ class UserLight: Encodable, Decodable, ObservableObject {
 
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(uid, forKey: .uid)
+        try container.encode(email, forKey: .email)
+        try container.encode(phoneNumber, forKey: .phoneNumber)
+        try container.encode(location, forKey: .location)
         try container.encode(firstName, forKey: .firstName)
         try container.encode(lastName, forKey: .lastName)
         try container.encode(MembershipStatus, forKey: .MembershipStatus)

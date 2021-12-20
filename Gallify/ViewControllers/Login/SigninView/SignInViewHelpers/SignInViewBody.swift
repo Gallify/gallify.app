@@ -22,7 +22,7 @@ struct SignInViewBody: View {
         VStack {
                 
             if buttonPressed && !viewModel.signedIn {
-                
+            
                 ErrorText(errorText: "Whoops! Email or Password is incorrect.", screenHeight: screenHeight, screenWidth: screenWidth)
                     
             }
@@ -96,15 +96,16 @@ struct SignInViewBody: View {
                 Button(action: {
                     
                     viewModel.signIn(email: email, password: password)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
-                    {
-                        buttonPressed = true
-                    }
-                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5)
-                    {
-                        buttonPressed = false
-                    }
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
+//                    {
+//                        buttonPressed = true
+//                    }
+//
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5)
+//                    {
+//                        buttonPressed = false
+//                    }
+                    buttonPressed = true
                     
                 }) {
                         

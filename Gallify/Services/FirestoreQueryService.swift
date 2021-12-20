@@ -9,15 +9,15 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-
-
-class FirestoreQuery{
+class FirestoreQuery : ObservableObject {
     
-    static let db = Firestore.firestore()
-    static var data : User = User()
-    static var email : String = ""
+    let db = Firestore.firestore()
     
-    static func fetchUser() -> String {
+    @Published var data : User = User()
+    
+    var email : String = ""
+    
+    func fetchUser()  {
         let docRef = db.collection("users").document(Auth.auth().currentUser!.email!)
          docRef.getDocument { (document, error) in
              let result = Result {
@@ -27,8 +27,10 @@ class FirestoreQuery{
              case .success(let user):
                  if let user = user {
                      // A `User` value was successfully initialized from the DocumentSnapshot
-                     //set data to user
-                     self.data = user
+                     //set data to user in the main thread since call is completed in background
+                     DispatchQueue.main.async {
+                         self.data = user
+                     }
                      self.email = user.email
                  } else {
                      // A nil value was successfully initialized from the DocumentSnapshot,
@@ -40,13 +42,12 @@ class FirestoreQuery{
                  print("Error decoding user: \(error)")
              }
          }
-        return self.email
     }
     
     // MARK: Base Methods
     
-    private let db = Firestore.firestore()
-    private var data = [String:Any]()
+    //private let db = Firestore.firestore()
+    //private var data = [String:Any]()
     
     init() {}
     

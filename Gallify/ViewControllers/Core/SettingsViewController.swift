@@ -12,39 +12,7 @@ import FirebaseStorage
 import FirebaseFirestoreSwift
 
 class SettingsViewController : ObservableObject {
-    let db = Firestore.firestore()
-    var data : User = User()
-    
-    func fetchData() -> User{
-        let docRef = db.collection("users").document(Auth.auth().currentUser!.email!)
-        
-        print("DocRef --> ", docRef)
-        
-         docRef.getDocument { (document, error) in
-             let result = Result {
-                try document?.data(as: User.self)
-             }
-             switch result {
-             case .success(let user):
-                 if let user = user {
-                     // A `User` value was successfully initialized from the DocumentSnapshot.
-                     print("user profile: \(user)")
-                     print("trying to get email field from user : ", user.email)
-                     //set data to user
-                     self.data = user
-                 } else {
-                     // A nil value was successfully initialized from the DocumentSnapshot,
-                     // or the DocumentSnapshot was nil.
-                     print("Document does not exist")
-                 }
-             case .failure(let error):
-                 // A `User` value could not be initialized from the DocumentSnapshot.
-                 print("Error decoding user: \(error)")
-             }
-         }
-        
-        return data
-    }
+
     
 }
 
@@ -113,7 +81,36 @@ struct SettingsView : View {
                 }
             
                 Button(action: {
-                    StorageService.saveProfileImage(email: FirestoreQuery.fetchUser(), imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
+                    let db = Firestore.firestore()
+                    func fetchUser() {
+                        let docRef = db.collection("users").document(Auth.auth().currentUser!.email!)
+                        docRef.getDocument { (document, error) in
+                            let result = Result {
+                                try document?.data(as: User.self)
+                            }
+                            switch result {
+                            case .success(let user):
+                                 if let user = user {
+                                     // A `User` value was successfully initialized from the DocumentSnapshot
+                                     //set data to user
+                                     
+                                     print("USER EMAIL = ", user.email)
+                                     StorageService.saveProfileImage(email: user.email, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
+                                 } else {
+                                     // A nil value was successfully initialized from the DocumentSnapshot,
+                                     // or the DocumentSnapshot was nil.
+                                     print("Document does not exist")
+                                 }
+                             case .failure(let error):
+                                 // A `User` value could not be initialized from the DocumentSnapshot.
+                                 print("Error decoding user: \(error)")
+                             }
+                         }
+                        
+                        //return self.email
+                    }
+                    
+                    fetchUser()
                     
                 }, label: {
                     Text("Save")

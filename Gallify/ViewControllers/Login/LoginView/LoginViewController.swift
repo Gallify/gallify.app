@@ -65,25 +65,6 @@ class LoginAppViewModel: ObservableObject {
 //        }
     }
     
-//    func createAccount(password: String, user: User) {
-//        auth.createUser(withEmail: user.email, password: password) {[weak self] result, error in
-//            guard result != nil, error == nil else {
-//                return
-//            }
-//
-//            let db = Firestore.firestore()
-//                do {
-//                    try db.collection("users").document(UUID().uuidString).setData(user.asDictionary())
-//                } catch {
-//                    //print(error)
-//                }
-//            }
-//
-//            DispatchQueue.main.async {
-//                self.newUserCreated = true
-//            }
-//        }
-    
     
     func createAccount(password: String, user: User) {
         

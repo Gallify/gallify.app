@@ -49,27 +49,27 @@ struct CollectionReelHeader: View {
             Spacer()
             
 
-            NavigationLink (  //ARViewContainer used to be SwiftUIView()
-                destination: FullARView(screenWidth: screenWidth, screenHeight: screenHeight)
-                    .environmentObject(placementSettings)
-                    .environmentObject(sessionSettings)
-                    .edgesIgnoringSafeArea(.all)
-                    //.navigationBarBackButtonHidden(true)
-                    .navigationBarHidden(true), //comma?
-                
-                label: {
-                Image (systemName: "arkit")
-                    .resizable()
-                    .foregroundColor(Color.black)
-                    .frame(width: screenWidth / 10, height: screenWidth / 10)
-                    .padding(.trailing, screenWidth / 30)
-                    .animation(.easeInOut)
-                })
-                .buttonStyle(ThemeAnimationStyle())
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("")
-                
-            
+//            NavigationLink (  //ARViewContainer used to be SwiftUIView()
+//                destination: FullARView(screenWidth: screenWidth, screenHeight: screenHeight)
+//                    .environmentObject(placementSettings)
+//                    .environmentObject(sessionSettings)
+//                    .edgesIgnoringSafeArea(.all)
+//                    //.navigationBarBackButtonHidden(true)
+//                    .navigationBarHidden(true), //comma?
+//                
+//                label: {
+//                Image (systemName: "arkit")
+//                    .resizable()
+//                    .foregroundColor(Color.black)
+//                    .frame(width: screenWidth / 10, height: screenWidth / 10)
+//                    .padding(.trailing, screenWidth / 30)
+//                    .animation(.easeInOut)
+//                })
+//                .buttonStyle(ThemeAnimationStyle())
+//                .navigationBarBackButtonHidden(true)
+//                .navigationBarTitle("")
+//                
+//            
            
        //     Spacer() //added
             

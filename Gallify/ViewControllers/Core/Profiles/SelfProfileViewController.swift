@@ -8,7 +8,7 @@ import UIKit
 import SwiftUI
 
 class SelfProfileViewModel: ObservableObject {
-
+        
 }
 
 struct SelfProfileView : View {
@@ -27,7 +27,7 @@ struct SelfProfileView : View {
                 
             ScrollView(showsIndicators: false) {
                     
-                SelfProfileViewDetails(screenHeight: screenHeight, screenWidth: screenWidth)
+                SelfProfileViewDetails()
                     
                 SelfProfileViewRooms(screenHeight: screenHeight, screenWidth: screenWidth)
                     
