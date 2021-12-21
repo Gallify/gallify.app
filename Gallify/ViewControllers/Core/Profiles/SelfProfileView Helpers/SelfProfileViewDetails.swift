@@ -78,8 +78,7 @@ struct SelfProfileViewDetails: View {
                        .shadow(radius: 3)
                             
                 }
-                    
-//                CircleImage(image: Image("cat"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
+            
                     
                 VStack {
                         
