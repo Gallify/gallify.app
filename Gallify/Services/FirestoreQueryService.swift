@@ -18,7 +18,9 @@ class FirestoreQuery : ObservableObject {
     var email : String = ""
     
     func fetchUser()  {
-        let docRef = db.collection("users").document(Auth.auth().currentUser!.email!)
+//        let email1 = data.email
+//        print(email1)
+        let docRef = db.collection("users").document("tejvirmann12@gmail.com")
          docRef.getDocument { (document, error) in
              let result = Result {
                 try document?.data(as: User.self)

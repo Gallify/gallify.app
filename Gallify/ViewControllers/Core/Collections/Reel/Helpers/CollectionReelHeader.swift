@@ -24,7 +24,7 @@ struct CollectionReelHeader: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var placementSettings = PlacementSettings() //this allows FullARView to pass the placement settings(where to place an object throughout many of it's connected views
     @StateObject var sessionSettings = SessionSettings()
-    
+    @StateObject var scenemanager = SceneManager()
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat
@@ -49,29 +49,30 @@ struct CollectionReelHeader: View {
             Spacer()
             
 
-//            NavigationLink (  //ARViewContainer used to be SwiftUIView()
-//                destination: FullARView(screenWidth: screenWidth, screenHeight: screenHeight)
-//                    .environmentObject(placementSettings)
-//                    .environmentObject(sessionSettings)
-//                    .edgesIgnoringSafeArea(.all)
-//                    //.navigationBarBackButtonHidden(true)
-//                    .navigationBarHidden(true), //comma?
-//                
-//                label: {
-//                Image (systemName: "arkit")
-//                    .resizable()
-//                    .foregroundColor(Color.black)
-//                    .frame(width: screenWidth / 10, height: screenWidth / 10)
-//                    .padding(.trailing, screenWidth / 30)
-//                    .animation(.easeInOut)
-//                })
-//                .buttonStyle(ThemeAnimationStyle())
-//                .navigationBarBackButtonHidden(true)
-//                .navigationBarTitle("")
-//                
-//            
+            NavigationLink (  //ARViewContainer used to be SwiftUIView()
+                destination: FullARView(screenWidth: screenWidth, screenHeight: screenHeight)
+                    .environmentObject(placementSettings)
+                    .environmentObject(sessionSettings)
+                    .environmentObject(scenemanager)
+                    .edgesIgnoringSafeArea(.all)
+                    //.navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true), //comma?
+                
+                label: {
+                Image (systemName: "arkit")
+                    .resizable()
+                    .foregroundColor(Color.black)
+                    .frame(width: screenWidth / 10, height: screenWidth / 10)
+                    .padding(.trailing, screenWidth / 30)
+                    .animation(.easeInOut)
+                })
+                .buttonStyle(ThemeAnimationStyle())
+                .navigationBarBackButtonHidden(true)
+                .navigationBarTitle("")
+                
+            
            
-       //     Spacer() //added
+            Spacer() //added
             
 
         }

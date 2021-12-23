@@ -8,6 +8,10 @@
 import SwiftUI
 import RealityKit
 
+enum ControlModes: String, CaseIterable{
+    case browse, scene
+}
+
 struct ARPlayerContentView: View {
     @Binding var isControlsVisible: Bool
     @Binding var showBrowse: Bool
@@ -26,6 +30,7 @@ struct ARPlayerContentView: View {
         }
     }
 }
+
 
 struct ControlVisibiityToggleButton: View {
     @Binding var isControlsVisible: Bool
