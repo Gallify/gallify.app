@@ -13,6 +13,7 @@ enum ControlModes: String, CaseIterable{
 }
 
 struct ARPlayerContentView: View {
+    @Binding var selectedControlMode: Int
     @Binding var isControlsVisible: Bool
     @Binding var showBrowse: Bool
     @Binding var showSettings: Bool
@@ -24,6 +25,7 @@ struct ARPlayerContentView: View {
             Spacer()
             
             if isControlsVisible {
+                ControlModePicker(selectedControlMode: $selectedControlMode)
                 ControlButtonBar(showBrowse: $showBrowse, showSettings: $showSettings)
             }
             
@@ -75,7 +77,30 @@ struct ControlVisibiityToggleButton: View {
         }
     }
 }
-
+struct ControlModePicker: View {
+    @Binding var selectedControlMode: Int
+    let controlModes = ControlModes.allCases
+    
+    init(selectedControlMode: Binding<Int>){
+        self._selectedControlMode = selectedControlMode
+        
+        UISegmentedControl.appearance().selectedSegmentTintColor = .clear
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor(displayP3Red: 1.0, green: 0.827, blue: 0, alpha: 1)], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal)
+        UISegmentedControl.appearance().backgroundColor = UIColor(Color.black.opacity(0.25))
+    }
+    
+    var body: some View {
+        Picker(selection: $selectedControlMode,label: Text("Select a Control Mode.")){
+            ForEach(0..<controlModes.count){ index in
+                Text(self.controlModes[index].rawValue.uppercased()).tag(index)
+            }
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .frame(maxWidth:400)
+        .padding(.horizontal,10)
+    }
+}
 struct ControlButtonBar: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     @Binding var showBrowse: Bool
