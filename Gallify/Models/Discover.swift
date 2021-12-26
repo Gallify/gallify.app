@@ -8,7 +8,7 @@
 import Foundation
 
 struct Discover: Codable, Identifiable {
-    let id = UUID() //to allow identifiable
+    var id = UUID() //to allow identifiable
     
     let recentSearches: [Playlist]
     

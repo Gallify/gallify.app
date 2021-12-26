@@ -8,7 +8,7 @@ target 'Gallify' do
   # Pods for Gallify
 
     # Add the Firebase pod for Google Analytics
-    pod 'Firebase/Analytics'
+  pod 'Firebase/Analytics'
 
     # For Analytics without IDFA collection capability, use this pod instead
     # pod ‘Firebase/AnalyticsWithoutAdIdSupport’
@@ -26,7 +26,9 @@ target 'Gallify' do
   pod 'SDWebImageSwiftUI'
    
     # Search - Algolia
-    pod 'AlgoliaSearchClient', '~> 8.10'
+  pod 'AlgoliaSearchClient', '~> 8.10'
+
+  inhibit_all_warnings!
 
   target 'GallifyTests' do
     inherit! :search_paths
@@ -35,6 +37,12 @@ target 'Gallify' do
 
   target 'GallifyUITests' do
     # Pods for testing
+  end
+
+  post_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    end
   end
 
 end
