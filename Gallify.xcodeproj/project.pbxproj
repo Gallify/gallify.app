@@ -153,6 +153,7 @@
 		92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */; };
 		F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */; };
 		FC078049275ACA93003C7538 /* ARPlayerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC078048275ACA93003C7538 /* ARPlayerContentView.swift */; };
+		FC46595227798A63007640BB /* ScenePersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46595127798A63007640BB /* ScenePersistenceHelper.swift */; };
 		FC9EED792762AD3800F831DC /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9EED782762AD3800F831DC /* CustomARView.swift */; };
 		FC9EED7C2762AD7E00F831DC /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = FC9EED7B2762AD7E00F831DC /* FocusEntity */; };
 /* End PBXBuildFile section */
@@ -326,6 +327,7 @@
 		9B47B46B9072CE5E90CC4719 /* Pods-Gallify-GallifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.release.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.release.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC078048275ACA93003C7538 /* ARPlayerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlayerContentView.swift; sourceTree = "<group>"; };
+		FC46595127798A63007640BB /* ScenePersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePersistenceHelper.swift; sourceTree = "<group>"; };
 		FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify_GallifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9EED782762AD3800F831DC /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -535,6 +537,7 @@
 				301E4EAE2764075E0082B284 /* SessionSettings.swift */,
 				3087D271275ABCA800ECD8CD /* ARPlayerContainer.swift */,
 				FC078048275ACA93003C7538 /* ARPlayerContentView.swift */,
+				FC46595127798A63007640BB /* ScenePersistenceHelper.swift */,
 				301E4EB0276408D50082B284 /* ARSettingsView.swift */,
 				301E4EB2276428130082B284 /* ModelsViewModel.swift */,
 				301E4EB4276434940082B284 /* FirebaseStorageHelper.swift */,
@@ -1325,6 +1328,7 @@
 			files = (
 				92794D04273811760012B184 /* CollectionLikedHeader.swift in Sources */,
 				30836FA72749E3B800E83735 /* StorageService.swift in Sources */,
+				FC46595227798A63007640BB /* ScenePersistenceHelper.swift in Sources */,
 				92DB7C5F27316A4D0035B788 /* CreateLandingView.swift in Sources */,
 				316C527727287C3A00E28609 /* VerifyEmailBody.swift in Sources */,
 				92794D01273811760012B184 /* CollectionRecentActivityRow.swift in Sources */,
@@ -1631,7 +1635,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = V934X4C2M8;
+				DEVELOPMENT_TEAM = 7583HPKNLX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gallify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1639,7 +1643,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2.com;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1654,7 +1658,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = V934X4C2M8;
+				DEVELOPMENT_TEAM = 7583HPKNLX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gallify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1662,7 +1666,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2.com;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

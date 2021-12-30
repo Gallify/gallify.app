@@ -55,21 +55,18 @@ struct RecentsGrid: View {
 }
 
 struct ModelsByCategoryGrid: View{
+    @EnvironmentObject var modelsViewModel: ModelsViewModel
     @Binding var showBrowse: Bool
-    @ObservedObject private var viewModel = ModelsViewModel()
     
     
     var body: some View {
         VStack{
             ForEach(ModelCategory.allCases, id: \.self){ category in
                 
-                if let modelsByCategory = viewModel.models.filter({$0.category == category}){
+                if let modelsByCategory = self.modelsViewModel.models.filter({$0.category == category}){
                     HorizontalGrid(showBrowse: $showBrowse, title: category.label, items: modelsByCategory)
                 }
             }
-        }
-        .onAppear(){
-            self.viewModel.fetchARData()
         }
     }
 }
@@ -98,10 +95,12 @@ struct HorizontalGrid: View {
                         
                         ItemButton(model: model){
                             //call model method to async load entity
-                            model.asyncLoadModelEntity()
-                            //select model for placement
-                            self.placementSettings.selectedModel = model
-                            
+                            model.asyncLoadModelEntity { completed, error in
+                                if completed {
+                                    //select model for placement
+                                    self.placementSettings.selectedModel = model
+                                }
+                            }
                             print("BrowseView selected \(model.name) for placement")
                             self.showBrowse = false
                         }

@@ -19,6 +19,7 @@ import RealityKit
 
 struct FullARView: View {
     @EnvironmentObject var placementSettings: PlacementSettings
+    @EnvironmentObject var modelsViewModel: ModelsViewModel
     @State private var selectedControlMode: Int = 0
     @State private var isControlsVisible: Bool = true
     @State private var showBrowse: Bool = false
@@ -41,6 +42,9 @@ struct FullARView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
+        .onAppear() {
+            self.modelsViewModel.fetchARData()
+        }
     }
 }
 
@@ -58,6 +62,7 @@ struct ContentView_Previews: PreviewProvider{
             .environmentObject(PlacementSettings())
             .environmentObject(SessionSettings())
             .environmentObject(SceneManager())
+            .environmentObject(ModelsViewModel())
 
     }
 }

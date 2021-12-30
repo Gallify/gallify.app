@@ -26,7 +26,7 @@ struct ARPlayerContentView: View {
             
             if isControlsVisible {
                 ControlModePicker(selectedControlMode: $selectedControlMode)
-                ControlButtonBar(showBrowse: $showBrowse, showSettings: $showSettings)
+                ControlButtonBar(showBrowse: $showBrowse, showSettings: $showSettings, selectedControlModel: selectedControlMode)
             }
             
         }
@@ -102,6 +102,25 @@ struct ControlModePicker: View {
     }
 }
 struct ControlButtonBar: View {
+    @Binding var showBrowse: Bool
+    @Binding var showSettings: Bool
+    var selectedControlModel: Int
+    
+    var body: some View {
+        HStack(alignment: .center) {
+            if selectedControlModel == 1 {
+                SceneButtons()
+            } else {
+                BrowseButtons(showBrowse: $showBrowse, showSettings: $showSettings)
+            }
+        }
+        .frame(maxWidth: 500)
+        .padding(30)
+        .background(Color.black.opacity(0.25))
+    }
+}
+
+struct BrowseButtons: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     @Binding var showBrowse: Bool
     @Binding var showSettings: Bool
@@ -120,6 +139,7 @@ struct ControlButtonBar: View {
             }.sheet(isPresented: $showBrowse, content:{
                 // BrowseView
                 BrowseView(showBrowse: $showBrowse)
+                    .environmentObject(placementSettings)
             } )
             
             Spacer()
@@ -133,9 +153,32 @@ struct ControlButtonBar: View {
             }
             
         }
-        .frame(maxWidth: 500)
-        .padding(30)
-        .background(Color.black.opacity(0.25))
+    }
+}
+
+struct SceneButtons: View {
+    @EnvironmentObject var sceneManager: SceneManager
+    
+    var body: some View {
+        ControlButton(systemIconName: "icloud.and.arrow.up") {
+            print("Save Scene button pressed")
+            self.sceneManager.shouldSaveSceneToFileSystem = true
+        }
+        .hidden(!self.sceneManager.isPersistenceAvailible)
+        
+        Spacer()
+        
+        ControlButton(systemIconName: "icloud.and.arrow.down") {
+            print("Load Scene button pressed")
+            self.sceneManager.shouldLoadSceneFromFileSystem = true
+        }
+        .hidden(self.sceneManager.scenePersistenceData == nil)
+        
+        Spacer()
+        
+        ControlButton(systemIconName: "trash") {
+            print("Clear Scene button pressed")
+        }
     }
 }
 

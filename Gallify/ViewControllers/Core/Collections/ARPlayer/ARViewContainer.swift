@@ -8,20 +8,26 @@
 import Foundation
 import SwiftUI
 import RealityKit
+import ARKit
 
+private let anchorNamePrefix = "model-"
 
 struct ARViewContainer: UIViewRepresentable {
     @EnvironmentObject var placementSettings: PlacementSettings
     @EnvironmentObject var sessionSettings: SessionSettings
     @EnvironmentObject var scenemanager: SceneManager
+    @EnvironmentObject var modelsViewModel: ModelsViewModel
 
     func makeUIView(context: Context) -> CustomARView {
         let arView = CustomARView(frame: .zero, sessionSettings: sessionSettings)
+        
+        arView.session.delegate = context.coordinator
 
         // Subscribe to SceneEvents.Update
         self.placementSettings.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { (event) in
             self.updateScene(for: arView)
             self.updatePersistenceAvailbilty(for: arView)
+            self.handlePersistence(for: arView)
         })
 
         return arView
@@ -32,15 +38,27 @@ struct ARViewContainer: UIViewRepresentable {
     private func updateScene(for arView: CustomARView) {
         arView.focusEntity?.isEnabled = self.placementSettings.selectedModel != nil
 
-        //Add model to scene if confirmed for placement
-        if let confirmedModel = self.placementSettings.confirmedModel, let modelEntity = confirmedModel.modelEntity {
-            self.place(modelEntity, in: arView)
-            self.placementSettings.confirmedModel = nil
+        //Add model(s) to scene if confirmed for placement
+        if let modelAnchor = self.placementSettings.modelsConfirmedForPlacement.popLast(), let modelEntity = modelAnchor.model.modelEntity {
             
+            if let anchor = modelAnchor.anchor {
+                // Anchor is being loaded from persisted scene
+                self.place(modelEntity, for: anchor, in: arView)
+                arView.session.add(anchor: anchor)
+                self.placementSettings.recentlyPlaced.append(modelAnchor.model)
+            } else if let transform = getTransformForPlacement(in: arView) {
+                // Anchor needs to be created for model placement
+                let anchorName = anchorNamePrefix + modelAnchor.model.name
+                let anchor = ARAnchor(name: anchorName, transform: transform)
+                
+                self.place(modelEntity, for: anchor, in: arView)
+                arView.session.add(anchor: anchor)
+                self.placementSettings.recentlyPlaced.append(modelAnchor.model) 
+            }
         }
     }
 
-    private func place(_ modelEntity: ModelEntity, in arView: ARView) {
+    private func place(_ modelEntity: ModelEntity, for anchor: ARAnchor, in arView: ARView) {
         //1. Clone modelEntity. Created identical copy of modelEntity and references same model, allows for multiple models of the same asset in our scene.
         let clonedEntity = modelEntity.clone(recursive: true)
 
@@ -51,12 +69,23 @@ struct ARViewContainer: UIViewRepresentable {
         //3. Create anchor entity and add cloneEntity to it
         let anchorEntity = AnchorEntity(plane: .any)
         anchorEntity.addChild(clonedEntity)
+        
+        anchorEntity.anchoring = AnchoringComponent(anchor)
 
         //4. Add anchorEntity to arView.scene
         arView.scene.addAnchor(anchorEntity)
         
         self.scenemanager.anchorEntities.append(anchorEntity)
         print("Added modelEntity to scene")
+    }
+    
+    private func getTransformForPlacement(in arView: ARView) -> simd_float4x4? {
+        guard let query = arView.makeRaycastQuery(from: arView.center, allowing: .estimatedPlane, alignment: .any) else {
+            return nil
+        }
+        guard let raycastResult = arView.session.raycast(query).first else { return nil }
+        
+        return raycastResult.worldTransform
     }
 
 }
@@ -67,7 +96,21 @@ class SceneManager : ObservableObject {
     @Published var isPersistenceAvailible: Bool = false
     @Published var anchorEntities: [AnchorEntity] = [] // Keeps trsck of anchor ENtites in the scene.
     
+    var shouldSaveSceneToFileSystem: Bool = false // Flag to trigger save scene to filesystem function
+    var shouldLoadSceneFromFileSystem: Bool = false // Flag to trigger load scene from filesystem function
     
+    
+    lazy var persistenceURL: URL = {
+        do {
+            return try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("arf.persistence")
+        } catch {
+            fatalError("Unable to get persistenceURL: \(error.localizedDescription)")
+        }
+    }()
+    
+    var scenePersistenceData: Data? {
+        return try? Data(contentsOf: persistenceURL)
+    }
 }
 
 
@@ -85,7 +128,63 @@ extension ARViewContainer {
             self.scenemanager.isPersistenceAvailible = false
             
         }
+    }
+    
+    private func handlePersistence(for arView: CustomARView) {
+        if self.scenemanager.shouldSaveSceneToFileSystem {
+            ScenePersistenceHelper.saveScene(for: arView, at: self.scenemanager.persistenceURL)
+            self.scenemanager.shouldSaveSceneToFileSystem = false
+        } else if self.scenemanager.shouldLoadSceneFromFileSystem {
+            guard let scenePersistenceData = self.scenemanager.scenePersistenceData else {
+                print("Unable to retrieve scenePersistenceData. Canceled loadScene operation.")
+                self.scenemanager.shouldLoadSceneFromFileSystem = false
+                return
+            }
+            
+            ScenePersistenceHelper.loadScene(for: arView, with: scenePersistenceData)
+            self.scenemanager.anchorEntities.removeAll(keepingCapacity: true)
+            self.scenemanager.shouldLoadSceneFromFileSystem = false
+            
+        }
+        
         
     }
 }
 
+// MARK: - ARSessionDelegate + Coordinator
+
+extension ARViewContainer {
+    class Coordinator: NSObject, ARSessionDelegate {
+        var parent: ARViewContainer
+        
+        init(_ parent: ARViewContainer) {
+            self.parent = parent
+        }
+        
+        func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+            for anchor in anchors {
+                if let anchorName = anchor.name, anchorName.hasPrefix(anchorNamePrefix) {
+                    let modelName = anchorName.dropFirst(anchorNamePrefix.count)
+                    print("ARSession: didAdd anchor for modelName: \(modelName)")
+                    
+                    guard let model = self.parent.modelsViewModel.models.first(where: { $0.name == modelName }) else {
+                        print("Unable to retrieve model from modelsViewModel.")
+                        return
+                    }
+                    
+                    model.asyncLoadModelEntity { completed, error in
+                        if completed {
+                            let modelAnchor = ModelAnchor(model: model, anchor: anchor)
+                            self.parent.placementSettings.modelsConfirmedForPlacement.append(modelAnchor)
+                            print("Adding modelAnchor with name: \(model.name)")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(self)
+    }
+}

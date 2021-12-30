@@ -31,13 +31,7 @@ class ModelsViewModel: ObservableObject {
                 let scaleCompensation = data["scaleCompensation"] as? Double ?? 1.0
                 
                 return Model(name: name, category: category, scaleCompensation: Float(scaleCompensation))
-                                             
-                                             
-                                             
-                                        
-                                             
-                                            
-                                             
+                                                                   
                 
             }
             

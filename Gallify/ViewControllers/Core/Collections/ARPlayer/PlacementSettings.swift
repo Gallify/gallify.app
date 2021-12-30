@@ -8,6 +8,14 @@
 import SwiftUI
 import RealityKit
 import Combine
+import ARKit
+
+struct ModelAnchor {
+    var model: Model
+    var anchor: ARAnchor?
+    
+    
+}
 
 class PlacementSettings: ObservableObject {
     
@@ -18,23 +26,13 @@ class PlacementSettings: ObservableObject {
         }
     }
     
-    // When the user Taps confirm in PlacementView, the value of selectedModel is assigned to confirmed modek.
-    @Published var confirmedModel: Model? {
-        willSet(newValue){
-            guard let model = newValue else {
-                print("Clearing confirmed Model")
-                return
-            }
-            
-            print("Setting confirmedModel to \(model.name)")
-            
-            self.recentlyPlaced.append(model)
-            
-        }
-    }
+
     
     //This property contains a record of placed models in the scene
     @Published var recentlyPlaced: [Model] = []
+    
+    var modelsConfirmedForPlacement: [ModelAnchor] = []
+    
     
     // This property retains the cancellable object for our SceneEvents.Update subscriber
     var sceneObserver: Cancellable?
