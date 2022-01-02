@@ -97,16 +97,7 @@ struct SelfProfileViewDetails: View {
                                 
                         }
                             
-//                        VStack {
-//
-//                            Text(firesto)
-//                                .font(.system(size: screenWidth / 17))
-//
-//                            Text("Likes")
-//                                .font(.system(size: screenWidth / 23.5))
-//                                .foregroundColor(Color.gray)
-//
-//                        }
+
 
                     }
                         
@@ -123,16 +114,6 @@ struct SelfProfileViewDetails: View {
                                 
                         }
                             
-//                        VStack {
-//
-//                            Text("Hardcoded value")
-//                                .font(.system(size: screenWidth / 17))
-//
-//                            Text("Views")
-//                                .font(.system(size: screenWidth / 23.5))
-//                                .foregroundColor(Color.gray)
-//
-//                        }
 
                     }
                     .padding(.top, screenHeight / 80)
