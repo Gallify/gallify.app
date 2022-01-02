@@ -132,6 +132,7 @@
 		92794D0F273814B80012B184 /* DiscoveryCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794D0E273814B80012B184 /* DiscoveryCategoryView.swift */; };
 		92794D11273814D80012B184 /* DiscoveryCategoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794D10273814D80012B184 /* DiscoveryCategoryHeader.swift */; };
 		92794D13273814EB0012B184 /* DiscoveryCategoryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794D12273814EB0012B184 /* DiscoveryCategoryContent.swift */; };
+		9295FC25278205E70092BBD6 /* DropDownReels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9295FC24278205E70092BBD6 /* DropDownReels.swift */; };
 		92DB7C5F27316A4D0035B788 /* CreateLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C5E27316A4D0035B788 /* CreateLandingView.swift */; };
 		92DB7C6127316A6A0035B788 /* CreatePublishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C6027316A6A0035B788 /* CreatePublishView.swift */; };
 		92DB7C69273181030035B788 /* CreateLandingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C68273181030035B788 /* CreateLandingHeader.swift */; };
@@ -290,6 +291,7 @@
 		92794D0E273814B80012B184 /* DiscoveryCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCategoryView.swift; sourceTree = "<group>"; };
 		92794D10273814D80012B184 /* DiscoveryCategoryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCategoryHeader.swift; sourceTree = "<group>"; };
 		92794D12273814EB0012B184 /* DiscoveryCategoryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCategoryContent.swift; sourceTree = "<group>"; };
+		9295FC24278205E70092BBD6 /* DropDownReels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownReels.swift; sourceTree = "<group>"; };
 		92DB7C5E27316A4D0035B788 /* CreateLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLandingView.swift; sourceTree = "<group>"; };
 		92DB7C6027316A6A0035B788 /* CreatePublishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublishView.swift; sourceTree = "<group>"; };
 		92DB7C68273181030035B788 /* CreateLandingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLandingHeader.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				3004D50026CD57A800323BCB /* TabBarViewController.swift */,
 				3004D50226CD57C100323BCB /* SearchViewController.swift */,
 				3004D4FE26CD579000323BCB /* SettingsViewController.swift */,
+				9295FC24278205E70092BBD6 /* DropDownReels.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1274,6 +1277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92794D04273811760012B184 /* CollectionLikedHeader.swift in Sources */,
+				9295FC25278205E70092BBD6 /* DropDownReels.swift in Sources */,
 				30836FA72749E3B800E83735 /* StorageService.swift in Sources */,
 				92DB7C5F27316A4D0035B788 /* CreateLandingView.swift in Sources */,
 				316C527727287C3A00E28609 /* VerifyEmailBody.swift in Sources */,

@@ -303,7 +303,7 @@ struct CollectionReelListing: View {
                                 self.actionSheet })
                     
                     Button(action: {
-                            self.isLiked1.toggle()
+                            self.isLiked3.toggle()
                     }) {
                         Image(systemName: isLiked3 ? "heart.circle.fill": "heart.circle")
                             .foregroundColor(isLiked3 ? Color.red: Color.black)

@@ -17,12 +17,8 @@ struct CollectionLikedView: View {
             CollectionLikedHeader(screenWidth: screenWidth)
                 .padding()
             ScrollView (showsIndicators: false) {
-                CollectionLikedRow(screenWidth: screenWidth, screenHeight: screenHeight
-)
+                CollectionLikedRow(screenWidth: screenWidth, screenHeight: screenHeight)
             }
-            CollectionLikedFooter(screenWidth: screenWidth, screenHeight: screenHeight
-)
-            Spacer()
         }
     }
 }

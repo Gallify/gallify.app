@@ -13,8 +13,8 @@ struct CollectionReelView: View {
     var body: some View {
         NavigationView {
             VStack{
-                CollectionReelHeader(screenWidth: screenWidth, screenHeight: screenHeight)
-                    .padding()
+                /*CollectionReelHeader(screenWidth: screenWidth, screenHeight: screenHeight)
+                    .padding()*/
                 ScrollView {
                     CollectionReelListing(screenWidth: screenWidth, screenHeight: screenHeight)
                 }

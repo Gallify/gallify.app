@@ -39,19 +39,9 @@ struct CollectionLikedFooter: View {
                 .font(.system(size: 19))
                 .multilineTextAlignment(.center)
             
-            NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth,screenHeight: screenHeight),
-                label: {
-                    Image(systemName: "chevron.down.circle")
-                        .font(.system(size: 25))
-                })
-                .buttonStyle(ThemeAnimationStyle())
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
-                .padding()
+            Spacer()
         }
-        .background(Color(red: 0.827, green: 0.827, blue: 0.827))
+        .background(Color(red: 1.0, green: 0.55, blue: 1.0, opacity: 0.6))
         .cornerRadius(25)
         .padding()
     }

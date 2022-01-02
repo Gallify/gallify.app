@@ -5,7 +5,7 @@
 //  Created by Anshul on 11/13/21.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct DiscoverViewRecentSearch: View {
     
@@ -173,4 +173,4 @@ struct DiscoverViewRecentSearch_Previews: PreviewProvider {
         DiscoverViewRecentSearch()
             .environmentObject(TabBarViewModel())
     }
-}
+}*/
