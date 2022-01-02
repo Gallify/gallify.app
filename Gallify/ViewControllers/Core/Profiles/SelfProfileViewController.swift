@@ -27,7 +27,7 @@ struct SelfProfileView : View {
                 
             ScrollView(showsIndicators: false) {
                     
-                SelfProfileViewDetails()
+                SelfProfileViewDetails().environmentObject(SelfProfileViewModel())
                     
                 SelfProfileViewRooms(screenHeight: screenHeight, screenWidth: screenWidth)
                     

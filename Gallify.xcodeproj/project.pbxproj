@@ -30,8 +30,6 @@
 		3004D51326CDB91200323BCB /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51226CDB91200323BCB /* SellViewController.swift */; };
 		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
 		3067FBE227460D5C009B5D4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3067FBE427460D5C009B5D4D /* Main.storyboard */; };
-		30836FA72749E3B800E83735 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FA62749E3B800E83735 /* StorageService.swift */; };
-		30836FA92749E3D200E83735 /* FirestoreQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FA82749E3D200E83735 /* FirestoreQueryService.swift */; };
 		30836FAB2749E65200E83735 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FAA2749E65200E83735 /* Extensions.swift */; };
 		30836FAD2749E77800E83735 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FAC2749E77800E83735 /* ImagePicker.swift */; };
 		30836FB0274A035D00E83735 /* DiscoverMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FAF274A035D00E83735 /* DiscoverMainViewController.swift */; };
@@ -110,7 +108,12 @@
 		31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */; };
 		31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15314270CF3E000238459 /* CreateAccountViewBody.swift */; };
 		31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1531A270CFB8100238459 /* SetPasswordViewHeader.swift */; };
-		3309961E277089390040D099 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309961D277089380040D099 /* CacheManager.swift */; };
+		3309962E277BC2670040D099 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309962D277BC2660040D099 /* ImageLoader.swift */; };
+		33099630277BC2760040D099 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309962F277BC2760040D099 /* CacheManager.swift */; };
+		33099632277BC28C0040D099 /* UrlImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33099631277BC28C0040D099 /* UrlImageModel.swift */; };
+		33099634277BC2980040D099 /* FirestoreSubcollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */; };
+		33099636277BC2A00040D099 /* FirestoreQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33099635277BC2A00040D099 /* FirestoreQueryService.swift */; };
+		33099638277BC2AC0040D099 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33099637277BC2AC0040D099 /* StorageService.swift */; };
 		49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */; };
 		8F74D4B0DD6ECDB488245090 /* Pods_Gallify_GallifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */; };
 		92794CFB273811760012B184 /* CollectionReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CE4273811760012B184 /* CollectionReelView.swift */; };
@@ -193,8 +196,6 @@
 		3004D51226CDB91200323BCB /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
 		3067FBE327460D5C009B5D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		30836FA62749E3B800E83735 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
-		30836FA82749E3D200E83735 /* FirestoreQueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreQueryService.swift; sourceTree = "<group>"; };
 		30836FAA2749E65200E83735 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		30836FAC2749E77800E83735 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		30836FAF274A035D00E83735 /* DiscoverMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMainViewController.swift; sourceTree = "<group>"; };
@@ -267,7 +268,12 @@
 		31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewHeader.swift; sourceTree = "<group>"; };
 		31F15314270CF3E000238459 /* CreateAccountViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewBody.swift; sourceTree = "<group>"; };
 		31F1531A270CFB8100238459 /* SetPasswordViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewHeader.swift; sourceTree = "<group>"; };
-		3309961D277089380040D099 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		3309962D277BC2660040D099 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		3309962F277BC2760040D099 /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheManager.swift; path = ../../../dev/gallify.app/Gallify/Services/CacheManager.swift; sourceTree = "<group>"; };
+		33099631277BC28C0040D099 /* UrlImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlImageModel.swift; sourceTree = "<group>"; };
+		33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreSubcollectionService.swift; sourceTree = "<group>"; };
+		33099635277BC2A00040D099 /* FirestoreQueryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirestoreQueryService.swift; path = ../../../dev/gallify.app/Gallify/Services/FirestoreQueryService.swift; sourceTree = "<group>"; };
+		33099637277BC2AC0040D099 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = ../../../dev/gallify.app/Gallify/Services/StorageService.swift; sourceTree = "<group>"; };
 		41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GallifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.debug.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -503,9 +509,12 @@
 		30836FA52749E39D00E83735 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				30836FA62749E3B800E83735 /* StorageService.swift */,
-				30836FA82749E3D200E83735 /* FirestoreQueryService.swift */,
-				3309961D277089380040D099 /* CacheManager.swift */,
+				33099637277BC2AC0040D099 /* StorageService.swift */,
+				33099635277BC2A00040D099 /* FirestoreQueryService.swift */,
+				33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */,
+				33099631277BC28C0040D099 /* UrlImageModel.swift */,
+				3309962F277BC2760040D099 /* CacheManager.swift */,
+				3309962D277BC2660040D099 /* ImageLoader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1274,7 +1283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				92794D04273811760012B184 /* CollectionLikedHeader.swift in Sources */,
-				30836FA72749E3B800E83735 /* StorageService.swift in Sources */,
 				92DB7C5F27316A4D0035B788 /* CreateLandingView.swift in Sources */,
 				316C527727287C3A00E28609 /* VerifyEmailBody.swift in Sources */,
 				92794D01273811760012B184 /* CollectionRecentActivityRow.swift in Sources */,
@@ -1299,9 +1307,10 @@
 				31BF38A8272F44AB007C918B /* User.swift in Sources */,
 				92794D05273811760012B184 /* CollectionLikedFooter.swift in Sources */,
 				316C527527287C2800E28609 /* VerifyEmailHeader.swift in Sources */,
-				30836FA92749E3D200E83735 /* FirestoreQueryService.swift in Sources */,
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
+				3309962E277BC2670040D099 /* ImageLoader.swift in Sources */,
 				31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */,
+				33099636277BC2A00040D099 /* FirestoreQueryService.swift in Sources */,
 				92DB7C6127316A6A0035B788 /* CreatePublishView.swift in Sources */,
 				311E93852752FB3E005DFE12 /* Post_Small.swift in Sources */,
 				31B4CB8A26FD300A00FF86ED /* OtherProfileCollectionTab.swift in Sources */,
@@ -1325,6 +1334,7 @@
 				92794D09273811760012B184 /* CollectionGenericHeader.swift in Sources */,
 				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
 				3004D50726CD581600323BCB /* HomeViewController.swift in Sources */,
+				33099632277BC28C0040D099 /* UrlImageModel.swift in Sources */,
 				30836FC2274A053900E83735 /* DiscoverViewTag.swift in Sources */,
 				311E93892753C0BB005DFE12 /* DiscoverSearch.swift in Sources */,
 				30836FAB2749E65200E83735 /* Extensions.swift in Sources */,
@@ -1332,7 +1342,7 @@
 				92794D11273814D80012B184 /* DiscoveryCategoryHeader.swift in Sources */,
 				3152F6A22717508D0061F72E /* ForgotPasswordViewController.swift in Sources */,
 				30836FB0274A035D00E83735 /* DiscoverMainViewController.swift in Sources */,
-				3309961E277089390040D099 /* CacheManager.swift in Sources */,
+				33099638277BC2AC0040D099 /* StorageService.swift in Sources */,
 				31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */,
 				316C527227287BA100E28609 /* VerifyEmailViewController.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
@@ -1348,6 +1358,7 @@
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
 				92794CFB273811760012B184 /* CollectionReelView.swift in Sources */,
+				33099630277BC2760040D099 /* CacheManager.swift in Sources */,
 				92794D0A273811760012B184 /* CollectionGenericRow.swift in Sources */,
 				3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */,
 				3004D50D26CD6CF400323BCB /* PhoneVerificationViewController.swift in Sources */,
@@ -1383,6 +1394,7 @@
 				31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */,
 				3087D26A274ED54C00ECD8CD /* Playlist.swift in Sources */,
 				3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */,
+				33099634277BC2980040D099 /* FirestoreSubcollectionService.swift in Sources */,
 				92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */,
 				92794D03273811760012B184 /* CollectionLikedView.swift in Sources */,
 				31B4CB8526FD2FE700FF86ED /* SelfProfileCollectionList.swift in Sources */,

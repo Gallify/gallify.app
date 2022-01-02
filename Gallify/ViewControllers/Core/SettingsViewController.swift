@@ -86,7 +86,7 @@ struct SettingsView : View {
                 }
             
                 Button(action: {
-                       StorageService.saveProfileImage(email: firestoreQuery.data.email, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
+                    StorageService.saveProfileImage(uid: firestoreQuery.data.uid, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
                 }, label: {
                     Text("Save")
                         .frame(width: 200, height: 50)

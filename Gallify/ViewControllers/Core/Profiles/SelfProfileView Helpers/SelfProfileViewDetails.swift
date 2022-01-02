@@ -4,6 +4,7 @@
 //
 //  Created by Anshul on 9/13/21.
 //
+
 import UIKit
 import SwiftUI
 import FirebaseStorage
@@ -12,10 +13,13 @@ import FirebaseAuth
 import FirebaseUI
 import SDWebImageSwiftUI
 
+
 struct SelfProfileViewDetails: View {
     
     @EnvironmentObject var profileViewModel : SelfProfileViewModel
     @ObservedObject var firestoreQuery = FirestoreQuery()
+    @ObservedObject var storageService = StorageService()
+    @ObservedObject var urlImageModel : UrlImageModel = UrlImageModel(urlString: nil)
     
     let screenHeight: CGFloat = UIScreen.main.bounds.height
     let screenWidth: CGFloat = UIScreen.main.bounds.width
@@ -23,41 +27,23 @@ struct SelfProfileViewDetails: View {
     
     @State var photoUrl : String = ""
     
-    func downloadUrl() {
-        do {
-            let downloadRef = try Storage.storage().reference(forURL: "gs://gallify-64bbb.appspot.com/profileImages/" + (Auth.auth().currentUser?.email ?? ""))
-            getProfileImage(downloadRef: downloadRef)
-        } catch {
-            self.photoUrl = ""
-        }
-    }
+    @State var defaultImage = UIImage(named: "person.circle.fill")
     
-    func getProfileImage(downloadRef: StorageReference) {
-        downloadRef.downloadURL { (url, error) in
-            if let error = error {
-                // Handle any errors
-            } else {
-                // Get the download URL for 'images/stars.jpg'
-                self.photoUrl = url!.absoluteString
-                print(self.photoUrl)
-            }
-        }
-       
-    }
     
     init() {
         firestoreQuery.fetchUser()
     }
 
+    
     var body: some View {
         
         VStack {
                 
             HStack {
-                if photoUrl == "" {
-                    CircleImage(image: Image(systemName: "person.circle.fill"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
-                } else {
-                    WebImage(url: URL(string: photoUrl))
+//                if photoUrl == "" {
+//                    CircleImage(image: Image(systemName: "person.circle.fill"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
+//                } else {
+                WebImage(url: URL(string: firestoreQuery.data.profileImageUrl))
                        // Supports options and context, like `.delayPlaceholder` to show placeholder only when error
                        .onSuccess { image, data, cacheType in
                            // Success
@@ -77,9 +63,14 @@ struct SelfProfileViewDetails: View {
                        .overlay(Circle().stroke(.white, lineWidth: 4))
                        .shadow(radius: 3)
                             
+//                }
+                
+//                Image(uiImage: urlImageModel.image ?? defaultImage!)
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 100, height: 100)
                 }
-            
-                    
+
                 VStack {
                         
                     HStack {
@@ -133,14 +124,14 @@ struct SelfProfileViewDetails: View {
                         }
                             
 //                        VStack {
-//                                
+//
 //                            Text("Hardcoded value")
 //                                .font(.system(size: screenWidth / 17))
-//                                
+//
 //                            Text("Views")
 //                                .font(.system(size: screenWidth / 23.5))
 //                                .foregroundColor(Color.gray)
-//                                
+//
 //                        }
 
                     }
@@ -172,17 +163,14 @@ struct SelfProfileViewDetails: View {
             }
             .padding(.horizontal, screenWidth / 15)
                 
-        }.onAppear{
-            self.downloadUrl()
-            
-        }
-                
     }
-    
+                
 }
-
+        
 struct SelfProfileViewDetails_Previews: PreviewProvider {
     static var previews: some View {
-        SelfProfileViewDetails()
+        SelfProfileViewDetails().environmentObject(SelfProfileViewModel())
+
     }
 }
+            

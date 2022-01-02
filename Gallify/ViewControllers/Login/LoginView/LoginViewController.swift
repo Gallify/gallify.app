@@ -67,7 +67,6 @@ class LoginAppViewModel: ObservableObject {
     
     
     func createAccount(password: String, user: User) {
-        
         auth.createUser(withEmail: user.email, password: password) {[weak self] result, error in
             guard result != nil, error == nil else {
                 return
@@ -75,7 +74,8 @@ class LoginAppViewModel: ObservableObject {
         
             var db = Firestore.firestore()
                 do {
-                    try db.collection("users").document(user.email).setData(from: user)
+                    user.uid = self!.auth.currentUser!.uid
+                    try db.collection("users").document(self!.auth.currentUser!.uid).setData(from: user)
                     //self!.sendVerificationMail()
                 } catch let error {
                     print("Error writing user to Firestore: \(error)")
