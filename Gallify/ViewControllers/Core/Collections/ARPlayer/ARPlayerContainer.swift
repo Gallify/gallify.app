@@ -20,6 +20,7 @@ import RealityKit
 struct FullARView: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     @EnvironmentObject var modelsViewModel: ModelsViewModel
+    @EnvironmentObject var modelDeletionManager: ModelDeletionManager
     @State private var selectedControlMode: Int = 0
     @State private var isControlsVisible: Bool = true
     @State private var showBrowse: Bool = false
@@ -35,10 +36,17 @@ struct FullARView: View {
 
             ARViewContainer()
 
-            if self.placementSettings.selectedModel == nil{
-                ARPlayerContentView(selectedControlMode: $selectedControlMode, isControlsVisible: $isControlsVisible, showBrowse: $showBrowse, showSettings: $showSettings)
-            }else{
+            //if self.placementSettings.selectedModel == nil{
+                //ARPlayerContentView(selectedControlMode: $selectedControlMode, isControlsVisible: $isControlsVisible, showBrowse: $showBrowse, showSettings: $showSettings)
+            //}else{
+              //  PlacementView()
+            
+            if self.placementSettings.selectedModel != nil {
                 PlacementView()
+            } else if self.modelDeletionManager.entitySelectedForDeletion != nil {
+                DeletionView()
+            } else {
+                ARPlayerContentView(selectedControlMode:$selectedControlMode,isControlsVisible:$isControlsVisible,showBrowse: $showBrowse, showSettings: $showSettings)
             }
         }
         .edgesIgnoringSafeArea(.all)
@@ -63,6 +71,7 @@ struct ContentView_Previews: PreviewProvider{
             .environmentObject(SessionSettings())
             .environmentObject(SceneManager())
             .environmentObject(ModelsViewModel())
+            .environmentObject(ModelDeletionManager())
 
     }
 }

@@ -17,9 +17,10 @@ struct ARViewContainer: UIViewRepresentable {
     @EnvironmentObject var sessionSettings: SessionSettings
     @EnvironmentObject var scenemanager: SceneManager
     @EnvironmentObject var modelsViewModel: ModelsViewModel
+    @EnvironmentObject var modelDeletionManager: ModelDeletionManager
 
     func makeUIView(context: Context) -> CustomARView {
-        let arView = CustomARView(frame: .zero, sessionSettings: sessionSettings)
+        let arView = CustomARView(frame: .zero, sessionSettings: sessionSettings, modelDeletionManager: modelDeletionManager)
         
         arView.session.delegate = context.coordinator
 
@@ -44,8 +45,9 @@ struct ARViewContainer: UIViewRepresentable {
             if let anchor = modelAnchor.anchor {
                 // Anchor is being loaded from persisted scene
                 self.place(modelEntity, for: anchor, in: arView)
-                arView.session.add(anchor: anchor)
-                self.placementSettings.recentlyPlaced.append(modelAnchor.model)
+                
+                //arView.session.add(anchor: anchor)
+                //self.placementSettings.recentlyPlaced.append(modelAnchor.model)
             } else if let transform = getTransformForPlacement(in: arView) {
                 // Anchor needs to be created for model placement
                 let anchorName = anchorNamePrefix + modelAnchor.model.name
@@ -140,9 +142,9 @@ extension ARViewContainer {
                 self.scenemanager.shouldLoadSceneFromFileSystem = false
                 return
             }
-            
-            ScenePersistenceHelper.loadScene(for: arView, with: scenePersistenceData)
+            self.modelsViewModel.clearModelEntitiesFromMemory()
             self.scenemanager.anchorEntities.removeAll(keepingCapacity: true)
+            ScenePersistenceHelper.loadScene(for: arView, with: scenePersistenceData)
             self.scenemanager.shouldLoadSceneFromFileSystem = false
             
         }
@@ -171,12 +173,13 @@ extension ARViewContainer {
                         print("Unable to retrieve model from modelsViewModel.")
                         return
                     }
-                    
-                    model.asyncLoadModelEntity { completed, error in
-                        if completed {
-                            let modelAnchor = ModelAnchor(model: model, anchor: anchor)
-                            self.parent.placementSettings.modelsConfirmedForPlacement.append(modelAnchor)
-                            print("Adding modelAnchor with name: \(model.name)")
+                    if model.modelEntity == nil {
+                        model.asyncLoadModelEntity { completed, error in
+                            if completed {
+                                let modelAnchor = ModelAnchor(model: model, anchor: anchor)
+                                self.parent.placementSettings.modelsConfirmedForPlacement.append(modelAnchor)
+                                print("Adding modelAnchor with name: \(model.name)")
+                            }
                         }
                     }
                 }

@@ -26,6 +26,7 @@ struct CollectionReelHeader: View {
     @StateObject var sessionSettings = SessionSettings()
     @StateObject var scenemanager = SceneManager()
     @StateObject var modelsViewModel = ModelsViewModel()
+    @StateObject var modelDeletionManager = ModelDeletionManager()
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat
@@ -56,6 +57,7 @@ struct CollectionReelHeader: View {
                     .environmentObject(sessionSettings)
                     .environmentObject(scenemanager)
                     .environmentObject(modelsViewModel)
+                    .environmentObject(modelDeletionManager)
                     .edgesIgnoringSafeArea(.all)
                     //.navigationBarBackButtonHidden(true)
                     .navigationBarHidden(true), //comma?

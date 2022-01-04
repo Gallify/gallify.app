@@ -15,7 +15,7 @@ class CustomARView: ARView {
     
     var focusEntity: FocusEntity?
     var sessionSettings: SessionSettings
-    
+    var modelDeletionManager: ModelDeletionManager
     var defaultConfiguration: ARWorldTrackingConfiguration {
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = [.horizontal,.vertical]
@@ -32,15 +32,18 @@ class CustomARView: ARView {
     private var lidarDebugCancellable: AnyCancellable?
     private var multiuserCancellable: AnyCancellable?
     
-    required init(frame frameReact: CGRect, sessionSettings: SessionSettings) {
+    required init(frame frameReact: CGRect, sessionSettings: SessionSettings, modelDeletionManager:ModelDeletionManager) {
         self.sessionSettings = sessionSettings
+        self.modelDeletionManager = modelDeletionManager
         super.init(frame: frameReact)
         
         focusEntity = FocusEntity(on: self, focus: .classic)
         
-        configure()
-        
+        self.configure()
+        self.initializeSettings()
         self.setupSubscribers()
+        self.enableObjectDeletion()
+        
     }
     
     required init(frame frameReact: CGRect) {
@@ -125,5 +128,24 @@ class CustomARView: ARView {
     }
     
 }
+
+// Mark - object deletion
+
+extension CustomARView{
+    func enableObjectDeletion(){
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action:#selector(handleLongPress(recognizer:)))
+        self.addGestureRecognizer(longPressGesture)
+    
+    
+    }
+    @objc func handleLongPress (recognizer: UILongPressGestureRecognizer){
+        let location = recognizer.location(in: self)
+        if let entity = self.entity(at: location) as? ModelEntity {
+            modelDeletionManager.entitySelectedForDeletion = entity
+        }
+}
+    
+}
+
 
 

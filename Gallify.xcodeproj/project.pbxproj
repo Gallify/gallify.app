@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		18494A2027753597003EDDD9 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18494A1F27753597003EDDD9 /* ARViewContainer.swift */; };
+		18494A222783AFD0003EDDD9 /* ModelDeletionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18494A212783AFD0003EDDD9 /* ModelDeletionManager.swift */; };
+		18494A242783BF9B003EDDD9 /* DeletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18494A232783BF9B003EDDD9 /* DeletionView.swift */; };
 		3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4B926C82F6B00323BCB /* GallifyApp.swift */; };
 		3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4BD26C82F6D00323BCB /* Assets.xcassets */; };
 		3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */; };
@@ -177,6 +179,8 @@
 
 /* Begin PBXFileReference section */
 		18494A1F27753597003EDDD9 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		18494A212783AFD0003EDDD9 /* ModelDeletionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDeletionManager.swift; sourceTree = "<group>"; };
+		18494A232783BF9B003EDDD9 /* DeletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletionView.swift; sourceTree = "<group>"; };
 		1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DC08BFB2C764F85E922F716 /* Pods-Gallify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify.debug.xcconfig"; path = "Target Support Files/Pods-Gallify/Pods-Gallify.debug.xcconfig"; sourceTree = "<group>"; };
 		2E7780D649915F9CC1596DBF /* Pods-Gallify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify.release.xcconfig"; path = "Target Support Files/Pods-Gallify/Pods-Gallify.release.xcconfig"; sourceTree = "<group>"; };
@@ -547,7 +551,9 @@
 				3087D289275D622900ECD8CD /* Model.swift */,
 				3087D28B275D890000ECD8CD /* PlacementSettings.swift */,
 				3087D28D275D8F8900ECD8CD /* PlacementView.swift */,
+				18494A232783BF9B003EDDD9 /* DeletionView.swift */,
 				18494A1F27753597003EDDD9 /* ARViewContainer.swift */,
+				18494A212783AFD0003EDDD9 /* ModelDeletionManager.swift */,
 			);
 			path = ARPlayer;
 			sourceTree = "<group>";
@@ -1350,6 +1356,7 @@
 				92794CFD273811760012B184 /* CollectionReelHeader.swift in Sources */,
 				301E4EB1276408D50082B284 /* ARSettingsView.swift in Sources */,
 				31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */,
+				18494A242783BF9B003EDDD9 /* DeletionView.swift in Sources */,
 				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
 				3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */,
 				319F25B926E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
@@ -1373,6 +1380,7 @@
 				319F25C126E571B7009B811E /* HomeViewDiscover.swift in Sources */,
 				3129ADE126F41AB600172808 /* OtherProfileViewController.swift in Sources */,
 				308B4BF52765B66B0039B74E /* UserLight.swift in Sources */,
+				18494A222783AFD0003EDDD9 /* ModelDeletionManager.swift in Sources */,
 				3129ADD926F410B100172808 /* OtherProfileViewHeader.swift in Sources */,
 				308B4BEB27658A040039B74E /* Museum.swift in Sources */,
 				316ACAC22725AE240065CE6A /* ForgotPasswordViewBody.swift in Sources */,
