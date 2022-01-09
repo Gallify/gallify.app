@@ -2,7 +2,7 @@
 
 __Mission:__  *To change the art world forever.* . . . . . [Gallify.app](https://www.gallify.app/) , [Whitepaper]()
 
-__Sprint 6:__ September 19th - September 26th . 6 Days Left!
+__Sprint 15:__ January 2nd - January 16th . 7 Days Left!
       
 ## issue boards
 
