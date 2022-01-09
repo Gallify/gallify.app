@@ -10,8 +10,15 @@ struct SelfProfileViewRooms: View {
     
     let screenHeight: CGFloat
     let screenWidth: CGFloat
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
+    
+    
     
     var body: some View {
+        
+        VStack{
+           
+        }
         
         HStack {
             

@@ -8,8 +8,37 @@ import Foundation
 import Swift
 import FirebaseFirestore
 
-class User: Encodable, Decodable, ObservableObject {
+class User: Encodable, Decodable, ObservableObject, Identifiable {
 
+    @Published var uid : String   // NOT sure why all of these are published? @Shruti or @Anshul, you know?
+    @Published var firstName: String
+    @Published var lastName: String
+    var email: String
+    @Published var location: String
+    @Published var rarity: Int
+    @Published var phoneNumber : String
+    @Published var trendsetter: Int
+    @Published var ranking: Double
+    @Published var Library : [String]   //library=museum
+    @Published var MembershipStatus : String
+    @Published var profileImageUrl: String
+    @Published var followers: Int
+    @Published var following: Int
+    @Published var connections: Int
+    @Published var followersUrl: String
+    @Published var followingUrl: String
+    @Published var connectionsUrl: String
+    @Published var job: String
+    @Published var skill: Int
+    @Published var popularity: Int
+    @Published var profileUrl: String
+    @Published var shareUrl: String
+    @Published var username: String
+    @Published var searchType: String
+    @Published var isClicked: String
+    @Published var wallet: String
+    @Published var featured: String
+    
     enum CodingKeys: CodingKey {
 
         case uid
@@ -41,37 +70,12 @@ class User: Encodable, Decodable, ObservableObject {
         case profileUrl
         case shareUrl
         case job
+        case isClicked
+        case wallet
+        case featured
         
         
     }
-
-    @Published var uid : String
-    @Published var firstName: String
-    @Published var lastName: String
-    @Published var email: String
-    @Published var location: String
-    @Published var rarity: Int
-    @Published var phoneNumber : String
-    @Published var trendsetter: Int
-    @Published var ranking: Double
-    @Published var Library : [String]   //library=museum
-    @Published var MembershipStatus : String
-    @Published var profileImageUrl: String
-    @Published var followers: Int
-    @Published var following: Int
-    @Published var connections: Int
-    @Published var followersUrl: String
-    @Published var followingUrl: String
-    @Published var connectionsUrl: String
-    @Published var job: String
-    @Published var skill: Int
-    @Published var popularity: Int
-    @Published var profileUrl: String
-    @Published var shareUrl: String
-    @Published var username: String
-    @Published var searchType: String
-
-
 
 
     init() {
@@ -101,6 +105,9 @@ class User: Encodable, Decodable, ObservableObject {
         shareUrl = ""
         username = ""
         searchType = ""
+        isClicked = ""
+        wallet = ""
+        featured = ""
 
 
     }
@@ -133,6 +140,9 @@ class User: Encodable, Decodable, ObservableObject {
         shareUrl = try container.decode(String.self, forKey: .shareUrl)
         username = try container.decode(String.self, forKey: .username)
         searchType = try container.decode(String.self, forKey: .searchType)
+        isClicked = try container.decode(String.self, forKey: .isClicked)
+        featured = try container.decode(String.self, forKey: .featured)
+        wallet = try container.decode(String.self, forKey: .wallet)
 
     }
     
@@ -164,6 +174,10 @@ class User: Encodable, Decodable, ObservableObject {
         try container.encode(shareUrl, forKey: .shareUrl)
         try container.encode(username, forKey: .username)
         try container.encode(searchType, forKey: .searchType)
+        try container.encode(featured, forKey: .featured)
+        try container.encode(isClicked, forKey: .isClicked)
+        try container.encode(wallet, forKey: .wallet)
+
 
     }
 

@@ -1,0 +1,451 @@
+//
+//  FirestoreQuerysService.swift
+//  Gallify
+//
+//  Created by Shruti Sharma on 11/7/21.
+//
+
+import Foundation
+import FirebaseFirestore
+import FirebaseAuth
+import SwiftUI
+
+class FirestoreQuery : ObservableObject {
+    
+    @Published var data : User = User() //struct version of user model.
+    @Published var art: Art = Art()
+    @Published var playlist: Playlist = Playlist()
+    @Published var featuredPlaylist: Playlist = Playlist()
+    @Published var featuredArt: [Art] = [Art]()
+    @Published var playlists: [Playlist] = [Playlist]()
+    @Published var museumlist: MuseumList = MuseumList()
+    @Published var data_old : User = User() //how we did it.
+
+    static let db = Firestore.firestore()
+    static let userEmail = Auth.auth().currentUser?.email
+    
+//    init(){
+//        //getUser()
+//        if(data.uid == ""){
+//            getUser()
+//        }
+//        getFeaturedPlaylist(a: data.featured) //now have artids
+//        print("Featured playlist name")
+//        print(featuredPlaylist.name)
+//        getFeaturedPlaylistArt(art_ids: featuredPlaylist.art)
+//    }
+    
+    /*
+     Get User information
+     */
+    func getUser() {
+        let userEmail = Auth.auth().currentUser?.email
+        print("EMAIL")
+        print(userEmail)
+        
+        FirestoreQuery.db.collection("users").document(userEmail ?? "info@gallify.app") //If user can't get email, we need alternate fix.
+            .addSnapshotListener { queryDocumentSnapshot, error in
+                if error == nil { //if no errors
+                    if let document = queryDocumentSnapshot{
+                        //update list in main thread.
+                        DispatchQueue.main.async{
+                            //set retrieved document to @published data object
+                            self.data = try! document.data(as: User.self)! //this is forceful, and assumes this will always work...
+                        }
+                        
+                    }
+                    else{
+                        print("Error: There aren't any documents, getUser()")
+                        return
+                    }
+                }
+                else{
+                    print("Error: Can't get document, getUser()")
+                    return
+                }
+      }
+        print("Email: \(data.email)")
+    }
+    
+    
+    func fetchUser() {
+        let docRef = FirestoreQuery.db.collection("users").document(Auth.auth().currentUser!.email!)
+         docRef.getDocument { (document, error) in
+           let result = Result {
+            try document?.data(as: User.self)
+           }
+           switch result {
+           case .success(let user):
+             if let user = user {
+               // A `User` value was successfully initialized from the DocumentSnapshot
+               //set data to user in the main thread since call is completed in background
+               DispatchQueue.main.async {
+                 self.data_old = user
+               }
+             } else {
+               // A nil value was successfully initialized from the DocumentSnapshot,
+               // or the DocumentSnapshot was nil.
+               print("Document does not exist")
+             }
+           case .failure(let error):
+             // A `User` value could not be initialized from the DocumentSnapshot.
+             print("Error decoding user: \(error)")
+           }
+         }
+      }
+    
+
+    func get_art(a: String)  {
+//        let email1 = data.email
+//        print(email1)
+        let docRef = FirestoreQuery.db.collection("art").document(a)
+         docRef.getDocument { (document, error) in
+             let result = Result {
+                try document?.data(as: Art.self)
+             }
+             switch result {
+             case .success(let art):
+                 if let art = art {
+                     // A `User` value was successfully initialized from the DocumentSnapshot
+                     //set data to user in the main thread since call is completed in background
+                     DispatchQueue.main.async {
+                         self.art = art
+                         print(self.art.name)
+                     }
+                     print(self.art)
+                 } else {
+                     // A nil value was successfully initialized from the DocumentSnapshot,
+                     // or the DocumentSnapshot was nil.
+                     print("Document does not exist")
+                 }
+             case .failure(let error):
+                 // A `User` value could not be initialized from the DocumentSnapshot.
+                 print("Error decoding user: \(error)")
+             }
+         }
+    }
+    
+    /*
+     Input art id.
+     Then changes published Art variable labeled 'art'
+     */
+    func getArtSnapshot(a: String) {
+       
+        FirestoreQuery.db.collection("art").document(a) //If user can't get email, we need alternate fix.
+            .addSnapshotListener { queryDocumentSnapshot, error in
+                if error == nil { //if no errors
+                    if let document = queryDocumentSnapshot{
+                        //update list in main thread.
+                        DispatchQueue.main.async{
+                            //set retrieved document to @published data object
+                            self.art = try! document.data(as: Art.self)! //this is forceful, and assumes this will always work...
+                        }
+                        
+                    }
+                    else{
+                        print("Error: There aren't any documents, getArt()")
+                        return
+                    }
+                }
+                else{
+                    print("Error: Can't get document, getArt()")
+                    return
+                }
+      }
+        print("Art Name: \(art.name)")
+    }
+    
+
+    /*
+     Input playlist id.
+     Updates "playlist" published variable.
+     */
+    func getPlaylist(a: String) {
+       
+        FirestoreQuery.db.collection("playlists").document(a) //If user can't get email, we need alternate fix.
+            .addSnapshotListener { queryDocumentSnapshot, error in
+                if error == nil { //if no errors
+                    if let document = queryDocumentSnapshot{
+                        //update list in main thread.
+                        DispatchQueue.main.async{
+                            //set retrieved document to @published data object
+                            self.playlist = try! document.data(as: Playlist.self)! //this is forceful, and assumes this will always work...
+                        }
+                        
+                    }
+                    else{
+                        print("Error: There aren't any documents, getPlaylist()")
+                        return
+                    }
+                }
+                else{
+                    print("Error: Can't get document, getPlaylist()")
+                    return
+                }
+      }
+        print("Art Name: \(playlist.name)")
+    }
+    
+    /*
+     Input playlist id.
+     Updates "playlist" published variable.
+     */
+    func getFeaturedPlaylist(a: String) {
+       
+        FirestoreQuery.db.collection("playlists").document(a) //If user can't get email, we need alternate fix.
+            .addSnapshotListener { queryDocumentSnapshot, error in
+                if error == nil { //if no errors
+                    if let document = queryDocumentSnapshot{
+                        //update list in main thread.
+                        DispatchQueue.main.async{
+                            //set retrieved document to @published data object
+                            self.featuredPlaylist = try! document.data(as: Playlist.self)! //this is forceful, and assumes this will always work...
+            
+                        }
+                        
+                    }
+                    else{
+                        print("Error: There aren't any documents, getPlaylist()")
+                        return
+                    }
+                }
+                else{
+                    print("Error: Can't get document, getPlaylist()")
+                    return
+                }
+      }
+        print("Art Name: \(featuredPlaylist.name)")
+    }
+    
+    /*
+     Input: Library Array.
+     
+     Output: Published Library variable now contains array of playlist elements.
+     
+     This method needs to be checked.
+     */
+    func getLibrary(library_ids: [String]) {
+        self.playlists.removeAll()
+        for library_id in library_ids {
+            FirestoreQuery.db.collection("playlists").document(library_id) //If user can't get email, we need alternate fix.
+                .addSnapshotListener { queryDocumentSnapshot, error in
+                    if error == nil { //if no errors
+                        if let document = queryDocumentSnapshot{
+                            //update list in main thread.
+                            DispatchQueue.main.async{
+                                //set retrieved document to @published data object
+                                self.playlists.append(try! document.data(as: Playlist.self)!) //this is forceful, and assumes this will always work...
+                            }
+                            
+                        }
+                        else{
+                            print("Error: There aren't any documents, getPlaylists()")
+                            return
+                        }
+                    }
+                    else{
+                        print("Error: Can't get document, getPlaylists()")
+                        return
+                    }
+          }
+            
+            
+        }
+    }
+    
+    
+    
+    /*
+     Input: Library Array.
+     
+     Output: Published Library variable now contains array of playlist elements.
+     
+     This method needs to be checked.
+     */
+    func getFeaturedPlaylistArt(art_ids: [String]) {
+        self.featuredArt.removeAll()
+        for art_id in art_ids {
+            FirestoreQuery.db.collection("art").document(art_id) //If user can't get email, we need alternate fix.
+                .addSnapshotListener { queryDocumentSnapshot, error in
+                    if error == nil { //if no errors
+                        if let document = queryDocumentSnapshot{
+                            //update list in main thread.
+                            DispatchQueue.main.async{
+                                 //set retrieved document to @published data object
+                                
+                                self.featuredArt.append(try! document.data(as: Art.self)!) //this is forceful, and assumes this will always work...
+                            }
+                            
+                        }
+                        else{
+                            print("Error: There aren't any documents, getPlaylists()")
+                            return
+                        }
+                    }
+                    else{
+                        print("Error: Can't get document, getPlaylists()")
+                        return
+                    }
+          }
+            
+            
+        }
+       
+        
+    }
+    
+       
+    
+    //    init(){
+    //        self.getUser()
+    //        print("init user data. \(data.email)")
+    //       // getMuseumList(coll_name: "users", sub_coll_name: "home", user: "t30@gmail.com", sub_doc: "home")
+    //      //  getMuseumList2(coll_name: "users", sub_coll_name: "home", user: "t30@gmail.com", sub_doc: "home")
+    //    }
+
+    func getMuseumList2(coll_name: String, sub_coll_name: String, user: String, sub_doc: String) {
+
+        let docRef = FirestoreQuery.db.collection("users").document(FirestoreQuery.userEmail ?? "help").collection("home").document("home")
+         docRef.getDocument { (document, error) in
+           let result = Result {
+            try document?.data(as: MuseumList.self)
+           }
+           switch result {
+           case .success(let user):
+             if let user = user {
+               // A `User` value was successfully initialized from the DocumentSnapshot
+               //set data to user in the main thread since call is completed in background
+               DispatchQueue.main.async {
+                 self.museumlist = user
+               }
+             } else {
+               // A nil value was successfully initialized from the DocumentSnapshot,
+               // or the DocumentSnapshot was nil.
+               print("Document does not exist")
+             }
+           case .failure(let error):
+             // A `User` value could not be initialized from the DocumentSnapshot.
+             print("Error decoding user: \(error)")
+           }
+         }
+      }
+
+
+
+
+    /*
+     Get Museum Ids List
+         @params.
+         coll_name = collection name. ex user
+         sub_coll_name = sub collection name. ex. home
+         user = email or username of user, used as doc id.
+         sub_doc = document inside of subcollection. ex. home or feed.
+     */
+    func getMuseumList(coll_name: String, sub_coll_name: String, user: String, sub_doc: String) {
+        //print("Email:\((Auth.auth().currentUser?.email)!) ")
+       
+        FirestoreQuery.db.collection("users").document(FirestoreQuery.userEmail ?? "info@gallify.app").collection("home").document("home")
+                    .addSnapshotListener { queryDocumentSnapshot, error in
+                        if error == nil { //if no errors
+                            if let document = queryDocumentSnapshot{
+                                //update list in main thread.
+                                DispatchQueue.main.async{
+                                    //set retrieved document to @published data object
+                                    self.museumlist = try! document.data(as: MuseumList.self)! //this is forceful, and assumes this will always work...
+                                    print("List of Museums: \(self.museumlist.museums)")
+                                }
+                            }
+                            else{
+                                print("Error: There aren't any documents, getMuseumList()")
+                                return
+                            }
+                        }
+                        else{
+                            print("Error: Can't get document, getMuseumList()")
+                            return
+                        }
+              }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // MARK: Get Methods
+    //CRUD (Create, Read/Get, Update, Delete)
+
+    
+    //Get content
+    /*
+     This method fetches an image file given its url. urls will be from firebase or ipfs.
+     */
+    func getimage(url: Data){}
+    
+    /*
+     This method fetches a usdz file given its url. urls will be from firebase or ipfs.
+     */
+    func getusdz(){}
+   
+    /*
+     This method fetches a video file given its url. urls will be from firebase or ipfs.
+     */
+    func getvideo(){}
+    
+
+    //Read methods for a screen.
+    
+    /*
+     Get data to fill out profile. For user.
+     */
+    func get_user_profile(){}
+    
+    /*
+     Get data to fill out profile. For non-user.
+     */
+    func get_profile(){}
+    
+    /*
+     Get data to fill out home for a user.
+     */
+    func get_home(){}
+    
+    /*
+     Get reel data.
+     */
+    func get_reel(){}
+    
+    /*
+     Get list data. ex. Liked, Recent Activity.
+     */
+    func get_list(){}
+    
+    /*
+     Get's art.
+     */
+    func get_art(){}
+    
+    
+    
+    
+    
+}

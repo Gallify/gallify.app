@@ -10,7 +10,7 @@ import Foundation
 import Swift
 import FirebaseFirestore
 
-class Art: Encodable, Decodable, ObservableObject {
+class Art: Encodable, Decodable, ObservableObject, Identifiable {
 
     enum CodingKeys: CodingKey {
 

@@ -23,6 +23,8 @@ struct CollectionGenericRow: View {
         ])
     }
     
+    
+    
     var body: some View {
         
         HStack {
@@ -39,7 +41,14 @@ struct CollectionGenericRow: View {
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
                 .padding(.leading)
+            
+            
+            
+            
             Spacer()
+            
+            
+            
             VStack{
                 Text("[Collection_Name]")
                     .fontWeight(.bold)
@@ -48,6 +57,7 @@ struct CollectionGenericRow: View {
             .padding()
             
             Spacer()
+            
             
             Button(action: {self.showActionSheet.toggle()
             }) {
@@ -58,6 +68,9 @@ struct CollectionGenericRow: View {
             .actionSheet(isPresented: $showActionSheet, content: {
                             self.actionSheet }).padding()
         }
+        
+        
+        
         
         HStack {
             NavigationLink(
@@ -129,6 +142,8 @@ struct CollectionGenericRow: View {
     }
     
 }
+
+
 
 struct CollectionGenericRow_Previews: PreviewProvider {
     static var previews: some View {

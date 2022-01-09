@@ -10,8 +10,11 @@ import SwiftUI
 struct CollectionGenericView: View {
     let screenWidth: CGFloat
     let screenHeight: CGFloat
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
+        CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
+        
         NavigationView {
             VStack{
                 CollectionGenericHeader(screenWidth: screenWidth)

@@ -137,6 +137,9 @@ struct CollectionLikedRow: View {
                             self.actionSheet }).padding()
         }
         
+        
+        
+        
         HStack {
             NavigationLink(
                 destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
@@ -144,7 +147,7 @@ struct CollectionLikedRow: View {
                     Image("starry-night")
                         .resizable()
                         .frame(width: screenWidth / 6, height: screenWidth / 6)
-                        .cornerRadius(15)
+                        
                 })
                 .buttonStyle(ThemeAnimationStyle())
                 .navigationBarBackButtonHidden(true)
@@ -152,12 +155,14 @@ struct CollectionLikedRow: View {
                 .navigationBarHidden(true)
                 .padding(.leading)
             Spacer()
+           
             VStack{
                 Text("Starry Night")
                     .fontWeight(.bold)
                 Text("Joe Ingles")
             }
             .padding()
+            
             Spacer()
             
             Button(action: {
@@ -179,6 +184,10 @@ struct CollectionLikedRow: View {
             .actionSheet(isPresented: $showActionSheet, content: {
                             self.actionSheet }).padding()
         }
+        
+        
+        
+        
     }
     
 }

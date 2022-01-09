@@ -111,6 +111,7 @@ struct SettingsView : View {
         }
     }
 }
+//.environmentObject(firestoreQuery)
     
 }
 

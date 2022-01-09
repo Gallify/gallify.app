@@ -61,7 +61,7 @@ struct SelfProfileViewDetails: View {
                        .frame(width: 100, height: 100, alignment: .center)
                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                        .overlay(Circle().stroke(.white, lineWidth: 4))
-                       .shadow(radius: 3)
+                       
                             
 //                }
                 

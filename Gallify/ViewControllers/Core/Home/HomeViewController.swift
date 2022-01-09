@@ -20,6 +20,11 @@ struct HomeView : View {
     @EnvironmentObject var viewModel : TabBarViewModel
     @State private var isLoading = false
     
+    //@StateObject var firestoreQuery = FirestoreQuery()
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
+    
+    
+    
         var body: some View {
             
             let screenHeight = viewModel.screenHeight
@@ -39,11 +44,12 @@ struct HomeView : View {
                     
                     VStack {
                         
-                        HomeViewStories(screenHeight: screenHeight, screenWidth: screenWidth)
+                       // HomeViewStories(screenHeight: screenHeight, screenWidth: screenWidth)
                         
                         HStack {
                             
-                            Text("Good evening!")
+                            //print(firestoreQuery.museumlist.museums[0])  firestoreQuery.museumlist.museums[0]
+                            Text("Firstname: \(firestoreQuery.data.firstName)") //\(firestoreQuery.museumlist.museums[1]) \(firestoreQuery.data.email)
                                 .font(.system(size: screenWidth / 11, weight: .bold))
                                 .padding(.leading, widthPad)
                                 .padding(.bottom, heightPad / 2)
@@ -53,11 +59,27 @@ struct HomeView : View {
                         }
                         
                         HStack {
-                                                    
-                            Text("Recent")
-                                .font(.system(size: screenWidth / 13.5, weight: .bold))
-                                .padding(.leading, widthPad)
-                                                    
+
+//                            Text("Good evening \(firestoreQuery.fullname)")  // \(firestoreQuery.museumlist.museums[1])
+//                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+//                                .padding(.leading, widthPad)
+//
+//                            List(firestoreQuery.data.Library, id: \.self) { playlist in
+//                                Text("Firstname")
+//                                print(playlist)
+//                            }
+                            
+                            ForEach(firestoreQuery.data.Library, id: \.self) { color in
+                                Text(color)
+                                    
+                            }
+                                
+                            
+                            
+//                            Text("0th library index \(firestoreQuery.data.Library[0])")  // \(firestoreQuery.museumlist.museums[1])
+//                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+//                                .padding(.leading, widthPad)
+//
                             Spacer()
                                                 
                         }
@@ -106,8 +128,8 @@ struct HomeView : View {
                         }
                         .padding(.top, heightPad)
                         
-                        HomeViewAuction(screenHeight: screenHeight, screenWidth: screenWidth)
-                        
+                        //HomeViewAuction(screenHeight: screenHeight, screenWidth: screenWidth)
+                        HomeViewMadeForYou(screenHeight: screenHeight, screenWidth: screenWidth)
                     }
                     
                     VStack {
@@ -156,30 +178,24 @@ struct HomeView : View {
                 }
                 
             }
+            .environmentObject(firestoreQuery)
             .navigationBarHidden(true)
             .onAppear{ NetworkingCall() }
             
     }
-    
+   
     func NetworkingCall(){
-        isLoading = true
-        DispatchQueue.main.async(){
-            
-            //get collections
-            
-            //get art
-            
-            
-            isLoading = false
-        
-        }
+        firestoreQuery.getUser()
     }
     
 }
 
+
 // Remove preview after done coding home screen
 struct HomeScreenPreview: PreviewProvider {
+
     static var previews: some View {
         HomeView().environmentObject(TabBarViewModel())
+
     }
 }

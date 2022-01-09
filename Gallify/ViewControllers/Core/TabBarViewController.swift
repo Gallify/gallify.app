@@ -19,6 +19,7 @@ struct TabBarView: View {
     
     @StateObject var viewModel = TabBarViewModel()
     @State var selectedTabIndex = 0
+    @StateObject var firestoreQuery = FirestoreQuery() //object data created here.
     
     private let tabBarImageNames = ["house.fill", "magnifyingglass", "person.fill"]
     
@@ -35,13 +36,15 @@ struct TabBarView: View {
                 switch selectedTabIndex {
                     
                 case 0:
-                    HomeView()
+                    HomeView().environmentObject(firestoreQuery)
+                    //not sure why it made me add this param, but got rid of error.,
                 case 1:
                     DiscoverMainView()
                 case 2:
-                    SelfProfileView()
+                    SelfProfileView().environmentObject(firestoreQuery)
                 default:
                     HomeView()
+                    //not sure why it made me add this param, but got rid of error.,
                     
                 }
                 
@@ -75,6 +78,7 @@ struct TabBarView: View {
         .navigationBarTitle("")
         .navigationBarHidden(true)
         .environmentObject(viewModel)
+        .environmentObject(firestoreQuery)
         
     }
     

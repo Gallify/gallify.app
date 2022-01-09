@@ -12,7 +12,7 @@ import Foundation
 import Swift
 import FirebaseFirestore
 
-class Playlist: Encodable, Decodable, ObservableObject {
+class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
 
     enum CodingKeys: CodingKey {
 
