@@ -32,3 +32,12 @@ __Sprint 6:__ September 19th - September 26th . 6 Days Left!
 3. Run ` pod init ` to initialize a Podfile. If you don't have cocoapods installed, run ` sudo gem install cocoapods `.
 4. If a Podfile already exists, then run ` pod install `. 
 5. Open the project in Xcode and hit play. 
+
+## How to run Gallify.app on Simulator/Preview
+1. When you clone the repository, delete the `ARPlayer` folder right away. ` /ViewControllers/Core/Collections/ARPlayer `
+2. Comment out `lines 24-28` and `lines 53-74` in ` CollectionReelHeader.swift ` file. ` /ViewControllers/Core/Collections/Reel/Helpers/CollectionReelHeader.swift `
+3. You should be good to go. Run ` pod install `. 
+
+
+
+
