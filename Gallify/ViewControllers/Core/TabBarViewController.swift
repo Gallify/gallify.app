@@ -37,7 +37,7 @@ struct TabBarView: View {
                 case 0:
                     HomeView()
                 case 1:
-                    /*DiscoverMainView()*/HomeView()
+                    DiscoverMainView()
                 case 2:
                     SelfProfileView()
                 default:

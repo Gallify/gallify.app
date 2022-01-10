@@ -80,6 +80,10 @@
 		316C527227287BA100E28609 /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C527127287BA100E28609 /* VerifyEmailViewController.swift */; };
 		316C527527287C2800E28609 /* VerifyEmailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C527427287C2800E28609 /* VerifyEmailHeader.swift */; };
 		316C527727287C3A00E28609 /* VerifyEmailBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C527627287C3A00E28609 /* VerifyEmailBody.swift */; };
+		317637F0278C80B80043CF48 /* toy_car.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 317637EF278C80B80043CF48 /* toy_car.usdz */; };
+		317637F2278C80BF0043CF48 /* AirForce.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 317637F1278C80BF0043CF48 /* AirForce.usdz */; };
+		317637F4278C80D80043CF48 /* USDZPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317637F3278C80D80043CF48 /* USDZPost.swift */; };
+		317637F6278C80FB0043CF48 /* USDZPostHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317637F5278C80FB0043CF48 /* USDZPostHelper.swift */; };
 		318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
 		318B42F126E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
 		318B42F226E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
@@ -242,6 +246,10 @@
 		316C527127287BA100E28609 /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
 		316C527427287C2800E28609 /* VerifyEmailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailHeader.swift; sourceTree = "<group>"; };
 		316C527627287C3A00E28609 /* VerifyEmailBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailBody.swift; sourceTree = "<group>"; };
+		317637EF278C80B80043CF48 /* toy_car.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = toy_car.usdz; path = ../../../../../../../../../../Gallify_anshul4/gallify.app/Gallify/ViewControllers/Core/Discover/DiscoverPosts/DiscoverPostsHelpers/PostContent/USDZ/toy_car.usdz; sourceTree = "<group>"; };
+		317637F1278C80BF0043CF48 /* AirForce.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = AirForce.usdz; path = ../../../../../../../../../../Gallify_anshul4/gallify.app/Gallify/ViewControllers/Core/Discover/DiscoverPosts/DiscoverPostsHelpers/PostContent/USDZ/AirForce.usdz; sourceTree = "<group>"; };
+		317637F3278C80D80043CF48 /* USDZPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZPost.swift; sourceTree = "<group>"; };
+		317637F5278C80FB0043CF48 /* USDZPostHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZPostHelper.swift; sourceTree = "<group>"; };
 		318B42EF26E0190B00D6D722 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		3193B9B926FA697200BFDDE7 /* AuctionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionTab.swift; sourceTree = "<group>"; };
 		319F25B026E56722009B811E /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
@@ -536,6 +544,7 @@
 			children = (
 				30836FBE274A04EA00E83735 /* Tags */,
 				311E93812752FAEB005DFE12 /* Posts */,
+				317637ED278C805E0043CF48 /* PostType */,
 			);
 			path = DiscoverPostsHelpers;
 			sourceTree = "<group>";
@@ -751,6 +760,25 @@
 				316C527627287C3A00E28609 /* VerifyEmailBody.swift */,
 			);
 			path = VerifyEmailHelpers;
+			sourceTree = "<group>";
+		};
+		317637ED278C805E0043CF48 /* PostType */ = {
+			isa = PBXGroup;
+			children = (
+				317637EE278C807E0043CF48 /* USDZ */,
+			);
+			path = PostType;
+			sourceTree = "<group>";
+		};
+		317637EE278C807E0043CF48 /* USDZ */ = {
+			isa = PBXGroup;
+			children = (
+				317637F1278C80BF0043CF48 /* AirForce.usdz */,
+				317637EF278C80B80043CF48 /* toy_car.usdz */,
+				317637F3278C80D80043CF48 /* USDZPost.swift */,
+				317637F5278C80FB0043CF48 /* USDZPostHelper.swift */,
+			);
+			path = USDZ;
 			sourceTree = "<group>";
 		};
 		318B42EE26E018B000D6D722 /* Helpers */ = {
@@ -1147,8 +1175,10 @@
 			files = (
 				3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */,
 				3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */,
+				317637F2278C80BF0043CF48 /* AirForce.usdz in Resources */,
 				3004D4E826CC97F400323BCB /* GoogleService-Info.plist in Resources */,
 				3067FBE227460D5C009B5D4D /* Main.storyboard in Resources */,
+				317637F0278C80B80043CF48 /* toy_car.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1332,6 +1362,7 @@
 				30836FC2274A053900E83735 /* DiscoverViewTag.swift in Sources */,
 				311E93892753C0BB005DFE12 /* DiscoverSearch.swift in Sources */,
 				30836FAB2749E65200E83735 /* Extensions.swift in Sources */,
+				317637F6278C80FB0043CF48 /* USDZPostHelper.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
 				92794D11273814D80012B184 /* DiscoveryCategoryHeader.swift in Sources */,
 				3152F6A22717508D0061F72E /* ForgotPasswordViewController.swift in Sources */,
@@ -1345,6 +1376,7 @@
 				3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
 				31B4CB8126FD2FD700FF86ED /* SelfProfileCollectionTab.swift in Sources */,
 				3152F6A62717519B0061F72E /* PrivacyPolicyViewController.swift in Sources */,
+				317637F4278C80D80043CF48 /* USDZPost.swift in Sources */,
 				30836FB2274A036E00E83735 /* DiscoverViewRecentSearch.swift in Sources */,
 				3129ADD426F40FC100172808 /* SelfProfileViewDetails.swift in Sources */,
 				3087D286275D4C4D00ECD8CD /* LoadingView.swift in Sources */,
