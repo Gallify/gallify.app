@@ -110,6 +110,10 @@
 		318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
 		318B42F126E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
 		318B42F226E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
+		318EA1862790073200D882BA /* AirForce.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 318EA1852790073200D882BA /* AirForce.usdz */; };
+		318EA1882790073B00D882BA /* toy_car.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 318EA1872790073B00D882BA /* toy_car.usdz */; };
+		318EA18A2790074E00D882BA /* USDZPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318EA1892790074E00D882BA /* USDZPost.swift */; };
+		318EA18C2790077D00D882BA /* USDZPostHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318EA18B2790077D00D882BA /* USDZPostHelper.swift */; };
 		3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3193B9B926FA697200BFDDE7 /* AuctionTab.swift */; };
 		319F25B126E56722009B811E /* HomeViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F25B026E56722009B811E /* HomeViewHeader.swift */; };
 		319F25B526E56935009B811E /* HomeViewStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F25B426E56935009B811E /* HomeViewStories.swift */; };
@@ -296,6 +300,10 @@
 		316C527427287C2800E28609 /* VerifyEmailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailHeader.swift; sourceTree = "<group>"; };
 		316C527627287C3A00E28609 /* VerifyEmailBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailBody.swift; sourceTree = "<group>"; };
 		318B42EF26E0190B00D6D722 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		318EA1852790073200D882BA /* AirForce.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = AirForce.usdz; path = ../../../../../../../../../../Gallify_anshul4/gallify.app/Gallify/ViewControllers/Core/Discover/DiscoverPosts/DiscoverPostsHelpers/PostContent/USDZ/AirForce.usdz; sourceTree = "<group>"; };
+		318EA1872790073B00D882BA /* toy_car.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = toy_car.usdz; path = ../../../../../../../../../../Gallify_anshul4/gallify.app/Gallify/ViewControllers/Core/Discover/DiscoverPosts/DiscoverPostsHelpers/PostContent/USDZ/toy_car.usdz; sourceTree = "<group>"; };
+		318EA1892790074E00D882BA /* USDZPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZPost.swift; sourceTree = "<group>"; };
+		318EA18B2790077D00D882BA /* USDZPostHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZPostHelper.swift; sourceTree = "<group>"; };
 		3193B9B926FA697200BFDDE7 /* AuctionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionTab.swift; sourceTree = "<group>"; };
 		319F25B026E56722009B811E /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
 		319F25B426E56935009B811E /* HomeViewStories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewStories.swift; sourceTree = "<group>"; };
@@ -637,6 +645,7 @@
 			children = (
 				30836FBE274A04EA00E83735 /* Tags */,
 				311E93812752FAEB005DFE12 /* Posts */,
+				318EA183279006E400D882BA /* PostType */,
 			);
 			path = DiscoverPostsHelpers;
 			sourceTree = "<group>";
@@ -857,6 +866,25 @@
 				92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		318EA183279006E400D882BA /* PostType */ = {
+			isa = PBXGroup;
+			children = (
+				318EA184279006FB00D882BA /* USDZ */,
+			);
+			path = PostType;
+			sourceTree = "<group>";
+		};
+		318EA184279006FB00D882BA /* USDZ */ = {
+			isa = PBXGroup;
+			children = (
+				318EA1852790073200D882BA /* AirForce.usdz */,
+				318EA1872790073B00D882BA /* toy_car.usdz */,
+				318EA1892790074E00D882BA /* USDZPost.swift */,
+				318EA18B2790077D00D882BA /* USDZPostHelper.swift */,
+			);
+			path = USDZ;
 			sourceTree = "<group>";
 		};
 		3193B9B826FA68CB00BFDDE7 /* Auctions */ = {
@@ -1240,9 +1268,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */,
+				318EA1862790073200D882BA /* AirForce.usdz in Resources */,
 				3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */,
 				3004D4E826CC97F400323BCB /* GoogleService-Info.plist in Resources */,
 				3067FBE227460D5C009B5D4D /* Main.storyboard in Resources */,
+				318EA1882790073B00D882BA /* toy_car.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1404,6 +1434,7 @@
 				92794D05273811760012B184 /* CollectionLikedFooter.swift in Sources */,
 				316C527527287C2800E28609 /* VerifyEmailHeader.swift in Sources */,
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
+				318EA18C2790077D00D882BA /* USDZPostHelper.swift in Sources */,
 				3309962E277BC2670040D099 /* ImageLoader.swift in Sources */,
 				31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */,
 				92DB7C6127316A6A0035B788 /* CreatePublishView.swift in Sources */,
@@ -1503,6 +1534,7 @@
 				30836FB5274A041600E83735 /* ArtistSearchTemplate.swift in Sources */,
 				31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */,
 				3087D26A274ED54C00ECD8CD /* Playlist.swift in Sources */,
+				318EA18A2790074E00D882BA /* USDZPost.swift in Sources */,
 				3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */,
 				33099634277BC2980040D099 /* FirestoreSubcollectionService.swift in Sources */,
 				92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */,
