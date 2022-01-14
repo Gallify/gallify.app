@@ -31,7 +31,7 @@ struct SelfProfileViewDetails: View {
     
     
     init() {
-        firestoreQuery.fetchUser()
+     //   firestoreQuery.fetchUser()
     }
 
     

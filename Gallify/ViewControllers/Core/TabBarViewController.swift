@@ -41,7 +41,8 @@ struct TabBarView: View {
                 case 1:
                     DiscoverMainView()
                 case 2:
-                    SelfProfileView().environmentObject(firestoreQuery)
+                    SelfProfileView()
+                        .environmentObject(firestoreQuery)
                 default:
                     HomeView()
                     //not sure why it made me add this param, but got rid of error.,
@@ -79,8 +80,17 @@ struct TabBarView: View {
         .navigationBarHidden(true)
         .environmentObject(viewModel)
         .environmentObject(firestoreQuery)
+        .onAppear{ networking() }
         
     }
+    
+    func networking(){
+        firestoreQuery.getUser()
+        
+    }
+    
+    
+    
     
 }
 

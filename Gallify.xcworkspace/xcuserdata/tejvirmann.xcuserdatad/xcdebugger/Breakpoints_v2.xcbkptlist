@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5361E6F7-3BD5-48E4-B1D6-945B483E5163"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Gallify/Resources/GallifyApp.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "1C7456FF-9112-41CD-A643-74A8F568AECE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -49,6 +33,101 @@
             startingLineNumber = "33"
             endingLineNumber = "33"
             landmarkName = "fetchARData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A1C5287-2186-40BE-A14D-D936F9115226"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Gallify/Services/get.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "getFeaturedPlaylist_await(playlist_id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Gallify/Services/get.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "loaditems_selfprofile()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - 5f48939430e33354"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async throws -&gt; () in Gallify.FirestoreQuery.loaditems_selfprofile() -&gt; ()"
+                  moduleName = "Gallify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tejvirmann/Documents/gallify-repo/gallify.app/Gallify/Services/get.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - dfdb6053cca62bae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async throws -&gt; () in Gallify.FirestoreQuery.loaditems_selfprofile() -&gt; ()"
+                  moduleName = "Gallify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tejvirmann/Documents/gallify-repo/gallify.app/Gallify/Services/get.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - 2854a00dbaf2360a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in Gallify.FirestoreQuery.loaditems_selfprofile() -&gt; ()"
+                  moduleName = "Gallify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tejvirmann/Documents/gallify-repo/gallify.app/Gallify/Services/get.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0C85952C-1D0D-4F18-84E5-C0D5710F8440"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Gallify/Services/get.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "loaditems_selfprofile()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

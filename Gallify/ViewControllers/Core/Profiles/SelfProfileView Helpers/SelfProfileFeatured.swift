@@ -32,10 +32,11 @@ struct SelfProfileFeatured: View {
             
 //            Text(firestoreQuery.data.email)
 //            Text("GSDF" + firestoreQuery.featuredPlaylist.name)
-            
+            Text("HELLO FOR EACH LOOP FEATURED ART")
             ForEach(firestoreQuery.featuredArt){ artwork in
                 
                 //get art
+                //Text("hi")
                 //store art in 'featured art' array.
 //                Text("hello")
 //                Text(artwork.name)
@@ -48,7 +49,7 @@ struct SelfProfileFeatured: View {
                 HStack {
                     
                     NavigationLink(
-                        destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
+                        destination: DropDownReels(screenWidth: screenWidth, screenHeight: screenHeight),
                         label: {
                             WebImage(url: URL(string: artwork.content_url))
                                 .resizable()
@@ -78,6 +79,44 @@ struct SelfProfileFeatured: View {
                 
                 
                                         
+            }
+        }
+            
+        ForEach(firestoreQuery.playlists){ playlist in
+            HStack {
+                
+                                
+                NavigationLink(destination: DropDownReels(screenWidth: screenWidth, screenHeight: screenHeight), label: {
+                    
+//                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: WebImage(url: URL(string: playlist.cover_art_url)), title: "Desert", searchType: "Art", artistName: "Joe")
+                    
+                    HStack {
+                            
+                        WebImage(url: URL(string: playlist.cover_art_url))
+                            .resizable()
+                            .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+                            
+                        VStack(alignment: .leading) {
+                                
+                            Text(playlist.name)
+                                .font(.system(size: screenWidth / 20, weight: .bold))
+                                .foregroundColor(.black)
+                                
+                            Text("by " + playlist.creator)
+                                .font(.system(size: screenWidth / 25))
+                                .foregroundColor(.black)
+                                
+                        }
+                        .padding(.horizontal, screenWidth / 50)
+                            
+                        Spacer()
+                            
+                    }
+                    .padding(.horizontal, screenWidth / 25)
+                    .padding(.bottom, screenHeight / 80)
+                    
+                })
+                
             }
         }
         

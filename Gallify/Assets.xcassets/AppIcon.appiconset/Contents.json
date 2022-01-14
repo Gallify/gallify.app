@@ -73,11 +73,13 @@
       "size" : "40x40"
     },
     {
+      "filename" : "ipad.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
+      "filename" : "ipad-152.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"

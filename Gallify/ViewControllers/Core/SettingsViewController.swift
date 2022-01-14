@@ -29,7 +29,7 @@ struct SettingsView : View {
     @EnvironmentObject var settingsViewModel : SettingsViewController
     
     init(){
-        firestoreQuery.fetchUser()
+      //  firestoreQuery.fetchUser()
     }
     
     private var metadata = StorageMetadata()

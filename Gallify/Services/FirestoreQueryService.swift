@@ -8,7 +8,6 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
-import SwiftUI
 
 class FirestoreQuery : ObservableObject {
     
@@ -262,8 +261,9 @@ class FirestoreQuery : ObservableObject {
      
      This method needs to be checked.
      */
-    func getFeaturedPlaylistArt(art_ids: [String]) {
+    func getFeaturedPlaylistArt2(art_ids: [String]) {
         self.featuredArt.removeAll()
+        
         for art_id in art_ids {
             FirestoreQuery.db.collection("art").document(art_id) //If user can't get email, we need alternate fix.
                 .addSnapshotListener { queryDocumentSnapshot, error in
@@ -290,11 +290,53 @@ class FirestoreQuery : ObservableObject {
             
             
         }
-       
+    }
+    
+    /*
+     Input: Library Array.
+     
+     Output: Published Library variable now contains array of playlist elements.
+     
+     This method needs to be checked.
+     */
+    func getFeaturedPlaylistArt() {
+        self.featuredArt.removeAll()
+        print("INSIDE FEATURED PLAYLIST ART")
+        //get art ids.
+        getFeaturedPlaylist(a: data.featured)
+        
+        for art_id in featuredPlaylist.art {
+            FirestoreQuery.db.collection("art").document(art_id) //If user can't get email, we need alternate fix.
+                .addSnapshotListener { queryDocumentSnapshot, error in
+                    if error == nil { //if no errors
+                        if let document = queryDocumentSnapshot{
+                            //update list in main thread.
+                            DispatchQueue.main.async{
+                                 //set retrieved document to @published data object
+                                print("GOTTEN 5 ARTS")
+                                self.featuredArt.append(try! document.data(as: Art.self)!) //this is forceful, and assumes this will always work...
+                            }
+                            
+                        }
+                        else{
+                            print("Error: There aren't any documents, getPlaylists()")
+                            return
+                        }
+                    }
+                    else{
+                        print("Error: Can't get document, getPlaylists()")
+                        return
+                    }
+          }
+        }
+        
         
     }
     
-       
+    
+    
+    
+    
     
     //    init(){
     //        self.getUser()

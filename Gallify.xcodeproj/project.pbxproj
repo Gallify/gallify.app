@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30001B7E278F8E6F00527BF9 /* get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001B7D278F8E6F00527BF9 /* get.swift */; };
+		30001BB627921AC900527BF9 /* DropDownReels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BB527921AC900527BF9 /* DropDownReels.swift */; };
 		3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4B926C82F6B00323BCB /* GallifyApp.swift */; };
 		3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4BD26C82F6D00323BCB /* Assets.xcassets */; };
 		3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */; };
@@ -191,6 +193,8 @@
 		1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DC08BFB2C764F85E922F716 /* Pods-Gallify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify.debug.xcconfig"; path = "Target Support Files/Pods-Gallify/Pods-Gallify.debug.xcconfig"; sourceTree = "<group>"; };
 		2E7780D649915F9CC1596DBF /* Pods-Gallify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify.release.xcconfig"; path = "Target Support Files/Pods-Gallify/Pods-Gallify.release.xcconfig"; sourceTree = "<group>"; };
+		30001B7D278F8E6F00527BF9 /* get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = get.swift; sourceTree = "<group>"; };
+		30001BB527921AC900527BF9 /* DropDownReels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownReels.swift; sourceTree = "<group>"; };
 		3004D4B626C82F6B00323BCB /* Gallify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3004D4B926C82F6B00323BCB /* GallifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyApp.swift; sourceTree = "<group>"; };
 		3004D4BD26C82F6D00323BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -500,6 +504,7 @@
 				3004D50026CD57A800323BCB /* TabBarViewController.swift */,
 				3004D50226CD57C100323BCB /* SearchViewController.swift */,
 				3004D4FE26CD579000323BCB /* SettingsViewController.swift */,
+				30001BB527921AC900527BF9 /* DropDownReels.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				30521384278A35C100CE0224 /* UrlImageModel.swift */,
 				30521380278A2DDA00CE0224 /* ImageCache.swift */,
 				3309962D277BC2660040D099 /* ImageLoader.swift */,
+				30001B7D278F8E6F00527BF9 /* get.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1377,6 +1383,7 @@
 				3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */,
 				3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */,
 				30521364278A293F00CE0224 /* ScenePersistenceHelper.swift in Sources */,
+				30001BB627921AC900527BF9 /* DropDownReels.swift in Sources */,
 				3052135C278A293F00CE0224 /* ARPlayerContainer.swift in Sources */,
 				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
 				3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */,
@@ -1510,6 +1517,7 @@
 				92794D03273811760012B184 /* CollectionLikedView.swift in Sources */,
 				31B4CB8526FD2FE700FF86ED /* SelfProfileCollectionList.swift in Sources */,
 				92794D06273811760012B184 /* CollectionLikedRow.swift in Sources */,
+				30001B7E278F8E6F00527BF9 /* get.swift in Sources */,
 				3004D4F226CD407600323BCB /* Art.swift in Sources */,
 				315345772755760A00BD7B54 /* DiscoverBrowse.swift in Sources */,
 				92DB7C6D273181240035B788 /* CreatePublishHeader.swift in Sources */,
@@ -1619,6 +1627,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_DYLIB_INSTALL_NAME = "@rpath";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1674,6 +1683,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_DYLIB_INSTALL_NAME = "@rpath";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1695,7 +1705,8 @@
 				ENABLE_PREVIEWS = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Gallify/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_DYLIB_INSTALL_NAME = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1719,7 +1730,8 @@
 				ENABLE_PREVIEWS = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Gallify/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_DYLIB_INSTALL_NAME = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1741,7 +1753,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K35JM9B532;
 				INFOPLIST_FILE = GallifyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1764,7 +1776,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K35JM9B532;
 				INFOPLIST_FILE = GallifyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1786,6 +1798,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GallifyUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1806,6 +1819,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GallifyUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

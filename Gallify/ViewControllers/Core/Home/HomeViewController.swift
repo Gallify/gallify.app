@@ -180,12 +180,24 @@ struct HomeView : View {
             }
             .environmentObject(firestoreQuery)
             .navigationBarHidden(true)
-            .onAppear{ NetworkingCall() }
+            .onAppear{ async{ await NetworkingCall() }}
             
     }
    
-    func NetworkingCall(){
-        firestoreQuery.getUser()
+    //@MainActor
+    func NetworkingCall() async{
+        //firestoreQuery.getUser()
+       await firestoreQuery.getUser_await()
+        
+     //   print(data.featured)
+        
+        
+        print(firestoreQuery.data.featured)
+        print("AFTER get data in home")
+        //await firestoreQuery.getFeaturedPlaylist_await(playlist_id: firestoreQuery.data.featured)
+       //await firestoreQuery.loaditems_selfprofile()
+        //also call get featured playlist here. Then when when get featured art, in profile, it works.
+      //  firestoreQuery.getFeaturedPlaylist(a: firestoreQuery.data.featured)
     }
     
 }
