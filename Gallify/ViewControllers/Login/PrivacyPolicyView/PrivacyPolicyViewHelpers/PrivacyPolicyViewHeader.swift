@@ -15,28 +15,27 @@ struct PrivacyPolicyViewHeader: View {
     var body: some View {
             
         VStack {
-            
-            HStack {
                 
+            HStack {
+                    
                 CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
                     .padding(.horizontal, screenWidth / 25)
                     .padding(.vertical, screenHeight / 100)
-                
+                    
                 Spacer()
-                
+                    
             }
-            
+                
             HStack {
-                        
+                            
                 Text("User Agreement")
-                    .font(.system(size: screenWidth / 11, weight: .semibold))
-                        
+                    .font(.system(size: screenWidth / 12.5, weight: .semibold))
+                            
                 Spacer()
-                        
+                            
             }
             .padding(.leading, screenWidth / 12)
-            .padding(.bottom, screenHeight / 320)
-
+            .padding(.bottom, screenHeight / 400)
             
             HStack {
                 

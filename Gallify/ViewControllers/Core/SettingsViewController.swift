@@ -19,31 +19,31 @@ class SettingsViewController : ObservableObject {
 struct SettingsView : View {
     
     @EnvironmentObject var viewModel : LoginAppViewModel
-    @ObservedObject var firestoreQuery = FirestoreQuery()
+    @EnvironmentObject var tabBarViewModel: TabBarViewModel
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
 
     @State var pickedImage: UIImage?
     @State private var showActionSheet = false
     @State private var showImagePicker = false
     @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
     
-    @EnvironmentObject var settingsViewModel : SettingsViewController
-    
-    init(){
-        firestoreQuery.fetchUser()
-    }
-    
     private var metadata = StorageMetadata()
     
      var body: some View {
+         
         ScrollView {
+            
             VStack {
                 
-            Text("Settings")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(Color.black)
+                Text("Settings")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.black)
+                
                 VStack {
+                    
                     if pickedImage != nil {
+                        
                         Image(uiImage: pickedImage!)
                             .resizable()
                             .frame(width: 100,
@@ -51,19 +51,25 @@ struct SettingsView : View {
                             .padding(.top, 20)
                             .onTapGesture{
                                 self.showActionSheet = true
-                            }
-                    } else {
+                        }
+                        
+                    }
+                    
+                    else {
+                        
                         Image(systemName: "person.circle.fill")
-                                .resizable()
-                                .frame(width: 100,
+                            .resizable()
+                            .frame(width: 100,
                                        height: 100)
-                                .padding(.top, 20)
-                                .onTapGesture {
+                            .padding(.top, 20)
+                            .onTapGesture {
                                    self.showActionSheet = true
-                                }
+                         }
+                        
                     }
                 
-                }.actionSheet(isPresented: $showActionSheet){
+                }.actionSheet(isPresented: $showActionSheet) {
+                    
                     ActionSheet(title: Text("Add a picture "), message: nil, buttons: [
                         //Button1
                         
@@ -85,8 +91,9 @@ struct SettingsView : View {
                     imagePicker(image: self.$pickedImage, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
                 }
             
-                Button(action: {
-                    StorageService.saveProfileImage(uid: firestoreQuery.data.uid, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
+            Button(action: {
+                
+                StorageService.saveProfileImage(uid: firestoreQuery.data.uid, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
                 }, label: {
                     Text("Save")
                         .frame(width: 200, height: 50)
@@ -97,21 +104,20 @@ struct SettingsView : View {
                 
             Text("You are signed in")
                 
-            Button(action: {
-                viewModel.signOut()
-            }, label: {
-                Text("Sign Out")
-                    .frame(width: 200, height: 50)
-                    .background(Color.green)
-                    .foregroundColor(Color.blue)
-                    .padding()
-            })
+                Button(action: {
+                    viewModel.signOut()
+                }, label: {
+                    Text("Sign Out")
+                        .frame(width: 200, height: 50)
+                        .background(Color.green)
+                        .foregroundColor(Color.blue)
+                        .padding()
+                })
                 
              
+            }
         }
     }
-}
-//.environmentObject(firestoreQuery)
     
 }
 
@@ -119,7 +125,8 @@ struct SettingViewController: PreviewProvider {
     static var previews: some View {
         SettingsView()
             .environmentObject(LoginAppViewModel())
-            .environmentObject(SettingsViewController())
+            .environmentObject(TabBarViewModel())
+            .environmentObject(FirestoreQuery())
         
     }
 }

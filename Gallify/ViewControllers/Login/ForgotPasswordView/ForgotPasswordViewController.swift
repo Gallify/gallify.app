@@ -24,7 +24,6 @@ struct ForgotPasswordView: View {
                 ForgotPasswordViewHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                 
                 ForgotPasswordViewBody(presentationMode: _presentationMode)
-                    .environmentObject(viewModel)
             
                 Spacer()
                 
@@ -32,7 +31,6 @@ struct ForgotPasswordView: View {
             .navigationBarHidden(true)
             
         }
-        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         
     }

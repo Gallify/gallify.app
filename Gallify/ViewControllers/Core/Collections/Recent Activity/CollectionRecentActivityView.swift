@@ -8,25 +8,36 @@
 import SwiftUI
 
 struct CollectionRecentActivityView: View {
+    
     let screenWidth: CGFloat
     let screenHeight: CGFloat
-
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
+        
         NavigationView {
+            
             VStack{
-                CollectionRecentActivityHeader(screenWidth: screenWidth)
-                    .padding()
+                
+                CollectionRecentActivityHeader(screenWidth: screenWidth, screenHeight: screenHeight, presentationMode: _presentationMode)
+                
                 ScrollView (showsIndicators: false) {
+                    
                     CollectionRecentActivityRow(screenWidth: screenWidth, screenHeight: screenHeight)
+                    
                 }
+                
                 Spacer()
+                
                 CollectionRecentActivityFooter(screenWidth: screenWidth, screenHeight: screenHeight)
                 
             }
+            
         }
         .navigationBarHidden(true)
-        .navigationBarTitle("")
+        
     }
+    
 }
 
 struct CollectionRecentActivityView_Previews: PreviewProvider {

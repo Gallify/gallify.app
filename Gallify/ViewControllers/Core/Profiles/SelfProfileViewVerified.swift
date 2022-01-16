@@ -1,17 +1,13 @@
 //
-//  SelfProfileViewController.swift
+//  SelfProfileViewVerified.swift
 //  Gallify
 //
-//  Created by Tejvir Mann on 8/18/21.
+//  Created by Patron on 1/16/22.
 //
-import UIKit
+
 import SwiftUI
 
-class SelfProfileViewModel: ObservableObject {
-        
-}
-
-struct SelfProfileView : View {
+struct SelfProfileViewVerified: View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
@@ -24,7 +20,7 @@ struct SelfProfileView : View {
                 
             ScrollView(showsIndicators: false) {
                     
-                SelfProfileViewDetails()
+                SelfProfileViewVerifiedDetails()
                 
                 SelfProfileFeatured()
                     
@@ -55,10 +51,9 @@ struct SelfProfileView : View {
     
 }
 
-
-struct SelfProfileScreenPreview: PreviewProvider {
+struct SelfProfileViewVerified_Previews: PreviewProvider {
     static var previews: some View {
-        SelfProfileView()
+        SelfProfileViewVerified()
             .environmentObject(TabBarViewModel())
             .environmentObject(FirestoreQuery())
     }

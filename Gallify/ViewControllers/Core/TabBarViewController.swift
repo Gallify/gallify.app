@@ -17,9 +17,12 @@ class TabBarViewModel: UITabBarController, ObservableObject {
 
 struct TabBarView: View {
     
+    @StateObject var firestoreQuery = FirestoreQuery()
+    
+    @StateObject var storageService = StorageService()
+    
     @StateObject var viewModel = TabBarViewModel()
     @State var selectedTabIndex = 0
-    @StateObject var firestoreQuery = FirestoreQuery() //object data created here.
     
     private let tabBarImageNames = ["house.fill", "magnifyingglass", "person.fill"]
     
@@ -36,16 +39,13 @@ struct TabBarView: View {
                 switch selectedTabIndex {
                     
                 case 0:
-                    HomeView().environmentObject(firestoreQuery)
-                    //not sure why it made me add this param, but got rid of error.,
+                    HomeView()
                 case 1:
                     DiscoverMainView()
                 case 2:
-                    SelfProfileView().environmentObject(firestoreQuery)
+                    SelfProfileView()
                 default:
                     HomeView()
-                    //not sure why it made me add this param, but got rid of error.,
-                    
                 }
                 
                 Spacer()
@@ -61,7 +61,7 @@ struct TabBarView: View {
                             }, label: {
                                 Spacer()
                                 Image(systemName: tabBarImageNames[num])
-                                        .foregroundColor(selectedTabIndex == num ? .black : .init(white: 0.7))
+                                    .foregroundColor(selectedTabIndex == num ? .black : .init(white: 0.7))
                                 
                                 Spacer()
                             })
@@ -73,12 +73,13 @@ struct TabBarView: View {
                 }
                 
             }
+            .navigationBarHidden(true)
             
         }
-        .navigationBarTitle("")
         .navigationBarHidden(true)
         .environmentObject(viewModel)
         .environmentObject(firestoreQuery)
+        .environmentObject(storageService)
         
     }
     

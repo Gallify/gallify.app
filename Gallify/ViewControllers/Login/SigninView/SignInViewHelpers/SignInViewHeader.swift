@@ -29,7 +29,7 @@ struct SignInViewHeader: View {
             HStack {
                         
                 Text("Sign in to Gallify")
-                    .font(.system(size: screenWidth / 11, weight: .semibold))
+                    .font(.system(size: screenWidth / 12.5, weight: .semibold))
                         
                 Spacer()
                         
@@ -38,8 +38,25 @@ struct SignInViewHeader: View {
             .padding(.bottom, screenHeight / 32.5)
             
         }
+        
+        /*HStack {
+                
+            CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
+                .padding(.horizontal, screenWidth / 25)
+                .padding(.vertical, screenHeight / 100)
+                
+            Spacer()
+                
+            Text("Sign in to Gallify")
+                .font(.system(size: screenWidth / 12.5, weight: .semibold))
+                .padding(.trailing, screenWidth / 7.5)
+                
+            Spacer()
+                
+        }
         .padding(.top, screenHeight / 160)
-            
+        .padding(.bottom, screenHeight / 32.5)*/
+        
     }
     
 }

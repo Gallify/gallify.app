@@ -90,6 +90,7 @@ struct DiscoverMainView: View {
                 .navigationBarHidden(true)
                 
             }
+            .navigationBarHidden(true)
             
         }
         .navigationBarHidden(true)

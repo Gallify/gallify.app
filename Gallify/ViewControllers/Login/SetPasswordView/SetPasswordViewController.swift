@@ -30,7 +30,6 @@ struct SetPasswordView: View {
             }
             
         }
-        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         
     }

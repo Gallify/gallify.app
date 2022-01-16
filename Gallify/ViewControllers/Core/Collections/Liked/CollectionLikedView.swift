@@ -9,22 +9,31 @@ import SwiftUI
 import UIKit
 
 struct CollectionLikedView: View {
+    
     let screenWidth: CGFloat
     let screenHeight: CGFloat
-
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
-        VStack{
-            CollectionLikedHeader(screenWidth: screenWidth)
-                .padding()
+        
+        VStack {
+            
+            CollectionLikedHeader(screenWidth: screenWidth, screenHeight: screenHeight, presentationMode: _presentationMode)
+            
             ScrollView (showsIndicators: false) {
+                
                 CollectionLikedRow(screenWidth: screenWidth, screenHeight: screenHeight
 )
             }
-            CollectionLikedFooter(screenWidth: screenWidth, screenHeight: screenHeight
-)
+            
+            CollectionLikedFooter(screenWidth: screenWidth, screenHeight: screenHeight)
+            
             Spacer()
+            
         }
+        
     }
+    
 }
 
 struct CollectionLikedView_Previews: PreviewProvider {

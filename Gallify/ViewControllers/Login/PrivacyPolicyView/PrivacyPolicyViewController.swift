@@ -33,7 +33,6 @@ struct PrivacyPolicyView: View {
                 .navigationBarHidden(true)
             
         }
-        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         
     }

@@ -29,7 +29,7 @@ struct CreateAccountViewHeader: View {
             HStack {
                         
                 Text("Create Account")
-                    .font(.system(size: screenWidth / 11, weight: .semibold))
+                    .font(.system(size: screenWidth / 12.5, weight: .semibold))
                         
                 Spacer()
                         
@@ -38,7 +38,6 @@ struct CreateAccountViewHeader: View {
             .padding(.bottom, screenHeight / 32.5)
             
         }
-        .padding(.top, screenHeight / 160)
             
     }
     

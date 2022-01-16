@@ -17,41 +17,39 @@ struct HomeViewRecent: View {
             
             HStack {
                 
-                VStack() {
+                VStack {
                                         
-                                    NavigationLink (
-                                        destination: CollectionLikedView(screenWidth: screenWidth, screenHeight: screenHeight),
-                                        label: {
-                                            ZStack {
+                    NavigationLink (
+                        destination: CollectionLikedView(screenWidth: screenWidth, screenHeight: screenHeight),
+                        label: {
+                            
+                            ZStack {
                                                         
-                                                Image(systemName: "squareshape.fill")
-                                                    .resizable()
-                                                    .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
-                                                    .foregroundColor(.pink)
-                                                    .cornerRadius(screenWidth / 15)
+                                Image(systemName: "squareshape.fill")
+                                    .resizable()
+                                    .frame(width: screenWidth / 2.8, height: screenHeight / 6)
+                                    .foregroundColor(.pink)
+                                    .cornerRadius(screenWidth / 15)
                                                         
-                                                Image(systemName: "suit.heart.fill")
-                                                    .resizable()
-                                                    .foregroundColor(Color.white)
-                                                    .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
+                                Image(systemName: "suit.heart.fill")
+                                    .resizable()
+                                    .foregroundColor(Color.white)
+                                    .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
                                                         
-                                            }
-                                        }
-                                    )
-                                    .buttonStyle(ThemeAnimationStyle())
-                                    .navigationBarBackButtonHidden(true)
-                                    .navigationBarTitle("")
-                                    .navigationBarHidden(true)
+                            }
+                            
+                        }
+                    )
+                    .buttonStyle(ThemeAnimationStyle())
+                    .navigationBarHidden(true)
                                     
-                                            
-                                    Text("Liked")
-                                        .font(.title3)
-                                        .fontWeight(.semibold)
-                                        .frame(width: screenWidth / 2.8)
-                                        .lineLimit(1)
-                                        .allowsTightening(true)
-                                }
-                                .padding(.leading, screenWidth / 25)
+                    Text("Liked")
+                        .font(.system(size: screenWidth / 18.5, weight: .semibold))
+                        .frame(width: screenWidth / 2.8)
+                        .lineLimit(1)
+                    
+                }
+                .padding(.leading, screenWidth / 25)
                 
                 VStack {
                     
@@ -82,7 +80,7 @@ struct HomeViewRecent: View {
                 }
                 .padding(.leading, screenWidth / 37.5)
                 
-                VStack() {
+                VStack {
                                     
                     NavigationLink (
                         destination: CollectionRecentActivityView(screenWidth: screenWidth, screenHeight: screenHeight),
@@ -105,11 +103,10 @@ struct HomeViewRecent: View {
                     )
                     
                     Text("Recent Activity")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                        .font(.system(size: screenWidth / 18.5, weight: .semibold))
                         .frame(width: screenWidth / 2.8)
                         .lineLimit(1)
-                        .allowsTightening(true)
+                    
                 }
                 .padding(.leading, screenWidth / 37.5)
                 

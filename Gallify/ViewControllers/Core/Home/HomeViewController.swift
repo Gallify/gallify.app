@@ -18,12 +18,9 @@ class HomeViewModel: ObservableObject {
 struct HomeView : View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
+    
     @State private var isLoading = false
-    
-    //@StateObject var firestoreQuery = FirestoreQuery()
-    @EnvironmentObject var firestoreQuery : FirestoreQuery
-    
-    
     
         var body: some View {
             
@@ -48,7 +45,7 @@ struct HomeView : View {
                         
                         HStack {
                             
-                            //print(firestoreQuery.museumlist.museums[0])  firestoreQuery.museumlist.museums[0]
+                            //print(viewModel.firestoreQuery.museumlist.museums[0])  viewModel.firestoreQuery.museumlist.museums[0]
                             Text("Firstname: \(firestoreQuery.data.firstName)") //\(firestoreQuery.museumlist.museums[1]) \(firestoreQuery.data.email)
                                 .font(.system(size: screenWidth / 11, weight: .bold))
                                 .padding(.leading, widthPad)
@@ -176,9 +173,9 @@ struct HomeView : View {
                     }
                     
                 }
+                .navigationBarHidden(true)
                 
             }
-            .environmentObject(firestoreQuery)
             .navigationBarHidden(true)
             .onAppear{ NetworkingCall() }
             
@@ -195,7 +192,8 @@ struct HomeView : View {
 struct HomeScreenPreview: PreviewProvider {
 
     static var previews: some View {
-        HomeView().environmentObject(TabBarViewModel())
-
+        HomeView()
+            .environmentObject(TabBarViewModel())
+            .environmentObject(FirestoreQuery())
     }
 }

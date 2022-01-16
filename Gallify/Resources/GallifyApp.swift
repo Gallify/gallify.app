@@ -15,9 +15,7 @@ struct GallifyLoginApp: App {
     var body: some Scene {
         WindowGroup {
             
-            let viewModel = LoginAppViewModel()
-            LoginView().environmentObject(viewModel)
-            
+            LoginView()
             
         }
     }

@@ -30,7 +30,6 @@ struct VerifyEmailView: View {
                 Spacer()
                 
             }
-            .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
             
         }

@@ -1,8 +1,8 @@
 //
-//  SelfProfileViewDetails.swift
+//  SelfProfileViewVerifiedDetails.swift
 //  Gallify
 //
-//  Created by Anshul on 9/13/21.
+//  Created by Patron on 1/16/22.
 //
 
 import UIKit
@@ -13,8 +13,7 @@ import FirebaseAuth
 import FirebaseUI
 import SDWebImageSwiftUI
 
-
-struct SelfProfileViewDetails: View {
+struct SelfProfileViewVerifiedDetails: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
@@ -90,6 +89,48 @@ struct SelfProfileViewDetails: View {
 
                     }
                     
+                    HStack {
+                        
+                        Spacer()
+                            
+                        VStack {
+                                
+                            Image(systemName: "checkmark.seal.fill")
+                                .foregroundColor(.blue)
+                                .frame(width: screenWidth / 22, height: screenHeight / 47.5)
+                            
+                            Text("Collector")
+                                .font(.system(size: screenWidth / 23.5))
+                                .foregroundColor(Color.gray)
+                            
+                            /*Text("\(firestoreQuery.data.job)")
+                                .font(.system(size: screenWidth / 23.5))
+                                .foregroundColor(Color.gray)*/
+                                
+                        }
+                        .padding(.leading, screenWidth / 18)
+                        
+                        Spacer()
+                            
+                        VStack {
+                                
+                            /*Text("\(firestoreQuery.data.MembershipStatus)")
+                                .font(.system(size: screenWidth / 18))*/
+                            
+                            Text("0")
+                                .font(.system(size: screenWidth / 18))
+                                
+                            Text("Monthly Users")
+                                .font(.system(size: screenWidth / 23.5))
+                                .foregroundColor(Color.gray)
+                                
+                        }
+                            
+                        Spacer()
+
+                    }
+                    .padding(.top, screenHeight / 80)
+                    
                 }
                 .frame(width: screenWidth / 1.65)
                 
@@ -124,18 +165,16 @@ struct SelfProfileViewDetails: View {
             .padding(.horizontal, screenWidth / 15)
             
         }
-        .padding(.top, screenHeight / 120)
-                
-    }
-                
-}
+        .padding(.top, screenHeight / 65)
         
-struct SelfProfileViewDetails_Previews: PreviewProvider {
+    }
+    
+}
+
+struct SelfProfileViewVerifiedDetails_Previews: PreviewProvider {
     static var previews: some View {
-        SelfProfileViewDetails()
+        SelfProfileViewVerifiedDetails()
             .environmentObject(TabBarViewModel())
             .environmentObject(FirestoreQuery())
-
     }
 }
-            

@@ -25,14 +25,12 @@ struct SignInView : View {
 
                     
                 SignInViewBody()
-                    .environmentObject(viewModel)
                     
                 Spacer()
                         
             }
             
         }
-        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         
     }

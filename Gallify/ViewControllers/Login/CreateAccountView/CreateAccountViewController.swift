@@ -25,8 +25,10 @@ struct CreateAccountView : View {
                 
                 CreateAccountViewHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                 
-                ScrollView{
+                ScrollView {
+                    
                     CreateAccountViewBody()
+                    
                 }
                 
                 Spacer()
@@ -35,7 +37,6 @@ struct CreateAccountView : View {
             .navigationBarHidden(true)
             
         }
-        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         .environmentObject(user)
         

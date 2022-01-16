@@ -28,8 +28,8 @@ struct SetPasswordViewHeader: View {
             
             HStack {
                         
-                Text("Sign in to Gallify")
-                    .font(.system(size: screenWidth / 11, weight: .semibold))
+                Text("Set Password")
+                    .font(.system(size: screenWidth / 12.5, weight: .semibold))
                         
                 Spacer()
                         
@@ -38,7 +38,6 @@ struct SetPasswordViewHeader: View {
             .padding(.bottom, screenHeight / 32.5)
             
         }
-        .padding(.top, screenHeight / 160)
             
     }
     
