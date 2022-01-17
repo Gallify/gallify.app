@@ -11,13 +11,27 @@ import FirebaseAuth
 import SDWebImageSwiftUI
 
 
+struct FullScreenModalView: View {
+    @Environment(\.presentationMode) var presentationMode
+
+    var body: some View {
+        ZStack {
+            Color.primary.edgesIgnoringSafeArea(.all)
+            Button("Dismiss Modal") {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
+    }
+}
+
+
+
 struct SelfProfileFeatured: View {
     
     let screenHeight: CGFloat
     let screenWidth: CGFloat
     @EnvironmentObject var firestoreQuery : FirestoreQuery
-    
-    
+    @State var isPresented = false
     
     
     var body: some View {
@@ -46,40 +60,73 @@ struct SelfProfileFeatured: View {
                 //get views
                 //get navlink to generic playlist
                 
-                HStack {
-                    
-                    NavigationLink(
-                        destination: DropDownReels(screenWidth: screenWidth, screenHeight: screenHeight),
-                        label: {
-                            WebImage(url: URL(string: artwork.content_url))
-                                .resizable()
-                                .frame(width: screenWidth / 8, height: screenWidth / 8)
-                                
-                        })
-                        .buttonStyle(ThemeAnimationStyle())
-                        .navigationBarBackButtonHidden(true)
-                        .navigationBarTitle("")
-                        .navigationBarHidden(true)
-                        .padding(.leading)
-                    //Spacer()
-                   
-                    VStack{
-                        Text(artwork.name)
-                            .fontWeight(.bold)
-                        HStack{
-                            Text(artwork.creator)
+                
+//                NavigationLink(destination: OtherProfileView(), label: {
+//
+//                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
+//                })
+                
+                
+                
+//                SlideOverView {
+//
+//                    VStack {
+//
+//                        CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight)
+//
+//                    }
+//                }
+                
+                
+                Button(action: {
+                    firestoreQuery.isPresented.toggle()
+                    firestoreQuery.data.isClicked = artwork.art_id
+                }){
+                    HStack {
+                        
+    //                    NavigationLink(
+    //                        destination: DropDownReels(screenWidth: screenWidth, screenHeight: screenHeight),
+    //                        label: {
+    //                            WebImage(url: URL(string: artwork.content_url))
+    //                                .resizable()
+    //                                .frame(width: screenWidth / 8, height: screenWidth / 8)
+    //
+    //
+    //                        })
+                        
+                        WebImage(url: URL(string: artwork.content_url))
+                            .resizable()
+                            .frame(width: screenWidth / 8, height: screenWidth / 8)
+                        //Spacer()
+                       
+                        VStack{
+                            
+                            if(firestoreQuery.data.isClicked == artwork.art_id){
+                                Text(artwork.name)
+                                    .foregroundColor(Color("Gallify-Pink"))
+                                    .fontWeight(.bold)
+                            }
+                            else{
+                                Text(artwork.name)
+                                    .fontWeight(.bold)
+                            }
+                            
+                            HStack{
+                                Text(artwork.creator)
+                            }
                         }
+                        //.padding()
+                        
+                        Spacer()
                     }
-                    //.padding()
-                    
-                    Spacer()
-                    
+                }
+                .fullScreenCover(isPresented: $firestoreQuery.isPresented){
+                //SlideOverView(CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight))) //init
+                    CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight)
+                 //   FullScreenModalView()
+                }
                 
                 
-                
-                
-                                        
-            }
         }
             
         ForEach(firestoreQuery.playlists){ playlist in
@@ -97,14 +144,15 @@ struct SelfProfileFeatured: View {
                             .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                             
                         VStack(alignment: .leading) {
-                                
+                            
+                           
                             Text(playlist.name)
                                 .font(.system(size: screenWidth / 20, weight: .bold))
-                                .foregroundColor(.black)
+                                //.foregroundColor(.black)
                                 
                             Text("by " + playlist.creator)
                                 .font(.system(size: screenWidth / 25))
-                                .foregroundColor(.black)
+                                //.foregroundColor(.black)
                                 
                         }
                         .padding(.horizontal, screenWidth / 50)
@@ -222,8 +270,10 @@ struct SelfProfileFeatured: View {
     
 
 
-struct SelfProfileFeatured_Previews: PreviewProvider {
-    static var previews: some View {
-        SelfProfileFeatured(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
-    }
-}
+//struct SelfProfileFeatured_Previews: PreviewProvider {
+//    @Binding var isPresented: Bool
+//
+//    static var previews: some View {
+//        SelfProfileFeatured(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width, isPresented: $isPresented)
+//    }
+//}

@@ -19,31 +19,60 @@ struct SwiftUIView: View {
 
 struct CollectionReelHeader: View {
     
-    
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @StateObject var placementSettings = PlacementSettings() //this allows FullARView to pass the placement settings(where to place an object throughout many of it's connected views
     @StateObject var sessionSettings = SessionSettings()
     @StateObject var scenemanager = SceneManager()
     @StateObject var modelsViewModel = ModelsViewModel()
     @StateObject var modelDeletionManager = ModelDeletionManager()
     
+   // @Binding var isPresented: Bool
+    
     let screenWidth: CGFloat
     let screenHeight: CGFloat
+    
     
     var body: some View {
         HStack {
             
-            NavigationLink(
-                destination: CollectionRecentActivityView(screenWidth: screenWidth, screenHeight: screenHeight),
+            
+            Button{
+                firestoreQuery.isPresented.toggle()
+            }
                 label: {
-                    Image(systemName: "chevron.up.circle")
+                    Image(systemName: "chevron.down")
                         .font(.system(size: 40))
                         .padding(.leading)
-                })
+                }
                 .buttonStyle(ThemeAnimationStyle())
                 .navigationBarBackButtonHidden(true)
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
+                .onTapGesture{
+                    presentationMode.wrappedValue.dismiss()
+                
+            }
+            
+            
+            
+//            NavigationLink(
+//                destination: CollectionRecentActivityView(screenWidth: screenWidth, screenHeight: screenHeight),
+//                label: {
+//                    Image(systemName: "chevron.down")
+//                        .font(.system(size: 40))
+//                        .padding(.leading)
+//                })
+//                .buttonStyle(ThemeAnimationStyle())
+//                .navigationBarBackButtonHidden(true)
+//                .navigationBarTitle("")
+//                .navigationBarHidden(true)
+//                .onTapGesture{
+//                    presentationMode.wrappedValue.dismiss()
+//                }
+            
+            
             
             
             

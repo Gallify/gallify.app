@@ -11,6 +11,8 @@ import FirebaseAuth
 
 class FirestoreQuery : ObservableObject {
     
+    @Published var isPresented = false //for drop down reels. To know when to present. Not firestore related at all. 
+    
     @Published var data : User = User() //struct version of user model.
     @Published var art: Art = Art()
     @Published var playlist: Playlist = Playlist()

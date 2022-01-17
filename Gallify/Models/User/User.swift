@@ -38,6 +38,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var isClicked: String
     @Published var wallet: String
     @Published var featured: String
+  //  @Published var selectedArt: String
     
     enum CodingKeys: CodingKey {
 
@@ -73,6 +74,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         case isClicked
         case wallet
         case featured
+       // case selectedArt
         
         
     }
@@ -108,6 +110,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         isClicked = ""
         wallet = ""
         featured = ""
+     //   selectedArt = ""
 
 
     }
@@ -143,7 +146,8 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         isClicked = try container.decode(String.self, forKey: .isClicked)
         featured = try container.decode(String.self, forKey: .featured)
         wallet = try container.decode(String.self, forKey: .wallet)
-
+       // selectedArt = try container.decode(String.self, forKey: .selectedArt)
+        
     }
     
     func encode(to encoder: Encoder) throws {
@@ -177,7 +181,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(featured, forKey: .featured)
         try container.encode(isClicked, forKey: .isClicked)
         try container.encode(wallet, forKey: .wallet)
-
+       // try container.encode(selectedArt, forKey: .selectedArt)
 
     }
 

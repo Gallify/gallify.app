@@ -14,10 +14,12 @@ class LoginAppViewModel: ObservableObject {
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     
+    
     @Published var signedIn = false
     @Published var newUserCreated = false
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
+    
     
     var isSignedIn: Bool {
         if(auth.currentUser != nil){
@@ -99,13 +101,14 @@ class LoginAppViewModel: ObservableObject {
 struct LoginView: View {
     
     @StateObject var viewModel = LoginAppViewModel()
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
     
     var body: some View {
         
         NavigationView {
             
             if viewModel.isSignedIn || viewModel.newUserCreated {
-                TabBarView()
+                TabBarView().environmentObject(firestoreQuery)
             }
             
             else {

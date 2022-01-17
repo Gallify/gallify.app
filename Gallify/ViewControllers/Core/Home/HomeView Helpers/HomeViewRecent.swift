@@ -11,6 +11,7 @@ struct HomeViewRecent: View {
     let screenHeight: CGFloat
     let screenWidth: CGFloat
     
+    
     var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
@@ -18,40 +19,86 @@ struct HomeViewRecent: View {
             HStack {
                 
                 VStack() {
+                    
+                    NavigationLink(destination: OtherProfileView(), label: {
+                        
+                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
+                    })
+                    
+                    NavigationLink(destination: CollectionLikedView(screenWidth: screenWidth, screenHeight: screenHeight), label: {
                                         
-                                    NavigationLink (
-                                        destination: CollectionLikedView(screenWidth: screenWidth, screenHeight: screenHeight),
-                                        label: {
-                                            ZStack {
-                                                        
-                                                Image(systemName: "squareshape.fill")
-                                                    .resizable()
-                                                    .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
-                                                    .foregroundColor(.pink)
-                                                    .cornerRadius(screenWidth / 15)
-                                                        
-                                                Image(systemName: "suit.heart.fill")
-                                                    .resizable()
-                                                    .foregroundColor(Color.white)
-                                                    .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
-                                                        
-                                            }
-                                        }
-                                    )
-                                    .buttonStyle(ThemeAnimationStyle())
-                                    .navigationBarBackButtonHidden(true)
-                                    .navigationBarTitle("")
-                                    .navigationBarHidden(true)
+                        ZStack {
                                     
-                                            
-                                    Text("Liked")
-                                        .font(.title3)
-                                        .fontWeight(.semibold)
-                                        .frame(width: screenWidth / 2.8)
-                                        .lineLimit(1)
-                                        .allowsTightening(true)
-                                }
-                                .padding(.leading, screenWidth / 25)
+                            Image(systemName: "squareshape.fill")
+                                .resizable()
+                                .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+                                .foregroundColor(.pink)
+                                .cornerRadius(screenWidth / 15)
+                                    
+                            Image(systemName: "suit.heart.fill")
+                                .resizable()
+                                .foregroundColor(Color.white)
+                                .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
+                                    
+                        }
+                        
+                    })
+                    //.buttonStyle(ThemeAnimationStyle())
+                    //.navigationBarBackButtonHidden(true)
+                   // .navigationBarTitle("")
+                  //  .navigationBarHidden(true)
+                    
+                    Text("Liked")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .frame(width: screenWidth / 2.8)
+                        .lineLimit(1)
+                        .allowsTightening(true)
+                    
+                }
+                .padding(.leading, screenWidth / 25)
+                                        
+                
+                NavigationLink(destination: OtherProfileView(), label: {
+                    
+                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
+                })
+                    
+                    
+                    
+//                    NavigationLink (
+//                                        destination: CollectionLikedView(screenWidth: screenWidth, screenHeight: screenHeight),
+//                                        label: {
+//                                            ZStack {
+//
+//                                                Image(systemName: "squareshape.fill")
+//                                                    .resizable()
+//                                                    .frame(width: screenWidth / 2.8, height: screenWidth / 2.8)
+//                                                    .foregroundColor(.pink)
+//                                                    .cornerRadius(screenWidth / 15)
+//
+//                                                Image(systemName: "suit.heart.fill")
+//                                                    .resizable()
+//                                                    .foregroundColor(Color.white)
+//                                                    .frame(width: screenWidth / 5.5, height: screenWidth / 5.5)
+//
+//                                            }
+//                                        }
+//                                    )
+//                                    .buttonStyle(ThemeAnimationStyle())
+//                                    .navigationBarBackButtonHidden(true)
+//                                    .navigationBarTitle("")
+//                                    .navigationBarHidden(true)
+//
+//
+//                                    Text("Liked")
+//                                        .font(.title3)
+//                                        .fontWeight(.semibold)
+//                                        .frame(width: screenWidth / 2.8)
+//                                        .lineLimit(1)
+//                                        .allowsTightening(true)
+//                                }
+//                                .padding(.leading, screenWidth / 25)
                 
                 VStack {
                     
