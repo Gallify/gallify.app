@@ -14,36 +14,52 @@ class OtherProfileViewModel: ObservableObject {
 struct OtherProfileView : View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-            
-        let screenHeight = viewModel.screenHeight
-        let screenWidth = viewModel.screenWidth
 
         VStack {
                 
-            OtherProfileViewHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
+            OtherProfileViewHeader(presentationMode: _presentationMode)
                 
             ScrollView(showsIndicators: false) {
                     
-                OtherProfileViewDetails(screenHeight: screenHeight, screenWidth: screenWidth)
+                OtherProfileViewDetails()
+                
+                OtherProfileFeatured()
                     
-                OtherProfileViewRooms(screenHeight: screenHeight, screenWidth: screenWidth)
-                    
-                OtherProfileCollectionList(screenHeight: screenHeight, screenWidth: screenWidth)
+                OtherProfileCollectionList()
                                     
             }
             .navigationBarHidden(true)
+            .onAppear{ NetworkingCall() }
                 
         }
+        .navigationBarHidden(true)
             
+    }
+    
+    func NetworkingCall() {
+        
+        if(firestoreQuery.data.uid == ""){
+            firestoreQuery.getUser()
+        }
+        firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
+        firestoreQuery.getFeaturedPlaylist(a: firestoreQuery.data.featured) //now have artids
+        print("Featured playlist name")
+        print(firestoreQuery.featuredPlaylist.name)
+        firestoreQuery.getFeaturedPlaylistArt(art_ids: firestoreQuery.featuredPlaylist.art)
+        print(firestoreQuery.featuredArt)
+        
     }
     
 }
 
 struct OtherProfileScreenPreview: PreviewProvider {
     static var previews: some View {
-        OtherProfileView().environmentObject(TabBarViewModel())
+        OtherProfileView()
+            .environmentObject(TabBarViewModel())
+            .environmentObject(FirestoreQuery())
     }
 }

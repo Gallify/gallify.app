@@ -8,48 +8,37 @@
 import SwiftUI
 
 struct CollectionGenericHeader: View {
+    
+    let screenHeight: CGFloat
     let screenWidth: CGFloat
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
+        
         HStack {
-            HStack {
-                NavigationLink(
-                    destination: TabBarView(),
-                    label: {
-                        
-                        Image(systemName: "lessthan")
-                            .resizable()
-                            .foregroundColor(Color.black)
-                            .frame(width: screenWidth / 15, height: screenWidth / 15)
-                            .padding(.leading, screenWidth / 25)
-                        
-                    })
-                    .buttonStyle(ThemeAnimationStyle())
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
                 
-                Spacer()
+            CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
+                .padding(.horizontal, screenWidth / 25)
+                .padding(.vertical, screenHeight / 100)
+                
+            Spacer()
                                         
-                    Text("[Collection_Name]")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.black)
-                        .multilineTextAlignment(.center)
+                Text("Collection_Name")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.black)
+                    .padding(.trailing, screenWidth / 7.5)
                 
-                Spacer()
+            Spacer()
                 
-                Text("")
-                .foregroundColor(Color.black)
-                .frame(width: screenWidth / 15, height: screenWidth / 15)
-                .padding(.leading, screenWidth / 25)
-                
-            }
         }
+        
     }
+    
 }
 
 struct CollectionGenericHeader_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionGenericHeader(screenWidth: UIScreen.main.bounds.width)
+        CollectionGenericHeader(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
     }
 }

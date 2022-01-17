@@ -2,7 +2,7 @@
 //  SelfProfileViewVerifiedDetails.swift
 //  Gallify
 //
-//  Created by Patron on 1/16/22.
+//  Created by Anshul on 1/16/22.
 //
 
 import UIKit

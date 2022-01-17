@@ -41,7 +41,7 @@ struct SelfProfileView : View {
     
     func NetworkingCall() {
         
-        /*if(firestoreQuery.data.uid == ""){
+        if(firestoreQuery.data.uid == ""){
             firestoreQuery.getUser()
         }
         firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
@@ -49,7 +49,7 @@ struct SelfProfileView : View {
         print("Featured playlist name")
         print(firestoreQuery.featuredPlaylist.name)
         firestoreQuery.getFeaturedPlaylistArt(art_ids: firestoreQuery.featuredPlaylist.art)
-        print(firestoreQuery.featuredArt)*/
+        print(firestoreQuery.featuredArt)
         
     }
     

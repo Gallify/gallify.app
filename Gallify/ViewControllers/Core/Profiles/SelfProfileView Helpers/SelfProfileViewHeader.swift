@@ -9,7 +9,6 @@ import SwiftUI
 struct SelfProfileViewHeader: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
-    
     @EnvironmentObject var firestoreQuery: FirestoreQuery
     
     var body: some View {

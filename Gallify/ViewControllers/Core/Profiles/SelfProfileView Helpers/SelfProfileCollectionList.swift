@@ -94,6 +94,7 @@ struct SelfProfileCollectionList: View {
         .navigationBarHidden(true)
         
     }
+    
 }
 
 struct SelfProfileCollectionList_Previews: PreviewProvider {

@@ -2,7 +2,7 @@
 //  SelfProfileViewVerified.swift
 //  Gallify
 //
-//  Created by Patron on 1/16/22.
+//  Created by Anshul on 1/16/22.
 //
 
 import SwiftUI
@@ -37,7 +37,7 @@ struct SelfProfileViewVerified: View {
     
     func NetworkingCall() {
         
-        /*if(firestoreQuery.data.uid == ""){
+        if(firestoreQuery.data.uid == ""){
             firestoreQuery.getUser()
         }
         firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
@@ -45,7 +45,7 @@ struct SelfProfileViewVerified: View {
         print("Featured playlist name")
         print(firestoreQuery.featuredPlaylist.name)
         firestoreQuery.getFeaturedPlaylistArt(art_ids: firestoreQuery.featuredPlaylist.art)
-        print(firestoreQuery.featuredArt)*/
+        print(firestoreQuery.featuredArt)
         
     }
     

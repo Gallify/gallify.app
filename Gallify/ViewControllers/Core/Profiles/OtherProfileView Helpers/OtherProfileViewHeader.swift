@@ -8,11 +8,14 @@ import SwiftUI
 
 struct OtherProfileViewHeader: View {
     
-    let screenHeight: CGFloat
-    let screenWidth: CGFloat
+    @EnvironmentObject var viewModel: TabBarViewModel
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
+        
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         HStack {
             
@@ -20,9 +23,11 @@ struct OtherProfileViewHeader: View {
             
             Spacer()
             
+            /*Text("\(firestoreQuery.data.username)")
+                .font(.system(size: screenWidth / 17, weight: .bold))*/
+            
             Text("i_love_me")
                 .font(.system(size: screenWidth / 17, weight: .bold))
-                .foregroundColor(Color.black)
             
             Spacer()
                     
@@ -46,6 +51,8 @@ struct OtherProfileViewHeader: View {
 
 struct OtherProfileViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        OtherProfileViewHeader(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
+        OtherProfileViewHeader()
+            .environmentObject(TabBarViewModel())
+            .environmentObject(FirestoreQuery())
     }
 }

@@ -15,8 +15,11 @@ struct FollowButton: View {
     var body: some View {
         
         Button(action: {
+            
             isFollowing.toggle()
+            
         }) {
+            
             ZStack {
                 
                 RoundedRectangle(cornerRadius: buttonWidth / 8)
@@ -29,6 +32,7 @@ struct FollowButton: View {
                     .foregroundColor(isFollowing ? .black : .white)
                 
             }
+            
         }
         
     }
