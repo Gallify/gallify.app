@@ -76,10 +76,10 @@ struct SelfProfileViewVerifiedDetails: View {
                             
                         VStack {
                                 
-                            Text("\(firestoreQuery.data.following)")
+                            Text("\(firestoreQuery.data.connections)")
                                 .font(.system(size: screenWidth / 18))
                                 
-                            Text("Following")
+                            Text("Connections")
                                 .font(.system(size: screenWidth / 23.5))
                                 .foregroundColor(Color.gray)
                                 
@@ -108,19 +108,27 @@ struct SelfProfileViewVerifiedDetails: View {
                                 .foregroundColor(Color.gray)*/
                                 
                         }
-                        .padding(.leading, screenWidth / 18)
+                        .padding(.leading, screenWidth / 22)
                         
                         Spacer()
                             
                         VStack {
-                                
-                            /*Text("\(firestoreQuery.data.MembershipStatus)")
-                                .font(.system(size: screenWidth / 18))*/
                             
-                            Text("0")
-                                .font(.system(size: screenWidth / 18))
+                            if firestoreQuery.data.popularity < 1000 {
                                 
-                            Text("Monthly Users")
+                                Text("< 1000")
+                                    .font(.system(size: screenWidth / 18))
+                                
+                            }
+                            
+                            else {
+                                
+                                Text("\(firestoreQuery.data.popularity)")
+                                    .font(.system(size: screenWidth / 18))
+                                
+                            }
+                                
+                            Text("Monthly Viewers")
                                 .font(.system(size: screenWidth / 23.5))
                                 .foregroundColor(Color.gray)
                                 

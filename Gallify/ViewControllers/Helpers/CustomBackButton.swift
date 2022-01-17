@@ -35,6 +35,6 @@ struct CustomBackButton: View {
 
 struct CustomBackButton_Previews: PreviewProvider {
     static var previews: some View {
-        CustomBackButton(buttonHeight: UIScreen.main.bounds.height / 39, buttonWidth: UIScreen.main.bounds.width / 18, image: Image(systemName: "lessthan"))
+        CustomBackButton(buttonHeight: UIScreen.main.bounds.height / 39, buttonWidth: UIScreen.main.bounds.width / 18, image: Image(systemName: "chevron.left.circle"))
     }
 }
