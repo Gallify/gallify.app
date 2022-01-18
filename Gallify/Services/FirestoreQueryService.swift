@@ -11,6 +11,17 @@ import FirebaseAuth
 
 class FirestoreQuery : ObservableObject {
     
+    /*
+     The FirestoreQuery Class is responsible for all get, post, update, and delete functions for Gallify.
+     
+    This file is the main FirestoreQuery file. All other files are extensions of this file.
+    Below is a dictionary to help us keep track of where all methods are.
+     
+       Format: <File, Method, Param, Return>
+        get, getFeaturedArt_await, playlist_id, art_array
+        
+     */
+    
     @Published var isPresented = false //for drop down reels. To know when to present. Not firestore related at all. 
     
     @Published var data : User = User() //struct version of user model.

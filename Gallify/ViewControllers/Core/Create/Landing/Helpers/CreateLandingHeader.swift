@@ -10,32 +10,27 @@ import SwiftUI
 struct CreateLandingHeader: View {
     
     let screenWidth: CGFloat
-
+    let screenHeight: CGFloat
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
+        
         HStack {
-            NavigationLink(
-                destination: TabBarView(),
-                label: {
-                    
-                    Image(systemName: "chevron.left")
-                        .resizable()
-                        .foregroundColor(Color.black)
-                        .frame(width: screenWidth / 15, height: screenWidth / 15)
-                        .padding(.leading, screenWidth / 25)
-                    
-                })
-                .buttonStyle(ThemeAnimationStyle())
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
+            
+            CustomBackButton(buttonHeight: 25.45, buttonWidth: 15, image: Image(systemName: "chevron.left"), presentationMode: _presentationMode)
+                  .offset(x: 25)
+                  .font(Font.title.weight(.light))
             
             Spacer()
+            
         }
+        
     }
+    
 }
 
 struct CreateLandingHeader_Previews: PreviewProvider {
     static var previews: some View {
-        CreateLandingHeader(screenWidth: UIScreen.main.bounds.width)
+        CreateLandingHeader(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }

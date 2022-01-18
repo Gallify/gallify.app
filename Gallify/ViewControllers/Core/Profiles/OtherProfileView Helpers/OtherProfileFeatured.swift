@@ -1,8 +1,8 @@
 //
-//  SelfProfileFeatured.swift
+//  OtherProfileFeatured.swift
 //  Gallify
 //
-//  Created by Tejvir Mann on 1/8/22.
+//  Created by Anshul on 1/17/22.
 //
 
 import SwiftUI
@@ -10,7 +10,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import SDWebImageSwiftUI
 
-struct SelfProfileFeatured: View {
+struct OtherProfileFeatured: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
@@ -115,14 +115,34 @@ struct SelfProfileFeatured: View {
         
     }
     
+    
 }
 
-    
+//func NetworkingCall(){
+//
+////    let db = Firestore.firestore()
+////
+////    do {
+////        try db.collection("playlists").document("5THPCzOhAWpJkmiIqqbt").setData(from: Playlist())
+////
+////    } catch {
+////        print("hi")
+////    }
+//
+//
+//    if(viewModel.firestoreQuery.data.uid == ""){
+//        viewModel.firestoreQuery.getUser()
+//    }
+//    viewModel.firestoreQuery.getFeaturedPlaylist(a: viewModel.firestoreQuery.data.featured) //now have artids
+//    print("Featured playlist name")
+//    print(viewModel.firestoreQuery.featuredPlaylist.name)
+//    viewModel.firestoreQuery.getFeaturedPlaylistArt(art_ids: viewModel.firestoreQuery.featuredPlaylist.art)
+//    print(viewModel.firestoreQuery.featuredArt)
+//}
 
-
-struct SelfProfileFeatured_Previews: PreviewProvider {
+struct OtherProfileFeatured_Previews: PreviewProvider {
     static var previews: some View {
-        SelfProfileFeatured()
+        OtherProfileFeatured()
             .environmentObject(TabBarViewModel())
             .environmentObject(FirestoreQuery())
     }

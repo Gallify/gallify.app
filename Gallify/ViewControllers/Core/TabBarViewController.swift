@@ -21,6 +21,7 @@ struct TabBarView: View {
     @State var selectedTabIndex = 0
     //@StateObject var firestoreQuery = FirestoreQuery() //object data created here.
     @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @EnvironmentObject var loginViewModel: LoginAppViewModel
     
     private let tabBarImageNames = ["house.fill", "magnifyingglass", "person.fill"]
     
@@ -32,37 +33,43 @@ struct TabBarView: View {
     
     var body: some View {
         
-        TabView{
+        
+        if(loginViewModel.isSignedIn){
+            TabView{
 
-            HomeView()
-                .tabItem{
-                    Label("Home", systemImage: "house.fill" )
-                }
-                .environmentObject(firestoreQuery)
+                HomeView()
+                    .tabItem{
+                        Label("Home", systemImage: "house.fill" )
+                    }
+                    .environmentObject(firestoreQuery)
 
-            
-            DiscoverMainView()
-                .tabItem{
-                    Label("Discover", systemImage: "magnifyingglass" )
-                }
-                .environmentObject(firestoreQuery)
-
-            SelfProfileView()
-                .tabItem{
-                    Label("Profile", systemImage: "person.fill" )
-                }
                 
-                .environmentObject(firestoreQuery)
+                DiscoverMainView()
+                    .tabItem{
+                        Label("Discover", systemImage: "magnifyingglass" )
+                    }
+                    .environmentObject(firestoreQuery)
 
+                SelfProfileView()
+                    .tabItem{
+                        Label("Profile", systemImage: "person.fill" )
+                    }
+                    
+                    .environmentObject(firestoreQuery)
+
+            }
+            //.navigationBarTitle("")
+           // .navigationBarHidden(true)
+            
+            .environmentObject(viewModel)
+            .environmentObject(firestoreQuery)
+            .onAppear{ networking() }
         }
-        //.navigationBarTitle("")
-       // .navigationBarHidden(true)
-        
-        .environmentObject(viewModel)
-        .environmentObject(firestoreQuery)
-        .onAppear{ networking() }
-        
-        
+        else{
+            LoginView()
+                .environmentObject(viewModel)
+                .environmentObject(firestoreQuery)
+        }
         
 //        NavigationView {
 //

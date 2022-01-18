@@ -15,38 +15,9 @@ struct CollectionLikedHeader: View {
     
     var body: some View {
         
-        HStack {
+        ZStack{
             
-            HStack {
-                
-                CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
-                    .padding(.horizontal, screenWidth / 25)
-                    .padding(.vertical, screenHeight / 100)
-                
-                Spacer()
-                
-            }
-            
-            
-            
-            HStack {
-//                NavigationLink(
-//                    destination: TabBarView(),
-//                    label: {
-//
-//                        Image(systemName: "lessthan")
-//                            .resizable()
-//                            .foregroundColor(Color.black)
-//                            .frame(width: screenWidth / 15, height: screenWidth / 15)
-//                            .padding(.leading, screenWidth / 25)
-//
-//                    })
-//                    .buttonStyle(ThemeAnimationStyle())
-//                    .navigationBarBackButtonHidden(true)
-//                    .navigationBarTitle("")
-//                    .navigationBarHidden(true)
-                
-                
+            HStack{
                 
                 Spacer()
                                         
@@ -58,11 +29,15 @@ struct CollectionLikedHeader: View {
                 
                 Spacer()
                 
-                Text("")
-                .foregroundColor(Color.black)
-                .frame(width: screenWidth / 15, height: screenWidth / 15)
-                .padding(.leading, screenWidth / 25)
                 
+            }
+            
+            HStack{
+                CustomBackButton(buttonHeight: 25.45, buttonWidth: 15, image: Image(systemName: "chevron.left"), presentationMode: _presentationMode)
+                      .offset(x: 15)
+                      .font(Font.title.weight(.light))
+                
+                Spacer()
             }
         }
     }

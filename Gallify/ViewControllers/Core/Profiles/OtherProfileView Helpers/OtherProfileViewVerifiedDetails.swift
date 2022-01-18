@@ -1,9 +1,10 @@
 //
-//  OtherProfileViewDetails.swift
+//  OtherProfileViewVerifiedDetails.swift
 //  Gallify
 //
-//  Created by Anshul on 9/13/21.
+//  Created by Anshul on 1/17/22.
 //
+
 import UIKit
 import SwiftUI
 import FirebaseStorage
@@ -12,7 +13,7 @@ import FirebaseAuth
 import FirebaseUI
 import SDWebImageSwiftUI
 
-struct OtherProfileViewDetails: View {
+struct OtherProfileViewVerifiedDetails: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
@@ -72,10 +73,10 @@ struct OtherProfileViewDetails: View {
                             
                         VStack {
                                 
-                            Text("\(firestoreQuery.data.following)")
+                            Text("\(firestoreQuery.data.connections)")
                                 .font(.system(size: screenWidth / 18))
                                 
-                            Text("Following")
+                            Text("Connections")
                                 .font(.system(size: screenWidth / 23.5))
                                 .foregroundColor(Color.gray)
                                 
@@ -84,6 +85,56 @@ struct OtherProfileViewDetails: View {
                         Spacer()
 
                     }
+                    
+                    HStack {
+                        
+                        Spacer()
+                            
+                        VStack {
+                                
+                            Image(systemName: "checkmark.seal.fill")
+                                .foregroundColor(.blue)
+                                .frame(width: screenWidth / 22, height: screenHeight / 47.5)
+                            
+                            Text("Collector")
+                                .font(.system(size: screenWidth / 23.5))
+                                .foregroundColor(Color.gray)
+                            
+                            /*Text("\(firestoreQuery.data.job)")
+                                .font(.system(size: screenWidth / 23.5))
+                                .foregroundColor(Color.gray)*/
+                                
+                        }
+                        .padding(.leading, screenWidth / 22)
+                        
+                        Spacer()
+                            
+                        VStack {
+                            
+                            if firestoreQuery.data.popularity < 1000 {
+                                
+                                Text("< 1000")
+                                    .font(.system(size: screenWidth / 18))
+                                
+                            }
+                            
+                            else {
+                                
+                                Text("\(firestoreQuery.data.popularity)")
+                                    .font(.system(size: screenWidth / 18))
+                                
+                            }
+                                
+                            Text("Monthly Viewers")
+                                .font(.system(size: screenWidth / 23.5))
+                                .foregroundColor(Color.gray)
+                                
+                        }
+                            
+                        Spacer()
+
+                    }
+                    .padding(.top, screenHeight / 80)
                     
                 }
                 .frame(width: screenWidth / 1.65)
@@ -119,22 +170,26 @@ struct OtherProfileViewDetails: View {
             .padding(.horizontal, screenWidth / 15)
             
             HStack {
+                
+                ConnectButton(buttonClicked: false, buttonWidth: screenWidth / 3, buttonHeight: screenHeight / 26)
+                    .padding(.horizontal, screenWidth / 125)
                     
                 FollowButton(isFollowing: false, buttonWidth: screenWidth / 3, buttonHeight: screenHeight / 26)
+                    .padding(.horizontal, screenWidth / 125)
                     
             }
             .padding(.vertical, screenHeight / 160)
             
         }
-        .padding(.top, screenHeight / 120)
-                
+        .padding(.top, screenHeight / 65)
+  
     }
     
 }
 
-struct OtherProfileViewDetails_Previews: PreviewProvider {
+struct OtherProfileViewVerifiedDetails_Previews: PreviewProvider {
     static var previews: some View {
-        OtherProfileViewDetails()
+        OtherProfileViewVerifiedDetails()
             .environmentObject(TabBarViewModel())
             .environmentObject(FirestoreQuery())
     }

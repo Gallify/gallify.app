@@ -9,6 +9,38 @@
 /* Begin PBXBuildFile section */
 		30001B7E278F8E6F00527BF9 /* get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001B7D278F8E6F00527BF9 /* get.swift */; };
 		30001BB627921AC900527BF9 /* DropDownReels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BB527921AC900527BF9 /* DropDownReels.swift */; };
+		30001BC02796851300527BF9 /* getHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BBF2796851300527BF9 /* getHome.swift */; };
+		30001BC22796852D00527BF9 /* postHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BC12796852D00527BF9 /* postHome.swift */; };
+		30001BC42796853900527BF9 /* updateHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BC32796853900527BF9 /* updateHome.swift */; };
+		30001BC62796854200527BF9 /* deleteHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BC52796854200527BF9 /* deleteHome.swift */; };
+		30001BC82796855100527BF9 /* getDiscover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BC72796855100527BF9 /* getDiscover.swift */; };
+		30001BCA2796856B00527BF9 /* postDiscover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BC92796856B00527BF9 /* postDiscover.swift */; };
+		30001BCC2796857400527BF9 /* updateDiscover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BCB2796857400527BF9 /* updateDiscover.swift */; };
+		30001BCE2796857F00527BF9 /* deleteDiscover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BCD2796857F00527BF9 /* deleteDiscover.swift */; };
+		30001BD02796858D00527BF9 /* getProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BCF2796858D00527BF9 /* getProfile.swift */; };
+		30001BD22796859600527BF9 /* postProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BD12796859600527BF9 /* postProfile.swift */; };
+		30001BD4279685B300527BF9 /* updateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BD3279685B300527BF9 /* updateProfile.swift */; };
+		30001BD6279685BB00527BF9 /* deleteProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BD5279685BB00527BF9 /* deleteProfile.swift */; };
+		30001BD92796865600527BF9 /* getList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BD82796865600527BF9 /* getList.swift */; };
+		30001BDB2796865E00527BF9 /* postList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BDA2796865E00527BF9 /* postList.swift */; };
+		30001BDD2796867100527BF9 /* updateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BDC2796867100527BF9 /* updateList.swift */; };
+		30001BDF2796868000527BF9 /* deleteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BDE2796868000527BF9 /* deleteList.swift */; };
+		30001BE42796870100527BF9 /* getSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BE32796870100527BF9 /* getSettings.swift */; };
+		30001BE62796871200527BF9 /* postSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BE52796871200527BF9 /* postSettings.swift */; };
+		30001BE82796871C00527BF9 /* updateSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BE72796871C00527BF9 /* updateSettings.swift */; };
+		30001BEA2796872400527BF9 /* deleteSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BE92796872400527BF9 /* deleteSettings.swift */; };
+		30001BED2796947D00527BF9 /* SelfProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BEC2796947D00527BF9 /* SelfProfileViewHeader.swift */; };
+		30001BEF2796949100527BF9 /* SelfProfileViewDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BEE2796949100527BF9 /* SelfProfileViewDetails.swift */; };
+		30001BF1279694A800527BF9 /* SelfProfileViewVerifiedDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BF0279694A800527BF9 /* SelfProfileViewVerifiedDetails.swift */; };
+		30001BF3279694B600527BF9 /* SelfProfileCollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BF2279694B600527BF9 /* SelfProfileCollectionList.swift */; };
+		30001BF52796954B00527BF9 /* SelfProfileViewVerified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BF42796954B00527BF9 /* SelfProfileViewVerified.swift */; };
+		30001BF72796961100527BF9 /* OtherProfileViewVerified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BF62796961100527BF9 /* OtherProfileViewVerified.swift */; };
+		30001BFD2796970B00527BF9 /* OtherProfileCollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BFC2796970B00527BF9 /* OtherProfileCollectionList.swift */; };
+		30001BFF2796971800527BF9 /* OtherProfileFeatured.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001BFE2796971800527BF9 /* OtherProfileFeatured.swift */; };
+		30001C012796972E00527BF9 /* OtherProfileViewDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001C002796972E00527BF9 /* OtherProfileViewDetails.swift */; };
+		30001C032796973C00527BF9 /* OtherProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001C022796973C00527BF9 /* OtherProfileViewHeader.swift */; };
+		30001C052796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001C042796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift */; };
+		30001C07279699A900527BF9 /* ConnectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001C06279699A900527BF9 /* ConnectButton.swift */; };
 		3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4B926C82F6B00323BCB /* GallifyApp.swift */; };
 		3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4BD26C82F6D00323BCB /* Assets.xcassets */; };
 		3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */; };
@@ -90,13 +122,7 @@
 		311E93872752FB61005DFE12 /* Post_Large.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93862752FB61005DFE12 /* Post_Large.swift */; };
 		311E93892753C0BB005DFE12 /* DiscoverSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93882753C0BA005DFE12 /* DiscoverSearch.swift */; };
 		3129ADCC26F40E3B00172808 /* SelfProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADCB26F40E3B00172808 /* SelfProfileViewController.swift */; };
-		3129ADD026F40ED900172808 /* SelfProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADCF26F40ED900172808 /* SelfProfileViewHeader.swift */; };
-		3129ADD426F40FC100172808 /* SelfProfileViewDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADD326F40FC100172808 /* SelfProfileViewDetails.swift */; };
-		3129ADD926F410B100172808 /* OtherProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADD826F410B100172808 /* OtherProfileViewHeader.swift */; };
-		3129ADDD26F4172900172808 /* OtherProfileViewDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADDC26F4172900172808 /* OtherProfileViewDetails.swift */; };
 		3129ADE126F41AB600172808 /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADE026F41AB600172808 /* OtherProfileViewController.swift */; };
-		3129ADE526F439AC00172808 /* SelfProfileViewRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADE426F439AC00172808 /* SelfProfileViewRooms.swift */; };
-		3129ADE926F4447500172808 /* OtherProfileViewRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129ADE826F4447500172808 /* OtherProfileViewRooms.swift */; };
 		3152F6A22717508D0061F72E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152F6A12717508D0061F72E /* ForgotPasswordViewController.swift */; };
 		3152F6A4271751670061F72E /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152F6A3271751670061F72E /* SetPasswordViewController.swift */; };
 		3152F6A62717519B0061F72E /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152F6A52717519B0061F72E /* PrivacyPolicyViewController.swift */; };
@@ -125,10 +151,6 @@
 		31AE71B026F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
 		31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2F1EF272DEC3F007FCF2B /* ErrorText.swift */; };
 		31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */; };
-		31B4CB8126FD2FD700FF86ED /* SelfProfileCollectionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8026FD2FD600FF86ED /* SelfProfileCollectionTab.swift */; };
-		31B4CB8526FD2FE700FF86ED /* SelfProfileCollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8426FD2FE700FF86ED /* SelfProfileCollectionList.swift */; };
-		31B4CB8A26FD300A00FF86ED /* OtherProfileCollectionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8926FD300A00FF86ED /* OtherProfileCollectionTab.swift */; };
-		31B4CB8E26FD301A00FF86ED /* OtherProfileCollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4CB8D26FD301A00FF86ED /* OtherProfileCollectionList.swift */; };
 		31B828C4272376BE0067DB05 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B828C3272376BE0067DB05 /* CustomBackButton.swift */; };
 		31BDD938270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD937270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift */; };
 		31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */; };
@@ -195,6 +217,38 @@
 		2E7780D649915F9CC1596DBF /* Pods-Gallify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify.release.xcconfig"; path = "Target Support Files/Pods-Gallify/Pods-Gallify.release.xcconfig"; sourceTree = "<group>"; };
 		30001B7D278F8E6F00527BF9 /* get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = get.swift; sourceTree = "<group>"; };
 		30001BB527921AC900527BF9 /* DropDownReels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownReels.swift; sourceTree = "<group>"; };
+		30001BBF2796851300527BF9 /* getHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getHome.swift; sourceTree = "<group>"; };
+		30001BC12796852D00527BF9 /* postHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postHome.swift; sourceTree = "<group>"; };
+		30001BC32796853900527BF9 /* updateHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateHome.swift; sourceTree = "<group>"; };
+		30001BC52796854200527BF9 /* deleteHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteHome.swift; sourceTree = "<group>"; };
+		30001BC72796855100527BF9 /* getDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getDiscover.swift; sourceTree = "<group>"; };
+		30001BC92796856B00527BF9 /* postDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postDiscover.swift; sourceTree = "<group>"; };
+		30001BCB2796857400527BF9 /* updateDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateDiscover.swift; sourceTree = "<group>"; };
+		30001BCD2796857F00527BF9 /* deleteDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteDiscover.swift; sourceTree = "<group>"; };
+		30001BCF2796858D00527BF9 /* getProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getProfile.swift; sourceTree = "<group>"; };
+		30001BD12796859600527BF9 /* postProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postProfile.swift; sourceTree = "<group>"; };
+		30001BD3279685B300527BF9 /* updateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateProfile.swift; sourceTree = "<group>"; };
+		30001BD5279685BB00527BF9 /* deleteProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteProfile.swift; sourceTree = "<group>"; };
+		30001BD82796865600527BF9 /* getList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getList.swift; sourceTree = "<group>"; };
+		30001BDA2796865E00527BF9 /* postList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postList.swift; sourceTree = "<group>"; };
+		30001BDC2796867100527BF9 /* updateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateList.swift; sourceTree = "<group>"; };
+		30001BDE2796868000527BF9 /* deleteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteList.swift; sourceTree = "<group>"; };
+		30001BE32796870100527BF9 /* getSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getSettings.swift; sourceTree = "<group>"; };
+		30001BE52796871200527BF9 /* postSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postSettings.swift; sourceTree = "<group>"; };
+		30001BE72796871C00527BF9 /* updateSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateSettings.swift; sourceTree = "<group>"; };
+		30001BE92796872400527BF9 /* deleteSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteSettings.swift; sourceTree = "<group>"; };
+		30001BEC2796947D00527BF9 /* SelfProfileViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewHeader.swift; sourceTree = "<group>"; };
+		30001BEE2796949100527BF9 /* SelfProfileViewDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewDetails.swift; sourceTree = "<group>"; };
+		30001BF0279694A800527BF9 /* SelfProfileViewVerifiedDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewVerifiedDetails.swift; sourceTree = "<group>"; };
+		30001BF2279694B600527BF9 /* SelfProfileCollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionList.swift; sourceTree = "<group>"; };
+		30001BF42796954B00527BF9 /* SelfProfileViewVerified.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewVerified.swift; sourceTree = "<group>"; };
+		30001BF62796961100527BF9 /* OtherProfileViewVerified.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewVerified.swift; sourceTree = "<group>"; };
+		30001BFC2796970B00527BF9 /* OtherProfileCollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileCollectionList.swift; sourceTree = "<group>"; };
+		30001BFE2796971800527BF9 /* OtherProfileFeatured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileFeatured.swift; sourceTree = "<group>"; };
+		30001C002796972E00527BF9 /* OtherProfileViewDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewDetails.swift; sourceTree = "<group>"; };
+		30001C022796973C00527BF9 /* OtherProfileViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewHeader.swift; sourceTree = "<group>"; };
+		30001C042796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewVerifiedDetails.swift; sourceTree = "<group>"; };
+		30001C06279699A900527BF9 /* ConnectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectButton.swift; sourceTree = "<group>"; };
 		3004D4B626C82F6B00323BCB /* Gallify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3004D4B926C82F6B00323BCB /* GallifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyApp.swift; sourceTree = "<group>"; };
 		3004D4BD26C82F6D00323BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -280,13 +334,7 @@
 		311E93862752FB61005DFE12 /* Post_Large.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Large.swift; sourceTree = "<group>"; };
 		311E93882753C0BA005DFE12 /* DiscoverSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverSearch.swift; sourceTree = "<group>"; };
 		3129ADCB26F40E3B00172808 /* SelfProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewController.swift; sourceTree = "<group>"; };
-		3129ADCF26F40ED900172808 /* SelfProfileViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewHeader.swift; sourceTree = "<group>"; };
-		3129ADD326F40FC100172808 /* SelfProfileViewDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewDetails.swift; sourceTree = "<group>"; };
-		3129ADD826F410B100172808 /* OtherProfileViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewHeader.swift; sourceTree = "<group>"; };
-		3129ADDC26F4172900172808 /* OtherProfileViewDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewDetails.swift; sourceTree = "<group>"; };
 		3129ADE026F41AB600172808 /* OtherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewController.swift; sourceTree = "<group>"; };
-		3129ADE426F439AC00172808 /* SelfProfileViewRooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewRooms.swift; sourceTree = "<group>"; };
-		3129ADE826F4447500172808 /* OtherProfileViewRooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewRooms.swift; sourceTree = "<group>"; };
 		3152F6A12717508D0061F72E /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		3152F6A3271751670061F72E /* SetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
 		3152F6A52717519B0061F72E /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
@@ -311,10 +359,6 @@
 		31AE71AD26F1245600C973E3 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
 		31B2F1EF272DEC3F007FCF2B /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewHeader.swift; sourceTree = "<group>"; };
-		31B4CB8026FD2FD600FF86ED /* SelfProfileCollectionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionTab.swift; sourceTree = "<group>"; };
-		31B4CB8426FD2FE700FF86ED /* SelfProfileCollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionList.swift; sourceTree = "<group>"; };
-		31B4CB8926FD300A00FF86ED /* OtherProfileCollectionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileCollectionTab.swift; sourceTree = "<group>"; };
-		31B4CB8D26FD301A00FF86ED /* OtherProfileCollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileCollectionList.swift; sourceTree = "<group>"; };
 		31B828C3272376BE0067DB05 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		31BDD937270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewLogoAndSubtext.swift; sourceTree = "<group>"; };
 		31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewNavLinks.swift; sourceTree = "<group>"; };
@@ -400,6 +444,95 @@
 				F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		30001BBB2796812C00527BF9 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				3309962D277BC2660040D099 /* ImageLoader.swift */,
+				30521380278A2DDA00CE0224 /* ImageCache.swift */,
+				30521384278A35C100CE0224 /* UrlImageModel.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		30001BBC2796849200527BF9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				30001BBF2796851300527BF9 /* getHome.swift */,
+				30001BC12796852D00527BF9 /* postHome.swift */,
+				30001BC32796853900527BF9 /* updateHome.swift */,
+				30001BC52796854200527BF9 /* deleteHome.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		30001BBD2796849B00527BF9 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				30001BC72796855100527BF9 /* getDiscover.swift */,
+				30001BC92796856B00527BF9 /* postDiscover.swift */,
+				30001BCB2796857400527BF9 /* updateDiscover.swift */,
+				30001BCD2796857F00527BF9 /* deleteDiscover.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		30001BBE279684A900527BF9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				30001BCF2796858D00527BF9 /* getProfile.swift */,
+				30001BD12796859600527BF9 /* postProfile.swift */,
+				30001BD3279685B300527BF9 /* updateProfile.swift */,
+				30001BD5279685BB00527BF9 /* deleteProfile.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		30001BD7279685C300527BF9 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				30001BD82796865600527BF9 /* getList.swift */,
+				30001BDA2796865E00527BF9 /* postList.swift */,
+				30001BDC2796867100527BF9 /* updateList.swift */,
+				30001BDE2796868000527BF9 /* deleteList.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		30001BE2279686E500527BF9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				30001BE32796870100527BF9 /* getSettings.swift */,
+				30001BE52796871200527BF9 /* postSettings.swift */,
+				30001BE72796871C00527BF9 /* updateSettings.swift */,
+				30001BE92796872400527BF9 /* deleteSettings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		30001BEB2796946200527BF9 /* SelfProfileView Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				30001BEC2796947D00527BF9 /* SelfProfileViewHeader.swift */,
+				30521386278A502700CE0224 /* SelfProfileFeatured.swift */,
+				30001BEE2796949100527BF9 /* SelfProfileViewDetails.swift */,
+				30001BF0279694A800527BF9 /* SelfProfileViewVerifiedDetails.swift */,
+				30001BF2279694B600527BF9 /* SelfProfileCollectionList.swift */,
+			);
+			path = "SelfProfileView Helpers";
+			sourceTree = "<group>";
+		};
+		30001BFB279696D100527BF9 /* OtherProfileView Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				30001BFC2796970B00527BF9 /* OtherProfileCollectionList.swift */,
+				30001BFE2796971800527BF9 /* OtherProfileFeatured.swift */,
+				30001C002796972E00527BF9 /* OtherProfileViewDetails.swift */,
+				30001C022796973C00527BF9 /* OtherProfileViewHeader.swift */,
+				30001C042796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift */,
+			);
+			path = "OtherProfileView Helpers";
 			sourceTree = "<group>";
 		};
 		3004D4AD26C82F6A00323BCB = {
@@ -542,10 +675,12 @@
 		303DB8CE26F97C9C0005AC51 /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
-				3129ADE026F41AB600172808 /* OtherProfileViewController.swift */,
 				3129ADCB26F40E3B00172808 /* SelfProfileViewController.swift */,
-				31CD2E9D26EFB679008FFE49 /* SelfProfileView Helpers */,
-				3129ADD726F4109000172808 /* OtherProfileView Helpers */,
+				30001BF42796954B00527BF9 /* SelfProfileViewVerified.swift */,
+				30001BEB2796946200527BF9 /* SelfProfileView Helpers */,
+				3129ADE026F41AB600172808 /* OtherProfileViewController.swift */,
+				30001BF62796961100527BF9 /* OtherProfileViewVerified.swift */,
+				30001BFB279696D100527BF9 /* OtherProfileView Helpers */,
 			);
 			path = Profiles;
 			sourceTree = "<group>";
@@ -609,12 +744,15 @@
 		30836FA52749E39D00E83735 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3052137E278A2DCE00CE0224 /* StorageService.swift */,
 				3052137C278A2D5A00CE0224 /* FirestoreQueryService.swift */,
+				30001BE2279686E500527BF9 /* Settings */,
+				30001BD7279685C300527BF9 /* Lists */,
+				30001BBC2796849200527BF9 /* Home */,
+				30001BBD2796849B00527BF9 /* Discover */,
+				30001BBE279684A900527BF9 /* Profile */,
+				30001BBB2796812C00527BF9 /* Cache */,
+				3052137E278A2DCE00CE0224 /* StorageService.swift */,
 				33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */,
-				30521384278A35C100CE0224 /* UrlImageModel.swift */,
-				30521380278A2DDA00CE0224 /* ImageCache.swift */,
-				3309962D277BC2660040D099 /* ImageLoader.swift */,
 				30001B7D278F8E6F00527BF9 /* get.swift */,
 			);
 			path = Services;
@@ -715,17 +853,6 @@
 				30836FBC274A04C900E83735 /* DiscoverPagePosts.swift */,
 			);
 			path = Posts;
-			sourceTree = "<group>";
-		};
-		3129ADD726F4109000172808 /* OtherProfileView Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				31B4CB8826FD2FEF00FF86ED /* OtherProfileCollection */,
-				3129ADD826F410B100172808 /* OtherProfileViewHeader.swift */,
-				3129ADDC26F4172900172808 /* OtherProfileViewDetails.swift */,
-				3129ADE826F4447500172808 /* OtherProfileViewRooms.swift */,
-			);
-			path = "OtherProfileView Helpers";
 			sourceTree = "<group>";
 		};
 		3152F691271747390061F72E /* PhoneVerificationViewHelpers */ = {
@@ -861,6 +988,7 @@
 				31AE71AD26F1245600C973E3 /* FollowButton.swift */,
 				31F1530E270B881400238459 /* OvalTextField.swift */,
 				92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */,
+				30001C06279699A900527BF9 /* ConnectButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -889,24 +1017,6 @@
 			path = "HomeView Helpers";
 			sourceTree = "<group>";
 		};
-		31B4CB7F26FD2FA400FF86ED /* SelfProfileCollections */ = {
-			isa = PBXGroup;
-			children = (
-				31B4CB8026FD2FD600FF86ED /* SelfProfileCollectionTab.swift */,
-				31B4CB8426FD2FE700FF86ED /* SelfProfileCollectionList.swift */,
-			);
-			path = SelfProfileCollections;
-			sourceTree = "<group>";
-		};
-		31B4CB8826FD2FEF00FF86ED /* OtherProfileCollection */ = {
-			isa = PBXGroup;
-			children = (
-				31B4CB8926FD300A00FF86ED /* OtherProfileCollectionTab.swift */,
-				31B4CB8D26FD301A00FF86ED /* OtherProfileCollectionList.swift */,
-			);
-			path = OtherProfileCollection;
-			sourceTree = "<group>";
-		};
 		31BDD93B27072B6000AB2CD1 /* LoginViewHelpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -923,18 +1033,6 @@
 				31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */,
 			);
 			path = SignInViewHelpers;
-			sourceTree = "<group>";
-		};
-		31CD2E9D26EFB679008FFE49 /* SelfProfileView Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				31B4CB7F26FD2FA400FF86ED /* SelfProfileCollections */,
-				3129ADCF26F40ED900172808 /* SelfProfileViewHeader.swift */,
-				3129ADD326F40FC100172808 /* SelfProfileViewDetails.swift */,
-				3129ADE426F439AC00172808 /* SelfProfileViewRooms.swift */,
-				30521386278A502700CE0224 /* SelfProfileFeatured.swift */,
-			);
-			path = "SelfProfileView Helpers";
 			sourceTree = "<group>";
 		};
 		31F15313270CF37700238459 /* CreateAccountViewHelpers */ = {
@@ -1380,6 +1478,7 @@
 				92DB7C5F27316A4D0035B788 /* CreateLandingView.swift in Sources */,
 				316C527727287C3A00E28609 /* VerifyEmailBody.swift in Sources */,
 				92794D01273811760012B184 /* CollectionRecentActivityRow.swift in Sources */,
+				30001BC62796854200527BF9 /* deleteHome.swift in Sources */,
 				3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */,
 				3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */,
 				30521364278A293F00CE0224 /* ScenePersistenceHelper.swift in Sources */,
@@ -1387,47 +1486,53 @@
 				3052135C278A293F00CE0224 /* ARPlayerContainer.swift in Sources */,
 				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
 				3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */,
+				30001BFD2796970B00527BF9 /* OtherProfileCollectionList.swift in Sources */,
 				3052135F278A293F00CE0224 /* ModelDeletionManager.swift in Sources */,
 				3004D50126CD57A800323BCB /* TabBarViewController.swift in Sources */,
 				3052136B278A2C3100CE0224 /* RecentSearch.swift in Sources */,
 				3004D4E626CC971500323BCB /* Logo.swift in Sources */,
 				3052135A278A293F00CE0224 /* Model.swift in Sources */,
+				30001BDF2796868000527BF9 /* deleteList.swift in Sources */,
 				92794D00273811760012B184 /* CollectionRecentActivityFooter.swift in Sources */,
 				30521366278A293F00CE0224 /* PlacementSettings.swift in Sources */,
 				92794CFC273811760012B184 /* CollectionReelListing.swift in Sources */,
+				30001BC22796852D00527BF9 /* postHome.swift in Sources */,
 				30836FAD2749E77800E83735 /* ImagePicker.swift in Sources */,
 				3052136C278A2C3100CE0224 /* ContentType.swift in Sources */,
 				31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */,
 				3052135E278A293F00CE0224 /* ARSettingsView.swift in Sources */,
 				92DB7C69273181030035B788 /* CreateLandingHeader.swift in Sources */,
+				30001BC42796853900527BF9 /* updateHome.swift in Sources */,
 				3153458227557F2300BD7B54 /* RecommendedSlabsView.swift in Sources */,
 				319F25C526E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
 				92794CFD273811760012B184 /* CollectionReelHeader.swift in Sources */,
+				30001BE62796871200527BF9 /* postSettings.swift in Sources */,
 				31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */,
 				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
 				3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */,
+				30001BF3279694B600527BF9 /* SelfProfileCollectionList.swift in Sources */,
+				30001BE82796871C00527BF9 /* updateSettings.swift in Sources */,
 				319F25B926E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
 				30521361278A293F00CE0224 /* PlacementView.swift in Sources */,
 				92794D05273811760012B184 /* CollectionLikedFooter.swift in Sources */,
 				316C527527287C2800E28609 /* VerifyEmailHeader.swift in Sources */,
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
+				30001BDB2796865E00527BF9 /* postList.swift in Sources */,
 				3309962E277BC2670040D099 /* ImageLoader.swift in Sources */,
 				31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */,
 				92DB7C6127316A6A0035B788 /* CreatePublishView.swift in Sources */,
 				311E93852752FB3E005DFE12 /* Post_Small.swift in Sources */,
 				3052137B278A2C3A00CE0224 /* Followers.swift in Sources */,
-				31B4CB8A26FD300A00FF86ED /* OtherProfileCollectionTab.swift in Sources */,
+				30001BDD2796867100527BF9 /* updateList.swift in Sources */,
 				30521357278A293F00CE0224 /* CustomARView.swift in Sources */,
 				92794D13273814EB0012B184 /* DiscoveryCategoryContent.swift in Sources */,
 				92794D07273811760012B184 /* CollectionGenericView.swift in Sources */,
-				3129ADD026F40ED900172808 /* SelfProfileViewHeader.swift in Sources */,
 				308B4BF127658B8F0039B74E /* ArtDetails.swift in Sources */,
 				3153457E27557B8800BD7B54 /* BrowseSlabsView.swift in Sources */,
 				30521376278A2C3A00CE0224 /* Pending.swift in Sources */,
 				3004D4FF26CD579000323BCB /* SettingsViewController.swift in Sources */,
 				319F25C126E571B7009B811E /* HomeViewDiscover.swift in Sources */,
 				3129ADE126F41AB600172808 /* OtherProfileViewController.swift in Sources */,
-				3129ADD926F410B100172808 /* OtherProfileViewHeader.swift in Sources */,
 				308B4BEB27658A040039B74E /* Museum.swift in Sources */,
 				316ACAC22725AE240065CE6A /* ForgotPasswordViewBody.swift in Sources */,
 				31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */,
@@ -1435,6 +1540,7 @@
 				3052137D278A2D5A00CE0224 /* FirestoreQueryService.swift in Sources */,
 				31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */,
 				92794D02273811760012B184 /* CollectionRecentActivityHeader.swift in Sources */,
+				30001BD92796865600527BF9 /* getList.swift in Sources */,
 				3004D50F26CD7EF800323BCB /* SignInViewController.swift in Sources */,
 				92794D09273811760012B184 /* CollectionGenericHeader.swift in Sources */,
 				30521381278A2DDA00CE0224 /* ImageCache.swift in Sources */,
@@ -1442,7 +1548,9 @@
 				3004D50726CD581600323BCB /* HomeViewController.swift in Sources */,
 				30836FC2274A053900E83735 /* DiscoverViewTag.swift in Sources */,
 				311E93892753C0BB005DFE12 /* DiscoverSearch.swift in Sources */,
+				30001BC82796855100527BF9 /* getDiscover.swift in Sources */,
 				30836FAB2749E65200E83735 /* Extensions.swift in Sources */,
+				30001BD6279685BB00527BF9 /* deleteProfile.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
 				92794D11273814D80012B184 /* DiscoveryCategoryHeader.swift in Sources */,
 				3152F6A22717508D0061F72E /* ForgotPasswordViewController.swift in Sources */,
@@ -1450,22 +1558,27 @@
 				30521358278A293F00CE0224 /* BrowseView.swift in Sources */,
 				3052135D278A293F00CE0224 /* ARViewContainer.swift in Sources */,
 				31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */,
+				30001BF72796961100527BF9 /* OtherProfileViewVerified.swift in Sources */,
 				316C527227287BA100E28609 /* VerifyEmailViewController.swift in Sources */,
 				3052137F278A2DCE00CE0224 /* StorageService.swift in Sources */,
 				30521359278A293F00CE0224 /* SessionSettings.swift in Sources */,
+				30001BED2796947D00527BF9 /* SelfProfileViewHeader.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
+				30001C052796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift in Sources */,
 				3153458027557BA500BD7B54 /* Slabs.swift in Sources */,
+				30001BD22796859600527BF9 /* postProfile.swift in Sources */,
 				92794D0F273814B80012B184 /* DiscoveryCategoryView.swift in Sources */,
+				30001C07279699A900527BF9 /* ConnectButton.swift in Sources */,
 				3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
-				31B4CB8126FD2FD700FF86ED /* SelfProfileCollectionTab.swift in Sources */,
 				3152F6A62717519B0061F72E /* PrivacyPolicyViewController.swift in Sources */,
 				30836FB2274A036E00E83735 /* DiscoverViewRecentSearch.swift in Sources */,
 				3052137A278A2C3A00CE0224 /* Following.swift in Sources */,
-				3129ADD426F40FC100172808 /* SelfProfileViewDetails.swift in Sources */,
 				3087D286275D4C4D00ECD8CD /* LoadingView.swift in Sources */,
 				30836FB7274A043300E83735 /* OtherSearchTemplate.swift in Sources */,
+				30001BD02796858D00527BF9 /* getProfile.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
+				30001BD4279685B300527BF9 /* updateProfile.swift in Sources */,
 				92794CFB273811760012B184 /* CollectionReelView.swift in Sources */,
 				92794D0A273811760012B184 /* CollectionGenericRow.swift in Sources */,
 				30521362278A293F00CE0224 /* View+Extensions.swift in Sources */,
@@ -1481,26 +1594,29 @@
 				30836FBD274A04C900E83735 /* DiscoverPagePosts.swift in Sources */,
 				30521375278A2C3A00CE0224 /* UserLight.swift in Sources */,
 				92794CFE273811760012B184 /* CollectionReelDescription.swift in Sources */,
+				30001BCE2796857F00527BF9 /* deleteDiscover.swift in Sources */,
 				92794D08273811760012B184 /* CollectionGenericFooter.swift in Sources */,
+				30001BCA2796856B00527BF9 /* postDiscover.swift in Sources */,
 				30521378278A2C3A00CE0224 /* Connections.swift in Sources */,
+				30001BF1279694A800527BF9 /* SelfProfileViewVerifiedDetails.swift in Sources */,
 				30836FC0274A050800E83735 /* DiscoverPostsViewTags.swift in Sources */,
-				3129ADDD26F4172900172808 /* OtherProfileViewDetails.swift in Sources */,
 				30521360278A293F00CE0224 /* ARPlayerContentView.swift in Sources */,
 				30521365278A293F00CE0224 /* ModelsViewModel.swift in Sources */,
-				3129ADE526F439AC00172808 /* SelfProfileViewRooms.swift in Sources */,
 				311E93872752FB61005DFE12 /* Post_Large.swift in Sources */,
 				30521367278A293F00CE0224 /* ARPlayerViewController.swift in Sources */,
 				308B4BED27658A710039B74E /* MuseumList.swift in Sources */,
 				319F25B126E56722009B811E /* HomeViewHeader.swift in Sources */,
 				3153457A275577FE00BD7B54 /* DiscoverBrowseHeader.swift in Sources */,
+				30001BEA2796872400527BF9 /* deleteSettings.swift in Sources */,
 				31BDD938270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift in Sources */,
 				30521387278A502700CE0224 /* SelfProfileFeatured.swift in Sources */,
 				3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */,
 				3129ADCC26F40E3B00172808 /* SelfProfileViewController.swift in Sources */,
-				31B4CB8E26FD301A00FF86ED /* OtherProfileCollectionList.swift in Sources */,
-				3129ADE926F4447500172808 /* OtherProfileViewRooms.swift in Sources */,
 				318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */,
 				311E93832752FB1C005DFE12 /* Reels.swift in Sources */,
+				30001C012796972E00527BF9 /* OtherProfileViewDetails.swift in Sources */,
+				30001BEF2796949100527BF9 /* SelfProfileViewDetails.swift in Sources */,
+				30001BC02796851300527BF9 /* getHome.swift in Sources */,
 				3152F6A4271751670061F72E /* SetPasswordViewController.swift in Sources */,
 				319F25B526E56935009B811E /* HomeViewStories.swift in Sources */,
 				31B828C4272376BE0067DB05 /* CustomBackButton.swift in Sources */,
@@ -1508,14 +1624,18 @@
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
 				3052135B278A293F00CE0224 /* FirebaseStorageHelper.swift in Sources */,
 				30836FB5274A041600E83735 /* ArtistSearchTemplate.swift in Sources */,
+				30001BFF2796971800527BF9 /* OtherProfileFeatured.swift in Sources */,
 				31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */,
 				3087D26A274ED54C00ECD8CD /* Playlist.swift in Sources */,
 				3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */,
+				30001BCC2796857400527BF9 /* updateDiscover.swift in Sources */,
+				30001BF52796954B00527BF9 /* SelfProfileViewVerified.swift in Sources */,
+				30001C032796973C00527BF9 /* OtherProfileViewHeader.swift in Sources */,
 				33099634277BC2980040D099 /* FirestoreSubcollectionService.swift in Sources */,
 				92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */,
+				30001BE42796870100527BF9 /* getSettings.swift in Sources */,
 				30521363278A293F00CE0224 /* DeletionView.swift in Sources */,
 				92794D03273811760012B184 /* CollectionLikedView.swift in Sources */,
-				31B4CB8526FD2FE700FF86ED /* SelfProfileCollectionList.swift in Sources */,
 				92794D06273811760012B184 /* CollectionLikedRow.swift in Sources */,
 				30001B7E278F8E6F00527BF9 /* get.swift in Sources */,
 				3004D4F226CD407600323BCB /* Art.swift in Sources */,

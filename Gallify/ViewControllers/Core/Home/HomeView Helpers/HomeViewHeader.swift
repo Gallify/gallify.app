@@ -15,23 +15,24 @@ struct HomeViewHeader: View {
         
         HStack {
             
-            Logo(height: screenHeight / 12, width: screenWidth / 5.5)
-                .padding(.leading, screenWidth / 37.5)
-                .padding(.trailing, -screenWidth / 25)
-            
-            Text("Gallify")
-                .font(.system(size: screenWidth / 11))
+            //height, width. //844, 390. iphone 12 pro
+            Image("logo-full")
+                .resizable()
+                .frame(width: screenWidth/2.3, height: screenHeight/14)
+                .offset(x: 15)
             
             Spacer()
+            
             
             NavigationLink (
                             destination: CreateLandingView(screenWidth: screenWidth, screenHeight: screenHeight),
                             label: {
                                 ZStack {
                                     
-                                    RoundedRectangle(cornerRadius: screenWidth / 37.5)
-                                        .foregroundColor(Color.pink)
-                                        .padding(.all, screenWidth / 55)                        .frame(width: screenWidth / 7.5, height: screenWidth / 7.5)
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .foregroundColor(Color("Gallify-Pinkish"))
+                                        .padding(.all, screenWidth / 55)
+                                        .frame(width: screenWidth / 7.5, height: screenWidth / 7.5)
                                     
                                     Image(systemName: "plus")
                                         .resizable()
@@ -48,10 +49,10 @@ struct HomeViewHeader: View {
                             .navigationBarHidden(true)
             
         }
-        .padding(.bottom, -screenHeight / 270)
-        .padding(.top, screenHeight / 68)
+        .padding(.bottom, -screenHeight / 240) //270
+        //.padding(.top, screenHeight / 178) //68
         
-        Divider()
+       // Divider()
         
     }
 }

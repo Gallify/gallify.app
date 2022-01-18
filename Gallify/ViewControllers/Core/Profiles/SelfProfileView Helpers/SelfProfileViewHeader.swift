@@ -8,23 +8,30 @@ import SwiftUI
 
 struct SelfProfileViewHeader: View {
     
-    let screenHeight: CGFloat
-    let screenWidth: CGFloat
+    @EnvironmentObject var viewModel: TabBarViewModel
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
     
     var body: some View {
+        
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         HStack {
             
             Spacer()
             
-            Text("i_am_cute")
+            /*Text("\(firestoreQuery.data.username)")
+                .font(.system(size: screenWidth / 17, weight: .bold))
+                .padding(.leading, screenWidth / 9.4)*/
+            
+            Text("i_am_here")
                 .font(.system(size: screenWidth / 17, weight: .bold))
                 .padding(.leading, screenWidth / 9.4)
             
             Spacer()
             
             NavigationLink(
-                destination: SettingsView().environmentObject(SettingsViewController()),
+                destination: SettingsView(),
                 label: {
                         
                     Image(systemName: "gearshape.fill")
@@ -44,6 +51,9 @@ struct SelfProfileViewHeader: View {
 
 struct SelfProfileViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        SelfProfileViewHeader(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
+        SelfProfileViewHeader()
+            .environmentObject(TabBarViewModel())
+            .environmentObject(FirestoreQuery())
     }
 }
+

@@ -11,16 +11,27 @@ struct CreateLandingView: View {
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat
-
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
+        
         VStack {
-            CreateLandingHeader(screenWidth: screenWidth)
-            Spacer()
-            CreateLandingOptions(screenWidth: screenWidth, screenHeight: screenHeight)
-            Spacer()
+            
+            CreateLandingHeader(screenWidth: screenWidth, screenHeight: screenHeight, presentationMode: _presentationMode)
+            
+            ScrollView{
+                Spacer()
+            
+                CreateLandingOptions(screenWidth: screenWidth, screenHeight: screenHeight)
+            
+                Spacer()
             }
+            
         }
+        .navigationBarHidden(true)
+        
+    }
+    
 }
 
 struct CreateLandingView_Previews: PreviewProvider {

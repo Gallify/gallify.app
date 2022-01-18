@@ -1,17 +1,13 @@
 //
-//  OtherProfileViewController.swift
+//  OtherProfileViewVerified.swift
 //  Gallify
 //
-//  Created by Tejvir Mann on 8/18/21.
+//  Created by Anshul on 1/17/22.
 //
-import UIKit
+
 import SwiftUI
 
-class OtherProfileViewModel: ObservableObject {
-
-}
-
-struct OtherProfileView : View {
+struct OtherProfileViewVerified: View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
@@ -25,47 +21,41 @@ struct OtherProfileView : View {
                 
             ScrollView(showsIndicators: false) {
                     
-                OtherProfileViewDetails()
+                OtherProfileViewVerifiedDetails()
                 
                 OtherProfileFeatured()
                     
                 OtherProfileCollectionList()
                                     
             }
-            .environmentObject(firestoreQuery)
             .navigationBarHidden(true)
-            .onAppear{ async{await NetworkingCall() }}
+            .onAppear{ NetworkingCall() }
                 
         }
         .navigationBarHidden(true)
             
     }
     
-    func NetworkingCall() async{
+    func NetworkingCall() {
         
-        await firestoreQuery.fetchData()
-        
+        if(firestoreQuery.data.uid == ""){
+            firestoreQuery.getUser()
+        }
         firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
-
-                    
-       // await firestoreQuery.loaditems_selfprofile()
-        
-        print("in networkong call, playlist art")
-        print(firestoreQuery.featuredPlaylist.art)
-        
-        await firestoreQuery.fetchArt()
-       
+        firestoreQuery.getFeaturedPlaylist(a: firestoreQuery.data.featured) //now have artids
+        print("Featured playlist name")
+        print(firestoreQuery.featuredPlaylist.name)
+     //   firestoreQuery.getFeaturedPlaylistArt(art_ids: firestoreQuery.featuredPlaylist.art)
         print(firestoreQuery.featuredArt)
         
     }
     
 }
 
-struct OtherProfileScreenPreview: PreviewProvider {
+struct OtherProfileViewVerified_Previews: PreviewProvider {
     static var previews: some View {
-        OtherProfileView()
+        OtherProfileViewVerified()
             .environmentObject(TabBarViewModel())
             .environmentObject(FirestoreQuery())
     }
 }
-
