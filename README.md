@@ -7,7 +7,7 @@ __Sprint 15:__ January 2nd - January 16th . 14 Days Left!
       
 ## issue boards
 
-[Frontend](https://github.com/orgs/Gallify/projects/1), [Databases](https://github.com/orgs/Gallify/projects/4) , [Blockchain](https://github.com/orgs/Gallify/projects/3) , [Neural Engine](https://github.com/orgs/Gallify/projects/5) 
+[Frontend](https://github.com/orgs/Gallify/projects/1), [Databases](https://github.com/orgs/Gallify/projects/4) , [Marketplace](https://github.com/orgs/Gallify/projects/3) , [Neural Engine](https://github.com/orgs/Gallify/projects/5) 
 
 [Drive](https://drive.google.com/drive/folders/1UyKb6CiN1pJHJfxkywHUzAGlFqLM_7Pe?usp=sharing)
 
