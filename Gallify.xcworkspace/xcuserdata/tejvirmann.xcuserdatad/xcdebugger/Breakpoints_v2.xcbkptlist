@@ -68,14 +68,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - 5f48939430e33354"
+                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - 4e031b79f0c1e157"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 @Sendable () async throws -&gt; () in Gallify.FirestoreQuery.loaditems_selfprofile() -&gt; ()"
                   moduleName = "Gallify"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tejvirmann/Documents/gallify-repo/gallify.app/Gallify/Services/get.swift"
+                  urlString = "file:///Users/tejvirmann/Documents/gallify-repo/merge/dev/gallify.app/Gallify/Services/get.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
@@ -83,14 +83,14 @@
                   offsetFromSymbolStart = "100">
                </Location>
                <Location
-                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - dfdb6053cca62bae"
+                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - ce90e8be0c84f9ad"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(1) await resume partial function for closure #1 @Sendable () async throws -&gt; () in Gallify.FirestoreQuery.loaditems_selfprofile() -&gt; ()"
                   moduleName = "Gallify"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tejvirmann/Documents/gallify-repo/gallify.app/Gallify/Services/get.swift"
+                  urlString = "file:///Users/tejvirmann/Documents/gallify-repo/merge/dev/gallify.app/Gallify/Services/get.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
@@ -98,14 +98,14 @@
                   offsetFromSymbolStart = "36">
                </Location>
                <Location
-                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - 2854a00dbaf2360a"
+                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - 391f28e07ad0e409"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in Gallify.FirestoreQuery.loaditems_selfprofile() -&gt; ()"
                   moduleName = "Gallify"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tejvirmann/Documents/gallify-repo/gallify.app/Gallify/Services/get.swift"
+                  urlString = "file:///Users/tejvirmann/Documents/gallify-repo/merge/dev/gallify.app/Gallify/Services/get.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"

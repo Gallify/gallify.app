@@ -11,17 +11,18 @@ import ARKit
 
 
 
-struct SwiftUIView: View {
-    var body: some View {
-        SwiftUIViewController()
-    }
-}
+//struct SwiftUIView: View {
+//    var body: some View {
+//        SwiftUIViewController()
+//    }
+//}
 
 struct CollectionReelHeader: View {
     
     @EnvironmentObject var firestoreQuery : FirestoreQuery
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    @Environment(\.presentationMode) var presentationMode
+   // @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     @StateObject var placementSettings = PlacementSettings() //this allows FullARView to pass the placement settings(where to place an object throughout many of it's connected views
     @StateObject var sessionSettings = SessionSettings()
     @StateObject var scenemanager = SceneManager()
@@ -39,7 +40,10 @@ struct CollectionReelHeader: View {
             
             
             Button{
-                firestoreQuery.isPresented.toggle()
+               // firestoreQuery.isPresented.toggle()
+                firestoreQuery.showNewScreen.toggle()
+               // firestoreQuery.sheetMode = .hide
+                
             }
                 label: {
                     Image(systemName: "chevron.down")
@@ -50,10 +54,15 @@ struct CollectionReelHeader: View {
                 .navigationBarBackButtonHidden(true)
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
-                .onTapGesture{
-                    presentationMode.wrappedValue.dismiss()
-                
-            }
+                .onTapGesture {
+                    firestoreQuery.showNewScreen.toggle()
+                }
+            
+//                .onTapGesture{
+//                    
+//               //     presentationMode.wrappedValue.dismiss()
+//                   
+//            }
             
             
             

@@ -41,6 +41,7 @@
 		30001C032796973C00527BF9 /* OtherProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001C022796973C00527BF9 /* OtherProfileViewHeader.swift */; };
 		30001C052796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001C042796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift */; };
 		30001C07279699A900527BF9 /* ConnectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001C06279699A900527BF9 /* ConnectButton.swift */; };
+		30001C44279C710500527BF9 /* FlexibleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30001C43279C710500527BF9 /* FlexibleSheet.swift */; };
 		3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4B926C82F6B00323BCB /* GallifyApp.swift */; };
 		3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4BD26C82F6D00323BCB /* Assets.xcassets */; };
 		3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */; };
@@ -249,6 +250,7 @@
 		30001C022796973C00527BF9 /* OtherProfileViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewHeader.swift; sourceTree = "<group>"; };
 		30001C042796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewVerifiedDetails.swift; sourceTree = "<group>"; };
 		30001C06279699A900527BF9 /* ConnectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectButton.swift; sourceTree = "<group>"; };
+		30001C43279C710500527BF9 /* FlexibleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleSheet.swift; sourceTree = "<group>"; };
 		3004D4B626C82F6B00323BCB /* Gallify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3004D4B926C82F6B00323BCB /* GallifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyApp.swift; sourceTree = "<group>"; };
 		3004D4BD26C82F6D00323BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1061,6 +1063,7 @@
 				92794CE9273811760012B184 /* Recent Activity */,
 				92794CEF273811760012B184 /* Liked */,
 				92794CF5273811760012B184 /* Generic */,
+				30001C43279C710500527BF9 /* FlexibleSheet.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -1566,6 +1569,7 @@
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
 				30001C052796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift in Sources */,
 				3153458027557BA500BD7B54 /* Slabs.swift in Sources */,
+				30001C44279C710500527BF9 /* FlexibleSheet.swift in Sources */,
 				30001BD22796859600527BF9 /* postProfile.swift in Sources */,
 				92794D0F273814B80012B184 /* DiscoveryCategoryView.swift in Sources */,
 				30001C07279699A900527BF9 /* ConnectButton.swift in Sources */,

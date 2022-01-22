@@ -22,6 +22,16 @@ class FirestoreQuery : ObservableObject {
         
      */
     
+    
+    
+    //new sheet
+    @Published var maximized = false
+    @Published var minimized = false
+    @Published var isClosed = false
+    @Published var sheetMode: SheetMode = .none
+    @Published var showNewScreen = false
+    
+    //old sheet
     @Published var isPresented = false //for drop down reels. To know when to present. Not firestore related at all. 
     
     @Published var data : User = User() //struct version of user model.

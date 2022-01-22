@@ -32,12 +32,12 @@ struct HomeViewHeader: View {
                                     RoundedRectangle(cornerRadius: 5)
                                         .foregroundColor(Color("Gallify-Pinkish"))
                                         .padding(.all, screenWidth / 55)
-                                        .frame(width: screenWidth / 7.5, height: screenWidth / 7.5)
+                                        .frame(width: screenWidth / 9, height: screenWidth / 9)
                                     
                                     Image(systemName: "plus")
                                         .resizable()
                                         .foregroundColor(Color.white)
-                                        .frame(width: screenWidth / 20, height: screenWidth / 20)
+                                        .frame(width: screenWidth / 25, height: screenWidth / 25)
                                         
                                     
                                 }

@@ -18,11 +18,6 @@ class HomeViewModel: ObservableObject {
 struct HomeView : View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
-    
-    
-    @State private var isLoading = false
-    
-    //@StateObject var firestoreQuery = FirestoreQuery()
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     
     
@@ -34,9 +29,9 @@ struct HomeView : View {
             let heightPad = screenHeight / 54
             let widthPad = screenWidth / 25
             
-            if isLoading {
-                LoadingView()
-            }
+//            if isLoading {
+//                LoadingView()
+//            }
             
             NavigationView {
                 VStack {
@@ -49,28 +44,28 @@ struct HomeView : View {
                             
                            // HomeViewStories(screenHeight: screenHeight, screenWidth: screenWidth)
                             
-                            HStack {
-                                
-                                //print(firestoreQuery.museumlist.museums[0])  firestoreQuery.museumlist.museums[0]
-                                Text("Firstname: \(firestoreQuery.data.firstName)") //\(firestoreQuery.museumlist.museums[1]) \(firestoreQuery.data.email)
-                                    .font(.system(size: screenWidth / 11, weight: .bold))
-                                    .padding(.leading, widthPad)
-                                    .padding(.bottom, heightPad / 2)
-                                
-                                Spacer()
-                                
-                            }
+//                            HStack {
+//
+//                                //print(firestoreQuery.museumlist.museums[0])  firestoreQuery.museumlist.museums[0]
+//                                Text("Firstname: \(firestoreQuery.data.firstName)") //\(firestoreQuery.museumlist.museums[1]) \(firestoreQuery.data.email)
+//                                    .font(.system(size: screenWidth / 11, weight: .bold))
+//                                    .padding(.leading, widthPad)
+//                                    .padding(.bottom, heightPad / 2)
+//
+//                                Spacer()
+//
+//                            }
                             
                             HStack {
 
-    //                            Text("Good evening \(firestoreQuery.fullname)")  // \(firestoreQuery.museumlist.museums[1])
-    //                                .font(.system(size: screenWidth / 13.5, weight: .bold))
-    //                                .padding(.leading, widthPad)
-    //
-    //                            List(firestoreQuery.data.Library, id: \.self) { playlist in
-    //                                Text("Firstname")
-    //                                print(playlist)
-    //                            }
+//                                Text("Good evening \(firestoreQuery.fullname)")  // \(firestoreQuery.museumlist.museums[1])
+//                                    .font(.system(size: screenWidth / 13.5, weight: .bold))
+//                                    .padding(.leading, widthPad)
+//
+//                                List(firestoreQuery.data.Library, id: \.self) { playlist in
+//                                    Text("Firstname")
+//                                    print(playlist)
+//                                }
                                 
                                 ForEach(firestoreQuery.data.Library, id: \.self) { color in
                                     Text(color)

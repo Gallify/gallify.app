@@ -17,27 +17,57 @@ struct SelfProfileView : View {
     @EnvironmentObject var firestoreQuery: FirestoreQuery
     
     var body: some View {
-
-        VStack {
-                
-            SelfProfileViewHeader()
-                
-            ScrollView(showsIndicators: false) {
-                    
-                SelfProfileViewDetails()
-                
-                SelfProfileFeatured()
-                    
-                SelfProfileCollectionList()
-                                    
-            }
-            .environmentObject(firestoreQuery)
-            .navigationBarHidden(true)
-            .onAppear{ async{await NetworkingCall() }}
-                
-        }
-        .navigationBarHidden(true)
+        NavigationView{
+        
+            ZStack{
+        
             
+                VStack {
+                        
+                    SelfProfileViewHeader()
+                        
+                    ScrollView(showsIndicators: false) {
+                            
+                        SelfProfileViewDetails()
+                        
+                        SelfProfileFeatured()
+                            
+                        SelfProfileCollectionList()
+                                            
+                    }
+                    .environmentObject(firestoreQuery)
+                    .navigationBarHidden(true)
+                    .onAppear{ async{await NetworkingCall() }}
+                        
+                }
+                .navigationBarHidden(true)
+                
+            
+            
+            
+//            ZStack{
+//                if(firestoreQuery.showNewScreen){
+//                    //here
+//                    newscreen()
+//                        .padding(.top, 100)
+//                        .transition(.move(edge: .bottom))
+//                        .animation(.spring())
+//                       // .padding(.top, 100)
+//                        //.offset(y: firestoreQuery.showNewScreen ? 0 : )
+//                        //.transition(.move(edge: .bottom))
+//                        //.animation(.spring(), value: firestoreQuery.showNewScreen)
+//                        //.edgesIgnoringSafeArea(.all)
+//
+//
+//                }
+//
+//            }
+//            .zIndex(3.0)
+                
+            }
+            
+        }
+        
     }
     
     func NetworkingCall() async{

@@ -11,14 +11,32 @@ import Foundation
 import SwiftUI
 
 struct LoadingView: View {
+    
+    let screenHeight: CGFloat
+    let screenWidth: CGFloat
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
+    
+    
     var body: some View {
-        ZStack{
-            Color(.systemBackground).ignoresSafeArea()
+        
+        VStack {
             
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle(tint:.pink))
-                .scaleEffect(3)
+            Logo(height: screenHeight / 3, width: screenWidth / 1.45)
+                .padding(.top, screenHeight / 16.25)
+            
+            
         }
+      //  .onAppear{ async{ await NetworkingCall() }}
+        
     }
+    
+  @MainActor
+    func NetworkingCall() async {
+
+            await firestoreQuery.getUser_await()
+
+    }
+    
 }
+
 

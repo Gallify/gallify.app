@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct CollectionReelView: View {
-   // @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var firestoreQuery : FirestoreQuery
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    //@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     //@Binding var isPresented: Bool
     
     let screenWidth: CGFloat
@@ -19,14 +20,17 @@ struct CollectionReelView: View {
     
     var body: some View {
         NavigationView {
-            VStack{
-                CollectionReelHeader(screenWidth: screenWidth, screenHeight: screenHeight)
-                    .padding()
-                ScrollView {
-                    CollectionReelListing(screenWidth: screenWidth, screenHeight: screenHeight)
+            ZStack(alignment: .topLeading){
+                VStack{
+                    CollectionReelHeader(screenWidth: screenWidth, screenHeight: screenHeight)
+                        .padding()
+                    ScrollView {
+                        CollectionReelListing(screenWidth: screenWidth, screenHeight: screenHeight)
+                    }
+                    Spacer()
                 }
-                Spacer()
             }
+            
         }
         .navigationBarHidden(true)
         .navigationBarTitle("")

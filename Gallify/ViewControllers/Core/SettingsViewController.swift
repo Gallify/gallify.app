@@ -28,13 +28,25 @@ struct SettingsView : View {
     
     @EnvironmentObject var settingsViewModel : SettingsViewController
     
-    init(){
-      //  firestoreQuery.fetchUser()
-    }
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    
     
     private var metadata = StorageMetadata()
     
      var body: some View {
+         
+         HStack {
+             
+             CustomBackButton(buttonHeight: 25.45, buttonWidth: 15, image: Image(systemName: "chevron.left"), presentationMode: _presentationMode)
+                   .offset(x: 25)
+                   .font(Font.title.weight(.light))
+                   .navigationBarHidden(true)
+             
+             Spacer()
+             
+         }
+         
         ScrollView {
             VStack {
                 
@@ -98,7 +110,7 @@ struct SettingsView : View {
             Text("You are signed in")
                 
                 NavigationLink(destination:  LoginView()) {
-                    
+
                     Button(action: {
                         viewModel.signOut()
                     }, label: {
@@ -108,7 +120,7 @@ struct SettingsView : View {
                             .foregroundColor(Color.blue)
                             .padding()
                     })
-                
+
                 }
              
         }

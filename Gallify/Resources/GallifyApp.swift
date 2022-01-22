@@ -14,16 +14,21 @@ struct GallifyLoginApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var firestoreQuery = FirestoreQuery()
     
+    
+    
     var body: some Scene {
         WindowGroup {
             
             
             let viewModel = LoginAppViewModel()
             
+            
             if (viewModel.isSignedIn){
+            
                 TabBarView()
                     .environmentObject(firestoreQuery)
                     .environmentObject(viewModel)
+                
             }
             else{
                 LoginView()

@@ -91,10 +91,10 @@ struct DiscoverMainView: View {
                 .navigationBarHidden(true)
         
 //dope dope
-//                NavigationLink(destination: OtherProfileView(), label: {
-//
-//                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
-//                })
+                NavigationLink(destination: OtherProfileView(), label: {
+
+                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
+                })
                 
             }
             

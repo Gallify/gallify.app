@@ -103,18 +103,22 @@ struct LoginView: View {
     @StateObject var viewModel = LoginAppViewModel()
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     
+   
+    
     var body: some View {
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         NavigationView {
             
             if viewModel.isSignedIn || viewModel.newUserCreated {
-                TabBarView().environmentObject(firestoreQuery)
+            
+                    TabBarView().environmentObject(firestoreQuery)
+                
             }
             
             else {
                 
-                let screenHeight = viewModel.screenHeight
-                let screenWidth = viewModel.screenWidth
                 
                 VStack {
                 
