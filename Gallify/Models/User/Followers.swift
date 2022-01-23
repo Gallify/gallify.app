@@ -31,6 +31,10 @@ class Followers: Encodable, Decodable, ObservableObject {
         followers = [String]()
 
     }
+    
+    init(arr : [String]) {
+        followers = arr
+    }
 
     required init(from decoder: Decoder) throws {
 

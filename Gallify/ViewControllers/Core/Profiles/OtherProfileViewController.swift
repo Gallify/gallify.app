@@ -42,9 +42,11 @@ struct OtherProfileView : View {
     }
     
     func NetworkingCall() async{
-        
-        await firestoreQuery.fetchData()
-        
+        do {
+            try await firestoreQuery.fetchData()
+        }catch {
+            print("Error fetching playlists")
+        }
         firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
 
                     

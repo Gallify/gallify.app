@@ -34,7 +34,7 @@ struct TabBarView: View {
     var body: some View {
         
         
-        if(loginViewModel.isSignedIn){
+        if(loginViewModel.isSignedIn || loginViewModel.newUserCreated){
             TabView{
 
                 HomeView()
@@ -63,7 +63,7 @@ struct TabBarView: View {
             
             .environmentObject(viewModel)
             .environmentObject(firestoreQuery)
-            .onAppear{ networking() }
+            //.onAppear{ networking() }
         }
         else{
             LoginView()

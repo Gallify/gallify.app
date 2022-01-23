@@ -33,7 +33,6 @@ struct SelfProfileViewHeader: View {
             NavigationLink(
                 destination: SettingsView(),
                 label: {
-                        
                     Image(systemName: "gearshape.fill")
                         .resizable()
                         .foregroundColor(.gray)

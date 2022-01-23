@@ -18,6 +18,7 @@ class HomeViewModel: ObservableObject {
 struct HomeView : View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
+    @EnvironmentObject var loginAppViewModel : LoginAppViewModel
     
     
     @State private var isLoading = false
@@ -49,7 +50,15 @@ struct HomeView : View {
                             
                            // HomeViewStories(screenHeight: screenHeight, screenWidth: screenWidth)
                             
+                            
+                            
                             HStack {
+                                
+                                Button(action: {
+                                    loginAppViewModel.signOut()
+                                }) {
+                                    Text("SIGN OUT")
+                                }
                                 
                                 //print(firestoreQuery.museumlist.museums[0])  firestoreQuery.museumlist.museums[0]
                                 Text("Firstname: \(firestoreQuery.data.firstName)") //\(firestoreQuery.museumlist.museums[1]) \(firestoreQuery.data.email)

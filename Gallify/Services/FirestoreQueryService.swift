@@ -32,7 +32,11 @@ class FirestoreQuery : ObservableObject {
     @Published var playlists: [Playlist] = [Playlist]()
     @Published var museumlist: MuseumList = MuseumList()
     @Published var data_old : User = User() //how we did it.
-
+    
+    @Published var isFollowing : Bool = false
+    @Published var followers = Followers()
+    @Published var following = Following()
+    
     static let db = Firestore.firestore()
     static let userEmail = Auth.auth().currentUser?.email
     
@@ -106,7 +110,83 @@ class FirestoreQuery : ObservableObject {
          }
       }
     
+    func fetchFollowers(uid: String) async {
+//        let docRef = await Firestore.firestore().collection("users").document(uid).collection("profile").document("followers")
+//        docRef.getDocument { (document, error) in
+//          let result = Result {
+//           try document?.data(as: Followers.self)
+//          }
+//          switch result {
+//          case .success(let followerList):
+//            if let followerList = followerList {
+//              // A `User` value was successfully initialized from the DocumentSnapshot
+//              //set data to user in the main thread since call is completed in background
+//
+//                DispatchQueue.main.async {
+//                    self.followers.followers = followerList.followers
+//                }
+//
+//            } else {
+//              // A nil value was successfully initialized from the DocumentSnapshot,
+//              // or the DocumentSnapshot was nil.
+//              print("Document does not exist")
+//            }
+//          case .failure(let error):
+//            // A `User` value could not be initialized from the DocumentSnapshot.[
+//            print("Error decoding Followers: \(error)")
+//          }
+//        }
+        
+         await FirestoreQuery.db.collection("users").document(uid).collection("profile").document("followers")
+             .addSnapshotListener { queryDocumentSnapshot, error in
+                 if error == nil { //if no errors
+                     if let document = queryDocumentSnapshot{
+                         //update list in main thread.
+                         DispatchQueue.main.async{
+                             //set retrieved document to @published data object
+                             self.followers.followers = try! document.data(as: Followers.self)?.followers as! [String] //this is forceful, and assumes this will always work...
+                             print("followers array in firestore query = ", self.followers.followers)
+                         }
+                         print("followers array in firestore query = ", self.followers.followers)
+                     }
+                     else{
+                         print("Error: There aren't any documents, getPlaylist()")
+                         return
+                     }
+                 }
+                 else{
+                     print("Error: Can't get document, getPlaylist()")
+                     return
+                 }
+    }
+    }
 
+    
+//    func fetchFollowers(uid: String) async {
+//        let uid = (Auth.auth().currentUser?.uid)!
+//
+//        if uid != nil {
+//            do {
+//
+//                let doc = try! await FirestoreQuery.db.collection("users")
+//                    .document(uid).collection("profile").document("followers")
+//                    .getDocument().data(as: Followers.self)
+//
+//                guard let followerList = doc else {
+//                     throw DatabaseError.failed
+//                }
+//                DispatchQueue.main.async {
+//
+//                self.followers.followers = followerList.followers
+//                    print("FOLLOWERS ARRAY = ", followerList.followers)
+//                }
+//            }
+//            catch{
+//                print("Error")
+//            }
+//        }
+//
+//    }
     func get_art(a: String)  {
 //        let email1 = data.email
 //        print(email1)

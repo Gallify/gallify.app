@@ -41,14 +41,17 @@ struct SelfProfileView : View {
     }
     
     func NetworkingCall() async{
-        
-        await firestoreQuery.fetchData()
+        do {
+            try await firestoreQuery.fetchData()
+        }catch {
+            print("Error fetching playlists")
+        }
                     
        // await firestoreQuery.loaditems_selfprofile()
         
         firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
         
-        print("in networkong call, playlist art")
+        print("in networking call, playlist art")
         print(firestoreQuery.featuredPlaylist.art)
         
         await firestoreQuery.fetchArt()

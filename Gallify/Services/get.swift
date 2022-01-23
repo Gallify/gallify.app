@@ -100,31 +100,33 @@ extension FirestoreQuery {
     
   //  @available(iOS 15.0.0, *)
     func getUser_await() async {
-        let userEmail = Auth.auth().currentUser?.email
-      
+        let uid = Auth.auth().currentUser?.uid
         
-        let docRef = try await FirestoreQuery.db.collection("users").document(userEmail ?? "info@gallify.app").getDocument { (document, error) in
-           let result = Result {
-            try document?.data(as: User.self)
-           }
-           switch result {
-           case .success(let user):
-             if let user = user {
-               // A `User` value was successfully initialized from the DocumentSnapshot
-               //set data to user in the main thread since call is completed in background
-               DispatchQueue.main.async {
-                 self.data = user
+        if uid != nil {
+            let docRef = try await FirestoreQuery.db.collection("users").document(uid!).getDocument { (document, error) in
+               let result = Result {
+                try document?.data(as: User.self)
                }
-             } else {
-               // A nil value was successfully initialized from the DocumentSnapshot,
-               // or the DocumentSnapshot was nil.
-               print("Document does not exist")
+               switch result {
+               case .success(let user):
+                 if let user = user {
+                   // A `User` value was successfully initialized from the DocumentSnapshot
+                   //set data to user in the main thread since call is completed in background
+                   DispatchQueue.main.async {
+                     self.data = user
+                   }
+                 } else {
+                   // A nil value was successfully initialized from the DocumentSnapshot,
+                   // or the DocumentSnapshot was nil.
+                   print("Document does not exist")
+                 }
+               case .failure(let error):
+                 // A `User` value could not be initialized from the DocumentSnapshot.
+                 print("Error decoding user: \(error)")
+               }
              }
-           case .failure(let error):
-             // A `User` value could not be initialized from the DocumentSnapshot.
-             print("Error decoding user: \(error)")
-           }
-         }  
+        }
+        
     }
     
     func getUser_await2() async throws -> User {
@@ -161,39 +163,44 @@ extension FirestoreQuery {
         case failed = "failed"
     }
     
-    func fetchData() async {
-        let userEmail = Auth.auth().currentUser?.email
+    func fetchData() async throws {
+        let uid = (Auth.auth().currentUser?.uid)!
         
-        do {
-            let doc = try await FirestoreQuery.db.collection("users")
-                .document(userEmail ?? "info@gallify.app")
-                .getDocument().data(as: User.self)
-            
-            guard let theUser = doc else{
-                throw DatabaseError.failed
-            }
-            
-            self.data = theUser
-            
-            //
-            
-            let doc2 = try await FirestoreQuery.db.collection("playlists")
-                .document(data.featured)
-                .getDocument().data(as: Playlist.self)
-            
+        if uid != nil {
+            do {
                 
-            guard let thefeaturedPlaylist = doc2 else{
-                throw DatabaseError.failed
-            }
+                let doc = try! await FirestoreQuery.db.collection("users")
+                    .document(uid)
+                    .getDocument().data(as: User.self)
+                
+                guard let theUser = doc else {
+                     throw DatabaseError.failed
+                }
+                
+                self.data = theUser
+                
+                //
+                
+                let doc2 = try! await FirestoreQuery.db.collection("playlists")
+                    .document(data.featured)
+                    .getDocument().data(as: Playlist.self)
+                
+                    
+                guard let thefeaturedPlaylist = doc2 else{
+                    throw DatabaseError.failed
+                }
 
-            self.featuredPlaylist = thefeaturedPlaylist
-            
-            //
-            
+                self.featuredPlaylist = thefeaturedPlaylist
+                
+                //
+                
+            }
+            catch{
+                print("Error")
+            }
         }
-        catch{
-            print("Error")
-        }
+       
+       
     }
     
     func fetchArt() async {
@@ -230,6 +237,31 @@ extension FirestoreQuery {
         self.featuredArt = art_array
         
     }
+    
+//    func fetchFollowers(uid: String) async {
+//        let uid = (Auth.auth().currentUser?.uid)!
+//
+//        if uid != nil {
+//            do {
+//
+//                let doc = try! await FirestoreQuery.db.collection("users")
+//                    .document(uid).collection("profile").document("followers")
+//                    .getDocument().data(as: Followers.self)
+//
+//                guard let followerList = doc else {
+//                     throw DatabaseError.failed
+//                }
+//
+//                self.followers.followers = followerList.followers
+//                print("FOLLOWERS ARRAY = ", self.followers.followers)
+//            }
+//            catch{
+//                print("Error")
+//            }
+//        }
+//
+//    }
+
   
     
     

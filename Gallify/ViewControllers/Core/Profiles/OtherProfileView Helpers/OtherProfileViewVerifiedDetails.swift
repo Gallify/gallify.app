@@ -174,7 +174,7 @@ struct OtherProfileViewVerifiedDetails: View {
                 ConnectButton(buttonClicked: false, buttonWidth: screenWidth / 3, buttonHeight: screenHeight / 26)
                     .padding(.horizontal, screenWidth / 125)
                     
-                FollowButton(isFollowing: false, buttonWidth: screenWidth / 3, buttonHeight: screenHeight / 26)
+                FollowButton()
                     .padding(.horizontal, screenWidth / 125)
                     
             }

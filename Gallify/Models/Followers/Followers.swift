@@ -1,48 +1,43 @@
 //
-//  Following.swift
+//  Followers.swift
 //  Gallify
 //
 //  Created by Tejvir Mann on 1/1/22.
 //
-
 import Foundation
 import Swift
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class Following: Encodable, Decodable, ObservableObject {
-
+class Followers: Encodable, Decodable, ObservableObject {
     enum CodingKeys: CodingKey {
-        case following
+  
+        case followers
     }
+  
+    @Published var followers: [String]
     
-    @Published var following: [String]
-
     
     init() {
-
-        following = [String]()
-
+        
+        followers = [String]()
     }
-
-    init(arr: [String]) {
-        following = arr
+    
+    init(arr : [String]) {
+        followers = arr
     }
+    
     required init(from decoder: Decoder) throws {
-
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        following = try container.decode([String].self, forKey: .following)
+     
+        followers = try container.decode([String].self, forKey: .followers)
        
-
-
     }
     
     func encode(to encoder: Encoder) throws {
-
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(following, forKey: .following)
-
+    
+        try container.encode(followers, forKey: .followers)
       
     }
 }
-
