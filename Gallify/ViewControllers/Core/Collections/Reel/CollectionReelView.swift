@@ -9,40 +9,25 @@ import SwiftUI
 
 struct CollectionReelView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var firestoreQuery : FirestoreQuery
-    
-    //@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    //@Binding var isPresented: Bool
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat
-    
-    
     var body: some View {
-        NavigationView {
-            ZStack(alignment: .topLeading){
-                VStack{
-                    CollectionReelHeader(screenWidth: screenWidth, screenHeight: screenHeight)
-                        .padding()
-                    ScrollView {
-                        CollectionReelListing(screenWidth: screenWidth, screenHeight: screenHeight)
-                    }
-                    Spacer()
+        VStack {
+            
+            CollectionReelHeader(screenWidth: screenWidth, screenHeight: screenHeight)
+            
+            ZStack {
+                ScrollView {
+                    CollectionReelListing(screenWidth: screenWidth, screenHeight: screenHeight)
                 }
             }
-            
         }
-        .navigationBarHidden(true)
-        .navigationBarTitle("")
-        .edgesIgnoringSafeArea(.all)
-        
     }
 }
 
-//struct CollectionReelView_Previews: PreviewProvider {
-//    @Binding var isPresented: Bool
-//
-//    static var previews: some View {
-//        CollectionReelView(isPresented: $isPresented, screenWidth: UIScreen.main.bounds.width,screenHeight: UIScreen.main.bounds.height)
-//    }
-//}
+struct CollectionReelView_Previews: PreviewProvider {
+    static var previews: some View {
+        CollectionReelView(screenWidth: UIScreen.main.bounds.width,screenHeight: UIScreen.main.bounds.height)
+    }
+}

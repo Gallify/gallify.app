@@ -27,8 +27,8 @@ struct CollectionLikedView: View {
 )
             }
             
-            CollectionLikedFooter(screenWidth: screenWidth, screenHeight: screenHeight
-)
+            /*CollectionLikedFooter(screenWidth: screenWidth, screenHeight: screenHeight
+)*/
             Spacer()
             
             
