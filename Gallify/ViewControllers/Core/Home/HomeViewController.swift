@@ -67,10 +67,10 @@ struct HomeView : View {
 //                                    print(playlist)
 //                                }
                                 
-                                ForEach(firestoreQuery.data.Library, id: \.self) { color in
-                                    Text(color)
-                                        
-                                }
+//                                ForEach(firestoreQuery.data.Library, id: \.self) { color in
+//                                    Text(color)
+//
+//                                }
                                     
                                 
                                 
@@ -82,10 +82,10 @@ struct HomeView : View {
                                                     
                             }
                             
-                            NavigationLink(destination: OtherProfileView(), label: {
-                                
-                                OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
-                            })
+//                            NavigationLink(destination: OtherProfileView(), label: {
+//
+//                                OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
+//                            })
                                                     
                             HomeViewRecent(screenHeight: screenHeight, screenWidth: screenWidth)
                         
@@ -193,6 +193,8 @@ struct HomeView : View {
     func NetworkingCall() async{
         //firestoreQuery.getUser()
        await firestoreQuery.getUser_await()
+        
+        
         
      //   print(data.featured)
         

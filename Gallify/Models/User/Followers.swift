@@ -4,7 +4,6 @@
 //
 //  Created by Tejvir Mann on 1/1/22.
 //
-
 import Foundation
 import Swift
 import FirebaseFirestore
@@ -31,6 +30,10 @@ class Followers: Encodable, Decodable, ObservableObject {
         followers = [String]()
 
     }
+    
+    init(arr : [String]) {
+        followers = arr
+    }
 
     required init(from decoder: Decoder) throws {
 
@@ -52,4 +55,3 @@ class Followers: Encodable, Decodable, ObservableObject {
       
     }
 }
-

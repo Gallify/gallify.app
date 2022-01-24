@@ -31,9 +31,12 @@ struct TabBarView: View {
 
     init() {
         UITabBar.appearance().backgroundColor = UIColor.white
-     //   UITabBar.appearance().isHidden = doneLoading
+       // let valure = firestoreQuery.showNewScreen
+       // UITabBar.appearance().isHidden = valure
         
     }
+    
+
     
     var body: some View {
         
@@ -42,72 +45,77 @@ struct TabBarView: View {
             
             ZStack{
                 
-//                if(firestoreQuery.showNewScreen == false){
-//                    if(firestoreQuery.data.isClicked != ""){
-//                        NavigationLink(destination: OtherProfileView(), label: {
-//
-//                            OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
-//                        })
-//                    }
-//                }
-            
-                TabView{
-                    if(doneLoading){
-
-                        HomeView()
-                            .tabItem{
-                                Label("Home", systemImage: "house.fill" )
-                            }
-                            .environmentObject(firestoreQuery)
-
+               // if(firestoreQuery.showNewScreen == false){
                         
-                        DiscoverMainView()
-                            .tabItem{
-                                Label("Discover", systemImage: "magnifyingglass" )
-                            }
-                            .environmentObject(firestoreQuery)
+//                Button(action:{
+//                    UITabBar.appearance().isHidden = firestoreQuery.showNewScreen
+//                }) {
+                
+                        TabView{
+                            if(doneLoading){
+                                    
+                                    HomeView()
+                                  
+                                        .tabItem{
+                                            Label("Home", systemImage: "house.fill" )
+                                        }
+                                        .environmentObject(firestoreQuery)
+                            
+                                    DiscoverMainView()
+                                        .tabItem{
+                                            Label("Discover", systemImage: "magnifyingglass" )
+                                        }
+                                        .environmentObject(firestoreQuery)
 
-                        SelfProfileView()
-                            .tabItem{
-                                Label("Profile", systemImage: "person.fill" )
+                                    SelfProfileView()
+                                        .tabItem{
+                                            Label("Profile", systemImage: "person.fill" )
+                                        }
+                                        
+                                        .environmentObject(firestoreQuery)
+                                    
+                                    
+                                
+                                
+                            }
+                            else{
+                                LoadingView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth)
+                                   
                             }
                             
-                            .environmentObject(firestoreQuery)
-                        
-                    }
-                    else{
-                        LoadingView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth)
-                           
-                    }
-                    
 
-                }
-                //.navigationBarTitle("")
-               // .navigationBarHidden(true)
-                .accentColor(Color("Gallify-Pinkish"))
-                .environmentObject(viewModel)
-                .environmentObject(firestoreQuery)
-                .onAppear{ async{await NetworkingCall() }}
+                        }
+                        //.navigationBarTitle("")
+                       // .navigationBarHidden(true)
+                        .accentColor(Color("Gallify-Pinkish"))
+                        .environmentObject(viewModel)
+                        .environmentObject(firestoreQuery)
+                        .onAppear{ async{await NetworkingCall() }}
+                //}
                 
-                ZStack{
-                    if(firestoreQuery.showNewScreen){
-                        //here
-                        //newscreen()
-                        CollectionReelView(screenWidth: viewModel.screenWidth, screenHeight: viewModel.screenHeight)
-                            //.offset(y: 100 )
-                            //.padding(.top, 100)
-                            .transition(.move(edge: .bottom))
-                            //.animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
-                             .animation(.spring())
-//                            .onTapGesture {
-//                                firestoreQuery.showNewScreen.toggle()
-//                            }
-
-                    }
-                    
-                      
-                }
-                //.zIndex(3.0)
+                
+                
+                
+//                ZStack{
+//
+//                    //add minimized view to the tip of this. Hide if
+//                    
+//
+//                    if(firestoreQuery.showNewScreen){
+//
+//                        CollectionReelView(screenWidth: viewModel.screenWidth, screenHeight: viewModel.screenHeight)
+//                            .transition(.move(edge: .bottom))
+//                            .animation(.spring())
+//                            .edgesIgnoringSafeArea(.all)
+////                            .onTapGesture {
+////                                firestoreQuery.showNewScreen.toggle()
+////                            }
+//
+//                    }
+//                }
+//                .zIndex(3.0)
+                
+                
                 
                 
             }
@@ -126,6 +134,8 @@ struct TabBarView: View {
      */
     func NetworkingCall() async{
         
+        UITabBar.appearance().isHidden = firestoreQuery.showNewScreen
+        
         await firestoreQuery.fetchData()
                     
         firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
@@ -140,6 +150,9 @@ struct TabBarView: View {
     
     
 }
+    
+
+    
 
 struct TabBarPreview: PreviewProvider {
     static var previews: some View {

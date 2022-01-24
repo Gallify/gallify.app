@@ -64,6 +64,8 @@
 		3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51026CDB90100323BCB /* BuyViewController.swift */; };
 		3004D51326CDB91200323BCB /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51226CDB91200323BCB /* SellViewController.swift */; };
 		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
+		304109F6279D27AC00284446 /* MinimizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304109F5279D27AC00284446 /* MinimizedView.swift */; };
+		304109F8279E24EC00284446 /* FirestoreUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304109F7279E24EC00284446 /* FirestoreUploadService.swift */; };
 		30521357278A293F00CE0224 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30521346278A293E00CE0224 /* CustomARView.swift */; };
 		30521358278A293F00CE0224 /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30521347278A293F00CE0224 /* BrowseView.swift */; };
 		30521359278A293F00CE0224 /* SessionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30521348278A293F00CE0224 /* SessionSettings.swift */; };
@@ -279,6 +281,8 @@
 		3004D51026CDB90100323BCB /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		3004D51226CDB91200323BCB /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
+		304109F5279D27AC00284446 /* MinimizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimizedView.swift; sourceTree = "<group>"; };
+		304109F7279E24EC00284446 /* FirestoreUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUploadService.swift; sourceTree = "<group>"; };
 		30521346278A293E00CE0224 /* CustomARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
 		30521347278A293F00CE0224 /* BrowseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		30521348278A293F00CE0224 /* SessionSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionSettings.swift; sourceTree = "<group>"; };
@@ -747,15 +751,16 @@
 			isa = PBXGroup;
 			children = (
 				3052137C278A2D5A00CE0224 /* FirestoreQueryService.swift */,
+				33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */,
+				3052137E278A2DCE00CE0224 /* StorageService.swift */,
+				30001B7D278F8E6F00527BF9 /* get.swift */,
+				304109F7279E24EC00284446 /* FirestoreUploadService.swift */,
 				30001BE2279686E500527BF9 /* Settings */,
 				30001BD7279685C300527BF9 /* Lists */,
 				30001BBC2796849200527BF9 /* Home */,
 				30001BBD2796849B00527BF9 /* Discover */,
 				30001BBE279684A900527BF9 /* Profile */,
 				30001BBB2796812C00527BF9 /* Cache */,
-				3052137E278A2DCE00CE0224 /* StorageService.swift */,
-				33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */,
-				30001B7D278F8E6F00527BF9 /* get.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1064,6 +1069,7 @@
 				92794CEF273811760012B184 /* Liked */,
 				92794CF5273811760012B184 /* Generic */,
 				30001C43279C710500527BF9 /* FlexibleSheet.swift */,
+				304109F5279D27AC00284446 /* MinimizedView.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -1486,6 +1492,7 @@
 				3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */,
 				30521364278A293F00CE0224 /* ScenePersistenceHelper.swift in Sources */,
 				30001BB627921AC900527BF9 /* DropDownReels.swift in Sources */,
+				304109F6279D27AC00284446 /* MinimizedView.swift in Sources */,
 				3052135C278A293F00CE0224 /* ARPlayerContainer.swift in Sources */,
 				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
 				3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */,
@@ -1572,6 +1579,7 @@
 				30001C44279C710500527BF9 /* FlexibleSheet.swift in Sources */,
 				30001BD22796859600527BF9 /* postProfile.swift in Sources */,
 				92794D0F273814B80012B184 /* DiscoveryCategoryView.swift in Sources */,
+				304109F8279E24EC00284446 /* FirestoreUploadService.swift in Sources */,
 				30001C07279699A900527BF9 /* ConnectButton.swift in Sources */,
 				3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
 				3152F6A62717519B0061F72E /* PrivacyPolicyViewController.swift in Sources */,

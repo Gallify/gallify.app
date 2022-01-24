@@ -68,26 +68,96 @@ class LoginAppViewModel: ObservableObject {
     }
     
     
+//    func createAccount(password: String, user: User) {
+//        auth.createUser(withEmail: user.email, password: password) {[weak self] result, error in
+//            guard result != nil, error == nil else {
+//                return
+//            }
+//
+//            var db = Firestore.firestore()
+//                do {
+//                    user.uid = self!.auth.currentUser!.uid
+//                    try db.collection("users").document(self!.auth.currentUser!.uid).setData(from: user)
+//                    //self!.sendVerificationMail()
+//                } catch let error {
+//                    print("Error writing user to Firestore: \(error)")
+//                }
+//            }
+//
+//            DispatchQueue.main.async {
+//                self.newUserCreated = true
+//            }
+//    }
+    
     func createAccount(password: String, user: User) {
-        auth.createUser(withEmail: user.email, password: password) {[weak self] result, error in
-            guard result != nil, error == nil else {
-                return
-            }
-        
-            var db = Firestore.firestore()
-                do {
-                    user.uid = self!.auth.currentUser!.uid
-                    try db.collection("users").document(self!.auth.currentUser!.uid).setData(from: user)
-                    //self!.sendVerificationMail()
-                } catch let error {
-                    print("Error writing user to Firestore: \(error)")
-                }
-            }
             
-            DispatchQueue.main.async {
-                self.newUserCreated = true
-            }
-    }
+            auth.createUser(withEmail: user.email, password: password) {[weak self] result, error in
+                guard result != nil, error == nil else {
+                    return
+                }
+            
+                var db = Firestore.firestore()
+                do {
+                        
+                        //create user field
+                        user.uid = self!.auth.currentUser!.uid
+                        let userDocRef = try db.collection("users").document(user.uid)
+                        try userDocRef.setData(from: user)
+                        //self!.sendVerificationMail()
+                        
+                        /*
+                         Now create subcollections, and sud-documents for user.
+                         Home, Discover, Profile : Subcollections
+                         connections, followers, following, pending connections, recent search, home: Documents
+                        */
+                        let userMuseumRef = try db.collection("users").document(user.uid).collection("home").document("home")
+                            try userMuseumRef.setData(from: MuseumList())
+                        try db.collection("users").document(user.uid).collection("discover").document("recentsearch").setData(from: RecentSearch())
+                        try db.collection("users").document(user.uid).collection("profile").document("followers").setData(from: Followers())
+                        try db.collection("users").document(user.uid).collection("profile").document("following").setData(from: Following())
+                        try db.collection("users").document(user.uid).collection("profile").document("connections").setData(from: Connections())
+                        try db.collection("users").document(user.uid).collection("profile").document("pending").setData(from: Pending())
+                        
+                       
+                        //generate your 5 playlists. document ids should be random, rn they aren'
+                        //generate your "myplaylist" museum. This museum is 5 playlists.
+                        
+                        //add this museum
+                        
+                        let museum_names = ["Recents", "Discover", "Trending-Artists", "International Art", "Indie-designers"]
+                        for i in museum_names {
+                            let museum = Museum()
+                            museum.name = i
+                            for index in 1...5 {
+                                let playlist = try db.collection("playlists").document()
+                                try playlist.setData(from: Playlist())
+                                museum.playlist.append(playlist.documentID)
+                            }
+                            let docRef = try db.collection("museums").document()
+                            try docRef.setData(from: museum)
+                            userMuseumRef.updateData(["museums" : FieldValue.arrayUnion([docRef.documentID])])
+                        }
+                        
+                        //update Library in users doc with 5 playlists (Liked, featured, owned, created, reviewed)
+                        let libraryPlaylistNames = ["Liked", "Featured", "Owned", "Created", "Reviewed"]
+                        for i in 0...4 {
+                            let playlist = Playlist()
+                            playlist.name = libraryPlaylistNames[i]
+                            let playlistRef = try db.collection("playlists").document()
+                            try playlistRef.setData(from: Playlist())
+                            userDocRef.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])])
+                        }
+        
+                        
+                    } catch let error {
+                        print("Error writing user to Firestore: \(error)")
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.newUserCreated = true
+                }
+        }
     
     
     
@@ -103,22 +173,18 @@ struct LoginView: View {
     @StateObject var viewModel = LoginAppViewModel()
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     
-   
-    
     var body: some View {
-        let screenHeight = viewModel.screenHeight
-        let screenWidth = viewModel.screenWidth
         
         NavigationView {
             
             if viewModel.isSignedIn || viewModel.newUserCreated {
-            
-                    TabBarView().environmentObject(firestoreQuery)
-                
+                TabBarView().environmentObject(firestoreQuery)
             }
             
             else {
                 
+                let screenHeight = viewModel.screenHeight
+                let screenWidth = viewModel.screenWidth
                 
                 VStack {
                 

@@ -28,22 +28,20 @@ struct SelfProfileCollectionList: View {
                     label: {
                     
                         ZStack {
-                            
-                            RoundedRectangle(cornerRadius: 5)
-                                .foregroundColor(Color("Gallify-Pinkish"))
-                                .padding(.all, screenWidth / 55)
-                                .frame(width: screenWidth / 9, height: screenWidth / 9)
-                            
+                                        
+                            RoundedRectangle(cornerRadius: screenWidth / 50)
+                                .foregroundColor(Color.pink)
+                                .padding(.horizontal, screenWidth / 55)
+                                .padding(.vertical, screenHeight / 120)
+                                .frame(width: screenWidth / 8.3, height: screenHeight / 18)
+                                        
                             Image(systemName: "plus")
                                 .resizable()
                                 .foregroundColor(Color.white)
-                                .frame(width: screenWidth / 25, height: screenWidth / 25)
-                                
-                            
+                                .frame(width: screenWidth / 25, height: screenHeight / 54)
+                                            
                         }
                     
-                    .padding(.trailing, screenWidth / 37.5)
-                        
                 })
                 .buttonStyle(ThemeAnimationStyle())
                 .navigationBarHidden(true)
@@ -106,4 +104,3 @@ struct SelfProfileCollectionList_Previews: PreviewProvider {
             .environmentObject(FirestoreQuery())
     }
 }
-

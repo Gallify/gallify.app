@@ -120,7 +120,7 @@ struct OtherProfileViewDetails: View {
             
             HStack {
                     
-                FollowButton(isFollowing: false, buttonWidth: screenWidth / 3, buttonHeight: screenHeight / 26)
+                FollowButton().environmentObject(firestoreQuery)
                     
             }
             .padding(.vertical, screenHeight / 160)

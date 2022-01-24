@@ -38,10 +38,12 @@ struct SelfProfileFeatured: View {
         
         VStack{
             
+            Spacer()
+            
             HStack {
                         
                 Text("Featured")
-                    .font(.system(size: screenWidth / 12.5, weight: .semibold))
+                    .font(.system(size: screenWidth / 17.5, weight: .semibold))
                         
                 Spacer()
                         
@@ -49,86 +51,84 @@ struct SelfProfileFeatured: View {
             .padding(.leading, screenWidth / 15)
             .padding(.bottom, screenHeight / 160)
             
-            ForEach(firestoreQuery.featuredArt){ artwork in
-                
-                
-                Button(action: {
-                    firestoreQuery.isPresented.toggle()
-                    firestoreQuery.data.isClicked = artwork.art_id
-                }){
-                    HStack {
-                        
-                        Text("\(artNumber)")
-                            .font(.system(size: screenWidth / 15, weight: .medium))
-                            .padding(.trailing, screenWidth / 50)
-                            
-                        
-                            HStack {
-                                    
-                                WebImage(url: URL(string: artwork.content_url))
-                                    .resizable()
-                                    .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
-                                    
-                                VStack(alignment: .leading) {
-                                        
-                                    if(firestoreQuery.data.isClicked == artwork.art_id){
-                                        Text(artwork.name)
-                                            .foregroundColor(Color("Gallify-Pink"))
-                                            .fontWeight(.bold)
-                                            .font(.system(size: screenWidth / 20, weight: .medium))
-                                            .lineLimit(1)
-                                    }
-                                    else{
-                                        Text(artwork.name)
-                                            .fontWeight(.bold)
-                                            .font(.system(size: screenWidth / 20, weight: .medium))
-                                            .foregroundColor(.black)
-                                            .lineLimit(1)
-                                    }
-                                    
-                                    
-                                    Text("\(artwork.popularity)")
-                                        .font(.system(size: screenWidth / 24, weight: .light))
-                                        .foregroundColor(.black)
-                                        .lineLimit(1)
-                                        
-                                }
-                                .padding(.leading, screenWidth / 37.5)
-                                    
-                                Spacer()
-                                    
-                            }
-                            .buttonStyle(ThemeAnimationStyle())
-                            .navigationBarHidden(true)
-                            
-                      //  })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            
-                            Image(systemName: "ellipsis")
-                                .foregroundColor(.black)
-                            
-                        })
-                        
-                    }
-                    .padding(.vertical, screenHeight / 160)
-                    .padding(.horizontal, screenWidth / 15)
-                }
-//                }.fullScreenCover(isPresented: $firestoreQuery.isPresented){
-//                    CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight)
+//            ForEach(firestoreQuery.featuredArt){ artwork in
 //
+//
+//                Button(action: {
+//                    firestoreQuery.isPresented.toggle()
+//                    firestoreQuery.data.isClicked = artwork.art_id
+//                }){
+//                    HStack {
+//
+//                        Text("\(artNumber)")
+//                            .font(.system(size: screenWidth / 15, weight: .medium))
+//                            .padding(.trailing, screenWidth / 50)
+//
+//
+//                            HStack {
+//
+//                                WebImage(url: URL(string: artwork.content_url))
+//                                    .resizable()
+//                                    .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+//
+//                                VStack(alignment: .leading) {
+//
+//                                    if(firestoreQuery.data.isClicked == artwork.art_id){
+//                                        Text(artwork.name)
+//                                            .foregroundColor(Color("Gallify-Pink"))
+//                                            .fontWeight(.bold)
+//                                            .font(.system(size: screenWidth / 20, weight: .medium))
+//                                            .lineLimit(1)
+//                                    }
+//                                    else{
+//                                        Text(artwork.name)
+//                                            .fontWeight(.bold)
+//                                            .font(.system(size: screenWidth / 20, weight: .medium))
+//                                            .foregroundColor(.black)
+//                                            .lineLimit(1)
+//                                    }
+//
+//
+//                                    Text("\(artwork.popularity)")
+//                                        .font(.system(size: screenWidth / 24, weight: .light))
+//                                        .foregroundColor(.black)
+//                                        .lineLimit(1)
+//
+//                                }
+//                                .padding(.leading, screenWidth / 37.5)
+//
+//                                Spacer()
+//
+//                            }
+//                            .buttonStyle(ThemeAnimationStyle())
+//                            .navigationBarHidden(true)
+//
+//                      //  })
+//
+//                        Button(action: {
+//
+//                        }, label: {
+//
+//                            Image(systemName: "ellipsis")
+//                                .foregroundColor(.black)
+//
+//                        })
+//
+//                    }
+//                    .padding(.vertical, screenHeight / 160)
+//                    .padding(.horizontal, screenWidth / 15)
 //                }
-
-            }
-            
-            
-            
+////                }.fullScreenCover(isPresented: $firestoreQuery.isPresented){
+////                    CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight)
+////
+////                }
+//
+//            }
             
             
             
             //updated sheet.
+            
             ForEach(firestoreQuery.featuredArt) { artwork in
                 
                 
@@ -218,13 +218,30 @@ struct SelfProfileFeatured: View {
                 
 
                 
-
+             //   self.makeView()
             }
             
             
             
             
-            
+            ZStack{
+                
+                //add minimized view to the tip of this. Hide if
+                
+                
+                if(firestoreQuery.showNewScreen){
+        
+                    CollectionReelView(screenWidth: viewModel.screenWidth, screenHeight: viewModel.screenHeight)
+                        .transition(.move(edge: .bottom))
+                        .animation(.spring())
+                        .edgesIgnoringSafeArea(.all)
+//                            .onTapGesture {
+//                                firestoreQuery.showNewScreen.toggle()
+//                            }
+                  
+                }
+            }
+            .zIndex(3.0)
             
 //            ZStack{
 //                if(showNewScreen){
@@ -248,34 +265,35 @@ struct SelfProfileFeatured: View {
 //                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
 //
         }
-        .padding(.vertical, screenHeight / 80)
+       // .padding(.vertical, screenHeight / 80)
         .navigationBarHidden(true)
         //.onAppear{ NetworkingCall() }
         
     }
     
+
+    
 }
 
-struct newscreen: View{
-    @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var firestoreQuery: FirestoreQuery
-    //@Binding var showNewScreen: Bool
-
-    var body: some View{
-        ZStack(alignment: .topLeading){
-            Color.purple
-                .edgesIgnoringSafeArea(.all)
-
-            Button(action: {
-                //presentationMode.wrappedValue.dismiss()
-                firestoreQuery.showNewScreen.toggle()
-            }, label: {
-                Text("bttt")
-            })
-        }
-    }
-
-}
+//struct newscreen: View{
+//    @Environment(\.presentationMode) var presentationMode
+//    @EnvironmentObject var firestoreQuery: FirestoreQuery
+//    //@Binding var showNewScreen: Bool
+//
+//    var body: some View{
+//        ZStack({
+//            Color.purple
+//                .edgesIgnoringSafeArea(.all)
+//
+//            Button(action: {
+//                firestoreQuery.showNewScreen.toggle()
+//            }, label: {
+//                Text("bttt")
+//            })
+//        }
+//    }
+//
+//}
 
 //struct newscreen: View{
 //    @Environment(\.presentationMode) var presentationMode
@@ -304,3 +322,4 @@ struct newscreen: View{
 //            .environmentObject(FirestoreQuery())
 //    }
 //}
+

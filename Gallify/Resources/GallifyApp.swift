@@ -22,13 +22,12 @@ struct GallifyLoginApp: App {
             
             let viewModel = LoginAppViewModel()
             
-            
             if (viewModel.isSignedIn){
-            
+
                 TabBarView()
                     .environmentObject(firestoreQuery)
                     .environmentObject(viewModel)
-                
+
             }
             else{
                 LoginView()

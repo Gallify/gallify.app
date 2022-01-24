@@ -230,6 +230,31 @@ extension FirestoreQuery {
         self.featuredArt = art_array
         
     }
+    
+//    func fetchFollowers(uid: String) async {
+//        let uid = (Auth.auth().currentUser?.uid)!
+//
+//        if uid != nil {
+//            do {
+//
+//                let doc = try! await FirestoreQuery.db.collection("users")
+//                    .document(uid).collection("profile").document("followers")
+//                    .getDocument().data(as: Followers.self)
+//
+//                guard let followerList = doc else {
+//                     throw DatabaseError.failed
+//                }
+//
+//                self.followers.followers = followerList.followers
+//                print("FOLLOWERS ARRAY = ", self.followers.followers)
+//            }
+//            catch{
+//                print("Error")
+//            }
+//        }
+//
+//    }
+  
   
     
     

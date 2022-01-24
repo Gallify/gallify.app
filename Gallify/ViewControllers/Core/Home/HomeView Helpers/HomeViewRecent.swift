@@ -20,10 +20,10 @@ struct HomeViewRecent: View {
                 
                 VStack() {
                     
-                    NavigationLink(destination: OtherProfileView(), label: {
-                        
-                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
-                    })
+//                    NavigationLink(destination: OtherProfileView(), label: {
+//
+//                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
+//                    })
                     
                     NavigationLink(destination: CollectionLikedView(screenWidth: screenWidth, screenHeight: screenHeight), label: {
                                         
@@ -59,10 +59,10 @@ struct HomeViewRecent: View {
                 .padding(.leading, screenWidth / 25)
                                         
                 
-                NavigationLink(destination: OtherProfileView(), label: {
-                    
-                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
-                })
+//                NavigationLink(destination: OtherProfileView(), label: {
+//
+//                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
+//                })
                     
                     
                     

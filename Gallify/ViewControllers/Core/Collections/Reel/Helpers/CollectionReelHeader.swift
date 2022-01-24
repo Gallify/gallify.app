@@ -42,6 +42,8 @@ struct CollectionReelHeader: View {
             Button{
                // firestoreQuery.isPresented.toggle()
                 firestoreQuery.showNewScreen.toggle()
+                firestoreQuery.artPlaying = true
+                
                // firestoreQuery.sheetMode = .hide
                 
             }
@@ -58,11 +60,11 @@ struct CollectionReelHeader: View {
                     firestoreQuery.showNewScreen.toggle()
                 }
             
-//                .onTapGesture{
-//                    
-//               //     presentationMode.wrappedValue.dismiss()
-//                   
-//            }
+                .onTapGesture{
+                    
+                    presentationMode.wrappedValue.dismiss()
+                   
+            }
             
             
             

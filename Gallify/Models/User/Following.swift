@@ -4,7 +4,6 @@
 //
 //  Created by Tejvir Mann on 1/1/22.
 //
-
 import Foundation
 import Swift
 import FirebaseFirestore
@@ -16,19 +15,22 @@ class Following: Encodable, Decodable, ObservableObject {
         case following
     }
     
-    @Published var following: [[String]]
+    @Published var following: [String]
 
     
     init() {
 
-        following = [[String]]()
+        following = [String]()
 
     }
 
+    init(arr: [String]) {
+        following = arr
+    }
     required init(from decoder: Decoder) throws {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        following = try container.decode([[String]].self, forKey: .following)
+        following = try container.decode([String].self, forKey: .following)
        
 
 
@@ -42,4 +44,3 @@ class Following: Encodable, Decodable, ObservableObject {
       
     }
 }
-
