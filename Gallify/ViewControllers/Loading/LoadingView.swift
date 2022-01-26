@@ -15,6 +15,7 @@ struct LoadingView: View {
     let screenHeight: CGFloat
     let screenWidth: CGFloat
     @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @Binding var isLoading : Bool
     
     
     var body: some View {
@@ -26,14 +27,23 @@ struct LoadingView: View {
             
             
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
       //  .onAppear{ async{ await NetworkingCall() }}
         
     }
     
   @MainActor
     func NetworkingCall() async {
+            isLoading = true
 
-            await firestoreQuery.getUser_await()
+            //await firestoreQuery.getUser_await()
+            await firestoreQuery.fetchData()
+            firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
+        
+            await firestoreQuery.fetchArt()
+            
+            isLoading = false
 
     }
     

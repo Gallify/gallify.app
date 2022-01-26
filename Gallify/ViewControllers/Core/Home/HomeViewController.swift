@@ -182,9 +182,12 @@ struct HomeView : View {
                     
                 }
                 .environmentObject(firestoreQuery)
+                .navigationBarTitle("")
                 .navigationBarHidden(true)
                 .onAppear{ async{ await NetworkingCall() }}
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
         
             
     }

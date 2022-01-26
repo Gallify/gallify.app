@@ -138,14 +138,14 @@ class LoginAppViewModel: ObservableObject {
                             userMuseumRef.updateData(["museums" : FieldValue.arrayUnion([docRef.documentID])])
                         }
                         
-                        //update Library in users doc with 5 playlists (Liked, featured, owned, created, reviewed)
+                    //update Library in users doc with 5 playlists (Liked, featured, owned, created, reviewed)
                         let libraryPlaylistNames = ["Liked", "Featured", "Owned", "Created", "Reviewed"]
                         for i in 0...4 {
-                            let playlist = Playlist()
-                            playlist.name = libraryPlaylistNames[i]
-                            let playlistRef = try db.collection("playlists").document()
-                            try playlistRef.setData(from: Playlist())
-                            userDocRef.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])])
+                          let playlist = Playlist()
+                          playlist.name = libraryPlaylistNames[i]
+                          let playlistRef = try db.collection("playlists").document()
+                          try playlistRef.setData(from: playlist)
+                          userDocRef.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])])
                         }
         
                         
@@ -171,14 +171,17 @@ class LoginAppViewModel: ObservableObject {
 struct LoginView: View {
     
     @StateObject var viewModel = LoginAppViewModel()
-    @EnvironmentObject var firestoreQuery : FirestoreQuery
+   // @EnvironmentObject var firestoreQuery : FirestoreQuery
     
     var body: some View {
         
         NavigationView {
             
             if viewModel.isSignedIn || viewModel.newUserCreated {
-                TabBarView().environmentObject(firestoreQuery)
+                
+                TabBarView()
+                    .environmentObject(viewModel)
+                
             }
             
             else {

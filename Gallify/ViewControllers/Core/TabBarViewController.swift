@@ -17,14 +17,18 @@ class TabBarViewModel: UITabBarController, ObservableObject {
 
 struct TabBarView: View {
     
-    @StateObject var viewModel = TabBarViewModel()
+   // @StateObject var viewModel = TabBarViewModel()
     @State var selectedTabIndex = 0
     //@StateObject var firestoreQuery = FirestoreQuery() //object data created here.
-    @EnvironmentObject var firestoreQuery : FirestoreQuery
-    @EnvironmentObject var loginViewModel: LoginAppViewModel
+   //@EnvironmentObject var firestoreQuery : FirestoreQuery
+    //@EnvironmentObject var loginViewModel: LoginAppViewModel
+    
+    @StateObject var firestoreQuery = FirestoreQuery()
+    @StateObject var storageService = StorageService()
+    @StateObject var viewModel = TabBarViewModel()
     
     @State private var doneLoading = false
-    //@State var showNewScreen = false
+    @State var isLoading = false
     
     private let tabBarImageNames = ["house.fill", "magnifyingglass", "person.fill"]
     
@@ -41,8 +45,6 @@ struct TabBarView: View {
     var body: some View {
         
         
-        if(loginViewModel.isSignedIn){
-            
             ZStack{
                 
                // if(firestoreQuery.showNewScreen == false){
@@ -51,81 +53,91 @@ struct TabBarView: View {
 //                    UITabBar.appearance().isHidden = firestoreQuery.showNewScreen
 //                }) {
                 
-                        TabView{
-                            if(doneLoading){
+              //  if firestoreQuery.showNewScreen == false {
+                        NavigationView{
+                                TabView{
+                                    if(doneLoading){
+                                            
+                                            HomeView()
+                                          
+                                                .tabItem{
+                                                    Label("Home", systemImage: "house.fill" )
+                                                        
+                                                }
+                                                .environmentObject(firestoreQuery)
+                                                
                                     
-                                    HomeView()
-                                  
-                                        .tabItem{
-                                            Label("Home", systemImage: "house.fill" )
-                                        }
-                                        .environmentObject(firestoreQuery)
-                            
-                                    DiscoverMainView()
-                                        .tabItem{
-                                            Label("Discover", systemImage: "magnifyingglass" )
-                                        }
-                                        .environmentObject(firestoreQuery)
+                                            DiscoverMainView()
+                                                .tabItem{
+                                                    Label("Discover", systemImage: "magnifyingglass" )
+                                                }
+                                                .environmentObject(firestoreQuery)
 
-                                    SelfProfileView()
-                                        .tabItem{
-                                            Label("Profile", systemImage: "person.fill" )
-                                        }
+                                            SelfProfileView()
+                                                .tabItem{
+                                                    Label("Profile", systemImage: "person.fill" )
+                                                }
+                                                
+                                                .environmentObject(firestoreQuery)
+                                            
+                                            
                                         
-                                        .environmentObject(firestoreQuery)
+                                        
+                                    }
+                                    else{
+                                        LoadingView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth, isLoading: $isLoading)
+                                           
+                                    }
                                     
-                                    
-                                
-                                
-                            }
-                            else{
-                                LoadingView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth)
-                                   
-                            }
-                            
 
+                                }
+                                //.navigationBarTitle("")
+                               // .navigationBarHidden(true)
+                                .accentColor(Color.primary)
+                                .environmentObject(viewModel)
+                                .environmentObject(firestoreQuery)
+                                .onAppear{ async{await NetworkingCall() }}
                         }
-                        //.navigationBarTitle("")
-                       // .navigationBarHidden(true)
-                        .accentColor(Color("Gallify-Pinkish"))
-                        .environmentObject(viewModel)
-                        .environmentObject(firestoreQuery)
-                        .onAppear{ async{await NetworkingCall() }}
-                //}
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true)
                 
                 
                 
                 
-//                ZStack{
-//
-//                    //add minimized view to the tip of this. Hide if
-//                    
-//
-//                    if(firestoreQuery.showNewScreen){
-//
-//                        CollectionReelView(screenWidth: viewModel.screenWidth, screenHeight: viewModel.screenHeight)
-//                            .transition(.move(edge: .bottom))
-//                            .animation(.spring())
-//                            .edgesIgnoringSafeArea(.all)
-////                            .onTapGesture {
-////                                firestoreQuery.showNewScreen.toggle()
-////                            }
-//
-//                    }
-//                }
-//                .zIndex(3.0)
+                
+                ZStack{
+                    if(firestoreQuery.showNewScreen){
+                        //here
+                        //newscreen()
+                        
+                        
+                        CollectionReelView(screenWidth: viewModel.screenWidth, screenHeight: viewModel.screenHeight)
+                            .offset(y: 10 )
+                            //.padding(.top, 100)
+                            .transition(.move(edge: .bottom))
+                            //.animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
+                             .animation(.spring())
+                             .edgesIgnoringSafeArea(.all)
+                             .environmentObject(firestoreQuery)
+//                            .onTapGesture {
+//                                firestoreQuery.showNewScreen.toggle()
+//                            }
+
+                    }
+                    
+                    
+                    
+                    
+                    
+                      
+                }
+                .zIndex(3.0)
                 
                 
                 
                 
             }
-        }
 
-        else{
-            LoginView()
-                .environmentObject(viewModel)
-                .environmentObject(firestoreQuery)
-        }
         
     }
     

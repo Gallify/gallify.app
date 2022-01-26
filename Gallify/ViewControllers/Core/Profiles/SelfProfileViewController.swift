@@ -40,35 +40,38 @@ struct SelfProfileView : View {
                     .onAppear{ async{await NetworkingCall() }}
                         
                 }
+                .navigationBarTitle("")
                 .navigationBarHidden(true)
                 
             
             
             
-                ZStack{
-                    if(firestoreQuery.showNewScreen){
-                        //here
-                        //newscreen()
-                        CollectionReelView(screenWidth: viewModel.screenWidth, screenHeight: viewModel.screenHeight)
-                            //.offset(y: 100 )
-                            //.padding(.top, 100)
-                            .transition(.move(edge: .bottom))
-                            //.animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
-                             .animation(.spring())
-                             .edgesIgnoringSafeArea(.all)
-//                            .onTapGesture {
-//                                firestoreQuery.showNewScreen.toggle()
-//                            }
-
-                    }
-                    
-                      
-                }
-                .zIndex(3.0)
+//                ZStack{
+//                    if(firestoreQuery.showNewScreen){
+//                        //here
+//                        //newscreen()
+//                        CollectionReelView(screenWidth: viewModel.screenWidth, screenHeight: viewModel.screenHeight)
+//                            //.offset(y: 100 )
+//                            //.padding(.top, 100)
+//                            .transition(.move(edge: .bottom))
+//                            //.animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
+//                             .animation(.spring())
+//                             .edgesIgnoringSafeArea(.all)
+////                            .onTapGesture {
+////                                firestoreQuery.showNewScreen.toggle()
+////                            }
+//
+//                    }
+//                    
+//                      
+//                }
+//                .zIndex(3.0)
                 
             }
             
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
         
     }
     

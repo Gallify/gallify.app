@@ -4,7 +4,6 @@
 //
 //  Created by Gianluca Profio on 10/23/21.
 //
-
 import SwiftUI
 
 struct CollectionReelView: View {

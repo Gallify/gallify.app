@@ -88,6 +88,7 @@ struct DiscoverMainView: View {
                     }
                     
                 }
+                .navigationBarTitle("")
                 .navigationBarHidden(true)
         
 //dope dope
@@ -99,6 +100,7 @@ struct DiscoverMainView: View {
             }
             
         }
+        .navigationBarTitle("")
         .navigationBarHidden(true)
         
     }

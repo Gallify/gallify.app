@@ -8,28 +8,36 @@
 import SwiftUI
 
 struct CollectionGenericView: View {
+    
     let screenWidth: CGFloat
     let screenHeight: CGFloat
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
-        CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
         
         NavigationView {
-            VStack{
-                CollectionGenericHeader(screenWidth: screenWidth)
-                    .padding()
+            
+            VStack {
+                
+                CollectionGenericHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
+                
                 ScrollView (showsIndicators: false) {
+                    
                     CollectionGenericRow(screenWidth: screenWidth, screenHeight: screenHeight)
+                    
                 }
+                
                 Spacer()
+                
                 CollectionGenericFooter(screenWidth: screenWidth, screenHeight: screenHeight)
                 
             }
+            
         }
         .navigationBarHidden(true)
-        .navigationBarTitle("")
+        
     }
+    
 }
 
 struct CollectionGenericView_Previews: PreviewProvider {
