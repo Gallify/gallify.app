@@ -68,7 +68,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - bea90997e9b5721f"
+                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - bea90997e9b572d9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -78,12 +78,12 @@
                   urlString = "file:///Users/tejvirmann/Documents/gallify-repo/merge/anshul6/gallify.app/Gallify/Services/get.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
                   offsetFromSymbolStart = "100">
                </Location>
                <Location
-                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - 3e3afa5015f06ae5"
+                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - 3e3afa5015f06a23"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -93,12 +93,12 @@
                   urlString = "file:///Users/tejvirmann/Documents/gallify-repo/merge/anshul6/gallify.app/Gallify/Services/get.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
                   offsetFromSymbolStart = "36">
                </Location>
                <Location
-                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - c9b53a0e63a47741"
+                  uuid = "D9863EB1-BA4F-4603-B82E-D73D8A6978DB - c9b53a0e63a47787"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -108,8 +108,8 @@
                   urlString = "file:///Users/tejvirmann/Documents/gallify-repo/merge/anshul6/gallify.app/Gallify/Services/get.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
                   offsetFromSymbolStart = "52">
                </Location>
             </Locations>

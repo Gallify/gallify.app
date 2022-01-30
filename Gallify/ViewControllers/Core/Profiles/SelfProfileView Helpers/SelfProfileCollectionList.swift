@@ -53,7 +53,7 @@ struct SelfProfileCollectionList: View {
             .padding(.bottom, screenHeight / 160)
             .padding(.top, -screenHeight / 54)
             
-            ForEach(firestoreQuery.playlists){ playlist in
+            ForEach(firestoreQuery.userLibrary){ playlist in
                 
                 NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight),
                                label: {
