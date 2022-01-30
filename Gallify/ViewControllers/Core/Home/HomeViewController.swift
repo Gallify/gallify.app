@@ -11,8 +11,6 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
     
-    //called here
-    
 }
 
 struct HomeView : View {
@@ -20,27 +18,26 @@ struct HomeView : View {
     @EnvironmentObject var viewModel : TabBarViewModel
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     
-    
-    
-        var body: some View {
+    var body: some View {
             
-            let screenHeight = viewModel.screenHeight
-            let screenWidth = viewModel.screenWidth
-            let heightPad = screenHeight / 54
-            let widthPad = screenWidth / 25
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
+        let heightPad = screenHeight / 54
+        let widthPad = screenWidth / 25
             
 //            if isLoading {
 //                LoadingView()
 //            }
             
-            NavigationView {
-                VStack {
+        NavigationView {
+            
+            VStack {
                     
-                    HomeViewHeader(screenHeight: screenHeight, screenWidth: screenWidth)
+                HomeViewHeader(screenHeight: screenHeight, screenWidth: screenWidth)
                     
-                    ScrollView(showsIndicators: false) {
+                ScrollView(showsIndicators: false) {
                         
-                        VStack {
+                    VStack {
                             
                            // HomeViewStories(screenHeight: screenHeight, screenWidth: screenWidth)
                             
@@ -56,7 +53,7 @@ struct HomeView : View {
 //
 //                            }
                             
-                            HStack {
+                        HStack {
 
 //                                Text("Good evening \(firestoreQuery.fullname)")  // \(firestoreQuery.museumlist.museums[1])
 //                                    .font(.system(size: screenWidth / 13.5, weight: .bold))
@@ -78,16 +75,16 @@ struct HomeView : View {
     //                                .font(.system(size: screenWidth / 13.5, weight: .bold))
     //                                .padding(.leading, widthPad)
     //
-                                Spacer()
+                            Spacer()
                                                     
-                            }
+                        }
                             
 //                            NavigationLink(destination: OtherProfileView(), label: {
 //
 //                                OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
 //                            })
                                                     
-                            HomeViewRecent(screenHeight: screenHeight, screenWidth: screenWidth)
+                        HomeViewRecent(screenHeight: screenHeight, screenWidth: screenWidth)
                         
     //Portfolio turned off for now.
     //                        HStack {
@@ -103,104 +100,99 @@ struct HomeView : View {
     //
     //                        HomeViewPortfolio(screenHeight: screenHeight, screenWidth: screenWidth)
                             
-                            HStack {
+                        HStack {
                                 
-                                Text("Auctions")
-                                    .font(.system(size: screenWidth / 13.5, weight: .bold))
-                                    .padding(.leading, widthPad)
+                            Text("Auctions")
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+                                .padding(.leading, widthPad)
                                 
-                                Button(action: {
+                            Button(action: {
                                     
                                     
                                     
-                                }, label: {
+                            }, label: {
                                     
-                                    Image(systemName: "greaterthan")
-                                        .resizable()
-                                        .foregroundColor(Color.black)
-                                        .frame(width: screenWidth / 15, height: screenHeight / 32.5)
-                                        .padding(.leading, widthPad / 2)
+                                Image(systemName: "greaterthan")
+                                    .resizable()
+                                    .foregroundColor(Color.black)
+                                    .frame(width: screenWidth / 15, height: screenHeight / 32.5)
+                                    .padding(.leading, widthPad / 2)
                                     
-                                })
+                            })
                                     
-                                Spacer()
+                            Spacer()
                                 
-                                Location(screenHeight: screenHeight, screenWidth: screenWidth)
-                                    .padding(.trailing, widthPad)
+                            Location(screenHeight: screenHeight, screenWidth: screenWidth)
+                                .padding(.trailing, widthPad)
                                 
-                            }
-                            .padding(.top, heightPad)
+                        }
+                        .padding(.top, heightPad)
                             
                             //HomeViewAuction(screenHeight: screenHeight, screenWidth: screenWidth)
                             HomeViewMadeForYou(screenHeight: screenHeight, screenWidth: screenWidth)
-                        }
-                        
-                        VStack {
-                            
-                            HStack {
-                                
-                                Text("Museums")
-                                    .font(.system(size: screenWidth / 13.5, weight: .bold))
-                                    .padding(.leading, widthPad)
-                                    .padding(.top, heightPad)
-                                
-                                Spacer()
-                                
-                            }
-                            
-                            HomeViewMuseums(screenHeight: screenHeight, screenWidth: screenWidth)
-                            
-                            HStack {
-                                
-                                Text("Discover")
-                                    .font(.system(size: screenWidth / 13.5, weight: .bold))
-                                    .padding(.leading, widthPad)
-                                    .padding(.top, heightPad)
-                                
-                                Spacer()
-                                
-                            }
-                            
-                            HomeViewDiscover(screenHeight: screenHeight, screenWidth: screenWidth)
-                            
-                            HStack {
-                                
-                                Text("Made for you")
-                                    .font(.system(size: screenWidth / 13.5, weight: .bold))
-                                    .padding(.leading, widthPad)
-                                    .padding(.top, heightPad)
-                                
-                                Spacer()
-                                
-                            }
-                            
-                            HomeViewMadeForYou(screenHeight: screenHeight, screenWidth: screenWidth)
-                                                    
-                        }
-                        
                     }
-                    
+                        
+                    VStack {
+                            
+                        HStack {
+                                
+                            Text("Museums")
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+                                .padding(.leading, widthPad)
+                                .padding(.top, heightPad)
+                                
+                            Spacer()
+                                
+                        }
+                            
+                        HomeViewMuseums(screenHeight: screenHeight, screenWidth: screenWidth)
+                            
+                        HStack {
+                                
+                            Text("Discover")
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+                                .padding(.leading, widthPad)
+                                .padding(.top, heightPad)
+                                
+                            Spacer()
+                                
+                        }
+                            
+                        HomeViewDiscover(screenHeight: screenHeight, screenWidth: screenWidth)
+                            
+                        HStack {
+                                
+                            Text("Made for you")
+                                .font(.system(size: screenWidth / 13.5, weight: .bold))
+                                .padding(.leading, widthPad)
+                                .padding(.top, heightPad)
+                                
+                            Spacer()
+                                
+                        }
+                            
+                        HomeViewMadeForYou(screenHeight: screenHeight, screenWidth: screenWidth)
+                                                    
+                    }
+                        
                 }
-                .environmentObject(firestoreQuery)
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
-                .onAppear{ async{ await NetworkingCall() }}
-        }
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
-        
+                    
+            }
+            .navigationBarHidden(true)
             
+        }
+        .navigationBarHidden(true)
+        .onAppear{ async{ await NetworkingCall() }}
+        
     }
    
     //@MainActor
-    func NetworkingCall() async{
+    func NetworkingCall() async {
+        
         //firestoreQuery.getUser()
        await firestoreQuery.getUser_await()
         
-        
-        
      //   print(data.featured)
-        
         
         print(firestoreQuery.data.featured)
         print("AFTER get data in home")
@@ -215,9 +207,7 @@ struct HomeView : View {
 
 // Remove preview after done coding home screen
 struct HomeScreenPreview: PreviewProvider {
-
     static var previews: some View {
         HomeView().environmentObject(TabBarViewModel())
-
     }
 }

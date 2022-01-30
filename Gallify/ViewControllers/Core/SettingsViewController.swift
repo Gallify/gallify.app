@@ -19,43 +19,45 @@ class SettingsViewController : ObservableObject {
 struct SettingsView : View {
     
     @EnvironmentObject var viewModel : LoginAppViewModel
-    @ObservedObject var firestoreQuery = FirestoreQuery()
-
+    @EnvironmentObject var tabBarViewModel: TabBarViewModel
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @State var pickedImage: UIImage?
     @State private var showActionSheet = false
     @State private var showImagePicker = false
     @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
     
-    @EnvironmentObject var settingsViewModel : SettingsViewController
-    
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    
-    
     private var metadata = StorageMetadata()
     
      var body: some View {
          
+         let screenWidth = viewModel.screenWidth
+         let screenHeight = viewModel.screenHeight
+         
          HStack {
              
-             CustomBackButton(buttonHeight: 25.45, buttonWidth: 15, image: Image(systemName: "chevron.left"), presentationMode: _presentationMode)
-                   .offset(x: 25)
-                   .font(Font.title.weight(.light))
-                   .navigationBarHidden(true)
+             CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
+                 .padding(.horizontal, screenWidth / 25)
+                 .padding(.vertical, screenHeight / 100)
              
              Spacer()
              
          }
          
         ScrollView {
+            
             VStack {
                 
-            Text("Settings")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(Color.black)
+                Text("Settings")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.black)
+                
                 VStack {
+                    
                     if pickedImage != nil {
+                        
                         Image(uiImage: pickedImage!)
                             .resizable()
                             .frame(width: 100,
@@ -63,19 +65,25 @@ struct SettingsView : View {
                             .padding(.top, 20)
                             .onTapGesture{
                                 self.showActionSheet = true
-                            }
-                    } else {
+                        }
+                        
+                    }
+                    
+                    else {
+                        
                         Image(systemName: "person.circle.fill")
-                                .resizable()
-                                .frame(width: 100,
+                            .resizable()
+                            .frame(width: 100,
                                        height: 100)
-                                .padding(.top, 20)
-                                .onTapGesture {
+                            .padding(.top, 20)
+                            .onTapGesture {
                                    self.showActionSheet = true
-                                }
+                         }
+                        
                     }
                 
-                }.actionSheet(isPresented: $showActionSheet){
+                }.actionSheet(isPresented: $showActionSheet) {
+                    
                     ActionSheet(title: Text("Add a picture "), message: nil, buttons: [
                         //Button1
                         
@@ -97,8 +105,9 @@ struct SettingsView : View {
                     imagePicker(image: self.$pickedImage, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
                 }
             
-                Button(action: {
-                    StorageService.saveProfileImage(uid: firestoreQuery.data.uid, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
+            Button(action: {
+                
+                StorageService.saveProfileImage(uid: firestoreQuery.data.uid, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
                 }, label: {
                     Text("Save")
                         .frame(width: 200, height: 50)
@@ -109,24 +118,23 @@ struct SettingsView : View {
                 
             Text("You are signed in")
                 
-                NavigationLink(destination:  LoginView()) {
-
-                    Button(action: {
-                        viewModel.signOut()
-                    }, label: {
-                        Text("Sign Out")
-                            .frame(width: 200, height: 50)
-                            .background(Color.green)
-                            .foregroundColor(Color.blue)
-                            .padding()
-                    })
-
-                }
-             
+                Button(action: {
+                    viewModel.signOut()
+                }, label: {
+                    Text("Sign Out")
+                        .frame(width: 200, height: 50)
+                        .background(Color.green)
+                        .foregroundColor(Color.blue)
+                        .padding()
+                })
+                
+            }
+            .navigationBarHidden(true)
+            
         }
+        .navigationBarHidden(true)
+         
     }
-}
-//.environmentObject(firestoreQuery)
     
 }
 

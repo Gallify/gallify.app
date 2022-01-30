@@ -8,49 +8,36 @@
 import SwiftUI
 
 struct CollectionRecentActivityHeader: View {
+    
     let screenWidth: CGFloat
+    let screenHeight: CGFloat
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
+        
         HStack {
-            HStack {
-                NavigationLink(
-                    destination: TabBarView(),
-                    label: {
-                        
-                        Image(systemName: "lessthan")
-                            .resizable()
-                            .foregroundColor(Color.black)
-                            .frame(width: screenWidth / 15, height: screenWidth / 15)
-                            .padding(.leading, screenWidth / 25)
-                        
-                    })
-                    .buttonStyle(ThemeAnimationStyle())
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
                 
-                Spacer()
-                                        
-                    Text("Recent Activity")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.black)
-                        .multilineTextAlignment(.center)
+            CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
+                .padding(.horizontal, screenWidth / 25)
+                .padding(.vertical, screenHeight / 100)
                 
-                Spacer()
+            Spacer()
                 
-                Text("")
-                .foregroundColor(Color.black)
-                .frame(width: screenWidth / 15, height: screenWidth / 15)
-                .padding(.leading, screenWidth / 25)
+            Text("Recent Activity")
+                .font(.system(size: screenWidth / 18, weight: .semibold))
+                .padding(.trailing, screenWidth / 7.5)
                 
-            }
+            Spacer()
+                
         }
+        
     }
+    
 }
 
 struct CollectionRecentActivityHeader_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionRecentActivityHeader(screenWidth: UIScreen.main.bounds.width)
+        CollectionRecentActivityHeader(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }
 

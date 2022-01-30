@@ -15,46 +15,42 @@ struct HomeViewHeader: View {
         
         HStack {
             
-            //height, width. //844, 390. iphone 12 pro
             Image("logo-full")
                 .resizable()
-                .frame(width: screenWidth/2.3, height: screenHeight/14)
-                .offset(x: 15)
+                .frame(width: screenWidth / 2.25, height: screenHeight / 14)
+                .offset(x: screenWidth / 25)
             
             Spacer()
             
             
-            NavigationLink (
-                            destination: CreateLandingView(screenWidth: screenWidth, screenHeight: screenHeight),
-                            label: {
-                                ZStack {
+            NavigationLink (destination: CreateLandingView(screenWidth: screenWidth, screenHeight: screenHeight),
+                label: {
+                
+                    ZStack {
                                     
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .foregroundColor(Color("Gallify-Pinkish"))
-                                        .padding(.all, screenWidth / 55)
-                                        .frame(width: screenWidth / 9, height: screenWidth / 9)
+                        RoundedRectangle(cornerRadius: screenWidth / 50)
+                            .foregroundColor(Color.pink)
+                            .padding(.horizontal, screenWidth / 55)
+                            .padding(.vertical, screenHeight / 120)
+                            .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                                     
-                                    Image(systemName: "plus")
-                                        .resizable()
-                                        .foregroundColor(Color.white)
-                                        .frame(width: screenWidth / 25, height: screenWidth / 25)
+                        Image(systemName: "plus")
+                            .resizable()
+                            .foregroundColor(Color.white)
+                            .frame(width: screenWidth / 25, height: screenHeight / 54)
                                         
-                                    
-                                }
-                                .padding(.trailing, screenWidth / 37.5)
-                            })
-                            .buttonStyle(ThemeAnimationStyle())
-                            .navigationBarBackButtonHidden(true)
-                            .navigationBarTitle("")
-                            .navigationBarHidden(true)
+                    }
+                
+            })
+            .buttonStyle(ThemeAnimationStyle())
+            .navigationBarHidden(true)
+            .padding(.trailing, screenWidth / 37.5)
             
         }
-        .padding(.bottom, -screenHeight / 240) //270
-        //.padding(.top, screenHeight / 178) //68
-        
-       // Divider()
+        .padding(.top, screenHeight / 80)
         
     }
+    
 }
 
 struct HomeViewHeader_Previews: PreviewProvider {

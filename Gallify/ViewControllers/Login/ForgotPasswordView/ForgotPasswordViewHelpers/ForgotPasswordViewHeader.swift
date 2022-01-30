@@ -18,7 +18,7 @@ struct ForgotPasswordViewHeader: View {
             
             HStack {
                 
-                CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
+                CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
                     .padding(.horizontal, screenWidth / 25)
                     .padding(.vertical, screenHeight / 100)
                 
@@ -27,18 +27,17 @@ struct ForgotPasswordViewHeader: View {
             }
             
             HStack {
-                    
+                        
                 Text("Forgot My Password")
-                    .font(.system(size: screenWidth / 11, weight: .semibold))
-                    
+                    .font(.system(size: screenWidth / 12.5, weight: .semibold))
+                        
                 Spacer()
-                    
+                        
             }
             .padding(.leading, screenWidth / 12)
             .padding(.bottom, screenHeight / 32.5)
             
         }
-        .padding(.top, screenHeight / 160)
             
     }
     

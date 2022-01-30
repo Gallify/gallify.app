@@ -17,34 +17,26 @@ struct SelfProfileView : View {
     @EnvironmentObject var firestoreQuery: FirestoreQuery
     
     var body: some View {
-        NavigationView{
         
-            ZStack{
-        
-            
-                VStack {
-                        
-                    SelfProfileViewHeader()
-                        
-                    ScrollView(showsIndicators: false) {
-                            
-                        SelfProfileViewDetails()
-                        
-                        SelfProfileFeatured()
-                            
-                        SelfProfileCollectionList()
-                                            
-                    }
-                    .environmentObject(firestoreQuery)
-                    .navigationBarHidden(true)
-                    .onAppear{ async{await NetworkingCall() }}
-                        
-                }
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
+        NavigationView {
                 
-            
-            
+            VStack {
+                        
+                SelfProfileViewHeader()
+                    
+                ScrollView(showsIndicators: false) {
+                            
+                    SelfProfileViewDetails()
+                        
+                    SelfProfileFeatured()
+                            
+                    SelfProfileCollectionList()
+                                            
+                }
+                .navigationBarHidden(true)
+                        
+            }
+            .navigationBarHidden(true)
             
 //                ZStack{
 //                    if(firestoreQuery.showNewScreen){
@@ -66,20 +58,18 @@ struct SelfProfileView : View {
 //                      
 //                }
 //                .zIndex(3.0)
-                
-            }
             
         }
-        .navigationBarTitle("")
         .navigationBarHidden(true)
+        .onAppear{ async{await NetworkingCall() }}
         
     }
     
-    func NetworkingCall() async{
+    func NetworkingCall() async {
         
         await firestoreQuery.fetchData()
                     
-       // await firestoreQuery.loaditems_selfprofile()
+        //await firestoreQuery.loaditems_selfprofile()
         
         firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
         
@@ -89,7 +79,6 @@ struct SelfProfileView : View {
         await firestoreQuery.fetchArt()
        
         print(firestoreQuery.featuredArt)
-        
         
     }
     

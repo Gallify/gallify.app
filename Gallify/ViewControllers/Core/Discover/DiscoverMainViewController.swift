@@ -70,7 +70,6 @@ struct DiscoverMainView: View {
                             
                             DiscoverViewRecentSearch()
                             
-                            
                         }
                         
                         else {
@@ -88,19 +87,12 @@ struct DiscoverMainView: View {
                     }
                     
                 }
-                .navigationBarTitle("")
                 .navigationBarHidden(true)
-        
-//dope dope
-                NavigationLink(destination: OtherProfileView(), label: {
-
-                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
-                })
                 
             }
+            .navigationBarHidden(true)
             
         }
-        .navigationBarTitle("")
         .navigationBarHidden(true)
         
     }

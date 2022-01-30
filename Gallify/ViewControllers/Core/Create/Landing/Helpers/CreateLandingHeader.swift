@@ -17,9 +17,9 @@ struct CreateLandingHeader: View {
         
         HStack {
             
-            CustomBackButton(buttonHeight: 25.45, buttonWidth: 15, image: Image(systemName: "chevron.left"), presentationMode: _presentationMode)
-                  .offset(x: 25)
-                  .font(Font.title.weight(.light))
+            CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
+                .padding(.horizontal, screenWidth / 25)
+                .padding(.vertical, screenHeight / 100)
             
             Spacer()
             

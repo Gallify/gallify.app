@@ -17,12 +17,6 @@ class TabBarViewModel: UITabBarController, ObservableObject {
 
 struct TabBarView: View {
     
-   // @StateObject var viewModel = TabBarViewModel()
-    @State var selectedTabIndex = 0
-    //@StateObject var firestoreQuery = FirestoreQuery() //object data created here.
-   //@EnvironmentObject var firestoreQuery : FirestoreQuery
-    //@EnvironmentObject var loginViewModel: LoginAppViewModel
-    
     @StateObject var firestoreQuery = FirestoreQuery()
     @StateObject var storageService = StorageService()
     @StateObject var viewModel = TabBarViewModel()
@@ -30,121 +24,90 @@ struct TabBarView: View {
     @State private var doneLoading = false
     @State var isLoading = false
     
-    private let tabBarImageNames = ["house.fill", "magnifyingglass", "person.fill"]
-    
-
     init() {
+        
         UITabBar.appearance().backgroundColor = UIColor.white
-       // let valure = firestoreQuery.showNewScreen
-       // UITabBar.appearance().isHidden = valure
+        //let valure = firestoreQuery.showNewScreen
+        //UITabBar.appearance().isHidden = valure
         
     }
     
-
-    
     var body: some View {
         
-        
-            ZStack{
+        ZStack {
                 
-               // if(firestoreQuery.showNewScreen == false){
+            //if(firestoreQuery.showNewScreen == false) {
                         
-//                Button(action:{
-//                    UITabBar.appearance().isHidden = firestoreQuery.showNewScreen
-//                }) {
+                //Button(action:{
+                    //UITabBar.appearance().isHidden = firestoreQuery.showNewScreen
+                //}) {
                 
-              //  if firestoreQuery.showNewScreen == false {
-                        NavigationView{
-                                TabView{
-                                    if(doneLoading){
-                                            
-                                            HomeView()
-                                          
-                                                .tabItem{
-                                                    Label("Home", systemImage: "house.fill" )
-                                                        
-                                                }
-                                                .environmentObject(firestoreQuery)
-                                                
-                                    
-                                            DiscoverMainView()
-                                                .tabItem{
-                                                    Label("Discover", systemImage: "magnifyingglass" )
-                                                }
-                                                .environmentObject(firestoreQuery)
-
-                                            SelfProfileView()
-                                                .tabItem{
-                                                    Label("Profile", systemImage: "person.fill" )
-                                                }
-                                                
-                                                .environmentObject(firestoreQuery)
-                                            
-                                            
-                                        
-                                        
-                                    }
-                                    else{
-                                        LoadingView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth, isLoading: $isLoading)
-                                           
-                                    }
-                                    
-
-                                }
-                                //.navigationBarTitle("")
-                               // .navigationBarHidden(true)
-                                .accentColor(Color.primary)
-                                .environmentObject(viewModel)
-                                .environmentObject(firestoreQuery)
-                                .onAppear{ async{await NetworkingCall() }}
-                        }
-                        .navigationBarTitle("")
-                        .navigationBarHidden(true)
-                
-                
-                
-                
-                
-                ZStack{
-                    if(firestoreQuery.showNewScreen){
-                        //here
-                        //newscreen()
+            //if firestoreQuery.showNewScreen == false {
+            
+            TabView {
+                    
+                HomeView()
+                    .tabItem {
+                            
+                        Label("Home", systemImage: "house.fill")
+                            .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
                         
-                        
-                        CollectionReelView(screenWidth: viewModel.screenWidth, screenHeight: viewModel.screenHeight)
-                            .offset(y: 10 )
-                            //.padding(.top, 100)
-                            .transition(.move(edge: .bottom))
-                            //.animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
-                             .animation(.spring())
-                             .edgesIgnoringSafeArea(.all)
-                             .environmentObject(firestoreQuery)
-//                            .onTapGesture {
-//                                firestoreQuery.showNewScreen.toggle()
-//                            }
-
-                    }
-                    
-                    
-                    
-                    
-                    
-                      
                 }
-                .zIndex(3.0)
-                
-                
-                
-                
+                    
+                DiscoverMainView()
+                    .tabItem {
+                            
+                        Label("Discover", systemImage: "magnifyingglass")
+                            .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
+                            
+                }
+                    
+                SelfProfileView()
+                    .tabItem {
+                            
+                        Label("Profile", systemImage: "person.fill")
+                            .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
+                            
+                }
+                    
             }
+            .accentColor(Color.black)
+            .environmentObject(viewModel)
+            .environmentObject(firestoreQuery)
+            .environmentObject(storageService)
+                
+            ZStack {
+                
+                if firestoreQuery.showNewScreen {
+                    
+                    //here
+                    //newscreen()
+                        
+                    CollectionReelView(screenWidth: viewModel.screenWidth, screenHeight: viewModel.screenHeight)
+                        .offset(y: 10 )
+                        //.padding(.top, 100)
+                        .transition(.move(edge: .bottom))
+                        //.animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
+                        .animation(.spring())
+                        .edgesIgnoringSafeArea(.all)
+                        .environmentObject(firestoreQuery)
+                        //.onTapGesture {
+                            //firestoreQuery.showNewScreen.toggle()
+                        //}
 
+                }
+                      
+            }
+            .zIndex(3.0)
+                
+        }
         
     }
     
     /*
      This method turns off the loadingView screen once basic data is recieved.
      */
-    func NetworkingCall() async{
+    func NetworkingCall() async {
         
         UITabBar.appearance().isHidden = firestoreQuery.showNewScreen
         
@@ -158,25 +121,10 @@ struct TabBarView: View {
         
     }
     
-    
-    
-    
 }
-    
-
-    
 
 struct TabBarPreview: PreviewProvider {
     static var previews: some View {
         TabBarView()
     }
 }
-
-
-
-
-    
-    
-
-
-

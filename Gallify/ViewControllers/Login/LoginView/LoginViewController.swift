@@ -147,19 +147,18 @@ class LoginAppViewModel: ObservableObject {
                           try playlistRef.setData(from: playlist)
                           userDocRef.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])])
                         }
-        
                         
                     } catch let error {
                         print("Error writing user to Firestore: \(error)")
                     }
+                
                 }
                 
                 DispatchQueue.main.async {
                     self.newUserCreated = true
                 }
+        
         }
-    
-    
     
     func signOut() {
         try? auth.signOut()
@@ -168,43 +167,43 @@ class LoginAppViewModel: ObservableObject {
     }
     
 }
+
 struct LoginView: View {
     
     @StateObject var viewModel = LoginAppViewModel()
-   // @EnvironmentObject var firestoreQuery : FirestoreQuery
     
     var body: some View {
         
-        NavigationView {
+        if viewModel.isSignedIn || viewModel.newUserCreated {
             
-            if viewModel.isSignedIn || viewModel.newUserCreated {
-                
-                TabBarView()
-                    .environmentObject(viewModel)
-                
-            }
+            TabBarView()
+                .environmentObject(viewModel)
             
-            else {
-                
+        }
+            
+        else {
+            
+            NavigationView {
+                    
                 let screenHeight = viewModel.screenHeight
                 let screenWidth = viewModel.screenWidth
-                
+                    
                 VStack {
-                
+                    
                     LoginViewLogoAndSubtext(screenHeight: screenHeight, screenWidth: screenWidth)
-                    
-                    Spacer()
                         
+                    Spacer()
+                            
                     LoginViewNavLinks()
-                    
+                        
                 }
                 
-            }
+             }
+            .navigationBarHidden(true)
+            .environmentObject(viewModel)
             
-         }
-        .navigationBarHidden(true)
-        .environmentObject(viewModel)
-       
+        }
+        
     }
     
 }

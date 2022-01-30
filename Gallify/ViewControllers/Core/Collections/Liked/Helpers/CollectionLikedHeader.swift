@@ -8,39 +8,31 @@
 import SwiftUI
 
 struct CollectionLikedHeader: View {
+    
     let screenWidth: CGFloat
     let screenHeight: CGFloat
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    
     var body: some View {
-        
-        ZStack{
             
-            HStack{
+        HStack {
                 
-                Spacer()
-                                        
-                    Text("Liked")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.black)
-                        .multilineTextAlignment(.center)
+            CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
+                .padding(.horizontal, screenWidth / 25)
+                .padding(.vertical, screenHeight / 100)
                 
-                Spacer()
+            Spacer()
                 
+            Text("Liked")
+                .font(.system(size: screenWidth / 18, weight: .semibold))
+                .padding(.trailing, screenWidth / 7.5)
                 
-            }
-            
-            HStack{
-                CustomBackButton(buttonHeight: 25.45, buttonWidth: 15, image: Image(systemName: "chevron.left"), presentationMode: _presentationMode)
-                      .offset(x: 15)
-                      .font(Font.title.weight(.light))
+            Spacer()
                 
-                Spacer()
-            }
         }
+        
     }
+    
 }
 
 struct CollectionLikedHeader_Previews: PreviewProvider {

@@ -18,7 +18,7 @@ struct DiscoverSearch: View {
         
         VStack {
             
-            NavigationLink(destination: OtherProfileView(), label: {
+            NavigationLink(destination: OtherProfileViewVerified(), label: {
                     
                 HStack {
                         
@@ -34,7 +34,7 @@ struct DiscoverSearch: View {
                     
             })
             
-            NavigationLink(destination: OtherProfileView(), label: {
+            NavigationLink(destination: OtherProfileViewVerified(), label: {
                     
                 HStack {
                         
@@ -50,7 +50,7 @@ struct DiscoverSearch: View {
                     
             })
             
-            NavigationLink(destination: OtherProfileView(), label: {
+            NavigationLink(destination: OtherProfileViewVerified(), label: {
                     
                 HStack {
                         
@@ -66,7 +66,7 @@ struct DiscoverSearch: View {
                     
             })
             
-            NavigationLink(destination: OtherProfileView(), label: {
+            NavigationLink(destination: OtherProfileViewVerified(), label: {
                     
                 HStack {
                         
@@ -82,7 +82,7 @@ struct DiscoverSearch: View {
                     
             })
             
-            NavigationLink(destination: OtherProfileView(), label: {
+            NavigationLink(destination: OtherProfileViewVerified(), label: {
                     
                 HStack {
                         

@@ -18,7 +18,7 @@ struct CreateAccountViewHeader: View {
             
             HStack {
                 
-                CustomBackButton(buttonHeight: screenHeight / 39, buttonWidth: screenWidth / 18, image: Image(systemName: "lessthan"), presentationMode: _presentationMode)
+                CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
                     .padding(.horizontal, screenWidth / 25)
                     .padding(.vertical, screenHeight / 100)
                 
@@ -29,7 +29,7 @@ struct CreateAccountViewHeader: View {
             HStack {
                         
                 Text("Create Account")
-                    .font(.system(size: screenWidth / 11, weight: .semibold))
+                    .font(.system(size: screenWidth / 12.5, weight: .semibold))
                         
                 Spacer()
                         
@@ -38,7 +38,6 @@ struct CreateAccountViewHeader: View {
             .padding(.bottom, screenHeight / 32.5)
             
         }
-        .padding(.top, screenHeight / 160)
             
     }
     
