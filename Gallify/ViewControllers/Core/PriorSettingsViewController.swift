@@ -16,7 +16,7 @@ class SettingsViewController : ObservableObject {
     
 }
 
-struct SettingsView : View {
+struct OldSettingsView : View {
     
     @EnvironmentObject var viewModel : LoginAppViewModel
     @EnvironmentObject var tabBarViewModel: TabBarViewModel
@@ -140,7 +140,7 @@ struct SettingsView : View {
 
 struct SettingViewController: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        OldSettingsView()
             .environmentObject(LoginAppViewModel())
             .environmentObject(SettingsViewController())
         

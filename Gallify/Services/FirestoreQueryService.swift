@@ -9,6 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
+@MainActor
 class FirestoreQuery : ObservableObject {
     
     /*
@@ -23,8 +24,7 @@ class FirestoreQuery : ObservableObject {
      */
     
     
-    
-    //new sheet
+    //for drop down reeels
     @Published var maximized = false
     @Published var minimized = false
     @Published var isClosed = false
@@ -32,34 +32,57 @@ class FirestoreQuery : ObservableObject {
     @Published var showNewScreen = false
     @Published var artPlaying = false
     
+    //action menus. 
+    @Published var showPlaylistOptions = false
+    @Published var showArtOptions = false
+    @Published var showFeaturedOptions = false
+    
+    
     @Published var isPresented = false //for drop down reels. To know when to present. Not firestore related at all.
     
-    @Published var data : User = User() //struct version of user model.
-    @Published var art: Art = Art()
-    @Published var playlist: Playlist = Playlist()
+    //tabbar
+    @Published var data : User = User()
+    
+    //self profile
+    @Published var userLibrary: [Playlist] = [Playlist]()
     @Published var featuredPlaylist: Playlist = Playlist()
     @Published var featuredArt: [Art] = [Art]()
-    @Published var playlists: [Playlist] = [Playlist]()
-    @Published var museumlist: MuseumList = MuseumList()
-    @Published var data_old : User = User() //how we did it.
-    
-    @Published var isFollowing : Bool = false
     @Published var followers = Followers()
     @Published var following = Following()
+    @Published var isFollowing : Bool = false
     
+    //other profile
+    @Published var otherUserData : User = User()
+    @Published var otherLibrary: [Playlist] = [Playlist]()
+    @Published var otherFeaturedPlaylist: Playlist = Playlist()
+    @Published var otherFeaturedArt: [Art] = [Art]()
+    
+    //home
+    @Published var museumlist: MuseumList = MuseumList()
+    
+    //discover
+    
+    
+    //settings
+    
+    
+    //list
+    @Published var playlist: Playlist = Playlist()
+    @Published var playlistArt: [Art] = [Art]()
+    @Published var art: Art = Art()
+    
+    
+    //basic
     static let db = Firestore.firestore()
     static let userEmail = Auth.auth().currentUser?.email
     
-//    init(){
-//        //getUser()
-//        if(data.uid == ""){
-//            getUser()
-//        }
-//        getFeaturedPlaylist(a: data.featured) //now have artids
-//        print("Featured playlist name")
-//        print(featuredPlaylist.name)
-//        getFeaturedPlaylistArt(art_ids: featuredPlaylist.art)
-//    }
+    enum DatabaseError: String, Error{
+        case failed = "failed"
+    }
+
+    
+    
+    
     
     /*
      Get User information
@@ -106,7 +129,7 @@ class FirestoreQuery : ObservableObject {
                // A `User` value was successfully initialized from the DocumentSnapshot
                //set data to user in the main thread since call is completed in background
                DispatchQueue.main.async {
-                 self.data_old = user
+                 self.data = user
                }
              } else {
                // A nil value was successfully initialized from the DocumentSnapshot,
@@ -327,7 +350,7 @@ class FirestoreQuery : ObservableObject {
      This method needs to be checked.
      */
     func getLibrary(library_ids: [String]) {
-        self.playlists.removeAll()
+        self.userLibrary.removeAll()
         for library_id in library_ids {
             FirestoreQuery.db.collection("playlists").document(library_id) //If user can't get email, we need alternate fix.
                 .addSnapshotListener { queryDocumentSnapshot, error in
@@ -336,7 +359,7 @@ class FirestoreQuery : ObservableObject {
                             //update list in main thread.
                             DispatchQueue.main.async{
                                 //set retrieved document to @published data object
-                                self.playlists.append(try! document.data(as: Playlist.self)!) //this is forceful, and assumes this will always work...
+                                self.userLibrary.append(try! document.data(as: Playlist.self)!) //this is forceful, and assumes this will always work...
                             }
                             
                         }

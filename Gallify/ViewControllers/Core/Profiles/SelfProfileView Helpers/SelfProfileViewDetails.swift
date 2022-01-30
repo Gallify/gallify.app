@@ -33,10 +33,11 @@ struct SelfProfileViewDetails: View {
                 
             HStack {
                 
-                if photoUrl == "" {
+                if firestoreQuery.data.profileUrl == "" {
                     CircleImage(image: Image(systemName: "person.circle.fill"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
-                } else {
-                WebImage(url: URL(string: firestoreQuery.data.profileImageUrl))
+                }
+                else {
+                    WebImage(url: URL(string: firestoreQuery.data.profileUrl))
                        // Supports options and context, like `.delayPlaceholder` to show placeholder only when error
                        .onSuccess { image, data, cacheType in
                            // Success
@@ -45,9 +46,9 @@ struct SelfProfileViewDetails: View {
                        .resizable() // Resizable like SwiftUI.Image, you must use this modifier or the view will use the image bitmap size
                        .placeholder(Image(systemName: "photo")) // Placeholder Image
                        // Supports ViewBuilder as well
-                       .placeholder {
-                           Circle().foregroundColor(.gray)
-                       }
+//                       .placeholder {
+//                           Circle().foregroundColor(.gray)
+//                       }
                        .indicator(.activity) // Activity Indicator
                        .transition(.fade(duration: 0.5)) // Fade Transition with duration
                        .scaledToFit()
@@ -55,6 +56,7 @@ struct SelfProfileViewDetails: View {
                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                        .overlay(Circle().stroke(.white, lineWidth: 4))
                 }
+                
                 
                 VStack {
                         
@@ -97,7 +99,7 @@ struct SelfProfileViewDetails: View {
             
             HStack {
                 
-                Text("Jack Brown")
+                Text(firestoreQuery.data.firstName + " " + firestoreQuery.data.lastName)
                     .font(.system(size: screenWidth / 23.5, weight: .semibold))
                 
                 /*Text("\(firestoreQuery.data.fullName)")
@@ -111,7 +113,7 @@ struct SelfProfileViewDetails: View {
             
             HStack {
                 
-                Text("Hello, I am using Gallify!")
+                Text(firestoreQuery.data.connectionsUrl)
                     .font(.system(size: screenWidth / 23.5, weight: .light))
                 
                 /*Text("\(firestoreQuery.data.userBio)")
@@ -125,6 +127,9 @@ struct SelfProfileViewDetails: View {
             
         }
         .padding(.top, screenHeight / 120)
+        .padding(.bottom, 10)
+        
+        Spacer()
                 
     }
                 

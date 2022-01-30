@@ -9,6 +9,7 @@ import SwiftUI
 struct DiscoverMainView: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
     @State var searchText = ""
     @State var showCancelButton = false
     
@@ -88,6 +89,22 @@ struct DiscoverMainView: View {
                     
                 }
                 .navigationBarHidden(true)
+                
+                
+                //this is the minimized view of the reel. 
+                if(firestoreQuery.showNewScreen == false){
+                    if(firestoreQuery.artPlaying == true){
+                        if(showCancelButton == false){
+                            NavigationLink(destination: OtherProfileView(), label: {
+
+                                MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
+                                
+//                                OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
+                            })
+                        }
+                    }
+                }
+                
                 
             }
             .navigationBarHidden(true)

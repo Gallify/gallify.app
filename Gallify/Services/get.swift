@@ -9,11 +9,9 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-@MainActor
 extension FirestoreQuery {
-    // new functionality to add to SomeType goes here
     
-    
+
     @MainActor
     @available(iOS 15.0.0, *)
     func loaditems_selfprofile(){
@@ -157,9 +155,7 @@ extension FirestoreQuery {
         return self.data
     }
     
-    enum DatabaseError: String, Error{
-        case failed = "failed"
-    }
+    
     
     func fetchData() async {
         let userEmail = Auth.auth().currentUser?.email
@@ -230,6 +226,45 @@ extension FirestoreQuery {
         self.featuredArt = art_array
         
     }
+    
+    func fetchPlaylistArt() async {
+        
+        if !(playlistArt.isEmpty){ //if featured playlist isnt empty, then return.
+            return
+        }
+       
+        //self.featuredArt.removeAll()
+        
+        var art_array = [Art]()
+        
+        for art_id in featuredPlaylist.art {
+            do {
+                let doc = try await FirestoreQuery.db.collection("art")
+                    .document(art_id)
+                    .getDocument().data(as: Art.self)
+                
+                guard let theArt = doc else{
+                    throw DatabaseError.failed
+                }
+                
+               // self.featuredArt.append(theArt)
+                //art_array.append(doc!)
+                art_array.append(theArt)
+                
+                //
+            }
+            catch{
+                print("Error")
+            }
+        }
+        
+        self.featuredArt = art_array
+        
+    }
+    
+    
+    
+    
     
 //    func fetchFollowers(uid: String) async {
 //        let uid = (Auth.auth().currentUser?.uid)!

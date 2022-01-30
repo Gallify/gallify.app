@@ -11,7 +11,7 @@ import SwiftUI
 struct ThemeAnimationStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
             .transition(.scale)
     }
 }

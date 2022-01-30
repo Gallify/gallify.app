@@ -12,7 +12,9 @@ struct CollectionGenericView: View {
     let screenWidth: CGFloat
     let screenHeight: CGFloat
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
 
+    
     var body: some View {
         
         NavigationView {
@@ -29,12 +31,21 @@ struct CollectionGenericView: View {
                 
                 Spacer()
                 
-                CollectionGenericFooter(screenWidth: screenWidth, screenHeight: screenHeight)
+             //   CollectionGenericFooter(screenWidth: screenWidth, screenHeight: screenHeight)
                 
             }
             
         }
         .navigationBarHidden(true)
+        .onAppear(perform: getCollection)
+        
+    }
+    
+    func getCollection(){
+        
+        //get playlist
+        
+        //get art
         
     }
     

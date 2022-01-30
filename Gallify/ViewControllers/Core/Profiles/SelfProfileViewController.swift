@@ -26,7 +26,12 @@ struct SelfProfileView : View {
                     
                 ScrollView(showsIndicators: false) {
                             
-                    SelfProfileViewDetails()
+                    if(firestoreQuery.data.skill != 0){
+                        SelfProfileViewVerifiedDetails()
+                    }
+                    else{
+                        SelfProfileViewDetails()
+                    }
                         
                     SelfProfileFeatured()
                             
@@ -67,6 +72,7 @@ struct SelfProfileView : View {
     
     func NetworkingCall() async {
         
+        //gets user data and featured playlist
         await firestoreQuery.fetchData()
                     
         //await firestoreQuery.loaditems_selfprofile()

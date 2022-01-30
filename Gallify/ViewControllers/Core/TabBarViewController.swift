@@ -44,37 +44,49 @@ struct TabBarView: View {
                 
             //if firestoreQuery.showNewScreen == false {
             
-            TabView {
-                    
-                HomeView()
-                    .tabItem {
-                            
-                        Label("Home", systemImage: "house.fill")
-                            .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
+            TabView{
+                if(doneLoading){
                         
-                }
+                    HomeView()
+                        .tabItem {
+                                
+                            Label("Home", systemImage: "house.fill")
+                                .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
+                            
+                    }
+                        
+                    DiscoverMainView()
+                        .tabItem {
+                                
+                            Label("Discover", systemImage: "magnifyingglass")
+                                .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
+                                
+                    }
+                        
+                    SelfProfileView()
+                        .tabItem {
+                                
+                            Label("Profile", systemImage: "person.fill")
+                                .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
+                                
+                    }
+                        
                     
-                DiscoverMainView()
-                    .tabItem {
-                            
-                        Label("Discover", systemImage: "magnifyingglass")
-                            .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
-                            
-                }
                     
-                SelfProfileView()
-                    .tabItem {
-                            
-                        Label("Profile", systemImage: "person.fill")
-                            .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
-                            
                 }
-                    
+                else{
+                    LoadingView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth, isLoading: $isLoading)
+                       
+                }
+                
+
             }
-            .accentColor(Color.black)
+            //.navigationBarTitle("")
+            // .navigationBarHidden(true)
+            .accentColor(Color.primary)
             .environmentObject(viewModel)
             .environmentObject(firestoreQuery)
-            .environmentObject(storageService)
+            .onAppear{ async{await NetworkingCall() }}
                 
             ZStack {
                 

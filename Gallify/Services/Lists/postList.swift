@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
+
+extension FirestoreQuery {
+    
+    
+}

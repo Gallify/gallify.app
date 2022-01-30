@@ -6,3 +6,25 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
+
+extension FirestoreQuery {
+    
+    /*
+     
+     */
+    func getRecentSearch(){
+        
+    }
+    
+    
+    /*
+     
+     */
+    func getDiscoverContent(){
+        
+    }
+    
+    
+}

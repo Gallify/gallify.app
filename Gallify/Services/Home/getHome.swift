@@ -6,3 +6,36 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
+
+extension FirestoreQuery {
+    
+    /*
+     
+     */
+    func getHome(){
+        
+    }
+    
+    /*
+     
+     */
+    func getMuseumList(){
+        
+    }
+    
+    /*
+     
+     */
+    func getMuseums(){
+        
+    }
+    
+    /*
+     
+     */
+    func getPlaylists(){
+    
+    }
+}

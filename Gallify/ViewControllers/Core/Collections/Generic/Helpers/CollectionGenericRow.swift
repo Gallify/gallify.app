@@ -6,142 +6,178 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+import FirebaseAuth
+import SDWebImageSwiftUI
+
 
 struct CollectionGenericRow: View {
     let screenWidth: CGFloat
     let screenHeight: CGFloat
-
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
     
-    
-    @State var showActionSheet: Bool = false
-    
-    var actionSheet: ActionSheet {
-        ActionSheet(title: Text("Add to a Collection"), message: Text("Your Collections:"), buttons: [
-            .default(Text("Collection 1")),
-            .default(Text("Collection 2")),
-            .destructive(Text("Cancel"))
-        ])
-    }
     
     
     
     var body: some View {
-        
-        HStack {
-            NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
-                label: {
-                    Image("logo")
+
+        VStack{
+            
+            HStack{
+                if firestoreQuery.featuredPlaylist.cover_art_url == "" {
+
+                }
+                else{
+                    WebImage(url: URL(string: firestoreQuery.featuredPlaylist.cover_art_url))
                         .resizable()
-                        .frame(width: screenWidth / 6, height: screenWidth / 6)
-                        .cornerRadius(15)
-                })
-                .buttonStyle(ThemeAnimationStyle())
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
-                .padding(.leading)
-            
-            
-            
-            
-            Spacer()
-            
-            
-            
-            VStack{
-                Text("[Collection_Name]")
-                    .fontWeight(.bold)
-                Text("Gallify")
+                        .frame(width: 200, height: 200)
+                        .padding(.top, 20)
+                        .padding(.bottom, 20)
+                        
+                }
             }
-            .padding()
-            
-            Spacer()
             
             
-            Button(action: {self.showActionSheet.toggle()
-            }) {
-                Image(systemName: "ellipsis.circle")
-                    .font(.system(size: 30))
-                    .foregroundColor(.black)
+            
+            
+
+        
+        
+            ForEach(firestoreQuery.featuredArt) { artwork in
+                
+                Button(action: {
+                   
+                    firestoreQuery.data.isClicked = artwork.art_id
+                    firestoreQuery.isPresented.toggle()
+                    firestoreQuery.maximized = true
+                    firestoreQuery.showNewScreen = true
+                    
+                }){
+                    HStack {
+                        
+                        
+                            HStack {
+                                    
+                                WebImage(url: URL(string: artwork.content_url))
+                                    .resizable()
+                                    .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+                                    
+                                VStack(alignment: .leading) {
+                                        
+                                    if(firestoreQuery.data.isClicked == artwork.art_id){
+                                        Text(artwork.name)
+                                            .foregroundColor(Color("Gallify-Pink"))
+                                            .fontWeight(.bold)
+                                            .font(.system(size: screenWidth / 20, weight: .medium))
+                                            .lineLimit(1)
+                                    }
+                                    else{
+                                        Text(artwork.name)
+                                            .fontWeight(.bold)
+                                            .font(.system(size: screenWidth / 20, weight: .medium))
+                                            .foregroundColor(.black)
+                                            .lineLimit(1)
+                                    }
+                                    
+                                    
+                                    if(artwork.popularity < 1000){
+                                        Text("<1000")
+                                            .font(.system(size: screenWidth / 24, weight: .light))
+                                            .foregroundColor(.black)
+                                            .lineLimit(1)
+                                    }
+                                    else{
+                                        Text("\(artwork.popularity)")
+                                            .font(.system(size: screenWidth / 24, weight: .light))
+                                            .foregroundColor(.black)
+                                            .lineLimit(1)
+                                    }
+                                        
+                                }
+                                .padding(.leading, screenWidth / 37.5)
+                                    
+                                Spacer()
+                                    
+//                            }
+//                            .buttonStyle(ThemeAnimationStyle())
+//                            .navigationBarHidden(true)
+                            
+                      //  })
+                        
+                        Button(action: {
+                            firestoreQuery.showArtOptions = true
+                        }, label: {
+                            
+                            Image(systemName: "ellipsis")
+                                .foregroundColor(.black)
+                            
+                        })
+                            .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                            ActionSheet(
+                                title: Text("Select"),
+                                buttons: [
+                                    .default(Text("Delete from Playlist")) {
+                                     //   firestoreQuery.deleteFromPlaylist(artwork.art_id)
+                                    },
+                                    .default(Text("Add to Playlist")) {
+                                        
+                                        //firestoreQuery.addToPlaylist(artwork.art_id)
+                                    },
+                                    .default(Text("Cancel")) {
+                                        
+                                        //firestoreQuery.addToPlaylist(artwork.art_id)
+                                        firestoreQuery.showArtOptions = false
+                                    }
+                                    
+
+                                ]
+                            )
                         }
-            .actionSheet(isPresented: $showActionSheet, content: {
-                            self.actionSheet }).padding()
+                    }
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    }
+                    .padding(.vertical, screenHeight / 160)
+                    .padding(.horizontal, screenWidth / 15)
+                    
+                    
+                    
+                }
+            
+
+            
+         //   self.makeView()
+            }
+            .padding(-1)
+        }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         }
         
-        
-        
-        
-        HStack {
-            NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
-                label: {
-                    Image("logo")
-                        .resizable()
-                        .frame(width: screenWidth / 6, height: screenWidth / 6)
-                        .cornerRadius(15)
-                })
-                .buttonStyle(ThemeAnimationStyle())
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
-                .padding(.leading)
-            Spacer()
-            VStack{
-                Text("[Collection_Name]")
-                    .fontWeight(.bold)
-                Text("[Collection_Artist]")
-            }
-            .padding()
-            
-            Spacer()
-            
-            Button(action: {self.showActionSheet.toggle()
-            }) {
-                Image(systemName: "ellipsis.circle")
-                    .font(.system(size: 30))
-                    .foregroundColor(.black)
-                        }
-            .actionSheet(isPresented: $showActionSheet, content: {
-                            self.actionSheet }).padding()
-        }
-        
-        HStack {
-            NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
-                label: {
-                    Image("logo")
-                        .resizable()
-                        .frame(width: screenWidth / 6, height: screenWidth / 6)
-                        .cornerRadius(15)
-                })
-                .buttonStyle(ThemeAnimationStyle())
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
-                .padding(.leading)
-            Spacer()
-            VStack{
-                Text("[Collection_Name]")
-                    .fontWeight(.bold)
-                Text("[Collection_Artist]")
-            }
-            .padding()
-            
-            Spacer()
-            
-            Button(action: {self.showActionSheet.toggle()
-            }) {
-                Image(systemName: "ellipsis.circle")
-                    .font(.system(size: 30))
-                    .foregroundColor(.black)
-                        }
-            .actionSheet(isPresented: $showActionSheet, content: {
-                            self.actionSheet }).padding()
-        }
-    }
+     
     
-}
+    }
+
 
 
 

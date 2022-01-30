@@ -25,15 +25,15 @@ struct SelfProfileViewHeader: View {
                     .font(.system(size: screenWidth / 17, weight: .bold))
                     .padding(.leading, screenWidth / 9.4)*/
                 
-                Text("i_am_here")
-                    .font(.system(size: screenWidth / 17, weight: .bold))
+                Text(firestoreQuery.data.username)
+                    .font(.system(size: screenWidth / 20, weight: .bold))
                     .padding(.leading, screenWidth / 9.4)
                 
                 Spacer()
                 
                 
                 NavigationLink(
-                    destination: SettingsView(),
+                    destination: SettingsView(screenWidth: screenWidth, screenHeight: screenHeight),
                     label: {
                             
                         Image(systemName: "gearshape.fill")

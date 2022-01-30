@@ -30,7 +30,7 @@ struct SelfProfileCollectionList: View {
                         ZStack {
                                         
                             RoundedRectangle(cornerRadius: screenWidth / 50)
-                                .foregroundColor(Color.pink)
+                                .foregroundColor(Color("Gallify-Red"))
                                 .padding(.horizontal, screenWidth / 55)
                                 .padding(.vertical, screenHeight / 120)
                                 .frame(width: screenWidth / 8.3, height: screenHeight / 18)
@@ -67,12 +67,12 @@ struct SelfProfileCollectionList: View {
                         VStack(alignment: .leading) {
                                 
                             Text(playlist.name)
-                                .font(.system(size: screenWidth / 15, weight: .semibold))
+                                .font(.system(size: screenWidth / 17, weight: .semibold))
                                 .foregroundColor(.black)
                                 .lineLimit(1)
                                 
-                            Text("by " + playlist.creator)
-                                .font(.system(size: screenWidth / 20.5))
+                            Text(playlist.playlist_type + " | " + playlist.creator)
+                                .font(.system(size: screenWidth / 25.5))
                                 .foregroundColor(.black)
                                 .lineLimit(1)
                                 
