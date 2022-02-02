@@ -31,7 +31,12 @@ struct CollectionGenericView: View {
                 
                 Spacer()
                 
-             //   CollectionGenericFooter(screenWidth: screenWidth, screenHeight: screenHeight)
+             
+                if(firestoreQuery.showNewScreen == false){
+                    if(firestoreQuery.artPlaying == true){
+                        MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
+                    }
+                }
                 
             }
             

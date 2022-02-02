@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+import FirebaseAuth
+import SDWebImageSwiftUI
 
+@MainActor
 struct MinimizedView: View {
         
     let screenHeight: CGFloat
     let screenWidth: CGFloat
-    let image: Image
-    let title: String
-    let searchType: String
-    let artistName: String
+    
+//    let image: Image
+//    let title: String
+//    let searchType: String
+//    let artistName: String
     
     @EnvironmentObject var firestoreQuery: FirestoreQuery
         
@@ -23,7 +28,8 @@ struct MinimizedView: View {
         
         
         Button(action: {
-            firestoreQuery.showNewScreen.toggle()
+            
+            firestoreQuery.showNewScreen = true
             
             //firestoreQuery.data.isClicked = artwork.art_id
             
@@ -34,17 +40,17 @@ struct MinimizedView: View {
 
             HStack {
                     
-                image
+                WebImage(url: URL(string: firestoreQuery.artThatsPlaying.artwork_url))
                     .resizable()
                     .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                     
                 VStack(alignment: .leading) {
                         
-                    Text(title)
+                    Text(firestoreQuery.artThatsPlaying.name)
                         .font(.system(size: screenWidth / 20, weight: .bold))
                         .foregroundColor(.black)
                         
-                    Text(searchType + ", by " + artistName)
+                    Text("by " + firestoreQuery.artThatsPlaying.creator)
                         .font(.system(size: screenWidth / 25))
                         .foregroundColor(.black)
                         
@@ -52,11 +58,24 @@ struct MinimizedView: View {
                 .padding(.horizontal, screenWidth / 50)
                     
                 Spacer()
+                
+                Button(action: {
+                    firestoreQuery.artPlaying = false
+                    firestoreQuery.artisClicked = "artisClicked"
+                }, label: {
+                    
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .frame(width: screenWidth / 20, height: screenHeight / 43)
+                        .foregroundColor(.black)
+                    
+                })
+                .padding(.horizontal, screenWidth / 25)
                     
             }
             .padding(.horizontal, screenWidth / 25)
             .padding(.bottom, screenHeight / 80)
-            .padding(.top, screenHeight / 80)
+            .padding(.top, (screenHeight / 80)-10)
             .background(Color.white)
         }
             

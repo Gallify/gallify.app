@@ -176,6 +176,18 @@ struct HomeView : View {
                     }
                         
                 }
+                
+                if(firestoreQuery.showNewScreen == false){
+                    if(firestoreQuery.artPlaying == true){
+                        
+                          //  NavigationLink(destination: OtherProfileView(), label: {
+
+                                
+                                MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
+                            
+                          //  })
+                    }
+                }
                     
             }
             .navigationBarHidden(true)
@@ -189,17 +201,9 @@ struct HomeView : View {
     //@MainActor
     func NetworkingCall() async {
         
-        //firestoreQuery.getUser()
-       await firestoreQuery.getUser_await()
+        //this gets all the data for the home page.
+        firestoreQuery.getHome()
         
-     //   print(data.featured)
-        
-        print(firestoreQuery.data.featured)
-        print("AFTER get data in home")
-        //await firestoreQuery.getFeaturedPlaylist_await(playlist_id: firestoreQuery.data.featured)
-       //await firestoreQuery.loaditems_selfprofile()
-        //also call get featured playlist here. Then when when get featured art, in profile, it works.
-      //  firestoreQuery.getFeaturedPlaylist(a: firestoreQuery.data.featured)
     }
     
 }

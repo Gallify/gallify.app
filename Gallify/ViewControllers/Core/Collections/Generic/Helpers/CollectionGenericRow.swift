@@ -47,7 +47,8 @@ struct CollectionGenericRow: View {
                 
                 Button(action: {
                    
-                    firestoreQuery.data.isClicked = artwork.art_id
+                    //firestoreQuery.data.isClicked = artwork.art_id
+                    firestoreQuery.artisClicked = artwork.art_id
                     firestoreQuery.isPresented.toggle()
                     firestoreQuery.maximized = true
                     firestoreQuery.showNewScreen = true
@@ -64,7 +65,7 @@ struct CollectionGenericRow: View {
                                     
                                 VStack(alignment: .leading) {
                                         
-                                    if(firestoreQuery.data.isClicked == artwork.art_id){
+                                    if(firestoreQuery.artisClicked == artwork.art_id){
                                         Text(artwork.name)
                                             .foregroundColor(Color("Gallify-Pink"))
                                             .fontWeight(.bold)

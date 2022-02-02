@@ -31,6 +31,10 @@ class FirestoreQuery : ObservableObject {
     @Published var sheetMode: SheetMode = .none
     @Published var showNewScreen = false
     @Published var artPlaying = false
+    @Published var artisClicked = "artisClicked"
+    @Published var artThatsPlaying: Art = Art()
+    @Published var playlistThatsPlaying: Playlist = Playlist()
+    
     
     //action menus. 
     @Published var showPlaylistOptions = false
@@ -58,7 +62,9 @@ class FirestoreQuery : ObservableObject {
     @Published var otherFeaturedArt: [Art] = [Art]()
     
     //home
-    @Published var museumlist: MuseumList = MuseumList()
+    @Published var homeMuseumList: MuseumList = MuseumList()
+    @Published var homeMuseums: [Museum] = [Museum]()
+    @Published var homePlaylists: [[Playlist]] = [[Playlist]]()
     
     //discover
     
@@ -470,32 +476,32 @@ class FirestoreQuery : ObservableObject {
     //       // getMuseumList(coll_name: "users", sub_coll_name: "home", user: "t30@gmail.com", sub_doc: "home")
     //      //  getMuseumList2(coll_name: "users", sub_coll_name: "home", user: "t30@gmail.com", sub_doc: "home")
     //    }
-    func getMuseumList2(coll_name: String, sub_coll_name: String, user: String, sub_doc: String) {
-
-        let docRef = FirestoreQuery.db.collection("users").document(FirestoreQuery.userEmail ?? "help").collection("home").document("home")
-         docRef.getDocument { (document, error) in
-           let result = Result {
-            try document?.data(as: MuseumList.self)
-           }
-           switch result {
-           case .success(let user):
-             if let user = user {
-               // A `User` value was successfully initialized from the DocumentSnapshot
-               //set data to user in the main thread since call is completed in background
-               DispatchQueue.main.async {
-                 self.museumlist = user
-               }
-             } else {
-               // A nil value was successfully initialized from the DocumentSnapshot,
-               // or the DocumentSnapshot was nil.
-               print("Document does not exist")
-             }
-           case .failure(let error):
-             // A `User` value could not be initialized from the DocumentSnapshot.
-             print("Error decoding user: \(error)")
-           }
-         }
-      }
+//    func getMuseumList2(coll_name: String, sub_coll_name: String, user: String, sub_doc: String) {
+//
+//        let docRef = FirestoreQuery.db.collection("users").document(FirestoreQuery.userEmail ?? "help").collection("home").document("home")
+//         docRef.getDocument { (document, error) in
+//           let result = Result {
+//            try document?.data(as: MuseumList.self)
+//           }
+//           switch result {
+//           case .success(let user):
+//             if let user = user {
+//               // A `User` value was successfully initialized from the DocumentSnapshot
+//               //set data to user in the main thread since call is completed in background
+//               DispatchQueue.main.async {
+//                 self.museumlist = user
+//               }
+//             } else {
+//               // A nil value was successfully initialized from the DocumentSnapshot,
+//               // or the DocumentSnapshot was nil.
+//               print("Document does not exist")
+//             }
+//           case .failure(let error):
+//             // A `User` value could not be initialized from the DocumentSnapshot.
+//             print("Error decoding user: \(error)")
+//           }
+//         }
+//      }
 
 
 
@@ -508,31 +514,31 @@ class FirestoreQuery : ObservableObject {
          user = email or username of user, used as doc id.
          sub_doc = document inside of subcollection. ex. home or feed.
      */
-    func getMuseumList(coll_name: String, sub_coll_name: String, user: String, sub_doc: String) {
-        //print("Email:\((Auth.auth().currentUser?.email)!) ")
-       
-        FirestoreQuery.db.collection("users").document(FirestoreQuery.userEmail ?? "info@gallify.app").collection("home").document("home")
-                    .addSnapshotListener { queryDocumentSnapshot, error in
-                        if error == nil { //if no errors
-                            if let document = queryDocumentSnapshot{
-                                //update list in main thread.
-                                DispatchQueue.main.async{
-                                    //set retrieved document to @published data object
-                                    self.museumlist = try! document.data(as: MuseumList.self)! //this is forceful, and assumes this will always work...
-                                    print("List of Museums: \(self.museumlist.museums)")
-                                }
-                            }
-                            else{
-                                print("Error: There aren't any documents, getMuseumList()")
-                                return
-                            }
-                        }
-                        else{
-                            print("Error: Can't get document, getMuseumList()")
-                            return
-                        }
-              }
-    }
+//    func getMuseumList(coll_name: String, sub_coll_name: String, user: String, sub_doc: String) {
+//        //print("Email:\((Auth.auth().currentUser?.email)!) ")
+//
+//        FirestoreQuery.db.collection("users").document(FirestoreQuery.userEmail ?? "info@gallify.app").collection("home").document("home")
+//                    .addSnapshotListener { queryDocumentSnapshot, error in
+//                        if error == nil { //if no errors
+//                            if let document = queryDocumentSnapshot{
+//                                //update list in main thread.
+//                                DispatchQueue.main.async{
+//                                    //set retrieved document to @published data object
+//                                    self.museumlist = try! document.data(as: MuseumList.self)! //this is forceful, and assumes this will always work...
+//                                    print("List of Museums: \(self.museumlist.museums)")
+//                                }
+//                            }
+//                            else{
+//                                print("Error: There aren't any documents, getMuseumList()")
+//                                return
+//                            }
+//                        }
+//                        else{
+//                            print("Error: Can't get document, getMuseumList()")
+//                            return
+//                        }
+//              }
+//    }
     
     
     

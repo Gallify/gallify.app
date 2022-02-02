@@ -39,6 +39,12 @@ struct SelfProfileView : View {
                                             
                 }
                 .navigationBarHidden(true)
+                
+                if(firestoreQuery.showNewScreen == false){
+                    if(firestoreQuery.artPlaying == true){
+                        MinimizedView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth)
+                    }
+                }
                         
             }
             .navigationBarHidden(true)
@@ -72,19 +78,31 @@ struct SelfProfileView : View {
     
     func NetworkingCall() async {
         
-        //gets user data and featured playlist
-        await firestoreQuery.fetchData()
-                    
-        //await firestoreQuery.loaditems_selfprofile()
+        await firestoreQuery.getUser()
         
-        firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
+        await firestoreQuery.getFeaturedPlaylist()
+        await firestoreQuery.getFeaturedArt()
         
-        print("in networkong call, playlist art")
-        print(firestoreQuery.featuredPlaylist.art)
+        await firestoreQuery.getUserLibrary()
         
-        await firestoreQuery.fetchArt()
-       
-        print(firestoreQuery.featuredArt)
+        
+        
+        
+        
+        
+//        //gets user data and featured playlist
+//        await firestoreQuery.fetchData() //gets data and featured playlist
+//
+//        //await firestoreQuery.loaditems_selfprofile()
+//
+//        firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library) //gets library
+//
+//       // print("in networkong call, playlist art")
+//       // print(firestoreQuery.featuredPlaylist.art)
+//
+//        await firestoreQuery.fetchArt() //gets featured art
+//
+//       // print(firestoreQuery.featuredArt)
         
     }
     

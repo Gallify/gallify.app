@@ -39,7 +39,8 @@ struct OtherProfileFeatured: View {
                 
                 Button(action: {
                     firestoreQuery.isPresented.toggle()
-                    firestoreQuery.data.isClicked = artwork.art_id
+                    //firestoreQuery.data.isClicked = artwork.art_id
+                    firestoreQuery.artisClicked = artwork.art_id
                 }){
                     HStack {
                         
@@ -58,7 +59,7 @@ struct OtherProfileFeatured: View {
                                     
                                 VStack(alignment: .leading) {
                                         
-                                    if(firestoreQuery.data.isClicked == artwork.art_id){
+                                    if(firestoreQuery.artisClicked == artwork.art_id){
                                         Text(artwork.name)
                                             .foregroundColor(Color("Gallify-Pink"))
                                             .fontWeight(.bold)
