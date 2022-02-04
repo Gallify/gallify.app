@@ -29,9 +29,7 @@ struct CollectionGenericView: View {
             
             VStack {
                 
-               CollectionGenericHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
-                
-               // CollectionGenericNewRow(screenWidth: screenWidth, screenHeight: screenHeight)
+                CollectionGenericHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                 
                 CollectionGenericRow(screenWidth: screenWidth, screenHeight: screenHeight)
                 

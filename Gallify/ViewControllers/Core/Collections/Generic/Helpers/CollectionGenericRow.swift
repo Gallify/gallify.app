@@ -195,30 +195,18 @@ struct CollectionGenericRow: View {
                             }
 
                         }
-//                        .onMove(perform: { indices, newOffset in
-//                            move(indices: indices, newOffset: newOffset)
-//                        })
                         .onMove { indexSet, offset in
                             playlist.move(fromOffsets: indexSet, toOffset: offset)
+                            firestoreQuery.featuredArt = playlist
+                            //firestore update here
                         }
                         .listRowSeparator(.hidden)
-//                        .padding(-1)
-//                        .toolbar {
-//                            EditButton()
-//
-//                        }
                         
                     }
                     .listStyle(InsetListStyle())
                     .toolbar {
                         EditButton()
                     }
-//                    .navigationBarItems(trailing: EditButton())
-//                    .listRowSeparator(.hidden)
-//                    .onAppear(perform: {
-//                            UITableView.appearance().contentInset.top = -20
-//                    })
-//                    //.navigationBarItems(trailing: EditButton())
                     .navigationBarTitle("")
                     //.navigationBarHidden(true)
         
@@ -226,23 +214,20 @@ struct CollectionGenericRow: View {
                 .onAppear{ NetworkingCall() }
             
             }
-        
-        //.navigationBarItems(leading: EditButton())
             
         }
         .navigationBarTitle("")
         .navigationBarHidden(true)
-        //.navigationBarItems(trailing: EditButton())
     
         
         }
     
-        func move(indices: IndexSet, newOffset: Int){
-            playlist.move(fromOffsets: indices, toOffset: newOffset)
-            firestoreQuery.featuredArt = playlist //updates the firestore Query.
-            //firestoreUpdatePlaylist() here
-            
-        }
+//        func move(indices: IndexSet, newOffset: Int){
+//            playlist.move(fromOffsets: indices, toOffset: newOffset)
+//            firestoreQuery.featuredArt = playlist //updates the firestore Query.
+//            //firestoreUpdatePlaylist() here
+//
+//        }
     
         func NetworkingCall()  {
             playlist = firestoreQuery.featuredArt
