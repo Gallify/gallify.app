@@ -49,10 +49,6 @@ struct CollectionGenericHeader: View {
                     ActionSheet(
                         title: Text("Select"),
                         buttons: [
-                            .default(Text("Edit")) {
-                                
-                                //firestoreQuery.addToPlaylist(artwork.art_id)
-                            },
                             .default(Text("Make Public")) {
                                 
                                 //firestoreQuery.addToPlaylist(artwork.art_id)
@@ -84,6 +80,7 @@ struct CollectionGenericHeader: View {
             Spacer()
                 
         }
+       // .navigationBarItems(leading: EditButton())
         
     }
     

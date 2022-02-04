@@ -16,7 +16,7 @@ struct OtherProfileViewVerified: View {
     var body: some View {
 
         VStack {
-                
+
             OtherProfileViewHeader(presentationMode: _presentationMode)
                 
             ScrollView(showsIndicators: false) {

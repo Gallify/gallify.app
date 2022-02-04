@@ -18,16 +18,22 @@ struct CollectionGenericView: View {
     var body: some View {
         
         NavigationView {
+        
+//            List{
+//                Text("hello")
+//                Text("hello")
+//                Text("hello")
+//                Text("hello")
+//            }
+//            .listStyle(GroupedListStyle())
             
             VStack {
                 
-                CollectionGenericHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
+               CollectionGenericHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                 
-                ScrollView (showsIndicators: false) {
-                    
-                    CollectionGenericRow(screenWidth: screenWidth, screenHeight: screenHeight)
-                    
-                }
+               // CollectionGenericNewRow(screenWidth: screenWidth, screenHeight: screenHeight)
+                
+                CollectionGenericRow(screenWidth: screenWidth, screenHeight: screenHeight)
                 
                 Spacer()
                 
@@ -41,14 +47,21 @@ struct CollectionGenericView: View {
             }
             
         }
+        .toolbar {
+            EditButton()
+        }
         .navigationBarHidden(true)
-        .onAppear(perform: getCollection)
+        .onAppear{async{ await NetworkingCall() }}
         
     }
     
-    func getCollection(){
+    func NetworkingCall() async {
+        
+        //this gets all the data for the home page.
         
         //get playlist
+        
+        //get playlist art
         
         //get art
         
