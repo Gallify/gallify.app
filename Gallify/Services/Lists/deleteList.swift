@@ -10,4 +10,12 @@ import FirebaseFirestore
 import FirebaseAuth
 
 extension FirestoreQuery {
+    
+    /*
+     updates the playlist
+     */
+    func deleteArtFromPlaylist() async {
+    }
+    
+    
 }

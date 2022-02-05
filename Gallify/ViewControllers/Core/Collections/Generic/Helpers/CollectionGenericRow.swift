@@ -137,19 +137,11 @@ struct CollectionGenericRow: View {
                                                         .lineLimit(1)
                                                 }
                                                 
+                                                Text("\(artwork.creator)")
+                                                    .font(.system(size: screenWidth / 24, weight: .light))
+                                                    .foregroundColor(.black)
+                                                    .lineLimit(1)
                                                 
-                                                if(artwork.popularity < 1000){
-                                                    Text("<1000")
-                                                        .font(.system(size: screenWidth / 24, weight: .light))
-                                                        .foregroundColor(.black)
-                                                        .lineLimit(1)
-                                                }
-                                                else{
-                                                    Text("\(artwork.popularity)")
-                                                        .font(.system(size: screenWidth / 24, weight: .light))
-                                                        .foregroundColor(.black)
-                                                        .lineLimit(1)
-                                                }
                                                     
                                             }
                                             .padding(.leading, screenWidth / 37.5)

@@ -116,6 +116,8 @@ class SceneManager : ObservableObject {
 }
 
 
+
+
 extension ARViewContainer {
     private func updatePersistenceAvailbilty(for arView: ARView ){
         guard let currentFrame = arView.session.currentFrame else {

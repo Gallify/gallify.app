@@ -14,6 +14,12 @@ class ScenePersistenceHelper {
     class func saveScene(for arView: CustomARView, at persistenceURL: URL) {
         print("Save Scene to local file system")
         
+        for anchor in arView.scene.anchors {
+            print(anchor.anchor?.transform)
+            print(anchor.name)
+           
+        }
+        
         //1. Get current worldmap from arView.session
         arView.session.getCurrentWorldMap { worldMap, error in
             //2. Safely unwrap worldMap
