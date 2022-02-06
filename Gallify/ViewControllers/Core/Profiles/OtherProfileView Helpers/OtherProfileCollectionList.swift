@@ -33,7 +33,7 @@ struct OtherProfileCollectionList: View {
             
             ForEach(firestoreQuery.userLibrary){ playlist in
                 
-                NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight),
+                NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight, playlist: playlist),
                                label: {
                     
                     HStack {

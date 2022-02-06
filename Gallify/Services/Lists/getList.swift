@@ -100,9 +100,9 @@ extension FirestoreQuery {
      
      Always needs to be called after getPlaylist()
      */
-    func getPlaylistArt() async {
+    func getPlaylistArt(playlist: Playlist) async {
         
-        if !(featuredArt.isEmpty){ //if featured playlist isnt empty, then return.
+        if !(playlistArt.isEmpty){ //if featured playlist isnt empty, then return.
             return
         }
        

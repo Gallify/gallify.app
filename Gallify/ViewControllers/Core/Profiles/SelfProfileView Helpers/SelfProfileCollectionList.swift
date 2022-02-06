@@ -57,7 +57,7 @@ struct SelfProfileCollectionList: View {
                 
                 
                     
-                NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight),
+                NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight, playlist: playlist),
                                label: {
                     
                     HStack {
@@ -89,6 +89,7 @@ struct SelfProfileCollectionList: View {
                     
                 }).simultaneousGesture(TapGesture().onEnded{
                     firestoreQuery.playlist = playlist
+                    
                 })
                 
                         

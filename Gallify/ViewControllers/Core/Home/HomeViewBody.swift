@@ -45,7 +45,7 @@ struct HomeViewBody: View {
                               firestoreQuery.playlist = playlist
                           }, label: {
                               
-                              NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight),
+                              NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight, playlist: playlist),
                                          label: {
                                 VStack {
                                     
@@ -71,6 +71,10 @@ struct HomeViewBody: View {
                                     
                                 }
                                 .padding(.leading, screenWidth / 25)
+                              })
+                              .simultaneousGesture(TapGesture().onEnded{
+                                  firestoreQuery.playlist = playlist
+                                  
                               })
                           })
                     }

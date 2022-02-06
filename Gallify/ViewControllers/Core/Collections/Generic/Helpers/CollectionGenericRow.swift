@@ -14,6 +14,7 @@ import SDWebImageSwiftUI
 struct CollectionGenericRow: View {
     let screenWidth: CGFloat
     let screenHeight: CGFloat
+    let thePlaylist: Playlist
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     
     //state variables. These will be changed. Then will update FirestoreQuery versions. Then the FirestoreQuery versions will be updated.
@@ -21,7 +22,7 @@ struct CollectionGenericRow: View {
     //@State var playlist = firestoreQuery.playlist
     @State var playlistArt: [Art] = [Art]()
     @State var art: Art = Art()
-    @State var veggies : [String] = ["app", "cat"]
+    //@State var veggies : [String] = ["app", "cat"]
     
     
     
@@ -39,11 +40,11 @@ struct CollectionGenericRow: View {
                         HStack{
 
                             Spacer()
-                            if firestoreQuery.featuredPlaylist.cover_art_url == "" {
+                            if firestoreQuery.playlist.cover_art_url == "" {
 
                             }
                             else{
-                                WebImage(url: URL(string: firestoreQuery.featuredPlaylist.cover_art_url))
+                                WebImage(url: URL(string: firestoreQuery.playlist.cover_art_url))
                                     .resizable()
                                     .frame(width: 200, height: 200)
                                     .padding(.top, 20)
@@ -60,7 +61,7 @@ struct CollectionGenericRow: View {
                         //the name and creator
                         VStack{
                             HStack{
-                                Text("\(firestoreQuery.featuredPlaylist.name)")
+                                Text("\(firestoreQuery.playlist.name)")
                                     .font(.system(size: screenWidth / 10, weight: .bold))
                                     .foregroundColor(Color.black)
                                     //.padding(.trailing, screenWidth / 7.5)
@@ -85,7 +86,7 @@ struct CollectionGenericRow: View {
 
                                 NavigationLink(destination: OtherProfileView(),
                                                label: {
-                                    Text("\(firestoreQuery.featuredPlaylist.creator)")
+                                    Text("\(firestoreQuery.playlist.creator)")
                                         .font(.system(size: screenWidth / 20, weight: .light))
                                         .foregroundColor(Color.black)
                                         //.padding(.trailing, screenWidth / 7.5)
@@ -105,7 +106,7 @@ struct CollectionGenericRow: View {
                                 //firestoreQuery.data.isClicked = artwork.art_id
                                 firestoreQuery.artisClicked = artwork.art_id
                                 firestoreQuery.artThatsPlaying = artwork
-                                firestoreQuery.playlistThatsPlaying = firestoreQuery.featuredPlaylist
+                                firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
                                 firestoreQuery.isPresented.toggle()
                                 firestoreQuery.maximized = true
                                 firestoreQuery.showNewScreen = true
@@ -203,7 +204,7 @@ struct CollectionGenericRow: View {
                     //.navigationBarHidden(true)
         
                 }
-                .onAppear{ NetworkingCall() }
+                .onAppear{async{ await NetworkingCall() }}
             
             }
             
@@ -221,8 +222,10 @@ struct CollectionGenericRow: View {
 //
 //        }
     
-        func NetworkingCall()  {
-            playlist = firestoreQuery.featuredArt
+        func NetworkingCall() async {
+            await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
+            print("ART: \(firestoreQuery.playlistArt[1].creator)")
+            playlist = firestoreQuery.playlistArt
             //this gets all the data for the home page.
             //firestoreQuery.getHome()
             
@@ -233,9 +236,9 @@ struct CollectionGenericRow: View {
 
 
 
-struct CollectionGenericRow_Previews: PreviewProvider {
-    static var previews: some View {
-        CollectionGenericRow(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
-    }
-}
+//struct CollectionGenericRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CollectionGenericRow(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
+//    }
+//}
 

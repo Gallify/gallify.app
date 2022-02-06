@@ -11,6 +11,7 @@ struct CollectionGenericView: View {
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat
+    let playlist: Playlist
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var firestoreQuery : FirestoreQuery
 
@@ -31,7 +32,7 @@ struct CollectionGenericView: View {
                 
                 CollectionGenericHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                 
-                CollectionGenericRow(screenWidth: screenWidth, screenHeight: screenHeight)
+                CollectionGenericRow(screenWidth: screenWidth, screenHeight: screenHeight, thePlaylist: playlist)
                 
                 Spacer()
                 
@@ -57,9 +58,11 @@ struct CollectionGenericView: View {
         
         //this gets all the data for the home page.
         
-        //get playlist
+        //get playlist. Stored in FirestoreQuery.playlist
         
         //get playlist art
+        await firestoreQuery.getPlaylistArt(playlist: playlist)
+        print("ART: \(firestoreQuery.playlistArt[1].creator)")
         
         //get art
         
@@ -67,9 +70,9 @@ struct CollectionGenericView: View {
     
 }
 
-struct CollectionGenericView_Previews: PreviewProvider {
-    static var previews: some View {
-        CollectionGenericView(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
-    }
-}
+//struct CollectionGenericView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CollectionGenericView(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
+//    }
+//}
 
