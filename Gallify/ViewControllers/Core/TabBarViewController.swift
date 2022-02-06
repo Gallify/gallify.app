@@ -128,6 +128,16 @@ struct TabBarView: View {
         firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
 
         await firestoreQuery.fetchArt()
+        
+        //await firestoreQuery.getHome()
+        
+        await firestoreQuery.getHomeMuseumList()
+       
+        //getMuseums. Gets all these Museums. List of Playlists
+        await firestoreQuery.getHomeMuseums()
+        
+        //getPlaylists. Gets all the data for the playlists. Called once per museum.
+        await firestoreQuery.getHomePlaylists()
        
         doneLoading = true
         

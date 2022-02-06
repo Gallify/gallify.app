@@ -12,28 +12,22 @@ import FirebaseAuth
 extension FirestoreQuery {
     
     /*
-     Adds art to playlist
+     Adds art to playlist/collection. can't add multiple of the same art id.
      */
-//    func addArtToPlaylist() async {
-//        let userEmail = Auth.auth().currentUser?.email
-//
-//        do {
-//            let doc2 = try await FirestoreQuery.db.collection("playlists")
-//                .document(playlist_id)
-//                .getDocument().data(as: Playlist.self)
-//
-//
-//            guard let thePlaylist = doc2 else{
-//                throw DatabaseError.failed
-//            }
-//
-//            self.playlist = thePlaylist
-//
-//        }
-//        catch{
-//            print("Error")
-//        }
-//    }
+    func addArtToPlaylist(art_id: String, playlist_id: String) async {
+                                            
+        do {
+            
+            let doc = try await FirestoreQuery.db.collection("playlists").document(playlist_id).updateData([
+                "art": FieldValue.arrayUnion([art_id])
+                ])
+        }
+        catch{
+            print("Error")
+        }
+    }
+    
+    
     
     
 }

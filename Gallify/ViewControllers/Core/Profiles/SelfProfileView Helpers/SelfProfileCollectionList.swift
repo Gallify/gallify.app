@@ -55,6 +55,8 @@ struct SelfProfileCollectionList: View {
             
             ForEach(firestoreQuery.userLibrary){ playlist in
                 
+                
+                    
                 NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight),
                                label: {
                     
@@ -85,7 +87,11 @@ struct SelfProfileCollectionList: View {
                     .padding(.vertical, screenHeight / 160)
                     .padding(.leading, screenWidth / 15)
                     
+                }).simultaneousGesture(TapGesture().onEnded{
+                    firestoreQuery.playlist = playlist
                 })
+                
+                        
                 
             }
             

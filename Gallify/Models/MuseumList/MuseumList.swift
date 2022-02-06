@@ -17,7 +17,7 @@ import Foundation
 import Swift
 import FirebaseFirestore
 
-class MuseumList: Encodable, Decodable, ObservableObject {
+class MuseumList: Encodable, Decodable, ObservableObject, Identifiable {
 
     enum CodingKeys: CodingKey {
 

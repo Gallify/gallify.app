@@ -28,7 +28,7 @@ struct CollectionGenericHeader: View {
                           
             
             HStack{
-                Text("\(firestoreQuery.featuredPlaylist.name)")
+                Text("\(firestoreQuery.playlist.name)")
                         .font(.title3)
                         .fontWeight(.bold)
                         .foregroundColor(Color.black)

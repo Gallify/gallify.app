@@ -11,10 +11,6 @@ import FirebaseAuth
 
 extension FirestoreQuery {
     
-    
-    
-    
-    
     /*
      
      */

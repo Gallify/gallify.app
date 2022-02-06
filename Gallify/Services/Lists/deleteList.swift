@@ -14,7 +14,17 @@ extension FirestoreQuery {
     /*
      updates the playlist
      */
-    func deleteArtFromPlaylist() async {
+    func deleteArtFromPlaylist(art_id: String, playlist_id: String) async {
+                                    
+        do {
+            
+            let doc = try await FirestoreQuery.db.collection("playlists").document(playlist_id).updateData([
+                "art": FieldValue.arrayRemove([art_id])
+                ])
+        }
+        catch{
+            print("Error")
+        }
     }
     
     
