@@ -54,14 +54,17 @@ struct SelfProfileFeatured: View {
                         
                         Button(action: {
                                
-                                firestoreQuery.data.isClicked = artwork.art_id
-                                firestoreQuery.isPresented.toggle()
-                                
-                                firestoreQuery.sheetMode = .full
-                                firestoreQuery.maximized = true
-                                sheetMode2 = .full
-                                
-                                firestoreQuery.showNewScreen = true
+                            firestoreQuery.artisClicked = artwork.art_id
+                            firestoreQuery.artThatsPlaying = artwork
+                            firestoreQuery.playlistThatsPlaying = firestoreQuery.featuredPlaylist
+                            
+                            firestoreQuery.isPresented.toggle()
+                            
+                            firestoreQuery.sheetMode = .full
+                            firestoreQuery.maximized = true
+                            sheetMode2 = .full
+                            
+                            firestoreQuery.showNewScreen = true
                                 
                             }){
                                 

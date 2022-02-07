@@ -96,13 +96,8 @@ struct DiscoverMainView: View {
                     if firestoreQuery.artPlaying == true {
                         
                         if showCancelButton == false {
-                            
-                            NavigationLink(destination: OtherProfileView(), label: {
 
-                                MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
-                                
-//                                OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
-                            })
+                            MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
                             
                         }
                         

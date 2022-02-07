@@ -1,8 +1,8 @@
 //
-//  OtherProfileFeatured.swift
+//  SelfProfileFeatured.swift
 //  Gallify
 //
-//  Created by Anshul on 1/17/22.
+//  Created by Tejvir Mann on 1/8/22.
 //
 
 import SwiftUI
@@ -28,7 +28,7 @@ struct OtherProfileFeatured: View {
             
             VStack {
                 
-                Spacer()
+                //Spacer()
                 
                 HStack {
                     
@@ -54,14 +54,17 @@ struct OtherProfileFeatured: View {
                         
                         Button(action: {
                                
-                                firestoreQuery.data.isClicked = artwork.art_id
-                                firestoreQuery.isPresented.toggle()
-                                
-                                firestoreQuery.sheetMode = .full
-                                firestoreQuery.maximized = true
-                                sheetMode2 = .full
-                                
-                                firestoreQuery.showNewScreen = true
+                            firestoreQuery.artisClicked = artwork.art_id
+                            firestoreQuery.artThatsPlaying = artwork
+                            firestoreQuery.playlistThatsPlaying = firestoreQuery.featuredPlaylist
+                            
+                            firestoreQuery.isPresented.toggle()
+                            
+                            firestoreQuery.sheetMode = .full
+                            firestoreQuery.maximized = true
+                            sheetMode2 = .full
+                            
+                            firestoreQuery.showNewScreen = true
                                 
                             }){
                                 
@@ -80,6 +83,7 @@ struct OtherProfileFeatured: View {
                                                 .fontWeight(.bold)
                                                 .font(.system(size: screenWidth / 20, weight: .medium))
                                                 .lineLimit(1)
+                                            
                                         }
                                         
                                         else {
@@ -132,7 +136,7 @@ struct OtherProfileFeatured: View {
                             
                         })
                         .actionSheet(isPresented: $firestoreQuery.showFeaturedOptions) {
-                            ActionSheet( title: Text("Select"),
+                            ActionSheet(title: Text("Select"),
                                 buttons: [
                                     .default(Text("Add to Playlist")) {
                                         //firestoreQuery.addToPlaylist(artwork.art_id)
@@ -151,7 +155,7 @@ struct OtherProfileFeatured: View {
                 }
                 .padding(-1)
 
-                Spacer()
+                //Spacer()
                 
             }
             .padding(.vertical, screenHeight / 160)
@@ -179,3 +183,4 @@ struct OtherProfileFeatured: View {
     }
     
 }
+

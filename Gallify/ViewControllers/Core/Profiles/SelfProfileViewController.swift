@@ -34,6 +34,16 @@ struct SelfProfileView : View {
                                             
                 }
                 .navigationBarHidden(true)
+                
+                if(firestoreQuery.showNewScreen == false) {
+                    
+                    if(firestoreQuery.artPlaying == true) {
+                        
+                        MinimizedView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth)
+                        
+                    }
+                    
+                }
                         
             }
             .navigationBarHidden(true)
@@ -61,25 +71,32 @@ struct SelfProfileView : View {
             
         }
         .navigationBarHidden(true)
-        .onAppear{ async { await NetworkingCall() } }
+        .onAppear{ async{await NetworkingCall() }}
         
     }
     
     func NetworkingCall() async {
         
-        //gets user data and featured playlist
-        await firestoreQuery.fetchData()
-                    
-        //await firestoreQuery.loaditems_selfprofile()
+        await firestoreQuery.getUser()
         
-        firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
+        await firestoreQuery.getFeaturedPlaylist()
+        await firestoreQuery.getFeaturedArt()
         
-        print("in networkong call, playlist art")
-        print(firestoreQuery.featuredPlaylist.art)
+        await firestoreQuery.getUserLibrary()
         
-        await firestoreQuery.fetchArt()
-       
-        print(firestoreQuery.featuredArt)
+//        //gets user data and featured playlist
+//        await firestoreQuery.fetchData() //gets data and featured playlist
+//
+//        //await firestoreQuery.loaditems_selfprofile()
+//
+//        firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library) //gets library
+//
+//       // print("in networkong call, playlist art")
+//       // print(firestoreQuery.featuredPlaylist.art)
+//
+//        await firestoreQuery.fetchArt() //gets featured art
+//
+//       // print(firestoreQuery.featuredArt)
         
     }
     
@@ -88,8 +105,7 @@ struct SelfProfileView : View {
 struct SelfProfileScreenPreview: PreviewProvider {
     @available(iOS 15.0, *)
     static var previews: some View {
-        SelfProfileView()
-            .environmentObject(TabBarViewModel())
+        SelfProfileView().environmentObject(TabBarViewModel())
             .environmentObject(SelfProfileViewModel())
     }
 }

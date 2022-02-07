@@ -135,20 +135,30 @@ struct TabBarView: View {
     }
     
     /*
-     This method turns off the loadingView screen once basic data is recieved.
-     */
+    This method turns off the loadingView screen once basic data is recieved.
+    */
+    
     func NetworkingCall() async {
-        
+            
         UITabBar.appearance().isHidden = firestoreQuery.showNewScreen
-        
+            
         await firestoreQuery.fetchData()
-                    
-        firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
-
-        await firestoreQuery.fetchArt()
-       
-        doneLoading = true
         
+        firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
+        
+        await firestoreQuery.fetchArt()
+        
+        //await firestoreQuery.getHome()
+        await firestoreQuery.getHomeMuseumList()
+        
+        //getMuseums. Gets all these Museums. List of Playlists
+        await firestoreQuery.getHomeMuseums()
+    
+        //getPlaylists. Gets all the data for the playlists. Called once per museum.
+        await firestoreQuery.getHomePlaylists()
+           
+        doneLoading = true
+            
     }
     
 }
