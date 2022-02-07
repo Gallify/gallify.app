@@ -73,23 +73,6 @@
 		30410A0D27A6708A00284446 /* MainSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A0C27A6708A00284446 /* MainSettingsView.swift */; };
 		30410A3927A6719E00284446 /* MainSettingsViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A3827A6719E00284446 /* MainSettingsViewBody.swift */; };
 		30410A3B27A671AB00284446 /* MainSettingsViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A3A27A671AB00284446 /* MainSettingsViewHeader.swift */; };
-		30410A4E27A6767700284446 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A3D27A6767700284446 /* CustomARView.swift */; };
-		30410A4F27A6767700284446 /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A3E27A6767700284446 /* BrowseView.swift */; };
-		30410A5027A6767700284446 /* SessionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A3F27A6767700284446 /* SessionSettings.swift */; };
-		30410A5127A6767700284446 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4027A6767700284446 /* Model.swift */; };
-		30410A5227A6767700284446 /* FirebaseStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4127A6767700284446 /* FirebaseStorageHelper.swift */; };
-		30410A5327A6767700284446 /* ARPlayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4227A6767700284446 /* ARPlayerContainer.swift */; };
-		30410A5427A6767700284446 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4327A6767700284446 /* ARViewContainer.swift */; };
-		30410A5527A6767700284446 /* ARSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4427A6767700284446 /* ARSettingsView.swift */; };
-		30410A5627A6767700284446 /* ModelDeletionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4527A6767700284446 /* ModelDeletionManager.swift */; };
-		30410A5727A6767700284446 /* ARPlayerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4627A6767700284446 /* ARPlayerContentView.swift */; };
-		30410A5827A6767700284446 /* PlacementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4727A6767700284446 /* PlacementView.swift */; };
-		30410A5927A6767700284446 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4827A6767700284446 /* View+Extensions.swift */; };
-		30410A5A27A6767700284446 /* DeletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4927A6767700284446 /* DeletionView.swift */; };
-		30410A5B27A6767700284446 /* ScenePersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4A27A6767700284446 /* ScenePersistenceHelper.swift */; };
-		30410A5C27A6767700284446 /* ModelsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4B27A6767700284446 /* ModelsViewModel.swift */; };
-		30410A5D27A6767700284446 /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4C27A6767700284446 /* PlacementSettings.swift */; };
-		30410A5E27A6767700284446 /* ARPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A4D27A6767700284446 /* ARPlayerViewController.swift */; };
 		30410A7927A677EB00284446 /* AccountSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A6427A677EB00284446 /* AccountSetting.swift */; };
 		30410A7A27A677EB00284446 /* AccountSettingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A6627A677EB00284446 /* AccountSettingHeader.swift */; };
 		30410A7B27A677EB00284446 /* AccountSettingBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A6727A677EB00284446 /* AccountSettingBody.swift */; };
@@ -103,7 +86,6 @@
 		30410A8327A677EB00284446 /* CuratorProgramSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A7627A677EB00284446 /* CuratorProgramSetting.swift */; };
 		30410A8427A677EB00284446 /* CuratorProgramSettingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A7827A677EB00284446 /* CuratorProgramSettingHeader.swift */; };
 		30410A8627A67AAE00284446 /* deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A8527A67AAE00284446 /* deprecated.swift */; };
-		30410A8C27ADD99000284446 /* SaveTransformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A8B27ADD99000284446 /* SaveTransformView.swift */; };
 		30410A8E27AF2CDB00284446 /* HomeViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A8D27AF2CDB00284446 /* HomeViewBody.swift */; };
 		3052136B278A2C3100CE0224 /* RecentSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30521369278A2C3100CE0224 /* RecentSearch.swift */; };
 		3052136C278A2C3100CE0224 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052136A278A2C3100CE0224 /* ContentType.swift */; };
@@ -312,23 +294,6 @@
 		30410A0C27A6708A00284446 /* MainSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsView.swift; sourceTree = "<group>"; };
 		30410A3827A6719E00284446 /* MainSettingsViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsViewBody.swift; sourceTree = "<group>"; };
 		30410A3A27A671AB00284446 /* MainSettingsViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsViewHeader.swift; sourceTree = "<group>"; };
-		30410A3D27A6767700284446 /* CustomARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
-		30410A3E27A6767700284446 /* BrowseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
-		30410A3F27A6767700284446 /* SessionSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionSettings.swift; sourceTree = "<group>"; };
-		30410A4027A6767700284446 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		30410A4127A6767700284446 /* FirebaseStorageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseStorageHelper.swift; sourceTree = "<group>"; };
-		30410A4227A6767700284446 /* ARPlayerContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARPlayerContainer.swift; sourceTree = "<group>"; };
-		30410A4327A6767700284446 /* ARViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
-		30410A4427A6767700284446 /* ARSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSettingsView.swift; sourceTree = "<group>"; };
-		30410A4527A6767700284446 /* ModelDeletionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDeletionManager.swift; sourceTree = "<group>"; };
-		30410A4627A6767700284446 /* ARPlayerContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARPlayerContentView.swift; sourceTree = "<group>"; };
-		30410A4727A6767700284446 /* PlacementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacementView.swift; sourceTree = "<group>"; };
-		30410A4827A6767700284446 /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		30410A4927A6767700284446 /* DeletionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletionView.swift; sourceTree = "<group>"; };
-		30410A4A27A6767700284446 /* ScenePersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenePersistenceHelper.swift; sourceTree = "<group>"; };
-		30410A4B27A6767700284446 /* ModelsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsViewModel.swift; sourceTree = "<group>"; };
-		30410A4C27A6767700284446 /* PlacementSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacementSettings.swift; sourceTree = "<group>"; };
-		30410A4D27A6767700284446 /* ARPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARPlayerViewController.swift; sourceTree = "<group>"; };
 		30410A6427A677EB00284446 /* AccountSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetting.swift; sourceTree = "<group>"; };
 		30410A6627A677EB00284446 /* AccountSettingHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingHeader.swift; sourceTree = "<group>"; };
 		30410A6727A677EB00284446 /* AccountSettingBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingBody.swift; sourceTree = "<group>"; };
@@ -342,7 +307,6 @@
 		30410A7627A677EB00284446 /* CuratorProgramSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuratorProgramSetting.swift; sourceTree = "<group>"; };
 		30410A7827A677EB00284446 /* CuratorProgramSettingHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuratorProgramSettingHeader.swift; sourceTree = "<group>"; };
 		30410A8527A67AAE00284446 /* deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deprecated.swift; sourceTree = "<group>"; };
-		30410A8B27ADD99000284446 /* SaveTransformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTransformView.swift; sourceTree = "<group>"; };
 		30410A8D27AF2CDB00284446 /* HomeViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBody.swift; sourceTree = "<group>"; };
 		30521369278A2C3100CE0224 /* RecentSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentSearch.swift; sourceTree = "<group>"; };
 		3052136A278A2C3100CE0224 /* ContentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
@@ -782,31 +746,6 @@
 				30410A3A27A671AB00284446 /* MainSettingsViewHeader.swift */,
 			);
 			path = "MainSettingsView Helpers";
-			sourceTree = "<group>";
-		};
-		30410A3C27A6767700284446 /* ARPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				30410A3D27A6767700284446 /* CustomARView.swift */,
-				30410A3E27A6767700284446 /* BrowseView.swift */,
-				30410A3F27A6767700284446 /* SessionSettings.swift */,
-				30410A4027A6767700284446 /* Model.swift */,
-				30410A4127A6767700284446 /* FirebaseStorageHelper.swift */,
-				30410A4227A6767700284446 /* ARPlayerContainer.swift */,
-				30410A4327A6767700284446 /* ARViewContainer.swift */,
-				30410A4427A6767700284446 /* ARSettingsView.swift */,
-				30410A4527A6767700284446 /* ModelDeletionManager.swift */,
-				30410A4627A6767700284446 /* ARPlayerContentView.swift */,
-				30410A4727A6767700284446 /* PlacementView.swift */,
-				30410A4827A6767700284446 /* View+Extensions.swift */,
-				30410A4927A6767700284446 /* DeletionView.swift */,
-				30410A8B27ADD99000284446 /* SaveTransformView.swift */,
-				30410A4A27A6767700284446 /* ScenePersistenceHelper.swift */,
-				30410A4B27A6767700284446 /* ModelsViewModel.swift */,
-				30410A4C27A6767700284446 /* PlacementSettings.swift */,
-				30410A4D27A6767700284446 /* ARPlayerViewController.swift */,
-			);
-			path = ARPlayer;
 			sourceTree = "<group>";
 		};
 		30410A6227A677EB00284446 /* Sub-Settings */ = {
@@ -1249,7 +1188,6 @@
 		92794CE2273811760012B184 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
-				30410A3C27A6767700284446 /* ARPlayer */,
 				92794CE3273811760012B184 /* Reel */,
 				92794CE9273811760012B184 /* Recent Activity */,
 				92794CEF273811760012B184 /* Liked */,
@@ -1673,7 +1611,6 @@
 			files = (
 				92794D04273811760012B184 /* CollectionLikedHeader.swift in Sources */,
 				92DB7C5F27316A4D0035B788 /* CreateLandingView.swift in Sources */,
-				30410A5C27A6767700284446 /* ModelsViewModel.swift in Sources */,
 				316C527727287C3A00E28609 /* VerifyEmailBody.swift in Sources */,
 				92794D01273811760012B184 /* CollectionRecentActivityRow.swift in Sources */,
 				30001BC62796854200527BF9 /* deleteHome.swift in Sources */,
@@ -1688,8 +1625,6 @@
 				3004D50126CD57A800323BCB /* TabBarViewController.swift in Sources */,
 				3052136B278A2C3100CE0224 /* RecentSearch.swift in Sources */,
 				3004D4E626CC971500323BCB /* Logo.swift in Sources */,
-				30410A4F27A6767700284446 /* BrowseView.swift in Sources */,
-				30410A5B27A6767700284446 /* ScenePersistenceHelper.swift in Sources */,
 				30410A7A27A677EB00284446 /* AccountSettingHeader.swift in Sources */,
 				30001BDF2796868000527BF9 /* deleteList.swift in Sources */,
 				92794D00273811760012B184 /* CollectionRecentActivityFooter.swift in Sources */,
@@ -1703,7 +1638,6 @@
 				3153458227557F2300BD7B54 /* RecommendedSlabsView.swift in Sources */,
 				319F25C526E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
 				30410A7F27A677EB00284446 /* ProfileSettingHeader.swift in Sources */,
-				30410A8C27ADD99000284446 /* SaveTransformView.swift in Sources */,
 				92794CFD273811760012B184 /* CollectionReelHeader.swift in Sources */,
 				30001BE62796871200527BF9 /* postSettings.swift in Sources */,
 				31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */,
@@ -1714,20 +1648,17 @@
 				30001BE82796871C00527BF9 /* updateSettings.swift in Sources */,
 				319F25B926E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
 				92794D05273811760012B184 /* CollectionLikedFooter.swift in Sources */,
-				30410A5227A6767700284446 /* FirebaseStorageHelper.swift in Sources */,
 				316C527527287C2800E28609 /* VerifyEmailHeader.swift in Sources */,
 				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
 				30001BDB2796865E00527BF9 /* postList.swift in Sources */,
 				3309962E277BC2670040D099 /* ImageLoader.swift in Sources */,
 				31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */,
 				92DB7C6127316A6A0035B788 /* CreatePublishView.swift in Sources */,
-				30410A5627A6767700284446 /* ModelDeletionManager.swift in Sources */,
 				311E93852752FB3E005DFE12 /* Post_Small.swift in Sources */,
 				3052137B278A2C3A00CE0224 /* Followers.swift in Sources */,
 				30001BDD2796867100527BF9 /* updateList.swift in Sources */,
 				92794D13273814EB0012B184 /* DiscoveryCategoryContent.swift in Sources */,
 				92794D07273811760012B184 /* CollectionGenericView.swift in Sources */,
-				30410A5927A6767700284446 /* View+Extensions.swift in Sources */,
 				30410A8327A677EB00284446 /* CuratorProgramSetting.swift in Sources */,
 				308B4BF127658B8F0039B74E /* ArtDetails.swift in Sources */,
 				3153457E27557B8800BD7B54 /* BrowseSlabsView.swift in Sources */,
@@ -1736,7 +1667,6 @@
 				319F25C126E571B7009B811E /* HomeViewDiscover.swift in Sources */,
 				3129ADE126F41AB600172808 /* OtherProfileViewController.swift in Sources */,
 				308B4BEB27658A040039B74E /* Museum.swift in Sources */,
-				30410A5827A6767700284446 /* PlacementView.swift in Sources */,
 				30410A7927A677EB00284446 /* AccountSetting.swift in Sources */,
 				30410A7C27A677EB00284446 /* ArtistProgramSetting.swift in Sources */,
 				316ACAC22725AE240065CE6A /* ForgotPasswordViewBody.swift in Sources */,
@@ -1746,7 +1676,6 @@
 				30410A7E27A677EB00284446 /* ProfileSetting.swift in Sources */,
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
 				3052137D278A2D5A00CE0224 /* FirestoreQueryService.swift in Sources */,
-				30410A5727A6767700284446 /* ARPlayerContentView.swift in Sources */,
 				31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */,
 				92794D02273811760012B184 /* CollectionRecentActivityHeader.swift in Sources */,
 				30001BD92796865600527BF9 /* getList.swift in Sources */,
@@ -1772,7 +1701,6 @@
 				30001BF72796961100527BF9 /* OtherProfileViewVerified.swift in Sources */,
 				316C527227287BA100E28609 /* VerifyEmailViewController.swift in Sources */,
 				3052137F278A2DCE00CE0224 /* StorageService.swift in Sources */,
-				30410A5027A6767700284446 /* SessionSettings.swift in Sources */,
 				30410A0427A1E7BE00284446 /* USDZPost.swift in Sources */,
 				30001BED2796947D00527BF9 /* SelfProfileViewHeader.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
@@ -1784,15 +1712,12 @@
 				30410A7B27A677EB00284446 /* AccountSettingBody.swift in Sources */,
 				92794D0F273814B80012B184 /* DiscoveryCategoryView.swift in Sources */,
 				304109F8279E24EC00284446 /* FirestoreUploadService.swift in Sources */,
-				30410A5427A6767700284446 /* ARViewContainer.swift in Sources */,
 				30001C07279699A900527BF9 /* ConnectButton.swift in Sources */,
 				3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
-				30410A5527A6767700284446 /* ARSettingsView.swift in Sources */,
 				3152F6A62717519B0061F72E /* PrivacyPolicyViewController.swift in Sources */,
 				30836FB2274A036E00E83735 /* DiscoverViewRecentSearch.swift in Sources */,
 				3052137A278A2C3A00CE0224 /* Following.swift in Sources */,
 				3087D286275D4C4D00ECD8CD /* LoadingView.swift in Sources */,
-				30410A5327A6767700284446 /* ARPlayerContainer.swift in Sources */,
 				30836FB7274A043300E83735 /* OtherSearchTemplate.swift in Sources */,
 				30001BD02796858D00527BF9 /* getProfile.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
@@ -1834,15 +1759,12 @@
 				30001C012796972E00527BF9 /* OtherProfileViewDetails.swift in Sources */,
 				30001BEF2796949100527BF9 /* SelfProfileViewDetails.swift in Sources */,
 				30001BC02796851300527BF9 /* getHome.swift in Sources */,
-				30410A5E27A6767700284446 /* ARPlayerViewController.swift in Sources */,
 				3152F6A4271751670061F72E /* SetPasswordViewController.swift in Sources */,
 				319F25B526E56935009B811E /* HomeViewStories.swift in Sources */,
-				30410A5127A6767700284446 /* Model.swift in Sources */,
 				31B828C4272376BE0067DB05 /* CustomBackButton.swift in Sources */,
 				30521377278A2C3A00CE0224 /* GetUser.swift in Sources */,
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
 				30836FB5274A041600E83735 /* ArtistSearchTemplate.swift in Sources */,
-				30410A4E27A6767700284446 /* CustomARView.swift in Sources */,
 				30001BFF2796971800527BF9 /* OtherProfileFeatured.swift in Sources */,
 				31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */,
 				3087D26A274ED54C00ECD8CD /* Playlist.swift in Sources */,
@@ -1855,9 +1777,7 @@
 				30001BE42796870100527BF9 /* getSettings.swift in Sources */,
 				92794D03273811760012B184 /* CollectionLikedView.swift in Sources */,
 				92794D06273811760012B184 /* CollectionLikedRow.swift in Sources */,
-				30410A5D27A6767700284446 /* PlacementSettings.swift in Sources */,
 				30001B7E278F8E6F00527BF9 /* get.swift in Sources */,
-				30410A5A27A6767700284446 /* DeletionView.swift in Sources */,
 				3004D4F226CD407600323BCB /* Art.swift in Sources */,
 				315345772755760A00BD7B54 /* DiscoverBrowse.swift in Sources */,
 				92DB7C6D273181240035B788 /* CreatePublishHeader.swift in Sources */,

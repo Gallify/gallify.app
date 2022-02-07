@@ -7,19 +7,27 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
     let screenWidth: CGFloat
     let screenHeight: CGFloat
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
 
-        MainSettingsViewHeader(screenWidth: screenWidth, screenHeight: screenHeight)
-
-        ScrollView (showsIndicators: false) {
+        VStack {
             
-            MainSettingsViewBody(screenWidth: screenWidth, screenHeight: screenHeight)
+            MainSettingsViewHeader(screenWidth: screenWidth, screenHeight: screenHeight)
+            
+            ScrollView (showsIndicators: false) {
+                
+                MainSettingsViewBody(screenWidth: screenWidth, screenHeight: screenHeight)
+                
+            }
             
         }
+        
     }
+    
 }
 
 struct MainSettingsView_Previews: PreviewProvider {

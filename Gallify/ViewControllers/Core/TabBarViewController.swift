@@ -34,6 +34,9 @@ struct TabBarView: View {
     
     var body: some View {
         
+        let screenWidth = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
+        
         ZStack {
                 
             //if(firestoreQuery.showNewScreen == false) {
@@ -44,14 +47,15 @@ struct TabBarView: View {
                 
             //if firestoreQuery.showNewScreen == false {
             
-            TabView{
-                if(doneLoading){
-                        
+            TabView {
+                
+                if doneLoading {
+                    
                     HomeView()
                         .tabItem {
                                 
                             Label("Home", systemImage: "house.fill")
-                                .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
+                                .font(.system(size: screenWidth / 15, weight: .semibold))
                             
                     }
                         
@@ -59,34 +63,48 @@ struct TabBarView: View {
                         .tabItem {
                                 
                             Label("Discover", systemImage: "magnifyingglass")
-                                .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
+                                .font(.system(size: screenWidth / 15, weight: .semibold))
                                 
                     }
                         
-                    SelfProfileView()
-                        .tabItem {
-                                
-                            Label("Profile", systemImage: "person.fill")
-                                .font(.system(size: viewModel.screenWidth / 15, weight: .semibold))
-                                
-                    }
+                    if (firestoreQuery.data.skill == 0) {
                         
+                        SelfProfileView()
+                            .tabItem {
+                                    
+                                Label("Profile", systemImage: "person.fill")
+                                    .font(.system(size: screenWidth / 15, weight: .semibold))
+                                    
+                        }
+                        
+                    }
                     
+                    else {
+                        
+                        SelfProfileViewVerified()
+                            .tabItem {
+                                
+                                Label("Profile", systemImage: "person.fill")
+                                    .font(.system(size: screenWidth / 15, weight: .semibold))
+                                
+                        }
+                        
+                    }
                     
-                }
-                else{
-                    LoadingView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth, isLoading: $isLoading)
-                       
                 }
                 
-
+                else {
+                    
+                    LoadingView(screenHeight: screenHeight, screenWidth: screenWidth, isLoading: $isLoading)
+                    
+                }
+                    
             }
-            //.navigationBarTitle("")
-            // .navigationBarHidden(true)
-            .accentColor(Color.primary)
+            .accentColor(Color.black)
             .environmentObject(viewModel)
             .environmentObject(firestoreQuery)
-            .onAppear{ async{await NetworkingCall() }}
+            .environmentObject(storageService)
+            .onAppear{ async { await NetworkingCall() } }
                 
             ZStack {
                 
@@ -95,7 +113,7 @@ struct TabBarView: View {
                     //here
                     //newscreen()
                         
-                    CollectionReelView(screenWidth: viewModel.screenWidth, screenHeight: viewModel.screenHeight)
+                    CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight)
                         .offset(y: 10 )
                         //.padding(.top, 100)
                         .transition(.move(edge: .bottom))
@@ -128,16 +146,6 @@ struct TabBarView: View {
         firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
 
         await firestoreQuery.fetchArt()
-        
-        //await firestoreQuery.getHome()
-        
-        await firestoreQuery.getHomeMuseumList()
-       
-        //getMuseums. Gets all these Museums. List of Playlists
-        await firestoreQuery.getHomeMuseums()
-        
-        //getPlaylists. Gets all the data for the playlists. Called once per museum.
-        await firestoreQuery.getHomePlaylists()
        
         doneLoading = true
         

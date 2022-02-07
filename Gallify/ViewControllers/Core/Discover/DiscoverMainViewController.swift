@@ -90,21 +90,25 @@ struct DiscoverMainView: View {
                 }
                 .navigationBarHidden(true)
                 
-                
-                //this is the minimized view of the reel. 
-                if(firestoreQuery.showNewScreen == false){
-                    if(firestoreQuery.artPlaying == true){
-                        if(showCancelButton == false){
-                          //  NavigationLink(destination: OtherProfileView(), label: {
-
-                                
-                                MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
+                //this is the minimized view of the reel.
+                if firestoreQuery.showNewScreen == false {
+                    
+                    if firestoreQuery.artPlaying == true {
+                        
+                        if showCancelButton == false {
                             
-                          //  })
+                            NavigationLink(destination: OtherProfileView(), label: {
+
+                                MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
+                                
+//                                OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
+                            })
+                            
                         }
+                        
                     }
+                    
                 }
-                
                 
             }
             .navigationBarHidden(true)
