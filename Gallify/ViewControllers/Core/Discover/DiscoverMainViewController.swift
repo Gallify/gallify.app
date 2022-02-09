@@ -90,21 +90,20 @@ struct DiscoverMainView: View {
                 }
                 .navigationBarHidden(true)
                 
-                
-                //this is the minimized view of the reel. 
-                if(firestoreQuery.showNewScreen == false){
-                    if(firestoreQuery.artPlaying == true){
-                        if(showCancelButton == false){
-                          //  NavigationLink(destination: OtherProfileView(), label: {
+                //this is the minimized view of the reel.
+                if firestoreQuery.showNewScreen == false {
+                    
+                    if firestoreQuery.artPlaying == true {
+                        
+                        if showCancelButton == false {
 
-                                
-                                MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
+                            MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
                             
-                          //  })
                         }
+                        
                     }
+                    
                 }
-                
                 
             }
             .navigationBarHidden(true)

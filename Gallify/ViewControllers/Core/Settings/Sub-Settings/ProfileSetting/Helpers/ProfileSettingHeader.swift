@@ -11,15 +11,15 @@ struct ProfileSettingHeader: View {
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat
-    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
+                    
         VStack {
             
             HStack {
                 
-                CustomBackButton(buttonHeight: screenHeight / 19.5, buttonWidth: screenWidth / 9, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
+                CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
                     .padding(.horizontal, screenWidth / 25)
                     .padding(.vertical, screenHeight / 100)
                 
@@ -30,7 +30,7 @@ struct ProfileSettingHeader: View {
             HStack {
                         
                 Text("Profile")
-                    .font(.system(size: screenWidth / 11, weight: .semibold))
+                    .font(.system(size: screenWidth / 12.5, weight: .semibold))
                         
                 Spacer()
                         
@@ -39,10 +39,9 @@ struct ProfileSettingHeader: View {
             .padding(.bottom, screenHeight / 32.5)
             
         }
-        .padding(.top, screenHeight / 160)
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
+            
     }
+    
 }
 
 struct ProfileSettingHeader_Previews: PreviewProvider {

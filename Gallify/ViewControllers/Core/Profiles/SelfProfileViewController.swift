@@ -26,12 +26,7 @@ struct SelfProfileView : View {
                     
                 ScrollView(showsIndicators: false) {
                             
-                    if(firestoreQuery.data.skill != 0){
-                        SelfProfileViewVerifiedDetails()
-                    }
-                    else{
-                        SelfProfileViewDetails()
-                    }
+                    SelfProfileViewDetails()
                         
                     SelfProfileFeatured()
                             
@@ -40,10 +35,14 @@ struct SelfProfileView : View {
                 }
                 .navigationBarHidden(true)
                 
-                if(firestoreQuery.showNewScreen == false){
-                    if(firestoreQuery.artPlaying == true){
+                if(firestoreQuery.showNewScreen == false) {
+                    
+                    if(firestoreQuery.artPlaying == true) {
+                        
                         MinimizedView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth)
+                        
                     }
+                    
                 }
                         
             }
@@ -65,8 +64,8 @@ struct SelfProfileView : View {
 ////                            }
 //
 //                    }
-//                    
-//                      
+//
+//
 //                }
 //                .zIndex(3.0)
             
@@ -85,11 +84,6 @@ struct SelfProfileView : View {
         
         await firestoreQuery.getUserLibrary()
         
-        
-        
-        
-        
-        
 //        //gets user data and featured playlist
 //        await firestoreQuery.fetchData() //gets data and featured playlist
 //
@@ -107,10 +101,6 @@ struct SelfProfileView : View {
     }
     
 }
-
-        
-
-
 
 struct SelfProfileScreenPreview: PreviewProvider {
     @available(iOS 15.0, *)
