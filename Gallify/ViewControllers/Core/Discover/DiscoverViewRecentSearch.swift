@@ -21,147 +21,149 @@ struct DiscoverViewRecentSearch: View {
         let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
         
-        VStack {
-            
-            HStack {
-                        
-                Text("Recent Searches")
-                    .font(.system(size: screenWidth / 13.5, weight: .semibold))
-                        
-                Spacer()
-                        
-            }
-            .padding(.leading, screenWidth / 25)
-            .padding(.vertical, screenHeight / 54)
-            
-            if showFirst {
+        ScrollView(showsIndicators: false) {
+            VStack {
                 
                 HStack {
+                            
+                    Text("Recent Searches")
+                        .font(.system(size: screenWidth / 13.5, weight: .semibold))
+                            
+                    Spacer()
+                            
+                }
+                .padding(.leading, screenWidth / 25)
+                .padding(.vertical, screenHeight / 54)
+                
+                if showFirst {
                     
-                    NavigationLink(destination: OtherProfileView(), label: {
+                    HStack {
                         
-                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
-                    })
+                        NavigationLink(destination: OtherProfileView(), label: {
+                            
+                            OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("turtlerock"), title: "Desert", searchType: "Art", artistName: "Joe")
+                        })
+                        
+                        Button(action: {
+                            showFirst.toggle()
+                        }, label: {
+                            
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .frame(width: screenWidth / 20, height: screenHeight / 43)
+                                .foregroundColor(.black)
+                            
+                        })
+                        .padding(.horizontal, screenWidth / 25)
+                        
+                    }
                     
-                    Button(action: {
-                        showFirst.toggle()
-                    }, label: {
+                }
+                
+                if showSecond {
+                    
+                    HStack {
                         
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .frame(width: screenWidth / 20, height: screenHeight / 43)
-                            .foregroundColor(.black)
+                        NavigationLink(destination: OtherProfileView(), label: {
+                            
+                            OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("stmarylake"), title: "Sunsets", searchType: "Playlist", artistName: "Photographer")
+                            
+                        })
                         
-                    })
-                    .padding(.horizontal, screenWidth / 25)
+                        Button(action: {
+                            showSecond.toggle()
+                        }, label: {
+                            
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .frame(width: screenWidth / 20, height: screenHeight / 43)
+                                .foregroundColor(.black)
+                            
+                        })
+                        .padding(.horizontal, screenWidth / 25)
+                        
+                    }
+                    
+                }
+                
+                if showThird {
+                    
+                    HStack {
+                        
+                        NavigationLink(destination: OtherProfileView(), label: {
+                            
+                            ArtistSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("kanye-west"), artistName: "Kanye West")
+                            
+                        })
+                        
+                        Button(action: {
+                            showThird.toggle()
+                        }, label: {
+                            
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .frame(width: screenWidth / 20, height: screenHeight / 43)
+                                .foregroundColor(.black)
+                            
+                        })
+                        .padding(.horizontal, screenWidth / 25)
+                        
+                    }
+                    
+                }
+                
+                if showFourth {
+                    
+                    HStack {
+                        
+                        NavigationLink(destination: OtherProfileView(), label: {
+                            
+                            OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("twinlake"), title: "Lakes", searchType: "Collection", artistName: "Fisherman")
+                        })
+                        
+                        Button(action: {
+                            showFourth.toggle()
+                        }, label: {
+                            
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .frame(width: screenWidth / 20, height: screenHeight / 43)
+                                .foregroundColor(.black)
+                            
+                        })
+                        .padding(.horizontal, screenWidth / 25)
+                        
+                    }
+                    
+                }
+                
+                if showFifth {
+                    
+                    HStack {
+                        
+                        NavigationLink(destination: OtherProfileView(), label: {
+                            
+                            OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("raging-bull"), title: "Raging Bull", searchType: "Art", artistName: "Martin Scorsese")
+                            
+                        })
+                        
+                        Button(action: {
+                            showFifth.toggle()
+                        }, label: {
+                            
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .frame(width: screenWidth / 20, height: screenHeight / 43)
+                                .foregroundColor(.black)
+                            
+                        })
+                        .padding(.horizontal, screenWidth / 25)
+                        
+                    }
                     
                 }
                 
             }
-            
-            if showSecond {
-                
-                HStack {
-                    
-                    NavigationLink(destination: OtherProfileView(), label: {
-                        
-                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("stmarylake"), title: "Sunsets", searchType: "Playlist", artistName: "Photographer")
-                        
-                    })
-                    
-                    Button(action: {
-                        showSecond.toggle()
-                    }, label: {
-                        
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .frame(width: screenWidth / 20, height: screenHeight / 43)
-                            .foregroundColor(.black)
-                        
-                    })
-                    .padding(.horizontal, screenWidth / 25)
-                    
-                }
-                
-            }
-            
-            if showThird {
-                
-                HStack {
-                    
-                    NavigationLink(destination: OtherProfileView(), label: {
-                        
-                        ArtistSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("kanye-west"), artistName: "Kanye West")
-                        
-                    })
-                    
-                    Button(action: {
-                        showThird.toggle()
-                    }, label: {
-                        
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .frame(width: screenWidth / 20, height: screenHeight / 43)
-                            .foregroundColor(.black)
-                        
-                    })
-                    .padding(.horizontal, screenWidth / 25)
-                    
-                }
-                
-            }
-            
-            if showFourth {
-                
-                HStack {
-                    
-                    NavigationLink(destination: OtherProfileView(), label: {
-                        
-                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("twinlake"), title: "Lakes", searchType: "Collection", artistName: "Fisherman")
-                    })
-                    
-                    Button(action: {
-                        showFourth.toggle()
-                    }, label: {
-                        
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .frame(width: screenWidth / 20, height: screenHeight / 43)
-                            .foregroundColor(.black)
-                        
-                    })
-                    .padding(.horizontal, screenWidth / 25)
-                    
-                }
-                
-            }
-            
-            if showFifth {
-                
-                HStack {
-                    
-                    NavigationLink(destination: OtherProfileView(), label: {
-                        
-                        OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("raging-bull"), title: "Raging Bull", searchType: "Art", artistName: "Martin Scorsese")
-                        
-                    })
-                    
-                    Button(action: {
-                        showFifth.toggle()
-                    }, label: {
-                        
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .frame(width: screenWidth / 20, height: screenHeight / 43)
-                            .foregroundColor(.black)
-                        
-                    })
-                    .padding(.horizontal, screenWidth / 25)
-                    
-                }
-                
-            }
-            
         }
         
     }

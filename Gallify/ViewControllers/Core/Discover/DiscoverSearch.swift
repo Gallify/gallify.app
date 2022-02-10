@@ -7,107 +7,136 @@
 
 import SwiftUI
 
+
+
+
+
 struct DiscoverSearch: View {
     
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
     @EnvironmentObject var viewModel: TabBarViewModel
+    //@EnvironmentObject var searchModel: SearchViewModel
+    //@Binding var searchText: String
     
     var body: some View {
-        
         let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
         
-        VStack {
-            
-            NavigationLink(destination: OtherProfileViewVerified(), label: {
-                    
-                HStack {
+        
+        VStack{
+            ScrollView(showsIndicators: false) {
+
+                if(firestoreQuery.foundContacts.count > 0){
+                    if(firestoreQuery.foundContacts.count > 20){
+                        ForEach(0...19, id: \.self) { i in
+                            
+                            HStack{
+                                Text("\(firestoreQuery.foundContacts.count)")
+                                Spacer()
+                            }
+                            .offset(x: 10)
+                            
+                            //NavigationLink(destination: OtherProfileViewVerified(), label: {
+                                                
+                                HStack {
+                                    
+                                    SearchResultView(screenHeight: screenHeight, screenWidth: screenWidth, artwork: firestoreQuery.foundContacts[i])
+                                        
+                                        
+                                }
+                                    
+                           // })
+                            
+                        }
+                        .listStyle(.plain)
+                        .searchable(text: $firestoreQuery.searchText)
+                        .onChange(of: firestoreQuery.searchText){ value in
+                            if(!value.isEmpty){ // && value.count > 3
+                                firestoreQuery.search(searchText: value)
+                            }
+                            else{
+                                firestoreQuery.foundContacts.removeAll()
+                            }
+                        }
+                    }
+                    else{
                         
-                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("starry-night"), title: "Starry Night", searchType: "Art", artistName: "Vincent van Gogh")
-                     
-                    Image(systemName: "greaterthan")
-                        .resizable()
-                        .frame(width: screenWidth / 20, height: screenHeight / 43)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, screenWidth / 25)
+                        HStack{
+                            Text("\(firestoreQuery.foundContacts.count)")
+                            Spacer()
+                        }
+                        .offset(x: 10)
                         
+                        
+                        ForEach(0...firestoreQuery.foundContacts.count - 1, id: \.self) { i in
+                            
+                            
+                           // NavigationLink(destination: OtherProfileViewVerified(), label: {
+                                        
+                                SearchResultView(screenHeight: screenHeight, screenWidth: screenWidth, artwork: firestoreQuery.foundContacts[i])
+                                
+//                                HStack {
+//
+//                                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("charleyrivers"), title: "Dreamy Nights", searchType: "Collection", artistName: "Pablo Escobar")
+//
+//                                    Image(systemName: "greaterthan")
+//                                        .resizable()
+//                                        .frame(width: screenWidth / 20, height: screenHeight / 43)
+//                                        .foregroundColor(.black)
+//                                        .padding(.horizontal, screenWidth / 25)
+//
+//                                }
+                                    
+                          //  })
+                            
+                            
+                            
+                            
+                            
+                            
+                        }
+                        .listStyle(.plain)
+                        .searchable(text: $firestoreQuery.searchText)
+                        .onChange(of: firestoreQuery.searchText){ value in
+                            if(!value.isEmpty){ // && value.count > 3
+                                firestoreQuery.search(searchText: value)
+                            }
+                            else{
+                                firestoreQuery.foundContacts.removeAll()
+                            }
+                        }
+                    }
                 }
+                else{
+                    ForEach(0...0, id: \.self) { i in
+                    }
+                    .listStyle(.plain)
+                    .searchable(text: $firestoreQuery.searchText)
+                    .onChange(of: firestoreQuery.searchText){ value in
+                        if(!value.isEmpty){ // && value.count > 3
+                            firestoreQuery.search(searchText: value)
+                        }
+                        else{
+                            firestoreQuery.foundContacts.removeAll()
+                        }
+                    }
                     
-            })
-            
-            NavigationLink(destination: OtherProfileViewVerified(), label: {
-                    
-                HStack {
-                        
-                    ArtistSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("leonardo"), artistName: "Leonardo da Vinci")
-                        
-                    Image(systemName: "greaterthan")
-                        .resizable()
-                        .frame(width: screenWidth / 20, height: screenHeight / 43)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, screenWidth / 25)
-                        
                 }
-                    
-            })
-            
-            NavigationLink(destination: OtherProfileViewVerified(), label: {
-                    
-                HStack {
-                        
-                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("charleyrivers"), title: "Dreamy Nights", searchType: "Collection", artistName: "Pablo Escobar")
-                        
-                    Image(systemName: "greaterthan")
-                        .resizable()
-                        .frame(width: screenWidth / 20, height: screenHeight / 43)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, screenWidth / 25)
-                        
-                }
-                    
-            })
-            
-            NavigationLink(destination: OtherProfileViewVerified(), label: {
-                    
-                HStack {
-                        
-                    ArtistSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("cat"), artistName: "Meow!")
-                        
-                    Image(systemName: "greaterthan")
-                        .resizable()
-                        .frame(width: screenWidth / 20, height: screenHeight / 43)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, screenWidth / 25)
-                        
-                }
-                    
-            })
-            
-            NavigationLink(destination: OtherProfileViewVerified(), label: {
-                    
-                HStack {
-                        
-                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("lakemcdonald"), title: "Mountains", searchType: "Playelist", artistName: "Hiker")
-                        
-                    Image(systemName: "greaterthan")
-                        .resizable()
-                        .frame(width: screenWidth / 20, height: screenHeight / 43)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, screenWidth / 25)
-                        
-                }
-                    
-            })
-            
+                
+                
+               
+
+                
+                
+                
+                
+            }
+
         }
-        .padding(.top, screenHeight / 54)
+        .navigationBarHidden(true)
+ 
         
     }
-    
 }
-
-struct DiscoverSearch_Previews: PreviewProvider {
-    static var previews: some View {
-        DiscoverSearch()
-            .environmentObject(TabBarViewModel())
-    }
-}
+        
+       

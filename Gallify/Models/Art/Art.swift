@@ -16,10 +16,10 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
 
         case name
         case creator
-        case content_url
+        case content_url 
         case thumbnail
         case collection_coverart_url
-        case artwork_url
+        case artwork_url //g o n e
         case popularity
         case share_url
         case art_id //if add to playlist

@@ -16,22 +16,24 @@ struct DiscoverPostsView: View {
         let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
         
-        VStack {
-            
-            DiscoverPostsViewTags(screenHeight: screenHeight, screenWidth: screenWidth)
-            
-            DiscoverPagePosts()
-            
-            DiscoverPagePosts()
-            
-            //DiscoverPagePosts()
-            
-            //DiscoverPagePosts()
-            
-            //DiscoverPagePosts()
-            
+        ScrollView(showsIndicators: false) {
+            VStack {
+                
+                DiscoverPostsViewTags(screenHeight: screenHeight, screenWidth: screenWidth)
+                
+                DiscoverPagePosts()
+                
+                DiscoverPagePosts()
+                
+                //DiscoverPagePosts()
+                
+                //DiscoverPagePosts()
+                
+                //DiscoverPagePosts()
+                
+            }
+            .padding(.top, screenHeight / 160)
         }
-        .padding(.top, screenHeight / 160)
         
     }
     

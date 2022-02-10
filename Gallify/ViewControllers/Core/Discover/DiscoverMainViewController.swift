@@ -5,6 +5,8 @@
 //  Created by Anshul on 11/12/21.
 //
 import SwiftUI
+import AlgoliaSearchClient
+
 
 struct DiscoverMainView: View {
     
@@ -27,7 +29,7 @@ struct DiscoverMainView: View {
                     HStack {
 
                         Image(systemName: "magnifyingglass")
-                        TextField("Search", text: $searchText, onEditingChanged: { isEditing in
+                        TextField("Search", text: $firestoreQuery.searchText, onEditingChanged: { isEditing in
                             self.showCancelButton = true
                         })
                             .foregroundColor(.primary)
@@ -35,11 +37,11 @@ struct DiscoverMainView: View {
                             .autocapitalization(.none)
 
                         Button(action: {
-                            self.searchText = ""
+                            firestoreQuery.searchText = ""
                         }) {
                             Image(systemName: "xmark")
                                 .foregroundColor(.black)
-                                .opacity(searchText == "" ? 0 : 1)
+                                .opacity(firestoreQuery.searchText == "" ? 0 : 1)
                         }
                     }
                     .padding(.horizontal, screenWidth / 37.5)
@@ -52,7 +54,7 @@ struct DiscoverMainView: View {
                         
                         Button("Cancel") {
                             UIApplication.shared.endEditing(true)
-                            self.searchText = ""
+                            firestoreQuery.searchText = ""
                             self.showCancelButton = false
                         }
                         .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
@@ -63,19 +65,20 @@ struct DiscoverMainView: View {
                 .padding(.horizontal, screenWidth / 25)
                 .padding(.top, screenHeight / 54)
                 
-                ScrollView(showsIndicators: false) {
+               // ScrollView(showsIndicators: false) {
                     
                     if showCancelButton {
                         
-                        if searchText == "" {
+                        if firestoreQuery.searchText == "" {
                             
                             DiscoverViewRecentSearch()
                             
                         }
                         
                         else {
-                            
-                            DiscoverSearch()
+                          //  ScrollView(showsIndicators: false) {
+                                DiscoverSearch()
+                          //  }
                             
                         }
                         
@@ -87,8 +90,9 @@ struct DiscoverMainView: View {
                         
                     }
                     
-                }
-                .navigationBarHidden(true)
+                    
+               // }
+               // .navigationBarHidden(true)
                 
                 //this is the minimized view of the reel.
                 if firestoreQuery.showNewScreen == false {

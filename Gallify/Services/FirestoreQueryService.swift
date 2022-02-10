@@ -67,7 +67,8 @@ class FirestoreQuery : ObservableObject {
     @Published var homePlaylists: [[Playlist]] = [[Playlist]]()
     
     //discover
-    
+    @Published var searchText = ""
+    @Published var foundContacts: [Art] = [Art]()
     
     //settings
     

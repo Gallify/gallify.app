@@ -76,7 +76,7 @@ struct SelfProfileFeatured: View {
                                                 
                                     VStack(alignment: .leading) {
                                                     
-                                        if (firestoreQuery.data.isClicked == artwork.art_id) {
+                                        if (firestoreQuery.artisClicked == artwork.art_id) {
                                             
                                             Text(artwork.name)
                                                 .foregroundColor(Color("Gallify-Pink"))
