@@ -133,7 +133,11 @@ extension FirestoreQuery {
     }
     
     
-
+    /*
+      Low Priority. Can pick location. ex. City. and a museum for that city pops up.
+      */
+     func getLocationMuseum() async {
+     }
     
     
     

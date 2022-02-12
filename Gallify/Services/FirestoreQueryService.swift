@@ -68,7 +68,21 @@ class FirestoreQuery : ObservableObject {
     
     //discover
     @Published var searchText = ""
-    @Published var foundContacts: [Art] = [Art]()
+    //@Published var searchResults: [Art] = [Art]()
+    @Published var foundContacts: [Art] = [Art]() //todo: change 'foundContacts' with 'searchResults'
+    @Published var recentSearches: [Art] = [Art]()
+    @Published var discoveryPageArt: [Art] = [Art]()
+   
+    var getNextBatch = false
+//    var lastDocument: Any
+    var lastDocument: QueryDocumentSnapshot!
+//    var discoverQuery: QuerySnapshot
+    var lastDocuments = [QueryDocumentSnapshot]()
+    var discoverQuery: Query!
+    
+    
+    
+    
     
     //settings
     
