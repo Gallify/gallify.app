@@ -45,8 +45,8 @@ struct ARViewContainer: UIViewRepresentable {
             if let anchor = modelAnchor.anchor {
                 // Anchor is being loaded from persisted scene
                 self.place(modelEntity, for: anchor, in: arView)
+                arView.session.add(anchor: anchor)
                 
-                //arView.session.add(anchor: anchor)
                 //self.placementSettings.recentlyPlaced.append(modelAnchor.model)
             } else if let transform = getTransformForPlacement(in: arView) {
                 // Anchor needs to be created for model placement
@@ -63,6 +63,7 @@ struct ARViewContainer: UIViewRepresentable {
     private func place(_ modelEntity: ModelEntity, for anchor: ARAnchor, in arView: ARView) {
         //1. Clone modelEntity. Created identical copy of modelEntity and references same model, allows for multiple models of the same asset in our scene.
         let clonedEntity = modelEntity.clone(recursive: true)
+        print()
 
         //2. Enable translation and rotation gestures
         clonedEntity.generateCollisionShapes(recursive: true)
@@ -131,10 +132,14 @@ extension ARViewContainer {
             
         }
     }
-    
+
     private func handlePersistence(for arView: CustomARView) {
         if self.scenemanager.shouldSaveSceneToFileSystem {
-            ScenePersistenceHelper.saveScene(for: arView, at: self.scenemanager.persistenceURL)
+            print(self.scenemanager.anchorEntities[0].children[0].transform)
+            print(self.scenemanager.anchorEntities[0].transform)
+            print(self.scenemanager.anchorEntities[0].children[0])
+            
+            ScenePersistenceHelper.saveSceneAsArray(for: arView, at: self.scenemanager.persistenceURL, with: self.modelsViewModel.models)
             self.scenemanager.shouldSaveSceneToFileSystem = false
         } else if self.scenemanager.shouldLoadSceneFromFileSystem {
             guard let scenePersistenceData = self.scenemanager.scenePersistenceData else {
@@ -148,8 +153,6 @@ extension ARViewContainer {
             self.scenemanager.shouldLoadSceneFromFileSystem = false
             
         }
-        
-        
     }
 }
 
@@ -165,6 +168,21 @@ extension ARViewContainer {
         
         func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
             for anchor in anchors {
+                if anchor is ARImageAnchor {
+                    print("IMAGE DETECTED")
+                    
+                    let model = self.parent.modelsViewModel.models[1]
+                    
+                    model.asyncLoadModelEntity { completed, error in
+                        if completed {
+                            let modelAnchor = ModelAnchor(model: model, anchor: ARAnchor(transform: anchor.transform))
+                            self.parent.placementSettings.modelsConfirmedForPlacement.append(modelAnchor)
+                            print("Adding modelAnchor with name: \(model.name)")
+                            print("Adding modelAnchor with name: \(model.scaleCompensation)")
+                        }
+                    }
+                }
+                
                 if let anchorName = anchor.name, anchorName.hasPrefix(anchorNamePrefix) {
                     let modelName = anchorName.dropFirst(anchorNamePrefix.count)
                     print("ARSession: didAdd anchor for modelName: \(modelName)")
@@ -189,5 +207,11 @@ extension ARViewContainer {
     
     func makeCoordinator() -> Coordinator {
         return Coordinator(self)
+    }
+}
+
+extension ARViewContainer {
+    func printAnchors() {
+        print(self.scenemanager.anchorEntities)
     }
 }

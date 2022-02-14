@@ -12,6 +12,8 @@ import SwiftUI
 import Combine
 
 class ViewController: UIViewController {
+    let updateQueue = DispatchQueue(label: Bundle.main.bundleIdentifier! +
+        ".serialSceneKitQueue")
     
     var arView: ARSCNView {
         return self.view as! ARSCNView
@@ -50,6 +52,14 @@ class ViewController: UIViewController {
             configuration.worldAlignment = .gravity
             configuration.planeDetection = [.horizontal, .vertical]
             
+            guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "ImageDetection", bundle: nil) else {
+                fatalError("Missing expected asset catalog resources.")
+            }
+            configuration.detectionImages = referenceImages
+            
+            configuration.environmentTexturing = .automatic
+            configuration.frameSemantics.insert(.personSegmentationWithDepth)
+            
             arView.session.run(configuration)
         }
     }
@@ -58,6 +68,7 @@ class ViewController: UIViewController {
         super.viewWillDisappear(animated)
         arView.session.pause()
     }
+
 }
 
 extension ViewController: ARSCNViewDelegate {

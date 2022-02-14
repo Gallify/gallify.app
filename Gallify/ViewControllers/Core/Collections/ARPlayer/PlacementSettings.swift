@@ -13,8 +13,6 @@ import ARKit
 struct ModelAnchor {
     var model: Model
     var anchor: ARAnchor?
-    
-    
 }
 
 class PlacementSettings: ObservableObject {

@@ -24,6 +24,14 @@ class CustomARView: ARView {
             config.sceneReconstruction = .mesh
         }
         
+        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "ImageDetection", bundle: nil) else {
+            fatalError("Missing expected asset catalog resources.")
+        }
+        config.detectionImages = referenceImages
+        
+        config.environmentTexturing = .automatic
+        config.frameSemantics.insert(.personSegmentationWithDepth)
+        
         return config
     }
     

@@ -29,7 +29,6 @@ enum ModelCategory: String, CaseIterable{
 }
 
 class Model: ObservableObject, Identifiable {
-    
     var id: String = UUID().uuidString
     var name: String
     var category: ModelCategory
