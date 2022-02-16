@@ -156,6 +156,7 @@
 		F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */; };
 		FC078049275ACA93003C7538 /* ARPlayerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC078048275ACA93003C7538 /* ARPlayerContentView.swift */; };
 		FC46595227798A63007640BB /* ScenePersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46595127798A63007640BB /* ScenePersistenceHelper.swift */; };
+		FC5FF73927B9E656002AAF77 /* PlaylistSaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5FF73827B9E656002AAF77 /* PlaylistSaveData.swift */; };
 		FC9EED792762AD3800F831DC /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9EED782762AD3800F831DC /* CustomARView.swift */; };
 		FC9EED7C2762AD7E00F831DC /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = FC9EED7B2762AD7E00F831DC /* FocusEntity */; };
 /* End PBXBuildFile section */
@@ -332,6 +333,7 @@
 		F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.release.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC078048275ACA93003C7538 /* ARPlayerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlayerContentView.swift; sourceTree = "<group>"; };
 		FC46595127798A63007640BB /* ScenePersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePersistenceHelper.swift; sourceTree = "<group>"; };
+		FC5FF73827B9E656002AAF77 /* PlaylistSaveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistSaveData.swift; sourceTree = "<group>"; };
 		FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify_GallifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9EED782762AD3800F831DC /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -465,6 +467,7 @@
 				308B4BE6276589760039B74E /* User */,
 				30836FAA2749E65200E83735 /* Extensions.swift */,
 				3087D26D2753270700ECD8CD /* Discover.swift */,
+				FC5FF73827B9E656002AAF77 /* PlaylistSaveData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1432,6 +1435,7 @@
 				30836FBA274A048B00E83735 /* DiscoverPostView.swift in Sources */,
 				30836FBD274A04C900E83735 /* DiscoverPagePosts.swift in Sources */,
 				92794CFE273811760012B184 /* CollectionReelDescription.swift in Sources */,
+				FC5FF73927B9E656002AAF77 /* PlaylistSaveData.swift in Sources */,
 				92794D08273811760012B184 /* CollectionGenericFooter.swift in Sources */,
 				30836FC0274A050800E83735 /* DiscoverPostsViewTags.swift in Sources */,
 				3129ADDD26F4172900172808 /* OtherProfileViewDetails.swift in Sources */,

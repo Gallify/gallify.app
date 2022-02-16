@@ -9,10 +9,9 @@ import Foundation
 import RealityKit
 import ARKit
 import AlgoliaSearchClient
-
-struct SaveData {
-    var models: [ModelAnchor]
-}
+import FirebaseFirestore
+import FirebaseAuth
+import FirebaseFirestoreSwift
 
 private let anchorNamePrefix = "model-"
 
@@ -49,9 +48,11 @@ class ScenePersistenceHelper {
     class func saveSceneAsArray(for arView: CustomARView, at persistenceURL: URL, with models: [Model]) {
         print("Save Scene to local file system - AS ARRAY")
         var saveModels: [ModelAnchor] = []
+        let db = Firestore.firestore()
         
         //1. Get current worldmap from arView.session
         arView.session.getCurrentWorldMap { worldMap, error in
+            let db = Firestore.firestore()
             //2. Safely unwrap worldMap
             guard let map = worldMap else {
                 print("Persistence Error: Unable to get worldMap: \(error!.localizedDescription)")
@@ -59,6 +60,7 @@ class ScenePersistenceHelper {
                 return
             }
             
+            var allSaveObjects = [PlaylistSaveData]()
             for anchor in map.anchors {
                 if let anchorName = anchor.name, anchorName.hasPrefix(anchorNamePrefix) {
                     let modelName = anchorName.dropFirst(anchorNamePrefix.count)
@@ -67,21 +69,25 @@ class ScenePersistenceHelper {
                         print("Persistence: Unable to retrieve model from modelsViewModel.")
                         return
                     }
+                    let saveData = PlaylistSaveData()
                     
-                    let modelAnchor = ModelAnchor(model: model, anchor: anchor)
-                    saveModels.append(modelAnchor)
+                    saveData.name = String(modelName)
+                    saveData.scale_compensation = model.scaleCompensation
+                    saveData.transform = (0..<4).flatMap { x in (0..<4).map { y in anchor.transform[x][y] } }
+                    
+                    allSaveObjects.append(saveData)
                     
                     print("Saving modelAnchor with name: \(model.name)")
                 }
             }
             
-            //3. Archive data and write to filesystem
             do {
-                let saveData = SaveData(models: saveModels)
-                let sceneData = try NSKeyedArchiver.archivedData(withRootObject: saveData, requiringSecureCoding: true)
-                try sceneData.write(to: persistenceURL, options: [.atomic])
+                print(allSaveObjects[0].name)
+                print(allSaveObjects[0].scale_compensation)
+                print(allSaveObjects[0].transform)
+                try db.collection("playlists").document("5THPCzOhAWpJkmiIqqbt").collection("worlddata").document("worlddata").setData(from: allSaveObjects[0])
             } catch {
-                print("Persistence Error: Unable to save scene to local filesystem: \(error.localizedDescription)")
+                print("Persistence Error: Unable to save scene to firebase: \(error)")
             }
         }
     }
