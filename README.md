@@ -9,7 +9,7 @@ __Goal:__ First Beta Tester: 2/22/22
       
 ## issue boards
 
-[Frontend](https://github.com/orgs/Gallify/projects/1), [Databases](https://github.com/orgs/Gallify/projects/4) , [Marketplace](https://github.com/orgs/Gallify/projects/3) , [Neural Engine](https://github.com/orgs/Gallify/projects/5) 
+[Frontend](https://github.com/orgs/Gallify/projects/1), [Databases](https://github.com/orgs/Gallify/projects/4) , [Marketplace](https://github.com/orgs/Gallify/projects/7) , [Neural Engine](https://github.com/orgs/Gallify/projects/5), [Marketing](https://github.com/orgs/Gallify/projects/8)
 
 [Drive](https://drive.google.com/drive/folders/1UyKb6CiN1pJHJfxkywHUzAGlFqLM_7Pe?usp=sharing)
 
