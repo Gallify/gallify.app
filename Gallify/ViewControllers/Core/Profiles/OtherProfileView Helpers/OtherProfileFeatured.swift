@@ -57,6 +57,7 @@ struct OtherProfileFeatured: View {
                             firestoreQuery.artisClicked = artwork.art_id
                             firestoreQuery.artThatsPlaying = artwork
                             firestoreQuery.playlistThatsPlaying = firestoreQuery.featuredPlaylist
+                            firestoreQuery.artworkThatsPlaying = firestoreQuery.featuredArt
                             
                             firestoreQuery.isPresented.toggle()
                             
@@ -70,7 +71,7 @@ struct OtherProfileFeatured: View {
                                 
                                 HStack {
                                                 
-                                    WebImage(url: URL(string: artwork.content_url))
+                                    WebImage(url: URL(string: artwork.thumbnail))
                                         .resizable()
                                         .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                                                 

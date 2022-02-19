@@ -75,6 +75,7 @@ struct TabBarView: View {
                                 Label("Profile", systemImage: "person.fill")
                                     .font(.system(size: screenWidth / 15, weight: .semibold))
                                     
+                                    
                         }
                         
                     }
@@ -156,6 +157,17 @@ struct TabBarView: View {
     
         //getPlaylists. Gets all the data for the playlists. Called once per museum.
         await firestoreQuery.getHomePlaylists()
+        
+        await firestoreQuery.getDiscoverContent()
+        
+//        for art_id in firestoreQuery.discoveryPageArt {
+//            print("gi")
+//        }
+        
+        await firestoreQuery.addArtToArtCollection(art_id: "test-art4")
+        
+
+        
            
         doneLoading = true
             

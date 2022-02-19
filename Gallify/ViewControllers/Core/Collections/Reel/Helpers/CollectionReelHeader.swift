@@ -13,12 +13,11 @@ import ARKit
 struct CollectionReelHeader: View {
     
     @EnvironmentObject var firestoreQuery : FirestoreQuery
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    /*@StateObject var placementSettings = PlacementSettings() //this allows FullARView to pass the placement settings(where to place an object throughout many of it's connected views
-    @StateObject var sessionSettings = SessionSettings()
-    @StateObject var scenemanager = SceneManager()
+    @Environment(\.presentationMode) var presentationMode
+    
     @StateObject var modelsViewModel = ModelsViewModel()
-    @StateObject var modelDeletionManager = ModelDeletionManager()*/
+    
+    @StateObject var placementSettings = PlacementSettings()
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat
@@ -27,16 +26,12 @@ struct CollectionReelHeader: View {
         HStack {
             
             Button{
-               // firestoreQuery.isPresented.toggle()
                 firestoreQuery.showNewScreen.toggle()
                 firestoreQuery.artPlaying = true
-                
-               // firestoreQuery.sheetMode = .hide
-                
             }
                 label: {
                     Image(systemName: "chevron.down")
-                        .font(.system(size: 40))
+                        .font(.system(size: 30))
                         .padding(.leading)
                 }
                 .buttonStyle(ThemeAnimationStyle())
@@ -46,15 +41,21 @@ struct CollectionReelHeader: View {
                 .onTapGesture {
                     firestoreQuery.showNewScreen.toggle()
                 }
+//                .gesture(
+//                    DragGesture()
+//                        .onChanged{ gesture in
+//                            firestoreQuery.showNewScreen.toggle()
+//                        }
+//                )
             
-                .onTapGesture{
-                    
-                    presentationMode.wrappedValue.dismiss()
-                   
-            }
+//                .onTapGesture{
+//
+//                    presentationMode.wrappedValue.dismiss()
+//
+//            }
             
             
-            Spacer()
+          //  Spacer()
             
 
             /*NavigationLink (  //ARViewContainer used to be SwiftUIView()
@@ -82,10 +83,25 @@ struct CollectionReelHeader: View {
                 
             
            
-            Spacer() //added
+            Spacer() 
+            
+            if (ARConfiguration.isSupported) {
+                 NavigationLink(destination: FullARView()
+                                 .environmentObject(modelsViewModel)
+                                 .environmentObject(placementSettings)
+                                 .onAppear {
+                     self.modelsViewModel.fetchData()
+                 },
+                                label: {
+                     Image(systemName: "arkit")
+                 })
+             }
+            
+            
             
 
         }
+      
         
         
         

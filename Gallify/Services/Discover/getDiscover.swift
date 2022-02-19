@@ -17,26 +17,60 @@ extension FirestoreQuery {
      */
     @MainActor
     func search(searchText: String){
+        
+        let query = Query("query")
+          .set(\.filters, to: "searchType:1")
+        //only searches approved artwork. 1 = approved. 
+        
         let client = SearchClient(appID: "D1K1VO0U2E", apiKey: "bc7f663e539795736e1fad8c1adaeae1")
         let index = client.index(withName: "prod_Gallify")
         let decoder = JSONDecoder()
-
         
-        if(searchText == ""){}
-        
+        if(searchText == "" || searchText.count == 1){}
         else{
-            //print("Error: \(searchText)")
+           // print("SEARCHTEXT: \(searchText)")
             index.search(query: "\(searchText)") { result in
               switch result {
               case .failure(let error):
                 print("Error: \(error)")
               case .success(let response):
-              //  print("Response: \(response)")
+               // print("Response: \(response)")
                 do {
                     let hits: [Art]? = try? response.extractHits()
                     
                     DispatchQueue.main.async{
                         self.foundContacts = hits!
+                 //       print("Found contacts: \(self.foundContacts)")
+                    }
+                } catch let error {
+                  print("Contact parsing error: \(error)")
+                }
+              }
+            }
+            
+        }
+    }
+    
+    func search_user(searchText: String){
+        let client = SearchClient(appID: "D1K1VO0U2E", apiKey: "bc7f663e539795736e1fad8c1adaeae1")
+        let index = client.index(withName: "prod_Gallify_users")
+        let decoder = JSONDecoder()
+        
+        
+        if(searchText == "" || searchText.count == 1){}
+        else{
+           // print("SEARCHTEXT: \(searchText)")
+            index.search(query: "\(searchText)") { result in
+              switch result {
+              case .failure(let error):
+                print("Error: \(error)")
+              case .success(let response):
+               // print("Response: \(response)")
+                do {
+                    let hits: [User]? = try? response.extractHits()
+                    
+                    DispatchQueue.main.async{
+                        self.foundContacts_users = hits!
                  //       print("Found contacts: \(self.foundContacts)")
                     }
                 } catch let error {
@@ -79,15 +113,19 @@ extension FirestoreQuery {
      
      watch this video to understand: https://www.youtube.com/watch?v=poqTHxtDXwU
      */
-    func getDiscoverContent(){
+    func getDiscoverContent() async {
         
         if(self.getNextBatch){ //makes query get next batch of art for discover.
-            self.discoverQuery = self.discoverQuery.start(afterDocument: self.lastDocument)
+            print("last doc")
+            print(self.lastDocument)
+            
+            self.discoverQuery = try? await self.discoverQuery.start(afterDocument: self.lastDocument)
+            
         }
         else{
-            self.discoverQuery = FirestoreQuery.db.collection("art") //if first call.
+            self.discoverQuery = try await FirestoreQuery.db.collection("art") //if first call.
                               .order(by: "popularity", descending: true)
-                              .limit(to: 20)
+                              .limit(to: 11)
         }
         
         self.discoverQuery.getDocuments() { (querySnapshot, err) in
@@ -97,11 +135,17 @@ extension FirestoreQuery {
             else {
                 
                 //Option 1: converts documents to [art] array to containing all art for page.
-                self.discoveryPageArt = querySnapshot!.documents.compactMap { querySnapshot -> Art? in
+                var discoveryPageArtArray = [Art]()
+                
+                discoveryPageArtArray = querySnapshot!.documents.compactMap { querySnapshot -> Art? in
                       return try? querySnapshot.data(as: Art.self)
                 }
                 
+                if(discoveryPageArtArray.count > 1){
+                    self.discoveryPageArt = discoveryPageArtArray
+                }
                 
+
             //Option 2
               /*  var discover_art_array = [Art]()
                  querySnapshot!.documents.forEach({ (document) in
@@ -117,15 +161,14 @@ extension FirestoreQuery {
                */
                 
                 self.lastDocument = querySnapshot!.documents.last //get last document for later.
+                self.getNextBatch = true
               
                  
              }
          }
-        
-        
-        
     }
     
+
     
     
 }

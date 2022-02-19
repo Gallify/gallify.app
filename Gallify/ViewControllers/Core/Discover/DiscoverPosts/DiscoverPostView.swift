@@ -6,34 +6,50 @@
 //
 
 import SwiftUI
+import RefreshableScrollView
 
 struct DiscoverPostsView: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
+
     
     var body: some View {
         
         let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
         
+
+        
+      //  Text("hi")
+        
         ScrollView(showsIndicators: false) {
-            VStack {
+            
+            LazyVStack {
                 
                 DiscoverPostsViewTags(screenHeight: screenHeight, screenWidth: screenWidth)
                 
-                DiscoverPagePosts()
+//                ForEach(firestoreQuery.discoveryPageArt) { i in
+//                    Text("\(i.name)")
+//                }
                 
                 DiscoverPagePosts()
                 
-                //DiscoverPagePosts()
-                
-                //DiscoverPagePosts()
-                
-                //DiscoverPagePosts()
                 
             }
             .padding(.top, screenHeight / 160)
         }
+        
+//        .onRefresh(spinningColor: .primary, text: "Pull Me!", textColor: .primary, backgroundColor: .white) { refreshControl in
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//               // await firestoreQuery.getDiscoverContent()
+//                firestoreQuery.getDiscoverContent_non_async()
+//                refreshControl.endRefreshing()
+//            }
+//        }
+        //.offset(y: 100)
+        
+
         
     }
     

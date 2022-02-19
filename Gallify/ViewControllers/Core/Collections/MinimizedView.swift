@@ -40,7 +40,7 @@ struct MinimizedView: View {
 
             HStack {
                     
-                WebImage(url: URL(string: firestoreQuery.artThatsPlaying.artwork_url))
+                WebImage(url: URL(string: firestoreQuery.artThatsPlaying.thumbnail))
                     .resizable()
                     .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                     

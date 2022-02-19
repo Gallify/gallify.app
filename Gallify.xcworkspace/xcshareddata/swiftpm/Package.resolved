@@ -9,6 +9,15 @@
           "revision": "615af712434dcf0e4800909f6291d6a6a088b754",
           "version": "2.2.4"
         }
+      },
+      {
+        "package": "RefreshableScrollView",
+        "repositoryURL": "https://github.com/TariqAlmazyad/RefreshableScrollView.git",
+        "state": {
+          "branch": null,
+          "revision": "b4495b4dd3b2391b0d947e34700ed80e09ddbf67",
+          "version": "1.0.1"
+        }
       }
     ]
   },

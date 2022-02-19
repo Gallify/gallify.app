@@ -37,7 +37,7 @@ struct HomeViewBody: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 
-                HStack {
+                LazyHStack {
                     
                       ForEach(firestoreQuery.homePlaylists[i]) { playlist in
                           

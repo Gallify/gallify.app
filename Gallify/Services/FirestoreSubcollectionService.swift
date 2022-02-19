@@ -25,6 +25,9 @@ class FirestoreSubcollectionsServices : ObservableObject {
     
     //adds new playlist to PlayList collection
     //updates list of playlist ids in users playlists subcollection with new playlist
+    /*
+     AKA ADD TO LIBRARY AKA LIBRARY = COLLECTION
+     */
     func addToPlaylists(playlist : Playlist) {
     
         let docRef = db.collection("playlists").document()

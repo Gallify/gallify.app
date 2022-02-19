@@ -24,46 +24,53 @@ struct DiscoverMainView: View {
             
             VStack {
                 
-                HStack {
-                    
+               // ZStack{
+                
                     HStack {
-
-                        Image(systemName: "magnifyingglass")
-                        TextField("Search", text: $firestoreQuery.searchText, onEditingChanged: { isEditing in
-                            self.showCancelButton = true
-                        })
-                            .foregroundColor(.primary)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-
-                        Button(action: {
-                            firestoreQuery.searchText = ""
-                        }) {
-                            Image(systemName: "xmark")
-                                .foregroundColor(.black)
-                                .opacity(firestoreQuery.searchText == "" ? 0 : 1)
-                        }
-                    }
-                    .padding(.horizontal, screenWidth / 37.5)
-                    .padding(.vertical, screenHeight / 80)
-                    .foregroundColor(.secondary)
-                    .background(Color(.secondarySystemBackground))
-                    .cornerRadius(screenWidth / 30)
-
-                    if showCancelButton {
                         
-                        Button("Cancel") {
-                            UIApplication.shared.endEditing(true)
-                            firestoreQuery.searchText = ""
-                            self.showCancelButton = false
+                        HStack {
+
+                            Image(systemName: "magnifyingglass")
+                            TextField("Search", text: $firestoreQuery.searchText, onEditingChanged: { isEditing in
+                                self.showCancelButton = true
+                            })
+                                .foregroundColor(.primary)
+                                .disableAutocorrection(true)
+                                .autocapitalization(.none)
+
+                            Button(action: {
+                                firestoreQuery.searchText = ""
+                            }) {
+                                Image(systemName: "xmark")
+                                    .foregroundColor(.black)
+                                    .opacity(firestoreQuery.searchText == "" ? 0 : 1)
+                            }
                         }
-                        .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                                                
+                        .padding(.horizontal, screenWidth / 37.5)
+                        .padding(.vertical, screenHeight / 80)
+                        .foregroundColor(.secondary)
+                        .background(Color(.secondarySystemBackground))
+                        .cornerRadius(screenWidth / 30)
+
+                        if showCancelButton {
+                            
+                            Button("Cancel") {
+                                UIApplication.shared.endEditing(true)
+                                firestoreQuery.searchText = ""
+                                self.showCancelButton = false
+                            }
+                            .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                                                    
+                        }
+                        
                     }
+                    .padding(.horizontal, screenWidth / 25)
+                    .padding(.top, screenHeight / 54)
                     
-                }
-                .padding(.horizontal, screenWidth / 25)
-                .padding(.top, screenHeight / 54)
+                
+                
+              //  DiscoverPostsViewTags(screenHeight: screenHeight, screenWidth: screenWidth)
+                   // .offset(y: 100)
                 
                // ScrollView(showsIndicators: false) {
                     
@@ -78,6 +85,8 @@ struct DiscoverMainView: View {
                         else {
                           //  ScrollView(showsIndicators: false) {
                                 DiscoverSearch()
+                                
+                                
                           //  }
                             
                         }
@@ -87,6 +96,8 @@ struct DiscoverMainView: View {
                     else {
                         
                         DiscoverPostsView()
+                        
+                        
                         
                     }
                     
@@ -102,12 +113,15 @@ struct DiscoverMainView: View {
                         if showCancelButton == false {
 
                             MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
+                         //       .offset(y: 100)
                             
                         }
                         
                     }
                     
                 }
+                
+            
                 
             }
             .navigationBarHidden(true)

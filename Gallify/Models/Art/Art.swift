@@ -102,6 +102,26 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         location = try container.decode(String.self, forKey: .location)
         creator_url = try container.decode(String.self, forKey: .creator_url)
         searchType = try container.decode(String.self, forKey: .searchType)
+        
+        //to be added:
+        /*
+         ThumbnailUrl_ipfs: String
+         AssetUrl_ipfs: String
+         PriceUrl_ipfs: String
+         owner_ipfs: String
+         owner: String
+         Timestamp: Int
+         */
+        
+        //to de removed/changed:
+        /*
+         ThumbnailUrl_ipfs: String
+         AssetUrl_ipfs: String
+         PriceUrl_ipfs:
+         Change 'content_url' to 'AssetUrl_infb' or vice versa
+         Change 'thumbnail' to 'ThumbnailUrl_infb' or vice versa
+         */
+
 
 
     }

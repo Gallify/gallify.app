@@ -118,6 +118,23 @@
 		308B4BED27658A710039B74E /* MuseumList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B4BEC27658A710039B74E /* MuseumList.swift */; };
 		308B4BF127658B8F0039B74E /* ArtDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B4BF027658B8F0039B74E /* ArtDetails.swift */; };
 		30BEBD2127B5A0700045EC74 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2027B5A0700045EC74 /* SearchResult.swift */; };
+		30BEBD2D27BF166F0045EC74 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2627BF166F0045EC74 /* CustomARView.swift */; };
+		30BEBD2E27BF166F0045EC74 /* FullARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2727BF166F0045EC74 /* FullARView.swift */; };
+		30BEBD2F27BF166F0045EC74 /* AddModelBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2827BF166F0045EC74 /* AddModelBar.swift */; };
+		30BEBD3027BF166F0045EC74 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2927BF166F0045EC74 /* Model.swift */; };
+		30BEBD3127BF166F0045EC74 /* ModelsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2A27BF166F0045EC74 /* ModelsViewModel.swift */; };
+		30BEBD3227BF166F0045EC74 /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2B27BF166F0045EC74 /* PlacementSettings.swift */; };
+		30BEBD3327BF166F0045EC74 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2C27BF166F0045EC74 /* Slider.swift */; };
+		30BEBD3B27BF172C0045EC74 /* toy_drummer.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3527BF172C0045EC74 /* toy_drummer.usdz */; };
+		30BEBD3C27BF172C0045EC74 /* toy_robot_vintage.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3627BF172C0045EC74 /* toy_robot_vintage.usdz */; };
+		30BEBD3D27BF172C0045EC74 /* gramophone.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3727BF172C0045EC74 /* gramophone.usdz */; };
+		30BEBD3E27BF172C0045EC74 /* toy_biplane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3827BF172C0045EC74 /* toy_biplane.usdz */; };
+		30BEBD3F27BF172C0045EC74 /* tv_retro.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3927BF172C0045EC74 /* tv_retro.usdz */; };
+		30BEBD4027BF172C0045EC74 /* air_force.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3A27BF172C0045EC74 /* air_force.usdz */; };
+		30BEBD4327BF1E470045EC74 /* getARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4227BF1E470045EC74 /* getARPlayer.swift */; };
+		30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4427BF1E510045EC74 /* postARPlayer.swift */; };
+		30BEBD4727BF1E5C0045EC74 /* updateARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */; };
+		30BEBD4927BF1E660045EC74 /* deleteARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4827BF1E660045EC74 /* deleteARPlayer.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -340,6 +357,23 @@
 		308B4BEC27658A710039B74E /* MuseumList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumList.swift; sourceTree = "<group>"; };
 		308B4BF027658B8F0039B74E /* ArtDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetails.swift; sourceTree = "<group>"; };
 		30BEBD2027B5A0700045EC74 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		30BEBD2627BF166F0045EC74 /* CustomARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
+		30BEBD2727BF166F0045EC74 /* FullARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullARView.swift; sourceTree = "<group>"; };
+		30BEBD2827BF166F0045EC74 /* AddModelBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddModelBar.swift; sourceTree = "<group>"; };
+		30BEBD2927BF166F0045EC74 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		30BEBD2A27BF166F0045EC74 /* ModelsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsViewModel.swift; sourceTree = "<group>"; };
+		30BEBD2B27BF166F0045EC74 /* PlacementSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacementSettings.swift; sourceTree = "<group>"; };
+		30BEBD2C27BF166F0045EC74 /* Slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		30BEBD3527BF172C0045EC74 /* toy_drummer.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer.usdz; sourceTree = "<group>"; };
+		30BEBD3627BF172C0045EC74 /* toy_robot_vintage.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_robot_vintage.usdz; sourceTree = "<group>"; };
+		30BEBD3727BF172C0045EC74 /* gramophone.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = gramophone.usdz; sourceTree = "<group>"; };
+		30BEBD3827BF172C0045EC74 /* toy_biplane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane.usdz; sourceTree = "<group>"; };
+		30BEBD3927BF172C0045EC74 /* tv_retro.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tv_retro.usdz; sourceTree = "<group>"; };
+		30BEBD3A27BF172C0045EC74 /* air_force.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = air_force.usdz; sourceTree = "<group>"; };
+		30BEBD4227BF1E470045EC74 /* getARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getARPlayer.swift; sourceTree = "<group>"; };
+		30BEBD4427BF1E510045EC74 /* postARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postARPlayer.swift; sourceTree = "<group>"; };
+		30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateARPlayer.swift; sourceTree = "<group>"; };
+		30BEBD4827BF1E660045EC74 /* deleteARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteARPlayer.swift; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -576,6 +610,7 @@
 		3004D4B826C82F6B00323BCB /* Gallify */ = {
 			isa = PBXGroup;
 			children = (
+				30BEBD3427BF172C0045EC74 /* 3D Assets */,
 				30836FA52749E39D00E83735 /* Services */,
 				3004D4F626CD4D3F00323BCB /* Managers */,
 				3004D4F526CD49AD00323BCB /* Resources */,
@@ -880,6 +915,7 @@
 				3052137E278A2DCE00CE0224 /* StorageService.swift */,
 				30001B7D278F8E6F00527BF9 /* get.swift */,
 				304109F7279E24EC00284446 /* FirestoreUploadService.swift */,
+				30BEBD4127BF1E330045EC74 /* ARPlayer */,
 				30001BE2279686E500527BF9 /* Settings */,
 				30001BD7279685C300527BF9 /* Lists */,
 				30001BBC2796849200527BF9 /* Home */,
@@ -967,6 +1003,44 @@
 				308B4BEC27658A710039B74E /* MuseumList.swift */,
 			);
 			path = MuseumList;
+			sourceTree = "<group>";
+		};
+		30BEBD2527BF166F0045EC74 /* ARPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				30BEBD2627BF166F0045EC74 /* CustomARView.swift */,
+				30BEBD2727BF166F0045EC74 /* FullARView.swift */,
+				30BEBD2827BF166F0045EC74 /* AddModelBar.swift */,
+				30BEBD2927BF166F0045EC74 /* Model.swift */,
+				30BEBD2A27BF166F0045EC74 /* ModelsViewModel.swift */,
+				30BEBD2B27BF166F0045EC74 /* PlacementSettings.swift */,
+				30BEBD2C27BF166F0045EC74 /* Slider.swift */,
+			);
+			path = ARPlayer;
+			sourceTree = "<group>";
+		};
+		30BEBD3427BF172C0045EC74 /* 3D Assets */ = {
+			isa = PBXGroup;
+			children = (
+				30BEBD3527BF172C0045EC74 /* toy_drummer.usdz */,
+				30BEBD3627BF172C0045EC74 /* toy_robot_vintage.usdz */,
+				30BEBD3727BF172C0045EC74 /* gramophone.usdz */,
+				30BEBD3827BF172C0045EC74 /* toy_biplane.usdz */,
+				30BEBD3927BF172C0045EC74 /* tv_retro.usdz */,
+				30BEBD3A27BF172C0045EC74 /* air_force.usdz */,
+			);
+			path = "3D Assets";
+			sourceTree = "<group>";
+		};
+		30BEBD4127BF1E330045EC74 /* ARPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				30BEBD4227BF1E470045EC74 /* getARPlayer.swift */,
+				30BEBD4427BF1E510045EC74 /* postARPlayer.swift */,
+				30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */,
+				30BEBD4827BF1E660045EC74 /* deleteARPlayer.swift */,
+			);
+			path = ARPlayer;
 			sourceTree = "<group>";
 		};
 		3103E0DF27112D7200135F08 /* PrivacyPolicyViewHelpers */ = {
@@ -1190,6 +1264,7 @@
 		92794CE2273811760012B184 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				30BEBD2527BF166F0045EC74 /* ARPlayer */,
 				92794CE3273811760012B184 /* Reel */,
 				92794CE9273811760012B184 /* Recent Activity */,
 				92794CEF273811760012B184 /* Liked */,
@@ -1479,9 +1554,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30BEBD4027BF172C0045EC74 /* air_force.usdz in Resources */,
+				30BEBD3C27BF172C0045EC74 /* toy_robot_vintage.usdz in Resources */,
+				30BEBD3D27BF172C0045EC74 /* gramophone.usdz in Resources */,
 				3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */,
 				30410A0827A1E7FD00284446 /* AirForce.usdz in Resources */,
+				30BEBD3F27BF172C0045EC74 /* tv_retro.usdz in Resources */,
+				30BEBD3B27BF172C0045EC74 /* toy_drummer.usdz in Resources */,
 				3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */,
+				30BEBD3E27BF172C0045EC74 /* toy_biplane.usdz in Resources */,
 				3004D4E826CC97F400323BCB /* GoogleService-Info.plist in Resources */,
 				3067FBE227460D5C009B5D4D /* Main.storyboard in Resources */,
 				30410A0A27A1E80700284446 /* toy_car.usdz in Resources */,
@@ -1668,6 +1749,7 @@
 				30521376278A2C3A00CE0224 /* Pending.swift in Sources */,
 				3004D4FF26CD579000323BCB /* PriorSettingsViewController.swift in Sources */,
 				319F25C126E571B7009B811E /* HomeViewDiscover.swift in Sources */,
+				30BEBD4927BF1E660045EC74 /* deleteARPlayer.swift in Sources */,
 				3129ADE126F41AB600172808 /* OtherProfileViewController.swift in Sources */,
 				308B4BEB27658A040039B74E /* Museum.swift in Sources */,
 				30410A7927A677EB00284446 /* AccountSetting.swift in Sources */,
@@ -1698,14 +1780,17 @@
 				30410A3B27A671AB00284446 /* MainSettingsViewHeader.swift in Sources */,
 				30410A3927A6719E00284446 /* MainSettingsViewBody.swift in Sources */,
 				92794D11273814D80012B184 /* DiscoveryCategoryHeader.swift in Sources */,
+				30BEBD2D27BF166F0045EC74 /* CustomARView.swift in Sources */,
 				3152F6A22717508D0061F72E /* ForgotPasswordViewController.swift in Sources */,
 				30836FB0274A035D00E83735 /* DiscoverMainViewController.swift in Sources */,
 				31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */,
+				30BEBD3327BF166F0045EC74 /* Slider.swift in Sources */,
 				30001BF72796961100527BF9 /* OtherProfileViewVerified.swift in Sources */,
 				316C527227287BA100E28609 /* VerifyEmailViewController.swift in Sources */,
 				3052137F278A2DCE00CE0224 /* StorageService.swift in Sources */,
 				30410A0427A1E7BE00284446 /* USDZPost.swift in Sources */,
 				30001BED2796947D00527BF9 /* SelfProfileViewHeader.swift in Sources */,
+				30BEBD2E27BF166F0045EC74 /* FullARView.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
 				30001C052796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift in Sources */,
 				3153458027557BA500BD7B54 /* Slabs.swift in Sources */,
@@ -1724,6 +1809,7 @@
 				30836FB7274A043300E83735 /* OtherSearchTemplate.swift in Sources */,
 				30001BD02796858D00527BF9 /* getProfile.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
+				30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
 				30001BD4279685B300527BF9 /* updateProfile.swift in Sources */,
 				92794CFB273811760012B184 /* CollectionReelView.swift in Sources */,
@@ -1734,7 +1820,9 @@
 				92794CFF273811760012B184 /* CollectionRecentActivityView.swift in Sources */,
 				31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */,
 				92DB7C6B2731810F0035B788 /* CreateLandingOptions.swift in Sources */,
+				30BEBD3127BF166F0045EC74 /* ModelsViewModel.swift in Sources */,
 				31F1530F270B881400238459 /* OvalTextField.swift in Sources */,
+				30BEBD4727BF1E5C0045EC74 /* updateARPlayer.swift in Sources */,
 				92DB7C6F273186330035B788 /* CreatePublishListing.swift in Sources */,
 				30836FBA274A048B00E83735 /* DiscoverPostView.swift in Sources */,
 				30836FBD274A04C900E83735 /* DiscoverPagePosts.swift in Sources */,
@@ -1758,12 +1846,14 @@
 				318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */,
 				311E93832752FB1C005DFE12 /* Reels.swift in Sources */,
 				30410A8227A677EB00284446 /* MembershipSettingHeader.swift in Sources */,
+				30BEBD3227BF166F0045EC74 /* PlacementSettings.swift in Sources */,
 				30410A8E27AF2CDB00284446 /* HomeViewBody.swift in Sources */,
 				30001C012796972E00527BF9 /* OtherProfileViewDetails.swift in Sources */,
 				30001BEF2796949100527BF9 /* SelfProfileViewDetails.swift in Sources */,
 				30001BC02796851300527BF9 /* getHome.swift in Sources */,
 				3152F6A4271751670061F72E /* SetPasswordViewController.swift in Sources */,
 				319F25B526E56935009B811E /* HomeViewStories.swift in Sources */,
+				30BEBD3027BF166F0045EC74 /* Model.swift in Sources */,
 				31B828C4272376BE0067DB05 /* CustomBackButton.swift in Sources */,
 				30521377278A2C3A00CE0224 /* GetUser.swift in Sources */,
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
@@ -1773,6 +1863,8 @@
 				3087D26A274ED54C00ECD8CD /* Playlist.swift in Sources */,
 				3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */,
 				30001BCC2796857400527BF9 /* updateDiscover.swift in Sources */,
+				30BEBD4327BF1E470045EC74 /* getARPlayer.swift in Sources */,
+				30BEBD2F27BF166F0045EC74 /* AddModelBar.swift in Sources */,
 				30001BF52796954B00527BF9 /* SelfProfileViewVerified.swift in Sources */,
 				30BEBD2127B5A0700045EC74 /* SearchResult.swift in Sources */,
 				30001C032796973C00527BF9 /* OtherProfileViewHeader.swift in Sources */,
@@ -1975,7 +2067,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2.com;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify3.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2001,7 +2093,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify2.com;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify3.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

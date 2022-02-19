@@ -34,6 +34,9 @@ class FirestoreQuery : ObservableObject {
     @Published var artisClicked = "artisClicked"
     @Published var artThatsPlaying: Art = Art()
     @Published var playlistThatsPlaying: Playlist = Playlist()
+    @Published var artworkThatsPlaying: [Art] = [Art]()
+    @Published var scrollTo = -1 //once art is clicked, this variable determines where to scroll to in the 'reels' view.
+
     
     
     //action menus. 
@@ -66,22 +69,23 @@ class FirestoreQuery : ObservableObject {
     @Published var homeMuseums: [Museum] = [Museum]()
     @Published var homePlaylists: [[Playlist]] = [[Playlist]]()
     
-    //discover
+    //discover-search
     @Published var searchText = ""
-    //@Published var searchResults: [Art] = [Art]()
-    @Published var foundContacts: [Art] = [Art]() //todo: change 'foundContacts' with 'searchResults'
-    @Published var recentSearches: [Art] = [Art]()
-    @Published var discoveryPageArt: [Art] = [Art]()
+    @Published var foundContacts: [Art] = [Art]() //todo: change 'foundContacts' with 'searchResults' search results stored here.
+    @Published var foundContacts_users: [User] = [User]() //todo: change 'foundContacts' with 'searchResults' search results stored here.
+    @Published var recentSearches: [Art] = [Art]() //recent searches here
    
+    //discover-content
+    @Published var discoveryPageArt: [Art] = [Art]() //discover page content here.
     var getNextBatch = false
-//    var lastDocument: Any
     var lastDocument: QueryDocumentSnapshot!
-//    var discoverQuery: QuerySnapshot
     var lastDocuments = [QueryDocumentSnapshot]()
     var discoverQuery: Query!
     
+    //AR Player
+    @Published var models: [Model] = []
     
-    
+ 
     
     
     //settings

@@ -23,9 +23,9 @@ struct CollectionReelView: View {
                 VStack{
                     CollectionReelHeader(screenWidth: screenWidth, screenHeight: screenHeight)
                         .padding()
-                    ScrollView {
+                    
                         CollectionReelListing(screenWidth: screenWidth, screenHeight: screenHeight)
-                    }
+                    
                     Spacer()
                 }
             }

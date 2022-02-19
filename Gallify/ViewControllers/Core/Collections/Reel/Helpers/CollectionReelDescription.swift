@@ -10,6 +10,7 @@ import SwiftUI
 struct CollectionReelDescription: View {
     let screenWidth: CGFloat
     let screenHeight: CGFloat
+    let artDetails: Art
 
     var body: some View {
         VStack {
@@ -126,8 +127,8 @@ struct CollectionReelDescription: View {
     }
 }
 
-struct CollectionReelDescription_Previews: PreviewProvider {
-    static var previews: some View {
-        CollectionReelDescription(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
-    }
-}
+//struct CollectionReelDescription_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CollectionReelDescription(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
+//    }
+//}

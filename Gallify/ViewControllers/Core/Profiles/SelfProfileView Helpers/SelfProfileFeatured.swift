@@ -57,20 +57,22 @@ struct SelfProfileFeatured: View {
                             firestoreQuery.artisClicked = artwork.art_id
                             firestoreQuery.artThatsPlaying = artwork
                             firestoreQuery.playlistThatsPlaying = firestoreQuery.featuredPlaylist
+                            firestoreQuery.artworkThatsPlaying = firestoreQuery.featuredArt
                             
-                            firestoreQuery.isPresented.toggle()
+                           // firestoreQuery.isPresented.toggle()
                             
-                            firestoreQuery.sheetMode = .full
-                            firestoreQuery.maximized = true
-                            sheetMode2 = .full
+//                            firestoreQuery.sheetMode = .full
+//                            firestoreQuery.maximized = true
+//                            sheetMode2 = .full
                             
                             firestoreQuery.showNewScreen = true
+                            firestoreQuery.scrollTo = i
                                 
                             }){
                                 
                                 HStack {
                                                 
-                                    WebImage(url: URL(string: artwork.content_url))
+                                    WebImage(url: URL(string: artwork.thumbnail))
                                         .resizable()
                                         .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                                                 
@@ -140,6 +142,7 @@ struct SelfProfileFeatured: View {
                                 buttons: [
                                     .default(Text("Add to Playlist")) {
                                         //firestoreQuery.addToPlaylist(artwork.art_id)
+//                                        async {await firestoreQuery.addArtToPlaylist(art_id: "Q1XgaJ5IE1FyGgtvBpYN", playlist_id: firestoreQuery.featuredPlaylist.id)}
                                     },
                                     .default(Text("Cancel")) {
                                         firestoreQuery.showFeaturedOptions = false

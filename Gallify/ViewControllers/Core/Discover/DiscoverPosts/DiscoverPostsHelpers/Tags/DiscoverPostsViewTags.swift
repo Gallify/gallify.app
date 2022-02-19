@@ -10,6 +10,8 @@ struct DiscoverPostsViewTags: View {
     
     let screenHeight: CGFloat
     let screenWidth: CGFloat
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
+
     
     var body: some View {
         
@@ -17,6 +19,14 @@ struct DiscoverPostsViewTags: View {
             
             HStack {
                 
+               
+                DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Refresh", bgColor: Color("Gallify-Pink").opacity(0.7))
+                    .onTapGesture{
+                        if(firestoreQuery.lastDocument != nil){
+                            async{ await firestoreQuery.getDiscoverContent() }
+                        }
+                    }
+
                 NavigationLink(destination: DiscoverBrowse(), label: {
                     
                     DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Browse", bgColor: Color.gray.opacity(0.7))
@@ -24,7 +34,7 @@ struct DiscoverPostsViewTags: View {
                 })
                 
                 DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Abstract", bgColor: Color.gray.opacity(0.7))
-                
+                  
                 DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "International", bgColor: Color.gray.opacity(0.7))
                 
                 DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Marvel", bgColor: Color.gray.opacity(0.7))

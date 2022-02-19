@@ -98,103 +98,108 @@ struct CollectionGenericRow: View {
                         }
                         .listRowSeparator(.hidden)
 
-                        
-                        ForEach(playlist) { artwork in
-                            
-                            Button(action: {
-                               
-                                //firestoreQuery.data.isClicked = artwork.art_id
-                                firestoreQuery.artisClicked = artwork.art_id
-                                firestoreQuery.artThatsPlaying = artwork
-                                firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
-                                firestoreQuery.isPresented.toggle()
-                                firestoreQuery.maximized = true
-                                firestoreQuery.showNewScreen = true
+                        if(playlist.count > 0){
+                            ForEach(0...playlist.count - 1, id: \.self) { i in
                                 
-                            }){
-                                HStack {
+                                Button(action: {
+                                   
+                                    //firestoreQuery.data.isClicked = artwork.art_id
                                     
+                                    firestoreQuery.artisClicked = playlist[i].art_id
+                                    firestoreQuery.artThatsPlaying = playlist[i]
+                                    firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
+                                    firestoreQuery.artworkThatsPlaying = firestoreQuery.playlistArt
                                     
-                                        HStack {
-                                                
-                                            WebImage(url: URL(string: artwork.content_url))
-                                                .resizable()
-                                                .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
-                                                
-                                            VStack(alignment: .leading) {
-                                                    
-                                                if(firestoreQuery.artisClicked == artwork.art_id){
-                                                    Text(artwork.name)
-                                                        .foregroundColor(Color("Gallify-Pink"))
-                                                        .fontWeight(.bold)
-                                                        .font(.system(size: screenWidth / 20, weight: .medium))
-                                                        .lineLimit(1)
-                                                }
-                                                else{
-                                                    Text(artwork.name)
-                                                        .fontWeight(.bold)
-                                                        .font(.system(size: screenWidth / 20, weight: .medium))
-                                                        .foregroundColor(.black)
-                                                        .lineLimit(1)
-                                                }
-                                                
-                                                Text("\(artwork.creator)")
-                                                    .font(.system(size: screenWidth / 24, weight: .light))
-                                                    .foregroundColor(.black)
-                                                    .lineLimit(1)
-                                                
-                                                    
-                                            }
-                                            .padding(.leading, screenWidth / 37.5)
-                                                
-                                            Spacer()
+                                    //firestoreQuery.isPresented.toggle()
+                                  //  firestoreQuery.maximized = true
+                                    firestoreQuery.showNewScreen = true
+                                    firestoreQuery.scrollTo = i
+                                    
+                                }){
+                                    HStack {
                                         
                                         
-                                        Button(action: {
-                                            firestoreQuery.showArtOptions = true
-                                        }, label: {
-                                            
-                                            Image(systemName: "ellipsis")
-                                                .foregroundColor(.black)
-                                            
-                                        })
-                                            .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
-                                            ActionSheet(
-                                                title: Text("Select"),
-                                                buttons: [
-                                                    .default(Text("Delete from Playlist")) {
-                                                     //   firestoreQuery.deleteFromPlaylist(artwork.art_id)
-                                                    },
-                                                    .default(Text("Add to Playlist")) {
+                                            HStack {
+                                                    
+                                                WebImage(url: URL(string: playlist[i].thumbnail))
+                                                    .resizable()
+                                                    .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+                                                    
+                                                VStack(alignment: .leading) {
                                                         
-                                                        //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                    },
-                                                    .default(Text("Cancel")) {
-                                                        
-                                                        //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                        firestoreQuery.showArtOptions = false
+                                                    if(firestoreQuery.artisClicked == playlist[i].art_id){
+                                                        Text(playlist[i].name)
+                                                            .foregroundColor(Color("Gallify-Pink"))
+                                                            .fontWeight(.bold)
+                                                            .font(.system(size: screenWidth / 20, weight: .medium))
+                                                            .lineLimit(1)
+                                                    }
+                                                    else{
+                                                        Text(playlist[i].name)
+                                                            .fontWeight(.bold)
+                                                            .font(.system(size: screenWidth / 20, weight: .medium))
+                                                            .foregroundColor(.black)
+                                                            .lineLimit(1)
                                                     }
                                                     
+                                                    Text("\(playlist[i].creator)")
+                                                        .font(.system(size: screenWidth / 24, weight: .light))
+                                                        .foregroundColor(.black)
+                                                        .lineLimit(1)
+                                                    
+                                                        
+                                                }
+                                                .padding(.leading, screenWidth / 37.5)
+                                                    
+                                                Spacer()
+                                            
+                                            
+                                            Button(action: {
+                                                firestoreQuery.showArtOptions = true
+                                            }, label: {
+                                                
+                                                Image(systemName: "ellipsis")
+                                                    .foregroundColor(.black)
+                                                
+                                            })
+                                                .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                                ActionSheet(
+                                                    title: Text("Select"),
+                                                    buttons: [
+                                                        .default(Text("Delete from Playlist")) {
+                                                         //   firestoreQuery.deleteFromPlaylist(artwork.art_id)
+                                                        },
+                                                        .default(Text("Add to Playlist")) {
+                                                            
+                                                            //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                        },
+                                                        .default(Text("Cancel")) {
+                                                            
+                                                            //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                            firestoreQuery.showArtOptions = false
+                                                        }
+                                                        
 
-                                                ]
-                                            )
+                                                    ]
+                                                )
+                                            }
                                         }
+                                        
                                     }
+                                    .padding(.vertical, screenHeight / 160)
+                                    .padding(.horizontal, screenWidth / 15)
                                     
                                 }
-                                .padding(.vertical, screenHeight / 160)
-                                .padding(.horizontal, screenWidth / 15)
-                                
-                            }
 
+                            }
+                            .onMove { indexSet, offset in
+                                playlist.move(fromOffsets: indexSet, toOffset: offset)
+                                firestoreQuery.featuredArt = playlist
+                                //firestore update here
+                            }
+                            .listRowSeparator(.hidden)
+                                  
                         }
-                        .onMove { indexSet, offset in
-                            playlist.move(fromOffsets: indexSet, toOffset: offset)
-                            firestoreQuery.featuredArt = playlist
-                            //firestore update here
-                        }
-                        .listRowSeparator(.hidden)
-                        
                     }
                     .listStyle(InsetListStyle())
                     .toolbar {

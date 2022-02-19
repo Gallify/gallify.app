@@ -27,6 +27,10 @@ extension FirestoreQuery {
         }
     }
     
+    func addPlaylistToLibrary(){
+        
+    }
+    
     
     
     

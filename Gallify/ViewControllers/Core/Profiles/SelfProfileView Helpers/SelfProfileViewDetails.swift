@@ -120,10 +120,17 @@ struct SelfProfileViewDetails: View {
                     .font(.system(size: screenWidth / 23.5, weight: .light))*/
                 // Add a field in the User class called userBio which will be used to display user's bio
                 
+                
                 Spacer()
                 
             }
             .padding(.horizontal, screenWidth / 15)
+            
+//            Link("\(firestoreQuery.data.shareUrl)", destination: URL(string: firestoreQuery.data.shareUrl)!)
+//                .environment(\.openURL, OpenURLAction { url in
+//                    print("Open \(url)")
+//                    return .handled
+//                })
             
         }
         .padding(.top, screenHeight / 120)

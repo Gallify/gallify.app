@@ -14,9 +14,9 @@
             filePath = "Gallify/ViewControllers/Core/Collections/ARPlayer/ModelsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "fetchARData()"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "clearModelEntitiesFromMemory()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,9 +30,9 @@
             filePath = "Gallify/ViewControllers/Core/Collections/ARPlayer/ModelsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "fetchARData()"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "clearModelEntitiesFromMemory()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
