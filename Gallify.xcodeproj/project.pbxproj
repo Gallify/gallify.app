@@ -153,6 +153,8 @@
 		319F25C126E571B7009B811E /* HomeViewDiscover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F25C026E571B7009B811E /* HomeViewDiscover.swift */; };
 		319F25C526E57236009B811E /* HomeViewMadeForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F25C426E57236009B811E /* HomeViewMadeForYou.swift */; };
 		319F25C926E572BA009B811E /* HomeViewAuction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F25C826E572BA009B811E /* HomeViewAuction.swift */; };
+		31AA793827B88C440066E530 /* CreatePlaylistName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA793727B88C440066E530 /* CreatePlaylistName.swift */; };
+		31AA793A27B88D060066E530 /* CreatePlaylistSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA793927B88D060066E530 /* CreatePlaylistSettings.swift */; };
 		31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
 		31AE71AF26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
 		31AE71B026F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
@@ -370,6 +372,8 @@
 		319F25C026E571B7009B811E /* HomeViewDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDiscover.swift; sourceTree = "<group>"; };
 		319F25C426E57236009B811E /* HomeViewMadeForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMadeForYou.swift; sourceTree = "<group>"; };
 		319F25C826E572BA009B811E /* HomeViewAuction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAuction.swift; sourceTree = "<group>"; };
+		31AA793727B88C440066E530 /* CreatePlaylistName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistName.swift; sourceTree = "<group>"; };
+		31AA793927B88D060066E530 /* CreatePlaylistSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistSettings.swift; sourceTree = "<group>"; };
 		31AE71AD26F1245600C973E3 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
 		31B2F1EF272DEC3F007FCF2B /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewHeader.swift; sourceTree = "<group>"; };
@@ -533,6 +537,8 @@
 				30001BEE2796949100527BF9 /* SelfProfileViewDetails.swift */,
 				30001BF0279694A800527BF9 /* SelfProfileViewVerifiedDetails.swift */,
 				30001BF2279694B600527BF9 /* SelfProfileCollectionList.swift */,
+				31AA793727B88C440066E530 /* CreatePlaylistName.swift */,
+				31AA793927B88D060066E530 /* CreatePlaylistSettings.swift */,
 			);
 			path = "SelfProfileView Helpers";
 			sourceTree = "<group>";
@@ -1655,6 +1661,7 @@
 				31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */,
 				92DB7C6127316A6A0035B788 /* CreatePublishView.swift in Sources */,
 				311E93852752FB3E005DFE12 /* Post_Small.swift in Sources */,
+				31AA793A27B88D060066E530 /* CreatePlaylistSettings.swift in Sources */,
 				3052137B278A2C3A00CE0224 /* Followers.swift in Sources */,
 				30001BDD2796867100527BF9 /* updateList.swift in Sources */,
 				92794D13273814EB0012B184 /* DiscoveryCategoryContent.swift in Sources */,
@@ -1679,6 +1686,7 @@
 				31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */,
 				92794D02273811760012B184 /* CollectionRecentActivityHeader.swift in Sources */,
 				30001BD92796865600527BF9 /* getList.swift in Sources */,
+				31AA793827B88C440066E530 /* CreatePlaylistName.swift in Sources */,
 				3004D50F26CD7EF800323BCB /* SignInViewController.swift in Sources */,
 				92794D09273811760012B184 /* CollectionGenericHeader.swift in Sources */,
 				30521381278A2DDA00CE0224 /* ImageCache.swift in Sources */,
