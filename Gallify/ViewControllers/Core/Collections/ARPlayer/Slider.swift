@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealityKit
+import SDWebImageSwiftUI
 
 struct Slider: View {
     @EnvironmentObject var modelsViewModel: ModelsViewModel
@@ -18,8 +19,8 @@ struct Slider: View {
             LazyHGrid(rows: [GridItem()]) {
                 // Text("MODELS VIEW MODEL COUNT IS: \(modelsViewModel.models.count)")
                 
-                ForEach(0..<modelsViewModel.models.count) { index in
-                    let model = modelsViewModel.models[index]
+                ForEach(0..<firestoreQuery.models.count) { index in
+                    let model = firestoreQuery.models[index]
 
                     SliderItem(model: model) {
                         //call model method to async load entity
@@ -47,13 +48,16 @@ struct SliderItem: View {
         Button(action: {
             self.action()
         }) {
-            Image(uiImage: self.model.thumbnail)
-            // Image(systemName: "face.smiling")
+            
+            
+            WebImage(url: URL(string: model.thumbnail_url))
                 .resizable()
                 .frame(width: 75, height: 75)
                 .aspectRatio(1/1, contentMode: .fit)
                 .background(Color(UIColor.secondarySystemFill))
                 .clipShape(Circle())
+            
+    
         }
         .padding()
         

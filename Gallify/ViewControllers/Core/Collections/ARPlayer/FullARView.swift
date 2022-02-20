@@ -58,6 +58,7 @@ struct FullARView: View {
 
 struct ARViewContainer: UIViewRepresentable {
     @EnvironmentObject var modelsViewModel: ModelsViewModel
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
     @EnvironmentObject var placementSettings: PlacementSettings
     @Binding var overlayVisible: Bool
     

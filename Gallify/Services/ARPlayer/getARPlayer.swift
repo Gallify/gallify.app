@@ -8,28 +8,23 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import SDWebImageSwiftUI
 
 extension FirestoreQuery {
     
+    /*
+     This methods fethches the data models and metadata from firebase.
+     */
     func fetchData() {
         
         //call firebase here.
         
         for art in self.artworkThatsPlaying {
-            
-           
-            models.append(Model(name: "air_force"))
+
+            models.append(Model(name: art.name, thumbnail_url: art.thumbnail, content_url: art.content_url)) //all the art parameters.
+
         }
 
-        
-        models += [
-            Model(name: "air_force"),
-            Model(name: "gramophone"),
-            Model(name: "toy_biplane"),
-            Model(name: "toy_drummer"),
-            Model(name: "toy_robot_vintage"),
-            Model(name: "tv_retro")
-        ]
     }
     
     func clearModelEntitiesFromMemory() {

@@ -89,11 +89,15 @@ struct CollectionReelHeader: View {
                  NavigationLink(destination: FullARView()
                                  .environmentObject(modelsViewModel)
                                  .environmentObject(placementSettings)
+                                 .environmentObject(firestoreQuery)
                                  .onAppear {
-                     self.modelsViewModel.fetchData()
+                     self.firestoreQuery.fetchData()
                  },
                                 label: {
                      Image(systemName: "arkit")
+                         .font(.system(size: 30))
+                         .padding(.leading)
+                         .foregroundColor(.primary)
                  })
              }
             

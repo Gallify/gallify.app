@@ -15,14 +15,14 @@ class ModelsViewModel: ObservableObject {
         
         //call firebase here. 
         
-        models += [
-            Model(name: "air_force"),
-            Model(name: "gramophone"),
-            Model(name: "toy_biplane"),
-            Model(name: "toy_drummer"),
-            Model(name: "toy_robot_vintage"),
-            Model(name: "tv_retro")
-        ]
+//        models += [
+//            Model(name: "air_force"),
+//            Model(name: "gramophone"),
+//            Model(name: "toy_biplane"),
+//            Model(name: "toy_drummer"),
+//            Model(name: "toy_robot_vintage"),
+//            Model(name: "tv_retro")
+//        ]
     }
     
     func clearModelEntitiesFromMemory() {
