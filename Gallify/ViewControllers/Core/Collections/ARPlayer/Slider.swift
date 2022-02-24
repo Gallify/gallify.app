@@ -23,7 +23,10 @@ struct Slider: View {
                     let model = firestoreQuery.models[index]
 
                     SliderItem(model: model) {
-                        if(model.contentLoaded){
+                        if(model.art.content_type == 0){
+                            placeImage(model : model)
+                        }
+                        else if(model.contentLoaded){
                             self.placementSettings.selectedModel = model
                         }
                         else{
@@ -44,6 +47,44 @@ struct Slider: View {
         //.padding(.bottom, 15)
         .frame(height: 200)
     }
+    
+    private func placeImage(model: Model) {
+        
+        let remoteURL = URL(string: "https://www.sourish.dev/resources/images/CenterPiecePhoto.JPG")!
+        // Create a temporary file URL to store the image at the remote URL.
+        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        // Download contents of imageURL as Data.  Use a URLSession if you want to do this asynchronously.
+        let data = try! Data(contentsOf: remoteURL)
+        
+        // Write the image Data to the file URL.
+        try! data.write(to: fileURL)
+        
+        let imgTexture = try! MaterialParameters.Texture.init(.load(contentsOf: fileURL)) //change gallify name.
+            
+            let longerLength: Float = 0.5
+            var planeHeight: Float? = nil
+            var planeWidth: Float? = nil
+            if imgTexture.resource.height > imgTexture.resource.width {
+                planeHeight = longerLength
+                planeWidth = Float(imgTexture.resource.width) / (Float(imgTexture.resource.height) / longerLength)
+            } else {
+                planeWidth = longerLength
+                planeHeight = Float(imgTexture.resource.height) / (Float(imgTexture.resource.width) / longerLength)
+            }
+            
+            var material = SimpleMaterial()
+            material.color = .init(tint: .white, texture: imgTexture)
+            material.roughness = 1
+            material.metallic = 1
+            
+            let mesh = MeshResource.generatePlane(width: planeWidth!, depth: planeHeight!)
+            let object = ModelEntity(mesh: mesh, materials: [material])
+            
+            //let model = Model(name: "image", modelEntity: object)
+            model.modelEntity = object
+            
+            placementSettings.selectedModel = model
+        }
 }
 
 struct SliderItem: View {
