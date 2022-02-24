@@ -26,6 +26,15 @@ __Sprint 15:__ January 2nd - January 16th . 7 Days Left!
 3. Login Functionality v1 
 4. Algolia v1
 
+## todo
+1. Login Clean Up. Verify Email. Error Popups. Create Account Update
+2. Email->UID
+3. Playlist CRUD
+4. Reels: Clean Up
+5. Settings:CRUD
+6. NavLink: GenPlaylist->OtherProfile
+7. ModelDownload: Killing Threads and Erasing un-needed data.
+
 ## How to run Gallify.app
 1. Download Big Sur and Xcode 
 2. Using Terminal enter the file using the command line. 
