@@ -14,7 +14,7 @@ class PlacementSettings: ObservableObject {
     // When the user selects a model in ContentView, this property is set
     @Published var selectedModel: Model? {
         willSet(newValue) {
-            print("Setting selectedModel to \(String(describing: newValue?.name))")
+            print("Setting selectedModel to \(String(describing: newValue?.art.name))")
         }
     }
     
@@ -26,7 +26,7 @@ class PlacementSettings: ObservableObject {
                 return
             }
             
-            print("Setting confirmedModel to \(model.name)")
+            print("Setting confirmedModel to \(model.art.name)")
         }
     }
     

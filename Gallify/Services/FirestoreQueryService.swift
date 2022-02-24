@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import Firebase
 
 @MainActor
 class FirestoreQuery : ObservableObject {
@@ -83,6 +84,7 @@ class FirestoreQuery : ObservableObject {
     var discoverQuery: Query!
     
     //AR Player
+    
     @Published var models: [Model] = []
     
  

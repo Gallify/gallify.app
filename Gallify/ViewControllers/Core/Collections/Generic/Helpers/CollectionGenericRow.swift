@@ -206,7 +206,7 @@ struct CollectionGenericRow: View {
                         EditButton()
                     }
                     .navigationBarTitle("")
-                    //.navigationBarHidden(true)
+                    
         
                 }
                 .onAppear{async{ await NetworkingCall() }}

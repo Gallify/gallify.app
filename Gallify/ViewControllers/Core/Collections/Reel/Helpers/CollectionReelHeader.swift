@@ -90,10 +90,10 @@ struct CollectionReelHeader: View {
                                  .environmentObject(modelsViewModel)
                                  .environmentObject(placementSettings)
                                  .environmentObject(firestoreQuery)
-                                 .onAppear {
-                     self.firestoreQuery.fetchData()
-                 },
-                                label: {
+                               // .onAppear{ async{ await firestoreQuery.fetchModelData()}} //called in reels.
+                     
+                 ,
+                    label: {
                      Image(systemName: "arkit")
                          .font(.system(size: 30))
                          .padding(.leading)

@@ -9,128 +9,91 @@ import SwiftUI
 import ARKit
 import RealityKit
 import Combine
-import SDWebImageSwiftUI
 
-class Model {
-    var name: String
-    //var thumbnail: Image
-    var thumbnail_url: String
-    var content_url: String
-    //add scale compensation later.
-    //add transforms later.
-   
-    var modelEntity: ModelEntity?
-    var modelAnchor: ARAnchor?
+
+
+class Model: Encodable, Decodable {
     
+    enum CodingKeys: CodingKey {
+        case art
+        //case scale compensation
+        //case transforms array.
+        case modelEntity
+        case modelAnchor
+        case contentLoaded
+    }
+    
+    @Published var art : Art
+    @Published var modelURL : URL?
+    @Published var modelEntity: ModelEntity?
+    @Published var modelAnchor: ARAnchor?
+    @Published var contentLoaded: Bool
     private var cancellable: AnyCancellable?
     
-    init(name: String, thumbnail_url: String, content_url: String) {
-        self.name = name
-        //self.thumbnail = UIImage(named: name) ?? UIImage(systemName: "photo")!
-        self.thumbnail_url = thumbnail_url
-        self.content_url = content_url
-        
-//        self.thumbnail = AsyncImage(url: URL(string: "\(self.thumbnail_url)"))
-//
-//        AsyncImage(url: URL(string: self.thumbnail_url)!,
-//                   self.thumbnail: { Image(uiImage: $0).resizable() })
-
-     //   self.thumbnail = Image(AsyncImage(url: URL(string: self.thumbnail_url)))
+    init(artwork: Art) {
+        art = artwork
+        contentLoaded = false
         
     }
     
-    // TODO: Create a method to async load modelEntity
-//    func asyncLoadModelEntity(handler: @escaping (_ completed: Bool, _ error: Error?) -> Void) {
-//        self.modelAnchor = nil
-//
-//        let filename = self.name + ".usdz"
-//
-//        self.cancellable = ModelEntity.loadModelAsync(named: filename)
-//            .sink { loadCompletion in
-//                switch loadCompletion {
-//                case .failure(let error): print("Unable to loadmodelEntity for \(filename). Error: \(error.localizedDescription)")
-//                    handler(false, error)
-//                case .finished:
-//                    break
-//                }
-//            } receiveValue: { modelEntity in
-//                self.modelEntity = modelEntity
-//                handler(true, nil)
-//                print("modelEntity for \(self.name) has been loaded.")
-//            }
-//
-//    }
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        art = try container.decode(Art.self, forKey: .art)
+        contentLoaded = try container.decode(Bool.self, forKey: .contentLoaded)
+    }
     
-//    func asyncLoadModelEntity(handler: @escaping (_ completed: Bool, _ error: Error?) -> Void) {
-//        self.modelAnchor = nil
-//
-//        let filename = self.name
-//
-//       // let url = URL(string: "urlString")
-//        let fileUrl = NSURL(string: self.content_url)
-//        self.cancellable = ModelEntity.loadModelAsync(contentsOf: fileUrl! as URL)
-//            .sink { loadCompletion in
-//                switch loadCompletion {
-//
-//                case .failure(let error):
-//                    print(self.content_url)
-//                    print("Unable to loadmodelEntity for \(filename). Error: \(error.localizedDescription)")
-//                    handler(false, error)
-//                case .finished:
-//                    break
-//                }
-//            } receiveValue: { modelEntity in
-//                self.modelEntity = modelEntity
-//                handler(true, nil)
-//                print("modelEntity for \(self.name) has been loaded.")
-//            }
-//
-//    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(art, forKey: .art)
+        try container.encode(contentLoaded, forKey: .contentLoaded)
+    }
     
-    func asyncLoadModelEntity(handler: @escaping (_ completed: Bool, _ error: Error?) -> Void) {
-        
-        let url = URL(string: self.content_url)
-        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destination = documents.appendingPathComponent(url!.lastPathComponent)
-        let session = URLSession(configuration: .default,
-                                      delegate: nil,
-                                 delegateQueue: nil)
-        
-        var request = URLRequest(url: url!)
-        request.httpMethod = "GET"
-        
-        let downloadTask = session.downloadTask(with: request, completionHandler: { (location: URL?,
-                                  response: URLResponse?,
-                                     error: Error?) -> Void in
-            
-        let fileManager = FileManager.default
-            
-        if fileManager.fileExists(atPath: destination.path) {
-            try! fileManager.removeItem(atPath: destination.path)
-        }
-        try! fileManager.moveItem(atPath: location!.path,
-                                  toPath: destination.path)
-            
-        DispatchQueue.main.async {
-                do {
-                    let model = try ModelEntity.load(contentsOf: destination)
-    //                    let anchor = AnchorEntity(world: [0,-0.2,0])
-    //                        anchor.addChild(model)
-    //                    anchor.scale = [5,5,5]
-    //                    self.arView.scene.addAnchor(anchor)
-                    self.modelEntity? = model as! ModelEntity
-                    handler(true, nil)
-                    print("modelEntity for \(self.name) has been loaded.")
-                    
-                   // model.playAnimation(model.availableAnimations.first!.repeat())
-                } catch {
-                    print("Unable to loadmodelEntity for \(self.name). Error: \(error.localizedDescription)")
-                    handler(false, error)
-                }
+    //Create a method to async load model Entity
+    func asyncLoadModelEntity(handler: @escaping (_ completed: Bool, _ error: Error?) -> Void){
+        if(self.art.content_type == 1 && self.contentLoaded==false){
+            FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: "models/\(self.art.name).usdz") { localUrl in
+                print("LOCAL URL")
+                print(localUrl)
+                
+                self.cancellable = ModelEntity.loadModelAsync(contentsOf: localUrl)
+                    .sink(receiveCompletion: { loadCompletion in
+                        
+                        switch loadCompletion {
+                        case .failure(let error): print("Unable to load modelEntityfor \(self.art.name). Error: \(error.localizedDescription)")
+                            handler(false, error)
+                        case .finished:
+                            break
+                        }
+                            
+                    }, receiveValue: { modelEntity in
+                        
+                        self.modelURL = localUrl
+                        self.modelEntity = modelEntity
+                       // self.modelEntity?.scale *= self.scaleCompensation //scale?
+                        
+                        handler(true, nil)
+                        
+                        print("modelEntity for \(self.art.name) has been loaded.")
+                        
+                    })
             }
-        })
-        downloadTask.resume()
+        }
+        else{
+            handler(true, nil)
+        }
+        
     }
     
     
+    
+    
+    
+    
+    
+    
+ 
+    
+    
+    
+
 }

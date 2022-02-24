@@ -77,6 +77,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         location = ""
         creator_url = ""
         searchType = ""
+        //owner, collection, last sold, created date, tokenid. 
         
 
     }

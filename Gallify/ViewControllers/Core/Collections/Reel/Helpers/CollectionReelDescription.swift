@@ -79,8 +79,8 @@ struct CollectionReelDescription: View {
                             .font(.system(size: 16))
                     }
                 }
-                .padding(.leading)
-                .frame(width: screenWidth / 1.5, height: screenWidth / 1.5)
+                //.padding(.leading)
+                //.frame(width: screenWidth / 1.5, height: screenWidth / 1.5)
                 VStack (alignment: .trailing) {
                     
                     NavigationLink (
@@ -120,8 +120,8 @@ struct CollectionReelDescription: View {
                     Spacer()
                     
                 }
-                .padding(.trailing)
-                .frame(width: screenWidth / 3, height: screenWidth / 3)
+                //.padding(.trailing)
+                //.frame(width: screenWidth / 3, height: screenWidth / 3)
             }
         }
     }

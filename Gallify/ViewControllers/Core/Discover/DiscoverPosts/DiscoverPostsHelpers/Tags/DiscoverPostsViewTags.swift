@@ -26,6 +26,7 @@ struct DiscoverPostsViewTags: View {
                             async{ await firestoreQuery.getDiscoverContent() }
                         }
                     }
+                    .buttonStyle(ThemeAnimationStyle_refresh())
 
                 NavigationLink(destination: DiscoverBrowse(), label: {
                     

@@ -16,3 +16,11 @@ struct ThemeAnimationStyle: ButtonStyle {
     }
 }
 
+struct ThemeAnimationStyle_refresh: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+            .transition(.scale)
+    }
+}
+

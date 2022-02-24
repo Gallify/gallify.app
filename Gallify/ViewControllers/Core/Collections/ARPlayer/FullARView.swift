@@ -24,7 +24,7 @@ struct FullARView: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     
     @State private var showSlider: Bool = false
-    @State private var overlayVisible: Bool = true
+    @State private var overlayVisible: Bool = false //used to be true, wasnt loading so skipped it
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -49,6 +49,10 @@ struct FullARView: View {
                 } else {
                     AddModelBar()
                 }
+            }
+        }.task{
+            if(firestoreQuery.models.isEmpty){
+                await firestoreQuery.fetchModelData()
             }
         }
         

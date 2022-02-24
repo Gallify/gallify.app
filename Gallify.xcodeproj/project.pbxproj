@@ -87,6 +87,7 @@
 		30410A8427A677EB00284446 /* CuratorProgramSettingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A7827A677EB00284446 /* CuratorProgramSettingHeader.swift */; };
 		30410A8627A67AAE00284446 /* deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A8527A67AAE00284446 /* deprecated.swift */; };
 		30410A8E27AF2CDB00284446 /* HomeViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A8D27AF2CDB00284446 /* HomeViewBody.swift */; };
+		30493B8E27C55EAE00CD985B /* FirebaseStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30493B8D27C55EAE00CD985B /* FirebaseStorageHelper.swift */; };
 		3052136B278A2C3100CE0224 /* RecentSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30521369278A2C3100CE0224 /* RecentSearch.swift */; };
 		3052136C278A2C3100CE0224 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052136A278A2C3100CE0224 /* ContentType.swift */; };
 		30521375278A2C3A00CE0224 /* UserLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052136E278A2C3A00CE0224 /* UserLight.swift */; };
@@ -125,12 +126,6 @@
 		30BEBD3127BF166F0045EC74 /* ModelsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2A27BF166F0045EC74 /* ModelsViewModel.swift */; };
 		30BEBD3227BF166F0045EC74 /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2B27BF166F0045EC74 /* PlacementSettings.swift */; };
 		30BEBD3327BF166F0045EC74 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2C27BF166F0045EC74 /* Slider.swift */; };
-		30BEBD3B27BF172C0045EC74 /* toy_drummer.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3527BF172C0045EC74 /* toy_drummer.usdz */; };
-		30BEBD3C27BF172C0045EC74 /* toy_robot_vintage.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3627BF172C0045EC74 /* toy_robot_vintage.usdz */; };
-		30BEBD3D27BF172C0045EC74 /* gramophone.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3727BF172C0045EC74 /* gramophone.usdz */; };
-		30BEBD3E27BF172C0045EC74 /* toy_biplane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3827BF172C0045EC74 /* toy_biplane.usdz */; };
-		30BEBD3F27BF172C0045EC74 /* tv_retro.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3927BF172C0045EC74 /* tv_retro.usdz */; };
-		30BEBD4027BF172C0045EC74 /* air_force.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30BEBD3A27BF172C0045EC74 /* air_force.usdz */; };
 		30BEBD4327BF1E470045EC74 /* getARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4227BF1E470045EC74 /* getARPlayer.swift */; };
 		30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4427BF1E510045EC74 /* postARPlayer.swift */; };
 		30BEBD4727BF1E5C0045EC74 /* updateARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */; };
@@ -326,6 +321,7 @@
 		30410A7827A677EB00284446 /* CuratorProgramSettingHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuratorProgramSettingHeader.swift; sourceTree = "<group>"; };
 		30410A8527A67AAE00284446 /* deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deprecated.swift; sourceTree = "<group>"; };
 		30410A8D27AF2CDB00284446 /* HomeViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBody.swift; sourceTree = "<group>"; };
+		30493B8D27C55EAE00CD985B /* FirebaseStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageHelper.swift; sourceTree = "<group>"; };
 		30521369278A2C3100CE0224 /* RecentSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentSearch.swift; sourceTree = "<group>"; };
 		3052136A278A2C3100CE0224 /* ContentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		3052136E278A2C3A00CE0224 /* UserLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLight.swift; sourceTree = "<group>"; };
@@ -364,12 +360,6 @@
 		30BEBD2A27BF166F0045EC74 /* ModelsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsViewModel.swift; sourceTree = "<group>"; };
 		30BEBD2B27BF166F0045EC74 /* PlacementSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacementSettings.swift; sourceTree = "<group>"; };
 		30BEBD2C27BF166F0045EC74 /* Slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
-		30BEBD3527BF172C0045EC74 /* toy_drummer.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer.usdz; sourceTree = "<group>"; };
-		30BEBD3627BF172C0045EC74 /* toy_robot_vintage.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_robot_vintage.usdz; sourceTree = "<group>"; };
-		30BEBD3727BF172C0045EC74 /* gramophone.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = gramophone.usdz; sourceTree = "<group>"; };
-		30BEBD3827BF172C0045EC74 /* toy_biplane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane.usdz; sourceTree = "<group>"; };
-		30BEBD3927BF172C0045EC74 /* tv_retro.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tv_retro.usdz; sourceTree = "<group>"; };
-		30BEBD3A27BF172C0045EC74 /* air_force.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = air_force.usdz; sourceTree = "<group>"; };
 		30BEBD4227BF1E470045EC74 /* getARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4427BF1E510045EC74 /* postARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateARPlayer.swift; sourceTree = "<group>"; };
@@ -610,7 +600,6 @@
 		3004D4B826C82F6B00323BCB /* Gallify */ = {
 			isa = PBXGroup;
 			children = (
-				30BEBD3427BF172C0045EC74 /* 3D Assets */,
 				30836FA52749E39D00E83735 /* Services */,
 				3004D4F626CD4D3F00323BCB /* Managers */,
 				3004D4F526CD49AD00323BCB /* Resources */,
@@ -1015,21 +1004,9 @@
 				30BEBD2A27BF166F0045EC74 /* ModelsViewModel.swift */,
 				30BEBD2B27BF166F0045EC74 /* PlacementSettings.swift */,
 				30BEBD2C27BF166F0045EC74 /* Slider.swift */,
+				30493B8D27C55EAE00CD985B /* FirebaseStorageHelper.swift */,
 			);
 			path = ARPlayer;
-			sourceTree = "<group>";
-		};
-		30BEBD3427BF172C0045EC74 /* 3D Assets */ = {
-			isa = PBXGroup;
-			children = (
-				30BEBD3527BF172C0045EC74 /* toy_drummer.usdz */,
-				30BEBD3627BF172C0045EC74 /* toy_robot_vintage.usdz */,
-				30BEBD3727BF172C0045EC74 /* gramophone.usdz */,
-				30BEBD3827BF172C0045EC74 /* toy_biplane.usdz */,
-				30BEBD3927BF172C0045EC74 /* tv_retro.usdz */,
-				30BEBD3A27BF172C0045EC74 /* air_force.usdz */,
-			);
-			path = "3D Assets";
 			sourceTree = "<group>";
 		};
 		30BEBD4127BF1E330045EC74 /* ARPlayer */ = {
@@ -1554,15 +1531,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30BEBD4027BF172C0045EC74 /* air_force.usdz in Resources */,
-				30BEBD3C27BF172C0045EC74 /* toy_robot_vintage.usdz in Resources */,
-				30BEBD3D27BF172C0045EC74 /* gramophone.usdz in Resources */,
 				3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */,
 				30410A0827A1E7FD00284446 /* AirForce.usdz in Resources */,
-				30BEBD3F27BF172C0045EC74 /* tv_retro.usdz in Resources */,
-				30BEBD3B27BF172C0045EC74 /* toy_drummer.usdz in Resources */,
 				3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */,
-				30BEBD3E27BF172C0045EC74 /* toy_biplane.usdz in Resources */,
 				3004D4E826CC97F400323BCB /* GoogleService-Info.plist in Resources */,
 				3067FBE227460D5C009B5D4D /* Main.storyboard in Resources */,
 				30410A0A27A1E80700284446 /* toy_car.usdz in Resources */,
@@ -1777,6 +1748,7 @@
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
 				30410A8427A677EB00284446 /* CuratorProgramSettingHeader.swift in Sources */,
 				30410A7D27A677EB00284446 /* ArtistProgramSettingHeader.swift in Sources */,
+				30493B8E27C55EAE00CD985B /* FirebaseStorageHelper.swift in Sources */,
 				30410A3B27A671AB00284446 /* MainSettingsViewHeader.swift in Sources */,
 				30410A3927A6719E00284446 /* MainSettingsViewBody.swift in Sources */,
 				92794D11273814D80012B184 /* DiscoveryCategoryHeader.swift in Sources */,

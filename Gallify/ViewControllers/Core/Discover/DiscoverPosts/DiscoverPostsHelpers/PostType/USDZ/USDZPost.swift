@@ -4,7 +4,6 @@
 //
 //  Created by Anshul on 1/4/22.
 //
-
 import SwiftUI
 
 struct USDZPost: View {
@@ -13,12 +12,12 @@ struct USDZPost: View {
     @State var isMovable = false
     @State var text = "Check out 3-D model"
     
-    let model: String
+    let model: Model
         
     var body: some View {
         
-        let screenHeight = viewModel.screenHeight
-        let screenWidth = viewModel.screenWidth
+        let screenHeight = UIScreen.main.bounds.height
+                let screenWidth = UIScreen.main.bounds.width
         
         ScrollView(showsIndicators: false) {
             
@@ -65,9 +64,9 @@ struct USDZPost: View {
     
 }
 
-struct USDZPost_Previews: PreviewProvider {
-    static var previews: some View {
-        USDZPost(model: "toy_car.usdz")
-            .environmentObject(TabBarViewModel())
-    }
-}
+//struct USDZPost_Previews: PreviewProvider {
+//    static var previews: some View {
+//        USDZPost(model: "toy_car.usdz")
+//            .environmentObject(TabBarViewModel())
+//    }
+//}

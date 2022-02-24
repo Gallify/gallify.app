@@ -23,14 +23,20 @@ struct Slider: View {
                     let model = firestoreQuery.models[index]
 
                     SliderItem(model: model) {
-                        //call model method to async load entity
-                        model.asyncLoadModelEntity { completed, error in
-                            if completed {
-                                //select model for placement
-                                self.placementSettings.selectedModel = model
+                        if(model.contentLoaded){
+                            self.placementSettings.selectedModel = model
+                        }
+                        else{
+                            model.asyncLoadModelEntity { completed, error in
+                                if completed {
+                                    //select model for placement
+                                    model.contentLoaded = true
+                                    self.placementSettings.selectedModel = model
+                                }
                             }
                         }
-                        print("BrowseView selected \(model.name) for placement")
+                       
+                        print("BrowseView selected \(model.art.name) for placement")
                     }
                 }
             }
@@ -49,13 +55,25 @@ struct SliderItem: View {
             self.action()
         }) {
             
+            if(model.contentLoaded){
+                WebImage(url: URL(string: model.art.thumbnail))
+                    .resizable()
+                    .frame(width: 75, height: 75)
+                    .aspectRatio(1/1, contentMode: .fit)
+                    .background(Color(UIColor.secondarySystemFill))
+                    .clipShape(Circle())
+                
+            }
+            else{
+                WebImage(url: URL(string: model.art.thumbnail))
+                    .resizable()
+                    .colorMultiply(Color("Gallify-Pink"))
+                    .frame(width: 75, height: 75)
+                    .aspectRatio(1/1, contentMode: .fit)
+                    .background(Color(UIColor.secondarySystemFill))
+                    .clipShape(Circle())
+            }
             
-            WebImage(url: URL(string: model.thumbnail_url))
-                .resizable()
-                .frame(width: 75, height: 75)
-                .aspectRatio(1/1, contentMode: .fit)
-                .background(Color(UIColor.secondarySystemFill))
-                .clipShape(Circle())
             
     
         }
