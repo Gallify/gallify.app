@@ -62,7 +62,7 @@ struct CollectionGenericView: View {
         
         //get playlist art
         await firestoreQuery.getPlaylistArt(playlist: playlist)
-        print("ART: \(firestoreQuery.playlistArt[1].creator)")
+   //     print("ART: \(firestoreQuery.playlistArt[1].creator)")
         
         //get art
         

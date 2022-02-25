@@ -20,6 +20,7 @@ struct TabBarView: View {
     @StateObject var firestoreQuery = FirestoreQuery()
     @StateObject var storageService = StorageService()
     @StateObject var viewModel = TabBarViewModel()
+    @EnvironmentObject var viewModel2 : LoginAppViewModel
     
     @State private var doneLoading = false
     @State var isLoading = false
@@ -143,32 +144,52 @@ struct TabBarView: View {
             
         UITabBar.appearance().isHidden = firestoreQuery.showNewScreen
             
+        print("DSFSDFSf")
         await firestoreQuery.fetchData()
+        print("SDFSDFSDF")
         
+        print("Library")
+        print(firestoreQuery.data.Library)
+
         firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
-        
+
         await firestoreQuery.fetchArt()
-        
+
         //await firestoreQuery.getHome()
         await firestoreQuery.getHomeMuseumList()
-        
+
         //getMuseums. Gets all these Museums. List of Playlists
         await firestoreQuery.getHomeMuseums()
-    
+
         //getPlaylists. Gets all the data for the playlists. Called once per museum.
         await firestoreQuery.getHomePlaylists()
-        
+//
         await firestoreQuery.getDiscoverContent()
-        
-//        for art_id in firestoreQuery.discoveryPageArt {
-//            print("gi")
+////
+//        let auth = Auth.auth()
+//                try? auth.signOut()
+//                viewModel2.signedIn = false
+//                viewModel2.newUserCreated = false
+//        var db = Firestore.firestore()
+//        let userDocRef = try db.collection("users").document(auth.currentUser!.email!)
+//        do{
+//            let libraryPlaylistNames = ["Collection-1", "Collection-2", "Featured"]
+//            for i in 0...2 {
+//              let playlist = Playlist()
+//              playlist.name = libraryPlaylistNames[i]
+//              let playlistRef = try db.collection("playlists").document()
+//              try playlistRef.setData(from: playlist)
+//                try await userDocRef.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])])
+//                if(playlist.name == "Featured"){
+//                    try await userDocRef.updateData(["featured": FieldValue.arrayUnion([playlistRef.documentID])])
+//                }
+//
+//            }
 //        }
-        
-        await firestoreQuery.addArtToArtCollection(art_id: "test-art4")
-        
+//        catch{
+//
+//        }
 
-        
-           
         doneLoading = true
             
     }

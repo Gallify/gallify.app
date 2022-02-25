@@ -33,11 +33,11 @@ struct SelfProfileViewDetails: View {
                 
             HStack {
                 
-                if firestoreQuery.data.profileUrl == "" {
+                if firestoreQuery.data.profileImageUrl == "" {
                     CircleImage(image: Image(systemName: "person.circle.fill"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                 }
                 else {
-                    WebImage(url: URL(string: firestoreQuery.data.profileUrl))
+                    WebImage(url: URL(string: firestoreQuery.data.profileImageUrl))
                        // Supports options and context, like `.delayPlaceholder` to show placeholder only when error
                        .onSuccess { image, data, cacheType in
                            // Success

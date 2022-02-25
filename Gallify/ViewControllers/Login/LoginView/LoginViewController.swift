@@ -100,8 +100,8 @@ class LoginAppViewModel: ObservableObject {
                 do {
                         
                         //create user field
-                        user.uid = self!.auth.currentUser!.uid
-                        let userDocRef = try db.collection("users").document(user.uid)
+                    user.email = self!.auth.currentUser!.email!
+                        let userDocRef = try db.collection("users").document(user.email)
                         try userDocRef.setData(from: user)
                         //self!.sendVerificationMail()
                         
@@ -110,13 +110,13 @@ class LoginAppViewModel: ObservableObject {
                          Home, Discover, Profile : Subcollections
                          connections, followers, following, pending connections, recent search, home: Documents
                         */
-                        let userMuseumRef = try db.collection("users").document(user.uid).collection("home").document("home")
+                        let userMuseumRef = try db.collection("users").document(user.email).collection("home").document("home")
                             try userMuseumRef.setData(from: MuseumList())
-                        try db.collection("users").document(user.uid).collection("discover").document("recentsearch").setData(from: RecentSearch())
-                        try db.collection("users").document(user.uid).collection("profile").document("followers").setData(from: Followers())
-                        try db.collection("users").document(user.uid).collection("profile").document("following").setData(from: Following())
-                        try db.collection("users").document(user.uid).collection("profile").document("connections").setData(from: Connections())
-                        try db.collection("users").document(user.uid).collection("profile").document("pending").setData(from: Pending())
+                        try db.collection("users").document(user.email).collection("discover").document("recentsearch").setData(from: RecentSearch())
+                        try db.collection("users").document(user.email).collection("profile").document("followers").setData(from: Followers())
+                        try db.collection("users").document(user.email).collection("profile").document("following").setData(from: Following())
+                        try db.collection("users").document(user.email).collection("profile").document("connections").setData(from: Connections())
+                        try db.collection("users").document(user.email).collection("profile").document("pending").setData(from: Pending())
                         
                        
                         //generate your 5 playlists. document ids should be random, rn they aren'
@@ -146,6 +146,9 @@ class LoginAppViewModel: ObservableObject {
                           let playlistRef = try db.collection("playlists").document()
                           try playlistRef.setData(from: playlist)
                           userDocRef.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])])
+//                            if(playlist.name == "Featured"){
+//                                userDocRef.updateData(["featured": FieldValue.arrayUnion([playlistRef.documentID])])
+//                            }
                         }
                         
                     } catch let error {

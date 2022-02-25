@@ -55,7 +55,8 @@ extension FirestoreQuery {
      */
     func getUser() async {
         let userEmail = Auth.auth().currentUser?.email
-        
+        print("EMAIL GET USER")
+        print(userEmail)
         do {
             let doc = try await FirestoreQuery.db.collection("users")
                 .document(userEmail ?? "info@gallify.app")
@@ -72,6 +73,37 @@ extension FirestoreQuery {
             print("Error")
         }
     }
+    
+    //pwe
+    func getUserData() async {
+        let userEmail = Auth.auth().currentUser?.email
+        print("EMAILjj")
+        print(userEmail)
+
+        do {
+            let doc = try await FirestoreQuery.db.collection("users")
+                .document(userEmail ?? "info@gallify.app")
+                .getDocument().data(as: User.self)
+
+            print("DOC")
+            print(doc)
+            guard let theUser = doc else{
+                throw DatabaseError.failed
+                print("HIHIHI")
+            }
+
+            self.data = theUser
+            
+            print("DATA")
+            print(self.data.email)
+
+        }
+        catch{
+            print("Error")
+        }
+    }
+    
+    
     
     /*
      Input: Library Array.

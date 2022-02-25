@@ -14,6 +14,7 @@ extension FirestoreQuery {
 
     @MainActor
     @available(iOS 15.0.0, *)
+    //pwe
     func loaditems_selfprofile(){
         async{
             try await getUser_await()
@@ -156,36 +157,45 @@ extension FirestoreQuery {
     }
     
     
-    
+    //pwe
     func fetchData() async {
         let userEmail = Auth.auth().currentUser?.email
-        
+        print("EMAILj")
+        print(userEmail)
+
         do {
             let doc = try await FirestoreQuery.db.collection("users")
                 .document(userEmail ?? "info@gallify.app")
                 .getDocument().data(as: User.self)
-            
+
+            print("DOC")
+            print(doc)
             guard let theUser = doc else{
                 throw DatabaseError.failed
+                print("HIHIHI")
             }
-            
+
             self.data = theUser
             
-            //
             
+            print("DATA")
+            print(self.data.email)
+
+            //
+
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(data.featured)
                 .getDocument().data(as: Playlist.self)
-            
-                
+
+
             guard let thefeaturedPlaylist = doc2 else{
                 throw DatabaseError.failed
             }
 
             self.featuredPlaylist = thefeaturedPlaylist
-            
+
             //
-            
+
         }
         catch{
             print("Error")

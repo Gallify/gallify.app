@@ -229,7 +229,7 @@ struct CollectionGenericRow: View {
     
         func NetworkingCall() async {
             await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
-            print("ART: \(firestoreQuery.playlistArt[1].creator)")
+            //print("ART: \(firestoreQuery.playlistArt[1].creator)")
             playlist = firestoreQuery.playlistArt
             //this gets all the data for the home page.
             //firestoreQuery.getHome()

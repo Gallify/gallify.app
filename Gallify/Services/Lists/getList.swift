@@ -11,21 +11,22 @@ import FirebaseAuth
 
 extension FirestoreQuery {
     
+    //pwe
     func getFeaturedPlaylist() async {
         let userEmail = Auth.auth().currentUser?.email
-        
+
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(data.featured)
                 .getDocument().data(as: Playlist.self)
-            
-                
+
+
             guard let thefeaturedPlaylist = doc2 else{
                 throw DatabaseError.failed
             }
 
             self.featuredPlaylist = thefeaturedPlaylist
-            
+
         }
         catch{
             print("Error")

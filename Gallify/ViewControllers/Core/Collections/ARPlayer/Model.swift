@@ -68,6 +68,8 @@ class Model: Encodable, Decodable {
                     }, receiveValue: { modelEntity in
                         
                         self.modelURL = localUrl
+                        print("MODEL URL L")
+                        print(self.modelURL)
                         self.modelEntity = modelEntity
                        // self.modelEntity?.scale *= self.scaleCompensation //scale?
                         
