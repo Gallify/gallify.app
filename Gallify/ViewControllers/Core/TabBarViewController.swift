@@ -167,9 +167,10 @@ struct TabBarView: View {
         await firestoreQuery.getDiscoverContent()
 ////
 //        let auth = Auth.auth()
-//                try? auth.signOut()
-//                viewModel2.signedIn = false
-//                viewModel2.newUserCreated = false
+//        try? auth.signOut()
+//        viewModel2.signedIn = false
+//        viewModel2.newUserCreated = false
+        
 //        var db = Firestore.firestore()
 //        let userDocRef = try db.collection("users").document(auth.currentUser!.email!)
 //        do{

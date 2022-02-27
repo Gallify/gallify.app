@@ -19,15 +19,38 @@ struct DiscoverPostsViewTags: View {
             
             HStack {
                 
-               
-                DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Refresh", bgColor: Color("Gallify-Pink").opacity(0.7))
-                    .onTapGesture{
-                        if(firestoreQuery.lastDocument != nil){
-                            async{ await firestoreQuery.getDiscoverContent() }
-                        }
+                Button(action: {
+                    if(firestoreQuery.lastDocument != nil){
+                        async{ await firestoreQuery.getDiscoverContent() }
                     }
-                    .buttonStyle(ThemeAnimationStyle_refresh())
+                }) {
+                    ZStack {
+                        
+                        RoundedRectangle(cornerRadius: 5)
+                            .foregroundColor(Color("Gallify-Pinkish"))
+                            .frame(width: screenWidth / 10.5, height: screenWidth / 10.5)
+                            .cornerRadius(screenWidth / 50)
+                        
+                        Image(systemName: "arrow.clockwise")
+                            .resizable()
+                            .foregroundColor(Color.white)
+                            .frame(width: screenWidth / 25, height: screenWidth / 25)
+                            .font(Font.title.weight(.bold))
+                        
+                    }
+                }
+                .buttonStyle(ThemeAnimationStyle_refresh())
+                
+               
+//                DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Refresh", bgColor: Color("Gallify-Pink").opacity(0.7))
+//                    .onTapGesture{
+//                        if(firestoreQuery.lastDocument != nil){
+//                            async{ await firestoreQuery.getDiscoverContent() }
+//                        }
+//                    }
+//                    .buttonStyle(ThemeAnimationStyle_refresh())
 
+                
                 NavigationLink(destination: DiscoverBrowse(), label: {
                     
                     DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Browse", bgColor: Color.gray.opacity(0.7))

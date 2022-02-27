@@ -22,6 +22,7 @@ struct CreateLandingView: View {
             ScrollView{
                 Spacer()
             
+                
                 CreateLandingOptions(screenWidth: screenWidth, screenHeight: screenHeight)
             
                 Spacer()

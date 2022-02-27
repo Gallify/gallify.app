@@ -28,6 +28,7 @@ struct DiscoverPostsView: View {
             LazyVStack {
                 
                 DiscoverPostsViewTags(screenHeight: screenHeight, screenWidth: screenWidth)
+                    .padding(.bottom, 10)
                 
 //                ForEach(firestoreQuery.discoveryPageArt) { i in
 //                    Text("\(i.name)")
