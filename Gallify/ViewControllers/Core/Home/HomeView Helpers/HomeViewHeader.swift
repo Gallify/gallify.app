@@ -23,30 +23,52 @@ struct HomeViewHeader: View {
             
             Spacer()
             
+            Button(action: {
+                if let url = URL(string: "https://open.gallify.app/create-item") {
+                   UIApplication.shared.open(url)
+                }
+            }) {
+                ZStack {
+                    
+                    RoundedRectangle(cornerRadius: 5)
+                        .foregroundColor(Color("Gallify-Pinkish"))
+                        .padding(.all, screenWidth / 55)
+                        .frame(width: screenWidth / 9, height: screenWidth / 9)
+                    
+                    Image(systemName: "plus")
+                        .resizable()
+                        .foregroundColor(Color.white)
+                        .frame(width: screenWidth / 25, height: screenWidth / 25)
+                        
+                    
+                }
+                .padding(.trailing, screenWidth / 37.5)
+            }
             
-            NavigationLink (
-                            destination: CreateLandingView(screenWidth: screenWidth, screenHeight: screenHeight),
-                            label: {
-                                ZStack {
-                                    
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .foregroundColor(Color("Gallify-Pinkish"))
-                                        .padding(.all, screenWidth / 55)
-                                        .frame(width: screenWidth / 9, height: screenWidth / 9)
-                                    
-                                    Image(systemName: "plus")
-                                        .resizable()
-                                        .foregroundColor(Color.white)
-                                        .frame(width: screenWidth / 25, height: screenWidth / 25)
-                                        
-                                    
-                                }
-                                .padding(.trailing, screenWidth / 37.5)
-                            })
-                            .buttonStyle(ThemeAnimationStyle())
-                            .navigationBarBackButtonHidden(true)
-                            .navigationBarTitle("")
-                            .navigationBarHidden(true)
+            
+//            NavigationLink (
+//                            destination: CreateLandingView(screenWidth: screenWidth, screenHeight: screenHeight),
+//                            label: {
+//                                ZStack {
+//
+//                                    RoundedRectangle(cornerRadius: 5)
+//                                        .foregroundColor(Color("Gallify-Pinkish"))
+//                                        .padding(.all, screenWidth / 55)
+//                                        .frame(width: screenWidth / 9, height: screenWidth / 9)
+//
+//                                    Image(systemName: "plus")
+//                                        .resizable()
+//                                        .foregroundColor(Color.white)
+//                                        .frame(width: screenWidth / 25, height: screenWidth / 25)
+//
+//
+//                                }
+//                                .padding(.trailing, screenWidth / 37.5)
+//                            })
+//                            .buttonStyle(ThemeAnimationStyle())
+//                            .navigationBarBackButtonHidden(true)
+//                            .navigationBarTitle("")
+//                            .navigationBarHidden(true)
             
         }
         .padding(.bottom, -screenHeight / 240) //270

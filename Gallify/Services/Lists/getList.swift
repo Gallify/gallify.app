@@ -103,9 +103,9 @@ extension FirestoreQuery {
      */
     func getPlaylistArt(playlist: Playlist) async {
         
-        if !(playlistArt.isEmpty){ //if featured playlist isnt empty, then return.
-            return
-        }
+//        if !(playlistArt.isEmpty){ //if featured playlist isnt empty, then return.
+//            return
+//        }
        
         //self.featuredArt.removeAll()
         

@@ -92,13 +92,14 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         collection_coverart_url = ""
         popularity = 0
         share_url = ""
-        content_type = 0
+        content_type = 0 // 0, 1, 2. 0 = image. 1 = 3d model. 2= unapproved. 
         price = 0
         likes = 0
         genre = ""
         location = ""
         creator_url = ""
-        searchType = ""
+        searchType = ""  //contains the filepath name of the model stored in firebase storage.
+        
         //owner, collection, last sold, created date, tokenid. description, playlist, last sold, released, released price,token_id
         
         owner = ""

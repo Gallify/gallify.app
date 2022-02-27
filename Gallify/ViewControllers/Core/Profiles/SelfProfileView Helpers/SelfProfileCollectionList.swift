@@ -11,6 +11,7 @@ struct SelfProfileCollectionList: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @State private var showingSheet = false
     
     var body: some View {
         
@@ -24,27 +25,33 @@ struct SelfProfileCollectionList: View {
                 Text("Collections")
                     .font(.system(size: screenWidth / 12.5, weight: .semibold))
                 
-                NavigationLink (destination: CreateLandingView(screenWidth: screenWidth, screenHeight: screenHeight),
-                    label: {
+                Button(action: {
                     
-                        ZStack {
+                    showingSheet.toggle()
+                    
+                }, label: {
+                    
+                    ZStack {
+                                    
+                        RoundedRectangle(cornerRadius: screenWidth / 50)
+                            .foregroundColor(Color("Gallify-Pinkish"))
+                            .padding(.horizontal, screenWidth / 55)
+                            .padding(.vertical, screenHeight / 120)
+                            .frame(width: screenWidth / 8.3, height: screenHeight / 18)
+                                    
+                        Image(systemName: "plus")
+                            .resizable()
+                            .foregroundColor(Color.white)
+                            .frame(width: screenWidth / 25, height: screenHeight / 54)
                                         
-                            RoundedRectangle(cornerRadius: screenWidth / 50)
-                                .foregroundColor(Color("Gallify-Red"))
-                                .padding(.horizontal, screenWidth / 55)
-                                .padding(.vertical, screenHeight / 120)
-                                .frame(width: screenWidth / 8.3, height: screenHeight / 18)
-                                        
-                            Image(systemName: "plus")
-                                .resizable()
-                                .foregroundColor(Color.white)
-                                .frame(width: screenWidth / 25, height: screenHeight / 54)
-                                            
-                        }
+                    }
                     
                 })
-                .buttonStyle(ThemeAnimationStyle())
-                .navigationBarHidden(true)
+                .sheet(isPresented: $showingSheet) {
+                    
+                    CreatePlaylistName()
+                    
+                }
                 
                 Spacer()
                         
@@ -73,7 +80,7 @@ struct SelfProfileCollectionList: View {
                                 .foregroundColor(.black)
                                 .lineLimit(1)
                                 
-                            Text(playlist.playlist_type + " | " + playlist.creator)
+                            Text(playlist.playlist_type + " • " + playlist.creator)
                                 .font(.system(size: screenWidth / 25.5))
                                 .foregroundColor(.black)
                                 .lineLimit(1)

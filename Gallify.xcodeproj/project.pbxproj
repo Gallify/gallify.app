@@ -88,6 +88,8 @@
 		30410A8627A67AAE00284446 /* deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A8527A67AAE00284446 /* deprecated.swift */; };
 		30410A8E27AF2CDB00284446 /* HomeViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A8D27AF2CDB00284446 /* HomeViewBody.swift */; };
 		30493B8E27C55EAE00CD985B /* FirebaseStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30493B8D27C55EAE00CD985B /* FirebaseStorageHelper.swift */; };
+		30493BB827CB326100CD985B /* CreatePlaylistName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30493BB727CB326100CD985B /* CreatePlaylistName.swift */; };
+		30493BBA27CB328200CD985B /* CreatePlaylistSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30493BB927CB328200CD985B /* CreatePlaylistSettings.swift */; };
 		3052136B278A2C3100CE0224 /* RecentSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30521369278A2C3100CE0224 /* RecentSearch.swift */; };
 		3052136C278A2C3100CE0224 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052136A278A2C3100CE0224 /* ContentType.swift */; };
 		30521375278A2C3A00CE0224 /* UserLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052136E278A2C3A00CE0224 /* UserLight.swift */; };
@@ -322,6 +324,8 @@
 		30410A8527A67AAE00284446 /* deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deprecated.swift; sourceTree = "<group>"; };
 		30410A8D27AF2CDB00284446 /* HomeViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBody.swift; sourceTree = "<group>"; };
 		30493B8D27C55EAE00CD985B /* FirebaseStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageHelper.swift; sourceTree = "<group>"; };
+		30493BB727CB326100CD985B /* CreatePlaylistName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistName.swift; sourceTree = "<group>"; };
+		30493BB927CB328200CD985B /* CreatePlaylistSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistSettings.swift; sourceTree = "<group>"; };
 		30521369278A2C3100CE0224 /* RecentSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentSearch.swift; sourceTree = "<group>"; };
 		3052136A278A2C3100CE0224 /* ContentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		3052136E278A2C3A00CE0224 /* UserLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLight.swift; sourceTree = "<group>"; };
@@ -559,6 +563,8 @@
 				30001BEE2796949100527BF9 /* SelfProfileViewDetails.swift */,
 				30001BF0279694A800527BF9 /* SelfProfileViewVerifiedDetails.swift */,
 				30001BF2279694B600527BF9 /* SelfProfileCollectionList.swift */,
+				30493BB727CB326100CD985B /* CreatePlaylistName.swift */,
+				30493BB927CB328200CD985B /* CreatePlaylistSettings.swift */,
 			);
 			path = "SelfProfileView Helpers";
 			sourceTree = "<group>";
@@ -1667,6 +1673,7 @@
 				92794D04273811760012B184 /* CollectionLikedHeader.swift in Sources */,
 				92DB7C5F27316A4D0035B788 /* CreateLandingView.swift in Sources */,
 				316C527727287C3A00E28609 /* VerifyEmailBody.swift in Sources */,
+				30493BB827CB326100CD985B /* CreatePlaylistName.swift in Sources */,
 				92794D01273811760012B184 /* CollectionRecentActivityRow.swift in Sources */,
 				30001BC62796854200527BF9 /* deleteHome.swift in Sources */,
 				3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */,
@@ -1828,6 +1835,7 @@
 				30BEBD3027BF166F0045EC74 /* Model.swift in Sources */,
 				31B828C4272376BE0067DB05 /* CustomBackButton.swift in Sources */,
 				30521377278A2C3A00CE0224 /* GetUser.swift in Sources */,
+				30493BBA27CB328200CD985B /* CreatePlaylistSettings.swift in Sources */,
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
 				30836FB5274A041600E83735 /* ArtistSearchTemplate.swift in Sources */,
 				30001BFF2796971800527BF9 /* OtherProfileFeatured.swift in Sources */,
@@ -2039,7 +2047,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify3.com;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify5.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2065,7 +2073,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify3.com;
+				PRODUCT_BUNDLE_IDENTIFIER = gallify.Gallify5.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
