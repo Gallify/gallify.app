@@ -6,6 +6,7 @@
 //
 
 import RealityKit
+import UIKit
 import ARKit
 import FocusEntity
 
@@ -14,6 +15,20 @@ import SceneKit
 class CustomARView: ARView {
     
     var focusEntity: FocusEntity?
+    
+    /**
+     The object that has been most recently intereacted with.
+     The `selectedObject` can be moved at any time with the tap gesture.
+     */
+    var selectedObject: ModelEntity?
+    
+    /// The object that is tracked for use by the pan gestures.
+    var trackedObject: ModelEntity? {
+        didSet {
+            guard trackedObject != nil else { return }
+            selectedObject = trackedObject
+        }
+    }
     
     required init(frame frameRect: CGRect) {
         super.init(frame: frameRect)
@@ -49,19 +64,62 @@ class CustomARView: ARView {
     }
     
     func enablePanGesture() {
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
+        let panGesture = ThresholdPanGesture(target: self, action: #selector(handlePan(_:)))
         panGesture.delegate = self
         self.addGestureRecognizer(panGesture)
     }
     
-    @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: self)
-        let location = gesture.location(in: self)
-        
-        if let entity = self.entity(at: location) as? ModelEntity {
+    @objc func handlePan(_ gesture: ThresholdPanGesture) {
+        switch gesture.state {
+        case .began:
+            // Check for an object at the touch location.
+            let location = gesture.location(in: self)
+            
+            if let model = self.entity(at: location) as? ModelEntity {
+                trackedObject = model
+            }
+            
+        case .changed where gesture.isThresholdExceeded:
+            let translation = gesture.translation(in: self)
+            guard let entity = trackedObject else { return }
+            
+            // Move an object if the displacment threshold has been met.
             let currentPosition = self.project(entity.position)
             let updatedPosition = CGPoint(x: currentPosition!.x + translation.x, y: currentPosition!.y + translation.y)
             translate(entity, basedOn: updatedPosition)
+
+            gesture.setTranslation(.zero, in: self)
+            
+        case .changed:
+            // Ignore the pan gesture until the displacment threshold is exceeded.
+            break
+            
+        case .ended:
+            // Update the object's position when the user stops panning.
+            let translation = gesture.translation(in: self)
+            guard let entity = trackedObject else { break }
+            //setDown(object, basedOn: updatedTrackingPosition(for: object, from: gesture))
+            
+            let currentPosition = self.project(entity.position)
+            let updatedPosition = CGPoint(x: currentPosition!.x + translation.x, y: currentPosition!.y + translation.y)
+            //translate(entity, basedOn: updatedPosition)
+            
+            // Create new AnchorEntity and Model, Remove old one
+            entity.generateCollisionShapes(recursive: true)
+            
+            let anchorEntity = AnchorEntity(plane: .any)
+            
+            anchorEntity.addChild(entity)
+            
+            if let change = getTransformForTranslate(from: updatedPosition) {
+                anchorEntity.anchoring = AnchoringComponent(ARAnchor(transform: change))
+            }
+            
+            scene.addAnchor(anchorEntity)
+            
+            fallthrough
+        default:
+            print("hi")
         }
     }
     
@@ -78,6 +136,7 @@ class CustomARView: ARView {
         guard let query = self.makeRaycastQuery(from: cgpoint, allowing: .estimatedPlane, alignment: .any) else {
             return nil
         }
+        
         guard let raycastResult = self.session.raycast(query).first else { return nil }
 
         return raycastResult.worldTransform
