@@ -34,6 +34,8 @@ __Sprint 15:__ January 2nd - January 16th . 7 Days Left!
 5. Settings:CRUD
 6. NavLink: GenPlaylist->OtherProfile
 7. ModelDownload: Killing Threads and Erasing un-needed data.
+8. Dragging: Dragging Models
+9. Model: Loading Indicators. 
 
 ## How to run Gallify.app
 1. Download Big Sur and Xcode 
