@@ -42,7 +42,7 @@ struct SelfProfileFeatured: View {
                 .padding(.leading, screenWidth / 15)
                 .padding(.bottom, screenHeight / 160)
                     
-                if (!firestoreQuery.featuredArt.isEmpty) {
+                if (!firestoreQuery.featuredArt.isEmpty && featuredArtCount > 0) {
                     ForEach(0...featuredArtCount - 1, id: \.self) { i in
                         
                         let artwork = firestoreQuery.featuredArt[i]

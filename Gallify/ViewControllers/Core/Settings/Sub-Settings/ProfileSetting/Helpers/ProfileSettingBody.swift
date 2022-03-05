@@ -18,6 +18,7 @@ struct ProfileSettingBody: View {
     
     @EnvironmentObject var firestoreQuery: FirestoreQuery
     
+    @State var newUsername = ""
     /*@EnvironmentObject var viewModel : LoginAppViewModel
     @State var pickedImage: UIImage?
     @State private var showActionSheet = false
@@ -112,7 +113,7 @@ struct ProfileSettingBody: View {
                             .padding(.leading)
                         Spacer()
                     }
-                    TextField("johnny_buckets", value: $firestoreQuery.data.username, formatter: NumberFormatter())
+                    TextField("johnny_buckets", text: $newUsername)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
@@ -151,12 +152,11 @@ struct ProfileSettingBody: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                                 buttonPressed = false
                             }
-                            
-                            Task {
-                               await firestoreQuery.updateUsername(username: firestoreQuery.data.username)
-                               await firestoreQuery.updateName(first: firestoreQuery.data.firstName, last: firestoreQuery.data.lastName)
-                            }
-                            
+                                                        
+                        }
+                        Task {
+                           await firestoreQuery.updateUsername(username: newUsername)
+                           await firestoreQuery.updateName(first: firestoreQuery.data.firstName, last: firestoreQuery.data.lastName)
                         }
                             
                     }, label: {
