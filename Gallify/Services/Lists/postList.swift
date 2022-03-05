@@ -71,7 +71,7 @@ extension FirestoreQuery {
         Add art to art collection
         */
     func addArtToArtCollection(art: Art, playlistId: String, img: String) async {
-                                        
+           print("IMG URL IN ADD TO ART COLLECTION = ", img)
            do {
                
                let doc = try FirestoreQuery.db.collection("art").document()
@@ -91,22 +91,24 @@ extension FirestoreQuery {
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
         var imgUrl = ""
-        uploadRef.putData(image, metadata: metaData) {
+        await uploadRef.putData(image, metadata: metaData) {
             (StorageMetadata, error) in
             if error != nil {
                 print(error!.localizedDescription)
                 return
             }
-            uploadRef.downloadURL {
-                (url, error) in
-                imgUrl = url!.absoluteString
-                print("URL = ", imgUrl)
+            uploadRef.downloadURL { (url, error) in
+                if let error = error {
+                   // Handle any errors
+                    print("ERROR DOWNLOADING IMAGE URL")
+                 } else {
+                     Task {
+                         var new_art = Art()
+                         await self.addArtToArtCollection(art: new_art, playlistId: playlist.id, img: url!.absoluteString)//had to create a new instance of Firestore Query because environment object wasn't being accepted, not sure if this is right
+                     }
+                 }
             }
         }
-        var new_art = Art()
-        //new_art.thumbnail = imgUrl
-        print("IMG URL IN UPLOAD IMG = ", imgUrl)
-        
-        await addArtToArtCollection(art: new_art, playlistId: playlist.id, img: imgUrl)//had to create a new instance of Firestore Query because environment object wasn't being accepted, not sure if this is right
+       
     }
 }
