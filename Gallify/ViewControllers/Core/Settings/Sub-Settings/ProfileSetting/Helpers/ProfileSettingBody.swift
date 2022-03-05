@@ -19,6 +19,9 @@ struct ProfileSettingBody: View {
     @EnvironmentObject var firestoreQuery: FirestoreQuery
     
     @State var newUsername = ""
+    @State var newFirstName = ""
+    @State var newLastName = ""
+    
     /*@EnvironmentObject var viewModel : LoginAppViewModel
     @State var pickedImage: UIImage?
     @State private var showActionSheet = false
@@ -92,8 +95,9 @@ struct ProfileSettingBody: View {
                         .padding(.leading)
                     Spacer()
                 }
+                //Taking out the formatter parameter because I need text: instead of value: -- Shruti
                 VStack {
-                    TextField("John", value: $firestoreQuery.data.firstName, formatter: NumberFormatter())
+                    TextField("John", text: $newFirstName)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
@@ -103,7 +107,7 @@ struct ProfileSettingBody: View {
                             .padding(.leading)
                         Spacer()
                     }
-                    TextField("Brown", value: $firestoreQuery.data.lastName, formatter: NumberFormatter())
+                    TextField("Brown", text: $newLastName)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
@@ -156,7 +160,7 @@ struct ProfileSettingBody: View {
                         }
                         Task {
                            await firestoreQuery.updateUsername(username: newUsername)
-                           await firestoreQuery.updateName(first: firestoreQuery.data.firstName, last: firestoreQuery.data.lastName)
+                           await firestoreQuery.updateName(first: newFirstName, last: newLastName)
                         }
                             
                     }, label: {
