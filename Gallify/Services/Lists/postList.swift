@@ -8,6 +8,9 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
+import UIKit
+import SwiftUI
 
 extension FirestoreQuery {
     
@@ -23,6 +26,7 @@ extension FirestoreQuery {
                 "art": FieldValue.arrayUnion([art.art_id])
                 ])
             self.playlistArt.append(art)
+            self.art = art
         }
         catch{
             print("Error")
@@ -80,5 +84,25 @@ extension FirestoreQuery {
            }
        }
     
-    
+    @MainActor
+    func uploadArtImage(image: Data, playlist: Playlist) async {
+        let uploadRef = Storage.storage().reference(withPath: "Art/" + (Auth.auth().currentUser?.email)! + "/" + "images/")
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        var imgUrl = ""
+        uploadRef.putData(image, metadata: metaData) {
+            (StorageMetadata, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            uploadRef.downloadURL {
+                (url, error) in
+                imgUrl = url!.absoluteString
+            }
+        }
+        var new_art = Art()
+        new_art.thumbnail = imgUrl
+        await addArtToArtCollection(art: new_art, playlistId: playlist.id)//had to create a new instance of Firestore Query because environment object wasn't being accepted, not sure if this is right
+    }
 }

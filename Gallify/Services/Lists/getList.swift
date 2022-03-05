@@ -17,21 +17,26 @@ extension FirestoreQuery {
         if !(self.userLibrary.isEmpty) {
             for playlist in self.userLibrary {
                 if playlist.name == "Featured" {
-                    do {
-                        let doc2 = try await FirestoreQuery.db.collection("playlists")
-                            .document(playlist.id)
-                            .getDocument().data(as: Playlist.self)
-                        guard let thefeaturedPlaylist = doc2 else{
-                            throw DatabaseError.failed
-                        }
-                        DispatchQueue.main.async {
-                           
-                            self.featuredPlaylist = thefeaturedPlaylist
-                            print("IS FEATURED PLAYLIST's ART EMPTY in get featured playlist? --->", self.featuredPlaylist.art.isEmpty)
-                        }
-                    }catch {
-                        print("Error fetching Featured playlist")
+                    DispatchQueue.main.async {
+                       
+                        self.featuredPlaylist = playlist
+                        print("IS FEATURED PLAYLIST's ART EMPTY in get featured playlist? --->", self.featuredPlaylist.art.isEmpty)
                     }
+//                    do {
+//                        let doc2 = try await FirestoreQuery.db.collection("playlists")
+//                            .document(playlist.id)
+//                            .getDocument().data(as: Playlist.self)
+//                        guard let thefeaturedPlaylist = doc2 else{
+//                            throw DatabaseError.failed
+//                        }
+//                        DispatchQueue.main.async {
+//
+//                            self.featuredPlaylist = thefeaturedPlaylist
+//                            print("IS FEATURED PLAYLIST's ART EMPTY in get featured playlist? --->", self.featuredPlaylist.art.isEmpty)
+//                        }
+//                    }catch {
+//                        print("Error fetching Featured playlist")
+//                    }
 
                 }
             }
@@ -147,8 +152,7 @@ extension FirestoreQuery {
                 guard let theArt = doc else{
                     throw DatabaseError.failed
                 }
-                
-//                self.playlistArt = art_array
+
                // self.featuredArt.append(theArt)
                 //art_array.append(doc!)
                 art_array.append(theArt)

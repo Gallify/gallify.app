@@ -84,6 +84,8 @@ struct SelfProfileView : View {
         
         await firestoreQuery.getUserLibrary()
         
+        
+        
 //        //gets user data and featured playlist
 //        await firestoreQuery.fetchData() //gets data and featured playlist
 //

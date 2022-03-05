@@ -240,7 +240,7 @@ struct CollectionGenericRow: View {
             playlist = firestoreQuery.playlistArt
             //this gets all the data for the home page.
             //firestoreQuery.getHome()
-            
+            //firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
         }
     
     }
@@ -253,4 +253,5 @@ struct CollectionGenericRow: View {
 //        CollectionGenericRow(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
 //    }
 //}
+
 

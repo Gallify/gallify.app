@@ -14,6 +14,7 @@ struct CollectionGenericHeader: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var firestoreQuery: FirestoreQuery
 
+    @State var showLandingPage = false
     var body: some View {
         
         HStack {
@@ -43,9 +44,7 @@ struct CollectionGenericHeader: View {
                     Image(systemName: "ellipsis")
                         .foregroundColor(.black)
                     
-                })
-                    
-                    .actionSheet(isPresented: $firestoreQuery.showPlaylistOptions) {
+                }).actionSheet(isPresented: $firestoreQuery.showPlaylistOptions) {
                     ActionSheet(
                         title: Text("Select"),
                         buttons: [
@@ -65,17 +64,21 @@ struct CollectionGenericHeader: View {
                                 
                                 //firestoreQuery.addToPlaylist(artwork.art_id)
                             },
+                            .default(Text("Add Art To Playlist")) {
+                                showLandingPage = true
+                            },
                             .default(Text("Delete Playlist")) {
                                 async{ await firestoreQuery.deletePlaylistFromLibrary(playlist_id: firestoreQuery.playlist.id)}
                             },
                             .default(Text("Cancel")) {
                                 firestoreQuery.showPlaylistOptions = false
                                 //firestoreQuery.addToPlaylist(artwork.art_id)
-                            }
-                            
-
+                            },
                         ]
                     )
+                }
+                .sheet(isPresented: $showLandingPage) {
+                    CreateLandingOptions(screenWidth: screenWidth, screenHeight: screenHeight, playlist: firestoreQuery.playlist)
                 }
                 
             }

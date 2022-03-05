@@ -170,7 +170,7 @@ extension FirestoreQuery {
                // self.featuredArt.append(theArt)
                 //art_array.append(doc!)
                 playlist_array.append(thePlaylist)
-                
+                print("APPENDING to playlist_array in firestore query => ", thePlaylist.name)
                 //
             }
             catch{

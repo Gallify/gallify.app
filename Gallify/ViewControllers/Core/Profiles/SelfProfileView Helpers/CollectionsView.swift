@@ -29,14 +29,15 @@ struct CollectionsView: View {
         VStack {
         
             ForEach(firestoreQuery.userLibrary){ playlist in
+                
                     HStack {
-                            
+                         
 //                        WebImage(url: URL(string: playlist.cover_art_url))
 //                            .resizable()
 //                            .frame(width: screenWidth / 5, height: screenHeight / 10.8)
                             
                         VStack(alignment: .leading) {
-                                
+                            
                             Text(playlist.name)
                                 .font(.system(size: screenWidth / 17, weight: .semibold))
                                 .foregroundColor(.black)
@@ -59,6 +60,7 @@ struct CollectionsView: View {
             }
         .padding(.vertical, screenHeight / 80)
         .navigationBarHidden(true)
+        
             
             Spacer()
             

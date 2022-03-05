@@ -41,7 +41,7 @@ struct OtherProfileFeatured: View {
                 }
                 .padding(.leading, screenWidth / 15)
                 .padding(.bottom, screenHeight / 160)
-                    
+                if(!firestoreQuery.featuredArt.isEmpty){
                 ForEach(0...featuredArtCount - 1, id: \.self) { i in
                     
                     let artwork = firestoreQuery.featuredArt[i]
@@ -155,7 +155,7 @@ struct OtherProfileFeatured: View {
                     //   self.makeView()
                 }
                 .padding(-1)
-
+            }
                 //Spacer()
                 
             }

@@ -105,7 +105,7 @@ struct UploadArt : View {
             
             Button(action: {
               
-                async{ await StorageService.uploadArtImage(image: self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), playlist: self.playlist)}
+                async{ await firestoreQuery.uploadArtImage(image: self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), playlist: self.playlist)}
                 
                 }, label: {
                     Text("Upload")

@@ -62,12 +62,12 @@ struct SelfProfileCollectionList: View {
             
             ForEach(firestoreQuery.userLibrary){ playlist in
                 
-                
                     
                 NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight, playlist: playlist),
                                label: {
                     
                     HStack {
+                        
                             
                         WebImage(url: URL(string: playlist.cover_art_url))
                             .resizable()

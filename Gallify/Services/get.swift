@@ -183,18 +183,18 @@ extension FirestoreQuery {
 
             //
 
-            let doc2 = try await FirestoreQuery.db.collection("playlists")
-                .document(data.featured)
-                .getDocument().data(as: Playlist.self)
-
-
-            guard let thefeaturedPlaylist = doc2 else{
-                throw DatabaseError.failed
-            }
-
-            self.featuredPlaylist = thefeaturedPlaylist
-
-            //
+//            let doc2 = try await FirestoreQuery.db.collection("playlists")
+//                .document(data.featured)
+//                .getDocument().data(as: Playlist.self)
+//
+//
+//            guard let thefeaturedPlaylist = doc2 else{
+//                throw DatabaseError.failed
+//            }
+//
+//            self.featuredPlaylist = thefeaturedPlaylist
+//
+//            //
 
         }
         catch{
