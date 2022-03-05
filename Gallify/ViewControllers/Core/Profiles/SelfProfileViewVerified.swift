@@ -22,7 +22,7 @@ struct SelfProfileViewVerified: View {
                     
                 SelfProfileViewVerifiedDetails()
                 
-                SelfProfileFeatured()
+                //SelfProfileFeatured()
                     
                 SelfProfileCollectionList()
                                     

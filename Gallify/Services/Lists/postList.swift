@@ -70,12 +70,14 @@ extension FirestoreQuery {
     /*
         Add art to art collection
         */
-    func addArtToArtCollection(art: Art, playlistId: String) async {
+    func addArtToArtCollection(art: Art, playlistId: String, img: String) async {
                                         
            do {
                
                let doc = try FirestoreQuery.db.collection("art").document()
                art.art_id = doc.documentID
+               art.thumbnail = img
+               print("NEW ART THUMBNAIL = ", art.thumbnail)
                try doc.setData(from: art)
                await addArtToPlaylist(art: art, playlist_id: playlistId)
            }
@@ -84,9 +86,8 @@ extension FirestoreQuery {
            }
        }
     
-    @MainActor
     func uploadArtImage(image: Data, playlist: Playlist) async {
-        let uploadRef = Storage.storage().reference(withPath: "Art/" + (Auth.auth().currentUser?.email)! + "/" + "images/")
+        let uploadRef = Storage.storage().reference(withPath: "Art/" + (Auth.auth().currentUser?.email)! + "/" + "images/" + UUID().uuidString)
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
         var imgUrl = ""
@@ -99,10 +100,13 @@ extension FirestoreQuery {
             uploadRef.downloadURL {
                 (url, error) in
                 imgUrl = url!.absoluteString
+                print("URL = ", imgUrl)
             }
         }
         var new_art = Art()
-        new_art.thumbnail = imgUrl
-        await addArtToArtCollection(art: new_art, playlistId: playlist.id)//had to create a new instance of Firestore Query because environment object wasn't being accepted, not sure if this is right
+        //new_art.thumbnail = imgUrl
+        print("IMG URL IN UPLOAD IMG = ", imgUrl)
+        
+        await addArtToArtCollection(art: new_art, playlistId: playlist.id, img: imgUrl)//had to create a new instance of Firestore Query because environment object wasn't being accepted, not sure if this is right
     }
 }

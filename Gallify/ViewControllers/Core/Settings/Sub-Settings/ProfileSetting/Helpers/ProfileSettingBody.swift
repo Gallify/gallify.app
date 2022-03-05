@@ -151,6 +151,12 @@ struct ProfileSettingBody: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                                 buttonPressed = false
                             }
+                            
+                            Task {
+                               await firestoreQuery.updateUsername(username: firestoreQuery.data.username)
+                               await firestoreQuery.updateName(first: firestoreQuery.data.firstName, last: firestoreQuery.data.lastName)
+                            }
+                            
                         }
                             
                     }, label: {
