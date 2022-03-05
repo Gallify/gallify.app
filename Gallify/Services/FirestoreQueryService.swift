@@ -85,7 +85,7 @@ class FirestoreQuery : ObservableObject {
     
     //AR Player
     
-    @Published var models: [Model] = []
+    //@Published var models: [Model] = []
     
  
     

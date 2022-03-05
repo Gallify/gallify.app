@@ -14,6 +14,8 @@ struct CreatePlaylistSettings: View {
     @State var playlistType = "Playlist"
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
+    let playlistName: String
     
     var body: some View {
         
@@ -359,6 +361,22 @@ struct CreatePlaylistSettings: View {
             
             Spacer()
             
+            Button(action: {
+                var privacyNum = -1
+                if(playlistPrivacy == "Private") {
+                    privacyNum = 0
+                } else if(playlistPrivacy == "Public") {
+                    privacyNum = 1
+                } else if(playlistPrivacy == "Followers Only") {
+                    privacyNum = 2
+                } else {
+                    privacyNum = 3
+                }
+                firestoreQuery.create_playlist(name: playlistName, privacy : privacyNum, type: playlistType)
+            }, label: {
+                Text("Create Playlist")
+            })
+            
         }
         .navigationBarHidden(true)
         .padding(.top, screenHeight / 80)
@@ -367,9 +385,9 @@ struct CreatePlaylistSettings: View {
     
 }
 
-struct CreatePlaylistSettings_Previews: PreviewProvider {
-    static var previews: some View {
-        CreatePlaylistSettings()
-            .environmentObject(TabBarViewModel())
-    }
-}
+//struct CreatePlaylistSettings_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CreatePlaylistSettings(playlistName: Binding<String>(projectedValue: Binding<"">))
+//            .environmentObject(TabBarViewModel())
+//    }
+//}

@@ -24,7 +24,7 @@ struct CollectionReelView: View {
                     CollectionReelHeader(screenWidth: screenWidth, screenHeight: screenHeight)
                         .padding()
                     
-                        CollectionReelListing(screenWidth: screenWidth, screenHeight: screenHeight)
+                        //CollectionReelListing(screenWidth: screenWidth, screenHeight: screenHeight)
                     
                     Spacer()
                 }

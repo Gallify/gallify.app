@@ -65,6 +65,9 @@ struct CollectionGenericHeader: View {
                                 
                                 //firestoreQuery.addToPlaylist(artwork.art_id)
                             },
+                            .default(Text("Delete Playlist")) {
+                                async{ await firestoreQuery.deletePlaylistFromLibrary(playlist_id: firestoreQuery.playlist.id)}
+                            },
                             .default(Text("Cancel")) {
                                 firestoreQuery.showPlaylistOptions = false
                                 //firestoreQuery.addToPlaylist(artwork.art_id)

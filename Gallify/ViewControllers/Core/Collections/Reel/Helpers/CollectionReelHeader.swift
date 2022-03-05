@@ -14,10 +14,10 @@ struct CollectionReelHeader: View {
     
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @Environment(\.presentationMode) var presentationMode
-    
-    @StateObject var modelsViewModel = ModelsViewModel()
-    
-    @StateObject var placementSettings = PlacementSettings()
+//
+//    @StateObject var modelsViewModel = ModelsViewModel()
+//
+//    @StateObject var placementSettings = PlacementSettings()
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat
@@ -85,23 +85,23 @@ struct CollectionReelHeader: View {
            
             Spacer() 
             
-            if (ARConfiguration.isSupported) {
-                 NavigationLink(destination: FullARView()
-                                 .environmentObject(modelsViewModel)
-                                 .environmentObject(placementSettings)
-                                 .environmentObject(firestoreQuery)
-                               // .onAppear{ async{ await firestoreQuery.fetchModelData()}} //called in reels.
-                     
-                 ,
-                    label: {
-                     Image(systemName: "arkit")
-                         .font(.system(size: 30))
-                         .padding(.leading)
-                         .foregroundColor(.primary)
-                 })
-             }
-            
-            
+//            if (ARConfiguration.isSupported) {
+//                 NavigationLink(destination: FullARView()
+//                                 .environmentObject(modelsViewModel)
+//                                 .environmentObject(placementSettings)
+//                                 .environmentObject(firestoreQuery)
+//                               // .onAppear{ async{ await firestoreQuery.fetchModelData()}} //called in reels.
+//                     
+//                 ,
+//                    label: {
+//                     Image(systemName: "arkit")
+//                         .font(.system(size: 30))
+//                         .padding(.leading)
+//                         .foregroundColor(.primary)
+//                 })
+//             }
+//            
+//            
             
 
         }

@@ -11,7 +11,7 @@ struct CreateLandingOptions: View {
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat
-
+    let playlist: Playlist
     
     @State private var uploadModelShowingSheet = false
     @State private var uploadVideoShowingSheet = false
@@ -68,6 +68,7 @@ struct CreateLandingOptions: View {
                               .default(Text("Model")) {
                                 self .uploadModelShowingSheet = false
                                 self .uploadModelShowingHelp = true
+                                  self.uploadImageShowingHelp = true
                         },
                               .default(Text("Video")) {
                                 self .uploadVideoShowingSheet = false
@@ -80,7 +81,9 @@ struct CreateLandingOptions: View {
                     ]
                 )
             }.padding()
-            
+                .sheet(isPresented: $uploadImageShowingHelp) {
+                    UploadArt(playlist: playlist)
+                }
             
             
             VStack {
@@ -130,9 +133,9 @@ struct CreateLandingOptions: View {
         }
     }
 }
-
-struct CreateLandingOptions_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateLandingOptions(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
-    }
-}
+//
+//struct CreateLandingOptions_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CreateLandingOptions(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
+//    }
+//}

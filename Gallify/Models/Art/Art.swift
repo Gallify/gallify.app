@@ -20,7 +20,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
 
         case name
         case creator
-        case content_url 
+        case content_url
         case thumbnail
         case collection_coverart_url
         //case artwork_url //g o n e
@@ -92,14 +92,13 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         collection_coverart_url = ""
         popularity = 0
         share_url = ""
-        content_type = 0 // 0, 1, 2. 0 = image. 1 = 3d model. 2= unapproved. 
+        content_type = 0
         price = 0
         likes = 0
         genre = ""
         location = ""
         creator_url = ""
-        searchType = ""  //contains the filepath name of the model stored in firebase storage.
-        
+        searchType = ""
         //owner, collection, last sold, created date, tokenid. description, playlist, last sold, released, released price,token_id
         
         owner = ""
@@ -117,6 +116,71 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         
 
     }
+    
+    init(id: String) {
+        art_id = id
+        name = ""
+        creator = ""
+        content_url = ""
+        thumbnail = ""
+        collection_coverart_url = ""
+        popularity = 0
+        share_url = ""
+        content_type = 0
+        price = 0
+        likes = 0
+        genre = ""
+        location = ""
+        creator_url = ""
+        searchType = ""
+        //owner, collection, last sold, created date, tokenid. description, playlist, last sold, released, released price,token_id
+        
+        owner = ""
+        content_url_ipfs = ""
+        price_url_ipfs = ""
+        owner_url_ipfs = ""
+        thumbnail_url_ipfs = ""
+        collection = ""
+        lastSoldPrice = 0
+        lastSold_timestamp = 0
+        created_timestamp = 0 //t
+        createdPrice = 0
+        token_id = ""
+        description = ""
+    }
+    
+    init(imgUrl: String) {
+        art_id = ""
+        name = ""
+        creator = ""
+        content_url = ""
+        thumbnail = imgUrl
+        collection_coverart_url = ""
+        popularity = 0
+        share_url = ""
+        content_type = 0
+        price = 0
+        likes = 0
+        genre = ""
+        location = ""
+        creator_url = ""
+        searchType = ""
+        //owner, collection, last sold, created date, tokenid. description, playlist, last sold, released, released price,token_id
+        
+        owner = ""
+        content_url_ipfs = ""
+        price_url_ipfs = ""
+        owner_url_ipfs = ""
+        thumbnail_url_ipfs = ""
+        collection = ""
+        lastSoldPrice = 0
+        lastSold_timestamp = 0
+        created_timestamp = 0 //t
+        createdPrice = 0
+        token_id = ""
+        description = ""
+    }
+    
 
     required init(from decoder: Decoder) throws {
 

@@ -11,6 +11,7 @@ struct CreateLandingView: View {
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
@@ -22,8 +23,7 @@ struct CreateLandingView: View {
             ScrollView{
                 Spacer()
             
-                
-                CreateLandingOptions(screenWidth: screenWidth, screenHeight: screenHeight)
+                CreateLandingOptions(screenWidth: screenWidth, screenHeight: screenHeight, playlist: firestoreQuery.playlist)
             
                 Spacer()
             }
@@ -40,3 +40,4 @@ struct CreateLandingView_Previews: PreviewProvider {
         CreateLandingView(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }
+
