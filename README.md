@@ -23,19 +23,19 @@ __Sprint 15:__ January 2nd - January 16th . 7 Days Left!
 ## features
 1. Homescreen v1
 2. Profile v1
-3. Login Functionality v1 
+3. Login Functionality Prod
 4. Algolia v1
+5. Playlist CRUD
+4. Reels
+5. Settings CRUD
 
 ## todo
-1. Login Clean Up. Verify Email. Error Popups. Create Account Update
-2. Email->UID
-3. Playlist CRUD
-4. Reels: Clean Up
-5. Settings:CRUD
-6. NavLink: GenPlaylist->OtherProfile
-7. ModelDownload: Killing Threads and Erasing un-needed data.
-8. Dragging: Dragging Models
-9. Model: Loading Indicators. 
+
+1. Navlink: GenPlaylist->OtherProfile
+2. ModelDownload: Killing Threads and Erasing un-needed data.
+3. Dragging: Dragging Models
+4. Model: Loading Indicators. 
+5. Email->UID
 
 ## How to run Gallify.app
 1. Download Big Sur and Xcode 
