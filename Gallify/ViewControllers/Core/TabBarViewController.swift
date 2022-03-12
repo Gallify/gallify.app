@@ -143,6 +143,11 @@ struct TabBarView: View {
     func NetworkingCall() async {
             
         UITabBar.appearance().isHidden = firestoreQuery.showNewScreen
+        
+//        let auth = Auth.auth()
+//                try? auth.signOut()
+//                viewModel2.signedIn = false
+//                viewModel2.newUserCreated = false
             
         print("DSFSDFSf")
         await firestoreQuery.fetchData()

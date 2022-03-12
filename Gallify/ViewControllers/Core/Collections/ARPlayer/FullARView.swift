@@ -112,10 +112,8 @@ struct ARViewContainer: UIViewRepresentable {
         
         // Add model to scene if confirmed for placement
         if let confirmedModel = self.placementSettings.confirmedModel, let modelEntity = confirmedModel.modelEntity {
-            if confirmedModel.modelAnchor == nil {
-                confirmedModel.modelAnchor = ARAnchor(transform: getTransformForPlacement(in: arView)!)
-                
-            }
+            
+            confirmedModel.modelAnchor = ARAnchor(transform: getTransformForPlacement(in: arView)!)
             self.place(modelEntity, anchor: confirmedModel.modelAnchor!, in: arView)
             arView.session.add(anchor: confirmedModel.modelAnchor!)
             self.placementSettings.confirmedModel = nil

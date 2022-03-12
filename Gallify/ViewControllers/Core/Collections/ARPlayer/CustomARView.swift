@@ -82,11 +82,12 @@ class CustomARView: ARView {
         case .changed where gesture.isThresholdExceeded:
             let translation = gesture.translation(in: self)
             guard let entity = trackedObject else { return }
-            
+
             // Move an object if the displacment threshold has been met.
             let currentPosition = self.project(entity.position)
             let updatedPosition = CGPoint(x: currentPosition!.x + translation.x, y: currentPosition!.y + translation.y)
             translate(entity, basedOn: updatedPosition)
+            
 
             gesture.setTranslation(.zero, in: self)
             

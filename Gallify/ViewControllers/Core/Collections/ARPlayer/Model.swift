@@ -10,8 +10,6 @@ import ARKit
 import RealityKit
 import Combine
 
-
-
 class Model: Encodable, Decodable {
     
     enum CodingKeys: CodingKey {
