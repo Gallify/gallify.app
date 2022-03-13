@@ -18,6 +18,18 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesScheme</key>
+	<array>
+		<string>metamask</string>
+		<string>https</string>
+		<string>googlechrome
+	&lt;string&gt;UIInterfaceOrientationPortrait&lt;/string&gt;
+	&lt;string&gt;UIInterfaceOrientationLandscapeLeft&lt;/string&gt;
+	&lt;string&gt;UIInterfaceOrientationLandscapeRight&lt;/string&gt;
+&lt;/array&gt;
+&lt;/plist&gt;
+</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<false/>
 	<key>NSCameraUsageDescription</key>

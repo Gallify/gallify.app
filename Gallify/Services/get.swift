@@ -157,6 +157,27 @@ extension FirestoreQuery {
     }
     
     
+    func getUser_New() async {
+        let userEmail = Auth.auth().currentUser?.email
+        
+        do {
+            
+            let doc = try await FirestoreQuery.db.collection("users").document(FirestoreQuery.userEmail ?? "help")
+                .getDocument().data(as: User.self)
+            
+            guard let theMuseumlist = doc else{
+                throw DatabaseError.failed
+            }
+            
+            self.data = theMuseumlist
+            
+        }
+        catch{
+            print("Error")
+        }
+    }
+    
+    
     //pwe
     func fetchData() async {
         let userEmail = Auth.auth().currentUser?.email
@@ -165,7 +186,7 @@ extension FirestoreQuery {
 
         do {
             let doc = try await FirestoreQuery.db.collection("users")
-                .document(userEmail ?? "info@gallify.app")
+                .document("tejvirmann11@gmail.com" ?? "info@gallify.app")
                 .getDocument().data(as: User.self)
 
             print("DOC")
@@ -176,7 +197,7 @@ extension FirestoreQuery {
             }
 
             self.data = theUser
-            
+
             
             print("DATA")
             print(self.data.email)

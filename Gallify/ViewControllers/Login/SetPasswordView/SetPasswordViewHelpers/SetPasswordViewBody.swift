@@ -87,7 +87,12 @@ struct SetPasswordViewBody: View {
                 
                 if !(password.isEmpty || rePassword.isEmpty) {
                     if (password.count >= 6 && password == rePassword) {
-                        goForward = true
+                        Task{
+                            await viewModel.createAccount(password: password, user: user)
+                           // viewModel.sendVerificationEmail()
+                            goForward = true
+                        }
+                        
                     }
                 }
                 
@@ -114,7 +119,7 @@ struct SetPasswordViewBody: View {
             })
             .padding(.vertical, screenHeight / 54)
             
-            NavigationLink(destination: VerifyEmailView(password: password),
+            NavigationLink(destination: PrivacyPolicyView(password: password),
                         tag: true, selection: $goForward) { EmptyView() }
                 .navigationBarHidden(true)
             

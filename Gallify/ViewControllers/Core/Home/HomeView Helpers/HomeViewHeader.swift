@@ -24,6 +24,7 @@ struct HomeViewHeader: View {
             Spacer()
             
             Button(action: {
+
                 if let url = URL(string: "https://open.gallify.app/create-item") {
                    UIApplication.shared.open(url)
                 }
@@ -44,6 +45,11 @@ struct HomeViewHeader: View {
                 }
                 .padding(.trailing, screenWidth / 37.5)
             }
+            
+     
+            
+            
+            
             
             
 //            NavigationLink (

@@ -87,6 +87,7 @@ struct CreatePlaylistSettings: View {
                 }
                 .padding(.horizontal, screenWidth / 12)
                 
+                
                 HStack {
                     
                     Text("Private")
@@ -129,6 +130,7 @@ struct CreatePlaylistSettings: View {
                 }
                 .padding(.horizontal, screenWidth / 12)
                 
+                /*
                 HStack {
                     
                     Text("Followers Only")
@@ -170,6 +172,7 @@ struct CreatePlaylistSettings: View {
                     
                 }
                 .padding(.horizontal, screenWidth / 12)
+                 
                 
                 HStack {
                     
@@ -212,9 +215,10 @@ struct CreatePlaylistSettings: View {
                     
                 }
                 .padding(.horizontal, screenWidth / 12)
-                
+                 */
             }
             .padding(.bottom, screenHeight / 160)
+            
             
             HStack {
                 
@@ -313,6 +317,7 @@ struct CreatePlaylistSettings: View {
                 }
                 .padding(.horizontal, screenWidth / 12)
                 
+                /*
                 HStack {
                     
                     Text("Auction Collection")
@@ -354,7 +359,7 @@ struct CreatePlaylistSettings: View {
                     
                 }
                 .padding(.horizontal, screenWidth / 12)
-                
+               */
             }
             
             Spacer()

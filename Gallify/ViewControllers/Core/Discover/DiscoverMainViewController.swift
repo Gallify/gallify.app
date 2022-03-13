@@ -78,8 +78,8 @@ struct DiscoverMainView: View {
                         
                         if firestoreQuery.searchText == "" {
                             
-                            DiscoverViewRecentSearch()
-                            
+                            //DiscoverViewRecentSearch()
+                            Spacer()
                         }
                         
                         else {

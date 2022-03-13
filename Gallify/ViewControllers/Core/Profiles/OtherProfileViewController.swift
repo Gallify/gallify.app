@@ -44,7 +44,7 @@ struct OtherProfileView : View {
     
     func NetworkingCall() async{
         
-        await firestoreQuery.fetchData()
+        await firestoreQuery.fetchData() //fetchotheruser data
         
         firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
 
@@ -52,7 +52,7 @@ struct OtherProfileView : View {
        // await firestoreQuery.loaditems_selfprofile()
         
         print("in networkong call, playlist art")
-        print(firestoreQuery.featuredPlaylist.art)
+        print(firestoreQuery.featuredPlaylist.art) //fetch other featured playlist.
         
         await firestoreQuery.fetchArt()
        

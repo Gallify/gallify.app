@@ -39,7 +39,6 @@ class FirestoreQuery : ObservableObject {
     @Published var scrollTo = -1 //once art is clicked, this variable determines where to scroll to in the 'reels' view.
 
     
-    
     //action menus. 
     @Published var showPlaylistOptions = false
     @Published var showArtOptions = false
@@ -49,7 +48,7 @@ class FirestoreQuery : ObservableObject {
     @Published var isPresented = false //for drop down reels. To know when to present. Not firestore related at all.
     
     //tabbar
-    @Published var data : User = User()
+    @Published var data : User = User() //for the current user.
     
     //self profile
     @Published var userLibrary: [Playlist] = [Playlist]()
@@ -84,7 +83,6 @@ class FirestoreQuery : ObservableObject {
     var discoverQuery: Query!
     
     //AR Player
-    
     @Published var models: [Model] = []
     
  

@@ -23,6 +23,8 @@ struct DiscoverPostsViewTags: View {
                     if(firestoreQuery.lastDocument != nil){
                         async{ await firestoreQuery.getDiscoverContent() }
                     }
+                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                    impactMed.impactOccurred()
                 }) {
                     ZStack {
                         

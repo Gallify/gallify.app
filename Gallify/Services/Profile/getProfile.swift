@@ -82,8 +82,9 @@ extension FirestoreQuery {
 
         do {
             let doc = try await FirestoreQuery.db.collection("users")
-                .document(userEmail ?? "info@gallify.app")
-                .getDocument().data(as: User.self)
+                .document("tejvirmann11@gmail.com")
+                .getDocument()
+                .data(as: User.self)
 
             print("DOC")
             print(doc)
@@ -93,7 +94,7 @@ extension FirestoreQuery {
             }
 
             self.data = theUser
-            
+
             print("DATA")
             print(self.data.email)
 

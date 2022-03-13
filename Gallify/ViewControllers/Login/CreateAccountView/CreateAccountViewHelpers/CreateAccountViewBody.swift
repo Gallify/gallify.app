@@ -84,6 +84,7 @@ struct CreateAccountViewBody: View {
                             
                 }
                     
+                /*
                 else if user.phoneNumber.isEmpty {
                         
                     ErrorText(errorText: "Phone number cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
@@ -107,18 +108,20 @@ struct CreateAccountViewBody: View {
                     ErrorText(errorText: "Last Name cannot contain numbers.", screenHeight: screenHeight, screenWidth: screenWidth)
                         
                 }
+                
+                 else if !hasAllDigits(user.phoneNumber) {
+                         
+                     ErrorText(errorText: "Enter a valid phone number.", screenHeight: screenHeight, screenWidth: screenWidth)
+                         
+                 }
+                */
                                 
                 else if !isValidEmail(email: user.email) {
                      
                     ErrorText(errorText: "Enter a valid email address.", screenHeight: screenHeight, screenWidth: screenWidth)
                      
                 }
-                    
-                else if !hasAllDigits(user.phoneNumber) {
-                        
-                    ErrorText(errorText: "Enter a valid phone number.", screenHeight: screenHeight, screenWidth: screenWidth)
-                        
-                }
+
 
             }
                 
@@ -162,30 +165,30 @@ struct CreateAccountViewBody: View {
             }
             .padding(.leading, screenWidth / 12)
                 
-            TextField("you@gmail.com", text: $user.email)
+            TextField("your@email.com", text: $user.email)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
                 .padding(.horizontal, screenWidth / 15)
                 
-            HStack {
-                    
+/*            HStack {
+
                 Text("Phone Number")
                     .font(.system(size: screenWidth / 22, weight: .semibold))
-                    
+
                 Spacer()
-                    
+
             }
             .padding(.leading, screenWidth / 12)
-     
+
             TextField("", text: $user.phoneNumber)
                 .disableAutocorrection(true)
                 .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
-                .padding(.horizontal, screenWidth / 15)
+                .padding(.horizontal, screenWidth / 15) */ 
                 
             VStack {
                     
-                HStack {
+  /*              HStack {
                         
                     Text("Location")
                         .font(.system(size: screenWidth / 22, weight: .semibold))
@@ -200,11 +203,15 @@ struct CreateAccountViewBody: View {
                     .disableAutocorrection(true)
                     .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
                     .padding(.horizontal, screenWidth / 15)
-                    
+*/
+                
+                
+                
+                
                 Button(action: {
                         
-                    if !(user.firstName.isEmpty || user.lastName.isEmpty || user.email.isEmpty || user.phoneNumber.isEmpty || user.location.isEmpty) {
-                        if !(hasDigit(user.firstName) || hasDigit(user.lastName) || !isValidEmail(email: user.email) || !hasAllDigits(user.phoneNumber)) {
+                    if !(user.firstName.isEmpty || user.lastName.isEmpty || user.email.isEmpty) { // || user.phoneNumber.isEmpty || user.location.isEmpty
+                        if !(hasDigit(user.firstName) || hasDigit(user.lastName) || !isValidEmail(email: user.email)) { //|| !hasAllDigits(user.phoneNumber)
                             goForward = true
                         }
                     }

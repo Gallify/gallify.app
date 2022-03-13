@@ -23,7 +23,6 @@ struct FullARView: View {
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @EnvironmentObject var placementSettings: PlacementSettings
     
-    @State private var showSlider: Bool = false
     @State private var overlayVisible: Bool = false //used to be true, wasnt loading so skipped it
 
     var body: some View {
@@ -33,19 +32,7 @@ struct FullARView: View {
             
             if !overlayVisible {
                 if placementSettings.selectedModel == nil {
-                    if showSlider {
-                        Slider()
-                    } else {
-                        Button(action: {
-                            print("Toggle slider button pressed!!!")
-                            showSlider.toggle()
-                        }) {
-                            Image(systemName: "face.smiling")
-                                .font(.system(size: 45))
-                                .foregroundColor(.white)
-                                .buttonStyle(PlainButtonStyle())
-                        }
-                    }
+                    Slider()
                 } else {
                     AddModelBar()
                 }
@@ -58,6 +45,7 @@ struct FullARView: View {
         
     }
 }
+        
 
 
 struct ARViewContainer: UIViewRepresentable {

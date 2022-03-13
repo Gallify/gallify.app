@@ -14,20 +14,55 @@ class LoginAppViewModel: ObservableObject {
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     
-    
     @Published var signedIn = false
+    @State var userAuthenticated = false
+    @Published var userVerified = false
+    @Published var userDocumentNotCreated = false
+    @Published var documentCreated = false
     @Published var newUserCreated = false
+    
+    @State var newUserAuthenticated = false
+    @State var newUserVerified = false
+    @State var newUserDocumentCreated = false
+    
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
     
     
-    var isSignedIn: Bool {
-        if(auth.currentUser != nil){
-            return true
+    
+    func isSignedIn() -> Bool{
+      
+        Task{
+            do{
+                if(self.signedIn || self.newUserCreated){
+                    
+                }
+                else{
+                    if(auth.currentUser?.isEmailVerified != nil){
+                        if(!self.userDocumentNotCreated){
+                            let created = try await documentCreated()
+                            if(created){
+                                DispatchQueue.main.async {
+                                    self.signedIn = true
+                                }
+                            }
+                            else{
+                                self.userDocumentNotCreated = false
+                                DispatchQueue.main.async {
+                                    self.userDocumentNotCreated = true
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                }
+            }catch{
+                print("Error: isSignedIn issue")
+            }
         }
-        else{
-            return false
-        }
+        
+        return self.signedIn
     }
         
     
@@ -36,137 +71,251 @@ class LoginAppViewModel: ObservableObject {
             guard result != nil, error == nil else {
                 return
             }
+            
             DispatchQueue.main.async {
-                self?.signedIn = true
+                self?.userAuthenticated = true
+               // self?.newUserAuthenticated = true
             }
         }
     }
     
-    func sendVerificationMail() {
-        let actionCodeSettings = ActionCodeSettings()
-        actionCodeSettings.url = URL(string: "https://www.example.com")
-        // The sign-in operation has to always be completed in the app.
-        actionCodeSettings.handleCodeInApp = true
-        actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
-        actionCodeSettings.setAndroidPackageName("com.example.android",
-                                                 installIfNotAvailable: false, minimumVersion: "12")
+    
+    /*
+     This method sends a verification email to the current user. 
+     */
+    func sendVerificationEmail() {
+        //doesn't work because of bad email
+        print(self.auth.currentUser?.email)
+        self.auth.currentUser?.sendEmailVerification { (error) in
+        }
         
-//        if self.auth.currentUser != nil && !self.auth.currentUser!.isEmailVerified {
-//            self.auth.currentUser!.sendEmailVerification(completion: { (error) in
-//                // Notify the user that the mail has sent or couldn't because of an error.
+    }
+    
+    func createAccount(password: String, user: User) {
+        //var userEmailAdded = false
+        auth.createUser(withEmail: user.email, password: password) { authResult, error in
+            guard authResult != nil, error == nil else {
+                return
+            }
+            print(self.auth.currentUser?.email)
+            self.auth.currentUser?.sendEmailVerification { error in
+                self.newUserAuthenticated = true // dispatche
+            }
+        }
+        
+    }
+    
+    func createUserDocument(password: String, user: User) async {
+        let db = Firestore.firestore()
+        let userBatch = db.batch()
+        
+        
+        do{
+            
+            // Set user data.
+            user.email = self.auth.currentUser!.email!
+            let userRef = db.collection("users").document(user.email)
+            try await userBatch.setData(from: user, forDocument: userRef)
+            
+            // Commit the userBatch
+            await userBatch.commit() { err in
+                if let err = err {
+                    print("Error writing batch \(err)")
+                } else {
+                    print("Batch write succeeded. New document created")
+                }
+            }
+        }
+        catch{
+            print("Error creating account")
+        }
+        
+    }
+    
+    func createUserData(password: String, user: User) async{
+    
+        var userSubCollectionsCreated = false
+        var userPlaylistsCreated = false
+        var batchAdded = false
+        
+        let db = Firestore.firestore()
+        let batch = db.batch()
+        let userRef = db.collection("users").document(user.email)
+        
+        do{
+            
+            
+            /*
+             Add SubCollections and Playlists
+             
+             Now create subcollections, and sud-documents for user.
+             Home, Discover, Profile : Subcollections
+             connections, followers, following, pending connections, recent search, home: Documents
+            */
+            
+                
+                let userMuseumRef = db.collection("users").document(user.email).collection("home").document("home")
+                try await batch.setData(from: MuseumList(), forDocument: userMuseumRef)
+                
+                let discoverRef = db.collection("users").document(user.email).collection("discover").document("recentsearch")
+                try await batch.setData(from: RecentSearch(), forDocument: discoverRef)
+                
+                let followersRef = db.collection("users").document(user.email).collection("profile").document("followers")
+                try await batch.setData(from: Followers(), forDocument: followersRef)
+                
+                let followingRef = db.collection("users").document(user.email).collection("profile").document("followers")
+                try await batch.setData(from: Following(), forDocument: followingRef)
+                
+                let connectionsRef = db.collection("users").document(user.email).collection("profile").document("connections")
+                try await batch.setData(from: Connections(), forDocument: connectionsRef)
+                
+
+                batch.updateData(["museums": ["p0lkJFdi7cstCJrAcYMr","oEcIslgNBCQ8RO3PibQT", "1EkOA6d8DXrcHQSGuiNG"]], forDocument: userMuseumRef)
+                
+                userSubCollectionsCreated = true
+        
+                
+                
+//                //adds the default playlists for the new user
+//            if(userSubCollectionsCreated){
 //
-//                guard error == nil else {
-//                    return
-//                }
-//
-//            })
-//        }
-//        else {
-//            // Either the user is not available, or the user is already verified.
-//            Text("An error occured")
-//        }
+                let libraryPlaylistNames = ["Liked", "Featured", "Owned", "Created", "Reviewed"]
+                
+                
+                let userDocRef = try await db.collection("users").document(user.email)
+                
+                for i in 0...4 {
+                    
+                    
+                    let playlist = Playlist()
+                    playlist.name = libraryPlaylistNames[i]
+                    
+                    //add to playlist
+                    let playlistRef = db.collection("playlists").document()
+                    try await batch.setData(from: playlist, forDocument: playlistRef)
+                    
+                    //add to user library
+                    try await batch.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])], forDocument: userRef)
+                    
+                    if(playlist.name == "Featured"){  //this line below should work since the the field should exist.
+                        try await batch.updateData(["featured": playlistRef.documentID], forDocument: userRef)
+                    }
+                }
+//                userPlaylistsCreated = true
+//            }
+            
+            // Commit the batch
+            try await batch.commit() { err in
+                if let err = err {
+                    print("Error writing batch \(err)")
+                } else {
+                    //at this point everything should be set up, and ready to go!
+                    print("Batch write succeeded. Document Data Added.")
+                    //batchAdded = true
+                    self.newUserCreated = true
+                    DispatchQueue.main.async {
+                        self.newUserCreated = true
+                    }
+                }
+            }
+        }
+        catch{
+            print("Error creating account")
+        }
+        
     }
     
     
-//    func createAccount(password: String, user: User) {
-//        auth.createUser(withEmail: user.email, password: password) {[weak self] result, error in
-//            guard result != nil, error == nil else {
-//                return
-//            }
-//
-//            var db = Firestore.firestore()
-//                do {
-//                    user.uid = self!.auth.currentUser!.uid
-//                    try db.collection("users").document(self!.auth.currentUser!.uid).setData(from: user)
-//                    //self!.sendVerificationMail()
-//                } catch let error {
-//                    print("Error writing user to Firestore: \(error)")
-//                }
-//            }
-//
-//            DispatchQueue.main.async {
-//                self.newUserCreated = true
-//            }
-//    }
-    
-    func createAccount(password: String, user: User) {
-            
-            auth.createUser(withEmail: user.email, password: password) {[weak self] result, error in
-                guard result != nil, error == nil else {
-                    return
-                }
-            
-                var db = Firestore.firestore()
-                do {
-                        
-                        //create user field
-                    user.email = self!.auth.currentUser!.email!
-                        let userDocRef = try db.collection("users").document(user.email)
-                        try userDocRef.setData(from: user)
-                        //self!.sendVerificationMail()
-                        
-                        /*
-                         Now create subcollections, and sud-documents for user.
-                         Home, Discover, Profile : Subcollections
-                         connections, followers, following, pending connections, recent search, home: Documents
-                        */
-                        let userMuseumRef = try db.collection("users").document(user.email).collection("home").document("home")
-                            try userMuseumRef.setData(from: MuseumList())
-                        try db.collection("users").document(user.email).collection("discover").document("recentsearch").setData(from: RecentSearch())
-                        try db.collection("users").document(user.email).collection("profile").document("followers").setData(from: Followers())
-                        try db.collection("users").document(user.email).collection("profile").document("following").setData(from: Following())
-                        try db.collection("users").document(user.email).collection("profile").document("connections").setData(from: Connections())
-                        try db.collection("users").document(user.email).collection("profile").document("pending").setData(from: Pending())
-                        
-                       
-                        //generate your 5 playlists. document ids should be random, rn they aren'
-                        //generate your "myplaylist" museum. This museum is 5 playlists.
-                        
-                        //add this museum
-                        
-                        let museum_names = ["Recents", "Discover", "Trending-Artists", "International Art", "Indie-designers"]
-                        for i in museum_names {
-                            let museum = Museum()
-                            museum.name = i
-                            for index in 1...5 {
-                                let playlist = try db.collection("playlists").document()
-                                try playlist.setData(from: Playlist())
-                                museum.playlist.append(playlist.documentID)
-                            }
-                            let docRef = try db.collection("museums").document()
-                            try docRef.setData(from: museum)
-                            userMuseumRef.updateData(["museums" : FieldValue.arrayUnion([docRef.documentID])])
-                        }
-                        
-                    //update Library in users doc with 5 playlists (Liked, featured, owned, created, reviewed)
-                        let libraryPlaylistNames = ["Liked", "Featured", "Owned", "Created", "Reviewed"]
-                        for i in 0...4 {
-                          let playlist = Playlist()
-                          playlist.name = libraryPlaylistNames[i]
-                          let playlistRef = try db.collection("playlists").document()
-                          try playlistRef.setData(from: playlist)
-                          userDocRef.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])])
-//                            if(playlist.name == "Featured"){
-//                                userDocRef.updateData(["featured": FieldValue.arrayUnion([playlistRef.documentID])])
-//                            }
-                        }
-                        
-                    } catch let error {
-                        print("Error writing user to Firestore: \(error)")
-                    }
-                
-                }
-                
-                DispatchQueue.main.async {
-                    self.newUserCreated = true
-                }
-        
+    //reload customer
+    func reloadUser() async {
+        do{
+            try await Auth.auth().currentUser?.reload()
+        }catch{
+            print("Error: could not reload current user")
         }
+    }
+    
+    //verifys email
+    func isVerified() async -> Bool {
+    
+        do{
+            
+            if(auth.currentUser?.isEmailVerified != nil) {
+                switch await auth.currentUser?.isEmailVerified{
+                case true:
+                    self.userVerified = true
+                    DispatchQueue.main.async {
+                        self.userVerified = true
+                    }
+                case false:
+                    self.userVerified = false
+                    DispatchQueue.main.async {
+                        self.userVerified = false
+                        
+                    }
+                default:
+                    self.userVerified = false
+                    DispatchQueue.main.async {
+                        self.userVerified = false
+                       
+                    }
+                }
+            }
+        }catch{
+            print("Error: could not verify current user's email")
+        }
+
+        return self.userVerified
+    }
+        
+    
+    //this method checks if a document even exists in the first place.
+    func documentCreated() async throws -> Bool {
+        var exists = false
+        
+        do {
+          //  var exists = false
+            let userEmail = Auth.auth().currentUser?.email
+            let db = Firestore.firestore()
+            let docRef = try await db.collection("users").document(userEmail ?? "info@gallify.app")
+            
+            try await docRef.getDocument { (document, error) in
+               if let document = document, document.exists {
+                   exists = true
+                   self.documentCreated = true
+                   DispatchQueue.main.async {
+                       self.documentCreated = true
+                   }
+               } else {
+                   print("Document does not exist")
+                   exists = false
+                   self.documentCreated = false
+                   DispatchQueue.main.async {
+                       self.documentCreated = false
+                   }
+               }
+           }
+            
+          
+        } catch {
+            // .. handle error
+            print("Error: Issue checking if document for user exists.")
+        }
+        
+        print("EXISTS")
+        print(exists)
+        return self.documentCreated
+       
+    }
+   
     
     func signOut() {
         try? auth.signOut()
         self.signedIn = false
         self.newUserCreated = false
+        self.userVerified = false //to check if a users email is verified
+        self.userDocumentNotCreated = false
+        self.documentCreated = false
     }
     
 }
@@ -177,11 +326,11 @@ struct LoginView: View {
     
     var body: some View {
         
-        if viewModel.isSignedIn || viewModel.newUserCreated {
+        
+        if viewModel.isSignedIn() || viewModel.newUserCreated || viewModel.signedIn {
             
             TabBarView()
                 .environmentObject(viewModel)
-            
         }
             
         else {

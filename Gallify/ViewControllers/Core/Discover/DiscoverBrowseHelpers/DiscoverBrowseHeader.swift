@@ -27,16 +27,16 @@ struct DiscoverBrowseHeader: View {
                 
             }
             
-            HStack {
-                        
-                Text("Recommended")
-                    .font(.system(size: screenWidth / 11, weight: .semibold))
-                        
-                Spacer()
-                        
-            }
-            .padding(.leading, screenWidth / 12)
-            .padding(.bottom, screenHeight / 32.5)
+//            HStack {
+//                        
+//                Text("Recommended")
+//                    .font(.system(size: screenWidth / 11, weight: .semibold))
+//
+//                Spacer()
+//
+//            }
+//            .padding(.leading, screenWidth / 12)
+//            .padding(.bottom, screenHeight / 32.5)
             
         }
         .padding(.top, screenHeight / 160)

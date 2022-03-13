@@ -23,7 +23,7 @@ struct DiscoverBrowse: View {
                 
                 DiscoverBrowseHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                 
-                RecommendedSlabsView()
+               // RecommendedSlabsView()
                 
                 HStack {
                             

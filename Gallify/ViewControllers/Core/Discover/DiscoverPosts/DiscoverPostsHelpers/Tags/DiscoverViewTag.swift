@@ -22,6 +22,7 @@ struct DiscoverViewTag: View {
             .padding(.vertical, screenHeight / 100)
             .background(bgColor)
             .cornerRadius(screenWidth / 50)
+            
         
         
 /*        NavigationLink(destination: DiscoveryCategoryView(screenWidth: screenWidth, screenHeight: screenHeight),
