@@ -5,7 +5,7 @@ __Mission:__  *To change the art world forever.* . . . . . [Gallify.app](https:/
 
 __Sprint 20:__ March 13th - March 27th . 14 Days Left!
 
-__Goal:__ First Beta Tester: 2/28/22
+__Goal:__ 
       
 ## issue boards
 
