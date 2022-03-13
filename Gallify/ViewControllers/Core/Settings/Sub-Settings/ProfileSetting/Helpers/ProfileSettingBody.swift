@@ -22,21 +22,21 @@ struct ProfileSettingBody: View {
     @State var newFirstName = ""
     @State var newLastName = ""
     @State var description = ""
+    @State var profileImageUpdate = false
     
-    /*@EnvironmentObject var viewModel : LoginAppViewModel
+//    @EnvironmentObject var viewModel : LoginAppViewModel
     @State var pickedImage: UIImage?
-    @State private var showActionSheet = false
-    @State private var showImagePicker = false
-    @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
-    @EnvironmentObject var settingsViewModel : ProfileSetting
-    private var metadata = StorageMetadata()*/
+    @State var showActionSheet = false
+    @State var showImagePicker = false
+    @State var sourceType : UIImagePickerController.SourceType = .photoLibrary
+//    @EnvironmentObject var settingsViewModel : ProfileSetting
+//    private var metadata = StorageMetadata()
     
     var body: some View {
         
         VStack {
-            /*VStack {
+            VStack {
                 HStack{
-                    Spacer()
                     VStack {
                         if pickedImage != nil {
                             Image(uiImage: pickedImage!)
@@ -65,11 +65,13 @@ struct ProfileSettingBody: View {
                             .default(Text("Camera"), action: {
                                 self.showImagePicker = true
                                 self.sourceType = .camera
+                                profileImageUpdate = true
                             }),
                             //Button2
                             .default(Text("Photo Library"), action: {
                                 self.showImagePicker = true
                                 self.sourceType = .photoLibrary
+                                profileImageUpdate = true
                             }),
                             
                             //Button3
@@ -80,17 +82,18 @@ struct ProfileSettingBody: View {
                         imagePicker(image: self.$pickedImage, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
                     }
                 
-                    Button(action: {
-                        StorageService.saveProfileImage(uid: firestoreQuery.data.uid, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
-                    }, label: {
-                        Text("Save")
-                            .frame(width: 200, height: 50)
-                            .background(Color.blue)
-                            .foregroundColor(Color.white)
-                            .padding()
-                    })
-                    Spacer()
-                }*/
+//                    Button(action: {
+//                        StorageService.saveProfileImage(uid: firestoreQuery.data.uid, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
+//                    }, label: {
+//                        Text("Save")
+//                            .frame(width: 200, height: 50)
+//                            .background(Color.blue)
+//                            .foregroundColor(Color.white)
+//                            .padding()
+//                    })
+//                    Spacer()
+                }
+            }
                 
                 //Taking out the formatter parameter because I need text: instead of value: -- Shruti
                 VStack {
@@ -157,7 +160,7 @@ struct ProfileSettingBody: View {
 //                            ErrorText(errorText: "Username cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
 //
 //                        }
-                        if(newUsername.isEmpty && newFirstName.isEmpty && newLastName.isEmpty && description.isEmpty) {
+                        if(newUsername.isEmpty && newFirstName.isEmpty && newLastName.isEmpty && description.isEmpty && profileImageUpdate == false) {
                             ErrorText(errorText: "Please fill out one of the fields above", screenHeight: screenHeight, screenWidth: screenWidth)
                         }
                         
@@ -196,6 +199,11 @@ struct ProfileSettingBody: View {
                         if(!description.isEmpty){
                             Task {
                                 await firestoreQuery.updateUserDescription(desc: description)
+                            }
+                        }
+                        if(profileImageUpdate == true){
+                            Task {
+                                await firestoreQuery.updateProfileImage(image: self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data())
                             }
                         }
                             

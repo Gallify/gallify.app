@@ -53,12 +53,12 @@ extension FirestoreQuery {
         }
     }
     
-    func updateProfileImage(image: Data) {
+    func updateProfileImage(image: Data) async {
         let uploadRef = Storage.storage().reference(withPath: "profileImages/" + (Auth.auth().currentUser?.email)!)
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
         
-        uploadRef.putData(image, metadata: metaData) {
+        await uploadRef.putData(image, metadata: metaData) {
             (StorageMetadata, error) in
             if error != nil {
                 print(error!.localizedDescription)
