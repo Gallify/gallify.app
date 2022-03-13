@@ -20,6 +20,7 @@ extension FirestoreQuery {
             try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.email)!).updateData(
                 ["username" : username]
             )
+            data.username = username
             self.data.username = username
             
         } catch {
@@ -27,19 +28,28 @@ extension FirestoreQuery {
         }
     }
     
-    func updateName(first: String, last: String) async {
+    func updatefirstName(first: String) async {
         do {
             try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.email)!).updateData(
                 ["firstName" : first]
             )
+            data.firstName = first
             self.data.firstName = first
+            
+        } catch {
+            print("Error updating firstname")
+        }
+    }
+    
+    func updateLastName(last: String) async {
+        do {
             try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.email)!).updateData(
                 ["lastName" : last]
             )
+            data.lastName = last
             self.data.lastName = last
-            
         } catch {
-            print("Error updating username")
+            print("Error updating lastname")
         }
     }
     
@@ -73,14 +83,13 @@ extension FirestoreQuery {
             }
     }
     
-    func updateDescription(desc:String, art_id: String) async {
+    func updateUserDescription(desc:String) async {
         do {
-            try await FirestoreQuery.db.collection("art").document(art_id).updateData(
-                ["description" : desc]
+            try await FirestoreQuery.db.collection("user").document((Auth.auth().currentUser?.email)!).updateData(["description" : desc]
             )
-            self.art.description = desc //not sure if this is the art I should be working with
-        } catch {
-            print("Error updating description of art")
+            data.description = desc 
+        } catch { 
+            print("Error updating description of user bio/description \(error.localizedDescription)")
         }
     }
     

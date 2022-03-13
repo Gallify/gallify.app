@@ -46,6 +46,8 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         case isClicked
         case wallet
         case featured
+        
+        case description
     }
     
     @Published var uid : String   // NOT sure why all of these are published? @Shruti or @Anshul, you know?
@@ -83,6 +85,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var wallet: String
     @Published var featured: String
     
+    @Published var description: String
   
     init() {
         
@@ -120,6 +123,8 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         isClicked = ""
         wallet = ""
         featured = ""
+        
+        description = ""
     }
 
     
@@ -160,6 +165,8 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         isClicked = try container.decode(String.self, forKey: .isClicked)
         featured = try container.decode(String.self, forKey: .featured)
         wallet = try container.decode(String.self, forKey: .wallet)
+        
+        description = try container.decode(String.self, forKey: .description)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -199,6 +206,8 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(featured, forKey: .featured)
         try container.encode(isClicked, forKey: .isClicked)
         try container.encode(wallet, forKey: .wallet)
+        
+        try container.encode(description, forKey: .description)
 
     }
 

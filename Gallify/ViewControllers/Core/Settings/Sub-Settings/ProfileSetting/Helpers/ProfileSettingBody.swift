@@ -21,6 +21,7 @@ struct ProfileSettingBody: View {
     @State var newUsername = ""
     @State var newFirstName = ""
     @State var newLastName = ""
+    @State var description = ""
     
     /*@EnvironmentObject var viewModel : LoginAppViewModel
     @State var pickedImage: UIImage?
@@ -90,13 +91,14 @@ struct ProfileSettingBody: View {
                     })
                     Spacer()
                 }*/
-                HStack {
-                    Text("First Name")
-                        .padding(.leading)
-                    Spacer()
-                }
+                
                 //Taking out the formatter parameter because I need text: instead of value: -- Shruti
                 VStack {
+                    HStack {
+                        Text("First Name")
+                            .padding(.leading)
+                        Spacer()
+                    }
                     TextField("John", text: $newFirstName)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
@@ -123,44 +125,78 @@ struct ProfileSettingBody: View {
                         .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
                         .padding(.horizontal, screenWidth / 15)
                     
+                    Spacer()
+                    
+                    HStack {
+                        Text("Enter your bio")
+                            .padding(.leading)
+                        Spacer()
+                    }
+                    TextField("I am an artist", text: $description)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                        .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                        .padding(.horizontal, screenWidth / 15)
+                    
                     if buttonPressed {
                                 
-                        if firestoreQuery.data.firstName.isEmpty {
-                                
-                            ErrorText(errorText: "First Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
-                                
+//                        if firestoreQuery.data.firstName.isEmpty {
+//
+//                            ErrorText(errorText: "First Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+//
+//                        }
+//
+//                        else if firestoreQuery.data.lastName.isEmpty {
+//
+//                            ErrorText(errorText: "Last Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+//
+//                        }
+//
+//                        else if firestoreQuery.data.username.isEmpty {
+//
+//                            ErrorText(errorText: "Username cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+//
+//                        }
+                        if(newUsername.isEmpty && newFirstName.isEmpty && newLastName.isEmpty && description.isEmpty) {
+                            ErrorText(errorText: "Please fill out one of the fields above", screenHeight: screenHeight, screenWidth: screenWidth)
                         }
-                                
-                        else if firestoreQuery.data.lastName.isEmpty {
-                                    
-                            ErrorText(errorText: "Last Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
-                                    
-                        }
-                                
-                        else if firestoreQuery.data.username.isEmpty {
-                                    
-                            ErrorText(errorText: "Username cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
-                                    
-                        }
+                        
                                 
                     }
-
+                }
+                VStack{
                     Button(action: {
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            buttonPressed = true
+                        }
                             
-                        if !(firestoreQuery.data.firstName.isEmpty || firestoreQuery.data.lastName.isEmpty || firestoreQuery.data.username.isEmpty) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                            buttonPressed = false
+                        }
                             
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                buttonPressed = true
-                            }
+                        if (!newUsername.isEmpty) {
                                 
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-                                buttonPressed = false
+                            Task {
+                               await firestoreQuery.updateUsername(username: newUsername)
                             }
                                                         
                         }
-                        Task {
-                           await firestoreQuery.updateUsername(username: newUsername)
-                           await firestoreQuery.updateName(first: newFirstName, last: newLastName)
+                        if(!newFirstName.isEmpty){
+                            
+                            Task {
+                                await firestoreQuery.updatefirstName(first: newFirstName)
+                            }
+                        }
+                        if(!newLastName.isEmpty){
+                            Task {
+                                await firestoreQuery.updateLastName(last: newLastName)
+                            }
+                        }
+                        if(!description.isEmpty){
+                            Task {
+                                await firestoreQuery.updateUserDescription(desc: description)
+                            }
                         }
                             
                     }, label: {

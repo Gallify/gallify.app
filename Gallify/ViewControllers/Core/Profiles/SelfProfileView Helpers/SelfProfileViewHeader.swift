@@ -11,6 +11,8 @@ struct SelfProfileViewHeader: View {
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
     
+    @State var firstName = " "
+    
     var body: some View {
         
         let screenHeight = viewModel.screenHeight
