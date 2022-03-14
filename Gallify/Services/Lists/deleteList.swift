@@ -29,10 +29,12 @@ extension FirestoreQuery {
 //                }
 //                i=i+1
 //            }
-            playlistArt.removeAll { art in
-                art.art_id == art_id
+//            playlistArt.removeAll { art in
+//                art.art_id == art_id
+//            }
+            playlistArt = playlistArt.filter { art in
+                art.art_id != art_id
             }
-            //playlistArt = playlistArt.filter { art.art_id != art_id }
         }
         catch{
             print("Error")

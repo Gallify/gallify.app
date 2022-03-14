@@ -95,7 +95,7 @@ class FirestoreQuery : ObservableObject {
     
     //list
     @Published var playlist: Playlist = Playlist()
-    @Published var playlistArt: [Art] = [Art]()
+    @Published var playlistArt: [Art] = [Art]() //THE VARIABLE THAT INDICATES WHICH PLAYLIST WE ARE CURRENTLY ON?
     @Published var art: Art = Art()
     
     

@@ -105,12 +105,13 @@ struct CollectionGenericRow: View {
                             Button(action: {
                                
                                 firestoreQuery.data.isClicked = artwork.art_id
-                                firestoreQuery.artisClicked = artwork.art_id
+                                firestoreQuery.artisClicked = artwork.art_id as! String
                                 firestoreQuery.artThatsPlaying = artwork
                                 firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
                                 firestoreQuery.isPresented.toggle()
                                 firestoreQuery.maximized = true
                                 firestoreQuery.showNewScreen = true
+                                art = artwork
                                 
                             }){
                                 HStack {
@@ -164,7 +165,7 @@ struct CollectionGenericRow: View {
                                                 title: Text("Select"),
                                                 buttons: [
                                                     .default(Text("Delete art from Playlist")) {
-                                                        async {await firestoreQuery.deleteArtFromPlaylist(art_id: artwork.art_id, playlist_id: firestoreQuery.playlist.id)}
+                                                        async {await firestoreQuery.deleteArtFromPlaylist(art_id: art.art_id, playlist_id: firestoreQuery.playlist.id)}
                                                         deleteFromPlaylist = true
                                                         
                                                     },
@@ -185,11 +186,10 @@ struct CollectionGenericRow: View {
                                         }
                                         .sheet(isPresented: $showingSheet) {
                                             
-                                            CollectionsView(art_id: artwork.art_id)
+                                            CollectionsView(art_id: art.art_id)
                                         
                                         }
                                         
-    //
                                       
                                     }
                                     
@@ -203,7 +203,9 @@ struct CollectionGenericRow: View {
                         .onMove { indexSet, offset in
                             playlist.move(fromOffsets: indexSet, toOffset: offset)
                             firestoreQuery.featuredArt = playlist
-                            //firestore update here
+                            Task {
+                                await firestoreQuery.updateArtPlaylist(playlist_id: firestoreQuery.playlist.id, art_array: firestoreQuery.featuredArt)
+                            }
                         }
                         .listRowSeparator(.hidden)
                         
@@ -216,7 +218,11 @@ struct CollectionGenericRow: View {
                     //.navigationBarHidden(true)
         
                 }
-                .onAppear{async{ await NetworkingCall() }}
+                .onAppear{
+                    
+                    Task{ await NetworkingCall() }
+                    
+                }
             
             }
             
@@ -238,9 +244,6 @@ struct CollectionGenericRow: View {
             await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
             //print("ART: \(firestoreQuery.playlistArt[1].creator)")
             playlist = firestoreQuery.playlistArt
-            //this gets all the data for the home page.
-            //firestoreQuery.getHome()
-            //firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
         }
     
     }

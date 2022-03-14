@@ -87,7 +87,7 @@ extension FirestoreQuery {
         do {
             try await FirestoreQuery.db.collection("user").document((Auth.auth().currentUser?.email)!).updateData(["description" : desc]
             )
-            data.description = desc 
+            self.data.description = desc 
         } catch { 
             print("Error updating description of user bio/description \(error.localizedDescription)")
         }

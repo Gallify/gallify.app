@@ -28,6 +28,7 @@ extension FirestoreQuery {
             let doc = try await FirestoreQuery.db.collection("playlists").document(playlist_id).updateData([
                 "art": new_art_ids
                 ])
+            self.playlistArt = art_array
         }
         catch{
             print("Error")

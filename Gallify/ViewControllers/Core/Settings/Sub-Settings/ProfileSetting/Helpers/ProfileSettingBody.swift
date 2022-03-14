@@ -206,6 +206,10 @@ struct ProfileSettingBody: View {
                                 await firestoreQuery.updateProfileImage(image: self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data())
                             }
                         }
+                        Task {
+                            await firestoreQuery.getUser_await()
+                        }
+                       
                             
                     }, label: {
                             
