@@ -40,7 +40,7 @@ struct ForgotPasswordViewBody: View {
             }
             .padding(.leading, screenWidth / 12)
                             
-            TextField("you@gmail.com", text: $email)
+            TextField("you@email.com", text: $email)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))

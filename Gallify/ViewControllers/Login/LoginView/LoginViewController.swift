@@ -47,9 +47,9 @@ class LoginAppViewModel: ObservableObject {
                                 }
                             }
                             else{
-                                self.userDocumentNotCreated = false
+                               // self.userDocumentNotCreated = false
                                 DispatchQueue.main.async {
-                                    self.userDocumentNotCreated = true
+                                    self.userDocumentNotCreated = false //was true
                                 }
                             }
                         }
@@ -348,9 +348,10 @@ struct LoginView: View {
                             
                     LoginViewNavLinks()
                         
-                }
+                }//.onAppear{Task{ await NetworkingCall() }}
                 
              }
+            .onAppear{Task{ await NetworkingCall() }}
             .navigationBarHidden(true)
             .environmentObject(viewModel)
             
@@ -358,7 +359,34 @@ struct LoginView: View {
         
     }
     
+    func NetworkingCall() async {
+        
+        viewModel.isSignedIn()
+        
+//        //try to sign in user.
+//        await viewModel.signIn(email: email, password: password)
+//
+//        //reload current user
+//        await viewModel.reloadUser()
+//
+//        //checks if user is verified. Result stored in viewModel.userVerified
+//        await viewModel.isVerified()
+//
+//        print("user verified? sign in")
+//        print(viewModel.userVerified)
+//        if(viewModel.userVerified){
+//            let created = try await viewModel.documentCreated()
+//            if(created){
+//                viewModel.signedIn = true
+//            }
+//        }
+    }
 }
+    
+
+
+    
+
 
 struct Previews: PreviewProvider {
     static var previews: some View {

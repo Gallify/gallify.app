@@ -25,9 +25,13 @@ struct HomeViewHeader: View {
             
             Button(action: {
 
-                if let url = URL(string: "https://open.gallify.app/create-item") {
+                
+    
+                if let url = URL(string: "https://open.gallify.app/create") {
                    UIApplication.shared.open(url)
                 }
+                
+                
             }) {
                 ZStack {
                     
