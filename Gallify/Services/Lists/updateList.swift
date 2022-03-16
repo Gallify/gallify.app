@@ -22,7 +22,7 @@ extension FirestoreQuery {
             var new_art_ids = [String]()
            
             for art_element in art_array{
-                new_art_ids.append(art_element.art_id)
+                new_art_ids.append(art_element.artId)
             }
             
             let doc = try await FirestoreQuery.db.collection("playlists").document(playlist_id).updateData([

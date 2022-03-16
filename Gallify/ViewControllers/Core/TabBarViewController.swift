@@ -149,39 +149,10 @@ struct TabBarView: View {
 //        loginModel.signedIn = false
 //        loginModel.newUserCreated = false
         
-//        var documentCreated = false
-//
-//        do{
-//            documentCreated = try await loginModel.documentCreated()
-//            print("doc created")
-//            print(documentCreated)
-//        }
-//        catch{
-//            print("Error: could not determine if user document created")
-//        }
-//        print("doc created")
-//        print(documentCreated)
         if(loginModel.newUserCreated || loginModel.signedIn){
             
-      
-            print("Start test 1")
             await firestoreQuery.fetchData()
-            print("end 1")
-//            print("Start test 2")
-//            await firestoreQuery.getUser_New()
-//            print("end 2")
-//            print("Start test 3")
-//            await firestoreQuery.getUser_await()
-//            print("end 3")
-//
-//            print("Start test 4")
-//            await firestoreQuery.getUserData()
-//            print("end 4")
-            
-            print("Library")
-            print(firestoreQuery.data.Library)
-            
-            
+
             firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
 
             await firestoreQuery.fetchArt()
@@ -196,28 +167,39 @@ struct TabBarView: View {
             await firestoreQuery.getHomePlaylists()
     //
             await firestoreQuery.getDiscoverContent()
-    ////
-            
-    //        var db = Firestore.firestore()
-    //        let userDocRef = try db.collection("users").document(auth.currentUser!.email!)
-    //        do{
-    //            let libraryPlaylistNames = ["Collection-1", "Collection-2", "Featured"]
-    //            for i in 0...2 {
-    //              let playlist = Playlist()
-    //              playlist.name = libraryPlaylistNames[i]
-    //              let playlistRef = try db.collection("playlists").document()
-    //              try playlistRef.setData(from: playlist)
-    //                try await userDocRef.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])])
-    //                if(playlist.name == "Featured"){
-    //                    try await userDocRef.updateData(["featured": FieldValue.arrayUnion([playlistRef.documentID])])
-    //                }
-    //
-    //            }
-    //        }
-    //        catch{
-    //
-    //        }
 
+            
+//            var db = Firestore.firestore()
+//            let userDocRef = try db.collection("users").document(auth.currentUser!.uid)
+//            do{
+//                let libraryPlaylistNames = ["Collection1", "Donda", "Collection2"]
+//                for i in 0...2 {
+//                  let playlist = Playlist()
+//                  playlist.name = libraryPlaylistNames[i]
+//                  let playlistRef = try db.collection("playlists").document()
+//                  try playlistRef.setData(from: playlist)
+//                    try await userDocRef.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])])
+//
+//                }
+//            }
+//            catch{
+//
+//            }
+//
+//            do{
+//                let libraryArtNames = ["test5", "test6", "test7", "test8"]
+//                for i in 0...3 {
+//                  let art = Art()
+//                  art.name = libraryArtNames[i]
+//                  let artRef = try db.collection("art").document()
+//                  try artRef.setData(from: art)
+//
+//                }
+//            }
+//            catch{
+//
+//            }
+//
             doneLoading = true
         }
             

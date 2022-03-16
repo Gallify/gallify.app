@@ -99,7 +99,7 @@ class FirestoreQuery : ObservableObject {
     
     //basic
     static let db = Firestore.firestore()
-    static let userEmail = Auth.auth().currentUser?.email
+    static let userId = Auth.auth().currentUser?.uid
     
     enum DatabaseError: String, Error{
         case failed = "failed"
@@ -113,11 +113,11 @@ class FirestoreQuery : ObservableObject {
      Get User information
      */
     func getUser() {
-        let userEmail = Auth.auth().currentUser?.email
+        let userId = Auth.auth().currentUser?.uid
         print("EMAIL")
-        print(userEmail)
+        print(userId)
         
-        FirestoreQuery.db.collection("users").document(userEmail ?? "info@gallify.app") //If user can't get email, we need alternate fix.
+        FirestoreQuery.db.collection("users").document(userId ?? "info@gallify.app") //If user can't get email, we need alternate fix.
             .addSnapshotListener { queryDocumentSnapshot, error in
                 if error == nil { //if no errors
                     if let document = queryDocumentSnapshot{
@@ -143,7 +143,7 @@ class FirestoreQuery : ObservableObject {
     
     
     func fetchUser() {
-        let docRef = FirestoreQuery.db.collection("users").document(Auth.auth().currentUser!.email!)
+        let docRef = FirestoreQuery.db.collection("users").document(Auth.auth().currentUser!.uid)
          docRef.getDocument { (document, error) in
            let result = Result {
             try document?.data(as: User.self)

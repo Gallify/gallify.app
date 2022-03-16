@@ -13,7 +13,7 @@ extension FirestoreQuery {
     
     //pwe
     func getFeaturedPlaylist() async {
-        let userEmail = Auth.auth().currentUser?.email
+        let userId = Auth.auth().currentUser?.uid
 
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
@@ -76,7 +76,7 @@ extension FirestoreQuery {
      gets a playlist given id.
      */
     func getPlaylist(playlist_id: String) async {
-        let userEmail = Auth.auth().currentUser?.email
+        let userId = Auth.auth().currentUser?.uid
         
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")

@@ -21,7 +21,7 @@ struct USDZPostHelper: UIViewRepresentable {
         let scnView = SCNView()
         var scene = SCNScene()
         
-        let remoteURL = URL(string: modelName.art.content_url)!
+        let remoteURL = URL(string: modelName.art.contentUrl)!
         let remoteURL2 = modelName.modelURL //URL(string: modelName.modelURL)!
         // Create a temporary file URL to store the image at the remote URL.
         let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)

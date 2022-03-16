@@ -26,7 +26,7 @@ struct SearchResultView: View {
             
             UIApplication.shared.endEditing(true)
             firestoreQuery.showNewScreen = true
-            firestoreQuery.artisClicked = artwork.art_id
+            firestoreQuery.artisClicked = artwork.artId
             firestoreQuery.artThatsPlaying = artwork
             firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
             
@@ -43,7 +43,7 @@ struct SearchResultView: View {
                     
                 VStack(alignment: .leading) {
                     
-                    if (firestoreQuery.artisClicked == artwork.art_id) {
+                    if (firestoreQuery.artisClicked == artwork.artId) {
                         Text(artwork.name)
                             .font(.system(size: screenWidth / 20, weight: .bold))
                             .foregroundColor(Color("Gallify-Pink"))

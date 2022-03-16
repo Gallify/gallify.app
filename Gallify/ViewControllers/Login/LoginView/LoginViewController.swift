@@ -85,7 +85,7 @@ class LoginAppViewModel: ObservableObject {
      */
     func sendVerificationEmail() {
         //doesn't work because of bad email
-        print(self.auth.currentUser?.email)
+        //print(self.auth.currentUser?.email)
         self.auth.currentUser?.sendEmailVerification { (error) in
         }
         
@@ -97,7 +97,7 @@ class LoginAppViewModel: ObservableObject {
             guard authResult != nil, error == nil else {
                 return
             }
-            print(self.auth.currentUser?.email)
+           // print(self.auth.currentUser?.email)
             self.auth.currentUser?.sendEmailVerification { error in
                 self.newUserAuthenticated = true // dispatche
             }
@@ -114,7 +114,10 @@ class LoginAppViewModel: ObservableObject {
             
             // Set user data.
             user.email = self.auth.currentUser!.email!
-            let userRef = db.collection("users").document(user.email)
+            user.uid = self.auth.currentUser!.uid
+            
+            
+            let userRef = db.collection("users").document(user.uid) //used to be .email
             try await userBatch.setData(from: user, forDocument: userRef)
             
             // Commit the userBatch
@@ -140,7 +143,7 @@ class LoginAppViewModel: ObservableObject {
         
         let db = Firestore.firestore()
         let batch = db.batch()
-        let userRef = db.collection("users").document(user.email)
+        let userRef = db.collection("users").document(user.uid) //used to be .email
         
         do{
             
@@ -154,19 +157,19 @@ class LoginAppViewModel: ObservableObject {
             */
             
                 
-                let userMuseumRef = db.collection("users").document(user.email).collection("home").document("home")
+                let userMuseumRef = db.collection("users").document(user.uid).collection("home").document("home")
                 try await batch.setData(from: MuseumList(), forDocument: userMuseumRef)
                 
-                let discoverRef = db.collection("users").document(user.email).collection("discover").document("recentsearch")
+                let discoverRef = db.collection("users").document(user.uid).collection("discover").document("recentsearch")
                 try await batch.setData(from: RecentSearch(), forDocument: discoverRef)
                 
-                let followersRef = db.collection("users").document(user.email).collection("profile").document("followers")
+                let followersRef = db.collection("users").document(user.uid).collection("profile").document("followers")
                 try await batch.setData(from: Followers(), forDocument: followersRef)
                 
-                let followingRef = db.collection("users").document(user.email).collection("profile").document("followers")
+                let followingRef = db.collection("users").document(user.uid).collection("profile").document("following")
                 try await batch.setData(from: Following(), forDocument: followingRef)
                 
-                let connectionsRef = db.collection("users").document(user.email).collection("profile").document("connections")
+                let connectionsRef = db.collection("users").document(user.uid).collection("profile").document("connections")
                 try await batch.setData(from: Connections(), forDocument: connectionsRef)
                 
 
@@ -179,10 +182,10 @@ class LoginAppViewModel: ObservableObject {
 //                //adds the default playlists for the new user
 //            if(userSubCollectionsCreated){
 //
-                let libraryPlaylistNames = ["Liked", "Featured", "Owned", "Created", "Reviewed"]
+                let libraryPlaylistNames = ["Liked", "Featured", "Owned", "Created", "Review"]
                 
                 
-                let userDocRef = try await db.collection("users").document(user.email)
+               // let userDocRef = try await db.collection("users").document(user.uid)
                 
                 for i in 0...4 {
                     
@@ -192,6 +195,7 @@ class LoginAppViewModel: ObservableObject {
                     
                     //add to playlist
                     let playlistRef = db.collection("playlists").document()
+                    playlist.playlist_id = playlistRef.documentID
                     try await batch.setData(from: playlist, forDocument: playlistRef)
                     
                     //add to user library
@@ -199,6 +203,21 @@ class LoginAppViewModel: ObservableObject {
                     
                     if(playlist.name == "Featured"){  //this line below should work since the the field should exist.
                         try await batch.updateData(["featured": playlistRef.documentID], forDocument: userRef)
+                    }
+                    
+                    if(playlist.name == "Review"){  //this line below should work since the the field should exist.
+                        try await batch.updateData(["review": playlistRef.documentID], forDocument: userRef)
+                    }
+                    
+                    if(playlist.name == "Created"){  //this line below should work since the the field should exist.
+                        try await batch.updateData(["created": playlistRef.documentID], forDocument: userRef)
+                    }
+                    if(playlist.name == "Owned"){  //this line below should work since the the field should exist.
+                        try await batch.updateData(["owned": playlistRef.documentID], forDocument: userRef)
+                    }
+                    
+                    if(playlist.name == "Liked"){  //this line below should work since the the field should exist.
+                        try await batch.updateData(["liked": playlistRef.documentID], forDocument: userRef)
                     }
                 }
 //                userPlaylistsCreated = true
@@ -275,9 +294,9 @@ class LoginAppViewModel: ObservableObject {
         
         do {
           //  var exists = false
-            let userEmail = Auth.auth().currentUser?.email
+            let userDoc = Auth.auth().currentUser?.uid //used to be email
             let db = Firestore.firestore()
-            let docRef = try await db.collection("users").document(userEmail ?? "info@gallify.app")
+            let docRef = try await db.collection("users").document(userDoc ?? "info@gallify.app")
             
             try await docRef.getDocument { (document, error) in
                if let document = document, document.exists {
@@ -302,8 +321,8 @@ class LoginAppViewModel: ObservableObject {
             print("Error: Issue checking if document for user exists.")
         }
         
-        print("EXISTS")
-        print(exists)
+//        print("EXISTS")
+//        print(exists)
         return self.documentCreated
        
     }

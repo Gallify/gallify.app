@@ -23,7 +23,7 @@ struct Slider: View {
                     let model = firestoreQuery.models[index]
 
                     SliderItem(model: model) {
-                        if(model.art.content_type == 0){
+                        if(model.art.contentType == 0){
                             placeImage(model : model)
                         }
                         else if(model.contentLoaded){

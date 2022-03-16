@@ -28,7 +28,7 @@ class StorageService : ObservableObject {
                 (url, error) in
                 //Save to image url in firestore.
                 let db = Firestore.firestore()
-                let docRef = db.collection("users").document(Auth.auth().currentUser!.email!)
+                let docRef = db.collection("users").document(Auth.auth().currentUser!.uid) //was email
                 docRef.updateData([
                     "profileImageUrl" : url?.absoluteString
                 ]){  err in

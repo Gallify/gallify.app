@@ -50,8 +50,8 @@ class Model: Encodable, Decodable {
     
     //Create a method to async load model Entity
     func asyncLoadModelEntity(handler: @escaping (_ completed: Bool, _ error: Error?) -> Void){
-        if(self.art.content_type == 1 && self.contentLoaded==false){
-            FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: "models/\(self.art.searchType)") { localUrl in
+        if(self.art.contentType == 1 && self.contentLoaded==false){
+            FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: "models/\(self.art.storageName)") { localUrl in
                 print("LOCAL URL")
                 print(localUrl)
                 

@@ -34,6 +34,7 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         case followers_url
         case searchType //when search, need to know artist, collection, or art
         case playlist_id
+        case description
 
 
     }
@@ -56,6 +57,7 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var followers_url: String
     @Published var searchType: String
     @Published var playlist_id: String
+    @Published var description: String
 
     
     init() {
@@ -78,6 +80,7 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         followers_url = ""
         searchType = ""
         playlist_id = ""
+        description = ""
     }
 
     required init(from decoder: Decoder) throws {
@@ -102,6 +105,7 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         followers_url = try container.decode(String.self, forKey: .followers_url)
         searchType = try container.decode(String.self, forKey: .searchType)
         playlist_id = try container.decode(String.self, forKey: .playlist_id)
+        description = try container.decode(String.self, forKey: .description)
 
 
     }
@@ -127,6 +131,7 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(creator_url, forKey: .creator_url)
         try container.encode(searchType, forKey: .searchType)
         try container.encode(playlist_id, forKey: .playlist_id)
+        try container.encode(description, forKey: .description)
 
     }
 }

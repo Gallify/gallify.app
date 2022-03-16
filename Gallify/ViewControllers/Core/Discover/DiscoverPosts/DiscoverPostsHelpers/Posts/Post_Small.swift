@@ -24,7 +24,7 @@ struct Post_Small: View {
         
         Button(action: {
                
-            firestoreQuery.artisClicked = discover_art.art_id
+            firestoreQuery.artisClicked = discover_art.artId
             firestoreQuery.artThatsPlaying = discover_art
             firestoreQuery.artworkThatsPlaying = firestoreQuery.discoveryPageArt
             

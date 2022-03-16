@@ -105,7 +105,7 @@ struct CollectionGenericRow: View {
                                    
                                     //firestoreQuery.data.isClicked = artwork.art_id
                                     
-                                    firestoreQuery.artisClicked = playlist[i].art_id
+                                    firestoreQuery.artisClicked = playlist[i].artId
                                     firestoreQuery.artThatsPlaying = playlist[i]
                                     firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
                                     firestoreQuery.artworkThatsPlaying = firestoreQuery.playlistArt
@@ -127,7 +127,7 @@ struct CollectionGenericRow: View {
                                                     
                                                 VStack(alignment: .leading) {
                                                         
-                                                    if(firestoreQuery.artisClicked == playlist[i].art_id){
+                                                    if(firestoreQuery.artisClicked == playlist[i].artId){
                                                         Text(playlist[i].name)
                                                             .foregroundColor(Color("Gallify-Pink"))
                                                             .fontWeight(.bold)

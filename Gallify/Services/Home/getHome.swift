@@ -32,11 +32,11 @@ extension FirestoreQuery {
      
      */
     func getHomeMuseumList() async {
-        let userEmail = Auth.auth().currentUser?.email
+        let userId = Auth.auth().currentUser?.uid
         
         do {
             
-            let doc = try await FirestoreQuery.db.collection("users").document(FirestoreQuery.userEmail ?? "help").collection("home")
+            let doc = try await FirestoreQuery.db.collection("users").document(FirestoreQuery.userId ?? "help").collection("home")
                 .document("home")
                 .getDocument().data(as: MuseumList.self)
             

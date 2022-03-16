@@ -54,7 +54,7 @@ struct CollectionReelListing: View {
                             ZStack (alignment: .center) {
                                 //show thumbnail or 3d model.
                                 if(!firestoreQuery.models.isEmpty){
-                                    if(!showThumbnail && getModelforArt == artwork.art_id
+                                    if(!showThumbnail && getModelforArt == artwork.artId
                                        && firestoreQuery.models[i].contentLoaded && firestoreQuery.models[i] != nil){
                                           //  USDZPost(showThumbnail: $showThumbnail, model: firestoreQuery.models[i])
                                         USDZPost( model: firestoreQuery.models[i])
@@ -102,7 +102,7 @@ struct CollectionReelListing: View {
                                         //kill thread and stop it from getting model
                                     }
                                     else {
-                                        getModelforArt = artwork.art_id
+                                        getModelforArt = artwork.artId
                                         
                                         text3Dmodel = "Loading.."
                                         
@@ -156,7 +156,7 @@ struct CollectionReelListing: View {
                             Button {
                                 withAnimation(.easeInOut(duration: 0.25)) {
                                     showDetail.toggle()
-                                    art_popup = artwork.art_id
+                                    art_popup = artwork.artId
                                     
                                     if(showDetail == false){
                                         art_popup = ""
@@ -179,7 +179,7 @@ struct CollectionReelListing: View {
                             }
                             .font(.system(size: 17))
                             
-                            if (showDetail && artwork.art_id == art_popup) {
+                            if (showDetail && artwork.artId == art_popup) {
                                 CollectionReelDescription(screenWidth: screenWidth, screenHeight: screenHeight, artDetails: artwork)
 
                             }

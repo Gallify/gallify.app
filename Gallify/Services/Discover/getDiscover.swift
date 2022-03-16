@@ -87,11 +87,11 @@ extension FirestoreQuery {
      Low priority feature. This method gets the list of recent searches.
      */
     func getRecentSearch() async {
-        let userEmail = Auth.auth().currentUser?.email
+       // let userEmail = Auth.auth().currentUser?.email
         
         do {
             
-            let doc = try await FirestoreQuery.db.collection("users").document(FirestoreQuery.userEmail ?? "help").collection("discover")
+            let doc = try await FirestoreQuery.db.collection("users").document(FirestoreQuery.userId ?? "help").collection("discover")
                 .document("recentsearch")
                 .getDocument().data(as: [Art].self)
             
