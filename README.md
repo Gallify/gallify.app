@@ -28,10 +28,9 @@ __Sprint 15:__ January 2nd - January 16th . 7 Days Left!
 5. Playlist CRUD
 4. Reels
 5. Settings CRUD
+6. Navlink: GenPlaylist->OtherProfile
 
 ## todo
-
-1. Navlink: GenPlaylist->OtherProfile
 2. ModelDownload: Killing Threads and Erasing un-needed data.
 3. Dragging: Dragging Models
 4. Model: Loading Indicators. 
