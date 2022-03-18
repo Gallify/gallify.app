@@ -376,6 +376,8 @@ class FirestoreQuery : ObservableObject {
      */
     func getLibrary(library_ids: [String]) {
         self.userLibrary.removeAll()
+        print("libaryids")
+        print(library_ids)
         for library_id in library_ids {
             FirestoreQuery.db.collection("playlists").document(library_id) //If user can't get email, we need alternate fix.
                 .addSnapshotListener { queryDocumentSnapshot, error in
@@ -384,6 +386,9 @@ class FirestoreQuery : ObservableObject {
                             //update list in main thread.
                             DispatchQueue.main.async{
                                 //set retrieved document to @published data object
+                                print("document")
+                                print(document)
+                                print(library_id)
                                 self.userLibrary.append(try! document.data(as: Playlist.self)!) //this is forceful, and assumes this will always work...
                             }
                             

@@ -103,6 +103,7 @@ extension FirestoreQuery {
      */
     func getPlaylistArt(playlist: Playlist) async {
         
+
 //        if !(playlistArt.isEmpty){ //if featured playlist isnt empty, then return.
 //            return
 //        }
@@ -117,6 +118,8 @@ extension FirestoreQuery {
                     .document(art_id)
                     .getDocument().data(as: Art.self)
                 
+                print("Art Doc")
+                print(doc)
                 guard let theArt = doc else{
                     throw DatabaseError.failed
                 }

@@ -115,6 +115,7 @@ extension FirestoreQuery {
      */
     func getUserLibrary_old(library_ids: [String]) {
         self.userLibrary.removeAll()
+        
         for library_id in library_ids {
             FirestoreQuery.db.collection("playlists").document(library_id) //If user can't get email, we need alternate fix.
                 .addSnapshotListener { queryDocumentSnapshot, error in

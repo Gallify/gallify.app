@@ -13,9 +13,13 @@
 import Foundation
 import Swift
 import FirebaseFirestore
+import Firebase
+import FirebaseFirestoreSwift
+//import CodableFirebase
+
 
 class Art: Encodable, Decodable, ObservableObject, Identifiable {
-
+   
     enum CodingKeys: CodingKey {
 
         case artId
@@ -48,7 +52,10 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case thumbnail
         case tokenId
         
+        case value
+        
     }
+    
     
     @Published var artId: String
     @Published var collection: String
@@ -57,14 +64,14 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var contentType: Int
     @Published var creator: String
     @Published var creatorId: String
-    @Published var createdDate: Date
+    @Published var createdDate: String
     @Published var createdPrice: Double
     
     @Published var desc: String
     @Published var forSale: Bool
     @Published var genre: String
     @Published var history: [String]
-    @Published var latestHistoryDate: Date
+    @Published var latestHistoryDate : String
     @Published var likes: Int
     @Published var location: String
     @Published var metadataUrl: String
@@ -79,10 +86,11 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var storageName: String
     @Published var thumbnail: String
     @Published var tokenId: Int
+    
 
     
     init() {
-
+    
         artId = ""
         collection = ""
         collectionCoverartUrl = ""
@@ -90,14 +98,13 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         contentType = 0
         creator = ""
         creatorId = ""
-        createdDate = Date.now
+        createdDate = ""
         createdPrice = 0
-        
         desc = ""
         forSale = false
         genre = ""
         history = [String]()
-        latestHistoryDate = Date.now
+        latestHistoryDate = ""
         likes = 0
         location = ""
         metadataUrl = ""
@@ -112,14 +119,15 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         storageName = ""
         thumbnail = ""
         tokenId = 0
-        
+       
 
     }
+
 
     required init(from decoder: Decoder) throws {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-     
+        
         artId = try container.decode(String.self, forKey: .artId)
         collection = try container.decode(String.self, forKey: .collection)
         collectionCoverartUrl = try container.decode(String.self, forKey: .collectionCoverartUrl)
@@ -127,14 +135,15 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         contentType = try container.decode(Int.self, forKey: .contentType)
         creator = try container.decode(String.self, forKey: .creator)
         creatorId = try container.decode(String.self, forKey: .creatorId)
-        createdDate = try container.decode(Date.self, forKey: .createdDate)
+        createdDate = try container.decode(String.self, forKey: .createdDate)
         createdPrice = try container.decode(Double.self, forKey: .createdPrice)
         
         desc = try container.decode(String.self, forKey: .desc)
         forSale = try container.decode(Bool.self, forKey: .forSale)
         genre = try container.decode(String.self, forKey: .genre)
         history = try container.decode([String].self, forKey: .history)
-        latestHistoryDate = try container.decode(Date.self, forKey: .latestHistoryDate)
+        latestHistoryDate = try container.decode(String.self, forKey: .latestHistoryDate)
+
         likes = try container.decode(Int.self, forKey: .likes)
         location = try container.decode(String.self, forKey: .location)
         metadataUrl = try container.decode(String.self, forKey: .metadataUrl)
@@ -142,7 +151,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         owner = try container.decode(String.self, forKey: .owner)
         ownerId = try container.decode(String.self, forKey: .ownerId)
         popularity = try container.decode(Int.self, forKey: .popularity)
-        price = try container.decode(String.self, forKey: .createdDate)
+        price = try container.decode(String.self, forKey: .price)
         
         searchType = try container.decode(Int.self, forKey: .searchType)
         shareUrl = try container.decode(String.self, forKey: .shareUrl)
@@ -154,7 +163,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     
     
     func encode(to encoder: Encoder) throws {
-
+        
         var container = encoder.container(keyedBy: CodingKeys.self)
        
         try container.encode(artId, forKey: .artId)
@@ -179,7 +188,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(owner, forKey: .owner)
         try container.encode(ownerId, forKey: .ownerId)
         try container.encode(popularity, forKey: .popularity)
-        try container.encode(price, forKey: .createdDate)
+        try container.encode(price, forKey: .price)
         
         try container.encode(searchType, forKey: .searchType)
         try container.encode(shareUrl, forKey: .shareUrl)

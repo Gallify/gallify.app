@@ -137,9 +137,12 @@ extension FirestoreQuery {
                 //Option 1: converts documents to [art] array to containing all art for page.
                 var discoveryPageArtArray = [Art]()
                 
+                print("DiscoverContent")
+                print(querySnapshot)
                 discoveryPageArtArray = querySnapshot!.documents.compactMap { querySnapshot -> Art? in
                       return try? querySnapshot.data(as: Art.self)
                 }
+                print("End of conversion")
                 
                 if(discoveryPageArtArray.count > 1){
                     self.discoveryPageArt = discoveryPageArtArray
