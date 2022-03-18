@@ -19,9 +19,9 @@ struct CollectionGenericRow: View {
     
     //state variables. These will be changed. Then will update FirestoreQuery versions. Then the FirestoreQuery versions will be updated.
     @State var playlist: [Art] = [Art]()
-    //@State var playlist = firestoreQuery.playlist
     @State var playlistArt: [Art] = [Art]()
     @State var art: Art = Art()
+    @State var playlistOwner: User = User()
     //@State var veggies : [String] = ["app", "cat"]
     
     
@@ -40,16 +40,16 @@ struct CollectionGenericRow: View {
                         HStack{
 
                             Spacer()
-                            if firestoreQuery.playlist.cover_art_url == "" {
+                            
+                            let words = ["Featured", "featured", "Liked", "liked", "Owned", "owned", "Created", "created", "reviewed","Reviewed", "approved","Approved", "Review", "review", "Publish", "publish", "Published", "published", "unPublished", "unpublished"]
+                            let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
+                            if (firestoreQuery.playlist.cover_art_url == "" && !combinedResult ) {
 
                             }
                             else{
-                                WebImage(url: URL(string: firestoreQuery.playlist.cover_art_url))
-                                    .resizable()
-                                    .frame(width: 200, height: 200)
-                                    .padding(.top, 20)
-                                    //.padding(.bottom, 20)
-
+                                
+                                CollectionGenericImage(playlist: thePlaylist)
+                            
                             }
 
                             Spacer()
@@ -86,7 +86,7 @@ struct CollectionGenericRow: View {
 
                                 NavigationLink(destination: OtherProfileView(),
                                                label: {
-                                    Text("\(firestoreQuery.playlist.creator)")
+                                    Text("\(playlistOwner.firstName) " + "\(playlistOwner.lastName)")
                                         .font(.system(size: screenWidth / 20, weight: .light))
                                         .foregroundColor(Color.black)
                                         //.padding(.trailing, screenWidth / 7.5)
@@ -228,11 +228,21 @@ struct CollectionGenericRow: View {
 //        }
     
         func NetworkingCall() async {
+            
+            if(thePlaylist.creator_url == firestoreQuery.data.uid){
+                //then current user created this playlist
+                playlistOwner = firestoreQuery.data
+            }
+            else{
+                //get the creators info, and set it to playlistInfo
+                await firestoreQuery.getOtherUser(user_id: thePlaylist.creator_url)
+                playlistOwner = firestoreQuery.otherUserData
+            }
+            
             await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
-            //print("ART: \(firestoreQuery.playlistArt[1].creator)")
+            
             playlist = firestoreQuery.playlistArt
-            //this gets all the data for the home page.
-            //firestoreQuery.getHome()
+            
             
         }
     

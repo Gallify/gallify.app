@@ -85,7 +85,8 @@ class LoginAppViewModel: ObservableObject {
      */
     func sendVerificationEmail() {
         //doesn't work because of bad email
-        //print(self.auth.currentUser?.email)
+        print("EMAIL EMAIL")
+        print(self.auth.currentUser?.email)
         self.auth.currentUser?.sendEmailVerification { (error) in
         }
         
@@ -97,8 +98,11 @@ class LoginAppViewModel: ObservableObject {
             guard authResult != nil, error == nil else {
                 return
             }
-           // print(self.auth.currentUser?.email)
+           
+            print("EMAIL EMAIL")
+            print(self.auth.currentUser?.email)
             self.auth.currentUser?.sendEmailVerification { error in
+                print(self.auth.currentUser?.email)
                 self.newUserAuthenticated = true // dispatche
             }
         }

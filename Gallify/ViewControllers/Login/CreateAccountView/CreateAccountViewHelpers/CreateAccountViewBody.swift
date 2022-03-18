@@ -165,7 +165,7 @@ struct CreateAccountViewBody: View {
             }
             .padding(.leading, screenWidth / 12)
                 
-            TextField("your@email.com", text: $user.email)
+            TextField("your@email.com", text: self.$user.email)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))

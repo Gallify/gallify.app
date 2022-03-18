@@ -51,6 +51,8 @@
 		3003AFF727E40BC800EA58B6 /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFF627E40BC800EA58B6 /* PlacementSettings.swift */; };
 		3003AFF927E40BD700EA58B6 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFF827E40BD700EA58B6 /* Slider.swift */; };
 		3003AFFB27E40BE600EA58B6 /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFFA27E40BE600EA58B6 /* ThresholdPanGesture.swift */; };
+		3003AFFD27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFFC27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift */; };
+		3003AFFF27E4EF7600EA58B6 /* CollectionGenericImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFFE27E4EF7600EA58B6 /* CollectionGenericImage.swift */; };
 		3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4B926C82F6B00323BCB /* GallifyApp.swift */; };
 		3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4BD26C82F6D00323BCB /* Assets.xcassets */; };
 		3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */; };
@@ -282,6 +284,8 @@
 		3003AFF627E40BC800EA58B6 /* PlacementSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementSettings.swift; sourceTree = "<group>"; };
 		3003AFF827E40BD700EA58B6 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		3003AFFA27E40BE600EA58B6 /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
+		3003AFFC27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionListImage.swift; sourceTree = "<group>"; };
+		3003AFFE27E4EF7600EA58B6 /* CollectionGenericImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGenericImage.swift; sourceTree = "<group>"; };
 		3004D4B626C82F6B00323BCB /* Gallify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3004D4B926C82F6B00323BCB /* GallifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyApp.swift; sourceTree = "<group>"; };
 		3004D4BD26C82F6D00323BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -567,6 +571,7 @@
 				30001BF2279694B600527BF9 /* SelfProfileCollectionList.swift */,
 				30493BB727CB326100CD985B /* CreatePlaylistName.swift */,
 				30493BB927CB328200CD985B /* CreatePlaylistSettings.swift */,
+				3003AFFC27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift */,
 			);
 			path = "SelfProfileView Helpers";
 			sourceTree = "<group>";
@@ -1333,6 +1338,7 @@
 				92794CF8273811760012B184 /* CollectionGenericFooter.swift */,
 				92794CF9273811760012B184 /* CollectionGenericHeader.swift */,
 				92794CFA273811760012B184 /* CollectionGenericRow.swift */,
+				3003AFFE27E4EF7600EA58B6 /* CollectionGenericImage.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1708,6 +1714,7 @@
 				31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */,
 				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
 				3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */,
+				3003AFFF27E4EF7600EA58B6 /* CollectionGenericImage.swift in Sources */,
 				30410A0627A1E7D000284446 /* USDZPostHelper.swift in Sources */,
 				30001BF3279694B600527BF9 /* SelfProfileCollectionList.swift in Sources */,
 				30001BE82796871C00527BF9 /* updateSettings.swift in Sources */,
@@ -1740,6 +1747,7 @@
 				30410A7C27A677EB00284446 /* ArtistProgramSetting.swift in Sources */,
 				316ACAC22725AE240065CE6A /* ForgotPasswordViewBody.swift in Sources */,
 				30410A8627A67AAE00284446 /* deprecated.swift in Sources */,
+				3003AFFD27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift in Sources */,
 				31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */,
 				30410A0D27A6708A00284446 /* MainSettingsView.swift in Sources */,
 				30410A7E27A677EB00284446 /* ProfileSetting.swift in Sources */,

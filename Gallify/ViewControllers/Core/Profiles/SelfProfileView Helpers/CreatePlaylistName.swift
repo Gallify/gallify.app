@@ -30,7 +30,7 @@ struct CreatePlaylistName: View {
                 }
                 
                 
-                let words = ["Featured", "featured", "Liked", "liked", "Owned", "owned", "Created", "created", "reviewed","Reviewed", "approved","Approved"]
+                let words = ["Featured", "featured", "Liked", "liked", "Owned", "owned", "Created", "created", "reviewed","Reviewed", "approved","Approved", "Review", "review", "Publish", "publish", "Published", "published"]
                 let combinedResult = words.contains(where: playlistName.contains)
                 if combinedResult {
                     ErrorText(errorText: "Playlist or Collection cannot have this name.", screenHeight: screenHeight, screenWidth: screenWidth)

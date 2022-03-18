@@ -5,6 +5,7 @@
 //  Created by Anshul on 10/8/21.
 //
 import SwiftUI
+import Firebase
 
 struct PrivacyPolicyViewHeader: View {
     
@@ -28,7 +29,7 @@ struct PrivacyPolicyViewHeader: View {
                 
             HStack {
                             
-                Text("User Agreement")
+                Text("Verification Email Sent")
                     .font(.system(size: screenWidth / 12.5, weight: .semibold))
                             
                 Spacer()
@@ -39,7 +40,8 @@ struct PrivacyPolicyViewHeader: View {
             
             HStack {
                 
-                Text("Last updated: May 23rd 2021")
+                
+                Text("An message to verify your account was sent to your email.")
                     .font(.system(size: screenWidth / 29))
                     .foregroundColor(.gray)
                 
