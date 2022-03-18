@@ -16,7 +16,6 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
 
     enum CodingKeys: CodingKey {
 
-        case id
         case name
         case creator
         case creator_url
@@ -34,11 +33,12 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         case likes
         case followers_url
         case searchType //when search, need to know artist, collection, or art
+        case playlist_id
+        case description
 
 
     }
 
-    @Published var id: String
     @Published var name: String
     @Published var creator: String
     @Published var creator_url: String
@@ -56,11 +56,12 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var likes: Int
     @Published var followers_url: String
     @Published var searchType: String
+    @Published var playlist_id: String
+    @Published var description: String
 
     
     init() {
         
-        id = ""
         name = ""
         creator = ""
         creator_url = ""
@@ -78,12 +79,11 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         likes = 0
         followers_url = ""
         searchType = ""
-
+        playlist_id = ""
+        description = ""
     }
     
     init(newName: String, pri: Int, type: String) {
-        
-        id = ""
         name = newName
         creator = ""
         creator_url = ""
@@ -101,35 +101,15 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         likes = 0
         followers_url = ""
         searchType = ""
+        playlist_id = ""
+        description = ""
+    }
 
-    }
-    
-    init(newid: String) {
-        id = newid
-        name = ""
-        creator = ""
-        creator_url = ""
-        playlist_type = ""
-        share_url = ""
-        auction = false
-        auction_start = 0
-        auction_end = 0
-        privacy = 0
-        genre = ""
-        location = ""
-        cover_art_url = ""
-        art = [String]()
-        popularity = 0
-        likes = 0
-        followers_url = ""
-        searchType = ""
-    }
     required init(from decoder: Decoder) throws {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
      
         name = try container.decode(String.self, forKey: .name)
-        id = try container.decode(String.self, forKey: .id)
         creator = try container.decode(String.self, forKey: .creator)
         creator_url = try container.decode(String.self, forKey: .creator_url)
         playlist_type = try container.decode(String.self, forKey: .playlist_type)
@@ -146,6 +126,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         likes = try container.decode(Int.self, forKey: .likes)
         followers_url = try container.decode(String.self, forKey: .followers_url)
         searchType = try container.decode(String.self, forKey: .searchType)
+        playlist_id = try container.decode(String.self, forKey: .playlist_id)
+        description = try container.decode(String.self, forKey: .description)
 
 
     }
@@ -154,7 +136,6 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
 
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        try container.encode(id ,forKey: .id)
         try container.encode(creator, forKey: .creator)
         try container.encode(playlist_type, forKey: .playlist_type)
         try container.encode(auction, forKey: .auction)
@@ -171,6 +152,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(location, forKey: .location)
         try container.encode(creator_url, forKey: .creator_url)
         try container.encode(searchType, forKey: .searchType)
+        try container.encode(playlist_id, forKey: .playlist_id)
+        try container.encode(description, forKey: .description)
 
     }
 }

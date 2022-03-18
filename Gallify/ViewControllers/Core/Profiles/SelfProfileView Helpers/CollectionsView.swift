@@ -17,7 +17,7 @@ struct CollectionsView: View {
     @Environment(\.dismiss) var dismiss
 
     
-    let art_id: String
+    let art : Art
     
     var body: some View {
         
@@ -53,7 +53,7 @@ struct CollectionsView: View {
                     .padding(.leading, screenWidth / 15)
                     .onTapGesture {
                         Task {
-                            await firestoreQuery.addArtToPlaylist(art: Art(id:self.art_id), playlist_id: playlist.id)
+                            await firestoreQuery.addArtToPlaylist(art: art, playlist_id: playlist.playlist_id)
                         }
                     }
         

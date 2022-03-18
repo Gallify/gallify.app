@@ -99,10 +99,10 @@ extension FirestoreQuery {
     
   //  @available(iOS 15.0.0, *)
     func getUser_await() async {
-        let userEmail = Auth.auth().currentUser?.email
+        let userId = Auth.auth().currentUser?.uid
       
         
-        let docRef = try await FirestoreQuery.db.collection("users").document(userEmail ?? "info@gallify.app").getDocument { (document, error) in
+        let docRef = try await FirestoreQuery.db.collection("users").document(userId ?? "info@gallify.app").getDocument { (document, error) in
            let result = Result {
             try document?.data(as: User.self)
            }
@@ -123,14 +123,14 @@ extension FirestoreQuery {
              // A `User` value could not be initialized from the DocumentSnapshot.
              print("Error decoding user: \(error)")
            }
-         }  
+         }
     }
     
     func getUser_await2() async throws -> User {
-        let userEmail = Auth.auth().currentUser?.email
+        let userId = Auth.auth().currentUser?.uid
       
         
-        let docRef = try await FirestoreQuery.db.collection("users").document(userEmail ?? "info@gallify.app").getDocument { (document, error) in
+        let docRef = try await FirestoreQuery.db.collection("users").document(userId ?? "info@gallify.app").getDocument { (document, error) in
            let result = Result {
             try document?.data(as: User.self)
            }
@@ -157,15 +157,36 @@ extension FirestoreQuery {
     }
     
     
+    func getUser_New() async {
+        let userId = Auth.auth().currentUser?.uid
+        
+        do {
+            
+            let doc = try await FirestoreQuery.db.collection("users").document(FirestoreQuery.userId ?? "help")
+                .getDocument().data(as: User.self)
+            
+            guard let theMuseumlist = doc else{
+                throw DatabaseError.failed
+            }
+            
+            self.data = theMuseumlist
+            
+        }
+        catch{
+            print("Error")
+        }
+    }
+    
+    
     //pwe
     func fetchData() async {
-        let userEmail = Auth.auth().currentUser?.email
-        print("EMAILj")
-        print(userEmail)
+        let userId = Auth.auth().currentUser?.uid
+        //print("EMAILj")
+       // print(userEmail)
 
         do {
             let doc = try await FirestoreQuery.db.collection("users")
-                .document(userEmail ?? "info@gallify.app")
+                .document(userId ?? "info@gallify.app")
                 .getDocument().data(as: User.self)
 
             print("DOC")
@@ -176,25 +197,25 @@ extension FirestoreQuery {
             }
 
             self.data = theUser
-            
+
             
             print("DATA")
             print(self.data.email)
 
             //
 
-//            let doc2 = try await FirestoreQuery.db.collection("playlists")
-//                .document(data.featured)
-//                .getDocument().data(as: Playlist.self)
-//
-//
-//            guard let thefeaturedPlaylist = doc2 else{
-//                throw DatabaseError.failed
-//            }
-//
-//            self.featuredPlaylist = thefeaturedPlaylist
-//
-//            //
+            let doc2 = try await FirestoreQuery.db.collection("playlists")
+                .document(data.featured)
+                .getDocument().data(as: Playlist.self)
+
+
+            guard let thefeaturedPlaylist = doc2 else{
+                throw DatabaseError.failed
+            }
+
+            self.featuredPlaylist = thefeaturedPlaylist
+
+            //
 
         }
         catch{

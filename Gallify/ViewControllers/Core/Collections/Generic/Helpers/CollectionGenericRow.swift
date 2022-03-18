@@ -10,19 +10,26 @@ import FirebaseFirestore
 import FirebaseAuth
 import SDWebImageSwiftUI
 
+class CollectionGenericController: ObservableObject {
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
+    func assignValuesInFirestore(art: Art, playlist: Playlist){
+        firestoreQuery.artisClicked = art.artId
+        firestoreQuery.playlistThatsPlaying = playlist
+    }
+}
 
 struct CollectionGenericRow: View {
     let screenWidth: CGFloat
     let screenHeight: CGFloat
     let thePlaylist: Playlist
     @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @ObservedObject var controller : CollectionGenericController
     
     //state variables. These will be changed. Then will update FirestoreQuery versions. Then the FirestoreQuery versions will be updated.
     @State var playlist: [Art] = [Art]()
     //@State var playlist = firestoreQuery.playlist
     @State var playlistArt: [Art] = [Art]()
     @State var art: Art = Art()
-    //@State var veggies : [String] = ["app", "cat"]
     
     @State private var showingSheet = false
     @State private var deleteFromPlaylist = false
@@ -81,8 +88,6 @@ struct CollectionGenericRow: View {
 //                                        .foregroundColor(Color.black)
 //                                        .padding(.trailing, screenWidth / 7.5)
 //                                        .offset(x:15)
-//
-//
 //                                })
 
                                 NavigationLink(destination: OtherProfileView(),
@@ -103,20 +108,19 @@ struct CollectionGenericRow: View {
                         ForEach(playlist) { artwork in
                             
                             Button(action: {
-                               
-                                firestoreQuery.data.isClicked = artwork.art_id
-                                firestoreQuery.artisClicked = artwork.art_id as! String
-                                firestoreQuery.artThatsPlaying = artwork
-                                firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
-                                firestoreQuery.isPresented.toggle()
-                                firestoreQuery.maximized = true
-                                firestoreQuery.showNewScreen = true
-                                art = artwork
+                            
+                                    firestoreQuery.artisClicked = art.artId
+                                    firestoreQuery.artThatsPlaying = artwork
+                                    firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
+                                    firestoreQuery.isPresented.toggle()
+                                    firestoreQuery.maximized = true
+                                    firestoreQuery.showNewScreen = true
+                                    
+                                    print("ID of this art = ", art.artId)
                                 
                             }){
                                 HStack {
-                                    
-                                    
+                                
                                         HStack {
                                                 
                                             WebImage(url: URL(string: artwork.thumbnail))
@@ -125,7 +129,7 @@ struct CollectionGenericRow: View {
                                                 
                                             VStack(alignment: .leading) {
                                                     
-                                                if(firestoreQuery.artisClicked == artwork.art_id){
+                                                if(firestoreQuery.artisClicked == artwork.artId){
                                                     Text(artwork.name)
                                                         .foregroundColor(Color("Gallify-Pink"))
                                                         .fontWeight(.bold)
@@ -154,20 +158,21 @@ struct CollectionGenericRow: View {
                                         
                                         Button(action: {
                                             firestoreQuery.showArtOptions = true
+                                            self.art = artwork
                                         }, label: {
-                                            
                                             Image(systemName: "ellipsis")
                                                 .foregroundColor(.black)
-                                            
                                         })
-                                            .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                        .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
                                             ActionSheet(
                                                 title: Text("Select"),
                                                 buttons: [
                                                     .default(Text("Delete art from Playlist")) {
-                                                        async {await firestoreQuery.deleteArtFromPlaylist(art_id: art.art_id, playlist_id: firestoreQuery.playlist.id)}
-                                                        deleteFromPlaylist = true
-                                                        
+                                                        Task
+                                                        {
+                                                            await firestoreQuery.deleteArtFromPlaylist(art_id: self.art.artId, playlist_id: thePlaylist.playlist_id)
+                                                            await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
+                                                        }
                                                     },
                                                     .default(Text("Add to Playlist")) {
 
@@ -179,44 +184,36 @@ struct CollectionGenericRow: View {
                                                         //firestoreQuery.addToPlaylist(artwork.art_id)
                                                         firestoreQuery.showArtOptions = false
                                                     }
-
-
                                                 ]
                                             )
                                         }
                                         .sheet(isPresented: $showingSheet) {
                                             
-                                            CollectionsView(art_id: art.art_id)
+                                            CollectionsView(art: art)
                                         
                                         }
                                         
-                                      
                                     }
                                     
                                 }
                                 .padding(.vertical, screenHeight / 160)
                                 .padding(.horizontal, screenWidth / 15)
-                                
                             }
-
                         }
                         .onMove { indexSet, offset in
                             playlist.move(fromOffsets: indexSet, toOffset: offset)
                             firestoreQuery.featuredArt = playlist
                             Task {
-                                await firestoreQuery.updateArtPlaylist(playlist_id: firestoreQuery.playlist.id, art_array: firestoreQuery.featuredArt)
+                                await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.featuredArt)
                             }
                         }
                         .listRowSeparator(.hidden)
-                        
                     }
                     .listStyle(InsetListStyle())
                     .toolbar {
                         EditButton()
                     }
                     .navigationBarTitle("")
-                    //.navigationBarHidden(true)
-        
                 }
                 .onAppear{
                     
@@ -244,6 +241,7 @@ struct CollectionGenericRow: View {
             await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
             //print("ART: \(firestoreQuery.playlistArt[1].creator)")
             playlist = firestoreQuery.playlistArt
+            firestoreQuery.playlist = thePlaylist
         }
     
     }

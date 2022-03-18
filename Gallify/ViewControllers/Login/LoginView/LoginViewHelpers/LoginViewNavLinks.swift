@@ -20,22 +20,29 @@ struct LoginViewNavLinks: View {
             NavigationLink(destination: SignInView(),
                             label: {
                 
+            
                 HStack {
                     
                     Text("Sign In")
+                        
                         .font(.system(size: screenWidth / 18.5, weight: .bold))
                         .foregroundColor(Color.white)
                         .padding(.horizontal, screenWidth / 3)
                         .padding(.vertical, screenHeight / 75)
                         .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
                         .cornerRadius(screenWidth / 10)
+                        
                         .padding(.horizontal, screenWidth / 30)
                         .padding(.vertical, screenHeight / 65)
+
                     
                 }
                 
+                    
+                
             })
             .navigationBarHidden(true)
+            
             
             NavigationLink(destination: CreateAccountView(),
                            label: {

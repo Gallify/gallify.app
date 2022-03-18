@@ -21,9 +21,9 @@ extension FirestoreQuery {
                                             
         do {
             
-            print("PLAYLIST ID = ", playlist_id, "ART ID = ", art.art_id)
+            print("PLAYLIST ID = ", playlist_id, "ART ID = ", art.artId)
             let doc = try await FirestoreQuery.db.collection("playlists").document(playlist_id).updateData([
-                "art": FieldValue.arrayUnion([art.art_id])
+                "art": FieldValue.arrayUnion([art.artId])
                 ])
             self.playlistArt.append(art)
             self.art = art
@@ -55,7 +55,7 @@ extension FirestoreQuery {
         let newPlaylist = Playlist(newName: name, pri: privacy, type: type)
     
         let docRef = try! Firestore.firestore().collection("playlists").document()
-        newPlaylist.id = docRef.documentID
+        newPlaylist.playlist_id = docRef.documentID
         do {
           try docRef.setData(from: newPlaylist)
         } catch {
@@ -75,7 +75,7 @@ extension FirestoreQuery {
            do {
                
                let doc = try FirestoreQuery.db.collection("art").document()
-               art.art_id = doc.documentID
+               art.artId = doc.documentID
                art.thumbnail = img
                print("NEW ART THUMBNAIL = ", art.thumbnail)
                try doc.setData(from: art)
@@ -104,7 +104,7 @@ extension FirestoreQuery {
                  } else {
                      Task {
                          var new_art = Art()
-                         await self.addArtToArtCollection(art: new_art, playlistId: playlist.id, img: url!.absoluteString)//had to create a new instance of Firestore Query because environment object wasn't being accepted, not sure if this is right
+                         await self.addArtToArtCollection(art: new_art, playlistId: playlist.playlist_id, img: url!.absoluteString)//had to create a new instance of Firestore Query because environment object wasn't being accepted, not sure if this is right
                      }
                  }
             }

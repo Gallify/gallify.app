@@ -68,7 +68,7 @@ struct CollectionGenericHeader: View {
                                 showLandingPage = true
                             },
                             .default(Text("Delete Playlist")) {
-                                async{ await firestoreQuery.deletePlaylistFromLibrary(playlist_id: firestoreQuery.playlist.id)}
+                                async{ await firestoreQuery.deletePlaylistFromLibrary(playlist_id: firestoreQuery.playlist.playlist_id)}
                             },
                             .default(Text("Cancel")) {
                                 firestoreQuery.showPlaylistOptions = false

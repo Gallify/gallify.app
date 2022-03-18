@@ -21,11 +21,11 @@ struct SignInViewBody: View {
         
         VStack {
                 
-            if buttonPressed && !viewModel.signedIn {
-            
-                ErrorText(errorText: "Whoops! Email or Password is incorrect.", screenHeight: screenHeight, screenWidth: screenWidth)
-                    
-            }
+//            if buttonPressed && !viewModel.signedIn {
+//
+//                ErrorText(errorText: "Whoops! Email or Password is incorrect.", screenHeight: screenHeight, screenWidth: screenWidth)
+//
+//            }
 
             HStack {
                 
@@ -37,7 +37,7 @@ struct SignInViewBody: View {
             }
             .padding(.leading, screenWidth / 12)
             
-            TextField("you@gmail.com", text: $email)
+            TextField("you@email.com", text: $email)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
@@ -94,17 +94,28 @@ struct SignInViewBody: View {
                 }
                 
                 Button(action: {
+                    //viewModel.isSignedIn(email: email, password: password)
                     
-                    viewModel.signIn(email: email, password: password)
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
-//                    {
-//                        buttonPressed = true
-//                    }
-//
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5)
-//                    {
-//                        buttonPressed = false
-//                    }
+                    Task{
+                        //try to sign in user.
+                        await viewModel.signIn(email: email, password: password)
+                       
+                        //reload current user
+                        await viewModel.reloadUser()
+                        
+                        //checks if user is verified. Result stored in viewModel.userVerified
+                        await viewModel.isVerified()
+                        
+                        print("user verified? sign in")
+                        print(viewModel.userVerified)
+                        if(viewModel.userVerified){
+                            let created = try await viewModel.documentCreated()
+                            if(created){
+                                viewModel.signedIn = true
+                            }
+                        }
+                    }
+                    
                     buttonPressed = true
                     
                 }) {
@@ -125,9 +136,12 @@ struct SignInViewBody: View {
                 
             }
             
-        }
+        } //
+       
         
     }
+
+
     
 }
 

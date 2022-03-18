@@ -1,5 +1,5 @@
 /*
- This model contains 
+ This model contains
 
  Long term: Users: Fields: min info. 2 subcollections. [profile][user-details]
  */
@@ -43,11 +43,18 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         case shareUrl
         
         case job
-        case isClicked
         case wallet
         case featured
         
         case description
+        case link
+        case liked
+        case owned
+        case review
+        case created
+        
+        
+        
     }
     
     @Published var uid : String   // NOT sure why all of these are published? @Shruti or @Anshul, you know?
@@ -81,11 +88,16 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var shareUrl: String
     
     @Published var job: String
-    @Published var isClicked: String
     @Published var wallet: String
     @Published var featured: String
     
     @Published var description: String
+    @Published var link: String
+    @Published var liked: String
+    @Published var owned: String
+    @Published var review: String
+    @Published var created: String
+    
   
     init() {
         
@@ -120,11 +132,15 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         shareUrl = ""
         
         job = ""
-        isClicked = ""
         wallet = ""
         featured = ""
         
         description = ""
+        link = ""
+        liked = ""
+        owned = ""
+        review = ""
+        created = ""
     }
 
     
@@ -162,11 +178,16 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         shareUrl = try container.decode(String.self, forKey: .shareUrl)
         
         job = try container.decode(String.self, forKey: .job)
-        isClicked = try container.decode(String.self, forKey: .isClicked)
         featured = try container.decode(String.self, forKey: .featured)
         wallet = try container.decode(String.self, forKey: .wallet)
         
         description = try container.decode(String.self, forKey: .description)
+        link = try container.decode(String.self, forKey: .link)
+        liked = try container.decode(String.self, forKey: .liked)
+        owned = try container.decode(String.self, forKey: .owned)
+        review = try container.decode(String.self, forKey: .review)
+        created = try container.decode(String.self, forKey: .created)
+        
     }
     
     func encode(to encoder: Encoder) throws {
@@ -204,10 +225,14 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         
         try container.encode(job, forKey: .job)
         try container.encode(featured, forKey: .featured)
-        try container.encode(isClicked, forKey: .isClicked)
         try container.encode(wallet, forKey: .wallet)
         
         try container.encode(description, forKey: .description)
+        try container.encode(link, forKey: .link)
+        try container.encode(liked, forKey: .liked)
+        try container.encode(owned, forKey: .owned)
+        try container.encode(review, forKey: .review)
+        try container.encode(created, forKey: .created)
 
     }
 

@@ -39,8 +39,7 @@ class FirestoreQuery : ObservableObject {
     @Published var scrollTo = -1 //once art is clicked, this variable determines where to scroll to in the 'reels' view.
 
     
-    
-    //action menus. 
+    //action menus.
     @Published var showPlaylistOptions = false
     @Published var showArtOptions = false
     @Published var showFeaturedOptions = false
@@ -49,7 +48,7 @@ class FirestoreQuery : ObservableObject {
     @Published var isPresented = false //for drop down reels. To know when to present. Not firestore related at all.
     
     //tabbar
-    @Published var data : User = User()
+    @Published var data : User = User() //for the current user.
     
     //self profile
     @Published var userLibrary: [Playlist] = [Playlist]()
@@ -84,8 +83,7 @@ class FirestoreQuery : ObservableObject {
     var discoverQuery: Query!
     
     //AR Player
-    
-    //@Published var models: [Model] = []
+//@Published var models: [Model] = []
     
  
     
@@ -95,13 +93,13 @@ class FirestoreQuery : ObservableObject {
     
     //list
     @Published var playlist: Playlist = Playlist()
-    @Published var playlistArt: [Art] = [Art]() //THE VARIABLE THAT INDICATES WHICH PLAYLIST WE ARE CURRENTLY ON?
+    @Published var playlistArt: [Art] = [Art]()
     @Published var art: Art = Art()
     
     
     //basic
     static let db = Firestore.firestore()
-    static let userEmail = Auth.auth().currentUser?.email
+    static let userId = Auth.auth().currentUser?.uid
     
     enum DatabaseError: String, Error{
         case failed = "failed"
@@ -115,11 +113,11 @@ class FirestoreQuery : ObservableObject {
      Get User information
      */
     func getUser() {
-        let userEmail = Auth.auth().currentUser?.email
+        let userId = Auth.auth().currentUser?.uid
         print("EMAIL")
-        print(userEmail)
+        print(userId)
         
-        FirestoreQuery.db.collection("users").document(userEmail ?? "info@gallify.app") //If user can't get email, we need alternate fix.
+        FirestoreQuery.db.collection("users").document(userId ?? "info@gallify.app") //If user can't get email, we need alternate fix.
             .addSnapshotListener { queryDocumentSnapshot, error in
                 if error == nil { //if no errors
                     if let document = queryDocumentSnapshot{
@@ -145,7 +143,7 @@ class FirestoreQuery : ObservableObject {
     
     
     func fetchUser() {
-        let docRef = FirestoreQuery.db.collection("users").document(Auth.auth().currentUser!.email!)
+        let docRef = FirestoreQuery.db.collection("users").document(Auth.auth().currentUser!.uid)
          docRef.getDocument { (document, error) in
            let result = Result {
             try document?.data(as: User.self)

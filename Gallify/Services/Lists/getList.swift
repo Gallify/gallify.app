@@ -11,58 +11,28 @@ import FirebaseAuth
 
 extension FirestoreQuery {
     
+    //pwe
     func getFeaturedPlaylist() async {
-        let useremail = Auth.auth().currentUser?.email
-        
-        if !(self.userLibrary.isEmpty) {
-            for playlist in self.userLibrary {
-                if playlist.name == "Featured" {
-                    DispatchQueue.main.async {
-                       
-                        self.featuredPlaylist = playlist
-                        print("IS FEATURED PLAYLIST's ART EMPTY in get featured playlist? --->", self.featuredPlaylist.art.isEmpty)
-                    }
-//                    do {
-//                        let doc2 = try await FirestoreQuery.db.collection("playlists")
-//                            .document(playlist.id)
-//                            .getDocument().data(as: Playlist.self)
-//                        guard let thefeaturedPlaylist = doc2 else{
-//                            throw DatabaseError.failed
-//                        }
-//                        DispatchQueue.main.async {
-//
-//                            self.featuredPlaylist = thefeaturedPlaylist
-//                            print("IS FEATURED PLAYLIST's ART EMPTY in get featured playlist? --->", self.featuredPlaylist.art.isEmpty)
-//                        }
-//                    }catch {
-//                        print("Error fetching Featured playlist")
-//                    }
+        let userId = Auth.auth().currentUser?.uid
 
-                }
+        do {
+            let doc2 = try await FirestoreQuery.db.collection("playlists")
+                .document(data.featured)
+                .getDocument().data(as: Playlist.self)
+
+
+            guard let thefeaturedPlaylist = doc2 else{
+                throw DatabaseError.failed
             }
-        } else {
-            return
+
+            self.featuredPlaylist = thefeaturedPlaylist
+
         }
-//        do {
-//            let doc2 = try await FirestoreQuery.db.collection("playlists")
-//                .document(data.featured)
-//                .getDocument().data(as: Playlist.self)
-//
-//
-//            guard let thefeaturedPlaylist = doc2 else{
-//                throw DatabaseError.failed
-//            }
-//
-//            self.featuredPlaylist = thefeaturedPlaylist
-//
-//        }
-//        catch{
-//            print("Error")
-//        }
-//    }
+        catch{
+            print("Error")
+        }
+    }
     
-    
-}
     /*
      Featured Art = the art elements per featured playlist, not just the ids.
      */
@@ -75,8 +45,8 @@ extension FirestoreQuery {
         //self.featuredArt.removeAll()
         
         var art_array = [Art]()
-        print("IS FEATURED PLAYLIST's ART EMPTY in get featured art? --->", featuredPlaylist.art.isEmpty)
-        for art_id in await featuredPlaylist.art {
+        
+        for art_id in featuredPlaylist.art {
             do {
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(art_id)
@@ -85,9 +55,8 @@ extension FirestoreQuery {
                 guard let theArt = doc else{
                     throw DatabaseError.failed
                 }
-
-                self.featuredArt.append(theArt)
-                print("APPENDING ART ---> ", theArt.art_id)
+                
+               // self.featuredArt.append(theArt)
                 //art_array.append(doc!)
                 art_array.append(theArt)
                 
@@ -98,7 +67,7 @@ extension FirestoreQuery {
             }
         }
         
-//        self.featuredArt = art_array
+        self.featuredArt = art_array
         
     }
     
@@ -107,7 +76,7 @@ extension FirestoreQuery {
      gets a playlist given id.
      */
     func getPlaylist(playlist_id: String) async {
-        let userEmail = Auth.auth().currentUser?.email
+        let userId = Auth.auth().currentUser?.uid
         
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
@@ -132,7 +101,6 @@ extension FirestoreQuery {
      
      Always needs to be called after getPlaylist()
      */
-    @MainActor
     func getPlaylistArt(playlist: Playlist) async {
         
 //        if !(playlistArt.isEmpty){ //if featured playlist isnt empty, then return.
@@ -152,15 +120,15 @@ extension FirestoreQuery {
                 guard let theArt = doc else{
                     throw DatabaseError.failed
                 }
-
+                
                // self.featuredArt.append(theArt)
                 //art_array.append(doc!)
                 art_array.append(theArt)
-                self.playlistArt = art_array
+                
                 //
             }
             catch{
-                print("Error")
+                print("Error in getPLaylistArt")
             }
         }
         
@@ -168,16 +136,6 @@ extension FirestoreQuery {
         
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
 }

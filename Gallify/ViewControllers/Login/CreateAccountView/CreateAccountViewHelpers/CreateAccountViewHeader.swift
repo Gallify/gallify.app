@@ -30,7 +30,7 @@ struct CreateAccountViewHeader: View {
                         
                 Text("Create Account")
                     .font(.system(size: screenWidth / 12.5, weight: .semibold))
-                        
+                    
                 Spacer()
                         
             }

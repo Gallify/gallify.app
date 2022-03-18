@@ -76,7 +76,7 @@ struct SelfProfileView : View {
     }
     
     func NetworkingCall() async {
-        await firestoreQuery.getUserData()
+        await firestoreQuery.getData()
        // await firestoreQuery.getUser()
         
         await firestoreQuery.getFeaturedPlaylist()

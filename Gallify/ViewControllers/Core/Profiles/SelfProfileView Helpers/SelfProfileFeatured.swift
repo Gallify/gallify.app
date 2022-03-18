@@ -55,7 +55,7 @@ struct SelfProfileFeatured: View {
                             
                             Button(action: {
                                    
-                                firestoreQuery.artisClicked = artwork.art_id
+                                firestoreQuery.artisClicked = artwork.artId
                                 firestoreQuery.artThatsPlaying = artwork
                                 firestoreQuery.playlistThatsPlaying = firestoreQuery.featuredPlaylist
                                 firestoreQuery.artworkThatsPlaying = firestoreQuery.featuredArt
@@ -79,7 +79,7 @@ struct SelfProfileFeatured: View {
                                                     
                                         VStack(alignment: .leading) {
                                                         
-                                            if (firestoreQuery.artisClicked == artwork.art_id) {
+                                            if (firestoreQuery.artisClicked == artwork.artId) {
                                                 
                                                 Text(artwork.name)
                                                     .foregroundColor(Color("Gallify-Pink"))

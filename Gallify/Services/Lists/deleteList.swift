@@ -21,19 +21,17 @@ extension FirestoreQuery {
             print("ART ID RECEIVED IN DELETE = ", art_id)
             let doc = try await FirestoreQuery.db.collection("playlists").document(playlist_id).updateData([
                 "art": FieldValue.arrayRemove([art_id])
-                ])
-//            var i = 0
-//            for art in playlistArt {
-//                if (art.art_id == art_id) {
-//                    playlistArt.remove(at: i)
-//                }
-//                i=i+1
-//            }
-//            playlistArt.removeAll { art in
-//                art.art_id == art_id
-//            }
-            playlistArt = playlistArt.filter { art in
-                art.art_id != art_id
+            ])
+            for art in playlistArt {
+                print("art id = ", art.artId)
+            }
+            DispatchQueue.main.async {
+                self.playlistArt.removeAll { art in
+                    art.artId == art_id
+                }
+            }
+            for art in playlistArt {
+                print("art id = ", art.artId)
             }
         }
         catch{
@@ -48,7 +46,7 @@ extension FirestoreQuery {
                 ["Library" : FieldValue.arrayRemove([playlist_id])]
             )
             userLibrary.removeAll { pl in
-                pl.id == playlist_id
+                pl.playlist_id == playlist_id
             }
         }
         catch{

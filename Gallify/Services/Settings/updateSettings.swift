@@ -15,7 +15,6 @@ import SwiftUI
 extension FirestoreQuery {
 
     func updateUsername(username: String) async {
-        print("NEW USERNAME = ",username)
         do {
             try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.email)!).updateData(
                 ["username" : username]
@@ -87,7 +86,7 @@ extension FirestoreQuery {
         do {
             try await FirestoreQuery.db.collection("user").document((Auth.auth().currentUser?.email)!).updateData(["description" : desc]
             )
-            self.data.description = desc 
+            self.data.description = desc
         } catch { 
             print("Error updating description of user bio/description \(error.localizedDescription)")
         }

@@ -16,11 +16,11 @@ extension FirestoreQuery {
      This function is getUser and getfeaturedPlaylist combined.
      */
     func getData() async {
-        let userEmail = Auth.auth().currentUser?.email
+        let userId = Auth.auth().currentUser?.uid
         
         do {
             let doc = try await FirestoreQuery.db.collection("users")
-                .document(userEmail ?? "info@gallify.app")
+                .document(userId ?? "info@gallify.app")
                 .getDocument().data(as: User.self)
             
             guard let theUser = doc else{
@@ -54,12 +54,12 @@ extension FirestoreQuery {
      This function is getUser and stores user data in 'data'
      */
     func getUser() async {
-        let userEmail = Auth.auth().currentUser?.email
+        let userId = Auth.auth().currentUser?.uid
         print("EMAIL GET USER")
-        print(userEmail)
+        //print(userEmail)
         do {
             let doc = try await FirestoreQuery.db.collection("users")
-                .document(userEmail ?? "info@gallify.app")
+                .document(userId ?? "info@gallify.app")
                 .getDocument().data(as: User.self)
             
             guard let theUser = doc else{
@@ -76,14 +76,15 @@ extension FirestoreQuery {
     
     //pwe
     func getUserData() async {
-        let userEmail = Auth.auth().currentUser?.email
+        let userId = Auth.auth().currentUser?.uid
         print("EMAILjj")
-        print(userEmail)
+       // print(userEmail)
 
         do {
             let doc = try await FirestoreQuery.db.collection("users")
-                .document(userEmail ?? "info@gallify.app")
-                .getDocument().data(as: User.self)
+                .document(userId ?? "info@gallify.app")
+                .getDocument()
+                .data(as: User.self)
 
             print("DOC")
             print(doc)
@@ -93,7 +94,7 @@ extension FirestoreQuery {
             }
 
             self.data = theUser
-            
+
             print("DATA")
             print(self.data.email)
 
@@ -170,7 +171,7 @@ extension FirestoreQuery {
                // self.featuredArt.append(theArt)
                 //art_array.append(doc!)
                 playlist_array.append(thePlaylist)
-                print("APPENDING to playlist_array in firestore query => ", thePlaylist.name)
+                
                 //
             }
             catch{
@@ -225,7 +226,7 @@ extension FirestoreQuery {
      This function is getUser and stores user data in 'data'
      */
     func getOtherUser(user_id: String) async {
-        let userEmail = Auth.auth().currentUser?.email
+        //let userId = Auth.auth().currentUser?.uid
         
         do {
             let doc = try await FirestoreQuery.db.collection("users")

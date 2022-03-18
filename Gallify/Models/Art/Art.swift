@@ -13,240 +13,192 @@
 import Foundation
 import Swift
 import FirebaseFirestore
+import Firebase
+import FirebaseFirestoreSwift
+//import CodableFirebase
+
 
 class Art: Encodable, Decodable, ObservableObject, Identifiable {
-
+   
     enum CodingKeys: CodingKey {
 
-        case name
-        case creator
-        case content_url
-        case thumbnail
-        case collection_coverart_url
-        //case artwork_url //g o n e
-        case popularity
-        case share_url
-        case art_id //if add to playlist
-        case content_type
-        case price
-        case likes
-        case genre
-        case location
-        case creator_url
-        case searchType //when search, need to know artist, collection, or art
-        
-        case owner
-        case content_url_ipfs
-        case price_url_ipfs
-        case owner_url_ipfs
-        case thumbnail_url_ipfs
+        case artId
         case collection
-        case lastSoldPrice
-        case lastSold_timestamp
-        case created_timestamp //t
+        case collectionCoverartUrl
+        case contentURL
+        case contentType
+        case creator
+        case creatorId
+        case createdDate
         case createdPrice
-        case token_id
-        case description
         
+        case desc
+        case forSale
+        case genre
+        case history
+        case latestHistoryDate
+        case likes
+        case location
+        case metadataUrl
+        case name
+        case owner
+        case ownerId
+        case popularity
+        case price
         
+        case searchType
+        case shareUrl
+        case storageName
+        case thumbnail
+        case tokenId
+        
+        case value
         
     }
-
-    @Published var art_id : String
-    @Published var name: String
-    @Published var creator: String
-    @Published var content_url: String
-    @Published var thumbnail: String
-    @Published var collection_coverart_url: String
-    @Published var popularity: Int
-    @Published var share_url: String
-    @Published var content_type: Int
-    @Published var price: Float
-    @Published var likes: Int
-    @Published var genre: String
-    @Published var location: String
-    @Published var creator_url: String
-    @Published var searchType: String
     
-    @Published var owner: String
-    @Published var content_url_ipfs: String
-    @Published var price_url_ipfs: String
-    @Published var owner_url_ipfs: String
-    @Published var thumbnail_url_ipfs: String
+    
+    @Published var artId: String
     @Published var collection: String
-    @Published var lastSoldPrice: Float
-    @Published var created_timestamp: Int
-    @Published var lastSold_timestamp: Int
-    @Published var createdPrice: Float
-    @Published var token_id: String
-    @Published var description: String
+    @Published var collectionCoverartUrl: String
+    @Published var contentUrl: String
+    @Published var contentType: Int
+    @Published var creator: String
+    @Published var creatorId: String
+    @Published var createdDate: String
+    @Published var createdPrice: Double
+    
+    @Published var desc: String
+    @Published var forSale: Bool
+    @Published var genre: String
+    @Published var history: [String]
+    @Published var latestHistoryDate : String
+    @Published var likes: Int
+    @Published var location: String
+    @Published var metadataUrl: String
+    @Published var name: String
+    @Published var owner: String
+    @Published var ownerId: String
+    @Published var popularity: Int
+    @Published var price: String
+    
+    @Published var searchType: Int
+    @Published var shareUrl: String
+    @Published var storageName: String
+    @Published var thumbnail: String
+    @Published var tokenId: Int
+    
 
     
     init() {
-
-        art_id = ""
-        name = ""
+    
+        artId = ""
+        collection = ""
+        collectionCoverartUrl = ""
+        contentUrl = ""
+        contentType = 0
         creator = ""
-        content_url = ""
+        creatorId = ""
+        createdDate = ""
+        createdPrice = 0
+        desc = ""
+        forSale = false
+        genre = ""
+        history = [String]()
+        latestHistoryDate = ""
+        likes = 0
+        location = ""
+        metadataUrl = ""
+        name = ""
+        owner = ""
+        ownerId = ""
+        popularity = 0
+        price = ""
+        
+        searchType = 0
+        shareUrl = ""
+        storageName = ""
         thumbnail = ""
-        collection_coverart_url = ""
-        popularity = 0
-        share_url = ""
-        content_type = 0
-        price = 0
-        likes = 0
-        genre = ""
-        location = ""
-        creator_url = ""
-        searchType = ""
-        //owner, collection, last sold, created date, tokenid. description, playlist, last sold, released, released price,token_id
-        
-        owner = ""
-        content_url_ipfs = ""
-        price_url_ipfs = ""
-        owner_url_ipfs = ""
-        thumbnail_url_ipfs = ""
-        collection = ""
-        lastSoldPrice = 0
-        lastSold_timestamp = 0
-        created_timestamp = 0 //t
-        createdPrice = 0
-        token_id = ""
-        description = ""
-        
+        tokenId = 0
+       
 
     }
-    
-    init(id: String) {
-        art_id = id
-        name = ""
-        creator = ""
-        content_url = ""
-        thumbnail = ""
-        collection_coverart_url = ""
-        popularity = 0
-        share_url = ""
-        content_type = 0
-        price = 0
-        likes = 0
-        genre = ""
-        location = ""
-        creator_url = ""
-        searchType = ""
-        //owner, collection, last sold, created date, tokenid. description, playlist, last sold, released, released price,token_id
-        
-        owner = ""
-        content_url_ipfs = ""
-        price_url_ipfs = ""
-        owner_url_ipfs = ""
-        thumbnail_url_ipfs = ""
-        collection = ""
-        lastSoldPrice = 0
-        lastSold_timestamp = 0
-        created_timestamp = 0 //t
-        createdPrice = 0
-        token_id = ""
-        description = ""
-    }
-    
-    init(imgUrl: String) {
-        art_id = ""
-        name = ""
-        creator = ""
-        content_url = ""
-        thumbnail = imgUrl
-        collection_coverart_url = ""
-        popularity = 0
-        share_url = ""
-        content_type = 0
-        price = 0
-        likes = 0
-        genre = ""
-        location = ""
-        creator_url = ""
-        searchType = ""
-        //owner, collection, last sold, created date, tokenid. description, playlist, last sold, released, released price,token_id
-        
-        owner = ""
-        content_url_ipfs = ""
-        price_url_ipfs = ""
-        owner_url_ipfs = ""
-        thumbnail_url_ipfs = ""
-        collection = ""
-        lastSoldPrice = 0
-        lastSold_timestamp = 0
-        created_timestamp = 0 //t
-        createdPrice = 0
-        token_id = ""
-        description = ""
-    }
-    
+
 
     required init(from decoder: Decoder) throws {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-     
-        art_id = try container.decode(String.self, forKey: .art_id)
-        name = try container.decode(String.self, forKey: .name)
-        creator = try container.decode(String.self, forKey: .creator)
-        content_url = try container.decode(String.self, forKey: .content_url)
-        thumbnail = try container.decode(String.self, forKey: .thumbnail)
-        collection_coverart_url = try container.decode(String.self, forKey: .collection_coverart_url)
-        popularity = try container.decode(Int.self, forKey: .popularity)
-        share_url = try container.decode(String.self, forKey: .share_url)
-        content_type = try container.decode(Int.self, forKey: .content_type)
-        price = try container.decode(Float.self, forKey: .price)
-        likes = try container.decode(Int.self, forKey: .likes)
-        genre = try container.decode(String.self, forKey: .genre)
-        location = try container.decode(String.self, forKey: .location)
-        creator_url = try container.decode(String.self, forKey: .creator_url)
-        searchType = try container.decode(String.self, forKey: .searchType)
-       
-        owner = try container.decode(String.self, forKey: .owner)
-        content_url_ipfs = try container.decode(String.self, forKey: .content_url_ipfs)
-        price_url_ipfs = try container.decode(String.self, forKey: .price_url_ipfs)
-        owner_url_ipfs = try container.decode(String.self, forKey: .owner_url_ipfs)
-        thumbnail_url_ipfs = try container.decode(String.self, forKey: .thumbnail_url_ipfs)
+        
+        artId = try container.decode(String.self, forKey: .artId)
         collection = try container.decode(String.self, forKey: .collection)
-        lastSoldPrice = try container.decode(Float.self, forKey: .lastSoldPrice)
-        lastSold_timestamp = try container.decode(Int.self, forKey: .lastSold_timestamp)
-        created_timestamp = try container.decode(Int.self, forKey: .created_timestamp)
-        createdPrice = try container.decode(Float.self, forKey: .createdPrice)
-        token_id = try container.decode(String.self, forKey: .token_id)
-        description = try container.decode(String.self, forKey: .description)
+        collectionCoverartUrl = try container.decode(String.self, forKey: .collectionCoverartUrl)
+        contentUrl = try container.decode(String.self, forKey: .contentURL)
+        contentType = try container.decode(Int.self, forKey: .contentType)
+        creator = try container.decode(String.self, forKey: .creator)
+        creatorId = try container.decode(String.self, forKey: .creatorId)
+        createdDate = try container.decode(String.self, forKey: .createdDate)
+        createdPrice = try container.decode(Double.self, forKey: .createdPrice)
+        
+        desc = try container.decode(String.self, forKey: .desc)
+        forSale = try container.decode(Bool.self, forKey: .forSale)
+        genre = try container.decode(String.self, forKey: .genre)
+        history = try container.decode([String].self, forKey: .history)
+        latestHistoryDate = try container.decode(String.self, forKey: .latestHistoryDate)
+
+        likes = try container.decode(Int.self, forKey: .likes)
+        location = try container.decode(String.self, forKey: .location)
+        metadataUrl = try container.decode(String.self, forKey: .metadataUrl)
+        name = try container.decode(String.self, forKey: .name)
+        owner = try container.decode(String.self, forKey: .owner)
+        ownerId = try container.decode(String.self, forKey: .ownerId)
+        popularity = try container.decode(Int.self, forKey: .popularity)
+        price = try container.decode(String.self, forKey: .price)
+        
+        searchType = try container.decode(Int.self, forKey: .searchType)
+        shareUrl = try container.decode(String.self, forKey: .shareUrl)
+        storageName = try container.decode(String.self, forKey: .storageName)
+        thumbnail = try container.decode(String.self, forKey: .thumbnail)
+        tokenId = try container.decode(Int.self, forKey: .tokenId)
+        
     }
     
+    
     func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(art_id, forKey: .art_id)
-        try container.encode(name, forKey: .name)
-        try container.encode(creator, forKey: .creator)
-        try container.encode(content_url, forKey: .content_url)
-        try container.encode(thumbnail, forKey: .thumbnail)
-        try container.encode(collection_coverart_url, forKey: .collection_coverart_url)
-        try container.encode(popularity, forKey: .popularity)
-        try container.encode(share_url, forKey: .share_url)
-        try container.encode(content_type, forKey: .content_type)
-        try container.encode(price, forKey: .price)
-        try container.encode(likes, forKey: .likes)
-        try container.encode(genre, forKey: .genre)
-        try container.encode(location, forKey: .location)
-        try container.encode(creator_url, forKey: .creator_url)
-        try container.encode(searchType, forKey: .searchType)
         
-        try container.encode(owner, forKey: .owner)
-        try container.encode(content_url_ipfs, forKey: .content_url_ipfs)
-        try container.encode(price_url_ipfs, forKey: .price_url_ipfs)
-        try container.encode(owner_url_ipfs, forKey: .owner_url_ipfs)
-        try container.encode(thumbnail_url_ipfs, forKey: .thumbnail_url_ipfs)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+       
+        try container.encode(artId, forKey: .artId)
         try container.encode(collection, forKey: .collection)
-        try container.encode(lastSoldPrice, forKey: .lastSoldPrice)
-        try container.encode(lastSold_timestamp, forKey: .lastSold_timestamp)
-        try container.encode(created_timestamp, forKey: .created_timestamp)
+        try container.encode(collectionCoverartUrl, forKey: .collectionCoverartUrl)
+        try container.encode(contentUrl, forKey: .contentURL)
+        try container.encode(contentType, forKey: .contentType)
+        try container.encode(creator, forKey: .creator)
+        try container.encode(creatorId, forKey: .creatorId)
+        try container.encode(createdDate, forKey: .createdDate)
         try container.encode(createdPrice, forKey: .createdPrice)
-        try container.encode(token_id, forKey: .token_id)
-        try container.encode(description, forKey: .description)
+        
+        try container.encode(desc, forKey: .desc)
+        try container.encode(forSale, forKey: .forSale)
+        try container.encode(genre, forKey: .genre)
+        try container.encode(history, forKey: .history)
+        try container.encode(latestHistoryDate, forKey: .latestHistoryDate)
+        try container.encode(likes, forKey: .likes)
+        try container.encode(location, forKey: .location)
+        try container.encode(metadataUrl, forKey: .metadataUrl)
+        try container.encode(name, forKey: .name)
+        try container.encode(owner, forKey: .owner)
+        try container.encode(ownerId, forKey: .ownerId)
+        try container.encode(popularity, forKey: .popularity)
+        try container.encode(price, forKey: .price)
+        
+        try container.encode(searchType, forKey: .searchType)
+        try container.encode(shareUrl, forKey: .shareUrl)
+        try container.encode(storageName, forKey: .storageName)
+        try container.encode(thumbnail, forKey: .thumbnail)
+        try container.encode(tokenId, forKey: .tokenId)
+        
+        
+        
+        
     }
     
 }

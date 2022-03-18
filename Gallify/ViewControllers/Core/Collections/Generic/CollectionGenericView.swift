@@ -32,7 +32,7 @@ struct CollectionGenericView: View {
                 
                 CollectionGenericHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
                 
-                CollectionGenericRow(screenWidth: screenWidth, screenHeight: screenHeight, thePlaylist: playlist)
+                CollectionGenericRow(screenWidth: screenWidth, screenHeight: screenHeight, thePlaylist: playlist, controller: CollectionGenericController())
                 
                 Spacer()
                 
