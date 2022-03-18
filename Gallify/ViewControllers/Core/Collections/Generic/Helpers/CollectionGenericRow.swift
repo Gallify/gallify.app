@@ -169,8 +169,6 @@ struct CollectionGenericRow: View {
                                                                 artwork.artId == art.artId
                                                             }
                                                             await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist: thePlaylist)
-                                                            
-//                                                            await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist) //<-- using playlist here because i am updating it after deleting from playlistArt
                                                         }
                                                     },
                                                     .default(Text("Add to Playlist")) {
@@ -204,8 +202,8 @@ struct CollectionGenericRow: View {
                             firestoreQuery.featuredArt = playlist
                             Task {
                                 await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.featuredArt)
-//                                await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
                             }
+                            playlist = firestoreQuery.featuredArt
                         }
                         .listRowSeparator(.hidden)
                     }
