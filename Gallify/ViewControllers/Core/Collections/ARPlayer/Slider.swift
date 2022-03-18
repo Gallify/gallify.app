@@ -34,6 +34,7 @@ struct Slider: View {
                                 if completed {
                                     //select model for placement
                                     model.contentLoaded = true
+                                    model.isLoading = false
                                     self.placementSettings.selectedModel = model
                                 }
                             }
@@ -82,7 +83,7 @@ struct Slider: View {
             
             //let model = Model(name: "image", modelEntity: object)
             model.modelEntity = object
-            
+            model.contentLoaded = true
             placementSettings.selectedModel = model
         }
 }
@@ -105,10 +106,44 @@ struct SliderItem: View {
                     .clipShape(Circle())
                 
             }
+            else if(model.isLoading!){
+               
+                WebImage(url: URL(string: model.art.thumbnail))
+                    .resizable()
+                    .colorMultiply(Color(.red))
+                    .frame(width: 75, height: 75)
+                    .aspectRatio(1/1, contentMode: .fit)
+                    .background(Color(UIColor.secondarySystemFill))
+                    .clipShape(Circle())
+                
+                
+                
+//                ProgressView()
+                
+//                let spinner = UIActivityIndicatorView(style: .white)
+//
+//
+////                spinner.frame = CGRect(x: -20.0, y: 6.0, width: 20.0, height: 20.0) // (or wherever you want it in the button)
+//                 spinner.startAnimating()
+////                spinner.alpha = 0.0
+////
+//
+//
+//              WebImage(url: URL(string: model.art.thumbnail))
+//                    .resizable()
+//                    .colorMultiply(Color(.gray))
+//                    .frame(width: 75, height: 75)
+//                    .aspectRatio(1/1, contentMode: .fit)
+//                    .background(Color(UIColor.secondarySystemFill))
+//                    .clipShape(Circle())
+//                    .spinner.startAnimating()
+
+                
+            }
             else{
                 WebImage(url: URL(string: model.art.thumbnail))
                     .resizable()
-                    .colorMultiply(Color("Gallify-Pink"))
+                    .colorMultiply(Color(.gray))
                     .frame(width: 75, height: 75)
                     .aspectRatio(1/1, contentMode: .fit)
                     .background(Color(UIColor.secondarySystemFill))
