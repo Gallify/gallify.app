@@ -15,14 +15,16 @@ struct CollectionGenericRow: View {
     let screenWidth: CGFloat
     let screenHeight: CGFloat
     let thePlaylist: Playlist
-    //@EnvironmentObject var firestoreQuery : FirestoreQuery
+    
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
  
-    @ObservedObject var firestoreQuery : FirestoreQuery = FirestoreQuery()
+    //@ObservedObject var firestoreQuery : FirestoreQuery = FirestoreQuery()
     //state variables. These will be changed. Then will update FirestoreQuery versions. Then the FirestoreQuery versions will be updated.
     @State var playlist: [Art] = [Art]()
     //@State var playlist = firestoreQuery.playlist
     @State var playlistArt: [Art] = [Art]()
     @State var art: Art = Art()
+    
     
     @State private var showingSheet = false
     @State private var deleteFromPlaylist = false
@@ -98,7 +100,7 @@ struct CollectionGenericRow: View {
                         .listRowSeparator(.hidden)
 
                         
-                        ForEach(playlist) { artwork in
+                        ForEach(firestoreQuery.playlistArt) { artwork in
                             
                             Button(action: {
                             
@@ -151,7 +153,7 @@ struct CollectionGenericRow: View {
                                         
                                         Button(action: {
                                             firestoreQuery.showArtOptions = true
-                                            self.art = artwork
+                                            self.art = artwork //Setting art var when ellipses is clicked
                                         }, label: {
                                             Image(systemName: "ellipsis")
                                                 .foregroundColor(.black)
@@ -163,12 +165,12 @@ struct CollectionGenericRow: View {
                                                     .default(Text("Delete art from Playlist")) {
                                                         Task
                                                         {
-                                                            await firestoreQuery.deleteArtFromPlaylist(art_id: self.art.artId, playlist_id: thePlaylist.playlist_id)
-                                                            for art in firestoreQuery.playlistArt {
-                                                                print("art in playlist art = ", art.name)
-                                                                //self.playlist.append(art)
+                                                            playlist.removeAll { artwork in
+                                                                artwork.artId == art.artId
                                                             }
-                                                            await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
+                                                            await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist: thePlaylist)
+                                                            
+//                                                            await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist) //<-- using playlist here because i am updating it after deleting from playlistArt
                                                         }
                                                     },
                                                     .default(Text("Add to Playlist")) {
@@ -202,7 +204,7 @@ struct CollectionGenericRow: View {
                             firestoreQuery.featuredArt = playlist
                             Task {
                                 await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.featuredArt)
-                                await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
+//                                await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
                             }
                         }
                         .listRowSeparator(.hidden)
@@ -239,7 +241,7 @@ struct CollectionGenericRow: View {
             await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
             //print("ART: \(firestoreQuery.playlistArt[1].creator)")
             playlist = firestoreQuery.playlistArt
-            firestoreQuery.playlist = thePlaylist
+            //firestoreQuery.playlist = thePlaylist
         }
     
     }

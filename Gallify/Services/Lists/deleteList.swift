@@ -14,24 +14,36 @@ extension FirestoreQuery {
     /*
      updates the playlist
      */
-    func deleteArtFromPlaylist(art_id: String, playlist_id: String) async {
+    @MainActor
+    func deleteArtFromPlaylist(art_id: String, playlist: Playlist) async {
                                     
         do {
-            print("PLAYLIST ID RECEIVED IN DELETE = ", playlist_id)
+            print("PLAYLIST ID RECEIVED IN DELETE = ", playlist.playlist_id)
             print("ART ID RECEIVED IN DELETE = ", art_id)
             
-            let doc = try await FirestoreQuery.db.collection("playlists").document(playlist_id).updateData([
+            let doc = try await FirestoreQuery.db.collection("playlists").document(playlist.playlist_id).updateData([
                 "art": FieldValue.arrayRemove([art_id])
             ])
-           
-                self.playlistArt.removeAll { art in
+            
+            //DispatchQueue.main.async {
+                playlistArt.removeAll { art in
                     art.artId == art_id
                 }
-                for art in self.playlistArt {
-                    print("art in playlist art after deleting = ", art.name)
-                    self.playlist.art.append(art.artId)
-                }
+//            for art in playlistArt {
+//                playlist.art.append(art.artId)
+//            }
+//            for pl in userLibrary {
+//                if pl.name == playlist.name {
+//                    pl.playlist_id = playlist.playlist_id
+//                }
+//            }
+            //}
             
+            for art in playlist.art {
+                print("art in playlistArt after deleting \(art_id) ", art)
+            }
+
+//
         }
         catch{
             print("Error")

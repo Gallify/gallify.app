@@ -222,9 +222,9 @@
             filePath = "Gallify/Services/Lists/deleteList.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "deleteArtFromPlaylist(art_id:playlist_id:)"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "deleteArtFromPlaylist(art_id:playlist:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -366,8 +366,8 @@
             filePath = "Gallify/Services/Lists/getList.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "getPlaylistArt(playlist:)"
             landmarkType = "7">
             <Locations>
@@ -414,8 +414,8 @@
             filePath = "Gallify/ViewControllers/Core/Collections/Generic/Helpers/CollectionGenericRow.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -525,9 +525,9 @@
             filePath = "Gallify/Services/Lists/deleteList.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "deleteArtFromPlaylist(art_id:playlist_id:)"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "deleteArtFromPlaylist(art_id:playlist:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -541,8 +541,8 @@
             filePath = "Gallify/ViewControllers/Core/Collections/Generic/Helpers/CollectionGenericRow.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -557,8 +557,8 @@
             filePath = "Gallify/ViewControllers/Core/Collections/Generic/Helpers/CollectionGenericRow.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -573,8 +573,8 @@
             filePath = "Gallify/ViewControllers/Core/Collections/Generic/Helpers/CollectionGenericRow.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -589,8 +589,8 @@
             filePath = "Gallify/ViewControllers/Core/Collections/Generic/Helpers/CollectionGenericRow.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -605,8 +605,8 @@
             filePath = "Gallify/ViewControllers/Core/Collections/Generic/Helpers/CollectionGenericRow.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

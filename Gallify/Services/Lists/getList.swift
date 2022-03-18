@@ -112,54 +112,53 @@ extension FirestoreQuery {
         var art_array = [Art]()
         
         for art_id in playlist.art {
-//            do {
-//                let doc = try await FirestoreQuery.db.collection("art")
-//                    .document(art_id)
-//                    .getDocument().data(as: Art.self)
+            do {
+                let doc = try await FirestoreQuery.db.collection("art")
+                    .document(art_id)
+                    .getDocument().data(as: Art.self)
+
+                guard let theArt = doc else{
+                    throw DatabaseError.failed
+                }
+
+               // self.featuredArt.append(theArt)
+                //art_array.append(doc!)
+                art_array.append(theArt)
+                //
+            }
+            catch{
+                print("Error in getPLaylistArt")
+            }
+        }
 //
-//                guard let theArt = doc else{
-//                    throw DatabaseError.failed
-//                }
-//
-//               // self.featuredArt.append(theArt)
-//                //art_array.append(doc!)
-//                art_array.append(theArt)
-//
-//                //
-//            }
-//            catch{
-//                print("Error in getPLaylistArt")
-//            }
-//        }
-//
-//        self.playlistArt = art_array
         
-        await FirestoreQuery.db.collection("art").document(art_id)
-            .addSnapshotListener { queryDocumentSnapshot, error in
-                if error == nil { //if no errors
-                    if let document = queryDocumentSnapshot{
-                        //update list in main thread.
-                        DispatchQueue.main.async{
-                            //set retrieved document to @published data object
-                            self.playlistArt.append(try! document.data(as: Art.self)!) //this is forceful, and assumes this will always work...
-                        }
-                        
-                    }
-                    else{
-                        print("Error: There aren't any documents, getPlaylists()")
-                        return
-                    }
-//                }
-//                else{
-//                    print("Error: Can't get document, getPlaylists()")
-//                    return
-//                }
-      }
+        self.playlistArt = art_array
         
-    }
+//        await FirestoreQuery.db.collection("art").document(art_id)
+//            .addSnapshotListener { queryDocumentSnapshot, error in
+//                if error == nil { //if no errors
+//                    if let document = queryDocumentSnapshot{
+//                        //update list in main thread.
+//                        DispatchQueue.main.async{
+//                            //set retrieved document to @published data object
+//                            self.playlistArt.append(try! document.data(as: Art.self)!) //this is forceful, and assumes this will always work...
+//                        }
+//
+//                    }
+//                    else{
+//                        print("Error: There aren't any documents, getPlaylists()")
+//                        return
+//                    }
+////                }
+////                else{
+////                    print("Error: Can't get document, getPlaylists()")
+////                    return
+////                }
+//      }
+//
+//    }
     
         }
-    }
     
 }
 
