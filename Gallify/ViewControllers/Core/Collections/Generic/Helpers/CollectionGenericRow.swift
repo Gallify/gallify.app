@@ -103,15 +103,15 @@ struct CollectionGenericRow: View {
                         ForEach(firestoreQuery.playlistArt) { artwork in
                             
                             Button(action: {
-                            
-                                    firestoreQuery.artisClicked = art.artId
-                                    firestoreQuery.artThatsPlaying = artwork
-                                    firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
-                                    firestoreQuery.isPresented.toggle()
-                                    firestoreQuery.maximized = true
-                                    firestoreQuery.showNewScreen = true
+                                
+                                self.art = artwork//<--
+                                firestoreQuery.artisClicked = art.artId
+                                firestoreQuery.artThatsPlaying = artwork
+                                firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
+                                firestoreQuery.isPresented.toggle()
+                                firestoreQuery.maximized = true
+                                firestoreQuery.showNewScreen = true
                                     
-                                    print("ID of this art = ", art.artId)
                                 
                             }){
                                 HStack {
@@ -165,6 +165,7 @@ struct CollectionGenericRow: View {
                                                     .default(Text("Delete art from Playlist")) {
                                                         Task
                                                         {
+                                                            //remove from local variable to update view
                                                             playlist.removeAll { artwork in
                                                                 artwork.artId == art.artId
                                                             }
@@ -202,7 +203,6 @@ struct CollectionGenericRow: View {
                             firestoreQuery.playlistArt = playlist
                             Task {
                                 await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.playlistArt)
-                                //playlist = firestoreQuery.playlistArt
                             }
                         }
                         .listRowSeparator(.hidden)
