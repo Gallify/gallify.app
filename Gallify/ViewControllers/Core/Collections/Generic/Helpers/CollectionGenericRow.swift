@@ -199,11 +199,11 @@ struct CollectionGenericRow: View {
                         }
                         .onMove { indexSet, offset in
                             playlist.move(fromOffsets: indexSet, toOffset: offset)
-                            firestoreQuery.featuredArt = playlist
+                            firestoreQuery.playlistArt = playlist
                             Task {
-                                await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.featuredArt)
+                                await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.playlistArt)
+                                //playlist = firestoreQuery.playlistArt
                             }
-                            playlist = firestoreQuery.featuredArt
                         }
                         .listRowSeparator(.hidden)
                     }
@@ -236,7 +236,9 @@ struct CollectionGenericRow: View {
 //        }
     
         func NetworkingCall() async {
-            await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
+            await firestoreQuery.getPlaylist(playlist_id: thePlaylist.playlist_id)
+            
+            await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
             //print("ART: \(firestoreQuery.playlistArt[1].creator)")
             playlist = firestoreQuery.playlistArt
             //firestoreQuery.playlist = thePlaylist

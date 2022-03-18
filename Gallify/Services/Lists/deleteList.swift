@@ -29,19 +29,6 @@ extension FirestoreQuery {
                 playlistArt.removeAll { art in
                     art.artId == art_id
                 }
-//            for art in playlistArt {
-//                playlist.art.append(art.artId)
-//            }
-//            for pl in userLibrary {
-//                if pl.name == playlist.name {
-//                    pl.playlist_id = playlist.playlist_id
-//                }
-//            }
-            //}
-            
-            for art in playlist.art {
-                print("art in playlistArt after deleting \(art_id) ", art)
-            }
 
 //
         }
