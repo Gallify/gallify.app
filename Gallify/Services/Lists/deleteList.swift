@@ -19,20 +19,19 @@ extension FirestoreQuery {
         do {
             print("PLAYLIST ID RECEIVED IN DELETE = ", playlist_id)
             print("ART ID RECEIVED IN DELETE = ", art_id)
+            
             let doc = try await FirestoreQuery.db.collection("playlists").document(playlist_id).updateData([
                 "art": FieldValue.arrayRemove([art_id])
             ])
-            for art in playlistArt {
-                print("art id = ", art.artId)
-            }
-            DispatchQueue.main.async {
+           
                 self.playlistArt.removeAll { art in
                     art.artId == art_id
                 }
-            }
-            for art in playlistArt {
-                print("art id = ", art.artId)
-            }
+                for art in self.playlistArt {
+                    print("art in playlist art after deleting = ", art.name)
+                    self.playlist.art.append(art.artId)
+                }
+            
         }
         catch{
             print("Error")

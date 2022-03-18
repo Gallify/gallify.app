@@ -10,21 +10,14 @@ import FirebaseFirestore
 import FirebaseAuth
 import SDWebImageSwiftUI
 
-class CollectionGenericController: ObservableObject {
-    @EnvironmentObject var firestoreQuery : FirestoreQuery
-    func assignValuesInFirestore(art: Art, playlist: Playlist){
-        firestoreQuery.artisClicked = art.artId
-        firestoreQuery.playlistThatsPlaying = playlist
-    }
-}
 
 struct CollectionGenericRow: View {
     let screenWidth: CGFloat
     let screenHeight: CGFloat
     let thePlaylist: Playlist
-    @EnvironmentObject var firestoreQuery : FirestoreQuery
-    @ObservedObject var controller : CollectionGenericController
-    
+    //@EnvironmentObject var firestoreQuery : FirestoreQuery
+ 
+    @ObservedObject var firestoreQuery : FirestoreQuery = FirestoreQuery()
     //state variables. These will be changed. Then will update FirestoreQuery versions. Then the FirestoreQuery versions will be updated.
     @State var playlist: [Art] = [Art]()
     //@State var playlist = firestoreQuery.playlist
@@ -171,7 +164,11 @@ struct CollectionGenericRow: View {
                                                         Task
                                                         {
                                                             await firestoreQuery.deleteArtFromPlaylist(art_id: self.art.artId, playlist_id: thePlaylist.playlist_id)
-                                                            await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
+                                                            for art in firestoreQuery.playlistArt {
+                                                                print("art in playlist art = ", art.name)
+                                                                //self.playlist.append(art)
+                                                            }
+                                                            await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
                                                         }
                                                     },
                                                     .default(Text("Add to Playlist")) {
@@ -205,6 +202,7 @@ struct CollectionGenericRow: View {
                             firestoreQuery.featuredArt = playlist
                             Task {
                                 await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.featuredArt)
+                                await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
                             }
                         }
                         .listRowSeparator(.hidden)
