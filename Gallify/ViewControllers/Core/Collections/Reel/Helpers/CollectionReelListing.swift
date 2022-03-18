@@ -200,8 +200,9 @@ struct CollectionReelListing: View {
             firestoreQuery.scrollTo = firestoreQuery.scrollTo
             
             //set up the models for the art in reels for each art element.
+            firestoreQuery.clearModels()
             firestoreQuery.setModelData()
-            print(firestoreQuery.setModelData())
+           // print(firestoreQuery.setModelData())
         }
         .task{ //scroll to right part of list.
             if(scrollTo != firestoreQuery.scrollTo){
