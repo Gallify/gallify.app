@@ -135,11 +135,20 @@ struct SelfProfileViewDetails: View {
         }
         .padding(.top, screenHeight / 120)
         .padding(.bottom, 10)
-        
+        .onAppear
+        {
+            Task {
+                await NetworkingCall()
+            }
+        }
         Spacer()
                 
     }
-                
+               
+    func NetworkingCall() async{
+        await firestoreQuery.getUser_await()
+        photoUrl = firestoreQuery.data.profileImageUrl
+    }
 }
         
 struct SelfProfileViewDetails_Previews: PreviewProvider {

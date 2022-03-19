@@ -102,7 +102,7 @@ extension FirestoreQuery {
         let userId = Auth.auth().currentUser?.uid
       
         
-        let docRef = try await FirestoreQuery.db.collection("users").document(userId ?? "info@gallify.app").getDocument { (document, error) in
+        let docRef = try await FirestoreQuery.db.collection("users").document(userId!).getDocument { (document, error) in
            let result = Result {
             try document?.data(as: User.self)
            }
