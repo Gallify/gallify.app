@@ -16,7 +16,7 @@ extension FirestoreQuery {
 
     func updateUsername(username: String) async {
         do {
-            try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.email)!).updateData(
+            try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(
                 ["username" : username]
             )
             data.username = username
@@ -29,7 +29,7 @@ extension FirestoreQuery {
     
     func updatefirstName(first: String) async {
         do {
-            try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.email)!).updateData(
+            try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(
                 ["firstName" : first]
             )
             data.firstName = first
@@ -42,7 +42,7 @@ extension FirestoreQuery {
     
     func updateLastName(last: String) async {
         do {
-            try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.email)!).updateData(
+            try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(
                 ["lastName" : last]
             )
             data.lastName = last
@@ -53,7 +53,7 @@ extension FirestoreQuery {
     }
     
     func updateProfileImage(image: Data) async {
-        let uploadRef = Storage.storage().reference(withPath: "profileImages/" + (Auth.auth().currentUser?.email)!)
+        let uploadRef = Storage.storage().reference(withPath: "profileImages/" + (Auth.auth().currentUser?.uid)!)
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
         
@@ -84,7 +84,7 @@ extension FirestoreQuery {
     
     func updateUserDescription(desc:String) async {
         do {
-            try await FirestoreQuery.db.collection("user").document((Auth.auth().currentUser?.email)!).updateData(["description" : desc]
+            try await FirestoreQuery.db.collection("user").document((Auth.auth().currentUser?.uid)!).updateData(["description" : desc]
             )
             self.data.description = desc
         } catch { 

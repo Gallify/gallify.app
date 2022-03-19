@@ -60,11 +60,10 @@ struct CollectionGenericView: View {
         
         //get playlist. Stored in FirestoreQuery.playlist
         
+        print("Playlist ring passed to collection generic view = ", playlist.name)
         //get playlist art
         await firestoreQuery.getPlaylistArt(playlist: playlist)
-   //     print("ART: \(firestoreQuery.playlistArt[1].creator)")
         
-        //get art
         
     }
     

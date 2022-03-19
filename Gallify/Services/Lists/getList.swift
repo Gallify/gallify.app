@@ -77,7 +77,7 @@ extension FirestoreQuery {
      */
     func getPlaylist(playlist_id: String) async {
         let userId = Auth.auth().currentUser?.uid
-        
+        print("what is playlist id = ", playlist_id)
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(playlist_id)

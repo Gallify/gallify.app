@@ -18,7 +18,6 @@ struct CollectionGenericRow: View {
     
     @EnvironmentObject var firestoreQuery : FirestoreQuery
  
-    //@ObservedObject var firestoreQuery : FirestoreQuery = FirestoreQuery()
     //state variables. These will be changed. Then will update FirestoreQuery versions. Then the FirestoreQuery versions will be updated.
     @State var playlist: [Art] = [Art]()
     //@State var playlist = firestoreQuery.playlist
@@ -104,9 +103,9 @@ struct CollectionGenericRow: View {
                             
                             Button(action: {
                                 
-                                self.art = artwork//<--
+                                self.art = artwork//<-- update local art var to use later in the code
                                 firestoreQuery.artisClicked = art.artId
-                                firestoreQuery.artThatsPlaying = artwork
+                                firestoreQuery.artThatsPlaying = self.art
                                 firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
                                 firestoreQuery.isPresented.toggle()
                                 firestoreQuery.maximized = true
@@ -124,7 +123,7 @@ struct CollectionGenericRow: View {
                                                 
                                             VStack(alignment: .leading) {
                                                     
-                                                if(firestoreQuery.artisClicked == artwork.artId){
+                                                if(firestoreQuery.artisClicked == self.art.artId){
                                                     Text(artwork.name)
                                                         .foregroundColor(Color("Gallify-Pink"))
                                                         .fontWeight(.bold)
@@ -237,6 +236,7 @@ struct CollectionGenericRow: View {
 //        }
     
         func NetworkingCall() async {
+            print("Playlist passed to generic row = ", thePlaylist.name)
             await firestoreQuery.getPlaylist(playlist_id: thePlaylist.playlist_id)
             
             await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)

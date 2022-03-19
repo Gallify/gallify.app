@@ -176,6 +176,9 @@ class LoginAppViewModel: ObservableObject {
 
                 batch.updateData(["museums": ["p0lkJFdi7cstCJrAcYMr","oEcIslgNBCQ8RO3PibQT", "1EkOA6d8DXrcHQSGuiNG"]], forDocument: userMuseumRef)
                 
+                //populate playlists in home museums
+                
+                
                 userSubCollectionsCreated = true
         
                 
