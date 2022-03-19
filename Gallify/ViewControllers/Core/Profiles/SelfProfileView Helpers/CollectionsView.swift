@@ -14,6 +14,7 @@ struct CollectionsView: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery : FirestoreQuery
+    
     @Environment(\.dismiss) var dismiss
 
     
@@ -32,9 +33,9 @@ struct CollectionsView: View {
                 
                     HStack {
                          
-//                        WebImage(url: URL(string: playlist.cover_art_url))
-//                            .resizable()
-//                            .frame(width: screenWidth / 5, height: screenHeight / 10.8)
+                        WebImage(url: URL(string: playlist.cover_art_url))
+                            .resizable()
+                            .frame(width: screenWidth / 5, height: screenHeight / 10.8)
                             
                         VStack(alignment: .leading) {
                             

@@ -176,6 +176,7 @@ struct CollectionGenericRow: View {
 
                                                         //firestoreQuery.addToPlaylist(artwork.art_id)
                                                         showingSheet = true
+                                                        
                                                     },
                                                     .default(Text("Cancel")) {
 

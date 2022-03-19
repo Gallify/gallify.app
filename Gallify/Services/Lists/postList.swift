@@ -25,8 +25,7 @@ extension FirestoreQuery {
             let doc = try await FirestoreQuery.db.collection("playlists").document(playlist_id).updateData([
                 "art": FieldValue.arrayUnion([art.artId])
                 ])
-            self.playlistArt.append(art)
-            self.art = art
+            
         }
         catch{
             print("Error")
@@ -38,7 +37,7 @@ extension FirestoreQuery {
     func addPlaylistToLibrary(playlist: Playlist) {
 
         do {
-            try FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.email)!).updateData(["Library" : FieldValue.arrayUnion([playlist.id])])
+            try FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(["Library" : FieldValue.arrayUnion([playlist.playlist_id])])
         } catch {
             print("Error adding playlist to library")
         }
