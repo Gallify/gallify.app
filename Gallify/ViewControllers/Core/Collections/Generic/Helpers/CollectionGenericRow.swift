@@ -66,7 +66,7 @@ struct CollectionGenericRow: View {
 
                 HStack {
 
-                    NavigationLink(destination: OtherProfileView(),
+                    NavigationLink(destination: OtherProfileView(otherUserId: playlistOwner.uid), // thePlaylist or playlistOwner.uid
                                 label: {
                                                         
                         HStack {
@@ -78,8 +78,9 @@ struct CollectionGenericRow: View {
                             Image(systemName: "greaterthan")
                                 .resizable()
                                 .frame(width: screenWidth / 37.5, height: screenHeight / 80)
-                                .foregroundColor(Color.gray)
-                                .padding(.horizontal, screenWidth / 25)
+                                .foregroundColor(Color.primary)
+                                
+                                .padding(.vertical, 20)
                                                             
                         }
                                                     
@@ -92,6 +93,46 @@ struct CollectionGenericRow: View {
                 }
                 .padding(.horizontal, screenWidth / 20)
                 .padding(.top, -screenHeight / 54)
+                .listRowSeparator(.hidden)
+                
+                HStack {
+                
+                    if(firestoreQuery.playlist.privacy == 1){
+                        Group{
+                            Text("Public")
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color.blue) +
+                            Text(" • ")
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color.primary) +
+                            Text(thePlaylist.playlist_type)
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color.primary)
+                        }
+                            
+                            
+                    }
+                    else{
+                        Group{
+                            Text("Private")
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color("Gallify-Red")) +
+                            Text(" • ")
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color.primary) +
+                            Text(thePlaylist.playlist_type)
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color.primary)
+                        }
+                        
+                    }
+                    
+                                                
+                    Spacer()
+                                                
+                }
+                .padding(.horizontal, screenWidth / 20)
+                .padding(.top, -screenHeight / 35)
                 .listRowSeparator(.hidden)
                         
                 if(playlist.count > 0) {

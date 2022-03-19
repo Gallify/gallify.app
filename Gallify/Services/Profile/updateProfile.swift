@@ -10,4 +10,15 @@ import FirebaseFirestore
 import FirebaseAuth
 
 extension FirestoreQuery {
+    
+    /*
+     Update Privacy. Alternate between Public and Private.
+     */
+    func updatePrivacy(){
+        
+
+        
+        
+    }
+
 }

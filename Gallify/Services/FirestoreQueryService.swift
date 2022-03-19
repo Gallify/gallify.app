@@ -21,6 +21,10 @@ class FirestoreQuery : ObservableObject {
      
        Format: <File, Method, Param, Return>
         get, getFeaturedArt_await, playlist_id, art_array
+     
+     
+     PRIVACY: 0 = private, 1= public
+     CONTENTTYPE: 0=image/gif, 1=usdz, 2=video, 3=attack-helicopter.
         
      */
     
@@ -85,8 +89,6 @@ class FirestoreQuery : ObservableObject {
     //AR Player
     @Published var models: [Model] = []
     
- 
-    
     
     //settings
     
@@ -105,6 +107,8 @@ class FirestoreQuery : ObservableObject {
         case failed = "failed"
     }
 
+    
+    
     
     
     
@@ -245,6 +249,7 @@ class FirestoreQuery : ObservableObject {
 //        }
 //
 //    }
+    
     func get_art(a: String)  {
 //        let email1 = data.email
 //        print(email1)

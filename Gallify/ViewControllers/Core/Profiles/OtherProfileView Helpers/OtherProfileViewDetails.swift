@@ -34,21 +34,21 @@ struct OtherProfileViewDetails: View {
                 if photoUrl == "" {
                     CircleImage(image: Image(systemName: "person.circle.fill"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                 } else {
-                WebImage(url: URL(string: firestoreQuery.data.profileImageUrl))
-                       .onSuccess { image, data, cacheType in
-                           
-                       }
-                       .resizable()
-                       .placeholder(Image(systemName: "photo"))
-                       .placeholder {
-                           Circle().foregroundColor(.gray)
-                       }
-                       .indicator(.activity) // Activity Indicator
-                       .transition(.fade(duration: 0.5)) // Fade Transition with duration
-                       .scaledToFit()
-                       .frame(width: screenWidth / 4, height: screenHeight / 8.65)
-                       .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                       .overlay(Circle().stroke(.white, lineWidth: 4))
+                    WebImage(url: URL(string: firestoreQuery.otherUserData.profileImageUrl))
+                           .onSuccess { image, data, cacheType in
+                               
+                           }
+                           .resizable()
+                           .placeholder(Image(systemName: "photo"))
+                           .placeholder {
+                               Circle().foregroundColor(.gray)
+                           }
+                           .indicator(.activity) // Activity Indicator
+                           .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                           .scaledToFit()
+                           .frame(width: screenWidth / 4, height: screenHeight / 8.65)
+                           .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                           .overlay(Circle().stroke(.white, lineWidth: 4))
                 }
                 
                 VStack {
@@ -59,7 +59,7 @@ struct OtherProfileViewDetails: View {
                             
                         VStack {
                                 
-                            Text("\(firestoreQuery.data.followers)")
+                            Text("\(firestoreQuery.otherUserData.followers)")
                                 .font(.system(size: screenWidth / 18))
                                 
                             Text("Followers")
@@ -72,7 +72,7 @@ struct OtherProfileViewDetails: View {
                             
                         VStack {
                                 
-                            Text("\(firestoreQuery.data.following)")
+                            Text("\(firestoreQuery.otherUserData.following)")
                                 .font(.system(size: screenWidth / 18))
                                 
                             Text("Following")
@@ -92,7 +92,7 @@ struct OtherProfileViewDetails: View {
             
             HStack {
                 
-                Text("Jack Brown")
+                Text(firestoreQuery.otherUserData.firstName + " " + firestoreQuery.otherUserData.lastName)
                     .font(.system(size: screenWidth / 23.5, weight: .semibold))
                 
                 /*Text("\(firestoreQuery.data.fullName)")
@@ -106,7 +106,8 @@ struct OtherProfileViewDetails: View {
             
             HStack {
                 
-                Text("Hello, I am using Gallify!")
+                
+                Text(firestoreQuery.otherUserData.description)
                     .font(.system(size: screenWidth / 23.5, weight: .light))
                 
                 /*Text("\(firestoreQuery.data.userBio)")
@@ -121,8 +122,11 @@ struct OtherProfileViewDetails: View {
             HStack {
                     
                 FollowButton().environmentObject(firestoreQuery)
+                
+                Spacer()
                     
             }
+            .padding(.horizontal, screenWidth / 15)
             .padding(.vertical, screenHeight / 160)
             
         }

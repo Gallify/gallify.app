@@ -50,10 +50,12 @@ struct FollowButton: View {
         }) {
             ZStack {
                 
-                RoundedRectangle(cornerRadius: buttonWidth / 8)
-                    .foregroundColor(firestoreQuery.isFollowing ? .white : .pink)
+                RoundedRectangle(cornerRadius: 3)
+                    .foregroundColor(firestoreQuery.isFollowing ? .white : Color("Gallify-Pink"))
                     .frame(width: buttonWidth, height: buttonHeight)
-                    .overlay(firestoreQuery.isFollowing ? RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.gray, lineWidth: buttonWidth / 125) : RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.pink, lineWidth: buttonWidth / 50))
+                    .overlay(firestoreQuery.isFollowing ? RoundedRectangle(cornerRadius: 3) //buttonWidth / 8
+                    .stroke(Color.gray, lineWidth: buttonWidth / 125) : RoundedRectangle(cornerRadius: 3)
+                    .stroke(Color("Gallify-Pink"), lineWidth: buttonWidth / 70)) //, lineWidth: buttonWidth / 50)
                 
                 Text(firestoreQuery.isFollowing ? "Following" : "Follow")
                     .font(.system(size: buttonWidth / 10, weight: .bold))
