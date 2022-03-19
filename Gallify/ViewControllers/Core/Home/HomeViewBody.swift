@@ -45,12 +45,13 @@ struct HomeViewBody: View {
                               
                             VStack {
                                         
-                                NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight, playlist: playlist),
+                                NavigationLink(destination: CollectionGenericView(playlist: playlist),
                                                 label: {
                                                     
                                         WebImage(url: URL(string: playlist.cover_art_url))
                                             .resizable()
                                             .frame(width: screenWidth / 2.8, height: screenHeight / 6)
+                                            //.cornerRadius(5)
                                               
                                     })
                                     .simultaneousGesture(TapGesture().onEnded {

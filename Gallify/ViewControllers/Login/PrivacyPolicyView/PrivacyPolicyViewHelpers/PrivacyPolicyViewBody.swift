@@ -22,25 +22,56 @@ struct PrivacyPolicyViewBody: View {
         ScrollView(showsIndicators: false) {
             
             VStack{
+                
+                HStack {
+                    
+                    Group {
+                        Text("An email has been sent to ")
+                            .font(.system(size: screenWidth / 29))
+                            .foregroundColor(.gray) +
+                        Text(user.email)
+                            .font(.system(size: screenWidth / 29))
+                            .foregroundColor(.blue) +
+                        Text(" to verify your account.")
+                            .font(.system(size: screenWidth / 29))
+                            .foregroundColor(.gray)
+                    }
+                        
+                    
+                    Spacer()
+
+                }
+                .padding(.leading, screenWidth / 12)
+                .padding(.bottom, screenHeight / 160)
+                
                 HStack {
                     
                     Text("Didn't get an email? ")
-                        .font(.system(size: screenWidth / 22))
-                        .padding(.leading, screenWidth / 12)
+                        .font(.system(size: screenWidth / 29))
+                        .foregroundColor(.gray)
+//                        .font(.system(size: screenWidth / 22))
+//                        .padding(.leading, screenWidth / 12)
                     
                     Button(action: {
                         viewModel.sendVerificationEmail()
                         
                     }) {
                         Text("Resend Email")
-                            .font(.system(size: screenWidth / 22))
+                            .font(.system(size: screenWidth / 29))
                             .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
                             .padding(.leading, -screenWidth / 50)
+                            .onTapGesture {
+                                let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                impactHeavy.impactOccurred()
+                            }
                     }
                     
                     Spacer()
                     
                 }
+                .padding(.leading, screenWidth / 12)
+                .padding(.bottom, screenHeight / 160)
+                
                 
                 HStack{
                     Button(action:
@@ -76,9 +107,35 @@ struct PrivacyPolicyViewBody: View {
 
                     }
                     .padding(.vertical, screenHeight / 54)
-                    
+
                 }
                 
+                HStack {
+                    
+                    Button(action: {
+                        
+                        if let url = URL(string: "https://www.gallify.app/policies") {
+                           UIApplication.shared.open(url)
+                        }
+                        
+                    }) {
+                        
+                        Group {
+                            Text("By clicking 'Creating Account' you agree to follow Gallify's ")
+                                .font(.system(size: screenWidth / 29))
+                                .foregroundColor(.gray) +
+                            Text("Rules & Regulations.")
+                                .font(.system(size: screenWidth / 29))
+                                .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                        }
+                        
+                    }
+                    
+                    Spacer()
+                    
+                }
+                .padding(.leading, screenWidth / 12)
+                .padding(.bottom, screenHeight / 160)
                 
                 
             }

@@ -17,10 +17,10 @@ struct DiscoverViewTag: View {
         
         Text(tag)
             .fontWeight(.bold)
-            .foregroundColor(.white)
+            .foregroundColor(.white) //.white
             .padding(.horizontal, screenWidth / 20)
             .padding(.vertical, screenHeight / 100)
-            .background(bgColor)
+            .background(bgColor) //bgColor
             .cornerRadius(screenWidth / 50)
             
         

@@ -77,6 +77,8 @@ struct MinimizedView: View {
             .padding(.bottom, screenHeight / 80)
             .padding(.top, (screenHeight / 80)-10)
             .background(Color.white)
+           // .border(Color.primary)
+        
         }
             
     }

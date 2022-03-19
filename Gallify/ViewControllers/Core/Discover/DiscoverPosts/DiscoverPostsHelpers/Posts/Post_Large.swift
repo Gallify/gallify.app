@@ -43,7 +43,7 @@ struct Post_Large: View {
                     .frame(width: screenWidth / 1.53, height: screenHeight / 3.38)
                     .padding(.leading, -screenWidth / 75)
                     .padding(.top, -screenHeight / 160)
-                
+                    .border(Color.primary)
             }
         
     }

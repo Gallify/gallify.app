@@ -64,14 +64,14 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var contentType: Int
     @Published var creator: String
     @Published var creatorId: String
-    @Published var createdDate: String
+    @Published var createdDate: String //Timestamp
     @Published var createdPrice: Double
     
     @Published var desc: String
     @Published var forSale: Bool
     @Published var genre: String
     @Published var history: [String]
-    @Published var latestHistoryDate : String
+    @Published var latestHistoryDate : String //Timestamp
     @Published var likes: Int
     @Published var location: String
     @Published var metadataUrl: String
@@ -98,13 +98,13 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         contentType = 0
         creator = ""
         creatorId = ""
-        createdDate = ""
+        createdDate = "" // Timestamp()
         createdPrice = 0
         desc = ""
         forSale = false
         genre = ""
         history = [String]()
-        latestHistoryDate = ""
+        latestHistoryDate = "" //Timestamp()
         likes = 0
         location = ""
         metadataUrl = ""
@@ -135,7 +135,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         contentType = try container.decode(Int.self, forKey: .contentType)
         creator = try container.decode(String.self, forKey: .creator)
         creatorId = try container.decode(String.self, forKey: .creatorId)
-        createdDate = try container.decode(String.self, forKey: .createdDate)
+        createdDate = try container.decode(String.self, forKey: .createdDate) //Timestamp
         createdPrice = try container.decode(Double.self, forKey: .createdPrice)
         
         desc = try container.decode(String.self, forKey: .desc)

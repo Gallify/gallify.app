@@ -12,6 +12,7 @@ struct PrivacyPolicyViewHeader: View {
     let screenHeight: CGFloat
     let screenWidth: CGFloat
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var user: User
     
     var body: some View {
             
@@ -29,7 +30,7 @@ struct PrivacyPolicyViewHeader: View {
                 
             HStack {
                             
-                Text("Verification Email Sent")
+                Text("Check Your Inbox")
                     .font(.system(size: screenWidth / 12.5, weight: .semibold))
                             
                 Spacer()
@@ -37,19 +38,7 @@ struct PrivacyPolicyViewHeader: View {
             }
             .padding(.leading, screenWidth / 12)
             .padding(.bottom, screenHeight / 400)
-            
-            HStack {
-                
-                
-                Text("An message to verify your account was sent to your email.")
-                    .font(.system(size: screenWidth / 29))
-                    .foregroundColor(.gray)
-                
-                Spacer()
-                
-            }
-            .padding(.leading, screenWidth / 12)
-            .padding(.bottom, screenHeight / 160)
+        
             
         }
         .padding(.top, screenHeight / 160)

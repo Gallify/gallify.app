@@ -64,7 +64,7 @@ struct SelfProfileCollectionList: View {
                 
                 
                     
-                NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight, playlist: playlist),
+                NavigationLink(destination: CollectionGenericView(playlist: playlist),
                                label: {
                     
                     HStack {
