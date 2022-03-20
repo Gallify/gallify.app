@@ -76,9 +76,9 @@ struct SearchResultView: View {
                     ActionSheet(
                         title: Text("Select"),
                         buttons: [
-                            .default(Text("Delete from Playlist")) {
-                             //   firestoreQuery.deleteFromPlaylist(artwork.art_id)
-                            },
+//                            .default(Text("Delete from Playlist")) {
+//                             //   firestoreQuery.deleteFromPlaylist(artwork.art_id)
+//                            },
                             .default(Text("Add to Playlist")) {
                                 
                                 //firestoreQuery.addToPlaylist(artwork.art_id)

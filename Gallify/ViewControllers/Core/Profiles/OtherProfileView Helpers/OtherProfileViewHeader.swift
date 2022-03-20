@@ -25,8 +25,8 @@ struct OtherProfileViewHeader: View {
             
             Text(firestoreQuery.otherUserData.username)
                 .font(.system(size: screenWidth / 20, weight: .bold))
-                .padding(.trailing, 15)
-                .multilineTextAlignment(.center)
+                .padding(.trailing, 14)
+                //.multilineTextAlignment(.center)
             
             Spacer()
                     

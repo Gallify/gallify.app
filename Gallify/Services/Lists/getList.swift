@@ -38,9 +38,9 @@ extension FirestoreQuery {
      */
     func getFeaturedArt() async {
         
-        if !(featuredArt.isEmpty){ //if featured playlist isnt empty, then return.
-            return
-        }
+//        if !(featuredArt.isEmpty){ //if featured playlist isnt empty, then return.
+//            return
+//        }
        
         //self.featuredArt.removeAll()
         
@@ -67,7 +67,16 @@ extension FirestoreQuery {
             }
         }
         
-        self.featuredArt = art_array
+        //self.featuredArt = art_array //before
+        
+        //this only updates the array if it is different.
+        if(self.featuredArt as NSArray == art_array as NSArray){
+            
+        }
+        else{
+            //if old is not same as new then ...
+            self.featuredArt = art_array
+        }
         
     }
     
@@ -97,7 +106,7 @@ extension FirestoreQuery {
     }
     
     /*
-     gets aret percurrent playlist.
+     gets art for current playlist.
      
      Always needs to be called after getPlaylist()
      */

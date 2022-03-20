@@ -37,16 +37,26 @@ struct FollowButton: View {
         Button(action: {
             if firestoreQuery.isFollowing == false {
                 Task {
-                    await firestoreUpload.follow(uid: "yTUlw63RJVVsLik5MzqG3ecUMCs1")
+                    DispatchQueue.main.async {
+                        firestoreQuery.isFollowing = true
+                    }
+                    //await firestoreUpload.follow(uid: firestoreQuery.otherUserData.uid)
+                    await firestoreQuery.follow(otherUserId: firestoreQuery.otherUserData.uid)
+                    
                 }
                 
             } else {
                 Task {
-                    await firestoreUpload.unfollow(uid: "yTUlw63RJVVsLik5MzqG3ecUMCs1")
+                    DispatchQueue.main.async {
+                        firestoreQuery.isFollowing = false
+                    }
+                   // await firestoreUpload.unfollow(uid: firestoreQuery.otherUserData.uid)
+                    await firestoreQuery.unfollow(otherUserId: firestoreQuery.otherUserData.uid)
+                    
                 }
                 
             }
-            firestoreQuery.isFollowing.toggle()
+            //firestoreQuery.isFollowing.toggle()
         }) {
             ZStack {
                 
@@ -68,23 +78,27 @@ struct FollowButton: View {
     
     func NetworkingCall() async{
         
-        await firestoreQuery.fetchFollowers(uid: "yTUlw63RJVVsLik5MzqG3ecUMCs1")
-        print("Followers array in networking call = ", firestoreQuery.followers.followers)
-        DispatchQueue.main.async {
-            if firestoreQuery.followers.followers.contains(((Auth.auth().currentUser?.uid)! as String?)!) {
-                DispatchQueue.main.async {
-                    firestoreQuery.isFollowing = true
-                }
-                    
-            } else {
-                DispatchQueue.main.async {
-                    firestoreQuery.isFollowing = false
-                }
-                    
-                
-            }
-            print("value of isFollowing = ", firestoreQuery.isFollowing)
-        }
+        //checks if the current user is a follow of the OtherUser.
+        await firestoreQuery.checkIfFollowing(otherUserId: firestoreQuery.otherUserData.uid)
+        
+        
+//        await firestoreQuery.fetchFollowers(uid: "yTUlw63RJVVsLik5MzqG3ecUMCs1")
+//        print("Followers array in networking call = ", firestoreQuery.followers.followers)
+//        DispatchQueue.main.async {
+//            if firestoreQuery.followers.followers.contains(((Auth.auth().currentUser?.uid)! as String?)!) {
+//                DispatchQueue.main.async {
+//                    firestoreQuery.isFollowing = true
+//                }
+//
+//            } else {
+//                DispatchQueue.main.async {
+//                    firestoreQuery.isFollowing = false
+//                }
+//
+//
+//            }
+//            print("value of isFollowing = ", firestoreQuery.isFollowing)
+//        }
         
     }
         

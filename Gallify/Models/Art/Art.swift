@@ -52,7 +52,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case thumbnail
         case tokenId
         
-        case value
+        //case value 
         
     }
     

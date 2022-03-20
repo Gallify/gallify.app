@@ -53,6 +53,13 @@ struct SelfProfileCollectionListImage: View {
                 .frame(width: screenWidth / 5, height: screenHeight / 10.8)
                 //.cornerRadius(5)
         }
+        else if(playlist.cover_art_url == ""){
+            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d"))
+                .resizable()
+                .frame(width: screenWidth / 5, height: screenHeight / 10.8)
+                //.cornerRadius(5)
+            
+        }
         else{
             WebImage(url: URL(string: playlist.cover_art_url))
                 .resizable()
@@ -61,7 +68,6 @@ struct SelfProfileCollectionListImage: View {
         }
 
     }
-    
 }
 
 

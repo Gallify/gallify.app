@@ -24,7 +24,8 @@ struct CollectionGenericRow: View {
     @State var playlistOwner: User = User()
     //@State var veggies : [String] = ["app", "cat"]
     
-    
+    @State private var showingSheet = false
+    @State private var deleteFromPlaylist = false
     
     var body: some View {
         
@@ -39,7 +40,12 @@ struct CollectionGenericRow: View {
                     let words = ["Featured", "featured", "Liked", "liked", "Owned", "owned", "Created", "created", "reviewed","Reviewed", "approved","Approved", "Review", "review", "Publish", "publish", "Published", "published", "unPublished", "unpublished"]
                     let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
                     if (firestoreQuery.playlist.cover_art_url == "" && !combinedResult ) {
-
+                       
+                        WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d"))
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                            .padding(.top, 20)
+                        
                     }
                     else{
                         
@@ -79,6 +85,7 @@ struct CollectionGenericRow: View {
                                 .resizable()
                                 .frame(width: screenWidth / 37.5, height: screenHeight / 80)
                                 .foregroundColor(Color.primary)
+                                .font(Font.title.weight(.light))
                                 
                                 .padding(.vertical, 20)
                                                             
@@ -141,10 +148,11 @@ struct CollectionGenericRow: View {
                                                 
                         Button(action: {
                                                    
-                            //firestoreQuery.data.isClicked = artwork.art_id
-                                                    
+                           
+                            
+                            self.art = playlist[i]//<-- update local art var to use later in the code
                             firestoreQuery.artisClicked = playlist[i].artId
-                            firestoreQuery.artThatsPlaying = playlist[i]
+                            firestoreQuery.artThatsPlaying = self.art // used to be: playlist[i]
                             firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
                             firestoreQuery.artworkThatsPlaying = firestoreQuery.playlistArt
                                                 
@@ -191,10 +199,11 @@ struct CollectionGenericRow: View {
                                                         
                                 Button(action: {
                                     firestoreQuery.showArtOptions = true
+                                    self.art = playlist[i] //Setting art var when ellipses is clicked
                                 }, label: {
                                                             
                                     Image(systemName: "ellipsis")
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.primary)
                                                             
                                 })
                                 .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
@@ -203,16 +212,32 @@ struct CollectionGenericRow: View {
                                         title: Text("Select"),
                                         buttons: [
                                             .default(Text("Delete from Playlist")) {
-                                            //   firestoreQuery.deleteFromPlaylist(artwork.art_id)
+                                                Task{
+                                                        //remove from local variable to update view
+                                                        playlist.removeAll { artwork in
+                                                            artwork.artId == art.artId
+                                                        }
+                                                        print("Start Delete")
+                                                        await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist: thePlaylist)
+                                                        print("End Delete")
+                                                        await firestoreQuery.getUserLibrary()
+                                                    }
                                             },
                                             .default(Text("Add to Playlist")) {
-                                                //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                showingSheet = true
                                             },
                                             .default(Text("Cancel")) {
                                                 //firestoreQuery.addToPlaylist(artwork.art_id)
                                                 firestoreQuery.showArtOptions = false
                                             }])
                                                                 
+                                }
+                                .sheet(isPresented: $showingSheet) {
+                                    
+                                        CollectionsView(art: art)
+                                    
+                                  
+                                
                                 }
                                 
                             }
@@ -224,8 +249,21 @@ struct CollectionGenericRow: View {
                     }
                     .onMove { indexSet, offset in
                         playlist.move(fromOffsets: indexSet, toOffset: offset)
-                        firestoreQuery.featuredArt = playlist
-                        //firestore update here
+                        
+                        if(thePlaylist.name == "Featured"){
+                            firestoreQuery.featuredArt = playlist
+                            Task {//firestore update here
+                                await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.featuredArt)
+                            }
+                        }
+                        else{
+                            firestoreQuery.playlistArt = playlist
+                            Task {//firestore update here
+                                await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.playlistArt)
+                            }
+                        }
+                    
+                        
                     }
                     .listRowSeparator(.hidden)
                         
@@ -254,6 +292,7 @@ struct CollectionGenericRow: View {
     
         func NetworkingCall() async {
             
+            //determines the owner of the playlist.
             if(thePlaylist.creator_url == firestoreQuery.data.uid){
                 //then current user created this playlist
                 playlistOwner = firestoreQuery.data
@@ -264,9 +303,19 @@ struct CollectionGenericRow: View {
                 playlistOwner = firestoreQuery.otherUserData
             }
             
-            await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
             
+            //shruti
+            print("Playlist passed to generic row = ", thePlaylist.name)
+            await firestoreQuery.getPlaylist(playlist_id: thePlaylist.playlist_id)
+            
+            await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
+            //print("ART: \(firestoreQuery.playlistArt[1].creator)")
             playlist = firestoreQuery.playlistArt
+            //
+            
+            // code before
+            //await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
+            //playlist = firestoreQuery.playlistArt
             
             
         }

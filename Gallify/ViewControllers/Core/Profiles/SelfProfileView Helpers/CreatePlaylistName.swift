@@ -75,7 +75,7 @@ struct CreatePlaylistName: View {
                 })
                 .padding(.vertical, screenHeight / 54)
                     
-                NavigationLink(destination: CreatePlaylistSettings(),
+                NavigationLink(destination: CreatePlaylistSettings(playlistName: playlistName),
                     tag: true, selection: $goForward) { EmptyView() }
                     .navigationBarHidden(true)
                 

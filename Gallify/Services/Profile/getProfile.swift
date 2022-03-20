@@ -150,7 +150,7 @@ extension FirestoreQuery {
      Untested.
      
      */
-    func getUserLibrary() async {
+    func getUserLibrary_old2() async {
         
         if !(userLibrary.isEmpty){ //if featured playlist isnt empty, then return.
             return
@@ -182,6 +182,53 @@ extension FirestoreQuery {
         }
         
         self.userLibrary = playlist_array
+        
+    }
+    
+    /*
+     getOtherLibrary for the other profile
+     
+     to be tested
+     */
+    func getUserLibrary() async {
+        
+//        if !(featuredArt.isEmpty){ //if featured playlist isnt empty, then return.
+//            return
+//        }
+       
+        //self.featuredArt.removeAll()
+        
+        var user_library_array = [Playlist]()
+        
+        for playlist_id in data.Library {
+            do {
+                let doc = try await FirestoreQuery.db.collection("playlists")
+                    .document(playlist_id)
+                    .getDocument().data(as: Playlist.self)
+                
+                guard let thePlaylist = doc else{
+                    throw DatabaseError.failed
+                }
+                
+               // self.featuredArt.append(theArt)
+                //art_array.append(doc!)
+                user_library_array.append(thePlaylist)
+                
+                //
+            }
+            catch{
+                print("Error")
+            }
+        }
+        
+        //this only updates the array if it is different.
+        if(self.userLibrary as NSArray == user_library_array as NSArray){
+            
+        }
+        else{
+            //if old is not same as new then ...
+            self.userLibrary = user_library_array
+        }
         
     }
     
@@ -415,11 +462,57 @@ extension FirestoreQuery {
         }
         
         
-        //if old is not same as new then ...
-        self.otherLibrary = other_library_array
+        //this only updates the array if it is different.
+        if(self.otherLibrary as NSArray == other_library_array as NSArray){
+            
+        }
+        else{
+            //if old is not same as new then ...
+            self.otherLibrary = other_library_array
+        }
+        
         
     }
-
+    
+    /*
+     This checks if you, the current user are following the profile you are viewing.
+     
+     This works.
+     */
+    func checkIfFollowing(otherUserId: String) async {
+        let userId = Auth.auth().currentUser?.uid
+    
+                
+        try await FirestoreQuery.db.collection("users").document(userId!).collection("profile").whereField("following", arrayContains: otherUserId)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    
+                    DispatchQueue.main.async {
+                        self.isFollowing = false
+                    }
+                    
+                } else {
+                    print("Current user is following the other user!")
+                    
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.isFollowing = true
+                    }
+                    
+                    
+                }
+        }
+                
+                
+    
+        
+    }
+        
+   
     
     
     

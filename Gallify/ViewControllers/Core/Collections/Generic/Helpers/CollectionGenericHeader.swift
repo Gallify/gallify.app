@@ -42,20 +42,52 @@ struct CollectionGenericHeader: View {
                 ActionSheet(
                     title: Text("Select"),
                     buttons: [
-                        .default(Text("Edit")) {
-                            //firestoreQuery.addToPlaylist(artwork.art_id)
+                        .default(Text("Delete Playlist")) {
+                            
+                            //changed async into Task
+                            Task{
+                                await firestoreQuery.deletePlaylistFromLibrary(playlist_id: firestoreQuery.playlist.playlist_id)
+                                
+                                await firestoreQuery.getUserLibrary() //updates library
+                            }
+                            firestoreQuery.showPlaylistOptions = false
                         },
                         .default(Text("Make Public")) {
-                            //firestoreQuery.addToPlaylist(artwork.art_id)
+                            
+                            Task{
+                                await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlist_id)
+                                
+                                await firestoreQuery.getUserLibrary() //updates library
+                            }
+                            
+                            firestoreQuery.showPlaylistOptions = false
                         },
                         .default(Text("Make Private")) {
-                            //firestoreQuery.addToPlaylist(artwork.art_id)
+                            //updates privacy
+                            Task{
+                                await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlist_id)
+                                
+                                await firestoreQuery.getUserLibrary() //updates library
+                            }
+                            
+                            firestoreQuery.showPlaylistOptions = false
                         },
                         .default(Text("Make Collection")) {
-                            //firestoreQuery.addToPlaylist(artwork.art_id)
+                            //updates privacy
+                            Task{
+                                await firestoreQuery.updatePlaylistType(newType: "Collection")
+                                
+                                await firestoreQuery.getUserLibrary() //updates library
+                            }
+                            firestoreQuery.showPlaylistOptions = false
                         },
                         .default(Text("Make Playlist")) {
-                            //firestoreQuery.addToPlaylist(artwork.art_id)
+                            Task{
+                                await firestoreQuery.updatePlaylistType(newType: "Playlist")
+                                
+                                await firestoreQuery.getUserLibrary() //updates library
+                            }
+                            firestoreQuery.showPlaylistOptions = false
                         },
                         .default(Text("Cancel")) {
                             firestoreQuery.showPlaylistOptions = false

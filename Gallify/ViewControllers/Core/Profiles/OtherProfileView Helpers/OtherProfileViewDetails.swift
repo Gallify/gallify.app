@@ -16,11 +16,6 @@ struct OtherProfileViewDetails: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
-    //@ObservedObject var urlImageModel : UrlImageModel = UrlImageModel(urlString: nil)
-    
-    let db = Firestore.firestore()
-    
-    @State var photoUrl: String = ""
     
     var body: some View {
         
@@ -31,7 +26,7 @@ struct OtherProfileViewDetails: View {
                 
             HStack {
                 
-                if photoUrl == "" {
+                if firestoreQuery.otherUserData.profileImageUrl == "" {
                     CircleImage(image: Image(systemName: "person.circle.fill"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                 } else {
                     WebImage(url: URL(string: firestoreQuery.otherUserData.profileImageUrl))
@@ -119,15 +114,18 @@ struct OtherProfileViewDetails: View {
             }
             .padding(.horizontal, screenWidth / 15)
             
-            HStack {
+            
+            if(firestoreQuery.otherUserData.uid != firestoreQuery.data.uid ){
+                HStack {
+                        
+                    FollowButton().environmentObject(firestoreQuery)
                     
-                FollowButton().environmentObject(firestoreQuery)
-                
-                Spacer()
-                    
+                    Spacer()
+                        
+                }
+                .padding(.horizontal, screenWidth / 15)
+                .padding(.vertical, screenHeight / 160)
             }
-            .padding(.horizontal, screenWidth / 15)
-            .padding(.vertical, screenHeight / 160)
             
         }
         .padding(.top, screenHeight / 120)

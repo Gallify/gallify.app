@@ -4,7 +4,6 @@
 //
 //  Created by Gianluca Profio on 1/23/22.
 //
-
 import SwiftUI
 
 struct ProfileSettingBody: View {
@@ -18,20 +17,25 @@ struct ProfileSettingBody: View {
     
     @EnvironmentObject var firestoreQuery: FirestoreQuery
     
-    /*@EnvironmentObject var viewModel : LoginAppViewModel
+    @State var newUsername = ""
+    @State var newFirstName = ""
+    @State var newLastName = ""
+    @State var description = ""
+    @State var profileImageUpdate = false
+    
+//    @EnvironmentObject var viewModel : LoginAppViewModel
     @State var pickedImage: UIImage?
-    @State private var showActionSheet = false
-    @State private var showImagePicker = false
-    @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
-    @EnvironmentObject var settingsViewModel : ProfileSetting
-    private var metadata = StorageMetadata()*/
+    @State var showActionSheet = false
+    @State var showImagePicker = false
+    @State var sourceType : UIImagePickerController.SourceType = .photoLibrary
+//    @EnvironmentObject var settingsViewModel : ProfileSetting
+//    private var metadata = StorageMetadata()
     
     var body: some View {
         
         VStack {
-            /*VStack {
+            VStack {
                 HStack{
-                    Spacer()
                     VStack {
                         if pickedImage != nil {
                             Image(uiImage: pickedImage!)
@@ -60,11 +64,13 @@ struct ProfileSettingBody: View {
                             .default(Text("Camera"), action: {
                                 self.showImagePicker = true
                                 self.sourceType = .camera
+                                profileImageUpdate = true
                             }),
                             //Button2
                             .default(Text("Photo Library"), action: {
                                 self.showImagePicker = true
                                 self.sourceType = .photoLibrary
+                                profileImageUpdate = true
                             }),
                             
                             //Button3
@@ -75,24 +81,27 @@ struct ProfileSettingBody: View {
                         imagePicker(image: self.$pickedImage, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
                     }
                 
-                    Button(action: {
-                        StorageService.saveProfileImage(uid: firestoreQuery.data.uid, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
-                    }, label: {
-                        Text("Save")
-                            .frame(width: 200, height: 50)
-                            .background(Color.blue)
-                            .foregroundColor(Color.white)
-                            .padding()
-                    })
-                    Spacer()
-                }*/
-                HStack {
-                    Text("First Name")
-                        .padding(.leading)
-                    Spacer()
+//                    Button(action: {
+//                        StorageService.saveProfileImage(uid: firestoreQuery.data.uid, imageData:self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), metaData: metadata)
+//                    }, label: {
+//                        Text("Save")
+//                            .frame(width: 200, height: 50)
+//                            .background(Color.blue)
+//                            .foregroundColor(Color.white)
+//                            .padding()
+//                    })
+//                    Spacer()
                 }
+            }
+                
+                //Taking out the formatter parameter because I need text: instead of value: -- Shruti
                 VStack {
-                    TextField("John", value: $firestoreQuery.data.firstName, formatter: NumberFormatter())
+                    HStack {
+                        Text("First Name")
+                            .padding(.leading)
+                        Spacer()
+                    }
+                    TextField(firestoreQuery.data.firstName, text: $newFirstName)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
@@ -102,7 +111,7 @@ struct ProfileSettingBody: View {
                             .padding(.leading)
                         Spacer()
                     }
-                    TextField("Brown", value: $firestoreQuery.data.lastName, formatter: NumberFormatter())
+                    TextField(firestoreQuery.data.lastName, text: $newLastName)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
@@ -112,7 +121,20 @@ struct ProfileSettingBody: View {
                             .padding(.leading)
                         Spacer()
                     }
-                    TextField("johnny_buckets", value: $firestoreQuery.data.username, formatter: NumberFormatter())
+                    TextField(firestoreQuery.data.username, text: $newUsername)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                        .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+                        .padding(.horizontal, screenWidth / 15)
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Text("Enter your bio")
+                            .padding(.leading)
+                        Spacer()
+                    }
+                    TextField(firestoreQuery.data.description, text: $description)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
@@ -120,38 +142,73 @@ struct ProfileSettingBody: View {
                     
                     if buttonPressed {
                                 
-                        if firestoreQuery.data.firstName.isEmpty {
-                                
-                            ErrorText(errorText: "First Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
-                                
+//                        if firestoreQuery.data.firstName.isEmpty {
+//
+//                            ErrorText(errorText: "First Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+//
+//                        }
+//
+//                        else if firestoreQuery.data.lastName.isEmpty {
+//
+//                            ErrorText(errorText: "Last Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+//
+//                        }
+//
+//                        else if firestoreQuery.data.username.isEmpty {
+//
+//                            ErrorText(errorText: "Username cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+//
+//                        }
+                        if(newUsername.isEmpty && newFirstName.isEmpty && newLastName.isEmpty && description.isEmpty && profileImageUpdate == false) {
+                            ErrorText(errorText: "Please fill out one of the fields above", screenHeight: screenHeight, screenWidth: screenWidth)
                         }
-                                
-                        else if firestoreQuery.data.lastName.isEmpty {
-                                    
-                            ErrorText(errorText: "Last Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
-                                    
-                        }
-                                
-                        else if firestoreQuery.data.username.isEmpty {
-                                    
-                            ErrorText(errorText: "Username cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
-                                    
-                        }
+                        
                                 
                     }
-
+                }
+                VStack{
                     Button(action: {
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            buttonPressed = true
+                        }
                             
-                        if !(firestoreQuery.data.firstName.isEmpty || firestoreQuery.data.lastName.isEmpty || firestoreQuery.data.username.isEmpty) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                            buttonPressed = false
+                        }
                             
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                buttonPressed = true
-                            }
+                        if (!newUsername.isEmpty) {
                                 
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-                                buttonPressed = false
+                            Task {
+                               await firestoreQuery.updateUsername(username: newUsername)
+                            }
+                                                        
+                        }
+                        if(!newFirstName.isEmpty){
+                            
+                            Task {
+                                await firestoreQuery.updatefirstName(first: newFirstName)
                             }
                         }
+                        if(!newLastName.isEmpty){
+                            Task {
+                                await firestoreQuery.updateLastName(last: newLastName)
+                            }
+                        }
+                        if(!description.isEmpty){
+                            Task {
+                                await firestoreQuery.updateUserDescription(desc: description)
+                            }
+                        }
+                        if(profileImageUpdate == true){
+                            Task {
+                                await firestoreQuery.updateProfileImage(image: self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data())
+                            }
+                        }
+                        Task {
+                            await firestoreQuery.getUser_await()
+                        }
+                       
                             
                     }, label: {
                             
@@ -165,16 +222,22 @@ struct ProfileSettingBody: View {
                              .cornerRadius(screenWidth / 15)
                              .multilineTextAlignment(.center)
                              .padding()
+//                             .onTapGesture {
+//                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+//                             }
                         
                     })
                 }
             }
         .onAppear{ async{ await NetworkingCall() } }
         }
+    
     func NetworkingCall() async{
-    await firestoreQuery.getUser_await()
-    print(firestoreQuery.data.featured)
-    print("AFTER get data in home")    }
+        await firestoreQuery.getUser_await()
+        print(firestoreQuery.data.featured)
+        print("AFTER get data in home")
+        
+    }
 }
 
 /*struct ProfileSettingBody_Previews: PreviewProvider {

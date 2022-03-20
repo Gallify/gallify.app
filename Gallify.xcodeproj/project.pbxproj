@@ -53,6 +53,7 @@
 		3003AFFB27E40BE600EA58B6 /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFFA27E40BE600EA58B6 /* ThresholdPanGesture.swift */; };
 		3003AFFD27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFFC27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift */; };
 		3003AFFF27E4EF7600EA58B6 /* CollectionGenericImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFFE27E4EF7600EA58B6 /* CollectionGenericImage.swift */; };
+		3003B00127E6B01200EA58B6 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00027E6B01200EA58B6 /* CollectionsView.swift */; };
 		3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4B926C82F6B00323BCB /* GallifyApp.swift */; };
 		3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4BD26C82F6D00323BCB /* Assets.xcassets */; };
 		3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */; };
@@ -285,6 +286,7 @@
 		3003AFFA27E40BE600EA58B6 /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
 		3003AFFC27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionListImage.swift; sourceTree = "<group>"; };
 		3003AFFE27E4EF7600EA58B6 /* CollectionGenericImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGenericImage.swift; sourceTree = "<group>"; };
+		3003B00027E6B01200EA58B6 /* CollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsView.swift; sourceTree = "<group>"; };
 		3004D4B626C82F6B00323BCB /* Gallify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3004D4B926C82F6B00323BCB /* GallifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyApp.swift; sourceTree = "<group>"; };
 		3004D4BD26C82F6D00323BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1260,6 +1262,7 @@
 				92794CF5273811760012B184 /* Generic */,
 				30001C43279C710500527BF9 /* FlexibleSheet.swift */,
 				304109F5279D27AC00284446 /* MinimizedView.swift */,
+				3003B00027E6B01200EA58B6 /* CollectionsView.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -1750,6 +1753,7 @@
 				30410A7E27A677EB00284446 /* ProfileSetting.swift in Sources */,
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
 				3052137D278A2D5A00CE0224 /* FirestoreQueryService.swift in Sources */,
+				3003B00127E6B01200EA58B6 /* CollectionsView.swift in Sources */,
 				31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */,
 				92794D02273811760012B184 /* CollectionRecentActivityHeader.swift in Sources */,
 				30001BD92796865600527BF9 /* getList.swift in Sources */,
