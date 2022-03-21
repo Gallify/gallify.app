@@ -35,8 +35,8 @@ struct USDZPostHelper: UIViewRepresentable {
        // var documents = ""
         do{
            // documents = try String(contentsOf: (modelName.modelURL ?? url)!)
-            print("Model URL")
-            print(modelName.modelURL)
+//            print("Model URL")
+//            print(modelName.modelURL)
            // let documents = "yourValidPath"
            // scene = try SCNScene(url: URL(fileURLWithPath: "file:///var/mobile/Containers/Data/Application/0FF5CFD6-245B-4CF8-A950-D35B9F49E5FB/Documents/models/air_force.usdz"), options: nil)
             print("File URL")
