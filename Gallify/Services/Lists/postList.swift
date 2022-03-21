@@ -54,6 +54,7 @@ extension FirestoreQuery {
     
         let docRef = try! await Firestore.firestore().collection("playlists").document()
         newPlaylist.playlist_id = docRef.documentID
+        newPlaylist.creator_url = self.data.uid
         do {
           try await docRef.setData(from: newPlaylist)
         } catch {
