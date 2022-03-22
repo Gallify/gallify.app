@@ -111,7 +111,7 @@ extension FirestoreQuery {
      Always needs to be called after getPlaylist()
      */
     func getPlaylistArt(playlist: Playlist) async {
-        
+        print("playlist IN GET PLAYLIST ART = ", playlist.name)
 
 //        if !(playlistArt.isEmpty){ //if featured playlist isnt empty, then return.
 //            return
@@ -123,6 +123,7 @@ extension FirestoreQuery {
         
         for art_id in playlist.art {
             do {
+                
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(art_id)
                     .getDocument().data(as: Art.self)

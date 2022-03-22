@@ -207,7 +207,7 @@ class LoginAppViewModel: ObservableObject {
                     //add to playlist
                     let playlistRef = db.collection("playlists").document()
                     playlist.playlist_id = playlistRef.documentID
-                    playlist.creator_url = Auth.auth().currentUser?.uid ?? ""
+                    playlist.creator_url = user.uid /*Auth.auth().currentUser?.uid ?? ""*/
                     playlist.creator = user.firstName + " " + user.lastName
                     playlist.playlist_type = "Playlist"
                     try await batch.setData(from: playlist, forDocument: playlistRef)

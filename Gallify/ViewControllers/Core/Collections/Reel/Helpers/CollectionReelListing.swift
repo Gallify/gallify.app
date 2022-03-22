@@ -16,6 +16,7 @@ struct CollectionReelListing: View {
     @State private var showDetail = false
     @State var showActionSheet: Bool = false
     @State var art_popup = ""
+    @State var art = Art()
     @State var getModelforArt = ""
     @State var scrollTo = 0
     @State var showThumbnail = true
@@ -32,6 +33,12 @@ struct CollectionReelListing: View {
         ActionSheet(title: Text("Add to a Collection"), message: Text("Your Collections:"), buttons: [
             .default(Text("Collection 1")),
             .default(Text("Collection 2")),
+            .default(Text("Like")) {
+                Task {
+                    await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+                }
+
+            },
             .destructive(Text("Cancel"))
         ])
     }
@@ -90,49 +97,46 @@ struct CollectionReelListing: View {
                                 
                                 
                                 
-                                //button to switch from thumbnail to 3d model
-                                Button(action: {
-                                    
-                                    showThumbnail.toggle()
-                                    
-                                    if showThumbnail {
-                                        getModelforArt = ""
-                                        text3Dmodel = "View Model"
-                                        
-                                        //kill thread and stop it from getting model
-                                    }
-                                    else {
-                                        getModelforArt = artwork.artId
-                                        
-                                        text3Dmodel = "Loading.."
-                                        
-                                        if(!firestoreQuery.models.isEmpty){
-                                            
-                                            
-                                            if(firestoreQuery.models[i] != nil){
-                                                if(firestoreQuery.models[i].contentLoaded){
-                                                    text3Dmodel = "Turn Off"
-                                                }
-                                                else{
-                                                    firestoreQuery.getModel(model: firestoreQuery.models[i])
-                                                }
-                                            }
-                                        }
-                                    }
-                                    
-                                }, label: {
-                                    Text(text3Dmodel)
-                                })
+//                                //button to switch from thumbnail to 3d model
+//                                Button(action: {
+//
+//                                    showThumbnail.toggle()
+//
+//                                    if showThumbnail {
+//                                        getModelforArt = ""
+//                                        text3Dmodel = "View Model"
+//
+//                                        //kill thread and stop it from getting model
+//                                    }
+//                                    else {
+//                                        getModelforArt = artwork.artId
+//
+//                                        text3Dmodel = "Loading.."
+//
+//                                        if(!firestoreQuery.models.isEmpty){
+//
+//
+//                                            if(firestoreQuery.models[i] != nil){
+//                                                if(firestoreQuery.models[i].contentLoaded){
+//                                                    text3Dmodel = "Turn Off"
+//                                                }
+//                                                else{
+//                                                    firestoreQuery.getModel(model: firestoreQuery.models[i])
+//                                                }
+//                                            }
+//                                        }
+//                                    }
+//
+//                                }, label: {
+//                                    Text(text3Dmodel)
+//                                })
 
-                                
-                                
-                                
-                                
-                                
-                                
+                
                                 //add to playlist button
                                 Button(action: { // add to playlist, etc
                                     self.showActionSheet.toggle()
+                                    art = artwork
+                                    print("art in reel listing = ", art.name)
                                 }) {
                                     Image(systemName: "ellipsis")
                                         .font(.system(size: 20))

@@ -31,6 +31,26 @@ extension FirestoreQuery {
         }
     }
     
+    func addArtToPlaylist(art: Art, playlistName: String) async {
+        
+        do {
+            
+            for p in userLibrary {
+                if p.name == playlistName {
+                    try await FirestoreQuery.db.collection("playlists").document(p.playlist_id).updateData([
+                        "art" : FieldValue.arrayUnion([art.artId])
+                    ])
+                    //self.playlist = playlist
+                    //self.playlist.art.append(art.artId)
+                }
+            }
+            
+            
+        } catch {
+            print("Error adding art to Liked PLaylist in user library")
+        }
+    }
+    
     
     //adds playlist to library
     func addPlaylistToLibrary(playlist: Playlist) {
@@ -54,7 +74,9 @@ extension FirestoreQuery {
     
         let docRef = try! await Firestore.firestore().collection("playlists").document()
         newPlaylist.playlist_id = docRef.documentID
+
         newPlaylist.creator_url = self.data.uid
+
         do {
           try await docRef.setData(from: newPlaylist)
         } catch {
