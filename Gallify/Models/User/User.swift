@@ -21,7 +21,6 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         case profileImageUrl
         case username
         
-        
         case searchType //when search, need to know artist, collection, or art
         case phoneNumber
         case trendsetter
