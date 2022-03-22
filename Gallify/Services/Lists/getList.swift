@@ -26,6 +26,9 @@ extension FirestoreQuery {
             }
 
             self.featuredPlaylist = thefeaturedPlaylist
+            DispatchQueue.main.async{
+                self.featuredPlaylist = thefeaturedPlaylist
+            }
 
         }
         catch{
@@ -74,8 +77,15 @@ extension FirestoreQuery {
             
         }
         else{
-            //if old is not same as new then ...
             self.featuredArt = art_array
+            print("FEATURED ART")
+            print(self.featuredArt.count)
+
+            //if old is not same as new then ...
+//            DispatchQueue.main.async{
+//                self.featuredArt = art_array
+//            }
+           // self.featuredArt = art_array
         }
         
     }

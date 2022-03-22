@@ -17,6 +17,8 @@ struct SelfProfileFeatured: View {
     
     @State var featuredArtCount = 1
     @State private var sheetMode2: SheetMode = .none
+    @State var showingSheet = false
+    @State var art: Art = Art()
     //@Binding var showNewScreen: Bool
     
     var body: some View {
@@ -130,6 +132,7 @@ struct SelfProfileFeatured: View {
                         Button(action: {
                             
                             firestoreQuery.showFeaturedOptions = true
+                            self.art = firestoreQuery.featuredArt[i]
                             
                         }, label: {
                             
@@ -141,6 +144,7 @@ struct SelfProfileFeatured: View {
                             ActionSheet(title: Text("Select"),
                                 buttons: [
                                     .default(Text("Add to Playlist")) {
+                                        showingSheet = true
                                         //firestoreQuery.addToPlaylist(artwork.art_id)
 //                                        async {await firestoreQuery.addArtToPlaylist(art_id: "Q1XgaJ5IE1FyGgtvBpYN", playlist_id: firestoreQuery.featuredPlaylist.id)}
                                     },
@@ -149,6 +153,9 @@ struct SelfProfileFeatured: View {
                                         //firestoreQuery.addToPlaylist(artwork.art_id)
                                     }])
                                 
+                        }
+                        .sheet(isPresented: $showingSheet) {
+                                CollectionsView(art: art)
                         }
                         
                     }
@@ -163,13 +170,16 @@ struct SelfProfileFeatured: View {
             }
             .padding(.vertical, screenHeight / 160)
             .navigationBarHidden(true)
-            .onAppear(perform: getfeaturedArtCount)
+            .onAppear{async { await getfeaturedArtCount() }}
+            //.onAppear(perform: getfeaturedArtCount)
             
         }
         
     }
     
-    func getfeaturedArtCount() {
+    func getfeaturedArtCount() async {
+        await firestoreQuery.getFeaturedArt()
+        print("\(firestoreQuery.featuredArt.count) +  ART FEATURED")
         
         if (firestoreQuery.featuredArt.count > 5) {
             
@@ -180,7 +190,7 @@ struct SelfProfileFeatured: View {
         else {
             
             featuredArtCount = firestoreQuery.featuredArt.count
-            
+            print("\(featuredArtCount) +  ART FEATURED")
         }
         
     }

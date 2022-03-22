@@ -17,6 +17,8 @@ struct OtherProfileFeatured: View {
     
     @State var featuredArtCount = 1
     @State private var sheetMode2: SheetMode = .none
+    @State var showingSheet = false
+    @State var art: Art = Art()
     //@Binding var showNewScreen: Bool
     
     var body: some View {
@@ -130,6 +132,7 @@ struct OtherProfileFeatured: View {
                             Button(action: {
                                 
                                 firestoreQuery.showFeaturedOptions = true
+                                self.art = firestoreQuery.otherFeaturedArt[i]
                                 
                             }, label: {
                                 
@@ -141,6 +144,7 @@ struct OtherProfileFeatured: View {
                                 ActionSheet(title: Text("Select"),
                                     buttons: [
                                         .default(Text("Add to Playlist")) {
+                                            showingSheet = true
                                             //firestoreQuery.addToPlaylist(artwork.art_id)
                                         },
                                         .default(Text("Cancel")) {
@@ -148,6 +152,9 @@ struct OtherProfileFeatured: View {
                                             //firestoreQuery.addToPlaylist(artwork.art_id)
                                         }])
                                     
+                            }
+                            .sheet(isPresented: $showingSheet) {
+                                    CollectionsView(art: art)
                             }
                             
                         }

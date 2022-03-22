@@ -19,8 +19,8 @@ extension FirestoreQuery {
     func search(searchText: String){
         
         let query = Query("query")
-          .set(\.filters, to: "NOT contentType:2")
-        //only searches approved artwork. 2 = approved.
+          .set(\.filters, to: "NOT searchType:2")
+        //only searches approved artwork. 2 = un-reviewed.
         
         let client = SearchClient(appID: "D1K1VO0U2E", apiKey: "bc7f663e539795736e1fad8c1adaeae1")
         let index = client.index(withName: "prod_Gallify")

@@ -15,8 +15,10 @@ struct CollectionReelListing: View {
     
     @State private var showDetail = false
     @State var showActionSheet: Bool = false
+    @State var showingSheet: Bool = false
     @State var art_popup = ""
-    @State var art = Art()
+    //@State var art = Art()
+    @State var art: Art = Art()
     @State var getModelforArt = ""
     @State var scrollTo = 0
     @State var showThumbnail = true
@@ -36,6 +38,7 @@ struct CollectionReelListing: View {
             .default(Text("Like")) {
                 Task {
                     await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+                    //reload library
                 }
 
             },
@@ -132,18 +135,110 @@ struct CollectionReelListing: View {
 //                                })
 
                 
-                                //add to playlist button
-                                Button(action: { // add to playlist, etc
-                                    self.showActionSheet.toggle()
-                                    art = artwork
-                                    print("art in reel listing = ", art.name)
-                                }) {
-                                    Image(systemName: "ellipsis")
-                                        .font(.system(size: 20))
-                                        .foregroundColor(.black)
+//                                //add to playlist button
+//                                Button(action: { // add to playlist, etc
+//                                    self.showActionSheet.toggle()
+//                                    art = artwork
+//                                    print("art in reel listing = ", art.name)
+//                                }) {
+//                                    Image(systemName: "ellipsis")
+//                                        .font(.system(size: 20))
+//                                        .foregroundColor(.black)
+//                                    }
+//                                    .actionSheet(isPresented: $showActionSheet, content: {
+//                                            self.actionSheet })
+                                
+                                //if else. If they created the playlist or not.
+                                if(firestoreQuery.playlistThatsPlaying.creator_url == firestoreQuery.data.uid){
+                                    Button(action: {
+                                        firestoreQuery.showArtOptions = true
+                                        self.art = artwork //Setting art var when ellipses is clicked
+                                    }, label: {
+                                                                
+                                        Image(systemName: "ellipsis")
+                                            .foregroundColor(.primary)
+                                                                
+                                    })
+                                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                                
+                                        ActionSheet(
+                                            title: Text("Select"),
+                                            buttons: [
+                                                .default(Text("Like")) {
+                                                    Task {
+                                                        await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+                                                        //reload library
+                                                        await firestoreQuery.getUserLibrary()
+                                                    }
+                                                },
+                                                .default(Text("Delete from Playlist")) {
+                                                    Task{
+                                                            //remove from local variable to update view
+                                                            firestoreQuery.playlistThatsPlaying.art.removeAll { artwork in
+                                                                artwork == art.artId
+                                                            }
+                                                            print("Start Delete")
+                                                            await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist:  firestoreQuery.playlistThatsPlaying)
+                                                            print("End Delete")
+                                                           
+                                                        
+                                                            //this is a lot of calls. Goal is to reduce this later.
+                                                            await firestoreQuery.getFeaturedPlaylist()
+                                                            await firestoreQuery.getFeaturedArt()
+                                                            await firestoreQuery.getUserLibrary()
+                                                        }
+                                                },
+                                                .default(Text("Add to Playlist")) {
+                                                    showingSheet = true
+                                                },
+                                                .default(Text("Cancel")) {
+                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                    firestoreQuery.showArtOptions = false
+                                                }])
                                     }
-                                    .actionSheet(isPresented: $showActionSheet, content: {
-                                            self.actionSheet })
+                                    .sheet(isPresented: $showingSheet) {
+                                            CollectionsView(art: art)
+                                    }
+                                    
+                                }
+                                else{
+                                    Button(action: {
+                                        firestoreQuery.showArtOptions = true
+                                        self.art = artwork //Setting art var when ellipses is clicked
+                                    }, label: {
+                                                                
+                                        Image(systemName: "ellipsis")
+                                            .foregroundColor(.primary)
+                                                                
+                                    })
+                                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                                
+                                        ActionSheet(
+                                            title: Text("Select"),
+                                            buttons: [
+                                                .default(Text("Like")) {
+                                                    Task {
+                                                        await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+                                                        //reload library
+                                                        await firestoreQuery.getUserLibrary()
+                                                    }
+                                                },
+                                                .default(Text("Add to Playlist")) {
+                                                    showingSheet = true
+                                                },
+                                                .default(Text("Cancel")) {
+                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                    firestoreQuery.showArtOptions = false
+                                                }])
+                                                                    
+                                    }
+                                    .sheet(isPresented: $showingSheet) {
+                                            CollectionsView(art: art)
+                                    }
+                                    
+                                    
+                                }
+                                
                                 
                                 Text("\(artwork.price) ")
                                     //.foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
@@ -158,17 +253,17 @@ struct CollectionReelListing: View {
                             
                             //show details
                             Button {
-                                withAnimation(.easeInOut(duration: 0.25)) {
+                                withAnimation(.easeInOut(duration: 0.1)) {
                                     showDetail.toggle()
                                     art_popup = artwork.artId
-                                    
+
                                     if(showDetail == false){
                                         art_popup = ""
                                     }
                                 }
                             } label: {
                                 VStack {
-                                    
+
                                     Label("", systemImage: "chevron.down.circle")
                                         .imageScale(.large)
                                         .rotationEffect(.degrees(showDetail ? -180 : 0))
@@ -176,8 +271,8 @@ struct CollectionReelListing: View {
                                         .font(.system(size: 20))
                                         .foregroundColor(.black)
                                         .offset(y:-30)
-                                     
-                
+
+
                                     Spacer()
                                 }
                             }

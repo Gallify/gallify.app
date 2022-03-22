@@ -16,7 +16,8 @@ struct SearchResultView: View {
     let screenHeight: CGFloat
     let screenWidth: CGFloat
     let artwork: Art
-
+    @State var showingSheet = false
+    
     
     @EnvironmentObject var firestoreQuery: FirestoreQuery
         
@@ -73,26 +74,25 @@ struct SearchResultView: View {
                     
                 })
                     .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
-                    ActionSheet(
-                        title: Text("Select"),
-                        buttons: [
-//                            .default(Text("Delete from Playlist")) {
-//                             //   firestoreQuery.deleteFromPlaylist(artwork.art_id)
-//                            },
-                            .default(Text("Add to Playlist")) {
-                                
-                                //firestoreQuery.addToPlaylist(artwork.art_id)
-                            },
-                            .default(Text("Cancel")) {
-                                
-                                //firestoreQuery.addToPlaylist(artwork.art_id)
-                                firestoreQuery.showArtOptions = false
-                            }
-                            
-
-                        ]
-                    )
-                }
+                        ActionSheet(
+                            title: Text("Select"),
+                            buttons: [
+                                .default(Text("Add to Playlist")) {
+                                    showingSheet = true
+                                    
+                                    //firestoreQuery.addToPlaylist(artwork.art_id)
+                                },
+                                .default(Text("Cancel")) {
+                                    
+                                    //firestoreQuery.addToPlaylist(artwork.art_id)
+                                    firestoreQuery.showArtOptions = false
+                                }
+                            ]
+                        )
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                            CollectionsView(art: artwork)
+                    }
   
             }
             .padding(.horizontal, screenWidth / 25)

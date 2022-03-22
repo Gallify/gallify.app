@@ -45,6 +45,8 @@ extension FirestoreQuery {
                 }
             }
             
+            //reload library
+            
             
         } catch {
             print("Error adding art to Liked PLaylist in user library")

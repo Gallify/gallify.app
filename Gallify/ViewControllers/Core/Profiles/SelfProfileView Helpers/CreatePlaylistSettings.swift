@@ -384,6 +384,10 @@ struct CreatePlaylistSettings: View {
             Spacer()
             
             Button(action: {
+                
+                    //haptic feedback
+                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                    impactMed.impactOccurred()
                     
                     if(playlistPrivacy == "Private") {
                         privacyNum = 0
@@ -405,11 +409,23 @@ struct CreatePlaylistSettings: View {
                             await firestoreQuery.updatePlaylistImage(image: self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), uid: playlistRef)
                         }
                     }
+                
+                    //self.presentationMode.wrappedValue.dismiss()
                     
                 
                     
                 }, label: {
-                    Text("Create Playlist")
+                    Group{
+                        
+                        Text("Create " + playlistType)
+                            .font(.system(size: screenWidth / 18.5, weight: .bold))
+                            .foregroundColor(Color.white)
+                            .padding(.horizontal, screenWidth / 8.5)
+                            .padding(.vertical, screenHeight / 65)
+                            .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                            .cornerRadius(screenWidth / 15)
+                    }
+                    
                 })
                 
         
