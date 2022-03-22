@@ -485,27 +485,35 @@ extension FirestoreQuery {
                 
         try await FirestoreQuery.db.collection("users").document(userId!).collection("profile").whereField("following", arrayContains: otherUserId)
             .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                    
-                    DispatchQueue.main.async {
-                        self.isFollowing = false
+              //  for document in querySnapshot!.documents {
+                if querySnapshot!.isEmpty {
+                        print("Error getting documents: \(err)")
+                        
+                        DispatchQueue.main.async {
+                            self.isFollowing = false
+                        }
+                        print("is following? meth")
+                        print(self.isFollowing)
+                        
                     }
-                    
-                } else {
-                    print("Current user is following the other user!")
-                    
-                    for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
+                    else {
+                        print("Current user is following the other user!")
+                        
+                        for document in querySnapshot!.documents {
+                            print("\(document.documentID) => \(document.data())")
+                        }
+                        
+                        
+                        DispatchQueue.main.async {
+                            self.isFollowing = true
+                        }
+                        print("is following? meth")
+                        print(self.isFollowing)
+                        
                     }
-                    
-                    DispatchQueue.main.async {
-                        self.isFollowing = true
-                    }
-                    
-                    
                 }
-        }
+                
+       // }
                 
                 
     
