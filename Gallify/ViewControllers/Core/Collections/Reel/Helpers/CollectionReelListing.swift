@@ -99,7 +99,7 @@ struct CollectionReelListing: View {
                                         .font(.system(size: 20))
                                         .foregroundColor(.primary)
                                         .fontWeight(.light)
-                                        //.padding(.leading, 70)
+                                        .offset(x: 10)
                                 }
                                 
                                 

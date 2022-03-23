@@ -108,6 +108,8 @@ struct TabBarView: View {
             .environmentObject(storageService)
             .onAppear{ async { await NetworkingCall() } }
                 
+            
+            
             ZStack {
                 
                 if firestoreQuery.showNewScreen {
@@ -116,11 +118,16 @@ struct TabBarView: View {
                     //newscreen()
                         
                     CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight)
-                        .offset(y: 10 )
+                       
+                       // .offset(y: firestoreQuery.showNewScreen ? 0: UIScreen.main.bounds.height)
+                       // .animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
+                      
+                        //.offset(y: 10 )
                         //.padding(.top, 100)
-                        .transition(.move(edge: .bottom))
+                        //.transition(.move(edge: .bottom))
+                        .transition(.offset( y: UIScreen.main.bounds.height))
                         //.animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
-                        .animation(.spring())
+                        .animation(.default) //.spring(response: 0.4)
                         .edgesIgnoringSafeArea(.all)
                         .environmentObject(firestoreQuery)
                         //.onTapGesture {

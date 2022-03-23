@@ -175,12 +175,12 @@ struct CollectionReelDescription: View {
      func NetworkingCall() async{
          
         //convert recent date
-         latestDate = artDetails.latestHistoryDate.dateValue()
-         latestString = latestDate.formatted()
+       //  latestDate = artDetails.latestHistoryDate.dateValue()
+        // latestString = latestDate.formatted()
          
          //convert created date
-         createdDate = artDetails.createdDate.dateValue()
-         createdString = createdDate.formatted()
+       //  createdDate = artDetails.createdDate.dateValue()
+        // createdString = createdDate.formatted()
          
          //get the collection the art is apart of
          if(artDetails.collection != ""){
