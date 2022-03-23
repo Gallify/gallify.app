@@ -51,7 +51,7 @@ extension FirestoreQuery {
                 pl == playlist_id
             }
             
-            //assumes firestorequery.playlist is the playlist to delete 
+            //assumes firestorequery.playlist is the playlist to delete
             if(self.data.uid == self.playlist.creator_url){
                 await deletePlaylistFromCollection(playlist_id: playlist_id)
             }

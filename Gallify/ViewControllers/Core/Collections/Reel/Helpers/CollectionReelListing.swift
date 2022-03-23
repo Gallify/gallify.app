@@ -70,7 +70,7 @@ struct CollectionReelListing: View {
                                         USDZPost( model: firestoreQuery.models[i])
                                     }
                                     else{
-                                        WebImage(url: URL(string: artwork.thumbnail))
+                                        WebImage(url: URL(string: artwork.thumbnailUrl))
                                         .resizable()
                                         //.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                                         .overlay(Rectangle().frame(width: nil, height: 1, alignment: .top).foregroundColor(Color.black), alignment: .top)
@@ -84,14 +84,22 @@ struct CollectionReelListing: View {
                             HStack {
                                 
                                 VStack{ //name and creator
-                                    Text("\(artwork.creator)  ")
-                                        .font(.system(size: 15))
-                                        .foregroundColor(.primary)
-          
+                                    
+                                    NavigationLink (
+                                       destination: OtherProfileView(otherUserId: artwork.creatorId),
+                                        label: {
+                                            Text("\(artwork.creator)  ")
+                                                .font(.system(size: 15))
+                                                .foregroundColor(.primary)
+                                                .fontWeight(.bold)
+                                        })
+                                    
                                     
                                     Text("\(artwork.name)  ")
                                         .font(.system(size: 20))
                                         .foregroundColor(.primary)
+                                        .fontWeight(.light)
+                                        //.padding(.leading, 70)
                                 }
                                 
                                 
@@ -157,6 +165,7 @@ struct CollectionReelListing: View {
                                                                 
                                         Image(systemName: "ellipsis")
                                             .foregroundColor(.primary)
+                                            .padding(.trailing, 10)
                                                                 
                                     })
                                     .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
@@ -209,6 +218,7 @@ struct CollectionReelListing: View {
                                                                 
                                         Image(systemName: "ellipsis")
                                             .foregroundColor(.primary)
+                                            .padding(.trailing, 10)
                                                                 
                                     })
                                     .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
@@ -239,13 +249,14 @@ struct CollectionReelListing: View {
                                     
                                 }
                                 
-                                
-                                Text("\(artwork.price) ")
-                                    //.foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.primary)
-                                    .bold()
-                                
+                                if(artwork.forSale == true && artwork.price != "" ){
+                                    Text("\(artwork.price) Matic")
+                                        //.foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.primary)
+                                        .padding(.trailing, 10)
+                                        //.bold()
+                                }
                         
                                 
                             }

@@ -144,8 +144,12 @@ extension FirestoreQuery {
                 }
                 print("End of conversion")
                 
+                print("Discover CONTENT Count")
+                print(self.discoveryPageArt.count)
                 if(discoveryPageArtArray.count > 1){
                     self.discoveryPageArt = discoveryPageArtArray
+                    print("Discover CONTENT Count")
+                    print(self.discoveryPageArt.count)
                 }
                 
 

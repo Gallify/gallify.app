@@ -74,7 +74,7 @@ struct SelfProfileFeatured: View {
                                 
                                 HStack {
                                                 
-                                    WebImage(url: URL(string: artwork.thumbnail))
+                                    WebImage(url: URL(string: artwork.thumbnailUrl))
                                         .resizable()
                                         .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                                                 

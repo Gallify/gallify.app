@@ -23,8 +23,8 @@ struct OtherProfileFeatured: View {
     
     var body: some View {
         
-        let screenHeight = viewModel.screenHeight
-        let screenWidth = viewModel.screenWidth
+        let screenHeight = UIScreen.main.bounds.height //viewModel.screenHeight
+        let screenWidth = UIScreen.main.bounds.width //viewModel.screenWidth
         
         if(firestoreQuery.otherFeaturedPlaylist.privacy != 0){
             if (!firestoreQuery.otherFeaturedArt.isEmpty) {
@@ -74,7 +74,7 @@ struct OtherProfileFeatured: View {
                                     
                                     HStack {
                                                     
-                                        WebImage(url: URL(string: artwork.thumbnail))
+                                        WebImage(url: URL(string: artwork.thumbnailUrl))
                                             .resizable()
                                             .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                                                     

@@ -49,7 +49,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case searchType
         case shareUrl
         case storageName
-        case thumbnail
+        case thumbnailUrl
         case tokenId
         
         //case value 
@@ -64,14 +64,14 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var contentType: Int
     @Published var creator: String
     @Published var creatorId: String
-    @Published var createdDate: String //Timestamp
+    @Published var createdDate: Timestamp //String
     @Published var createdPrice: Double
     
     @Published var desc: String
     @Published var forSale: Bool
     @Published var genre: String
     @Published var history: [String]
-    @Published var latestHistoryDate : String //Timestamp
+    @Published var latestHistoryDate : Timestamp //String
     @Published var likes: Int
     @Published var location: String
     @Published var metadataUrl: String
@@ -84,7 +84,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var searchType: Int
     @Published var shareUrl: String
     @Published var storageName: String
-    @Published var thumbnail: String
+    @Published var thumbnailUrl: String
     @Published var tokenId: Int
     
 
@@ -98,13 +98,13 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         contentType = 0
         creator = ""
         creatorId = ""
-        createdDate = "" // Timestamp()
+        createdDate = Timestamp()
         createdPrice = 0
         desc = ""
         forSale = false
         genre = ""
         history = [String]()
-        latestHistoryDate = "" //Timestamp()
+        latestHistoryDate = Timestamp()
         likes = 0
         location = ""
         metadataUrl = ""
@@ -117,7 +117,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         searchType = 0
         shareUrl = ""
         storageName = ""
-        thumbnail = ""
+        thumbnailUrl = ""
         tokenId = 0
        
 
@@ -135,14 +135,14 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         contentType = try container.decode(Int.self, forKey: .contentType)
         creator = try container.decode(String.self, forKey: .creator)
         creatorId = try container.decode(String.self, forKey: .creatorId)
-        createdDate = try container.decode(String.self, forKey: .createdDate) //Timestamp
+        createdDate = try container.decode(Timestamp.self, forKey: .createdDate) //Timestamp
         createdPrice = try container.decode(Double.self, forKey: .createdPrice)
         
         desc = try container.decode(String.self, forKey: .desc)
         forSale = try container.decode(Bool.self, forKey: .forSale)
         genre = try container.decode(String.self, forKey: .genre)
         history = try container.decode([String].self, forKey: .history)
-        latestHistoryDate = try container.decode(String.self, forKey: .latestHistoryDate)
+        latestHistoryDate = try container.decode(Timestamp.self, forKey: .latestHistoryDate)
 
         likes = try container.decode(Int.self, forKey: .likes)
         location = try container.decode(String.self, forKey: .location)
@@ -156,7 +156,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         searchType = try container.decode(Int.self, forKey: .searchType)
         shareUrl = try container.decode(String.self, forKey: .shareUrl)
         storageName = try container.decode(String.self, forKey: .storageName)
-        thumbnail = try container.decode(String.self, forKey: .thumbnail)
+        thumbnailUrl = try container.decode(String.self, forKey: .thumbnailUrl)
         tokenId = try container.decode(Int.self, forKey: .tokenId)
         
     }
@@ -193,7 +193,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(searchType, forKey: .searchType)
         try container.encode(shareUrl, forKey: .shareUrl)
         try container.encode(storageName, forKey: .storageName)
-        try container.encode(thumbnail, forKey: .thumbnail)
+        try container.encode(thumbnailUrl, forKey: .thumbnailUrl)
         try container.encode(tokenId, forKey: .tokenId)
         
         

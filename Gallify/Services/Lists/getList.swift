@@ -116,6 +116,33 @@ extension FirestoreQuery {
     }
     
     /*
+     gets a playlist given id. This is used in ReelDescription only!
+     */
+    func getReelPlaylist(playlist_id: String) async -> Playlist {
+        let userId = Auth.auth().currentUser?.uid
+        var reelPlaylist = Playlist()
+        
+        do {
+            let doc2 = try await FirestoreQuery.db.collection("playlists")
+                .document(playlist_id)
+                .getDocument().data(as: Playlist.self)
+            
+                
+            guard let thePlaylist = doc2 else{
+                throw DatabaseError.failed
+            }
+
+            reelPlaylist = thePlaylist
+            
+        }
+        catch{
+            print("Error")
+        }
+        
+        return reelPlaylist
+    }
+    
+    /*
      gets art for current playlist.
      
      Always needs to be called after getPlaylist()

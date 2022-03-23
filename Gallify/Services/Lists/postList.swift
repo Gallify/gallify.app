@@ -16,15 +16,24 @@ extension FirestoreQuery {
     /*
      Adds art to playlist/collection. can't add multiple of the same art id.
      */
-    func addArtToPlaylist(art: Art, playlist_id: String) async {
+    func addArtToPlaylist(art: Art, the_playlist: Playlist) async {
                                             
         do {
             
-            print("PLAYLIST ID = ", playlist_id, "ART ID = ", art.artId)
-            let doc = try await FirestoreQuery.db.collection("playlists").document(playlist_id).updateData([
+            print("PLAYLIST ID = ", the_playlist.playlist_id, "ART ID = ", art.artId)
+            let doc = try await FirestoreQuery.db.collection("playlists").document(the_playlist.playlist_id).updateData([
                 "art": FieldValue.arrayUnion([art.artId])
                 ])
             
+            //if user is creator, and adding to their own collection. Update "Collection" tab.
+            if(self.data.uid == art.creatorId){
+                if(the_playlist.playlist_type == "Collection"){
+                    let artDoc = try await FirestoreQuery.db.collection("art").document(art.artId).updateData([
+                        "collection": the_playlist.playlist_id])
+                }
+            }
+            
+                
         }
         catch{
             print("Error")
@@ -92,6 +101,7 @@ extension FirestoreQuery {
     }
     
     /*
+    /*
         Add art to art collection
         */
     func addArtToArtCollection(art: Art, playlistId: String, img: String) async {
@@ -100,8 +110,8 @@ extension FirestoreQuery {
                
                let doc = try FirestoreQuery.db.collection("art").document()
                art.artId = doc.documentID
-               art.thumbnail = img
-               print("NEW ART THUMBNAIL = ", art.thumbnail)
+               art.thumbnailUrl = img
+               print("NEW ART THUMBNAIL = ", art.thumbnailUrl)
                try doc.setData(from: art)
                await addArtToPlaylist(art: art, playlist_id: playlistId)
            }
@@ -135,4 +145,5 @@ extension FirestoreQuery {
         }
        
     }
+     */
 }

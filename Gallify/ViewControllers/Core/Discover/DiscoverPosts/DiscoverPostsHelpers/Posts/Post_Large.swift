@@ -38,7 +38,7 @@ struct Post_Large: View {
                 
             }){
                 
-                WebImage(url: URL(string: discover_art.thumbnail))
+                WebImage(url: URL(string: discover_art.thumbnailUrl))
                     .resizable()
                     .frame(width: screenWidth / 1.53, height: screenHeight / 3.38)
                     .padding(.leading, -screenWidth / 75)

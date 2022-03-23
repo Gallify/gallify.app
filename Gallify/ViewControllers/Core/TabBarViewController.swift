@@ -167,9 +167,9 @@ struct TabBarView: View {
             await firestoreQuery.getHomePlaylists()
     //
             await firestoreQuery.getDiscoverContent()
-            print("DONEEE")
+//            print("DONEEE")
             
-         //   var db = Firestore.firestore()
+                    //var db = Firestore.firestore()
 //            let userDocRef = try db.collection("users").document(auth.currentUser!.uid)
 //            do{
 //                let libraryPlaylistNames = ["Collection1", "Donda", "Collection2"]
@@ -187,8 +187,8 @@ struct TabBarView: View {
 //            }
 //
 //            do{
-//                let libraryArtNames = ["test23"]
-//                for i in 0...0{
+//                let libraryArtNames = ["test23" , "test24", "test25", "test26"]
+//                for i in 0...3{
 //                  let art = Art()
 //                  art.name = libraryArtNames[i]
 //                  let artRef = try db.collection("art").document()

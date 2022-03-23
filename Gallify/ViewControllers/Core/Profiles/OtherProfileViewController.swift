@@ -31,10 +31,13 @@ struct OtherProfileView : View {
                 
                 OtherProfileFeatured()
                     
+                    
                 OtherProfileCollectionList()
+                  
                                     
             }
             .environmentObject(firestoreQuery)
+            //.environmentObject(viewModel)
             .navigationBarHidden(true)
             .onAppear{ async{await NetworkingCall() }}
             
@@ -42,7 +45,7 @@ struct OtherProfileView : View {
                 
                 if(firestoreQuery.artPlaying == true) {
                     
-                    MinimizedView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth)
+                    MinimizedView(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
                     
                 }
                 
@@ -73,11 +76,11 @@ struct OtherProfileView : View {
     
 }
 
-struct OtherProfileScreenPreview: PreviewProvider {
-    static var previews: some View {
-        OtherProfileView(otherUserId: "test")
-            .environmentObject(TabBarViewModel())
-            .environmentObject(FirestoreQuery())
-    }
-}
+//struct OtherProfileScreenPreview: PreviewProvider {
+//    static var previews: some View {
+//        OtherProfileView(otherUserId: "test")
+//            .environmentObject(TabBarViewModel())
+//            .environmentObject(FirestoreQuery())
+//    }
+//}
 

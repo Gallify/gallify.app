@@ -21,8 +21,8 @@ struct CollectionsView: View {
     
     var body: some View {
         
-        let screenHeight = viewModel.screenHeight
-        let screenWidth = viewModel.screenWidth
+        let screenHeight = UIScreen.main.bounds.height
+        let screenWidth = UIScreen.main.bounds.width
         
         
        
@@ -77,7 +77,7 @@ struct CollectionsView: View {
                                             let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
                                             impactHeavy.impactOccurred()
                                             
-                                            await firestoreQuery.addArtToPlaylist(art: art, playlist_id: playlist.playlist_id)
+                                            await firestoreQuery.addArtToPlaylist(art: art, the_playlist: playlist)
                                             await firestoreQuery.getUserLibrary()
                                             
                                             if(playlist.name == "Featured"){
@@ -97,7 +97,7 @@ struct CollectionsView: View {
                                         let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
                                         impactHeavy.impactOccurred()
                                         
-                                        await firestoreQuery.addArtToPlaylist(art: art, playlist_id: playlist.playlist_id)
+                                        await firestoreQuery.addArtToPlaylist(art: art, the_playlist: playlist)
                                         await firestoreQuery.getUserLibrary()
                                         //dismiss view
                                         dismiss()

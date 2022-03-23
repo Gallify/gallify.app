@@ -165,7 +165,7 @@ struct CollectionGenericRow: View {
                                                     
                             HStack {
                                                             
-                                WebImage(url: URL(string: playlist[i].thumbnail))
+                                WebImage(url: URL(string: playlist[i].thumbnailUrl))
                                     .resizable()
                                     .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                                                                 
@@ -244,7 +244,7 @@ struct CollectionGenericRow: View {
                                     }
                                     
                                 }
-                                else{
+                                else if(thePlaylist.name != "Review"){
                                     Button(action: {
                                         firestoreQuery.showArtOptions = true
                                         self.art = playlist[i] //Setting art var when ellipses is clicked
@@ -274,7 +274,33 @@ struct CollectionGenericRow: View {
                                     
                                     
                                 }
-
+                                else{
+                                    
+                                        Button(action: {
+                                            firestoreQuery.showArtOptions = true
+                                            self.art = playlist[i] //Setting art var when ellipses is clicked
+                                        }, label: {
+                                                                    
+                                            Image(systemName: "ellipsis")
+                                                .foregroundColor(.primary)
+                                                                    
+                                        })
+                                        .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                                    
+                                            ActionSheet(
+                                                title: Text("Select"),
+                                                buttons: [
+                                                    .default(Text("Cancel")) {
+                                                        //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                        firestoreQuery.showArtOptions = false
+                                                    }])
+                                                                        
+                                        }
+                                        .sheet(isPresented: $showingSheet) {
+                                                CollectionsView(art: art)
+                                        }
+                                }
+                                
                                 
                             }
                             //.padding(.vertical, screenHeight / 160)
