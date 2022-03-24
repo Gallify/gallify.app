@@ -20,6 +20,10 @@ struct TabBarView: View {
     @StateObject var firestoreQuery = FirestoreQuery()
     @StateObject var storageService = StorageService()
     @StateObject var viewModel = TabBarViewModel()
+    
+    @StateObject var modelsViewModel = ModelsViewModel() //double declared
+    @StateObject var placementSettings = PlacementSettings()
+    
     @EnvironmentObject var loginModel : LoginAppViewModel
     
     @State private var doneLoading = false
@@ -112,29 +116,30 @@ struct TabBarView: View {
             
             ZStack {
                 
-                if firestoreQuery.showNewScreen {
-                    
-                    //here
-                    //newscreen()
-                        
+               // if firestoreQuery.showNewScreen && !firestoreQuery.showCameraScreen {
+
                     CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight)
-                       
-                       // .offset(y: firestoreQuery.showNewScreen ? 0: UIScreen.main.bounds.height)
-                       // .animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
-                      
-                        //.offset(y: 10 )
-                        //.padding(.top, 100)
-                        //.transition(.move(edge: .bottom))
-                        .transition(.offset( y: UIScreen.main.bounds.height))
-                        //.animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
+                        .offset(y: firestoreQuery.showNewScreen ? 0 : UIScreen.main.bounds.height)
                         .animation(.default) //.spring(response: 0.4)
                         .edgesIgnoringSafeArea(.all)
                         .environmentObject(firestoreQuery)
-                        //.onTapGesture {
-                            //firestoreQuery.showNewScreen.toggle()
-                        //}
+                        
 
-                }
+           //     }
+             //   if firestoreQuery.showNewScreen && firestoreQuery.showCameraScreen {
+                
+//                    FullARView()
+//                        .offset(y: firestoreQuery.showCameraScreen ? 0 : UIScreen.main.bounds.height)
+//                        .animation(.default)
+//                        .edgesIgnoringSafeArea(.all)
+//                        .environmentObject(modelsViewModel)
+//                        .environmentObject(placementSettings)
+//                        .environmentObject(firestoreQuery)
+
+                        
+                        
+                
+              //  }
                       
             }
             .zIndex(3.0)

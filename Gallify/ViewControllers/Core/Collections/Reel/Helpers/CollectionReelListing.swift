@@ -63,7 +63,10 @@ struct CollectionReelListing: View {
                             
                             ZStack (alignment: .center) {
                                 //show thumbnail or 3d model.
-                                if(!firestoreQuery.models.isEmpty){
+                                
+                                
+                                
+                              //  if(!firestoreQuery.models.isEmpty){
                                     if(!showThumbnail && getModelforArt == artwork.artId
                                        && firestoreQuery.models[i].contentLoaded && firestoreQuery.models[i] != nil){
                                           //  USDZPost(showThumbnail: $showThumbnail, model: firestoreQuery.models[i])
@@ -77,7 +80,9 @@ struct CollectionReelListing: View {
                                         .scaledToFit()
                                     }
 
-                                }
+                                //}
+                                
+                                
                             }
                             
                             
