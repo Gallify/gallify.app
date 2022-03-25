@@ -4,7 +4,6 @@
 //
 //  Created by Gianluca Profio on 9/26/21.
 //
-
 import SwiftUI
 import SDWebImageSwiftUI
 
@@ -146,7 +145,6 @@ struct CollectionReelListing: View {
 //                                }, label: {
 //                                    Text(text3Dmodel)
 //                                })
-
                 
 //                                //add to playlist button
 //                                Button(action: { // add to playlist, etc
@@ -302,28 +300,39 @@ struct CollectionReelListing: View {
                         }
                         .frame(width: screenWidth)
                     }
-                    .onChange(of: scrollTo, perform: { scroll in
-                        value.scrollTo(scrollTo, anchor: .top)
-                       
+                    .onChange(of: firestoreQuery.scrollTo, perform: { scroll in
+                        value.scrollTo(firestoreQuery.scrollTo, anchor: .top)
+                    })
+                    .onAppear(perform: {
+                            var i = 0
+                            for art in firestoreQuery.artworkThatsPlaying{
+                                if(art.artId == firestoreQuery.artThatsPlaying.artId){
+                                    firestoreQuery.scrollTo = i
+                                }
+                                i += 1
+                            }
+                        print(i)
+                        print(firestoreQuery.scrollTo)
+                        value.scrollTo(firestoreQuery.scrollTo, anchor: .top)
                     })
                     
                 }
             
             }
         }
-        .onAppear(){
-            firestoreQuery.scrollTo = firestoreQuery.scrollTo
-            
-            //set up the models for the art in reels for each art element.
-            firestoreQuery.clearModels()
-            firestoreQuery.setModelData()
-           // print(firestoreQuery.setModelData())
-        }
-        .task{ //scroll to right part of list.
-            if(scrollTo != firestoreQuery.scrollTo){
-                scrollTo = firestoreQuery.scrollTo
-            }
-        }
+//        .onAppear(){
+//            firestoreQuery.scrollTo = firestoreQuery.scrollTo
+//
+//            //set up the models for the art in reels for each art element.
+//            firestoreQuery.clearModels()
+//            firestoreQuery.setModelData()
+//           // print(firestoreQuery.setModelData())
+//        }
+//        .task{ //scroll to right part of list.
+//            if(scrollTo != firestoreQuery.scrollTo){
+//                scrollTo = firestoreQuery.scrollTo
+//            }
+//        }
  
     }
 }
@@ -333,6 +342,5 @@ struct CollectionReelListing_Previews: PreviewProvider {
         CollectionReelListing(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }
-
 
 

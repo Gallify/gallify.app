@@ -124,6 +124,7 @@ struct TabBarView: View {
                         .edgesIgnoringSafeArea(.all)
                         .environmentObject(firestoreQuery)
                         
+                        
 
            //     }
              //   if firestoreQuery.showNewScreen && firestoreQuery.showCameraScreen {

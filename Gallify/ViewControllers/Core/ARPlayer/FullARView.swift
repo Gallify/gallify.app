@@ -34,103 +34,84 @@ struct FullARView: View {
     
     var body: some View {
         
-
-        ZStack(alignment: .top) {
+        ZStack(alignment: .bottom) {
+            
+            HStack(alignment: .top){
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                    }) {
+                        HStack {
+                            
+                            Image(systemName: "square")
+                                .resizable()
+                                .foregroundColor(Color.white)
+                                .frame(width: 10, height: 10)
+                                .onTapGesture {
+                                    firestoreQuery.showCameraScreen = false
+                                }
+                            
+                        }
+                        
+                    }
+            }
+        
+            
             ARViewContainer(overlayVisible: $overlayVisible)
-//                .environmentObject(modelsViewModel)
-//                .environmentObject(placementSettings)
                 .edgesIgnoringSafeArea(.all)
             
-            HStack{
-                
-                Button(action: {
-                    if let url = URL(string: "https://polygonscan.com/token/") {
-                       UIApplication.shared.open(url)
-                    }
-                }) {
-                    HStack {
-                        Text("HI")
-                            .font(.system(size: 10))
-                    }
-                }
-                
-                Button{
-                    //firestoreQuery.showNewScreen.toggle()
-                    firestoreQuery.artPlaying = true
-                    firestoreQuery.showCameraScreen = false
-                    print(firestoreQuery.showCameraScreen)
-                }
-                    label: {
-                        Image(systemName: "chevron.down")
-                            .font(.system(size: 30))
-                            .padding(.leading)
-                            .foregroundColor(.white)
-                    }
-                    .buttonStyle(ThemeAnimationStyle())
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
-//                    .onTapGesture {
-//                        firestoreQuery.showCameraScreen.toggle()
-//                    }
-                
-                
-                Spacer()
-                
-                CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "square"), presentationMode: _presentationMode)
-                    .padding(.horizontal,screenWidth / 25)
-                    .padding(.vertical, screenHeight / 100)
-                    .foregroundColor(.white)
-                    .onTapGesture {
-                        firestoreQuery.showCameraScreen = false
-                    }
-                
-                Button{
-                    //firestoreQuery.showNewScreen.toggle()
-                    firestoreQuery.artPlaying = true
-                    firestoreQuery.showCameraScreen = false
-                    print(firestoreQuery.showCameraScreen)
-                }
-                    label: {
-                        Image(systemName: "chevron.down")
-                            .font(.system(size: 30))
-                            .padding(.leading)
-                            .foregroundColor(.white)
-                    }
-                    .buttonStyle(ThemeAnimationStyle())
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
-//                    .onTapGesture {
-//                        firestoreQuery.showCameraScreen.toggle()
-//                    }
-                
-            }
-            
-            if !overlayVisible {
+           // if !overlayVisible {
                 if placementSettings.selectedModel == nil {
-                    if showSlider {
-                        Slider()
-                    } else {
-                        Button(action: {
-                            print("Toggle slider button pressed!!!")
-                            showSlider.toggle()
-                        }) {
-                            Image(systemName: "face.smiling")
-                                .font(.system(size: 45))
-                                .foregroundColor(.white)
-                                .buttonStyle(PlainButtonStyle())
-                        }
-                    }
+                    Slider()
+//                    if showSlider {
+//                        Slider()
+//                    } else {
+//                        Button(action: {
+//                            print("Toggle slider button pressed!!!")
+//                            showSlider.toggle()
+//                        }) {
+//                            Image(systemName: "face.smiling")
+//                                .font(.system(size: 45))
+//                                .foregroundColor(.white)
+//                                .buttonStyle(PlainButtonStyle())
+//                        }
+//                    }
                 } else {
                     AddModelBar()
                 }
+            
+      
             }
-        }.task{
-                if(firestoreQuery.models.isEmpty){
-                    await firestoreQuery.fetchModelData()
-                }
-            }
+        
+        
+//        ZStack(alignment: .bottom) {
+//
+//            ARViewContainer(overlayVisible: $overlayVisible)
+//                .edgesIgnoringSafeArea(.all)
+//
+//            if !overlayVisible {
+//                if placementSettings.selectedModel == nil {
+//                    if showSlider {
+//                        Slider()
+//                    } else {
+//                        Button(action: {
+//                            print("Toggle slider button pressed!!!")
+//                            showSlider.toggle()
+//                        }) {
+//                            Image(systemName: "face.smiling")
+//                                .font(.system(size: 45))
+//                                .foregroundColor(.white)
+//                                .buttonStyle(PlainButtonStyle())
+//                        }
+//                    }
+//                } else {
+//                    AddModelBar()
+//                }
+//            }
+//        }.task{
+//                if(firestoreQuery.models.isEmpty){
+//                    await firestoreQuery.fetchModelData()
+//                }
+//            }
 
     }
 }
@@ -154,7 +135,7 @@ struct ARViewContainer: UIViewRepresentable {
             self.updateScene(for: arView)
         })
         
-        self.setupCoachingOverlay(arView: arView)
+       // self.setupCoachingOverlay(arView: arView)
         
         return arView
     }

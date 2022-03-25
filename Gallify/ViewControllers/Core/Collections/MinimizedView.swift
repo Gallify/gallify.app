@@ -33,6 +33,15 @@ struct MinimizedView: View {
             
             //firestoreQuery.data.isClicked = artwork.art_id
             
+            var i = 0
+            for art in firestoreQuery.artworkThatsPlaying{
+                if(art.artId == firestoreQuery.artThatsPlaying.artId){
+                    firestoreQuery.scrollTo = i
+                }
+                i += 1
+            }
+            
+            
         }){
         
             

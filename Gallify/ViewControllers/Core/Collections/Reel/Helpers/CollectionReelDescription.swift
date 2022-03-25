@@ -120,7 +120,7 @@ struct CollectionReelDescription: View {
                             let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
                             impactHeavy.impactOccurred()
                             
-                            if let url = URL(string: "https://metamask.app.link/dapp/https://open.gallify.app/" + artDetails.artId) {
+                            if let url = URL(string: "https://metamask.app.link/dapp/https://open.gallify.app/market/" + artDetails.artId) {
                                UIApplication.shared.open(url)
                             }
 

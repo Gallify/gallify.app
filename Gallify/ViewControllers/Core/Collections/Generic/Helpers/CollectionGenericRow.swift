@@ -160,7 +160,7 @@ struct CollectionGenericRow: View {
                             //  firestoreQuery.maximized = true
                             firestoreQuery.showNewScreen = true
                             firestoreQuery.scrollTo = i
-                                                    
+                            
                         }){
                                                     
                             HStack {

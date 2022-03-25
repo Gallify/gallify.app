@@ -29,7 +29,20 @@ struct SearchResultView: View {
             firestoreQuery.showNewScreen = true
             firestoreQuery.artisClicked = artwork.artId
             firestoreQuery.artThatsPlaying = artwork
-            firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
+            firestoreQuery.artworkThatsPlaying = firestoreQuery.foundContacts
+            
+            //placeholder playlist
+            let playlist = Playlist()
+            playlist.creator_url = "search"
+            firestoreQuery.playlistThatsPlaying = playlist
+            
+            var i = 0
+            for art in firestoreQuery.artworkThatsPlaying{
+                if(art.artId == firestoreQuery.artThatsPlaying.artId){
+                    firestoreQuery.scrollTo = i
+                }
+                i += 1
+            }
             
         }){
         
