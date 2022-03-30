@@ -26,7 +26,7 @@ struct SelfProfileFeatured: View {
         let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
         
-        if (!firestoreQuery.featuredPlaylist.art.isEmpty) {
+        if (!firestoreQuery.featuredPlaylist.art.isEmpty && !firestoreQuery.featuredArt.isEmpty) {
             
             VStack {
                 

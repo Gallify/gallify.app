@@ -39,7 +39,9 @@ struct LoadingView: View {
 
             //await firestoreQuery.getUser_await()
             await firestoreQuery.fetchData()
-            firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
+            //firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
+            //refresh collection list
+            await firestoreQuery.getUserLibrary()
         
             await firestoreQuery.fetchArt()
             

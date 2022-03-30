@@ -4,7 +4,6 @@
 //
 //  Created by Tejvir Mann on 12/3/21.
 //
-
 import Foundation
 import SwiftUI
 import RealityKit
@@ -12,107 +11,73 @@ import ARKit
 
 /*
  ARPlayerContainer.swift
-
  FullARView() is called from CollectionReelHeader.swift.
  The FullARView() calls the ARViewContainer view and other views to help with buttons.
  */
 
 
 struct FullARView: View {
-    @EnvironmentObject var firestoreQuery : FirestoreQuery
-    
     @EnvironmentObject var modelsViewModel: ModelsViewModel
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
     @EnvironmentObject var placementSettings: PlacementSettings
-    //@Environment(\.presentationMode) var presentationMode
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     
     @State private var showSlider: Bool = false
     @State private var overlayVisible: Bool = false //used to be true, wasnt loading so skipped it
-
-    let screenWidth = UIScreen.main.bounds.width
-    let screenHeight = UIScreen.main.bounds.height
-    
     var body: some View {
-        
         ZStack(alignment: .bottom) {
-            
-            HStack(alignment: .top){
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                    }) {
-                        HStack {
-                            
-                            Image(systemName: "square")
-                                .resizable()
-                                .foregroundColor(Color.white)
-                                .frame(width: 10, height: 10)
-                                .onTapGesture {
-                                    firestoreQuery.showCameraScreen = false
-                                }
-                            
-                        }
-                        
-                    }
-            }
-        
-            
             ARViewContainer(overlayVisible: $overlayVisible)
                 .edgesIgnoringSafeArea(.all)
             
-           // if !overlayVisible {
+            if !overlayVisible {
                 if placementSettings.selectedModel == nil {
-                    Slider()
-//                    if showSlider {
-//                        Slider()
-//                    } else {
-//                        Button(action: {
-//                            print("Toggle slider button pressed!!!")
-//                            showSlider.toggle()
-//                        }) {
-//                            Image(systemName: "face.smiling")
-//                                .font(.system(size: 45))
-//                                .foregroundColor(.white)
-//                                .buttonStyle(PlainButtonStyle())
-//                        }
-//                    }
+                    if showSlider {
+                        Slider()
+                    } else {
+                        
+                        HStack{
+                            
+//                            Button(action: {
+//                                presentationMode.wrappedValue.dismiss()
+//                                }) {
+//                                    HStack {
+//
+//                                        Image(systemName: "square")
+//                                            .resizable()
+//                                            .foregroundColor(Color.pink)
+//                                            .frame(width: 10, height: 10)
+//                                            .onTapGesture {
+//                                                firestoreQuery.showCameraScreen = false
+//                                            }
+//
+//                                    }
+//
+//                                }
+                            
+                            Button(action: {
+                                print("Toggle slider button pressed!!!")
+                                showSlider.toggle()
+                            }) {
+                                Image(systemName: "square")
+                                    .font(.system(size: 45))
+                                    .foregroundColor(.white)
+                                    .buttonStyle(PlainButtonStyle())
+                            }
+                
+                        }
+                        
+                    }
                 } else {
                     AddModelBar()
                 }
-            
-      
             }
+        }.task{
+            if(firestoreQuery.models.isEmpty){
+                await firestoreQuery.fetchModelData()
+            }
+        }
         
-        
-//        ZStack(alignment: .bottom) {
-//
-//            ARViewContainer(overlayVisible: $overlayVisible)
-//                .edgesIgnoringSafeArea(.all)
-//
-//            if !overlayVisible {
-//                if placementSettings.selectedModel == nil {
-//                    if showSlider {
-//                        Slider()
-//                    } else {
-//                        Button(action: {
-//                            print("Toggle slider button pressed!!!")
-//                            showSlider.toggle()
-//                        }) {
-//                            Image(systemName: "face.smiling")
-//                                .font(.system(size: 45))
-//                                .foregroundColor(.white)
-//                                .buttonStyle(PlainButtonStyle())
-//                        }
-//                    }
-//                } else {
-//                    AddModelBar()
-//                }
-//            }
-//        }.task{
-//                if(firestoreQuery.models.isEmpty){
-//                    await firestoreQuery.fetchModelData()
-//                }
-//            }
-
     }
 }
 
@@ -135,7 +100,7 @@ struct ARViewContainer: UIViewRepresentable {
             self.updateScene(for: arView)
         })
         
-       // self.setupCoachingOverlay(arView: arView)
+        self.setupCoachingOverlay(arView: arView)
         
         return arView
     }
@@ -184,7 +149,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         // 2. Enable translation and rotation gestures
         clonedEntity.generateCollisionShapes(recursive: true)
-        arView.installGestures([.rotation], for: clonedEntity) //.translation,
+        arView.installGestures([.translation, .rotation], for: clonedEntity)
         
         // 3. Create an anchorEntity and add clonedEntity to the anchorEntity.
         let anchorEntity = AnchorEntity(plane: .any)

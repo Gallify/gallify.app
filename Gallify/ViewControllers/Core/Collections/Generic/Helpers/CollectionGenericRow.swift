@@ -316,12 +316,18 @@ struct CollectionGenericRow: View {
                             firestoreQuery.featuredArt = playlist
                             Task {//firestore update here
                                 await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.featuredArt)
+                                //refresh collection list
+                                await firestoreQuery.getFeaturedPlaylist()
+                                await firestoreQuery.getFeaturedArt()
+                                await firestoreQuery.getUserLibrary()
                             }
                         }
                         else{
                             firestoreQuery.playlistArt = playlist
                             Task {//firestore update here
                                 await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.playlistArt)
+                                //refresh collection list
+                                await firestoreQuery.getUserLibrary()
                             }
                         }
                     
@@ -372,6 +378,7 @@ struct CollectionGenericRow: View {
             
             await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
             //print("ART: \(firestoreQuery.playlistArt[1].creator)")
+            
             playlist = firestoreQuery.playlistArt
             //
             

@@ -42,8 +42,8 @@ struct Post_Small: View {
                     .resizable()
                     .frame(width: screenWidth / 3.1, height: screenHeight / 6.8)
                     
-                    .padding(.leading, -screenWidth / 75)
-                    .padding(.top, -screenHeight / 160)
+                   // .padding(.leading, -screenWidth / 75)
+                   // .padding(.top, -screenHeight / 160)
                     .border(Color.primary)
                    // .overlay(Rectangle().frame(width: nil, height: 1, alignment: .top).foregroundColor(Color.black), alignment: .top)
                 

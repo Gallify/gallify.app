@@ -34,10 +34,12 @@ extension FirestoreQuery {
         catch{
             print("Error")
         }
+        
+        
     }
     
     func updatePlaylistImage(image: Data, uid: String) async {
-        let uploadRef = Storage.storage().reference(withPath: "profileImages/" + (Auth.auth().currentUser?.uid)!)
+        let uploadRef = Storage.storage().reference(withPath: "playlistImages/" + (Auth.auth().currentUser?.uid)!)
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
         

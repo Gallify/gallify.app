@@ -79,7 +79,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var owner: String
     @Published var ownerId: String
     @Published var popularity: Int
-    @Published var price: String
+    @Published var price: Int
     
     @Published var searchType: Int
     @Published var shareUrl: String
@@ -112,7 +112,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         owner = ""
         ownerId = ""
         popularity = 0
-        price = ""
+        price = 0
         
         searchType = 0
         shareUrl = ""
@@ -151,7 +151,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         owner = try container.decode(String.self, forKey: .owner)
         ownerId = try container.decode(String.self, forKey: .ownerId)
         popularity = try container.decode(Int.self, forKey: .popularity)
-        price = try container.decode(String.self, forKey: .price)
+        price = try container.decode(Int.self, forKey: .price)
         
         searchType = try container.decode(Int.self, forKey: .searchType)
         shareUrl = try container.decode(String.self, forKey: .shareUrl)

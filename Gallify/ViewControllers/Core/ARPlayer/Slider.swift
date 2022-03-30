@@ -50,8 +50,8 @@ struct Slider: View {
     }
     
     private func placeImage(model: Model) {
-        
-        let remoteURL = URL(string: "https://www.sourish.dev/resources/images/CenterPiecePhoto.JPG")!
+        print(model.art.contentUrl)
+        let remoteURL = URL(string: String(model.art.contentUrl))! //https://www.sourish.dev/resources/images/CenterPiecePhoto.JPG
         // Create a temporary file URL to store the image at the remote URL.
         let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         // Download contents of imageURL as Data.  Use a URLSession if you want to do this asynchronously.

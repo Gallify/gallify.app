@@ -158,6 +158,8 @@ extension FirestoreQuery {
         
         var art_array = [Art]()
         
+        print(playlist.art.count)
+        
         for art_id in playlist.art {
             do {
                 
@@ -183,6 +185,7 @@ extension FirestoreQuery {
         }
         
         self.playlistArt = art_array
+        print(art_array.count)
         
     }
     

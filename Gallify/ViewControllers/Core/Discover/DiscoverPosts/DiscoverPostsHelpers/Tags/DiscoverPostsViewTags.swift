@@ -53,12 +53,13 @@ struct DiscoverPostsViewTags: View {
 //                    .buttonStyle(ThemeAnimationStyle_refresh())
 
                 
+                /*
                 NavigationLink(destination: DiscoverBrowse(), label: {
                     
                     DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Browse", bgColor: Color.primary)
                     
                 })
-                
+                */
 //                DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "Abstract", bgColor: Color.gray.opacity(0.7))
 //
 //                DiscoverViewTag(screenHeight: screenHeight, screenWidth: screenWidth, tag: "International", bgColor: Color.gray.opacity(0.7))

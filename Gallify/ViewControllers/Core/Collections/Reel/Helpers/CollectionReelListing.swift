@@ -160,60 +160,61 @@ struct CollectionReelListing: View {
 //                                            self.actionSheet })
                                 
                                 //if else. If they created the playlist or not.
-                                if(firestoreQuery.playlistThatsPlaying.creator_url == firestoreQuery.data.uid){
-                                    Button(action: {
-                                        firestoreQuery.showArtOptions = true
-                                        self.art = artwork //Setting art var when ellipses is clicked
-                                    }, label: {
-                                                                
-                                        Image(systemName: "ellipsis")
-                                            .foregroundColor(.primary)
-                                            .padding(.trailing, 10)
-                                                                
-                                    })
-                                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
-                                                
-                                        ActionSheet(
-                                            title: Text("Select"),
-                                            buttons: [
-                                                .default(Text("Like")) {
-                                                    Task {
-                                                        await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
-                                                        //reload library
-                                                        await firestoreQuery.getUserLibrary()
-                                                    }
-                                                },
-                                                .default(Text("Delete from Playlist")) {
-                                                    Task{
-                                                            //remove from local variable to update view
-                                                            firestoreQuery.playlistThatsPlaying.art.removeAll { artwork in
-                                                                artwork == art.artId
-                                                            }
-                                                            print("Start Delete")
-                                                            await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist:  firestoreQuery.playlistThatsPlaying)
-                                                            print("End Delete")
-                                                           
-                                                        
-                                                            //this is a lot of calls. Goal is to reduce this later.
-                                                            await firestoreQuery.getFeaturedPlaylist()
-                                                            await firestoreQuery.getFeaturedArt()
-                                                            await firestoreQuery.getUserLibrary()
-                                                        }
-                                                },
-                                                .default(Text("Add to Playlist")) {
-                                                    showingSheet = true
-                                                },
-                                                .default(Text("Cancel")) {
-                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                    firestoreQuery.showArtOptions = false
-                                                }])
-                                    }
-                                    .sheet(isPresented: $showingSheet) {
-                                            CollectionsView(art: art)
-                                    }
-                                    
-                                }
-                                else{
+                                //used to be playlistThatsPlaying.creator_url
+//                                if(artwork.ownerId == firestoreQuery.data.uid){
+//                                    Button(action: {
+//                                        firestoreQuery.showArtOptions = true
+//                                        self.art = artwork //Setting art var when ellipses is clicked
+//                                    }, label: {
+//
+//                                        Image(systemName: "ellipsis")
+//                                            .foregroundColor(.primary)
+//                                            .padding(.trailing, 10)
+//
+//                                    })
+//                                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+//
+//                                        ActionSheet(
+//                                            title: Text("Select"),
+//                                            buttons: [
+//                                                .default(Text("Like")) {
+//                                                    Task {
+//                                                        await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+//                                                        //reload library
+//                                                        await firestoreQuery.getUserLibrary()
+//                                                    }
+//                                                },
+//                                                .default(Text("Delete from Playlist")) {
+//                                                    Task{
+//                                                            //remove from local variable to update view
+//                                                            firestoreQuery.playlistThatsPlaying.art.removeAll { artwork in
+//                                                                artwork == art.artId
+//                                                            }
+//                                                            print("Start Delete")
+//                                                            await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist:  firestoreQuery.playlistThatsPlaying)
+//                                                            print("End Delete")
+//
+//
+//                                                            //this is a lot of calls. Goal is to reduce this later.
+//                                                            await firestoreQuery.getFeaturedPlaylist()
+//                                                            await firestoreQuery.getFeaturedArt()
+//                                                            await firestoreQuery.getUserLibrary()
+//                                                        }
+//                                                },
+//                                                .default(Text("Add to Playlist")) {
+//                                                    showingSheet = true
+//                                                },
+//                                                .default(Text("Cancel")) {
+//                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
+//                                                    firestoreQuery.showArtOptions = false
+//                                                }])
+//                                    }
+//                                    .sheet(isPresented: $showingSheet) {
+//                                            CollectionsView(art: art)
+//                                    }
+//
+//                                }
+                                
                                     Button(action: {
                                         firestoreQuery.showArtOptions = true
                                         self.art = artwork //Setting art var when ellipses is clicked
@@ -250,9 +251,9 @@ struct CollectionReelListing: View {
                                     }
                                     
                                     
-                                }
                                 
-                                if(artwork.forSale == true && artwork.price != "" ){
+                                
+                                if(artwork.forSale == true  ){ //&& artwork.price != ""
                                     Text("\(artwork.price) Matic")
                                         //.foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
                                         .font(.system(size: 20))
