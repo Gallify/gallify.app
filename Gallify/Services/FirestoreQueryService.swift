@@ -46,11 +46,12 @@ class FirestoreQuery : ObservableObject {
     @Published var scrollTo = -1 //once art is clicked, this variable determines where to scroll to in the 'reels' view.
     
     
-
-    
-    //action menus. 
+    //action menus. (search, reel, playlist, art)
     @Published var showPlaylistOptions = false
     @Published var showArtOptions = false
+    @Published var showReelArtOptions = false //art options for reel
+    @Published var showGenericArtOptions = false //art options for generic playlist
+    @Published var showSearchArtOptions = false //art options for search
     @Published var showFeaturedOptions = false
     
     

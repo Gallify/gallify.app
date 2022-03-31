@@ -79,14 +79,14 @@ struct SearchResultView: View {
                 
                 
                 Button(action: {
-                    firestoreQuery.showArtOptions = true
+                    firestoreQuery.showSearchArtOptions = true
                 }, label: {
                     
                     Image(systemName: "ellipsis")
                         .foregroundColor(.black)
                     
                 })
-                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                    .actionSheet(isPresented: $firestoreQuery.showSearchArtOptions) {
                         ActionSheet(
                             title: Text("Select"),
                             buttons: [
@@ -98,7 +98,7 @@ struct SearchResultView: View {
                                 .default(Text("Cancel")) {
                                     
                                     //firestoreQuery.addToPlaylist(artwork.art_id)
-                                    firestoreQuery.showArtOptions = false
+                                    firestoreQuery.showSearchArtOptions = false
                                 }
                             ]
                         )

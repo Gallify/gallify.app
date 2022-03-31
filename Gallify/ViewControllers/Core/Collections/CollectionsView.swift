@@ -29,7 +29,7 @@ struct CollectionsView: View {
        
         VStack {
             
-            Text("Add art to playlist or collection")
+            Text("Add to playlist or collection")
                 .underline()
                 .padding(.top, 10)
                 .font(Font.body.bold())

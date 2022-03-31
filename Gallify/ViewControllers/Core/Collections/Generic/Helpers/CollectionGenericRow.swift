@@ -201,7 +201,7 @@ struct CollectionGenericRow: View {
                                 //if else. If they created the playlist or not.
                                 if(thePlaylist.creator_url == firestoreQuery.data.uid){
                                     Button(action: {
-                                        firestoreQuery.showArtOptions = true
+                                        firestoreQuery.showGenericArtOptions = true
                                         self.art = playlist[i] //Setting art var when ellipses is clicked
                                     }, label: {
                                                                 
@@ -209,7 +209,7 @@ struct CollectionGenericRow: View {
                                             .foregroundColor(.primary)
                                                                 
                                     })
-                                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                    .actionSheet(isPresented: $firestoreQuery.showGenericArtOptions) {
                                                 
                                         ActionSheet(
                                             title: Text("Select"),
@@ -236,7 +236,7 @@ struct CollectionGenericRow: View {
                                                 },
                                                 .default(Text("Cancel")) {
                                                     //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                    firestoreQuery.showArtOptions = false
+                                                    firestoreQuery.showGenericArtOptions = false
                                                 }])
                                     }
                                     .sheet(isPresented: $showingSheet) {
@@ -246,7 +246,7 @@ struct CollectionGenericRow: View {
                                 }
                                 else if(thePlaylist.name != "Review"){
                                     Button(action: {
-                                        firestoreQuery.showArtOptions = true
+                                        firestoreQuery.showGenericArtOptions = true
                                         self.art = playlist[i] //Setting art var when ellipses is clicked
                                     }, label: {
                                                                 
@@ -254,7 +254,7 @@ struct CollectionGenericRow: View {
                                             .foregroundColor(.primary)
                                                                 
                                     })
-                                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                    .actionSheet(isPresented: $firestoreQuery.showGenericArtOptions) {
                                                 
                                         ActionSheet(
                                             title: Text("Select"),
@@ -264,7 +264,7 @@ struct CollectionGenericRow: View {
                                                 },
                                                 .default(Text("Cancel")) {
                                                     //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                    firestoreQuery.showArtOptions = false
+                                                    firestoreQuery.showGenericArtOptions = false
                                                 }])
                                                                     
                                     }
@@ -277,7 +277,7 @@ struct CollectionGenericRow: View {
                                 else{
                                     
                                         Button(action: {
-                                            firestoreQuery.showArtOptions = true
+                                            firestoreQuery.showGenericArtOptions = true
                                             self.art = playlist[i] //Setting art var when ellipses is clicked
                                         }, label: {
                                                                     
@@ -285,14 +285,14 @@ struct CollectionGenericRow: View {
                                                 .foregroundColor(.primary)
                                                                     
                                         })
-                                        .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                        .actionSheet(isPresented: $firestoreQuery.showGenericArtOptions) {
                                                     
                                             ActionSheet(
                                                 title: Text("Select"),
                                                 buttons: [
                                                     .default(Text("Cancel")) {
                                                         //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                        firestoreQuery.showArtOptions = false
+                                                        firestoreQuery.showGenericArtOptions = false
                                                     }])
                                                                         
                                         }
@@ -341,8 +341,11 @@ struct CollectionGenericRow: View {
             .listStyle(InsetListStyle())
             .toolbar {
                     ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
-                        EditButton()
+                        if(thePlaylist.creator_url == firestoreQuery.data.uid){
+                            EditButton()
+                        }
                     }
+                
             }
                     
         }

@@ -163,7 +163,7 @@ struct CollectionReelListing: View {
                                 //used to be playlistThatsPlaying.creator_url
 //                                if(artwork.ownerId == firestoreQuery.data.uid){
 //                                    Button(action: {
-//                                        firestoreQuery.showArtOptions = true
+//                                        firestoreQuery.showReelArtOptions = true
 //                                        self.art = artwork //Setting art var when ellipses is clicked
 //                                    }, label: {
 //
@@ -172,7 +172,7 @@ struct CollectionReelListing: View {
 //                                            .padding(.trailing, 10)
 //
 //                                    })
-//                                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+//                                    .actionSheet(isPresented: $firestoreQuery.showReelArtOptions) {
 //
 //                                        ActionSheet(
 //                                            title: Text("Select"),
@@ -206,7 +206,7 @@ struct CollectionReelListing: View {
 //                                                },
 //                                                .default(Text("Cancel")) {
 //                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
-//                                                    firestoreQuery.showArtOptions = false
+//                                                    firestoreQuery.showReelArtOptions = false
 //                                                }])
 //                                    }
 //                                    .sheet(isPresented: $showingSheet) {
@@ -216,7 +216,7 @@ struct CollectionReelListing: View {
 //                                }
                                 
                                     Button(action: {
-                                        firestoreQuery.showArtOptions = true
+                                        firestoreQuery.showReelArtOptions = true
                                         self.art = artwork //Setting art var when ellipses is clicked
                                     }, label: {
                                                                 
@@ -225,7 +225,7 @@ struct CollectionReelListing: View {
                                             .padding(.trailing, 10)
                                                                 
                                     })
-                                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                    .actionSheet(isPresented: $firestoreQuery.showReelArtOptions) {
                                                 
                                         ActionSheet(
                                             title: Text("Select"),
@@ -242,7 +242,7 @@ struct CollectionReelListing: View {
                                                 },
                                                 .default(Text("Cancel")) {
                                                     //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                    firestoreQuery.showArtOptions = false
+                                                    firestoreQuery.showReelArtOptions = false
                                                 }])
                                                                     
                                     }
