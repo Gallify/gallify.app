@@ -5,12 +5,14 @@
 //  Created by Anshul on 10/8/21.
 //
 import SwiftUI
+import Firebase
 
 struct PrivacyPolicyViewHeader: View {
     
     let screenHeight: CGFloat
     let screenWidth: CGFloat
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var user: User
     
     var body: some View {
             
@@ -28,7 +30,7 @@ struct PrivacyPolicyViewHeader: View {
                 
             HStack {
                             
-                Text("User Agreement")
+                Text("Check Your Inbox")
                     .font(.system(size: screenWidth / 12.5, weight: .semibold))
                             
                 Spacer()
@@ -36,18 +38,7 @@ struct PrivacyPolicyViewHeader: View {
             }
             .padding(.leading, screenWidth / 12)
             .padding(.bottom, screenHeight / 400)
-            
-            HStack {
-                
-                Text("Last updated: May 23rd 2021")
-                    .font(.system(size: screenWidth / 29))
-                    .foregroundColor(.gray)
-                
-                Spacer()
-                
-            }
-            .padding(.leading, screenWidth / 12)
-            .padding(.bottom, screenHeight / 160)
+        
             
         }
         .padding(.top, screenHeight / 160)

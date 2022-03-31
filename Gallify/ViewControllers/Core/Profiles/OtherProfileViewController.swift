@@ -13,6 +13,7 @@ class OtherProfileViewModel: ObservableObject {
 
 struct OtherProfileView : View {
     
+    var otherUserId: String
     @EnvironmentObject var viewModel : TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -30,12 +31,25 @@ struct OtherProfileView : View {
                 
                 OtherProfileFeatured()
                     
+                    
                 OtherProfileCollectionList()
+                  
                                     
             }
             .environmentObject(firestoreQuery)
+            //.environmentObject(viewModel)
             .navigationBarHidden(true)
             .onAppear{ async{await NetworkingCall() }}
+            
+            if(firestoreQuery.showNewScreen == false) {
+                
+                if(firestoreQuery.artPlaying == true) {
+                    
+                    MinimizedView(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
+                    
+                }
+                
+            }
                 
         }
         .navigationBarHidden(true)
@@ -44,29 +58,29 @@ struct OtherProfileView : View {
     
     func NetworkingCall() async{
         
-        await firestoreQuery.fetchData() //fetchotheruser data
-        
-        firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
+        //get other user data
+        await firestoreQuery.getOtherUser(user_id: otherUserId)
 
-                    
-       // await firestoreQuery.loaditems_selfprofile()
+        //get other user library
+        await firestoreQuery.getOtherLibrary()
+        //firestoreQuery.getOtherLibrary()
+        //  await firestoreQuery.getOtherLibrary()
+
+        //get featured playlist
+        await firestoreQuery.getOtherFeaturedPlaylist()
         
-        print("in networkong call, playlist art")
-        print(firestoreQuery.featuredPlaylist.art) //fetch other featured playlist.
-        
-        await firestoreQuery.fetchArt()
-       
-        print(firestoreQuery.featuredArt)
-        
+        //get other user featured art
+        await firestoreQuery.getOtherFeaturedArt()
+  
     }
     
 }
 
-struct OtherProfileScreenPreview: PreviewProvider {
-    static var previews: some View {
-        OtherProfileView()
-            .environmentObject(TabBarViewModel())
-            .environmentObject(FirestoreQuery())
-    }
-}
+//struct OtherProfileScreenPreview: PreviewProvider {
+//    static var previews: some View {
+//        OtherProfileView(otherUserId: "test")
+//            .environmentObject(TabBarViewModel())
+//            .environmentObject(FirestoreQuery())
+//    }
+//}
 

@@ -165,15 +165,15 @@ struct CreateAccountViewBody: View {
             }
             .padding(.leading, screenWidth / 12)
                 
-            TextField("your@email.com", text: $user.email)
+            TextField("your@email.com", text: self.$user.email)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
                 .padding(.horizontal, screenWidth / 15)
                 
-/*            HStack {
+           HStack {
 
-                Text("Phone Number")
+                Text("Username")
                     .font(.system(size: screenWidth / 22, weight: .semibold))
 
                 Spacer()
@@ -181,10 +181,10 @@ struct CreateAccountViewBody: View {
             }
             .padding(.leading, screenWidth / 12)
 
-            TextField("", text: $user.phoneNumber)
+            TextField("enter username", text: $user.username)
                 .disableAutocorrection(true)
                 .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
-                .padding(.horizontal, screenWidth / 15) */ 
+                .padding(.horizontal, screenWidth / 15)
                 
             VStack {
                     
@@ -212,7 +212,8 @@ struct CreateAccountViewBody: View {
                         
                     if !(user.firstName.isEmpty || user.lastName.isEmpty || user.email.isEmpty) { // || user.phoneNumber.isEmpty || user.location.isEmpty
                         if !(hasDigit(user.firstName) || hasDigit(user.lastName) || !isValidEmail(email: user.email)) { //|| !hasAllDigits(user.phoneNumber)
-                            goForward = true
+                            //check if username isn't taken here.
+                                goForward = true
                         }
                     }
                         

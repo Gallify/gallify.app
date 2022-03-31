@@ -146,10 +146,11 @@ extension FirestoreQuery {
     /*
      async version
      
-     getUser must be called first
+     getUser must be called first.
+     Untested.
      
      */
-    func getUserLibrary() async {
+    func getUserLibrary_old2() async {
         
         if !(userLibrary.isEmpty){ //if featured playlist isnt empty, then return.
             return
@@ -181,6 +182,53 @@ extension FirestoreQuery {
         }
         
         self.userLibrary = playlist_array
+        
+    }
+    
+    /*
+     getOtherLibrary for the other profile
+     
+     to be tested
+     */
+    func getUserLibrary() async {
+        
+//        if !(featuredArt.isEmpty){ //if featured playlist isnt empty, then return.
+//            return
+//        }
+       
+        //self.featuredArt.removeAll()
+        
+        var user_library_array = [Playlist]()
+        
+        for playlist_id in data.Library {
+            do {
+                let doc = try await FirestoreQuery.db.collection("playlists")
+                    .document(playlist_id)
+                    .getDocument().data(as: Playlist.self)
+                
+                guard let thePlaylist = doc else{
+                    throw DatabaseError.failed
+                }
+                
+               // self.featuredArt.append(theArt)
+                //art_array.append(doc!)
+                user_library_array.append(thePlaylist)
+                
+                //
+            }
+            catch{
+                print("Error")
+            }
+        }
+        
+        //this only updates the array if it is different.
+        if(self.userLibrary as NSArray == user_library_array as NSArray){
+            
+        }
+        else{
+            //if old is not same as new then ...
+            self.userLibrary = user_library_array
+        }
         
     }
     
@@ -228,6 +276,8 @@ extension FirestoreQuery {
      */
     func getOtherUser(user_id: String) async {
         //let userId = Auth.auth().currentUser?.uid
+        print("USERID")
+        print(user_id)
         
         do {
             let doc = try await FirestoreQuery.db.collection("users")
@@ -250,8 +300,8 @@ extension FirestoreQuery {
      Input: Library Array.
      
      Output: Published Library variable now contains array of playlist elements.
+     Untested
      
-     This method needs to be checked.
      */
     func getOtherLibrary_old(library_ids: [String]) {
         self.userLibrary.removeAll()
@@ -286,9 +336,10 @@ extension FirestoreQuery {
      async version
      
      getUser must be called first
+     Does not work
      
      */
-    func getOtherLibrary() async {
+    func getOtherLibrary_async() async {
         
         if !(otherLibrary.isEmpty){ //if featured playlist isnt empty, then return.
             return
@@ -300,6 +351,8 @@ extension FirestoreQuery {
         
         for playlist_id in otherUserData.Library {
             do {
+                print("PLAYLIST ID")
+                print(playlist_id)
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(playlist_id)
                     .getDocument().data(as: Playlist.self)
@@ -322,6 +375,152 @@ extension FirestoreQuery {
         self.otherLibrary = playlist_array
         
     }
+    
+    func getOtherLibrary_old_2() {
+        
+        var the_otherLibrary = [Playlist]()
+        
+        for library_id in self.otherUserData.Library {
+            FirestoreQuery.db.collection("playlists").document(library_id) //If user can't get email, we need alternate fix.
+                .addSnapshotListener { queryDocumentSnapshot, error in
+                    if error == nil { //if no errors
+                        if let document = queryDocumentSnapshot{
+                            //update list in main thread.
+                            DispatchQueue.main.async{
+                                //set retrieved document to @published data object
+                                print("document")
+                                print(document)
+                                print(library_id)
+                                
+                                
+                                the_otherLibrary.append(try! document.data(as: Playlist.self)!) //this is forceful, and assumes this will always work...
+                            }
+                            
+                        }
+                        else{
+                            print("Error: There aren't any documents, otherlibrary()")
+                            return
+                        }
+                    }
+                    else{
+                        print("Error: Can't get document, otherlibrary()")
+                        return
+                    }
+          }
+  
+        }
+        
+        if(self.otherLibrary as NSArray == the_otherLibrary as NSArray){
+            
+        }
+        else{
+            DispatchQueue.main.async{
+                self.otherLibrary = the_otherLibrary
+            }
+            
+        }
+        
+        
+        
+        
+    }
+    
+    /*
+     getOtherLibrary for the other profile
+     
+     This works.
+     */
+    func getOtherLibrary() async {
+        
+//        if !(featuredArt.isEmpty){ //if featured playlist isnt empty, then return.
+//            return
+//        }
+       
+        //self.featuredArt.removeAll()
+        
+        var other_library_array = [Playlist]()
+        
+        for playlist_id in otherUserData.Library {
+            do {
+                let doc = try await FirestoreQuery.db.collection("playlists")
+                    .document(playlist_id)
+                    .getDocument().data(as: Playlist.self)
+                
+                guard let thePlaylist = doc else{
+                    throw DatabaseError.failed
+                }
+                
+               // self.featuredArt.append(theArt)
+                //art_array.append(doc!)
+                other_library_array.append(thePlaylist)
+                
+                //
+            }
+            catch{
+                print("Error")
+            }
+        }
+        
+        
+        //this only updates the array if it is different.
+        if(self.otherLibrary as NSArray == other_library_array as NSArray){
+            
+        }
+        else{
+            //if old is not same as new then ...
+            self.otherLibrary = other_library_array
+        }
+        
+        
+    }
+    
+    /*
+     This checks if you, the current user are following the profile you are viewing.
+     
+     This works.
+     */
+    func checkIfFollowing(otherUserId: String) async {
+        let userId = Auth.auth().currentUser?.uid
+    
+                
+        try await FirestoreQuery.db.collection("users").document(userId!).collection("profile").whereField("following", arrayContains: otherUserId)
+            .getDocuments() { (querySnapshot, err) in
+              //  for document in querySnapshot!.documents {
+                if querySnapshot!.isEmpty {
+                        print("Error getting documents: \(err)")
+                        
+                        DispatchQueue.main.async {
+                            self.isFollowing = false
+                        }
+                        print("is following? meth")
+                        print(self.isFollowing)
+                        
+                    }
+                    else {
+                        print("Current user is following the other user!")
+                        
+                        for document in querySnapshot!.documents {
+                            print("\(document.documentID) => \(document.data())")
+                        }
+                        
+                        
+                        DispatchQueue.main.async {
+                            self.isFollowing = true
+                        }
+                        print("is following? meth")
+                        print(self.isFollowing)
+                        
+                    }
+                }
+                
+       // }
+                
+                
+    
+        
+    }
+        
+   
     
     
     

@@ -20,6 +20,10 @@ struct TabBarView: View {
     @StateObject var firestoreQuery = FirestoreQuery()
     @StateObject var storageService = StorageService()
     @StateObject var viewModel = TabBarViewModel()
+    
+    @StateObject var modelsViewModel = ModelsViewModel() //double declared
+    @StateObject var placementSettings = PlacementSettings()
+    
     @EnvironmentObject var loginModel : LoginAppViewModel
     
     @State private var doneLoading = false
@@ -108,26 +112,35 @@ struct TabBarView: View {
             .environmentObject(storageService)
             .onAppear{ async { await NetworkingCall() } }
                 
+            
+            
             ZStack {
                 
-                if firestoreQuery.showNewScreen {
-                    
-                    //here
-                    //newscreen()
-                        
+               // if firestoreQuery.showNewScreen && !firestoreQuery.showCameraScreen {
+
                     CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight)
-                        .offset(y: 10 )
-                        //.padding(.top, 100)
-                        .transition(.move(edge: .bottom))
-                        //.animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
-                        .animation(.spring())
+                        .offset(y: firestoreQuery.showNewScreen ? 0 : UIScreen.main.bounds.height)
+                        .animation(.default) //.spring(response: 0.4)
                         .edgesIgnoringSafeArea(.all)
                         .environmentObject(firestoreQuery)
-                        //.onTapGesture {
-                            //firestoreQuery.showNewScreen.toggle()
-                        //}
+                        
+                        
 
-                }
+           //     }
+             //   if firestoreQuery.showNewScreen && firestoreQuery.showCameraScreen {
+                
+//                    FullARView()
+//                        .offset(y: firestoreQuery.showCameraScreen ? 0 : UIScreen.main.bounds.height)
+//                        .animation(.default)
+//                        .edgesIgnoringSafeArea(.all)
+//                        .environmentObject(modelsViewModel)
+//                        .environmentObject(placementSettings)
+//                        .environmentObject(firestoreQuery)
+
+                        
+                        
+                
+              //  }
                       
             }
             .zIndex(3.0)
@@ -153,7 +166,9 @@ struct TabBarView: View {
             
             await firestoreQuery.fetchData()
 
-            firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
+            //firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
+            //refresh collection list
+            await firestoreQuery.getUserLibrary()
 
             await firestoreQuery.fetchArt()
 
@@ -167,9 +182,9 @@ struct TabBarView: View {
             await firestoreQuery.getHomePlaylists()
     //
             await firestoreQuery.getDiscoverContent()
-            print("DONEEE")
+//            print("DONEEE")
             
-            var db = Firestore.firestore()
+                    //var db = Firestore.firestore()
 //            let userDocRef = try db.collection("users").document(auth.currentUser!.uid)
 //            do{
 //                let libraryPlaylistNames = ["Collection1", "Donda", "Collection2"]
@@ -187,8 +202,8 @@ struct TabBarView: View {
 //            }
 //
 //            do{
-//                let libraryArtNames = ["test1" , "test2", "test3"]
-//                for i in 0...2{
+//                let libraryArtNames = ["test23" , "test24", "test25", "test26"]
+//                for i in 0...3{
 //                  let art = Art()
 //                  art.name = libraryArtNames[i]
 //                  let artRef = try db.collection("art").document()

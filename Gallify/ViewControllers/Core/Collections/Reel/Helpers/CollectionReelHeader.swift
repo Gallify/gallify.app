@@ -15,9 +15,12 @@ struct CollectionReelHeader: View {
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @Environment(\.presentationMode) var presentationMode
     
-    @StateObject var modelsViewModel = ModelsViewModel()
     
+    @StateObject var modelsViewModel = ModelsViewModel()
     @StateObject var placementSettings = PlacementSettings()
+//
+//    @EnvironmentObject var modelsViewModel : ModelsViewModel
+//    @EnvironmentObject var placementSettings : PlacementSettings
     
     let screenWidth: CGFloat
     let screenHeight: CGFloat

@@ -34,7 +34,7 @@ struct OtherProfileViewVerifiedDetails: View {
                 if photoUrl == "" {
                     CircleImage(image: Image(systemName: "person.circle.fill"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                 } else {
-                WebImage(url: URL(string: firestoreQuery.data.profileImageUrl))
+                WebImage(url: URL(string: firestoreQuery.otherUserData.profileImageUrl))
                        .onSuccess { image, data, cacheType in
                            
                        }
@@ -59,7 +59,7 @@ struct OtherProfileViewVerifiedDetails: View {
                             
                         VStack {
                                 
-                            Text("\(firestoreQuery.data.followers)")
+                            Text("\(firestoreQuery.otherUserData.followers)")
                                 .font(.system(size: screenWidth / 18))
                                 
                             Text("Followers")
@@ -72,7 +72,7 @@ struct OtherProfileViewVerifiedDetails: View {
                             
                         VStack {
                                 
-                            Text("\(firestoreQuery.data.connections)")
+                            Text("\(firestoreQuery.otherUserData.connections)")
                                 .font(.system(size: screenWidth / 18))
                                 
                             Text("Connections")
@@ -110,7 +110,7 @@ struct OtherProfileViewVerifiedDetails: View {
                             
                         VStack {
                             
-                            if firestoreQuery.data.popularity < 1000 {
+                            if firestoreQuery.otherUserData.popularity < 1000 {
                                 
                                 Text("< 1000")
                                     .font(.system(size: screenWidth / 18))
@@ -119,7 +119,7 @@ struct OtherProfileViewVerifiedDetails: View {
                             
                             else {
                                 
-                                Text("\(firestoreQuery.data.popularity)")
+                                Text("\(firestoreQuery.otherUserData.popularity)")
                                     .font(.system(size: screenWidth / 18))
                                 
                             }

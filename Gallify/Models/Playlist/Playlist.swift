@@ -82,6 +82,28 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         playlist_id = ""
         description = ""
     }
+    
+    init(newName: String, pri: Int, type: String, the_creator: User) {
+          name = newName
+          creator = the_creator.firstName + " " + the_creator.lastName
+          creator_url = the_creator.uid
+          playlist_type = type
+          share_url = ""
+          auction = false
+          auction_start = 0
+          auction_end = 0
+          privacy = pri
+          genre = ""
+          location = ""
+          cover_art_url = ""
+          art = [String]()
+          popularity = 0
+          likes = 0
+          followers_url = ""
+          searchType = ""
+          playlist_id = ""
+          description = ""
+      }
 
     required init(from decoder: Decoder) throws {
 

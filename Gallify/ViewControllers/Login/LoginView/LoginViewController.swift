@@ -21,6 +21,8 @@ class LoginAppViewModel: ObservableObject {
     @Published var documentCreated = false
     @Published var newUserCreated = false
     
+    @EnvironmentObject var user: User //to hold user email, pass, and username
+    
     @State var newUserAuthenticated = false
     @State var newUserVerified = false
     @State var newUserDocumentCreated = false
@@ -85,7 +87,8 @@ class LoginAppViewModel: ObservableObject {
      */
     func sendVerificationEmail() {
         //doesn't work because of bad email
-        //print(self.auth.currentUser?.email)
+        print("EMAIL EMAIL")
+        print(self.auth.currentUser?.email)
         self.auth.currentUser?.sendEmailVerification { (error) in
         }
         
@@ -93,12 +96,20 @@ class LoginAppViewModel: ObservableObject {
     
     func createAccount(password: String, user: User) {
         //var userEmailAdded = false
+        
+//        print("CREDS")
+//        print(user.email)
+//        print(user.username)
+        
         auth.createUser(withEmail: user.email, password: password) { authResult, error in
             guard authResult != nil, error == nil else {
                 return
             }
-           // print(self.auth.currentUser?.email)
+           
+//            print("EMAIL EMAIL")
+//            print(self.auth.currentUser?.email)
             self.auth.currentUser?.sendEmailVerification { error in
+                print(self.auth.currentUser?.email)
                 self.newUserAuthenticated = true // dispatche
             }
         }
@@ -111,11 +122,11 @@ class LoginAppViewModel: ObservableObject {
         
         
         do{
-            
+//            print("username")
+//            print(user.username)
             // Set user data.
             user.email = self.auth.currentUser!.email!
             user.uid = self.auth.currentUser!.uid
-            
             
             let userRef = db.collection("users").document(user.uid) //used to be .email
             try await userBatch.setData(from: user, forDocument: userRef)
@@ -137,9 +148,9 @@ class LoginAppViewModel: ObservableObject {
     
     func createUserData(password: String, user: User) async{
     
-        var userSubCollectionsCreated = false
-        var userPlaylistsCreated = false
-        var batchAdded = false
+       // var userSubCollectionsCreated = false
+//        var userPlaylistsCreated = false
+//        var batchAdded = false
         
         let db = Firestore.firestore()
         let batch = db.batch()
@@ -175,7 +186,7 @@ class LoginAppViewModel: ObservableObject {
 
                 batch.updateData(["museums": ["p0lkJFdi7cstCJrAcYMr","oEcIslgNBCQ8RO3PibQT", "1EkOA6d8DXrcHQSGuiNG"]], forDocument: userMuseumRef)
                 
-                userSubCollectionsCreated = true
+               // userSubCollectionsCreated = true
         
                 
                 
@@ -196,6 +207,17 @@ class LoginAppViewModel: ObservableObject {
                     //add to playlist
                     let playlistRef = db.collection("playlists").document()
                     playlist.playlist_id = playlistRef.documentID
+                    playlist.creator_url = user.uid /*Auth.auth().currentUser?.uid ?? ""*/
+                    playlist.creator = user.firstName + " " + user.lastName
+                    
+                    if(playlist.name == "Liked"){
+                        playlist.playlist_type = "Playlist"
+                    }
+                    else{
+                        playlist.playlist_type = "Collection"
+                    }
+                   
+                    
                     try await batch.setData(from: playlist, forDocument: playlistRef)
                     
                     //add to user library
@@ -217,6 +239,7 @@ class LoginAppViewModel: ObservableObject {
                     }
                     
                     if(playlist.name == "Liked"){  //this line below should work since the the field should exist.
+                        
                         try await batch.updateData(["liked": playlistRef.documentID], forDocument: userRef)
                     }
                 }

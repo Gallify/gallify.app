@@ -4,7 +4,6 @@
 //
 //  Created by Tejvir Mann on 12/3/21.
 //
-
 import Foundation
 import SwiftUI
 import RealityKit
@@ -12,7 +11,6 @@ import ARKit
 
 /*
  ARPlayerContainer.swift
-
  FullARView() is called from CollectionReelHeader.swift.
  The FullARView() calls the ARViewContainer view and other views to help with buttons.
  */
@@ -22,10 +20,11 @@ struct FullARView: View {
     @EnvironmentObject var modelsViewModel: ModelsViewModel
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @EnvironmentObject var placementSettings: PlacementSettings
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     
     @State private var showSlider: Bool = false
     @State private var overlayVisible: Bool = false //used to be true, wasnt loading so skipped it
-
     var body: some View {
         ZStack(alignment: .bottom) {
             ARViewContainer(overlayVisible: $overlayVisible)
@@ -36,15 +35,38 @@ struct FullARView: View {
                     if showSlider {
                         Slider()
                     } else {
-                        Button(action: {
-                            print("Toggle slider button pressed!!!")
-                            showSlider.toggle()
-                        }) {
-                            Image(systemName: "face.smiling")
-                                .font(.system(size: 45))
-                                .foregroundColor(.white)
-                                .buttonStyle(PlainButtonStyle())
+                        
+                        HStack{
+                            
+//                            Button(action: {
+//                                presentationMode.wrappedValue.dismiss()
+//                                }) {
+//                                    HStack {
+//
+//                                        Image(systemName: "square")
+//                                            .resizable()
+//                                            .foregroundColor(Color.pink)
+//                                            .frame(width: 10, height: 10)
+//                                            .onTapGesture {
+//                                                firestoreQuery.showCameraScreen = false
+//                                            }
+//
+//                                    }
+//
+//                                }
+                            
+                            Button(action: {
+                                print("Toggle slider button pressed!!!")
+                                showSlider.toggle()
+                            }) {
+                                Image(systemName: "square")
+                                    .font(.system(size: 45))
+                                    .foregroundColor(.white)
+                                    .buttonStyle(PlainButtonStyle())
+                            }
+                
                         }
+                        
                     }
                 } else {
                     AddModelBar()
@@ -127,7 +149,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         // 2. Enable translation and rotation gestures
         clonedEntity.generateCollisionShapes(recursive: true)
-        arView.installGestures([.rotation], for: clonedEntity) //.translation,
+        arView.installGestures([.translation, .rotation], for: clonedEntity)
         
         // 3. Create an anchorEntity and add clonedEntity to the anchorEntity.
         let anchorEntity = AnchorEntity(plane: .any)

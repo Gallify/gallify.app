@@ -19,41 +19,45 @@ struct FollowButton: View {
     var firestoreUpload : FirestoreUploadService = FirestoreUploadService()
 
     @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @State var is_following = false
     
-    init() {
-        
-//        let doc = Firestore.firestore().collection("users").document("yTUlw63RJVVsLik5MzqG3ecUMCs1").collection("profile").whereField("followers", arrayContains: (Auth.auth().currentUser?.uid)! as String)
-//
-//        if doc != nil {
-//            firestoreQuery.isFollowing = true
-//        } else {
-//            firestoreQuery.isFollowing = false
-//        }
-        
-    }
 
     var body: some View {
         
         Button(action: {
-            if firestoreQuery.isFollowing == false {
+            if firestoreQuery.isFollowing == false { //firestoreQuery.isFollowing
                 Task {
-                    await firestoreUpload.follow(uid: "yTUlw63RJVVsLik5MzqG3ecUMCs1")
+                    is_following = true
+                    DispatchQueue.main.async {
+                        firestoreQuery.isFollowing = true
+                    }
+                    //await firestoreUpload.follow(uid: firestoreQuery.otherUserData.uid)
+                    await firestoreQuery.follow(otherUserId: firestoreQuery.otherUserData.uid)
+                    
                 }
                 
             } else {
                 Task {
-                    await firestoreUpload.unfollow(uid: "yTUlw63RJVVsLik5MzqG3ecUMCs1")
+                    is_following = false
+                    DispatchQueue.main.async {
+                        firestoreQuery.isFollowing = false
+                    }
+                   // await firestoreUpload.unfollow(uid: firestoreQuery.otherUserData.uid)
+                    await firestoreQuery.unfollow(otherUserId: firestoreQuery.otherUserData.uid)
+                    
                 }
                 
             }
-            firestoreQuery.isFollowing.toggle()
+            //firestoreQuery.isFollowing.toggle()
         }) {
             ZStack {
                 
-                RoundedRectangle(cornerRadius: buttonWidth / 8)
-                    .foregroundColor(firestoreQuery.isFollowing ? .white : .pink)
+                RoundedRectangle(cornerRadius: 3)
+                    .foregroundColor(firestoreQuery.isFollowing ? .white : Color("Gallify-Pink"))
                     .frame(width: buttonWidth, height: buttonHeight)
-                    .overlay(firestoreQuery.isFollowing ? RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.gray, lineWidth: buttonWidth / 125) : RoundedRectangle(cornerRadius: buttonWidth / 8).stroke(Color.pink, lineWidth: buttonWidth / 50))
+                    .overlay(firestoreQuery.isFollowing ? RoundedRectangle(cornerRadius: 3) //buttonWidth / 8
+                    .stroke(Color.gray, lineWidth: buttonWidth / 125) : RoundedRectangle(cornerRadius: 3)
+                    .stroke(Color("Gallify-Pink"), lineWidth: buttonWidth / 70)) //, lineWidth: buttonWidth / 50)
                 
                 Text(firestoreQuery.isFollowing ? "Following" : "Follow")
                     .font(.system(size: buttonWidth / 10, weight: .bold))
@@ -66,23 +70,32 @@ struct FollowButton: View {
     
     func NetworkingCall() async{
         
-        await firestoreQuery.fetchFollowers(uid: "yTUlw63RJVVsLik5MzqG3ecUMCs1")
-        print("Followers array in networking call = ", firestoreQuery.followers.followers)
-        DispatchQueue.main.async {
-            if firestoreQuery.followers.followers.contains(((Auth.auth().currentUser?.uid)! as String?)!) {
-                DispatchQueue.main.async {
-                    firestoreQuery.isFollowing = true
-                }
-                    
-            } else {
-                DispatchQueue.main.async {
-                    firestoreQuery.isFollowing = false
-                }
-                    
-                
-            }
-            print("value of isFollowing = ", firestoreQuery.isFollowing)
-        }
+        //checks if the current user is a follow of the OtherUser.
+        await firestoreQuery.checkIfFollowing(otherUserId: firestoreQuery.otherUserData.uid)
+        
+        
+        
+        print("is following? nwk")
+        print(firestoreQuery.isFollowing)
+        is_following = firestoreQuery.isFollowing
+        
+//        await firestoreQuery.fetchFollowers(uid: "yTUlw63RJVVsLik5MzqG3ecUMCs1")
+//        print("Followers array in networking call = ", firestoreQuery.followers.followers)
+//        DispatchQueue.main.async {
+//            if firestoreQuery.followers.followers.contains(((Auth.auth().currentUser?.uid)! as String?)!) {
+//                DispatchQueue.main.async {
+//                    firestoreQuery.isFollowing = true
+//                }
+//
+//            } else {
+//                DispatchQueue.main.async {
+//                    firestoreQuery.isFollowing = false
+//                }
+//
+//
+//            }
+//            print("value of isFollowing = ", firestoreQuery.isFollowing)
+//        }
         
     }
         

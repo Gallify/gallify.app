@@ -14,8 +14,8 @@ struct OtherProfileViewHeader: View {
     
     var body: some View {
         
-        let screenHeight = viewModel.screenHeight
-        let screenWidth = viewModel.screenWidth
+        let screenHeight = UIScreen.main.bounds.height //viewModel.screenHeight
+        let screenWidth = UIScreen.main.bounds.width //viewModel.screenWidth
         
         HStack {
             
@@ -23,24 +23,14 @@ struct OtherProfileViewHeader: View {
             
             Spacer()
             
-            /*Text("\(firestoreQuery.data.username)")
-                .font(.system(size: screenWidth / 17, weight: .bold))*/
-            
-            Text("i_love_me")
-                .font(.system(size: screenWidth / 17, weight: .bold))
+            Text(firestoreQuery.otherUserData.username)
+                .font(.system(size: screenWidth / 20, weight: .bold))
+                .padding(.trailing, 14)
+                //.multilineTextAlignment(.center)
             
             Spacer()
                     
-            Button(action: {
-                
-            }, label: {
-                
-                Image(systemName: "list.bullet")
-                    .resizable()
-                    .foregroundColor(Color.black)
-                    .frame(width: screenWidth / 18, height: screenHeight / 39)
-                
-            })
+     
             
         }
         .padding(.horizontal, screenWidth / 25)

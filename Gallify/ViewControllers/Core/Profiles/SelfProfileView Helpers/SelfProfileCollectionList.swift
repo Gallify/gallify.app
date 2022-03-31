@@ -60,19 +60,17 @@ struct SelfProfileCollectionList: View {
             .padding(.bottom, screenHeight / 160)
             .padding(.top, -screenHeight / 54)
             
-            ForEach(firestoreQuery.userLibrary){ playlist in
+            ForEach(firestoreQuery.userLibrary.reversed()){ playlist in
                 
                 
                     
-                NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight, playlist: playlist),
+                NavigationLink(destination: CollectionGenericView(playlist: playlist),
                                label: {
                     
                     HStack {
-                            
-                        WebImage(url: URL(string: playlist.cover_art_url))
-                            .resizable()
-                            .frame(width: screenWidth / 5, height: screenHeight / 10.8)
-                            
+                        
+                        SelfProfileCollectionListImage(screenHeight: screenHeight, screenWidth: screenWidth, playlist: playlist)
+                       
                         VStack(alignment: .leading) {
                                 
                             Text(playlist.name)

@@ -14,56 +14,62 @@ struct OtherProfileCollectionList: View {
     
     var body: some View {
         
-        let screenHeight = viewModel.screenHeight
-        let screenWidth = viewModel.screenWidth
+        let screenHeight = UIScreen.main.bounds.height //viewModel.screenHeight
+        let screenWidth = UIScreen.main.bounds.width //viewModel.screenWidth
         
         VStack {
             
             HStack {
-                
+                        
                 Text("Collections")
                     .font(.system(size: screenWidth / 12.5, weight: .semibold))
+            
                 
                 Spacer()
-                
+                        
             }
             .padding(.leading, screenWidth / 15)
             .padding(.bottom, screenHeight / 160)
             .padding(.top, -screenHeight / 54)
             
-            ForEach(firestoreQuery.userLibrary){ playlist in
+            ForEach(firestoreQuery.otherLibrary.reversed()){ playlist in
                 
-                NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight, playlist: playlist),
-                               label: {
-                    
-                    HStack {
+                if(playlist.privacy != 0){
+                        
+                    NavigationLink(destination: CollectionGenericView(playlist: playlist),
+                                   label: {
+                        
+                        HStack {
                             
-                        WebImage(url: URL(string: playlist.cover_art_url))
-                            .resizable()
-                            .frame(width: screenWidth / 5, height: screenHeight / 10.8)
-                            
-                        VStack(alignment: .leading) {
+                            SelfProfileCollectionListImage(screenHeight: screenHeight, screenWidth: screenWidth, playlist: playlist)
+                           
+                            VStack(alignment: .leading) {
+                                    
+                                Text(playlist.name)
+                                    .font(.system(size: screenWidth / 17, weight: .semibold))
+                                    .foregroundColor(.black)
+                                    .lineLimit(1)
+                                    
+                                Text(playlist.playlist_type + " • " + playlist.creator)
+                                    .font(.system(size: screenWidth / 25.5))
+                                    .foregroundColor(.black)
+                                    .lineLimit(1)
+                                    
+                            }
+                            .padding(.leading, screenWidth / 37.5)
                                 
-                            Text(playlist.name)
-                                .font(.system(size: screenWidth / 15, weight: .semibold))
-                                .foregroundColor(.black)
-                                .lineLimit(1)
-                                
-                            Text("by " + playlist.creator)
-                                .font(.system(size: screenWidth / 20.5))
-                                .foregroundColor(.black)
-                                .lineLimit(1)
+                            Spacer()
                                 
                         }
-                        .padding(.leading, screenWidth / 37.5)
-                            
-                        Spacer()
-                            
-                    }
-                    .padding(.vertical, screenHeight / 160)
-                    .padding(.leading, screenWidth / 15)
+                        .padding(.vertical, screenHeight / 160)
+                        .padding(.leading, screenWidth / 15)
+                        
+                    }).simultaneousGesture(TapGesture().onEnded{
+                        firestoreQuery.playlist = playlist
+                        
+                    })
                     
-                })
+                }
                 
             }
             

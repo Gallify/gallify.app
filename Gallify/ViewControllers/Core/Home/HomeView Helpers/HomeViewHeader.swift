@@ -25,9 +25,7 @@ struct HomeViewHeader: View {
             
             Button(action: {
 
-                
-    
-                if let url = URL(string: "https://open.gallify.app/create") {
+                if let url = URL(string: "https://metamask.app.link/dapp/https://open.gallify.app/create") {
                    UIApplication.shared.open(url)
                 }
                 

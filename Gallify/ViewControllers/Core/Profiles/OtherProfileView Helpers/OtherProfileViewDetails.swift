@@ -16,39 +16,34 @@ struct OtherProfileViewDetails: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
-    //@ObservedObject var urlImageModel : UrlImageModel = UrlImageModel(urlString: nil)
-    
-    let db = Firestore.firestore()
-    
-    @State var photoUrl: String = ""
     
     var body: some View {
         
-        let screenHeight = viewModel.screenHeight
-        let screenWidth = viewModel.screenWidth
+        let screenHeight = UIScreen.main.bounds.height //viewModel.screenHeight
+        let screenWidth = UIScreen.main.bounds.width //viewModel.screenWidth
         
         VStack {
                 
             HStack {
                 
-                if photoUrl == "" {
+                if firestoreQuery.otherUserData.profileImageUrl == "" {
                     CircleImage(image: Image(systemName: "person.circle.fill"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                 } else {
-                WebImage(url: URL(string: firestoreQuery.data.profileImageUrl))
-                       .onSuccess { image, data, cacheType in
-                           
-                       }
-                       .resizable()
-                       .placeholder(Image(systemName: "photo"))
-                       .placeholder {
-                           Circle().foregroundColor(.gray)
-                       }
-                       .indicator(.activity) // Activity Indicator
-                       .transition(.fade(duration: 0.5)) // Fade Transition with duration
-                       .scaledToFit()
-                       .frame(width: screenWidth / 4, height: screenHeight / 8.65)
-                       .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                       .overlay(Circle().stroke(.white, lineWidth: 4))
+                    WebImage(url: URL(string: firestoreQuery.otherUserData.profileImageUrl))
+                           .onSuccess { image, data, cacheType in
+                               
+                           }
+                           .resizable()
+                           .placeholder(Image(systemName: "photo"))
+                           .placeholder {
+                               Circle().foregroundColor(.gray)
+                           }
+                           .indicator(.activity) // Activity Indicator
+                           .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                           .scaledToFit()
+                           .frame(width: screenWidth / 4, height: screenHeight / 8.65)
+                           .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                           .overlay(Circle().stroke(.white, lineWidth: 4))
                 }
                 
                 VStack {
@@ -59,7 +54,7 @@ struct OtherProfileViewDetails: View {
                             
                         VStack {
                                 
-                            Text("\(firestoreQuery.data.followers)")
+                            Text("\(firestoreQuery.otherUserData.followers)")
                                 .font(.system(size: screenWidth / 18))
                                 
                             Text("Followers")
@@ -72,7 +67,7 @@ struct OtherProfileViewDetails: View {
                             
                         VStack {
                                 
-                            Text("\(firestoreQuery.data.following)")
+                            Text("\(firestoreQuery.otherUserData.following)")
                                 .font(.system(size: screenWidth / 18))
                                 
                             Text("Following")
@@ -92,7 +87,7 @@ struct OtherProfileViewDetails: View {
             
             HStack {
                 
-                Text("Jack Brown")
+                Text(firestoreQuery.otherUserData.firstName + " " + firestoreQuery.otherUserData.lastName)
                     .font(.system(size: screenWidth / 23.5, weight: .semibold))
                 
                 /*Text("\(firestoreQuery.data.fullName)")
@@ -106,7 +101,8 @@ struct OtherProfileViewDetails: View {
             
             HStack {
                 
-                Text("Hello, I am using Gallify!")
+                
+                Text(firestoreQuery.otherUserData.description)
                     .font(.system(size: screenWidth / 23.5, weight: .light))
                 
                 /*Text("\(firestoreQuery.data.userBio)")
@@ -118,12 +114,18 @@ struct OtherProfileViewDetails: View {
             }
             .padding(.horizontal, screenWidth / 15)
             
-            HStack {
+            
+            if(firestoreQuery.otherUserData.uid != firestoreQuery.data.uid ){
+                HStack {
+                        
+                    FollowButton().environmentObject(firestoreQuery)
                     
-                FollowButton().environmentObject(firestoreQuery)
-                    
+                    Spacer()
+                        
+                }
+                .padding(.horizontal, screenWidth / 15)
+                .padding(.vertical, screenHeight / 160)
             }
-            .padding(.vertical, screenHeight / 160)
             
         }
         .padding(.top, screenHeight / 120)

@@ -33,6 +33,15 @@ struct MinimizedView: View {
             
             //firestoreQuery.data.isClicked = artwork.art_id
             
+            var i = 0
+            for art in firestoreQuery.artworkThatsPlaying{
+                if(art.artId == firestoreQuery.artThatsPlaying.artId){
+                    firestoreQuery.scrollTo = i
+                }
+                i += 1
+            }
+            
+            
         }){
         
             
@@ -40,7 +49,7 @@ struct MinimizedView: View {
 
             HStack {
                     
-                WebImage(url: URL(string: firestoreQuery.artThatsPlaying.thumbnail))
+                WebImage(url: URL(string: firestoreQuery.artThatsPlaying.thumbnailUrl))
                     .resizable()
                     .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                     
@@ -77,6 +86,8 @@ struct MinimizedView: View {
             .padding(.bottom, screenHeight / 80)
             .padding(.top, (screenHeight / 80)-10)
             .background(Color.white)
+           // .border(Color.primary)
+        
         }
             
     }

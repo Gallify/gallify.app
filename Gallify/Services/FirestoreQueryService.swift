@@ -21,6 +21,10 @@ class FirestoreQuery : ObservableObject {
      
        Format: <File, Method, Param, Return>
         get, getFeaturedArt_await, playlist_id, art_array
+     
+     
+     PRIVACY: 0 = private, 1= public
+     CONTENTTYPE: 0=image/gif, 1=usdz, 2=video, 3=attack-helicopter.
         
      */
     
@@ -30,13 +34,18 @@ class FirestoreQuery : ObservableObject {
     @Published var minimized = false
     @Published var isClosed = false
     @Published var sheetMode: SheetMode = .none
+    
     @Published var showNewScreen = false
+    @Published var showCameraScreen = false
+    
     @Published var artPlaying = false
     @Published var artisClicked = "artisClicked"
     @Published var artThatsPlaying: Art = Art()
     @Published var playlistThatsPlaying: Playlist = Playlist()
     @Published var artworkThatsPlaying: [Art] = [Art]()
     @Published var scrollTo = -1 //once art is clicked, this variable determines where to scroll to in the 'reels' view.
+    
+    
 
     
     //action menus. 
@@ -85,8 +94,6 @@ class FirestoreQuery : ObservableObject {
     //AR Player
     @Published var models: [Model] = []
     
- 
-    
     
     //settings
     
@@ -105,6 +112,8 @@ class FirestoreQuery : ObservableObject {
         case failed = "failed"
     }
 
+    
+    
     
     
     
@@ -245,6 +254,7 @@ class FirestoreQuery : ObservableObject {
 //        }
 //
 //    }
+    
     func get_art(a: String)  {
 //        let email1 = data.email
 //        print(email1)

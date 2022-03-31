@@ -19,206 +19,337 @@ struct CollectionGenericRow: View {
     
     //state variables. These will be changed. Then will update FirestoreQuery versions. Then the FirestoreQuery versions will be updated.
     @State var playlist: [Art] = [Art]()
-    //@State var playlist = firestoreQuery.playlist
     @State var playlistArt: [Art] = [Art]()
     @State var art: Art = Art()
+    @State var playlistOwner: User = User()
     //@State var veggies : [String] = ["app", "cat"]
     
-    
+    @State private var showingSheet = false
+    @State private var deleteFromPlaylist = false
     
     var body: some View {
         
-        VStack{
-        
-            NavigationView{
-                
-                VStack{
-                    
-                    List{
-
-                        //cover art for collection/album
-                        HStack{
-
-                            Spacer()
-                            if firestoreQuery.playlist.cover_art_url == "" {
-
-                            }
-                            else{
-                                WebImage(url: URL(string: firestoreQuery.playlist.cover_art_url))
-                                    .resizable()
-                                    .frame(width: 200, height: 200)
-                                    .padding(.top, 20)
-                                    //.padding(.bottom, 20)
-
-                            }
-
-                            Spacer()
-                        }
-                       // .padding(5)
-                        .listRowSeparator(.hidden)
-
-
-                        //the name and creator
-                        VStack{
-                            HStack{
-                                Text("\(firestoreQuery.playlist.name)")
-                                    .font(.system(size: screenWidth / 10, weight: .bold))
-                                    .foregroundColor(Color.black)
-                                    //.padding(.trailing, screenWidth / 7.5)
-                                    .offset(x:15, y:30 )
-
-
-                                Spacer()
-                            }
-
-                            HStack{
-
-//                                NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight),
-//                                               label: {
-//                                    Text("\(firestoreQuery.featuredPlaylist.creator)")
-//                                        .font(.system(size: screenWidth / 20, weight: .light))
-//                                        .foregroundColor(Color.black)
-//                                        .padding(.trailing, screenWidth / 7.5)
-//                                        .offset(x:15)
-//
-//
-//                                })
-
-                                NavigationLink(destination: OtherProfileView(),
-                                               label: {
-                                    Text("\(firestoreQuery.playlist.creator)")
-                                        .font(.system(size: screenWidth / 20, weight: .light))
-                                        .foregroundColor(Color.black)
-                                        //.padding(.trailing, screenWidth / 7.5)
-                                        .offset(x:15)
-                                })
-
-                                Spacer()
-                            }
-                        }
-                        .listRowSeparator(.hidden)
-
-                        if(playlist.count > 0){
-                            ForEach(0...playlist.count - 1, id: \.self) { i in
+        VStack {
                                 
-                                Button(action: {
-                                   
-                                    //firestoreQuery.data.isClicked = artwork.art_id
-                                    
-                                    firestoreQuery.artisClicked = playlist[i].artId
-                                    firestoreQuery.artThatsPlaying = playlist[i]
-                                    firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
-                                    firestoreQuery.artworkThatsPlaying = firestoreQuery.playlistArt
-                                    
-                                    //firestoreQuery.isPresented.toggle()
-                                  //  firestoreQuery.maximized = true
-                                    firestoreQuery.showNewScreen = true
-                                    firestoreQuery.scrollTo = i
-                                    
-                                }){
-                                    HStack {
-                                        
-                                        
-                                            HStack {
-                                                    
-                                                WebImage(url: URL(string: playlist[i].thumbnail))
-                                                    .resizable()
-                                                    .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
-                                                    
-                                                VStack(alignment: .leading) {
-                                                        
-                                                    if(firestoreQuery.artisClicked == playlist[i].artId){
-                                                        Text(playlist[i].name)
-                                                            .foregroundColor(Color("Gallify-Pink"))
-                                                            .fontWeight(.bold)
-                                                            .font(.system(size: screenWidth / 20, weight: .medium))
-                                                            .lineLimit(1)
-                                                    }
-                                                    else{
-                                                        Text(playlist[i].name)
-                                                            .fontWeight(.bold)
-                                                            .font(.system(size: screenWidth / 20, weight: .medium))
-                                                            .foregroundColor(.black)
-                                                            .lineLimit(1)
-                                                    }
-                                                    
-                                                    Text("\(playlist[i].creator)")
-                                                        .font(.system(size: screenWidth / 24, weight: .light))
-                                                        .foregroundColor(.black)
-                                                        .lineLimit(1)
-                                                    
-                                                        
-                                                }
-                                                .padding(.leading, screenWidth / 37.5)
-                                                    
-                                                Spacer()
-                                            
-                                            
-                                            Button(action: {
-                                                firestoreQuery.showArtOptions = true
-                                            }, label: {
-                                                
-                                                Image(systemName: "ellipsis")
-                                                    .foregroundColor(.black)
-                                                
-                                            })
-                                                .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
-                                                ActionSheet(
-                                                    title: Text("Select"),
-                                                    buttons: [
-                                                        .default(Text("Delete from Playlist")) {
-                                                         //   firestoreQuery.deleteFromPlaylist(artwork.art_id)
-                                                        },
-                                                        .default(Text("Add to Playlist")) {
-                                                            
-                                                            //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                        },
-                                                        .default(Text("Cancel")) {
-                                                            
-                                                            //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                            firestoreQuery.showArtOptions = false
-                                                        }
-                                                        
+            List {
+                        
+                HStack {
 
-                                                    ]
-                                                )
-                                            }
-                                        }
-                                        
+                    Spacer()
+                                            
+                    let words = ["Featured", "featured", "Liked", "liked", "Owned", "owned", "Created", "created", "reviewed","Reviewed", "approved","Approved", "Review", "review", "Publish", "publish", "Published", "published", "unPublished", "unpublished"]
+                    let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
+                    if (firestoreQuery.playlist.cover_art_url == "" && !combinedResult ) {
+                       
+                        WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d"))
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                            .padding(.top, 20)
+                        
+                    }
+                    else{
+                        
+                        CollectionGenericImage(playlist: thePlaylist)
+                    
+                    }
+
+                    Spacer()
+                                            
+                }
+                .listRowSeparator(.hidden)
+                                            
+                HStack {
+                                                
+                    Text("\(firestoreQuery.playlist.name)")
+                        .font(.system(size: screenWidth / 12, weight: .bold))
+                                                
+                    Spacer()
+                                                
+                }
+                .padding(.horizontal, screenWidth / 20)
+                .padding(.top, screenHeight / 40)
+                .listRowSeparator(.hidden)
+
+                HStack {
+
+                    NavigationLink(destination: OtherProfileView(otherUserId: playlistOwner.uid), // thePlaylist or playlistOwner.uid
+                                label: {
+                                                        
+                        HStack {
+                                                                
+                            Text("\(playlistOwner.firstName) " + "\(playlistOwner.lastName)")
+                                .font(.system(size: screenWidth / 20, weight: .light))
+                                .foregroundColor(Color.black)
+                                                                
+                            Image(systemName: "greaterthan")
+                                .resizable()
+                                .frame(width: screenWidth / 37.5, height: screenHeight / 80)
+                                .foregroundColor(Color.primary)
+                                .font(Font.title.weight(.light))
+                                
+                                .padding(.vertical, 20)
+                                                            
+                        }
+                                                    
+                    })
+                    .padding(.trailing, -screenWidth / 5)
+                    
+
+                    Spacer()
+                                                
+                }
+                .padding(.horizontal, screenWidth / 20)
+                .padding(.top, -screenHeight / 54)
+                .listRowSeparator(.hidden)
+                
+                HStack {
+                
+                    if(firestoreQuery.playlist.privacy == 1){
+                        Group{
+                            Text("Public")
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color.blue) +
+                            Text(" • ")
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color.primary) +
+                            Text(thePlaylist.playlist_type)
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color.primary)
+                        }
+                            
+                            
+                    }
+                    else{
+                        Group{
+                            Text("Private")
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color("Gallify-Red")) +
+                            Text(" • ")
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color.primary) +
+                            Text(thePlaylist.playlist_type)
+                                .font(.system(size: screenWidth / 30, weight: .medium))
+                                .foregroundColor(Color.primary)
+                        }
+                        
+                    }
+                    
+                                                
+                    Spacer()
+                                                
+                }
+                .padding(.horizontal, screenWidth / 20)
+                .padding(.top, -screenHeight / 35)
+                .listRowSeparator(.hidden)
+                        
+                if(playlist.count > 0) {
+                                            
+                    ForEach(0...playlist.count - 1, id: \.self) { i in
+                                                
+                        Button(action: {
+                                                   
+                           
+                            
+                            self.art = playlist[i]//<-- update local art var to use later in the code
+                            firestoreQuery.artisClicked = playlist[i].artId
+                            firestoreQuery.artThatsPlaying = self.art // used to be: playlist[i]
+                            firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
+                            firestoreQuery.artworkThatsPlaying = firestoreQuery.playlistArt
+                                                
+                            //firestoreQuery.isPresented.toggle()
+                            //  firestoreQuery.maximized = true
+                            firestoreQuery.showNewScreen = true
+                            firestoreQuery.scrollTo = i
+                            
+                        }){
+                                                    
+                            HStack {
+                                                            
+                                WebImage(url: URL(string: playlist[i].thumbnailUrl))
+                                    .resizable()
+                                    .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+                                                                
+                                VStack(alignment: .leading) {
+                                                                    
+                                    if(firestoreQuery.artisClicked == playlist[i].artId) {
+                                                                
+                                        Text(playlist[i].name)
+                                            .foregroundColor(Color("Gallify-Pink"))
+                                            .font(.system(size: screenWidth / 20, weight: .medium))
+                                            .lineLimit(1)
+                                                                
                                     }
-                                    .padding(.vertical, screenHeight / 160)
-                                    .padding(.horizontal, screenWidth / 15)
+                                                            
+                                    else {
+                                                                    
+                                        Text(playlist[i].name)
+                                            .font(.system(size: screenWidth / 20, weight: .medium))
+                                            .lineLimit(1)
+                                                                
+                                    }
+                                                                
+                                    Text("\(playlist[i].creator)")
+                                        .font(.system(size: screenWidth / 24, weight: .light))
+                                        .lineLimit(1)
+                                                            
+                                }
+                                .padding(.leading, screenWidth / 37.5)
+                                                                
+                                Spacer()
+                               
+                                
+                                //if else. If they created the playlist or not.
+                                if(thePlaylist.creator_url == firestoreQuery.data.uid){
+                                    Button(action: {
+                                        firestoreQuery.showArtOptions = true
+                                        self.art = playlist[i] //Setting art var when ellipses is clicked
+                                    }, label: {
+                                                                
+                                        Image(systemName: "ellipsis")
+                                            .foregroundColor(.primary)
+                                                                
+                                    })
+                                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                                
+                                        ActionSheet(
+                                            title: Text("Select"),
+                                            buttons: [
+                                                .default(Text("Delete from Playlist")) {
+                                                    Task{
+                                                            //remove from local variable to update view
+                                                            playlist.removeAll { artwork in
+                                                                artwork.artId == art.artId
+                                                            }
+                                                            print("Start Delete")
+                                                            await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist: thePlaylist)
+                                                            print("End Delete")
+                                                            await firestoreQuery.getUserLibrary()
+                                                        
+                                                            if(thePlaylist.name == "Featured"){
+                                                                await firestoreQuery.getFeaturedPlaylist()
+                                                                await firestoreQuery.getFeaturedArt()
+                                                            }
+                                                        }
+                                                },
+                                                .default(Text("Add to Playlist")) {
+                                                    showingSheet = true
+                                                },
+                                                .default(Text("Cancel")) {
+                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                    firestoreQuery.showArtOptions = false
+                                                }])
+                                    }
+                                    .sheet(isPresented: $showingSheet) {
+                                            CollectionsView(art: art)
+                                    }
                                     
                                 }
-
+                                else if(thePlaylist.name != "Review"){
+                                    Button(action: {
+                                        firestoreQuery.showArtOptions = true
+                                        self.art = playlist[i] //Setting art var when ellipses is clicked
+                                    }, label: {
+                                                                
+                                        Image(systemName: "ellipsis")
+                                            .foregroundColor(.primary)
+                                                                
+                                    })
+                                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                                
+                                        ActionSheet(
+                                            title: Text("Select"),
+                                            buttons: [
+                                                .default(Text("Add to Playlist")) {
+                                                    showingSheet = true
+                                                },
+                                                .default(Text("Cancel")) {
+                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                    firestoreQuery.showArtOptions = false
+                                                }])
+                                                                    
+                                    }
+                                    .sheet(isPresented: $showingSheet) {
+                                            CollectionsView(art: art)
+                                    }
+                                    
+                                    
+                                }
+                                else{
+                                    
+                                        Button(action: {
+                                            firestoreQuery.showArtOptions = true
+                                            self.art = playlist[i] //Setting art var when ellipses is clicked
+                                        }, label: {
+                                                                    
+                                            Image(systemName: "ellipsis")
+                                                .foregroundColor(.primary)
+                                                                    
+                                        })
+                                        .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                                                    
+                                            ActionSheet(
+                                                title: Text("Select"),
+                                                buttons: [
+                                                    .default(Text("Cancel")) {
+                                                        //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                        firestoreQuery.showArtOptions = false
+                                                    }])
+                                                                        
+                                        }
+                                        .sheet(isPresented: $showingSheet) {
+                                                CollectionsView(art: art)
+                                        }
+                                }
+                                
+                                
                             }
-                            .onMove { indexSet, offset in
-                                playlist.move(fromOffsets: indexSet, toOffset: offset)
-                                firestoreQuery.featuredArt = playlist
-                                //firestore update here
-                            }
-                            .listRowSeparator(.hidden)
-                                  
+                            //.padding(.vertical, screenHeight / 160)
+                            .padding(.horizontal, screenWidth / 20)
+                            
                         }
+                                            
                     }
-                    .listStyle(InsetListStyle())
-                    .toolbar {
+                    .onMove { indexSet, offset in
+                        playlist.move(fromOffsets: indexSet, toOffset: offset)
+                        
+                        if(thePlaylist.name == "Featured"){
+                            firestoreQuery.featuredArt = playlist
+                            Task {//firestore update here
+                                await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.featuredArt)
+                                //refresh collection list
+                                await firestoreQuery.getFeaturedPlaylist()
+                                await firestoreQuery.getFeaturedArt()
+                                await firestoreQuery.getUserLibrary()
+                            }
+                        }
+                        else{
+                            firestoreQuery.playlistArt = playlist
+                            Task {//firestore update here
+                                await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.playlistArt)
+                                //refresh collection list
+                                await firestoreQuery.getUserLibrary()
+                            }
+                        }
+                    
+                        
+                    }
+                    .listRowSeparator(.hidden)
+                        
+                }
+                        
+            }
+            .listStyle(InsetListStyle())
+            .toolbar {
+                    ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
                         EditButton()
                     }
-                    .navigationBarTitle("")
-                    
-        
-                }
-                .onAppear{async{ await NetworkingCall() }}
-            
             }
-            
+                    
         }
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
-    
+        .onAppear{async { await NetworkingCall() }}
+
+    }
         
-        }
     
 //        func move(indices: IndexSet, newOffset: Int){
 //            playlist.move(fromOffsets: indices, toOffset: newOffset)
@@ -228,11 +359,33 @@ struct CollectionGenericRow: View {
 //        }
     
         func NetworkingCall() async {
-            await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
+            
+            //determines the owner of the playlist.
+            if(thePlaylist.creator_url == firestoreQuery.data.uid){
+                //then current user created this playlist
+                playlistOwner = firestoreQuery.data
+            }
+            else{
+                //get the creators info, and set it to playlistInfo
+                await firestoreQuery.getOtherUser(user_id: thePlaylist.creator_url)
+                playlistOwner = firestoreQuery.otherUserData
+            }
+            
+            
+            //shruti
+            print("Playlist passed to generic row = ", thePlaylist.name)
+            await firestoreQuery.getPlaylist(playlist_id: thePlaylist.playlist_id)
+            
+            await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
             //print("ART: \(firestoreQuery.playlistArt[1].creator)")
+            
             playlist = firestoreQuery.playlistArt
-            //this gets all the data for the home page.
-            //firestoreQuery.getHome()
+            //
+            
+            // code before
+            //await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
+            //playlist = firestoreQuery.playlistArt
+            
             
         }
     

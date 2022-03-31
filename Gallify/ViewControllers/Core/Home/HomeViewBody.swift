@@ -43,33 +43,47 @@ struct HomeViewBody: View {
                         
                         ForEach(firestoreQuery.homePlaylists[i]) { playlist in
                               
-                            VStack {
-                                        
-                                NavigationLink(destination: CollectionGenericView(screenWidth: screenWidth, screenHeight: screenHeight, playlist: playlist),
-                                                label: {
-                                                    
-                                        WebImage(url: URL(string: playlist.cover_art_url))
-                                            .resizable()
-                                            .frame(width: screenWidth / 2.8, height: screenHeight / 6)
-                                              
-                                    })
-                                    .simultaneousGesture(TapGesture().onEnded {
-                                        firestoreQuery.playlist = playlist
-                                    })
-                                
-                                Text(playlist.name)
-                                    .font(.system(size: screenWidth / 18, weight: .semibold))
-                                    .frame(width: screenWidth / 2.8)
-                                    .lineLimit(1)
-                                        
-                                Text(playlist.playlist_type + " • " + playlist.creator)
-                                    .font(.system(size: screenWidth / 25.5))
-                                    .frame(width: screenWidth / 2.8)
-                                    .lineLimit(1)
+                            
+                                VStack {
                                     
+                                    if(playlist.privacy != 0){
+                                                
+                                        NavigationLink(destination: CollectionGenericView(playlist: playlist),
+                                                        label: {
+                                               
+                                                if(playlist.cover_art_url == ""){
+                                                    WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d"))
+                                                        .resizable()
+                                                        .frame(width: screenWidth / 2.8, height: screenHeight / 6)
+                                                        //.cornerRadius(5)
+                                                }
+                                                else{
+                                                    WebImage(url: URL(string: playlist.cover_art_url))
+                                                        .resizable()
+                                                        .frame(width: screenWidth / 2.8, height: screenHeight / 6)
+                                                        //.cornerRadius(5)
+                                                }
+                                              
+                                                      
+                                            })
+                                            .simultaneousGesture(TapGesture().onEnded {
+                                                firestoreQuery.playlist = playlist
+                                            })
+                                        
+                                        Text(playlist.name)
+                                            .font(.system(size: screenWidth / 18, weight: .semibold))
+                                            .frame(width: screenWidth / 2.8)
+                                            .lineLimit(1)
+                                                
+                                        Text(playlist.playlist_type + " • " + playlist.creator)
+                                            .font(.system(size: screenWidth / 25.5))
+                                            .frame(width: screenWidth / 2.8)
+                                            .lineLimit(1)
+                                        
+                                }
+                                
                             }
                             .padding(.horizontal, screenWidth / 75)
-                            
                         }
                             
                     }

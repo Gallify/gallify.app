@@ -63,8 +63,13 @@ struct SignInViewBody: View {
                 
                 HStack {
                     
-                    NavigationLink(destination: PrivacyPolicyView(password: ""),
-                                   label: {
+                    Button(action: {
+                        
+                        if let url = URL(string: "https://www.gallify.app/policies") {
+                           UIApplication.shared.open(url)
+                        }
+                        
+                    }) {
                         
                         Text("Privacy Policy")
                             .font(.system(size: screenWidth / 22))
@@ -73,8 +78,26 @@ struct SignInViewBody: View {
                             .padding(.leading, screenWidth / 15)
                             .padding(.bottom, screenHeight / 32.5)
                         
-                    })
-                    .navigationBarHidden(true)
+                        
+                    }
+                    
+                    
+//                    NavigationLink(destination: PrivacyPolicyView(password: ""),
+//                                   label: {
+//
+//                        Text("Privacy Policy")
+//                            .font(.system(size: screenWidth / 22))
+//                            .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+//                            .padding(.top , screenHeight / 100)
+//                            .padding(.leading, screenWidth / 15)
+//                            .padding(.bottom, screenHeight / 32.5)
+//
+//                    })
+//                    .navigationBarHidden(true)
+                    
+                    
+                    
+                    
                     
                     Spacer()
                     

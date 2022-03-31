@@ -33,7 +33,7 @@ struct MainSettingsViewBody: View {
         .padding(.top)
         
 
-        HStack (alignment: .center) {
+      /*  HStack (alignment: .center) {
             Text("Account")
                 .padding(.leading, screenWidth/6)
             Spacer()
@@ -103,7 +103,7 @@ struct MainSettingsViewBody: View {
                 .padding(.trailing, screenWidth/6)
         }
         .padding(.top)
-        
+        */
         
         HStack (alignment: .center) {
             

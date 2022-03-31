@@ -70,6 +70,10 @@ extension FirestoreQuery {
     }
     
     
+    func clearModels() {
+        self.clearModelEntitiesFromMemory()
+        self.models = []
+    }
     
     func clearModelEntitiesFromMemory() {
         for model in models {

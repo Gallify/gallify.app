@@ -4,53 +4,52 @@
 //
 //  Created by Gianluca Profio on 10/23/21.
 //
-
 import SwiftUI
+import FirebaseFirestore
+import FirebaseAuth
+import SDWebImageSwiftUI
 
 struct CollectionGenericView: View {
     
-    let screenWidth: CGFloat
-    let screenHeight: CGFloat
     let playlist: Playlist
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var firestoreQuery : FirestoreQuery
-
+    @EnvironmentObject var viewModel: TabBarViewModel
     
     var body: some View {
         
-        NavigationView {
+        let screenHeight = UIScreen.main.bounds.height
+        let screenWidth = UIScreen.main.bounds.width
         
-//            List{
-//                Text("hello")
-//                Text("hello")
-//                Text("hello")
-//                Text("hello")
-//            }
-//            .listStyle(GroupedListStyle())
+        NavigationView {
             
             VStack {
                 
                 CollectionGenericHeader(screenHeight: screenHeight, screenWidth: screenWidth, presentationMode: _presentationMode)
+                    //.padding(.top, screenHeight / 45)
                 
                 CollectionGenericRow(screenWidth: screenWidth, screenHeight: screenHeight, thePlaylist: playlist)
                 
                 Spacer()
-                
              
-                if(firestoreQuery.showNewScreen == false){
-                    if(firestoreQuery.artPlaying == true){
+                if(firestoreQuery.showNewScreen == false) {
+                    
+                    if(firestoreQuery.artPlaying == true) {
+                        
                         MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
+                        
                     }
+                    
                 }
                 
             }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
             
         }
-        .toolbar {
-            EditButton()
-        }
-        .navigationBarHidden(true)
         .onAppear{async{ await NetworkingCall() }}
+        .navigationBarHidden(true)
+        
         
     }
     
@@ -69,10 +68,3 @@ struct CollectionGenericView: View {
     }
     
 }
-
-//struct CollectionGenericView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CollectionGenericView(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
-//    }
-//}
-

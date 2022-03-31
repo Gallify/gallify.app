@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import RefreshableScrollView
+//import RefreshableScrollView
 
 struct DiscoverPostsView: View {
     

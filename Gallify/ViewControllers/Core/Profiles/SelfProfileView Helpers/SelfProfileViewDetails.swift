@@ -113,7 +113,7 @@ struct SelfProfileViewDetails: View {
             
             HStack {
                 
-                Text(firestoreQuery.data.connectionsUrl)
+                Text(firestoreQuery.data.description)
                     .font(.system(size: screenWidth / 23.5, weight: .light))
                 
                 /*Text("\(firestoreQuery.data.userBio)")

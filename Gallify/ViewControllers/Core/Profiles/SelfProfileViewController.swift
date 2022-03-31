@@ -80,6 +80,7 @@ struct SelfProfileView : View {
        // await firestoreQuery.getUser()
         
         await firestoreQuery.getFeaturedPlaylist()
+        
         await firestoreQuery.getFeaturedArt()
         
         await firestoreQuery.getUserLibrary()
