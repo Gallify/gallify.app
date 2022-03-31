@@ -14,6 +14,7 @@ struct CollectionsView: View {
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @State var showAddAlert = false
+    @State var showUnapprovedAlert = false
     @Environment(\.dismiss) var dismiss
 
     
@@ -71,42 +72,50 @@ struct CollectionsView: View {
                             .onTapGesture {
                                 Task {
                                     
-                                    //if playlist is a collection, only add if they are owner or creator.
-                                    if(playlist.playlist_type == "Collection"){
-                                        if(art.ownerId==firestoreQuery.data.uid || art.creatorId==firestoreQuery.data.uid ){
+                                    if(art.searchType != 2){
+                                        //if playlist is a collection, only add if they are owner or creator.
+                                        if(playlist.playlist_type == "Collection"){
+                                            if(art.ownerId==firestoreQuery.data.uid || art.creatorId==firestoreQuery.data.uid ){
+                                                let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
+                                                impactHeavy.impactOccurred()
+                                                
+                                                await firestoreQuery.addArtToPlaylist(art: art, the_playlist: playlist)
+                                                await firestoreQuery.getUserLibrary()
+                                                
+                                                if(playlist.name == "Featured"){
+                                                    await firestoreQuery.getFeaturedPlaylist()
+                                                    await firestoreQuery.getFeaturedArt()
+                                                }
+                                                //dismiss view
+                                                dismiss()
+                                            }
+                                            else{
+                                                //else - alert: not owned or created by you. So cannot add to collection.
+                                                showAddAlert = true
+                                            }
+                                            
+                                        }
+                                        else{
                                             let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
                                             impactHeavy.impactOccurred()
                                             
                                             await firestoreQuery.addArtToPlaylist(art: art, the_playlist: playlist)
                                             await firestoreQuery.getUserLibrary()
-                                            
-                                            if(playlist.name == "Featured"){
-                                                await firestoreQuery.getFeaturedPlaylist()
-                                                await firestoreQuery.getFeaturedArt()
-                                            }
                                             //dismiss view
                                             dismiss()
-                                        }
-                                        else{
-                                            //else - alert: not owned or created by you. So cannot add to collection.
-                                            showAddAlert = true
-                                        }
                                         
+                                        }
                                     }
                                     else{
-                                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
-                                        impactHeavy.impactOccurred()
-                                        
-                                        await firestoreQuery.addArtToPlaylist(art: art, the_playlist: playlist)
-                                        await firestoreQuery.getUserLibrary()
-                                        //dismiss view
-                                        dismiss()
-                                    
+                                        showUnapprovedAlert = true //then user is trying to show unapproved art.
                                     }
                                 }
                             }
                             .alert(isPresented: $showAddAlert) {
                                 Alert(title: Text("Cannot Add to Collection"), message: Text("You can only add content you own or created to a collection"), dismissButton: .default(Text("Cancel")))
+                            }
+                            .alert(isPresented: $showUnapprovedAlert) {
+                                Alert(title: Text("Can't Add Just Yet!"), message: Text("The art your adding has not been reviewed and approved for the public."), dismissButton: .default(Text("Cancel")))
                             }
                     
                     }
