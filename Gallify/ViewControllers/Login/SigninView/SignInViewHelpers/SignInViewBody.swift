@@ -143,6 +143,7 @@ struct SignInViewBody: View {
                     
                 }) {
                         
+                    VStack{
                         HStack {
                             
                             Text("Sign In")
@@ -152,8 +153,16 @@ struct SignInViewBody: View {
                                 .padding(.vertical, screenHeight / 65)
                                 .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
                                 .cornerRadius(screenWidth / 15)
-                            
                         }
+                        HStack{
+                            Text("(Double Tap)")
+                                .font(.system(size: screenWidth / 29))
+                                .foregroundColor(.gray)
+                        }
+                        
+                    }
+                        
+                        
                         
                     }
                 
