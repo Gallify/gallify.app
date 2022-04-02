@@ -36,16 +36,17 @@ struct CollectionsView: View {
                 .font(Font.body.bold())
                 .foregroundColor(.primary)
                
-                
+            
             
             ScrollView{
         
                 ForEach(firestoreQuery.userLibrary){ playlist in
+                
                     
                     //don't show if liked, owned, created, or review.
                     let words = ["Liked", "Owned", "Created", "Review"] //can't add to any of these
                     let combinedResult = words.contains(where: playlist.name.contains)
-                    if(!combinedResult && firestoreQuery.playlist.creator_url == firestoreQuery.data.uid){ //if it is your playlist/collection
+                    if(!combinedResult && playlist.creator_url == firestoreQuery.data.uid){ //if it is your playlist/collection
                             HStack {
                                  
                                 SelfProfileCollectionListImage(screenHeight: screenHeight, screenWidth: screenWidth, playlist: playlist)
@@ -123,6 +124,9 @@ struct CollectionsView: View {
                 }
             .padding(.vertical, screenHeight / 80)
             .navigationBarHidden(true)
+            .onAppear{
+                print(firestoreQuery.userLibrary.count)
+            }
             
                 
     //            Spacer()

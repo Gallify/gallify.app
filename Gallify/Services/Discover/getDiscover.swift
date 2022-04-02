@@ -13,7 +13,7 @@ import AlgoliaSearchClient
 extension FirestoreQuery {
     
     /*
-     Search
+     Search - For artwork.
      */
     @MainActor
     func search(searchText: String){
