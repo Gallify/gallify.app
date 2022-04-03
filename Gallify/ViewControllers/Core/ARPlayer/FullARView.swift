@@ -20,6 +20,7 @@ struct FullARView: View {
     @EnvironmentObject var modelsViewModel: ModelsViewModel
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @EnvironmentObject var placementSettings: PlacementSettings
+    @EnvironmentObject var modelDeletionManager: ModelDeletionManager
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     
@@ -32,41 +33,27 @@ struct FullARView: View {
             
             if !overlayVisible {
                 if placementSettings.selectedModel == nil {
-                    if showSlider {
-                        Slider()
+                    if placementSettings.selectedModel != nil {
+                        AddModelBar()
+                    } else if modelDeletionManager.entitySelectedForDeletion != nil {
+                        DeletionView()
                     } else {
-                        
-                        HStack{
-                            
-//                            Button(action: {
-//                                presentationMode.wrappedValue.dismiss()
-//                                }) {
-//                                    HStack {
-//
-//                                        Image(systemName: "square")
-//                                            .resizable()
-//                                            .foregroundColor(Color.pink)
-//                                            .frame(width: 10, height: 10)
-//                                            .onTapGesture {
-//                                                firestoreQuery.showCameraScreen = false
-//                                            }
-//
-//                                    }
-//
-//                                }
-                            
-                            Button(action: {
-                                print("Toggle slider button pressed!!!")
-                                showSlider.toggle()
-                            }) {
-                                Image(systemName: "square")
-                                    .font(.system(size: 45))
-                                    .foregroundColor(.white)
-                                    .buttonStyle(PlainButtonStyle())
+                        if showSlider {
+                            Slider()
+                        } else {
+                            HStack{
+                                Button(action: {
+                                    print("Toggle slider button pressed!!!")
+                                    showSlider.toggle()
+                                }) {
+                                    Image(systemName: "square")
+                                        .font(.system(size: 45))
+                                        .foregroundColor(.white)
+                                        .buttonStyle(PlainButtonStyle())
+                                }
+                    
                             }
-                
                         }
-                        
                     }
                 } else {
                     AddModelBar()
@@ -86,12 +73,13 @@ struct ARViewContainer: UIViewRepresentable {
     @EnvironmentObject var modelsViewModel: ModelsViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
     @EnvironmentObject var placementSettings: PlacementSettings
+    @EnvironmentObject var modelDeletionManager: ModelDeletionManager
     @Binding var overlayVisible: Bool
     
     let coachingOverlay = ARCoachingOverlayView()
     
     func makeUIView(context: Context) -> ARView {
-        let arView = CustomARView(frame: .zero)
+        let arView = CustomARView(frame: .zero, modelDeletionManager: modelDeletionManager)
         
         arView.session.delegate = context.coordinator
         
@@ -194,3 +182,5 @@ extension ARViewContainer {
         return Coordinator(self)
     }
 }
+
+

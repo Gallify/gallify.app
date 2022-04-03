@@ -18,6 +18,7 @@ struct CollectionReelHeader: View {
     
     @StateObject var modelsViewModel = ModelsViewModel()
     @StateObject var placementSettings = PlacementSettings()
+    @StateObject var modelDeletionManager = ModelDeletionManager()
 //
 //    @EnvironmentObject var modelsViewModel : ModelsViewModel
 //    @EnvironmentObject var placementSettings : PlacementSettings
@@ -93,6 +94,7 @@ struct CollectionReelHeader: View {
                                  .environmentObject(modelsViewModel)
                                  .environmentObject(placementSettings)
                                  .environmentObject(firestoreQuery)
+                                 .environmentObject(modelDeletionManager)
                                // .onAppear{ async{ await firestoreQuery.fetchModelData()}} //called in reels.
                      
                  ,
