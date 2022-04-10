@@ -25,7 +25,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case artId
         case collection
         case collectionCoverartUrl
-        case contentURL
+        case contentUrl
         case contentType
         case creator
         case creatorId
@@ -131,7 +131,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         artId = try container.decode(String.self, forKey: .artId)
         collection = try container.decode(String.self, forKey: .collection)
         collectionCoverartUrl = try container.decode(String.self, forKey: .collectionCoverartUrl)
-        contentUrl = try container.decode(String.self, forKey: .contentURL)
+        contentUrl = try container.decode(String.self, forKey: .contentUrl)
         contentType = try container.decode(Int.self, forKey: .contentType)
         creator = try container.decode(String.self, forKey: .creator)
         creatorId = try container.decode(String.self, forKey: .creatorId)
@@ -169,7 +169,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(artId, forKey: .artId)
         try container.encode(collection, forKey: .collection)
         try container.encode(collectionCoverartUrl, forKey: .collectionCoverartUrl)
-        try container.encode(contentUrl, forKey: .contentURL)
+        try container.encode(contentUrl, forKey: .contentUrl)
         try container.encode(contentType, forKey: .contentType)
         try container.encode(creator, forKey: .creator)
         try container.encode(creatorId, forKey: .creatorId)

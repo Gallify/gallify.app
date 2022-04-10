@@ -36,7 +36,7 @@ extension FirestoreQuery {
         
         do {
             
-            let doc = try await FirestoreQuery.db.collection("users").document(FirestoreQuery.userId ?? "help").collection("home")
+            let doc = try await FirestoreQuery.db.collection("users").document(userId ?? "help" ).collection("home")
                 .document("home")
                 .getDocument().data(as: MuseumList.self)
             
@@ -48,7 +48,7 @@ extension FirestoreQuery {
             
         }
         catch{
-            print("Error")
+            print("Error in getHomeMuseumList")
         }
     }
     
@@ -82,7 +82,7 @@ extension FirestoreQuery {
                 //
             }
             catch{
-                print("Error")
+                print("Error in getHomeMuseums")
             }
         }
         
@@ -98,7 +98,7 @@ extension FirestoreQuery {
      */
     func getHomePlaylists() async {
         
-        if !(homePlaylists.isEmpty){ //if featured playlist isnt empty, then return.
+        if !(homePlaylists.isEmpty){ //if home playlist isnt empty, then return.
             return
         }
        
@@ -122,7 +122,7 @@ extension FirestoreQuery {
                     
                 }
                 catch{
-                    print("Error")
+                    print("Error in getHomePlaylists() \(error.localizedDescription)")
                 }
             }
             playlist_db_array.append(playlist_array)

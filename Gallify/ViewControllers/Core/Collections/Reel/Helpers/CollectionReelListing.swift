@@ -21,7 +21,7 @@ struct CollectionReelListing: View {
     @State var scrollTo = 0
     @State var showThumbnail = true
     @State var text3Dmodel = "Load 3D Artwork"
- 
+    @State var like = false
     
 //    Setting The Screen Width
     let screenWidth: CGFloat
@@ -35,6 +35,7 @@ struct CollectionReelListing: View {
             .default(Text("Collection 2")),
             .default(Text("Like")) {
                 Task {
+                    self.like = true
                     await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
                 }
 
@@ -78,8 +79,11 @@ struct CollectionReelListing: View {
                             }
                             
                             
+                            
                             HStack {
-                                
+                                if(firestoreQuery.isLiked == true && showActionSheet == true && like  == true) {
+                                    Text("You have already liked this art before!")
+                                }
                                 VStack{ //name and creator
                                     Text("\(artwork.creator)  ")
                                         .font(.system(size: 15))
@@ -151,7 +155,7 @@ struct CollectionReelListing: View {
                                     .foregroundColor(.primary)
                                     .bold()
                                 
-                        
+                            
                                 
                             }
 
@@ -207,6 +211,9 @@ struct CollectionReelListing: View {
             firestoreQuery.clearModels()
             firestoreQuery.setModelData()
            // print(firestoreQuery.setModelData())
+            Task{
+                await firestoreQuery.checkIfalreadyLiked(art: art)
+            }
         }
         .task{ //scroll to right part of list.
             if(scrollTo != firestoreQuery.scrollTo){
