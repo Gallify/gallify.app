@@ -181,6 +181,7 @@
 		3309962E277BC2670040D099 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309962D277BC2660040D099 /* ImageLoader.swift */; };
 		33099634277BC2980040D099 /* FirestoreSubcollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */; };
 		33C12AEB27E8039C00CC34A8 /* FirebaseStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */; };
+		33E41CDF27FFB68E0037FDBC /* Liked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E41CDE27FFB68E0037FDBC /* Liked.swift */; };
 		49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */; };
 		8F74D4B0DD6ECDB488245090 /* Pods_Gallify_GallifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */; };
 		92794CFB273811760012B184 /* CollectionReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CE4273811760012B184 /* CollectionReelView.swift */; };
@@ -407,6 +408,7 @@
 		3309962D277BC2660040D099 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreSubcollectionService.swift; sourceTree = "<group>"; };
 		33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageHelper.swift; sourceTree = "<group>"; };
+		33E41CDE27FFB68E0037FDBC /* Liked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liked.swift; sourceTree = "<group>"; };
 		41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GallifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.debug.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -891,6 +893,7 @@
 				30521372278A2C3A00CE0224 /* User.swift */,
 				30521373278A2C3A00CE0224 /* Following.swift */,
 				30521374278A2C3A00CE0224 /* Followers.swift */,
+				33E41CDE27FFB68E0037FDBC /* Liked.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1799,6 +1802,7 @@
 				31BDD938270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift in Sources */,
 				30521387278A502700CE0224 /* SelfProfileFeatured.swift in Sources */,
 				3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */,
+				33E41CDF27FFB68E0037FDBC /* Liked.swift in Sources */,
 				3129ADCC26F40E3B00172808 /* SelfProfileViewController.swift in Sources */,
 				318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */,
 				311E93832752FB1C005DFE12 /* Reels.swift in Sources */,

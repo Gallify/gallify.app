@@ -48,7 +48,7 @@ struct CollectionGenericHeader: View {
                             Task{
                                 await firestoreQuery.deletePlaylistFromLibrary(playlist_id: firestoreQuery.playlist.playlist_id)
                                 
-                                await firestoreQuery.getUserLibrary() //updates library
+                                //await firestoreQuery.getUserLibrary() //updates library
                             }
                             firestoreQuery.showPlaylistOptions = false
                         },

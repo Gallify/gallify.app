@@ -183,7 +183,9 @@ class LoginAppViewModel: ObservableObject {
                 let connectionsRef = db.collection("users").document(user.uid).collection("profile").document("connections")
                 try await batch.setData(from: Connections(), forDocument: connectionsRef)
                 
-
+                let likedRef = db.collection("users").document(user.uid).collection("profile").document("liked_art")
+                try await batch.setData(from: Liked(), forDocument: likedRef)
+            
                 batch.updateData(["museums": ["p0lkJFdi7cstCJrAcYMr","oEcIslgNBCQ8RO3PibQT", "1EkOA6d8DXrcHQSGuiNG"]], forDocument: userMuseumRef)
                 
                // userSubCollectionsCreated = true
