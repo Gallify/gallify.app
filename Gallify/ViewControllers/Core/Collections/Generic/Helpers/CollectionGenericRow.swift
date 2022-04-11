@@ -165,7 +165,7 @@ struct CollectionGenericRow: View {
                                                     
                             HStack {
                                                             
-                                WebImage(url: URL(string: playlist[i].thumbnail))
+                                WebImage(url: URL(string: playlist[i].thumbnailUrl))
                                     .resizable()
                                     .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                                                                 

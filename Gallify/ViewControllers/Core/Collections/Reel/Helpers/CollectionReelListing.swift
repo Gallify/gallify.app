@@ -68,7 +68,7 @@ struct CollectionReelListing: View {
                                         USDZPost( model: firestoreQuery.models[i])
                                     }
                                     else{
-                                        WebImage(url: URL(string: artwork.thumbnail))
+                                        WebImage(url: URL(string: artwork.thumbnailUrl))
                                         .resizable()
                                         //.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                                         .overlay(Rectangle().frame(width: nil, height: 1, alignment: .top).foregroundColor(Color.black), alignment: .top)

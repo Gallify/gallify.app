@@ -75,8 +75,6 @@ extension FirestoreQuery {
                             .document("liked_art")
                             .updateData(["liked" : FieldValue.arrayUnion([art.artId])])
                     }
-                    //self.playlist = playlist
-                    //self.playlist.art.append(art.artId)
                 }
             }
             
@@ -131,8 +129,8 @@ extension FirestoreQuery {
                
                let doc = try FirestoreQuery.db.collection("art").document()
                art.artId = doc.documentID
-               art.thumbnail = img
-               print("NEW ART THUMBNAIL = ", art.thumbnail)
+               art.thumbnailUrl = img
+               print("NEW ART THUMBNAIL = ", art.thumbnailUrl)
                try doc.setData(from: art)
                await addArtToPlaylist(art: art, playlist_id: playlistId)
            }
