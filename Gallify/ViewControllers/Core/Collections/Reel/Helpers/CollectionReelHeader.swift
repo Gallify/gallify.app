@@ -88,22 +88,22 @@ struct CollectionReelHeader: View {
            
             Spacer() 
             
-            if (ARConfiguration.isSupported) {
-                 NavigationLink(destination: FullARView()
-                                 .environmentObject(modelsViewModel)
-                                 .environmentObject(placementSettings)
-                                 .environmentObject(firestoreQuery)
-                               // .onAppear{ async{ await firestoreQuery.fetchModelData()}} //called in reels.
-                     
-                 ,
-                    label: {
-                     Image(systemName: "arkit")
-                         .font(.system(size: 30))
-                         .padding(.leading)
-                         .foregroundColor(.primary)
-                 })
-             }
-            
+//            if (ARConfiguration.isSupported) {
+//                 NavigationLink(destination: FullARView()
+//                                 .environmentObject(modelsViewModel)
+//                                 .environmentObject(placementSettings)
+//                                 .environmentObject(firestoreQuery)
+//                               // .onAppear{ async{ await firestoreQuery.fetchModelData()}} //called in reels.
+//                     
+//                 ,
+//                    label: {
+//                     Image(systemName: "arkit")
+//                         .font(.system(size: 30))
+//                         .padding(.leading)
+//                         .foregroundColor(.primary)
+//                 })
+//             }
+//            
             
             
 

@@ -108,15 +108,15 @@ class CustomARView: ARView {
             // Create new AnchorEntity and Model, Remove old one
             entity.generateCollisionShapes(recursive: true)
             
-            let anchorEntity = AnchorEntity(plane: .any)
+//            let anchorEntity = AnchorEntity(plane: .any)
             
-            anchorEntity.addChild(entity)
+//            anchorEntity.addChild(entity)
             
             if let change = getTransformForTranslate(from: updatedPosition) {
-                anchorEntity.anchoring = AnchoringComponent(ARAnchor(transform: change))
+//                anchorEntity.anchoring = AnchoringComponent(ARAnchor(transform: change))
             }
             
-            scene.addAnchor(anchorEntity)
+//            scene.addAnchor(anchorEntity)
             
             fallthrough
         default:
