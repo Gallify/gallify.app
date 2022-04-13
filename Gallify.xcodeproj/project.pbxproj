@@ -216,6 +216,8 @@
 		92DB7C6F273186330035B788 /* CreatePublishListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C6E273186330035B788 /* CreatePublishListing.swift */; };
 		92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */; };
 		F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */; };
+		FC5DCE5527F9392E00AE345B /* ModelDeletionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5DCE5427F9392E00AE345B /* ModelDeletionManager.swift */; };
+		FC5DCE5727F951BC00AE345B /* DeletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5DCE5627F951BC00AE345B /* DeletionView.swift */; };
 		FC9EED7C2762AD7E00F831DC /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = FC9EED7B2762AD7E00F831DC /* FocusEntity */; };
 /* End PBXBuildFile section */
 
@@ -452,6 +454,8 @@
 		92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewAnimation.swift; sourceTree = "<group>"; };
 		9B47B46B9072CE5E90CC4719 /* Pods-Gallify-GallifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.release.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.release.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.release.xcconfig"; sourceTree = "<group>"; };
+		FC5DCE5427F9392E00AE345B /* ModelDeletionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDeletionManager.swift; sourceTree = "<group>"; };
+		FC5DCE5627F951BC00AE345B /* DeletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletionView.swift; sourceTree = "<group>"; };
 		FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify_GallifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -601,6 +605,8 @@
 				3003B00D27EB98A000EA58B6 /* PlacementSettings.swift */,
 				3003B00F27EB98A700EA58B6 /* Slider.swift */,
 				3003B01127EB98BB00EA58B6 /* ThresholdPanGesture.swift */,
+				FC5DCE5427F9392E00AE345B /* ModelDeletionManager.swift */,
+				FC5DCE5627F951BC00AE345B /* DeletionView.swift */,
 			);
 			path = ARPlayer;
 			sourceTree = "<group>";
@@ -1827,6 +1833,7 @@
 				30001BCA2796856B00527BF9 /* postDiscover.swift in Sources */,
 				30521378278A2C3A00CE0224 /* Connections.swift in Sources */,
 				30001BF1279694A800527BF9 /* SelfProfileViewVerifiedDetails.swift in Sources */,
+				FC5DCE5527F9392E00AE345B /* ModelDeletionManager.swift in Sources */,
 				30836FC0274A050800E83735 /* DiscoverPostsViewTags.swift in Sources */,
 				311E93872752FB61005DFE12 /* Post_Large.swift in Sources */,
 				308B4BED27658A710039B74E /* MuseumList.swift in Sources */,
@@ -1850,6 +1857,7 @@
 				30521377278A2C3A00CE0224 /* GetUser.swift in Sources */,
 				30493BBA27CB328200CD985B /* CreatePlaylistSettings.swift in Sources */,
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
+				FC5DCE5727F951BC00AE345B /* DeletionView.swift in Sources */,
 				30836FB5274A041600E83735 /* ArtistSearchTemplate.swift in Sources */,
 				3003AFF127E40B7C00EA58B6 /* Model.swift in Sources */,
 				30001BFF2796971800527BF9 /* OtherProfileFeatured.swift in Sources */,

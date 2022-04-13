@@ -15,6 +15,7 @@ import SceneKit
 class CustomARView: ARView {
     
     var focusEntity: FocusEntity?
+    var modelDeletionManager: ModelDeletionManager
     
     /**
      The object that has been most recently intereacted with.
@@ -30,17 +31,24 @@ class CustomARView: ARView {
         }
     }
     
-    required init(frame frameRect: CGRect) {
+    required init(frame frameRect: CGRect, modelDeletionManager: ModelDeletionManager) {
+        self.modelDeletionManager = modelDeletionManager
         super.init(frame: frameRect)
         
         focusEntity = FocusEntity(on: self, focus: .classic)
+        
         self.enablePanGesture()
+        self.enableObjectDeletion()
         
         configure()
     }
     
     @MainActor @objc required dynamic init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @MainActor required dynamic init(frame frameRect: CGRect) {
+        fatalError("init(frame:) has not been implemented")
     }
     
     private func configure() {
@@ -59,6 +67,9 @@ class CustomARView: ARView {
         
         config.environmentTexturing = .automatic
         config.frameSemantics.insert(.personSegmentationWithDepth)
+        
+        self.enableObjectDeletion()
+        self.enablePanGesture()
         
         session.run(config, options: [.resetTracking, .removeExistingAnchors])
     }
@@ -141,5 +152,31 @@ class CustomARView: ARView {
         guard let raycastResult = self.session.raycast(query).first else { return nil }
 
         return raycastResult.worldTransform
+    }
+}
+
+// MARK: - Object Deletion Methods
+extension CustomARView {
+    func enableObjectDeletion() {
+        //let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(recognizer:)))
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(recognizer:)))
+        doubleTapGesture.numberOfTapsRequired = 2
+        self.addGestureRecognizer(doubleTapGesture)
+    }
+
+    @objc func handleLongPress(recognizer: UILongPressGestureRecognizer) {
+        let location = recognizer.location(in: self)
+
+        if let entity = self.entity(at: location) as? ModelEntity {
+            modelDeletionManager.entitySelectedForDeletion = entity
+        }
+    }
+
+    @objc func handleDoubleTap(recognizer: UITapGestureRecognizer) {
+        let location = recognizer.location(in: self)
+
+        if let entity = self.entity(at: location) as? ModelEntity {
+            modelDeletionManager.entitySelectedForDeletion = entity
+        }
     }
 }
