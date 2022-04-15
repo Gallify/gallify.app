@@ -95,6 +95,7 @@ struct CollectionReelHeader: View {
                                  .environmentObject(placementSettings)
                                  .environmentObject(firestoreQuery)
                                  .environmentObject(modelDeletionManager)
+                                 //.animation(Animation.default.speed(5))
                                // .onAppear{ async{ await firestoreQuery.fetchModelData()}} //called in reels.
                      
                  ,
@@ -103,8 +104,11 @@ struct CollectionReelHeader: View {
                          .font(.system(size: 30))
                          .padding(.leading)
                          .foregroundColor(.primary)
+                         
                  })
              }
+            
+    
             
             
             

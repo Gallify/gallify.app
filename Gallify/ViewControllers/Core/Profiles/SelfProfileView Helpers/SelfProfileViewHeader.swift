@@ -36,9 +36,9 @@ struct SelfProfileViewHeader: View {
                     destination: SettingsView(screenWidth: screenWidth, screenHeight: screenHeight),
                     label: {
                             
-                        Image(systemName: "gearshape.fill")
+                        Image(systemName: "gearshape")
                             .resizable()
-                            .foregroundColor(.gray)
+                            //.foregroundColor(.gray)
                             .frame(width: screenWidth / 15, height: screenHeight / 32.5)
                             .padding(.trailing, screenWidth / 25)
                             

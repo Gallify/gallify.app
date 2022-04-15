@@ -26,44 +26,80 @@ struct FullARView: View {
     
     @State private var showSlider: Bool = false
     @State private var overlayVisible: Bool = false //used to be true, wasnt loading so skipped it
+    
+    let screenHeight = UIScreen.main.bounds.height
+    let screenWidth = UIScreen.main.bounds.width
+    
     var body: some View {
+        
+        
         ZStack(alignment: .bottom) {
+            
+            
+            
             ARViewContainer(overlayVisible: $overlayVisible)
                 .edgesIgnoringSafeArea(.all)
+                .navigationBarHidden(true)
             
-            if !overlayVisible {
-                if placementSettings.selectedModel == nil {
-                    if placementSettings.selectedModel != nil {
-                        AddModelBar()
-                    } else if modelDeletionManager.entitySelectedForDeletion != nil {
-                        DeletionView()
-                    } else {
-                        if showSlider {
-                            Slider()
-                        } else {
-                            HStack{
-                                Button(action: {
-                                    print("Toggle slider button pressed!!!")
-                                    showSlider.toggle()
-                                }) {
-                                    Image(systemName: "square")
-                                        .font(.system(size: 45))
-                                        .foregroundColor(.white)
-                                        .buttonStyle(PlainButtonStyle())
-                                }
-                    
-                            }
-                        }
+//            CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
+//                .padding(.horizontal, screenWidth / 25)
+//                .padding(.vertical, screenHeight / 100)
+            
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+                }) {
+                    HStack {
+                        
+                        Image(systemName: "square")
+                            .resizable()
+                            .foregroundColor(Color.white)
+                            .frame(width: screenWidth / 15, height: screenHeight / 32.5)
+                        
                     }
-                } else {
-                    AddModelBar()
                 }
-            }
+                .padding(.horizontal, screenWidth / 25)
+                .padding(.vertical, screenHeight / 100)
+            
+//            if !overlayVisible {
+//                if placementSettings.selectedModel == nil {
+//                    if placementSettings.selectedModel != nil {
+//                        AddModelBar()
+//                    } else if modelDeletionManager.entitySelectedForDeletion != nil {
+//                        DeletionView()
+//                    } else {
+//                        if showSlider {
+//                            Slider()
+//                        } else {
+//                            HStack{
+//                                Button(action: {
+//                                    print("Toggle slider button pressed!!!")
+//                                    showSlider.toggle()
+//                                }) {
+//                                    Image(systemName: "square")
+//                                        .font(.system(size: 45))
+//                                        .foregroundColor(.white)
+//                                        .buttonStyle(PlainButtonStyle())
+//                                }
+//
+//                            }
+//                        }
+//                    }
+//                } else {
+//                    AddModelBar()
+//                }
+//            }
         }.task{
             if(firestoreQuery.models.isEmpty){
                 await firestoreQuery.fetchModelData()
             }
         }
+       
+        
+        
+        
+        
+        
+        
         
     }
 }

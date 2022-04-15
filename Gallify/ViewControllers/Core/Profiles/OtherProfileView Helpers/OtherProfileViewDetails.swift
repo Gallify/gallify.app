@@ -34,13 +34,13 @@ struct OtherProfileViewDetails: View {
                                
                            }
                            .resizable()
-                           .placeholder(Image(systemName: "photo"))
+                           .placeholder(Image("logo"))
                            .placeholder {
                                Circle().foregroundColor(.gray)
                            }
                            .indicator(.activity) // Activity Indicator
                            .transition(.fade(duration: 0.5)) // Fade Transition with duration
-                           .scaledToFit()
+                           .scaledToFill()
                            .frame(width: screenWidth / 4, height: screenHeight / 8.65)
                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                            .overlay(Circle().stroke(.white, lineWidth: 4))

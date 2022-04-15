@@ -52,6 +52,8 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         case review
         case created
         
+        //disable account bool
+        
         
         
     }
