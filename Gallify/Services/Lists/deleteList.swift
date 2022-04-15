@@ -72,9 +72,11 @@ extension FirestoreQuery {
             }
            
 
-//             self.data.Library.removeAll { pl in
-//                 pl == playlist_id
-//             }
+             self.data.Library.removeAll { pl in //data.library and userlibrary both need to have the proper playlist id removed.
+                 pl == playlist_id
+             }
+            
+            await self.getUserLibrary()
             
 //             //assumes firestorequery.playlist is the playlist to delete
 //             if(self.data.uid == self.playlist.creator_url){

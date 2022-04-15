@@ -30,21 +30,19 @@ struct CollectionReelListing: View {
 
     
 //    Add To Collection Pop-Up Integration
-    var actionSheet: ActionSheet {
-        ActionSheet(title: Text("Add to a Collection"), message: Text("Your Collections:"), buttons: [
-            .default(Text("Collection 1")),
-            .default(Text("Collection 2")),
-            .default(Text("Like")) {
-                Task {
-                    self.like = true
-                    await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
-                    //reload library
-                }
-
-            },
-            .destructive(Text("Cancel"))
-        ])
-    }
+//    var actionSheet: ActionSheet {
+//        ActionSheet(title: Text("Add to a Collection"), message: Text("Your Collections:"), buttons: [
+//            .default(Text("Like")) {
+//                Task {
+//                    self.like = true
+//                    await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+//                    //reload library
+//                }
+//
+//            },
+//            .destructive(Text("Cancel"))
+//        ])
+//    }
     
     var body: some View {
         
@@ -258,14 +256,14 @@ struct CollectionReelListing: View {
                                 
                                 
 
-                                if(artwork.forSale == true  ){ //&& artwork.price != ""
-                                    Text("\(artwork.price) Matic")
-                                        //.foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
-                                        .font(.system(size: 20))
-                                        .foregroundColor(.primary)
-                                        .padding(.trailing, 10)
-                                        //.bold()
-                                }
+//                                if(artwork.forSale == true  ){ //&& artwork.price != ""
+//                                    Text("\(artwork.price) Matic")
+//                                        //.foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
+//                                        .font(.system(size: 20))
+//                                        .foregroundColor(.primary)
+//                                        .padding(.trailing, 10)
+//                                        //.bold()
+//                                }
                     
                                 
                             }
