@@ -4,7 +4,6 @@
 //
 //  Created by Gianluca Profio on 9/26/21.
 //
-
 import SwiftUI
 import SDWebImageSwiftUI
 
@@ -15,8 +14,10 @@ struct CollectionReelListing: View {
     
     @State private var showDetail = false
     @State var showActionSheet: Bool = false
+    @State var showingSheet: Bool = false
     @State var art_popup = ""
-    @State var art = Art()
+    //@State var art = Art()
+    @State var art: Art = Art()
     @State var getModelforArt = ""
     @State var scrollTo = 0
     @State var showThumbnail = true
@@ -37,6 +38,7 @@ struct CollectionReelListing: View {
                 Task {
                     self.like = true
                     await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+                    //reload library
                 }
 
             },
@@ -61,7 +63,10 @@ struct CollectionReelListing: View {
                             
                             ZStack (alignment: .center) {
                                 //show thumbnail or 3d model.
-                                if(!firestoreQuery.models.isEmpty){
+                                
+                                
+                                
+                              //  if(!firestoreQuery.models.isEmpty){
                                     if(!showThumbnail && getModelforArt == artwork.artId
                                        && firestoreQuery.models[i].contentLoaded && firestoreQuery.models[i] != nil){
                                           //  USDZPost(showThumbnail: $showThumbnail, model: firestoreQuery.models[i])
@@ -75,7 +80,9 @@ struct CollectionReelListing: View {
                                         .scaledToFit()
                                     }
 
-                                }
+                                //}
+                                
+                                
                             }
                             
                             
@@ -85,14 +92,22 @@ struct CollectionReelListing: View {
                                     Text("You have already liked this art before!")
                                 }
                                 VStack{ //name and creator
-                                    Text("\(artwork.creator)  ")
-                                        .font(.system(size: 15))
-                                        .foregroundColor(.primary)
-          
+                                    
+                                    NavigationLink (
+                                       destination: OtherProfileView(otherUserId: artwork.creatorId),
+                                        label: {
+                                            Text("\(artwork.creator)  ")
+                                                .font(.system(size: 15))
+                                                .foregroundColor(.primary)
+                                                .fontWeight(.bold)
+                                        })
+                                    
                                     
                                     Text("\(artwork.name)  ")
                                         .font(.system(size: 20))
                                         .foregroundColor(.primary)
+                                        .fontWeight(.light)
+                                        .offset(x: 10)
                                 }
                                 
                                 
@@ -134,45 +149,141 @@ struct CollectionReelListing: View {
 //                                }, label: {
 //                                    Text(text3Dmodel)
 //                                })
-
                 
-                                //add to playlist button
-                                Button(action: { // add to playlist, etc
-                                    self.showActionSheet.toggle()
-                                    art = artwork
-                                    print("art in reel listing = ", art.name)
-                                }) {
-                                    Image(systemName: "ellipsis")
-                                        .font(.system(size: 20))
-                                        .foregroundColor(.black)
+//                                //add to playlist button
+//                                Button(action: { // add to playlist, etc
+//                                    self.showActionSheet.toggle()
+//                                    art = artwork
+//                                    print("art in reel listing = ", art.name)
+//                                }) {
+//                                    Image(systemName: "ellipsis")
+//                                        .font(.system(size: 20))
+//                                        .foregroundColor(.black)
+//                                    }
+//                                    .actionSheet(isPresented: $showActionSheet, content: {
+//                                            self.actionSheet })
+                                
+                                //if else. If they created the playlist or not.
+                                //used to be playlistThatsPlaying.creator_url
+//                                if(artwork.ownerId == firestoreQuery.data.uid){
+//                                    Button(action: {
+//                                        firestoreQuery.showReelArtOptions = true
+//                                        self.art = artwork //Setting art var when ellipses is clicked
+//                                    }, label: {
+//
+//                                        Image(systemName: "ellipsis")
+//                                            .foregroundColor(.primary)
+//                                            .padding(.trailing, 10)
+//
+//                                    })
+//                                    .actionSheet(isPresented: $firestoreQuery.showReelArtOptions) {
+//
+//                                        ActionSheet(
+//                                            title: Text("Select"),
+//                                            buttons: [
+//                                                .default(Text("Like")) {
+//                                                    Task {
+//                                                        await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+//                                                        //reload library
+//                                                        await firestoreQuery.getUserLibrary()
+//                                                    }
+//                                                },
+//                                                .default(Text("Delete from Playlist")) {
+//                                                    Task{
+//                                                            //remove from local variable to update view
+//                                                            firestoreQuery.playlistThatsPlaying.art.removeAll { artwork in
+//                                                                artwork == art.artId
+//                                                            }
+//                                                            print("Start Delete")
+//                                                            await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist:  firestoreQuery.playlistThatsPlaying)
+//                                                            print("End Delete")
+//
+//
+//                                                            //this is a lot of calls. Goal is to reduce this later.
+//                                                            await firestoreQuery.getFeaturedPlaylist()
+//                                                            await firestoreQuery.getFeaturedArt()
+//                                                            await firestoreQuery.getUserLibrary()
+//                                                        }
+//                                                },
+//                                                .default(Text("Add to Playlist")) {
+//                                                    showingSheet = true
+//                                                },
+//                                                .default(Text("Cancel")) {
+//                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
+//                                                    firestoreQuery.showReelArtOptions = false
+//                                                }])
+//                                    }
+//                                    .sheet(isPresented: $showingSheet) {
+//                                            CollectionsView(art: art)
+//                                    }
+//
+//                                }
+                                
+                                    Button(action: {
+                                        firestoreQuery.showReelArtOptions = true
+                                        self.art = artwork //Setting art var when ellipses is clicked
+                                    }, label: {
+                                                                
+                                        Image(systemName: "ellipsis")
+                                            .foregroundColor(.primary)
+                                            .padding(.trailing, 10)
+                                                                
+                                    })
+                                    .actionSheet(isPresented: $firestoreQuery.showReelArtOptions) {
+                                                
+                                        ActionSheet(
+                                            title: Text("Select"),
+                                            buttons: [
+                                                .default(Text("Like")) {
+                                                    Task {
+                                                        await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+                                                        //reload library
+                                                        await firestoreQuery.getUserLibrary()
+                                                    }
+                                                },
+                                                .default(Text("Add to Playlist")) {
+                                                    showingSheet = true
+                                                },
+                                                .default(Text("Cancel")) {
+                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                    firestoreQuery.showReelArtOptions = false
+                                                }])
+                                                                    
                                     }
-                                    .actionSheet(isPresented: $showActionSheet, content: {
-                                            self.actionSheet })
+                                    .sheet(isPresented: $showingSheet) {
+                                            CollectionsView(art: art)
+                                    }
+                                    
+                                    
                                 
-                                Text("\(artwork.price) ")
-                                    //.foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.primary)
-                                    .bold()
                                 
-                            
+
+                                if(artwork.forSale == true  ){ //&& artwork.price != ""
+                                    Text("\(artwork.price) Matic")
+                                        //.foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.primary)
+                                        .padding(.trailing, 10)
+                                        //.bold()
+                                }
+                    
                                 
                             }
 
                             
                             //show details
                             Button {
-                                withAnimation(.easeInOut(duration: 0.25)) {
+                                withAnimation(.easeInOut(duration: 0.1)) {
                                     showDetail.toggle()
                                     art_popup = artwork.artId
-                                    
+
                                     if(showDetail == false){
                                         art_popup = ""
                                     }
                                 }
                             } label: {
                                 VStack {
-                                    
+
                                     Label("", systemImage: "chevron.down.circle")
                                         .imageScale(.large)
                                         .rotationEffect(.degrees(showDetail ? -180 : 0))
@@ -180,8 +291,8 @@ struct CollectionReelListing: View {
                                         .font(.system(size: 20))
                                         .foregroundColor(.black)
                                         .offset(y:-30)
-                                     
-                
+
+
                                     Spacer()
                                 }
                             }
@@ -195,22 +306,34 @@ struct CollectionReelListing: View {
                         }
                         .frame(width: screenWidth)
                     }
-                    .onChange(of: scrollTo, perform: { scroll in
-                        value.scrollTo(scrollTo, anchor: .top)
-                       
+                    .onChange(of: firestoreQuery.scrollTo, perform: { scroll in
+                        value.scrollTo(firestoreQuery.scrollTo, anchor: .top)
+                    })
+                    .onAppear(perform: {
+                            var i = 0
+                            for art in firestoreQuery.artworkThatsPlaying{
+                                if(art.artId == firestoreQuery.artThatsPlaying.artId){
+                                    firestoreQuery.scrollTo = i
+                                }
+                                i += 1
+                            }
+                        print(i)
+                        print(firestoreQuery.scrollTo)
+                        value.scrollTo(firestoreQuery.scrollTo, anchor: .top)
                     })
                     
                 }
             
             }
         }
+
         .onAppear(){
             firestoreQuery.scrollTo = firestoreQuery.scrollTo
             
             //set up the models for the art in reels for each art element.
             firestoreQuery.clearModels()
             firestoreQuery.setModelData()
-           // print(firestoreQuery.setModelData())
+        
             Task{
                 await firestoreQuery.checkIfalreadyLiked(art: art)
             }
@@ -229,6 +352,5 @@ struct CollectionReelListing_Previews: PreviewProvider {
         CollectionReelListing(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }
-
 
 

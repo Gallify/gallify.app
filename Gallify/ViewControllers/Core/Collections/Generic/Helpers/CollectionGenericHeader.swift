@@ -12,88 +12,123 @@ struct CollectionGenericHeader: View {
     let screenWidth: CGFloat
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var firestoreQuery: FirestoreQuery
+    
+    @State var showDeleteAlert = false
 
     var body: some View {
         
         HStack {
-                
+            
             CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
                 .padding(.horizontal, screenWidth / 25)
                 .padding(.vertical, screenHeight / 100)
                 
             Spacer()
                 
-            Text("\(firestoreQuery.playlist.name)")
+            Text(firestoreQuery.playlist.name)
                 .font(.system(size: screenWidth / 20, weight: .semibold))
+                .frame(maxWidth: .infinity, alignment: .center)
             
             Spacer()
                 
-            Button(action: {
-                firestoreQuery.showPlaylistOptions = true
-            }, label: {
-                    
-                Image(systemName: "ellipsis")
-                    .foregroundColor(.black)
-                    .padding(.horizontal, screenWidth / 25)
-                    
-            })
-            .actionSheet(isPresented: $firestoreQuery.showPlaylistOptions) {
-                    
-                ActionSheet(
-                    title: Text("Select"),
-                    buttons: [
-                        .default(Text("Delete Playlist")) {
-                            
-                            //changed async into Task
-                            Task{
-                                await firestoreQuery.deletePlaylistFromLibrary(playlist_id: firestoreQuery.playlist.playlist_id)
+            if(firestoreQuery.data.uid == firestoreQuery.playlist.creator_url){
+                Button(action: {
+                        firestoreQuery.showPlaylistOptions = true
+                }, label: {
+                        
+                    Image(systemName: "ellipsis")
+                        .foregroundColor(.black)
+                        .padding(.horizontal, screenWidth / 25)
+                        
+                })
+                .actionSheet(isPresented: $firestoreQuery.showPlaylistOptions) {
+                    ActionSheet(
+                        title: Text("Select"),
+                        buttons: [
+                        .default(Text("Delete? " + firestoreQuery.playlist.playlist_type)) {
                                 
+
                                 //await firestoreQuery.getUserLibrary() //updates library
                             }
                             firestoreQuery.showPlaylistOptions = false
                         },
-                        .default(Text("Make Public")) {
+                        .default(Text("Delete Playlist From Library")) {
                             
                             Task{
                                 await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlist_id)
+
+                                let words = ["Liked", "Owned", "Created", "Review", "Featured"]
+                                let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
+                                if(!combinedResult){
+                                    //changed async into Task
+                                    Task{
+                                        await firestoreQuery.deletePlaylistFromLibrary(playlist_id: firestoreQuery.playlist.playlist_id)
+                                        
+                                        await firestoreQuery.getUserLibrary() //updates library
+                                    }
+                                    firestoreQuery.showPlaylistOptions = false
+                                }
+
                                 
-                                await firestoreQuery.getUserLibrary() //updates library
-                            }
-                            
-                            firestoreQuery.showPlaylistOptions = false
-                        },
-                        .default(Text("Make Private")) {
-                            //updates privacy
-                            Task{
-                                await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlist_id)
                                 
-                                await firestoreQuery.getUserLibrary() //updates library
-                            }
-                            
-                            firestoreQuery.showPlaylistOptions = false
-                        },
-                        .default(Text("Make Collection")) {
-                            //updates privacy
-                            Task{
-                                await firestoreQuery.updatePlaylistType(newType: "Collection")
+                            },
+                            .default(Text("Make Public")) {
                                 
-                                await firestoreQuery.getUserLibrary() //updates library
-                            }
-                            firestoreQuery.showPlaylistOptions = false
-                        },
-                        .default(Text("Make Playlist")) {
-                            Task{
-                                await firestoreQuery.updatePlaylistType(newType: "Playlist")
+                                if(firestoreQuery.playlist.name != "Review"){
+                                    Task{
+                                        await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlist_id)
+                                        
+                                        await firestoreQuery.getUserLibrary() //updates library
+                                    }
+                                    
+                                    firestoreQuery.showPlaylistOptions = false
+                                }
+                            },
+                            .default(Text("Make Private")) {
+                                if(firestoreQuery.playlist.name != "Review"){
+                                    //updates privacy
+                                    Task{
+                                        await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlist_id)
+                                        
+                                        await firestoreQuery.getUserLibrary() //updates library
+                                    }
+                                    
+                                    firestoreQuery.showPlaylistOptions = false
+                                }
+                            },
+                            .default(Text("Make Collection")) {
                                 
-                                await firestoreQuery.getUserLibrary() //updates library
-                            }
-                            firestoreQuery.showPlaylistOptions = false
-                        },
-                        .default(Text("Cancel")) {
-                            firestoreQuery.showPlaylistOptions = false
-                            //firestoreQuery.addToPlaylist(artwork.art_id)
-                        }])
-                
+                                let words = ["Liked", "Owned", "Created", "Review", "Featured"]
+                                let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
+                                if(!combinedResult){
+                                    //updates privacy
+                                    Task{
+                                        await firestoreQuery.updatePlaylistType(newType: "Collection")
+                                        
+                                        await firestoreQuery.getUserLibrary() //updates library
+                                    }
+                                    firestoreQuery.showPlaylistOptions = false
+                                }
+                                
+                            },
+                            .default(Text("Make Playlist")) {
+                                
+                                let words = ["Liked", "Owned", "Created", "Review", "Featured"]
+                                let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
+                                if(!combinedResult){
+                                    Task{
+                                        await firestoreQuery.updatePlaylistType(newType: "Playlist")
+                                        
+                                        await firestoreQuery.getUserLibrary() //updates library
+                                    }
+                                    firestoreQuery.showPlaylistOptions = false
+                                }
+                            },
+                            .default(Text("Cancel")) {
+                                firestoreQuery.showPlaylistOptions = false
+                                //firestoreQuery.addToPlaylist(artwork.art_id)
+                            }])
+                }
             }
                 
         }

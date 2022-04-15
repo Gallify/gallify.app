@@ -26,6 +26,9 @@ extension FirestoreQuery {
             }
 
             self.featuredPlaylist = thefeaturedPlaylist
+            DispatchQueue.main.async{
+                self.featuredPlaylist = thefeaturedPlaylist
+            }
 
         }
         catch{
@@ -74,8 +77,15 @@ extension FirestoreQuery {
             
         }
         else{
-            //if old is not same as new then ...
             self.featuredArt = art_array
+            print("FEATURED ART")
+            print(self.featuredArt.count)
+
+            //if old is not same as new then ...
+//            DispatchQueue.main.async{
+//                self.featuredArt = art_array
+//            }
+           // self.featuredArt = art_array
         }
         
     }
@@ -106,6 +116,33 @@ extension FirestoreQuery {
     }
     
     /*
+     gets a playlist given id. This is used in ReelDescription only!
+     */
+    func getReelPlaylist(playlist_id: String) async -> Playlist {
+        let userId = Auth.auth().currentUser?.uid
+        var reelPlaylist = Playlist()
+        
+        do {
+            let doc2 = try await FirestoreQuery.db.collection("playlists")
+                .document(playlist_id)
+                .getDocument().data(as: Playlist.self)
+            
+                
+            guard let thePlaylist = doc2 else{
+                throw DatabaseError.failed
+            }
+
+            reelPlaylist = thePlaylist
+            
+        }
+        catch{
+            print("Error")
+        }
+        
+        return reelPlaylist
+    }
+    
+    /*
      gets art for current playlist.
      
      Always needs to be called after getPlaylist()
@@ -122,6 +159,8 @@ extension FirestoreQuery {
         }
         
         var art_array = [Art]()
+        
+        print(playlist.art.count)
         
         for art_id in playlist.art {
             do {
@@ -146,7 +185,7 @@ extension FirestoreQuery {
         }
         
         self.playlistArt = art_array
-      
+
     }
     
     //pwe

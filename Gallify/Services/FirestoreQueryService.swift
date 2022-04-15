@@ -34,18 +34,24 @@ class FirestoreQuery : ObservableObject {
     @Published var minimized = false
     @Published var isClosed = false
     @Published var sheetMode: SheetMode = .none
+    
     @Published var showNewScreen = false
+    @Published var showCameraScreen = false
+    
     @Published var artPlaying = false
     @Published var artisClicked = "artisClicked"
     @Published var artThatsPlaying: Art = Art()
     @Published var playlistThatsPlaying: Playlist = Playlist()
     @Published var artworkThatsPlaying: [Art] = [Art]()
     @Published var scrollTo = -1 //once art is clicked, this variable determines where to scroll to in the 'reels' view.
-
     
-    //action menus. 
+    
+    //action menus. (search, reel, playlist, art)
     @Published var showPlaylistOptions = false
     @Published var showArtOptions = false
+    @Published var showReelArtOptions = false //art options for reel
+    @Published var showGenericArtOptions = false //art options for generic playlist
+    @Published var showSearchArtOptions = false //art options for search
     @Published var showFeaturedOptions = false
     
     

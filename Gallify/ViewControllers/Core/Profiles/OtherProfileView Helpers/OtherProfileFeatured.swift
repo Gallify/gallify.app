@@ -17,12 +17,14 @@ struct OtherProfileFeatured: View {
     
     @State var featuredArtCount = 1
     @State private var sheetMode2: SheetMode = .none
+    @State var showingSheet = false
+    @State var art: Art = Art()
     //@Binding var showNewScreen: Bool
     
     var body: some View {
         
-        let screenHeight = viewModel.screenHeight
-        let screenWidth = viewModel.screenWidth
+        let screenHeight = UIScreen.main.bounds.height //viewModel.screenHeight
+        let screenWidth = UIScreen.main.bounds.width //viewModel.screenWidth
         
         if(firestoreQuery.otherFeaturedPlaylist.privacy != 0){
             if (!firestoreQuery.otherFeaturedArt.isEmpty) {
@@ -72,7 +74,7 @@ struct OtherProfileFeatured: View {
                                     
                                     HStack {
                                                     
-                                        WebImage(url: URL(string: artwork.thumbnail))
+                                        WebImage(url: URL(string: artwork.thumbnailUrl))
                                             .resizable()
                                             .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                                                     
@@ -82,7 +84,6 @@ struct OtherProfileFeatured: View {
                                                 
                                                 Text(artwork.name)
                                                     .foregroundColor(Color("Gallify-Pink"))
-                                                    .fontWeight(.bold)
                                                     .font(.system(size: screenWidth / 20, weight: .medium))
                                                     .lineLimit(1)
                                                 
@@ -91,9 +92,7 @@ struct OtherProfileFeatured: View {
                                             else {
                                                 
                                                 Text(artwork.name)
-                                                    .fontWeight(.bold)
                                                     .font(.system(size: screenWidth / 20, weight: .medium))
-                                                    .foregroundColor(.black)
                                                     .lineLimit(1)
                                                     
                                             }
@@ -102,7 +101,6 @@ struct OtherProfileFeatured: View {
                                                 
                                                 Text("<1000")
                                                     .font(.system(size: screenWidth / 24, weight: .light))
-                                                    .foregroundColor(.black)
                                                     .lineLimit(1)
                                                     
                                             }
@@ -111,7 +109,6 @@ struct OtherProfileFeatured: View {
                                                 
                                                 Text("\(artwork.popularity)")
                                                     .font(.system(size: screenWidth / 24, weight: .light))
-                                                    .foregroundColor(.black)
                                                     .lineLimit(1)
                                                     
                                             }
@@ -130,6 +127,7 @@ struct OtherProfileFeatured: View {
                             Button(action: {
                                 
                                 firestoreQuery.showFeaturedOptions = true
+                                self.art = firestoreQuery.otherFeaturedArt[i]
                                 
                             }, label: {
                                 
@@ -141,6 +139,7 @@ struct OtherProfileFeatured: View {
                                 ActionSheet(title: Text("Select"),
                                     buttons: [
                                         .default(Text("Add to Playlist")) {
+                                            showingSheet = true
                                             //firestoreQuery.addToPlaylist(artwork.art_id)
                                         },
                                         .default(Text("Cancel")) {
@@ -148,6 +147,9 @@ struct OtherProfileFeatured: View {
                                             //firestoreQuery.addToPlaylist(artwork.art_id)
                                         }])
                                     
+                            }
+                            .sheet(isPresented: $showingSheet) {
+                                    CollectionsView(art: art)
                             }
                             
                         }

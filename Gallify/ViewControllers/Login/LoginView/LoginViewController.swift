@@ -211,7 +211,15 @@ class LoginAppViewModel: ObservableObject {
                     playlist.playlist_id = playlistRef.documentID
                     playlist.creator_url = user.uid /*Auth.auth().currentUser?.uid ?? ""*/
                     playlist.creator = user.firstName + " " + user.lastName
-                    playlist.playlist_type = "Playlist"
+                    
+                    if(playlist.name == "Liked"){
+                        playlist.playlist_type = "Playlist"
+                    }
+                    else{
+                        playlist.playlist_type = "Collection"
+                    }
+                   
+                    
                     try await batch.setData(from: playlist, forDocument: playlistRef)
                     
                     //add to user library
@@ -233,6 +241,7 @@ class LoginAppViewModel: ObservableObject {
                     }
                     
                     if(playlist.name == "Liked"){  //this line below should work since the the field should exist.
+                        
                         try await batch.updateData(["liked": playlistRef.documentID], forDocument: userRef)
                     }
                 }

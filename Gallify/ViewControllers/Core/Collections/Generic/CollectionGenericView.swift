@@ -18,8 +18,8 @@ struct CollectionGenericView: View {
     
     var body: some View {
         
-        let screenHeight = viewModel.screenHeight
-        let screenWidth = viewModel.screenWidth
+        let screenHeight = UIScreen.main.bounds.height
+        let screenWidth = UIScreen.main.bounds.width
         
         NavigationView {
             

@@ -17,6 +17,8 @@ struct SelfProfileFeatured: View {
     
     @State var featuredArtCount = 1
     @State private var sheetMode2: SheetMode = .none
+    @State var showingSheet = false
+    @State var art: Art = Art()
     //@Binding var showNewScreen: Bool
     
     var body: some View {
@@ -24,7 +26,7 @@ struct SelfProfileFeatured: View {
         let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
         
-        if (!firestoreQuery.featuredPlaylist.art.isEmpty) {
+        if (!firestoreQuery.featuredPlaylist.art.isEmpty && !firestoreQuery.featuredArt.isEmpty) {
             
             VStack {
                 
@@ -72,7 +74,7 @@ struct SelfProfileFeatured: View {
                                 
                                 HStack {
                                                 
-                                    WebImage(url: URL(string: artwork.thumbnail))
+                                    WebImage(url: URL(string: artwork.thumbnailUrl))
                                         .resizable()
                                         .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                                                 
@@ -82,7 +84,6 @@ struct SelfProfileFeatured: View {
                                             
                                             Text(artwork.name)
                                                 .foregroundColor(Color("Gallify-Pink"))
-                                                .fontWeight(.bold)
                                                 .font(.system(size: screenWidth / 20, weight: .medium))
                                                 .lineLimit(1)
                                             
@@ -91,9 +92,7 @@ struct SelfProfileFeatured: View {
                                         else {
                                             
                                             Text(artwork.name)
-                                                .fontWeight(.bold)
                                                 .font(.system(size: screenWidth / 20, weight: .medium))
-                                                .foregroundColor(.black)
                                                 .lineLimit(1)
                                                 
                                         }
@@ -102,7 +101,6 @@ struct SelfProfileFeatured: View {
                                             
                                             Text("<1000")
                                                 .font(.system(size: screenWidth / 24, weight: .light))
-                                                .foregroundColor(.black)
                                                 .lineLimit(1)
                                                 
                                         }
@@ -111,9 +109,7 @@ struct SelfProfileFeatured: View {
                                             
                                             Text("\(artwork.popularity)")
                                                 .font(.system(size: screenWidth / 24, weight: .light))
-                                                .foregroundColor(.black)
                                                 .lineLimit(1)
-                                                
                                         }
                                                     
                                     }
@@ -130,6 +126,7 @@ struct SelfProfileFeatured: View {
                         Button(action: {
                             
                             firestoreQuery.showFeaturedOptions = true
+                            self.art = firestoreQuery.featuredArt[i]
                             
                         }, label: {
                             
@@ -141,6 +138,7 @@ struct SelfProfileFeatured: View {
                             ActionSheet(title: Text("Select"),
                                 buttons: [
                                     .default(Text("Add to Playlist")) {
+                                        showingSheet = true
                                         //firestoreQuery.addToPlaylist(artwork.art_id)
 //                                        async {await firestoreQuery.addArtToPlaylist(art_id: "Q1XgaJ5IE1FyGgtvBpYN", playlist_id: firestoreQuery.featuredPlaylist.id)}
                                     },
@@ -149,6 +147,9 @@ struct SelfProfileFeatured: View {
                                         //firestoreQuery.addToPlaylist(artwork.art_id)
                                     }])
                                 
+                        }
+                        .sheet(isPresented: $showingSheet) {
+                                CollectionsView(art: art)
                         }
                         
                     }
@@ -163,13 +164,16 @@ struct SelfProfileFeatured: View {
             }
             .padding(.vertical, screenHeight / 160)
             .navigationBarHidden(true)
-            .onAppear(perform: getfeaturedArtCount)
+            .onAppear{async { await getfeaturedArtCount() }}
+            //.onAppear(perform: getfeaturedArtCount)
             
         }
         
     }
     
-    func getfeaturedArtCount() {
+    func getfeaturedArtCount() async {
+        await firestoreQuery.getFeaturedArt()
+        print("\(firestoreQuery.featuredArt.count) +  ART FEATURED")
         
         if (firestoreQuery.featuredArt.count > 5) {
             
@@ -180,7 +184,7 @@ struct SelfProfileFeatured: View {
         else {
             
             featuredArtCount = firestoreQuery.featuredArt.count
-            
+            print("\(featuredArtCount) +  ART FEATURED")
         }
         
     }

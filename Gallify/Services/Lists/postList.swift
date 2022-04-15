@@ -16,15 +16,24 @@ extension FirestoreQuery {
     /*
      Adds art to playlist/collection. can't add multiple of the same art id.
      */
-    func addArtToPlaylist(art: Art, playlist_id: String) async {
+    func addArtToPlaylist(art: Art, the_playlist: Playlist) async {
                                             
         do {
             
-            print("PLAYLIST ID = ", playlist_id, "ART ID = ", art.artId)
-            let doc = try await FirestoreQuery.db.collection("playlists").document(playlist_id).updateData([
+            print("PLAYLIST ID = ", the_playlist.playlist_id, "ART ID = ", art.artId)
+            let doc = try await FirestoreQuery.db.collection("playlists").document(the_playlist.playlist_id).updateData([
                 "art": FieldValue.arrayUnion([art.artId])
                 ])
             
+            //if user is creator, and adding to their own collection. Update "Collection" tab.
+            if(self.data.uid == art.creatorId){
+                if(the_playlist.playlist_type == "Collection"){
+                    let artDoc = try await FirestoreQuery.db.collection("art").document(art.artId).updateData([
+                        "collection": the_playlist.playlist_id])
+                }
+            }
+            
+                
         }
         catch{
             print("Error")
@@ -78,6 +87,8 @@ extension FirestoreQuery {
                 }
             }
             
+            //reload library
+            
             
         } catch {
             print("Error adding art to Liked PLaylist in user library")
@@ -107,7 +118,9 @@ extension FirestoreQuery {
     
         let docRef = try! await Firestore.firestore().collection("playlists").document()
         newPlaylist.playlist_id = docRef.documentID
-        newPlaylist.creator_url = data.uid
+
+        newPlaylist.creator_url = self.data.uid
+
         do {
           try await docRef.setData(from: newPlaylist)
         } catch {
@@ -120,6 +133,7 @@ extension FirestoreQuery {
         return docRef.documentID
     }
     
+    /*
     /*
         Add art to art collection
         */
@@ -164,4 +178,5 @@ extension FirestoreQuery {
         }
        
     }
+     */
 }

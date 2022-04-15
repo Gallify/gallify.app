@@ -38,11 +38,12 @@ struct Post_Small: View {
                 
             }){
                 
-                WebImage(url: URL(string: discover_art.thumbnail))
+                WebImage(url: URL(string: discover_art.thumbnailUrl))
                     .resizable()
                     .frame(width: screenWidth / 3.1, height: screenHeight / 6.8)
-                    .padding(.leading, -screenWidth / 75)
-                    .padding(.top, -screenHeight / 160)
+                    
+                   // .padding(.leading, -screenWidth / 75)
+                   // .padding(.top, -screenHeight / 160)
                     .border(Color.primary)
                    // .overlay(Rectangle().frame(width: nil, height: 1, alignment: .top).foregroundColor(Color.black), alignment: .top)
                 

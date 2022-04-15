@@ -53,11 +53,11 @@ class Model: Encodable, Decodable {
     //Create a method to async load model Entity
     func asyncLoadModelEntity(handler: @escaping (_ completed: Bool, _ error: Error?) -> Void){
         if(self.art.contentType == 1 && self.contentLoaded==false){
-            FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: "models/\(self.art.storageName)") { localUrl in
+            FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: "\(self.art.storageName)") { localUrl in //models/
                 print("LOCAL URL")
                 print(localUrl)
                 self.isLoading = true
-                self.cancellable = ModelEntity.loadModelAsync(contentsOf: localUrl)
+                self.cancellable = ModelEntity.loadModelAsync(contentsOf: localUrl) //loadModelAsync
                     .sink(receiveCompletion: { loadCompletion in
                         
                         switch loadCompletion {

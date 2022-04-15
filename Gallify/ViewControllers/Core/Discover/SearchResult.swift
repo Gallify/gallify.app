@@ -16,7 +16,8 @@ struct SearchResultView: View {
     let screenHeight: CGFloat
     let screenWidth: CGFloat
     let artwork: Art
-
+    @State var showingSheet = false
+    
     
     @EnvironmentObject var firestoreQuery: FirestoreQuery
         
@@ -28,7 +29,20 @@ struct SearchResultView: View {
             firestoreQuery.showNewScreen = true
             firestoreQuery.artisClicked = artwork.artId
             firestoreQuery.artThatsPlaying = artwork
-            firestoreQuery.playlistThatsPlaying = firestoreQuery.playlist
+            firestoreQuery.artworkThatsPlaying = firestoreQuery.foundContacts
+            
+            //placeholder playlist
+            let playlist = Playlist()
+            playlist.creator_url = "search"
+            firestoreQuery.playlistThatsPlaying = playlist
+            
+            var i = 0
+            for art in firestoreQuery.artworkThatsPlaying{
+                if(art.artId == firestoreQuery.artThatsPlaying.artId){
+                    firestoreQuery.scrollTo = i
+                }
+                i += 1
+            }
             
         }){
         
@@ -37,7 +51,7 @@ struct SearchResultView: View {
 
             HStack {
                     
-                WebImage(url: URL(string: artwork.thumbnail))
+                WebImage(url: URL(string: artwork.thumbnailUrl))
                     .resizable()
                     .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                     
@@ -65,34 +79,33 @@ struct SearchResultView: View {
                 
                 
                 Button(action: {
-                    firestoreQuery.showArtOptions = true
+                    firestoreQuery.showSearchArtOptions = true
                 }, label: {
                     
                     Image(systemName: "ellipsis")
                         .foregroundColor(.black)
                     
                 })
-                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
-                    ActionSheet(
-                        title: Text("Select"),
-                        buttons: [
-//                            .default(Text("Delete from Playlist")) {
-//                             //   firestoreQuery.deleteFromPlaylist(artwork.art_id)
-//                            },
-                            .default(Text("Add to Playlist")) {
-                                
-                                //firestoreQuery.addToPlaylist(artwork.art_id)
-                            },
-                            .default(Text("Cancel")) {
-                                
-                                //firestoreQuery.addToPlaylist(artwork.art_id)
-                                firestoreQuery.showArtOptions = false
-                            }
-                            
-
-                        ]
-                    )
-                }
+                    .actionSheet(isPresented: $firestoreQuery.showSearchArtOptions) {
+                        ActionSheet(
+                            title: Text("Select"),
+                            buttons: [
+                                .default(Text("Add to Playlist")) {
+                                    showingSheet = true
+                                    
+                                    //firestoreQuery.addToPlaylist(artwork.art_id)
+                                },
+                                .default(Text("Cancel")) {
+                                    
+                                    //firestoreQuery.addToPlaylist(artwork.art_id)
+                                    firestoreQuery.showSearchArtOptions = false
+                                }
+                            ]
+                        )
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                            CollectionsView(art: artwork)
+                    }
   
             }
             .padding(.horizontal, screenWidth / 25)

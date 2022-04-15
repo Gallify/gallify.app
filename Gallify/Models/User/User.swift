@@ -21,7 +21,6 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         case profileImageUrl
         case username
         
-        
         case searchType //when search, need to know artist, collection, or art
         case phoneNumber
         case trendsetter
@@ -52,6 +51,8 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         case owned
         case review
         case created
+        
+        //disable account bool
         
         
         

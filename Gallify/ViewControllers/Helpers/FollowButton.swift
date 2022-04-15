@@ -19,24 +19,15 @@ struct FollowButton: View {
     var firestoreUpload : FirestoreUploadService = FirestoreUploadService()
 
     @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @State var is_following = false
     
-    init() {
-        
-//        let doc = Firestore.firestore().collection("users").document("yTUlw63RJVVsLik5MzqG3ecUMCs1").collection("profile").whereField("followers", arrayContains: (Auth.auth().currentUser?.uid)! as String)
-//
-//        if doc != nil {
-//            firestoreQuery.isFollowing = true
-//        } else {
-//            firestoreQuery.isFollowing = false
-//        }
-        
-    }
 
     var body: some View {
         
         Button(action: {
-            if firestoreQuery.isFollowing == false {
+            if firestoreQuery.isFollowing == false { //firestoreQuery.isFollowing
                 Task {
+                    is_following = true
                     DispatchQueue.main.async {
                         firestoreQuery.isFollowing = true
                     }
@@ -47,6 +38,7 @@ struct FollowButton: View {
                 
             } else {
                 Task {
+                    is_following = false
                     DispatchQueue.main.async {
                         firestoreQuery.isFollowing = false
                     }
@@ -81,6 +73,11 @@ struct FollowButton: View {
         //checks if the current user is a follow of the OtherUser.
         await firestoreQuery.checkIfFollowing(otherUserId: firestoreQuery.otherUserData.uid)
         
+        
+        
+        print("is following? nwk")
+        print(firestoreQuery.isFollowing)
+        is_following = firestoreQuery.isFollowing
         
 //        await firestoreQuery.fetchFollowers(uid: "yTUlw63RJVVsLik5MzqG3ecUMCs1")
 //        print("Followers array in networking call = ", firestoreQuery.followers.followers)

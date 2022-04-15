@@ -35,6 +35,10 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         case searchType //when search, need to know artist, collection, or art
         case playlist_id
         case description
+        //lat
+        //lon
+        //time created
+        //report
 
 
     }

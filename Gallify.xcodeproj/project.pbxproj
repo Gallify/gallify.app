@@ -46,6 +46,13 @@
 		3003AFFD27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFFC27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift */; };
 		3003AFFF27E4EF7600EA58B6 /* CollectionGenericImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFFE27E4EF7600EA58B6 /* CollectionGenericImage.swift */; };
 		3003B00127E6B01200EA58B6 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00027E6B01200EA58B6 /* CollectionsView.swift */; };
+		3003B00627EB984600EA58B6 /* AddModelBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00527EB984600EA58B6 /* AddModelBar.swift */; };
+		3003B00827EB984E00EA58B6 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00727EB984E00EA58B6 /* CustomARView.swift */; };
+		3003B00A27EB987C00EA58B6 /* FullARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00927EB987C00EA58B6 /* FullARView.swift */; };
+		3003B00C27EB989200EA58B6 /* ModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00B27EB989200EA58B6 /* ModelViewModel.swift */; };
+		3003B00E27EB98A000EA58B6 /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00D27EB98A000EA58B6 /* PlacementSettings.swift */; };
+		3003B01027EB98A700EA58B6 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00F27EB98A700EA58B6 /* Slider.swift */; };
+		3003B01227EB98BB00EA58B6 /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B01127EB98BB00EA58B6 /* ThresholdPanGesture.swift */; };
 		3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4B926C82F6B00323BCB /* GallifyApp.swift */; };
 		3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4BD26C82F6D00323BCB /* Assets.xcassets */; };
 		3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */; };
@@ -210,6 +217,8 @@
 		92DB7C6F273186330035B788 /* CreatePublishListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C6E273186330035B788 /* CreatePublishListing.swift */; };
 		92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */; };
 		F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */; };
+		FC5DCE5527F9392E00AE345B /* ModelDeletionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5DCE5427F9392E00AE345B /* ModelDeletionManager.swift */; };
+		FC5DCE5727F951BC00AE345B /* DeletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5DCE5627F951BC00AE345B /* DeletionView.swift */; };
 		FC9EED7C2762AD7E00F831DC /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = FC9EED7B2762AD7E00F831DC /* FocusEntity */; };
 /* End PBXBuildFile section */
 
@@ -273,6 +282,14 @@
 		3003AFFC27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionListImage.swift; sourceTree = "<group>"; };
 		3003AFFE27E4EF7600EA58B6 /* CollectionGenericImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGenericImage.swift; sourceTree = "<group>"; };
 		3003B00027E6B01200EA58B6 /* CollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsView.swift; sourceTree = "<group>"; };
+		3003B00527EB984600EA58B6 /* AddModelBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModelBar.swift; sourceTree = "<group>"; };
+		3003B00727EB984E00EA58B6 /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
+		3003B00927EB987C00EA58B6 /* FullARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullARView.swift; sourceTree = "<group>"; };
+		3003B00B27EB989200EA58B6 /* ModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewModel.swift; sourceTree = "<group>"; };
+		3003B00D27EB98A000EA58B6 /* PlacementSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementSettings.swift; sourceTree = "<group>"; };
+		3003B00F27EB98A700EA58B6 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		3003B01127EB98BB00EA58B6 /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
+		3003B01327F6983E00EA58B6 /* Gallify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gallify.entitlements; sourceTree = "<group>"; };
 		3004D4B626C82F6B00323BCB /* Gallify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3004D4B926C82F6B00323BCB /* GallifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyApp.swift; sourceTree = "<group>"; };
 		3004D4BD26C82F6D00323BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -439,6 +456,8 @@
 		92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewAnimation.swift; sourceTree = "<group>"; };
 		9B47B46B9072CE5E90CC4719 /* Pods-Gallify-GallifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.release.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.release.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.release.xcconfig"; sourceTree = "<group>"; };
+		FC5DCE5427F9392E00AE345B /* ModelDeletionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDeletionManager.swift; sourceTree = "<group>"; };
+		FC5DCE5627F951BC00AE345B /* DeletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletionView.swift; sourceTree = "<group>"; };
 		FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify_GallifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -576,6 +595,24 @@
 			path = "OtherProfileView Helpers";
 			sourceTree = "<group>";
 		};
+		3003B00427EB983900EA58B6 /* ARPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				3003B00527EB984600EA58B6 /* AddModelBar.swift */,
+				3003B00727EB984E00EA58B6 /* CustomARView.swift */,
+				33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */,
+				3003AFF027E40B7C00EA58B6 /* Model.swift */,
+				3003B00927EB987C00EA58B6 /* FullARView.swift */,
+				3003B00B27EB989200EA58B6 /* ModelViewModel.swift */,
+				3003B00D27EB98A000EA58B6 /* PlacementSettings.swift */,
+				3003B00F27EB98A700EA58B6 /* Slider.swift */,
+				3003B01127EB98BB00EA58B6 /* ThresholdPanGesture.swift */,
+				FC5DCE5427F9392E00AE345B /* ModelDeletionManager.swift */,
+				FC5DCE5627F951BC00AE345B /* DeletionView.swift */,
+			);
+			path = ARPlayer;
+			sourceTree = "<group>";
+		};
 		3004D4AD26C82F6A00323BCB = {
 			isa = PBXGroup;
 			children = (
@@ -601,6 +638,7 @@
 		3004D4B826C82F6B00323BCB /* Gallify */ = {
 			isa = PBXGroup;
 			children = (
+				3003B01327F6983E00EA58B6 /* Gallify.entitlements */,
 				30836FA52749E39D00E83735 /* Services */,
 				3004D4F626CD4D3F00323BCB /* Managers */,
 				3004D4F526CD49AD00323BCB /* Resources */,
@@ -670,6 +708,7 @@
 		3004D4EC26CD402A00323BCB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3003B00427EB983900EA58B6 /* ARPlayer */,
 				92794CE2273811760012B184 /* Collections */,
 				92DB7C52273167F90035B788 /* Create */,
 				303DB8CF26F97CE50005AC51 /* Home */,
@@ -1228,7 +1267,6 @@
 		92794CE2273811760012B184 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
-				3003AFF027E40B7C00EA58B6 /* Model.swift */,
 				92794CE3273811760012B184 /* Reel */,
 				92794CE9273811760012B184 /* Recent Activity */,
 				92794CEF273811760012B184 /* Liked */,
@@ -1236,7 +1274,6 @@
 				30001C43279C710500527BF9 /* FlexibleSheet.swift */,
 				304109F5279D27AC00284446 /* MinimizedView.swift */,
 				3003B00027E6B01200EA58B6 /* CollectionsView.swift */,
-				33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -1662,6 +1699,7 @@
 				3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */,
 				3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */,
 				30001BB627921AC900527BF9 /* DropDownReels.swift in Sources */,
+				3003B00827EB984E00EA58B6 /* CustomARView.swift in Sources */,
 				304109F6279D27AC00284446 /* MinimizedView.swift in Sources */,
 				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
 				30410A8127A677EB00284446 /* MembershipSetting.swift in Sources */,
@@ -1730,6 +1768,7 @@
 				92794D02273811760012B184 /* CollectionRecentActivityHeader.swift in Sources */,
 				30001BD92796865600527BF9 /* getList.swift in Sources */,
 				3004D50F26CD7EF800323BCB /* SignInViewController.swift in Sources */,
+				3003B00627EB984600EA58B6 /* AddModelBar.swift in Sources */,
 				92794D09273811760012B184 /* CollectionGenericHeader.swift in Sources */,
 				30521381278A2DDA00CE0224 /* ImageCache.swift in Sources */,
 				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
@@ -1746,6 +1785,7 @@
 				30410A3927A6719E00284446 /* MainSettingsViewBody.swift in Sources */,
 				92794D11273814D80012B184 /* DiscoveryCategoryHeader.swift in Sources */,
 				3152F6A22717508D0061F72E /* ForgotPasswordViewController.swift in Sources */,
+				3003B01227EB98BB00EA58B6 /* ThresholdPanGesture.swift in Sources */,
 				30836FB0274A035D00E83735 /* DiscoverMainViewController.swift in Sources */,
 				31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */,
 				30001BF72796961100527BF9 /* OtherProfileViewVerified.swift in Sources */,
@@ -1755,14 +1795,17 @@
 				30001BED2796947D00527BF9 /* SelfProfileViewHeader.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
 				30001C052796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift in Sources */,
+				3003B00A27EB987C00EA58B6 /* FullARView.swift in Sources */,
 				3153458027557BA500BD7B54 /* Slabs.swift in Sources */,
 				30001C44279C710500527BF9 /* FlexibleSheet.swift in Sources */,
+				3003B00C27EB989200EA58B6 /* ModelViewModel.swift in Sources */,
 				30001BD22796859600527BF9 /* postProfile.swift in Sources */,
 				30410A8027A677EB00284446 /* ProfileSettingBody.swift in Sources */,
 				30410A7B27A677EB00284446 /* AccountSettingBody.swift in Sources */,
 				92794D0F273814B80012B184 /* DiscoveryCategoryView.swift in Sources */,
 				304109F8279E24EC00284446 /* FirestoreUploadService.swift in Sources */,
 				30001C07279699A900527BF9 /* ConnectButton.swift in Sources */,
+				3003B00E27EB98A000EA58B6 /* PlacementSettings.swift in Sources */,
 				3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
 				3152F6A62717519B0061F72E /* PrivacyPolicyViewController.swift in Sources */,
 				30836FB2274A036E00E83735 /* DiscoverViewRecentSearch.swift in Sources */,
@@ -1793,6 +1836,7 @@
 				30001BCA2796856B00527BF9 /* postDiscover.swift in Sources */,
 				30521378278A2C3A00CE0224 /* Connections.swift in Sources */,
 				30001BF1279694A800527BF9 /* SelfProfileViewVerifiedDetails.swift in Sources */,
+				FC5DCE5527F9392E00AE345B /* ModelDeletionManager.swift in Sources */,
 				30836FC0274A050800E83735 /* DiscoverPostsViewTags.swift in Sources */,
 				311E93872752FB61005DFE12 /* Post_Large.swift in Sources */,
 				308B4BED27658A710039B74E /* MuseumList.swift in Sources */,
@@ -1817,6 +1861,7 @@
 				30521377278A2C3A00CE0224 /* GetUser.swift in Sources */,
 				30493BBA27CB328200CD985B /* CreatePlaylistSettings.swift in Sources */,
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
+				FC5DCE5727F951BC00AE345B /* DeletionView.swift in Sources */,
 				30836FB5274A041600E83735 /* ArtistSearchTemplate.swift in Sources */,
 				3003AFF127E40B7C00EA58B6 /* Model.swift in Sources */,
 				30001BFF2796971800527BF9 /* OtherProfileFeatured.swift in Sources */,
@@ -1835,6 +1880,7 @@
 				92794D06273811760012B184 /* CollectionLikedRow.swift in Sources */,
 				30001B7E278F8E6F00527BF9 /* get.swift in Sources */,
 				3004D4F226CD407600323BCB /* Art.swift in Sources */,
+				3003B01027EB98A700EA58B6 /* Slider.swift in Sources */,
 				315345772755760A00BD7B54 /* DiscoverBrowse.swift in Sources */,
 				92DB7C6D273181240035B788 /* CreatePublishHeader.swift in Sources */,
 				30521385278A35C100CE0224 /* UrlImageModel.swift in Sources */,
@@ -2015,6 +2061,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Gallify/Gallify.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
 				DEVELOPMENT_TEAM = K35JM9B532;
@@ -2027,7 +2074,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gallify.app;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2040,6 +2088,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Gallify/Gallify.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
 				DEVELOPMENT_TEAM = K35JM9B532;
@@ -2052,8 +2101,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gallify.app;
+				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

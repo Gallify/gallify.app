@@ -8,7 +8,8 @@ import SwiftUI
 
 struct CollectionReelView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @EnvironmentObject var viewModel: TabBarViewModel
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
     
     //@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     //@Binding var isPresented: Bool

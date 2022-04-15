@@ -72,6 +72,15 @@ struct HomeView : View {
         //this gets all the data for the home page.
         //firestoreQuery.getHome()
         
+        //await firestoreQuery.getHome()
+        await firestoreQuery.getHomeMuseumList()
+
+        //getMuseums. Gets all these Museums. List of Playlists
+        await firestoreQuery.getHomeMuseums()
+
+        //getPlaylists. Gets all the data for the playlists. Called once per museum.
+        await firestoreQuery.getHomePlaylists()
+        
     }
     
 }
