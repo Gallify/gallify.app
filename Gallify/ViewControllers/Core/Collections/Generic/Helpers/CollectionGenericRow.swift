@@ -226,8 +226,12 @@ struct CollectionGenericRow: View {
                                                             await firestoreQuery.getUserLibrary()
                                                         
                                                             if(thePlaylist.name == "Featured"){
-                                                                await firestoreQuery.getFeaturedPlaylist()
-                                                                await firestoreQuery.getFeaturedArt()
+                                                               
+                                                                    await firestoreQuery.getFeaturedPlaylist()
+                                                                    print(firestoreQuery.featuredArt.count)
+                                                                    await firestoreQuery.getFeaturedArt()
+                                                                    print(firestoreQuery.featuredArt.count)
+                                                                
                                                             }
                                                         }
                                                 },
