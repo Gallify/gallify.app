@@ -111,7 +111,7 @@ extension FirestoreQuery {
             
         }
         catch{
-            print("Error")
+            print("Error in getPlaylist while fetching playlist with id \(playlist_id)")
         }
     }
     
@@ -149,12 +149,14 @@ extension FirestoreQuery {
      */
     func getPlaylistArt(playlist: Playlist) async {
         print("playlist IN GET PLAYLIST ART = ", playlist.name)
-
+    
+        print("is art array in playlist empty? ", playlist.art.isEmpty)
 //        if !(playlistArt.isEmpty){ //if featured playlist isnt empty, then return.
 //            return
 //        }
-       
-        //self.featuredArt.removeAll()
+        for art in playlist.art {
+            print("art in playlist art = ", art)
+        }
         
         var art_array = [Art]()
         
@@ -173,20 +175,17 @@ extension FirestoreQuery {
                     throw DatabaseError.failed
                 }
                 
-               // self.featuredArt.append(theArt)
-                //art_array.append(doc!)
                 art_array.append(theArt)
                 
                 //
             }
             catch{
-                print("Error")
+                print("Error in getPlaylistArt \(error.localizedDescription)")
             }
         }
         
         self.playlistArt = art_array
-        print(art_array.count)
-        
+
     }
     
     //pwe

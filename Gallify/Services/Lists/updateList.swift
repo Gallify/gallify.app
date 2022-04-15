@@ -39,7 +39,11 @@ extension FirestoreQuery {
     }
     
     func updatePlaylistImage(image: Data, uid: String) async {
-        let uploadRef = Storage.storage().reference(withPath: "playlistImages/" + (Auth.auth().currentUser?.uid)!)
+
+        let uploadRef = Storage.storage().reference(withPath: "playlistImages/" + uid)
+
+        //let uploadRef = Storage.storage().reference(withPath: "playlistImages/" + (Auth.auth().currentUser?.uid)!)
+
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
         
@@ -54,19 +58,18 @@ extension FirestoreQuery {
                 //Save to image url in firestore.
                 let db = Firestore.firestore()
                 let docRef = db.collection("playlists").document(uid)
-                self.data.profileImageUrl = (url?.absoluteString)!
                 docRef.updateData([
                     "cover_art_url" : url?.absoluteString
                 ]){  err in
-                        if let err = err {
-                            print("Error updating document: \(err)")
-                        } else {
-                            print("Document successfully updated with image url \(url)")
-                        }
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated with image url \(url)")
                     }
-
                 }
+
             }
+        }
     }
     
     /*

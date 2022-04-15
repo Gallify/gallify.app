@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 extension FirestoreQuery {
     
@@ -47,15 +48,40 @@ extension FirestoreQuery {
             userLibrary.removeAll { pl in
                 pl.playlist_id == playlist_id
             }
-            self.data.Library.removeAll { pl in
-                pl == playlist_id
-            }
+
             
-            //assumes firestorequery.playlist is the playlist to delete
-            if(self.data.uid == self.playlist.creator_url){
-                await deletePlaylistFromCollection(playlist_id: playlist_id)
-            }
+            //set local variable to ""
+            playlist.cover_art_url = ""
             
+            //delete cover art url from firestore doc
+            let playlistRef = FirestoreQuery.db.collection("playlists").document(playlist_id)
+            try await playlistRef.updateData(["cover_art_url" : ""])
+            
+            //delete cover art image from storage
+            let storage = Storage.storage()
+            let url = "gs://gallify-64bbb.appspot.com/playlistImages/" + playlistRef.documentID
+            let storageRef = storage.reference(forURL: url)
+            
+            //Removes image from storage
+            storageRef.delete { error in
+                if let error = error {
+                    print(error)
+                } else {
+                    // File deleted successfully
+                }
+            }
+           
+
+//             self.data.Library.removeAll { pl in
+//                 pl == playlist_id
+//             }
+            
+//             //assumes firestorequery.playlist is the playlist to delete
+//             if(self.data.uid == self.playlist.creator_url){
+//                 await deletePlaylistFromCollection(playlist_id: playlist_id)
+//             }
+            
+
         }
         catch{
             print("Error delete playlist from user library")

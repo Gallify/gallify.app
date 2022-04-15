@@ -52,6 +52,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case thumbnailUrl
         case tokenId
         
+
         //case unlockable content
         //case geographic content
         //case forfree if near

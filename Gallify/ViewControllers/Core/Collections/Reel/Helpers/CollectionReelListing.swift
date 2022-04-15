@@ -22,7 +22,7 @@ struct CollectionReelListing: View {
     @State var scrollTo = 0
     @State var showThumbnail = true
     @State var text3Dmodel = "Load 3D Artwork"
- 
+    @State var like = false
     
 //    Setting The Screen Width
     let screenWidth: CGFloat
@@ -36,6 +36,7 @@ struct CollectionReelListing: View {
             .default(Text("Collection 2")),
             .default(Text("Like")) {
                 Task {
+                    self.like = true
                     await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
                     //reload library
                 }
@@ -85,8 +86,11 @@ struct CollectionReelListing: View {
                             }
                             
                             
+                            
                             HStack {
-                                
+                                if(firestoreQuery.isLiked == true && showActionSheet == true && like  == true) {
+                                    Text("You have already liked this art before!")
+                                }
                                 VStack{ //name and creator
                                     
                                     NavigationLink (
@@ -253,6 +257,7 @@ struct CollectionReelListing: View {
                                     
                                 
                                 
+
                                 if(artwork.forSale == true  ){ //&& artwork.price != ""
                                     Text("\(artwork.price) Matic")
                                         //.foregroundColor(Color(red: 1.0, green: 0.55, blue: 1.0))
@@ -261,7 +266,7 @@ struct CollectionReelListing: View {
                                         .padding(.trailing, 10)
                                         //.bold()
                                 }
-                        
+                    
                                 
                             }
 
@@ -321,19 +326,23 @@ struct CollectionReelListing: View {
             
             }
         }
-//        .onAppear(){
-//            firestoreQuery.scrollTo = firestoreQuery.scrollTo
-//
-//            //set up the models for the art in reels for each art element.
-//            firestoreQuery.clearModels()
-//            firestoreQuery.setModelData()
-//           // print(firestoreQuery.setModelData())
-//        }
-//        .task{ //scroll to right part of list.
-//            if(scrollTo != firestoreQuery.scrollTo){
-//                scrollTo = firestoreQuery.scrollTo
-//            }
-//        }
+
+        .onAppear(){
+            firestoreQuery.scrollTo = firestoreQuery.scrollTo
+            
+            //set up the models for the art in reels for each art element.
+            firestoreQuery.clearModels()
+            firestoreQuery.setModelData()
+        
+            Task{
+                await firestoreQuery.checkIfalreadyLiked(art: art)
+            }
+        }
+        .task{ //scroll to right part of list.
+            if(scrollTo != firestoreQuery.scrollTo){
+                scrollTo = firestoreQuery.scrollTo
+            }
+        }
  
     }
 }
