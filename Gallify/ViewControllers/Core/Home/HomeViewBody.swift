@@ -71,13 +71,17 @@ struct HomeViewBody: View {
                                             })
                                         
                                         Text(playlist.name)
-                                            .font(.system(size: screenWidth / 18, weight: .semibold))
-                                            .frame(width: screenWidth / 2.8)
+//                                            .font(.system(size: screenWidth / 18, weight: .semibold))
+//                                            .frame(width: screenWidth / 2.8)
+//                                            .lineLimit(1)
+                                            .font(.system(size: screenWidth / 25.5, weight: .bold))
+                                            .frame(width: screenWidth / 2.8, alignment: .leading)
+                                          
                                             .lineLimit(1)
                                                 
                                         Text(playlist.playlist_type + " • " + playlist.creator)
-                                            .font(.system(size: screenWidth / 25.5))
-                                            .frame(width: screenWidth / 2.8)
+                                            .font(.system(size: screenWidth / 25.5, weight: .regular))
+                                            .frame(width: screenWidth / 2.8, alignment: .leading)
                                             .lineLimit(1)
                                         
                                 }

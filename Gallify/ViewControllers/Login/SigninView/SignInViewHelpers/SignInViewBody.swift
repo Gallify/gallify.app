@@ -155,7 +155,7 @@ struct SignInViewBody: View {
                                 .cornerRadius(screenWidth / 15)
                         }
                         HStack{
-                            Text("(Double Tap)")
+                            Text("(Triple Tap)")
                                 .font(.system(size: screenWidth / 29))
                                 .foregroundColor(.gray)
                         }
