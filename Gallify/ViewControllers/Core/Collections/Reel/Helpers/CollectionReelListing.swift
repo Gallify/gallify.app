@@ -65,18 +65,18 @@ struct CollectionReelListing: View {
                                 
                                 
                               //  if(!firestoreQuery.models.isEmpty){
-                                    if(!showThumbnail && getModelforArt == artwork.artId
-                                       && firestoreQuery.models[i].contentLoaded && firestoreQuery.models[i] != nil){
-                                          //  USDZPost(showThumbnail: $showThumbnail, model: firestoreQuery.models[i])
-                                        USDZPost( model: firestoreQuery.models[i])
-                                    }
-                                    else{
+//                                    if(!showThumbnail && getModelforArt == artwork.artId
+//                                       && firestoreQuery.models[i].contentLoaded && firestoreQuery.models[i] != nil){
+//                                          //  USDZPost(showThumbnail: $showThumbnail, model: firestoreQuery.models[i])
+//                                        USDZPost( model: firestoreQuery.models[i])
+//                                    }
+//                                    else{
                                         WebImage(url: URL(string: artwork.thumbnailUrl))
                                         .resizable()
                                         //.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                                         .overlay(Rectangle().frame(width: nil, height: 1, alignment: .top).foregroundColor(Color.black), alignment: .top)
                                         .scaledToFit()
-                                    }
+                                  //  }
 
                                 //}
                                 
@@ -95,16 +95,20 @@ struct CollectionReelListing: View {
                                        destination: OtherProfileView(otherUserId: artwork.creatorId),
                                         label: {
                                             Text("\(artwork.creator)  ")
-                                                .font(.system(size: 15))
+                                                .font(.system(size: 15).bold())
+                                                .frame(maxWidth: .infinity, alignment: .leading)
                                                 .foregroundColor(.primary)
-                                                .fontWeight(.bold)
+                                                .offset(x: 10)
+                                               // .fontWeight(.bold)
                                         })
                                     
                                     
                                     Text("\(artwork.name)  ")
-                                        .font(.system(size: 20))
+                                        .font(.system(size: 20).italic())
+                                        .font(Font.title.weight(.light))
+                                        .frame(maxWidth: screenWidth, alignment: .leading)
                                         .foregroundColor(.primary)
-                                        .fontWeight(.light)
+                                    
                                         .offset(x: 10)
                                 }
                                 

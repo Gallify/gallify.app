@@ -79,7 +79,7 @@ struct HomeView : View {
         await firestoreQuery.getHomeMuseums()
 
         //getPlaylists. Gets all the data for the playlists. Called once per museum.
-        await firestoreQuery.getHomePlaylists()
+        await firestoreQuery.getHomePlaylists()//, already called in tabbar
         
     }
     

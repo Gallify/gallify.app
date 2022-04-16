@@ -80,6 +80,10 @@ class CustomARView: ARView {
         self.addGestureRecognizer(panGesture)
     }
     
+    func pause() {
+        session.pause()
+    }
+    
     @objc func handlePan(_ gesture: ThresholdPanGesture) {
         switch gesture.state {
         case .began:

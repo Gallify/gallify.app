@@ -35,30 +35,60 @@ struct FullARView: View {
         
         ZStack(alignment: .bottom) {
             
-            
-            
             ARViewContainer(overlayVisible: $overlayVisible)
                 .edgesIgnoringSafeArea(.all)
                 .navigationBarHidden(true)
             
-//            CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
-//                .padding(.horizontal, screenWidth / 25)
-//                .padding(.vertical, screenHeight / 100)
-            
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-                }) {
-                    HStack {
-                        
-                        Image(systemName: "square")
-                            .resizable()
-                            .foregroundColor(Color.white)
-                            .frame(width: screenWidth / 15, height: screenHeight / 32.5)
-                        
-                    }
+
+            //button to go back
+            HStack{
+                
+                Button{
+//                    firestoreQuery.showNewScreen.toggle()
+//                    firestoreQuery.artPlaying = true
                 }
-                .padding(.horizontal, screenWidth / 25)
-                .padding(.vertical, screenHeight / 100)
+                    label: {
+                        Image(systemName: "chevron.down")
+                            .font(.system(size: 30))
+                            .foregroundColor(Color.white)
+                            .padding(.leading)
+                    }
+                    .padding(.vertical, screenHeight / 35) //screenHeight / 70
+                    .padding(.horizontal, screenHeight / 85)
+                    .frame(maxHeight: .infinity, alignment: .top)
+//                    .buttonStyle(ThemeAnimationStyle())
+//                    .navigationBarBackButtonHidden(true)
+//                    .navigationBarTitle("")
+//                    .navigationBarHidden(true)
+//                    .onTapGesture {
+//                        firestoreQuery.showNewScreen.toggle()
+//                    }
+                
+                Spacer()
+                
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                    
+                    //pause or end session
+                    
+                    
+                    }) {
+                            Image(systemName: "square")
+                                .resizable()
+                                .foregroundColor(Color.white)
+                                .frame(width: screenWidth / 15, height: screenHeight / 32.5)
+                                .padding(.trailing, 4.0)
+
+                    }
+                   
+                    .padding(.vertical, screenHeight / 45)
+                    .frame(maxHeight: .infinity, alignment: .top)
+                    .padding(.trailing, 20)
+            }
+            
+            
+            
+            
             
 //            if !overlayVisible {
 //                if placementSettings.selectedModel == nil {
@@ -93,7 +123,7 @@ struct FullARView: View {
                 await firestoreQuery.fetchModelData()
             }
         }
-       
+        .statusBar(hidden: true)
         
         
         
