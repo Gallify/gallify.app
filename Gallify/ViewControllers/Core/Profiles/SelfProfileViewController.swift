@@ -35,15 +35,15 @@ struct SelfProfileView : View {
                 }
                 .navigationBarHidden(true)
                 
-                if(firestoreQuery.showNewScreen == false) {
-                    
-                    if(firestoreQuery.artPlaying == true) {
+//                if(firestoreQuery.showNewScreen == false) {
+//
+//                    if(firestoreQuery.artPlaying == true) {
                         
                         MinimizedView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth)
                         
-                    }
-                    
-                }
+//                    }
+//                    
+//                }
                         
             }
             .navigationBarHidden(true)

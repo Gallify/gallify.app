@@ -109,7 +109,7 @@ struct CollectionReelListing: View {
                                         .frame(maxWidth: screenWidth, alignment: .leading)
                                         .foregroundColor(.primary)
                                     
-                                        .offset(x: 10)
+                                        .offset(x: 15)
                                 }
                                 
                                 

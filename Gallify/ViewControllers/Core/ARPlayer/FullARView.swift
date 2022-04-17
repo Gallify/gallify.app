@@ -43,32 +43,52 @@ struct FullARView: View {
             //button to go back
             HStack{
                 
-                Button{
-//                    firestoreQuery.showNewScreen.toggle()
-//                    firestoreQuery.artPlaying = true
-                }
-                    label: {
-                        Image(systemName: "chevron.down")
-                            .font(.system(size: 30))
-                            .foregroundColor(Color.white)
-                            .padding(.leading)
+            
+                
+             
+                
+                
+                Button(action: {
+//                    //if else checks if both camera and reels screen are minimized currently.
+                    if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                        firestoreQuery.bothScreensMinimized = true
                     }
-                    .padding(.vertical, screenHeight / 35) //screenHeight / 70
+                    else{
+                        firestoreQuery.bothScreensMinimized = false
+                    }
+
+                    firestoreQuery.showCameraScreen = false
+                    firestoreQuery.showNewScreen = false
+                    firestoreQuery.cameraPlaying = true
+                    firestoreQuery.artPlaying = false
+                    
+                    
+                    }) {
+                            Image(systemName: "chevron.down")
+                                .font(.system(size: 30))
+                                .foregroundColor(Color.white)
+                                .padding(.leading)
+
+                    }
+                    .padding(.vertical, screenHeight / 25) //screenHeight / 70
                     .padding(.horizontal, screenHeight / 85)
                     .frame(maxHeight: .infinity, alignment: .top)
-//                    .buttonStyle(ThemeAnimationStyle())
-//                    .navigationBarBackButtonHidden(true)
-//                    .navigationBarTitle("")
-//                    .navigationBarHidden(true)
-//                    .onTapGesture {
-//                        firestoreQuery.showNewScreen.toggle()
-//                    }
+                    
                 
                 Spacer()
                 
                 Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                    
+                    //if else checks if both camera and reels screen are minimized currently.
+                    if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                        firestoreQuery.bothScreensMinimized = true
+                    }
+                    else{
+                        firestoreQuery.bothScreensMinimized = false
+                    }
+                    firestoreQuery.showCameraScreen = false
+                    firestoreQuery.showNewScreen = true
+                    firestoreQuery.cameraPlaying = false
+                    firestoreQuery.artPlaying = true
                     //pause or end session
                     
                     
@@ -82,8 +102,49 @@ struct FullARView: View {
                     }
                    
                     .padding(.vertical, screenHeight / 45)
+                    .padding(.vertical, screenHeight / 25)
                     .frame(maxHeight: .infinity, alignment: .top)
                     .padding(.trailing, 20)
+                    .onTapGesture {
+                        firestoreQuery.showCameraScreen = false
+                        firestoreQuery.showNewScreen = true
+                        firestoreQuery.cameraPlaying = false
+                    }
+                
+                
+//                Button{
+//                    //if else checks if both camera and reels screen are minimized currently.
+//                    if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+//                        firestoreQuery.bothScreensMinimized = true
+//                    }
+//                    else{
+//                        firestoreQuery.bothScreensMinimized = false
+//                    }
+//
+//                    firestoreQuery.showCameraScreen = false
+//                    firestoreQuery.showNewScreen = false
+//                    firestoreQuery.cameraPlaying = true
+//                    firestoreQuery.artPlaying = false
+//                }
+//                    label: {
+//                        Image(systemName: "chevron.down")
+//                            .font(.system(size: 30))
+//                            .foregroundColor(Color.white)
+//                            .padding(.leading)
+//                    }
+//                    .padding(.vertical, screenHeight / 10) //screenHeight / 70
+//                    .padding(.horizontal, screenHeight / 50)
+//                    .frame(maxHeight: .infinity, alignment: .top)
+//                    .buttonStyle(ThemeAnimationStyle())
+//                    .navigationBarBackButtonHidden(true)
+//                    .navigationBarTitle("")
+//                    .navigationBarHidden(true)
+//                    .onTapGesture {
+//                        //firestoreQuery.showNewScreen = false
+//                        firestoreQuery.showNewScreen.toggle()
+//                    }
+                
+                
             }
             
             

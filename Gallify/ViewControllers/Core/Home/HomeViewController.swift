@@ -35,15 +35,15 @@ struct HomeView : View {
                     
                 }
                 
-                if (firestoreQuery.showNewScreen == false) {
-                    
-                    if (firestoreQuery.artPlaying == true) {
+//                if (firestoreQuery.showNewScreen == false) {
+//                    
+//                    if (firestoreQuery.artPlaying == true) {
                         
                         MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
                         
-                    }
-                    
-                }
+//                    }
+//                    
+//                }
                     
             }
             .onAppear(perform: getMuseumCount)
