@@ -23,6 +23,13 @@ struct Post_Small: View {
         
         
         Button(action: {
+            
+            if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                firestoreQuery.bothScreensMinimized = true
+            }
+            else{
+                firestoreQuery.bothScreensMinimized = false
+            }
                
             firestoreQuery.artisClicked = discover_art.artId
             firestoreQuery.artThatsPlaying = discover_art

@@ -148,7 +148,12 @@ struct CollectionGenericRow: View {
                                                 
                         Button(action: {
                                                    
-                           
+                            if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                                firestoreQuery.bothScreensMinimized = true
+                            }
+                            else{
+                                firestoreQuery.bothScreensMinimized = false
+                            }
                             
                             self.art = playlist[i]//<-- update local art var to use later in the code
                             firestoreQuery.artisClicked = playlist[i].artId

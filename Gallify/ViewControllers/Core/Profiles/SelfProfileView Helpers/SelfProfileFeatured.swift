@@ -56,6 +56,13 @@ struct SelfProfileFeatured: View {
                                     .padding(.trailing, screenWidth / 50)
                                 
                                 Button(action: {
+                                    
+                                    if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                                        firestoreQuery.bothScreensMinimized = true
+                                    }
+                                    else{
+                                        firestoreQuery.bothScreensMinimized = false
+                                    }
                                        
                                     firestoreQuery.artisClicked = artwork.artId
                                     firestoreQuery.artThatsPlaying = artwork

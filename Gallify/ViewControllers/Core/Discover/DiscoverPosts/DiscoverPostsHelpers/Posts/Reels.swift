@@ -23,7 +23,13 @@ struct Reel: View {
         let screenWidth = viewModel.screenWidth
         
         Button(action: {
-               
+            if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                firestoreQuery.bothScreensMinimized = true
+            }
+            else{
+                firestoreQuery.bothScreensMinimized = false
+            }
+            
             firestoreQuery.artisClicked = discover_art.artId
             firestoreQuery.artThatsPlaying = discover_art
             firestoreQuery.artworkThatsPlaying = firestoreQuery.discoveryPageArt
@@ -41,6 +47,7 @@ struct Reel: View {
                 WebImage(url: URL(string: discover_art.thumbnailUrl))
                     .resizable()
                     .frame(width: screenWidth / 3.1, height: screenHeight / 6.8)
+                    .scaledToFit()
                     .padding(.leading, -screenWidth / 75)
                     .padding(.top, -screenHeight / 160)
                     .border(Color.primary)
