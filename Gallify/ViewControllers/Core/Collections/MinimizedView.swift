@@ -121,7 +121,7 @@ struct MinimizedView: View {
                             
                         VStack(alignment: .leading) {
                                 
-                            Text("AR Player Active!")
+                            Text("View Gallery")
                                 .font(.system(size: screenWidth / 20, weight: .bold))
                                 .foregroundColor(.black)
 
@@ -131,6 +131,12 @@ struct MinimizedView: View {
                         Spacer()
                         
                         Button(action: {
+                            if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                                firestoreQuery.bothScreensMinimized = true
+                            }
+                            else{
+                                firestoreQuery.bothScreensMinimized = false
+                            }
                             firestoreQuery.cameraPlaying = false
                             firestoreQuery.clearModels()
                             firestoreQuery.clearModelEntitiesFromMemory()

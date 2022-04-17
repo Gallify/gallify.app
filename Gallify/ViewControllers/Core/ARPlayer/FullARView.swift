@@ -68,11 +68,14 @@ struct FullARView: View {
                                 .font(.system(size: 30))
                                 .foregroundColor(Color.white)
                                 .padding(.leading)
+                                .frame(maxHeight: .infinity, alignment: .top)
+                                .padding(.vertical, screenHeight / 12) //screenHeight / 70
+                                .padding(.horizontal, screenHeight / 75)
 
                     }
-                    .padding(.vertical, screenHeight / 25) //screenHeight / 70
-                    .padding(.horizontal, screenHeight / 85)
-                    .frame(maxHeight: .infinity, alignment: .top)
+//                    .padding(.vertical, screenHeight / 25) //screenHeight / 70
+//                    .padding(.horizontal, screenHeight / 85)
+                    
                     
                 
                 Spacer()
@@ -98,11 +101,13 @@ struct FullARView: View {
                                 .foregroundColor(Color.white)
                                 .frame(width: screenWidth / 15, height: screenHeight / 32.5)
                                 .padding(.trailing, 4.0)
+                                .padding(.vertical, screenHeight / 12.5)
+                                .padding(.horizontal, screenHeight / 90)
+                                
 
                     }
                    
-                    .padding(.vertical, screenHeight / 45)
-                    .padding(.vertical, screenHeight / 25)
+                    
                     .frame(maxHeight: .infinity, alignment: .top)
                     .padding(.trailing, 20)
                     .onTapGesture {
