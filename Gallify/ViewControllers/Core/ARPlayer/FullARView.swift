@@ -61,6 +61,7 @@ struct FullARView: View {
                     firestoreQuery.showNewScreen = false
                     firestoreQuery.cameraPlaying = true
                     firestoreQuery.artPlaying = false
+                    firestoreQuery.artisClicked = ""
                     
                     
                     }) {
@@ -92,6 +93,7 @@ struct FullARView: View {
                     firestoreQuery.showNewScreen = true
                     firestoreQuery.cameraPlaying = false
                     firestoreQuery.artPlaying = true
+                    
                     //pause or end session
                     
                     
@@ -189,7 +191,7 @@ struct FullARView: View {
                 await firestoreQuery.fetchModelData()
             }
         }
-        .statusBar(hidden: true)
+        //.statusBar(hidden: true)
         
         
         
