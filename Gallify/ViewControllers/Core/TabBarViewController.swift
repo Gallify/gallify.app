@@ -21,8 +21,8 @@ struct TabBarView: View {
     @StateObject var storageService = StorageService()
     @StateObject var viewModel = TabBarViewModel()
     
-    @StateObject var modelsViewModel = ModelsViewModel() //double declared
-    @StateObject var placementSettings = PlacementSettings()
+    /*@StateObject var modelsViewModel = ModelsViewModel() //double declared
+    @StateObject var placementSettings = PlacementSettings()*/
     
     @EnvironmentObject var loginModel : LoginAppViewModel
     
@@ -80,7 +80,6 @@ struct TabBarView: View {
                                 Label("Profile", systemImage: "person.fill")
                                     .font(.system(size: screenWidth / 15, weight: .semibold))
                                     
-                                    
                         }
                         
                     }
@@ -97,6 +96,18 @@ struct TabBarView: View {
                         
                     }
                     
+                    if firestoreQuery.data.email == "info@gallify.app" {
+                        
+                        AdminApprovalViewController()
+                            .tabItem{
+                                
+                                Label("Admin", systemImage: "person.crop.circle.badge.checkmark")
+                                    .font(.system(size: screenWidth / 15, weight: .semibold))
+                                
+                            }
+                        
+                    }
+                    
                 }
                 
                 else {
@@ -107,24 +118,15 @@ struct TabBarView: View {
                     
             }
             .accentColor(Color.black)
-            .environmentObject(viewModel)
-            .environmentObject(firestoreQuery)
-            .environmentObject(storageService)
-            .onAppear{ async { await NetworkingCall() } }
-                
-            
             
             ZStack {
                 
                // if firestoreQuery.showNewScreen && !firestoreQuery.showCameraScreen {
 
-                    CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight)
+                    CollectionReelView()
                         .offset(y: firestoreQuery.showNewScreen ? 0 : UIScreen.main.bounds.height)
                         .animation(.default) //.spring(response: 0.4)
                         .edgesIgnoringSafeArea(.all)
-                        .environmentObject(firestoreQuery)
-                        
-                        
 
            //     }
              //   if firestoreQuery.showNewScreen && firestoreQuery.showCameraScreen {
@@ -136,9 +138,6 @@ struct TabBarView: View {
 //                        .environmentObject(modelsViewModel)
 //                        .environmentObject(placementSettings)
 //                        .environmentObject(firestoreQuery)
-
-                        
-                        
                 
               //  }
                       
@@ -146,6 +145,10 @@ struct TabBarView: View {
             .zIndex(3.0)
                 
         }
+        .environmentObject(viewModel)
+        .environmentObject(firestoreQuery)
+        .environmentObject(storageService)
+        .onAppear{ async { await NetworkingCall() } }
         
     }
     
@@ -221,10 +224,4 @@ struct TabBarView: View {
             
     }
     
-}
-
-struct TabBarPreview: PreviewProvider {
-    static var previews: some View {
-        TabBarView()
-    }
 }

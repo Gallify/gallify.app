@@ -1,19 +1,19 @@
 //
-//  ExpandedListing.swift
+//  AdminApprovalBody.swift
 //  Gallify
 //
-//  Created by Gianluca Profio on 9/26/21.
+//  Created by Anshul on 4/1/22.
 //
+
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct CollectionReelListing: View {
+struct AdminApprovalBody: View {
     
-    @EnvironmentObject var viewModel: TabBarViewModel
-    @EnvironmentObject var firestoreQuery: FirestoreQuery
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @EnvironmentObject var viewModel : TabBarViewModel
     
-    @State private var showDetail = false
-    @State var showActionSheet: Bool = false
+    @State var showDetail = false
     @State var showingSheet: Bool = false
     @State var art_popup = ""
     //@State var art = Art()
@@ -23,26 +23,10 @@ struct CollectionReelListing: View {
     @State var showThumbnail = true
     @State var text3Dmodel = "Load 3D Artwork"
     
-//    Add To Collection Pop-Up Integration
-    var actionSheet: ActionSheet {
-        ActionSheet(title: Text("Add to a Collection"), message: Text("Your Collections:"), buttons: [
-            .default(Text("Collection 1")),
-            .default(Text("Collection 2")),
-            .default(Text("Like")) {
-                Task {
-                    await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
-                    //reload library
-                }
-
-            },
-            .destructive(Text("Cancel"))
-        ])
-    }
-    
     var body: some View {
         
-        let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
        
         ScrollView {
             
@@ -50,12 +34,12 @@ struct CollectionReelListing: View {
                 
                 if(firestoreQuery.artworkThatsPlaying.count > 0){ //if art in array
                     
-                    ForEach(0...firestoreQuery.artworkThatsPlaying.count-1, id: \.self) { i in //for all art in array.
-                
-                        var artwork = firestoreQuery.artworkThatsPlaying[i]
+                    ForEach(0...firestoreQuery.artworkThatsPlaying.count - 1, id: \.self) { i in //for all art in array.
+                        
+                        let artwork = firestoreQuery.artworkThatsPlaying[i]
                         
                         VStack {
-                            
+                                
                             if(!showThumbnail && getModelforArt == artwork.artId
                                 && firestoreQuery.models[i].contentLoaded && firestoreQuery.models[i] != nil) {
                                 USDZPost(model: firestoreQuery.models[i])
@@ -95,43 +79,6 @@ struct CollectionReelListing: View {
                                     
                                 }
                                 
-                                Button(action: {
-                                    
-                                    firestoreQuery.showArtOptions = true
-                                    self.art = artwork //Setting art var when ellipses is clicked
-                                    
-                                }, label: {
-                                                                
-                                    Image(systemName: "ellipsis")
-                                        .foregroundColor(.primary)
-                                        .padding(.trailing, 10)
-                                                                
-                                })
-                                .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
-                                                
-                                    ActionSheet(
-                                        title: Text("Select"),
-                                        buttons: [
-                                            .default(Text("Like")) {
-                                                Task {
-                                                    await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
-                                                    //reload library
-                                                    await firestoreQuery.getUserLibrary()
-                                                }
-                                            },
-                                            .default(Text("Add to Playlist")) {
-                                                showingSheet = true
-                                            },
-                                            .default(Text("Cancel")) {
-                                                //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                firestoreQuery.showArtOptions = false
-                                            }])
-                                                                    
-                                }
-                                .sheet(isPresented: $showingSheet) {
-                                        CollectionsView(art: art)
-                                }
-                            
                             }
                             
                             Button {
@@ -157,15 +104,14 @@ struct CollectionReelListing: View {
                                         .animation(.spring(), value: showDetail)
                                         .font(.system(size: screenWidth / 20))
                                         .foregroundColor(.black)
-                                        .padding(.vertical, screenHeight / 160)
                                     
                                 }
                                 
                             }
                             
                             if (showDetail && artwork.artId == art_popup) {
-                                
-                                CollectionReelDescription(artDetails: artwork)
+                                    
+                                AdminApprovalArtDescription(artDetails: artwork)
                                 
                             }
                    

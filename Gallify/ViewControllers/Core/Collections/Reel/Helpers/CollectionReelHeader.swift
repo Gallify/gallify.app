@@ -12,55 +12,44 @@ import ARKit
 
 struct CollectionReelHeader: View {
     
-    @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @EnvironmentObject var viewModel: TabBarViewModel
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
     @Environment(\.presentationMode) var presentationMode
     
-    
-    @StateObject var modelsViewModel = ModelsViewModel()
-    @StateObject var placementSettings = PlacementSettings()
+    //@StateObject var modelsViewModel = ModelsViewModel()
+    //@StateObject var placementSettings = PlacementSettings()
 //
 //    @EnvironmentObject var modelsViewModel : ModelsViewModel
 //    @EnvironmentObject var placementSettings : PlacementSettings
     
-    let screenWidth: CGFloat
-    let screenHeight: CGFloat
-    
     var body: some View {
+        
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
+        
         HStack {
             
-            Button{
+            Button {
+                
                 firestoreQuery.showNewScreen.toggle()
                 firestoreQuery.artPlaying = true
+                
             }
                 label: {
+                    
                     Image(systemName: "chevron.down")
-                        .font(.system(size: 30))
-                        .padding(.leading)
+                        .resizable()
+                        .frame(width: screenWidth / 18, height: screenHeight / 54)
+                        .padding(.leading, screenWidth / 25)
+                    
                 }
                 .buttonStyle(ThemeAnimationStyle())
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("")
+                .padding(.vertical, screenHeight / 80)
                 .navigationBarHidden(true)
                 .onTapGesture {
                     firestoreQuery.showNewScreen.toggle()
                 }
-//                .gesture(
-//                    DragGesture()
-//                        .onChanged{ gesture in
-//                            firestoreQuery.showNewScreen.toggle()
-//                        }
-//                )
             
-//                .onTapGesture{
-//
-//                    presentationMode.wrappedValue.dismiss()
-//
-//            }
-            
-            
-          //  Spacer()
-            
-
             /*NavigationLink (  //ARViewContainer used to be SwiftUIView()
                 destination: FullARView(screenWidth: screenWidth, screenHeight: screenHeight)
                     .environmentObject(placementSettings)
@@ -84,11 +73,9 @@ struct CollectionReelHeader: View {
                 .navigationBarBackButtonHidden(true)
                 .navigationBarTitle("")*/
                 
-            
-           
             Spacer() 
             
-            if (ARConfiguration.isSupported) {
+            /*if (ARConfiguration.isSupported) {
                  NavigationLink(destination: FullARView()
                                  .environmentObject(modelsViewModel)
                                  .environmentObject(placementSettings)
@@ -102,22 +89,10 @@ struct CollectionReelHeader: View {
                          .padding(.leading)
                          .foregroundColor(.primary)
                  })
-             }
-            
-            
-            
+             }*/
 
         }
-      
-        
-        
         
     }
+    
 }
-
-struct CollectionReelHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        CollectionReelHeader(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
-    }
-}
-

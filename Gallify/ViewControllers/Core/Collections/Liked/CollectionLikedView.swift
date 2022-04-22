@@ -22,10 +22,10 @@ struct CollectionLikedView: View {
             
             ScrollView (showsIndicators: false) {
                 
-                CollectionLikedRow(screenWidth: screenWidth, screenHeight: screenHeight)
+                CollectionLikedRow()
             }
             
-            CollectionLikedFooter(screenWidth: screenWidth, screenHeight: screenHeight)
+            CollectionLikedFooter()
             
             Spacer()
             

@@ -23,13 +23,13 @@ struct CollectionRecentActivityView: View {
                 
                 ScrollView (showsIndicators: false) {
                     
-                    CollectionRecentActivityRow(screenWidth: screenWidth, screenHeight: screenHeight)
+                    CollectionRecentActivityRow()
                     
                 }
                 
                 Spacer()
                 
-                CollectionRecentActivityFooter(screenWidth: screenWidth, screenHeight: screenHeight)
+                CollectionRecentActivityFooter()
                 
             }
             

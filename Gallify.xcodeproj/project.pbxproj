@@ -46,13 +46,6 @@
 		3003AFFD27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFFC27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift */; };
 		3003AFFF27E4EF7600EA58B6 /* CollectionGenericImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003AFFE27E4EF7600EA58B6 /* CollectionGenericImage.swift */; };
 		3003B00127E6B01200EA58B6 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00027E6B01200EA58B6 /* CollectionsView.swift */; };
-		3003B00627EB984600EA58B6 /* AddModelBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00527EB984600EA58B6 /* AddModelBar.swift */; };
-		3003B00827EB984E00EA58B6 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00727EB984E00EA58B6 /* CustomARView.swift */; };
-		3003B00A27EB987C00EA58B6 /* FullARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00927EB987C00EA58B6 /* FullARView.swift */; };
-		3003B00C27EB989200EA58B6 /* ModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00B27EB989200EA58B6 /* ModelViewModel.swift */; };
-		3003B00E27EB98A000EA58B6 /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00D27EB98A000EA58B6 /* PlacementSettings.swift */; };
-		3003B01027EB98A700EA58B6 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00F27EB98A700EA58B6 /* Slider.swift */; };
-		3003B01227EB98BB00EA58B6 /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B01127EB98BB00EA58B6 /* ThresholdPanGesture.swift */; };
 		3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4B926C82F6B00323BCB /* GallifyApp.swift */; };
 		3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4BD26C82F6D00323BCB /* Assets.xcassets */; };
 		3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */; };
@@ -130,7 +123,6 @@
 		308B4BEB27658A040039B74E /* Museum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B4BEA27658A040039B74E /* Museum.swift */; };
 		308B4BED27658A710039B74E /* MuseumList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B4BEC27658A710039B74E /* MuseumList.swift */; };
 		308B4BF127658B8F0039B74E /* ArtDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B4BF027658B8F0039B74E /* ArtDetails.swift */; };
-		30BEBD2127B5A0700045EC74 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD2027B5A0700045EC74 /* SearchResult.swift */; };
 		30BEBD4327BF1E470045EC74 /* getARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4227BF1E470045EC74 /* getARPlayer.swift */; };
 		30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4427BF1E510045EC74 /* postARPlayer.swift */; };
 		30BEBD4727BF1E5C0045EC74 /* updateARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */; };
@@ -160,6 +152,7 @@
 		316C527227287BA100E28609 /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C527127287BA100E28609 /* VerifyEmailViewController.swift */; };
 		316C527527287C2800E28609 /* VerifyEmailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C527427287C2800E28609 /* VerifyEmailHeader.swift */; };
 		316C527727287C3A00E28609 /* VerifyEmailBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C527627287C3A00E28609 /* VerifyEmailBody.swift */; };
+		318274FE2810549E009901EC /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318274FD2810549E009901EC /* LikeButton.swift */; };
 		318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
 		318B42F126E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
 		318B42F226E0190B00D6D722 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B42EF26E0190B00D6D722 /* CircleImage.swift */; };
@@ -185,6 +178,11 @@
 		31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */; };
 		31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15314270CF3E000238459 /* CreateAccountViewBody.swift */; };
 		31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1531A270CFB8100238459 /* SetPasswordViewHeader.swift */; };
+		31F683DA27F7B89300885B4D /* AdminApprovalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F683D927F7B89300885B4D /* AdminApprovalViewController.swift */; };
+		31F683E027F7B8F000885B4D /* AdminApprovalBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F683DF27F7B8F000885B4D /* AdminApprovalBody.swift */; };
+		31FFE397280099830047D4D2 /* AdminApprovalArtDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FFE396280099830047D4D2 /* AdminApprovalArtDescription.swift */; };
+		31FFE39A2800CBA00047D4D2 /* ArtSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FFE3992800CBA00047D4D2 /* ArtSearchResult.swift */; };
+		31FFE39C2800CBC90047D4D2 /* UserSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FFE39B2800CBC90047D4D2 /* UserSearchResult.swift */; };
 		3309962E277BC2670040D099 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309962D277BC2660040D099 /* ImageLoader.swift */; };
 		33099634277BC2980040D099 /* FirestoreSubcollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */; };
 		33C12AEB27E8039C00CC34A8 /* FirebaseStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */; };
@@ -216,7 +214,6 @@
 		92DB7C6F273186330035B788 /* CreatePublishListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C6E273186330035B788 /* CreatePublishListing.swift */; };
 		92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */; };
 		F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */; };
-		FC9EED7C2762AD7E00F831DC /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = FC9EED7B2762AD7E00F831DC /* FocusEntity */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,13 +276,6 @@
 		3003AFFC27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileCollectionListImage.swift; sourceTree = "<group>"; };
 		3003AFFE27E4EF7600EA58B6 /* CollectionGenericImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGenericImage.swift; sourceTree = "<group>"; };
 		3003B00027E6B01200EA58B6 /* CollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsView.swift; sourceTree = "<group>"; };
-		3003B00527EB984600EA58B6 /* AddModelBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModelBar.swift; sourceTree = "<group>"; };
-		3003B00727EB984E00EA58B6 /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
-		3003B00927EB987C00EA58B6 /* FullARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullARView.swift; sourceTree = "<group>"; };
-		3003B00B27EB989200EA58B6 /* ModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewModel.swift; sourceTree = "<group>"; };
-		3003B00D27EB98A000EA58B6 /* PlacementSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementSettings.swift; sourceTree = "<group>"; };
-		3003B00F27EB98A700EA58B6 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
-		3003B01127EB98BB00EA58B6 /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
 		3004D4B626C82F6B00323BCB /* Gallify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3004D4B926C82F6B00323BCB /* GallifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyApp.swift; sourceTree = "<group>"; };
 		3004D4BD26C82F6D00323BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -369,7 +359,6 @@
 		308B4BEA27658A040039B74E /* Museum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Museum.swift; sourceTree = "<group>"; };
 		308B4BEC27658A710039B74E /* MuseumList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumList.swift; sourceTree = "<group>"; };
 		308B4BF027658B8F0039B74E /* ArtDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetails.swift; sourceTree = "<group>"; };
-		30BEBD2027B5A0700045EC74 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		30BEBD4227BF1E470045EC74 /* getARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4427BF1E510045EC74 /* postARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateARPlayer.swift; sourceTree = "<group>"; };
@@ -397,6 +386,7 @@
 		316C527127287BA100E28609 /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
 		316C527427287C2800E28609 /* VerifyEmailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailHeader.swift; sourceTree = "<group>"; };
 		316C527627287C3A00E28609 /* VerifyEmailBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailBody.swift; sourceTree = "<group>"; };
+		318274FD2810549E009901EC /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		318B42EF26E0190B00D6D722 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		3193B9B926FA697200BFDDE7 /* AuctionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionTab.swift; sourceTree = "<group>"; };
 		319F25B026E56722009B811E /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
@@ -418,6 +408,11 @@
 		31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewHeader.swift; sourceTree = "<group>"; };
 		31F15314270CF3E000238459 /* CreateAccountViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewBody.swift; sourceTree = "<group>"; };
 		31F1531A270CFB8100238459 /* SetPasswordViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewHeader.swift; sourceTree = "<group>"; };
+		31F683D927F7B89300885B4D /* AdminApprovalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminApprovalViewController.swift; sourceTree = "<group>"; };
+		31F683DF27F7B8F000885B4D /* AdminApprovalBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminApprovalBody.swift; sourceTree = "<group>"; };
+		31FFE396280099830047D4D2 /* AdminApprovalArtDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminApprovalArtDescription.swift; sourceTree = "<group>"; };
+		31FFE3992800CBA00047D4D2 /* ArtSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtSearchResult.swift; sourceTree = "<group>"; };
+		31FFE39B2800CBC90047D4D2 /* UserSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResult.swift; sourceTree = "<group>"; };
 		3309962D277BC2660040D099 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreSubcollectionService.swift; sourceTree = "<group>"; };
 		33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageHelper.swift; sourceTree = "<group>"; };
@@ -459,7 +454,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC9EED7C2762AD7E00F831DC /* FocusEntity in Frameworks */,
 				F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,22 +582,6 @@
 			path = "OtherProfileView Helpers";
 			sourceTree = "<group>";
 		};
-		3003B00427EB983900EA58B6 /* ARPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				3003B00527EB984600EA58B6 /* AddModelBar.swift */,
-				3003B00727EB984E00EA58B6 /* CustomARView.swift */,
-				33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */,
-				3003AFF027E40B7C00EA58B6 /* Model.swift */,
-				3003B00927EB987C00EA58B6 /* FullARView.swift */,
-				3003B00B27EB989200EA58B6 /* ModelViewModel.swift */,
-				3003B00D27EB98A000EA58B6 /* PlacementSettings.swift */,
-				3003B00F27EB98A700EA58B6 /* Slider.swift */,
-				3003B01127EB98BB00EA58B6 /* ThresholdPanGesture.swift */,
-			);
-			path = ARPlayer;
-			sourceTree = "<group>";
-		};
 		3004D4AD26C82F6A00323BCB = {
 			isa = PBXGroup;
 			children = (
@@ -698,13 +676,15 @@
 		3004D4EC26CD402A00323BCB /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				3003B00427EB983900EA58B6 /* ARPlayer */,
+				3003AFF027E40B7C00EA58B6 /* Model.swift */,
+				33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */,
 				92794CE2273811760012B184 /* Collections */,
 				92DB7C52273167F90035B788 /* Create */,
 				303DB8CF26F97CE50005AC51 /* Home */,
 				92794D0B273813010012B184 /* Discover */,
 				303DB8CE26F97C9C0005AC51 /* Profiles */,
 				30410A0B27A6704400284446 /* Settings */,
+				31F683DB27F7B8AB00885B4D /* AdminApproval */,
 				3004D50226CD57C100323BCB /* SearchViewController.swift */,
 				3004D50026CD57A800323BCB /* TabBarViewController.swift */,
 				3004D4FE26CD579000323BCB /* PriorSettingsViewController.swift */,
@@ -1189,6 +1169,7 @@
 				31F1530E270B881400238459 /* OvalTextField.swift */,
 				92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */,
 				30001C06279699A900527BF9 /* ConnectButton.swift */,
+				318274FD2810549E009901EC /* LikeButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1251,6 +1232,24 @@
 				3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */,
 			);
 			path = SetPasswordViewHelpers;
+			sourceTree = "<group>";
+		};
+		31F683DB27F7B8AB00885B4D /* AdminApproval */ = {
+			isa = PBXGroup;
+			children = (
+				31F683D927F7B89300885B4D /* AdminApprovalViewController.swift */,
+				31FFE398280099C10047D4D2 /* AdmivApprovalHelpers */,
+			);
+			path = AdminApproval;
+			sourceTree = "<group>";
+		};
+		31FFE398280099C10047D4D2 /* AdmivApprovalHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				31FFE396280099830047D4D2 /* AdminApprovalArtDescription.swift */,
+				31F683DF27F7B8F000885B4D /* AdminApprovalBody.swift */,
+			);
+			path = AdmivApprovalHelpers;
 			sourceTree = "<group>";
 		};
 		92794CE2273811760012B184 /* Collections */ = {
@@ -1347,7 +1346,8 @@
 			isa = PBXGroup;
 			children = (
 				30836FAF274A035D00E83735 /* DiscoverMainViewController.swift */,
-				30BEBD2027B5A0700045EC74 /* SearchResult.swift */,
+				31FFE3992800CBA00047D4D2 /* ArtSearchResult.swift */,
+				31FFE39B2800CBC90047D4D2 /* UserSearchResult.swift */,
 				30836FB8274A046D00E83735 /* DiscoverPosts */,
 				30836FB1274A036E00E83735 /* DiscoverViewRecentSearch.swift */,
 				311E93882753C0BA005DFE12 /* DiscoverSearch.swift */,
@@ -1451,7 +1451,6 @@
 			);
 			name = Gallify;
 			packageProductDependencies = (
-				FC9EED7B2762AD7E00F831DC /* FocusEntity */,
 			);
 			productName = Gallify;
 			productReference = 3004D4B626C82F6B00323BCB /* Gallify.app */;
@@ -1688,7 +1687,6 @@
 				3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */,
 				3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */,
 				30001BB627921AC900527BF9 /* DropDownReels.swift in Sources */,
-				3003B00827EB984E00EA58B6 /* CustomARView.swift in Sources */,
 				304109F6279D27AC00284446 /* MinimizedView.swift in Sources */,
 				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
 				30410A8127A677EB00284446 /* MembershipSetting.swift in Sources */,
@@ -1712,6 +1710,7 @@
 				30410A7F27A677EB00284446 /* ProfileSettingHeader.swift in Sources */,
 				92794CFD273811760012B184 /* CollectionReelHeader.swift in Sources */,
 				30001BE62796871200527BF9 /* postSettings.swift in Sources */,
+				31FFE39A2800CBA00047D4D2 /* ArtSearchResult.swift in Sources */,
 				31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */,
 				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
 				3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */,
@@ -1746,9 +1745,11 @@
 				30410A7C27A677EB00284446 /* ArtistProgramSetting.swift in Sources */,
 				316ACAC22725AE240065CE6A /* ForgotPasswordViewBody.swift in Sources */,
 				30410A8627A67AAE00284446 /* deprecated.swift in Sources */,
+				31F683E027F7B8F000885B4D /* AdminApprovalBody.swift in Sources */,
 				3003AFFD27E4E87E00EA58B6 /* SelfProfileCollectionListImage.swift in Sources */,
 				31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */,
 				30410A0D27A6708A00284446 /* MainSettingsView.swift in Sources */,
+				31F683DA27F7B89300885B4D /* AdminApprovalViewController.swift in Sources */,
 				30410A7E27A677EB00284446 /* ProfileSetting.swift in Sources */,
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
 				3052137D278A2D5A00CE0224 /* FirestoreQueryService.swift in Sources */,
@@ -1757,7 +1758,6 @@
 				92794D02273811760012B184 /* CollectionRecentActivityHeader.swift in Sources */,
 				30001BD92796865600527BF9 /* getList.swift in Sources */,
 				3004D50F26CD7EF800323BCB /* SignInViewController.swift in Sources */,
-				3003B00627EB984600EA58B6 /* AddModelBar.swift in Sources */,
 				92794D09273811760012B184 /* CollectionGenericHeader.swift in Sources */,
 				30521381278A2DDA00CE0224 /* ImageCache.swift in Sources */,
 				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
@@ -1765,6 +1765,7 @@
 				30836FC2274A053900E83735 /* DiscoverViewTag.swift in Sources */,
 				311E93892753C0BB005DFE12 /* DiscoverSearch.swift in Sources */,
 				30001BC82796855100527BF9 /* getDiscover.swift in Sources */,
+				31FFE39C2800CBC90047D4D2 /* UserSearchResult.swift in Sources */,
 				30836FAB2749E65200E83735 /* Extensions.swift in Sources */,
 				30001BD6279685BB00527BF9 /* deleteProfile.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
@@ -1774,7 +1775,6 @@
 				30410A3927A6719E00284446 /* MainSettingsViewBody.swift in Sources */,
 				92794D11273814D80012B184 /* DiscoveryCategoryHeader.swift in Sources */,
 				3152F6A22717508D0061F72E /* ForgotPasswordViewController.swift in Sources */,
-				3003B01227EB98BB00EA58B6 /* ThresholdPanGesture.swift in Sources */,
 				30836FB0274A035D00E83735 /* DiscoverMainViewController.swift in Sources */,
 				31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */,
 				30001BF72796961100527BF9 /* OtherProfileViewVerified.swift in Sources */,
@@ -1784,20 +1784,19 @@
 				30001BED2796947D00527BF9 /* SelfProfileViewHeader.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
 				30001C052796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift in Sources */,
-				3003B00A27EB987C00EA58B6 /* FullARView.swift in Sources */,
 				3153458027557BA500BD7B54 /* Slabs.swift in Sources */,
 				30001C44279C710500527BF9 /* FlexibleSheet.swift in Sources */,
-				3003B00C27EB989200EA58B6 /* ModelViewModel.swift in Sources */,
 				30001BD22796859600527BF9 /* postProfile.swift in Sources */,
 				30410A8027A677EB00284446 /* ProfileSettingBody.swift in Sources */,
 				30410A7B27A677EB00284446 /* AccountSettingBody.swift in Sources */,
 				92794D0F273814B80012B184 /* DiscoveryCategoryView.swift in Sources */,
 				304109F8279E24EC00284446 /* FirestoreUploadService.swift in Sources */,
+				31FFE397280099830047D4D2 /* AdminApprovalArtDescription.swift in Sources */,
 				30001C07279699A900527BF9 /* ConnectButton.swift in Sources */,
-				3003B00E27EB98A000EA58B6 /* PlacementSettings.swift in Sources */,
 				3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */,
 				3152F6A62717519B0061F72E /* PrivacyPolicyViewController.swift in Sources */,
 				30836FB2274A036E00E83735 /* DiscoverViewRecentSearch.swift in Sources */,
+				318274FE2810549E009901EC /* LikeButton.swift in Sources */,
 				3052137A278A2C3A00CE0224 /* Following.swift in Sources */,
 				3087D286275D4C4D00ECD8CD /* LoadingView.swift in Sources */,
 				30836FB7274A043300E83735 /* OtherSearchTemplate.swift in Sources */,
@@ -1857,7 +1856,6 @@
 				30001BCC2796857400527BF9 /* updateDiscover.swift in Sources */,
 				30BEBD4327BF1E470045EC74 /* getARPlayer.swift in Sources */,
 				30001BF52796954B00527BF9 /* SelfProfileViewVerified.swift in Sources */,
-				30BEBD2127B5A0700045EC74 /* SearchResult.swift in Sources */,
 				30001C032796973C00527BF9 /* OtherProfileViewHeader.swift in Sources */,
 				33099634277BC2980040D099 /* FirestoreSubcollectionService.swift in Sources */,
 				92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */,
@@ -1866,7 +1864,6 @@
 				92794D06273811760012B184 /* CollectionLikedRow.swift in Sources */,
 				30001B7E278F8E6F00527BF9 /* get.swift in Sources */,
 				3004D4F226CD407600323BCB /* Art.swift in Sources */,
-				3003B01027EB98A700EA58B6 /* Slider.swift in Sources */,
 				315345772755760A00BD7B54 /* DiscoverBrowse.swift in Sources */,
 				92DB7C6D273181240035B788 /* CreatePublishHeader.swift in Sources */,
 				30521385278A35C100CE0224 /* UrlImageModel.swift in Sources */,
@@ -2232,14 +2229,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FC9EED7B2762AD7E00F831DC /* FocusEntity */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FC9EED7A2762AD7E00F831DC /* XCRemoteSwiftPackageReference "FocusEntity" */;
-			productName = FocusEntity;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3004D4AE26C82F6A00323BCB /* Project object */;
 }

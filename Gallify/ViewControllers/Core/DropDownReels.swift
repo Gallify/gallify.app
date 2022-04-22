@@ -8,11 +8,12 @@ import SwiftUI
 
 struct DropDownReels: View {
     
-    let screenWidth: CGFloat
-    
-    let screenHeight: CGFloat
+    @EnvironmentObject var viewModel: TabBarViewModel
     
     public var body: some View {
+        
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
         
         VStack {
             
@@ -27,10 +28,12 @@ struct DropDownReels: View {
                     
                     VStack {
                         
-                        CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight)
+                        CollectionReelView()
                         
                     }
+                    
                 }
+                
             }
             /* Note: This is where we'll integrate TabBarViewController. Ensure there is a solid-filled frame so it supercedes non-expanded reels*/
         }
@@ -62,7 +65,6 @@ struct CardView: ViewModifier {
     @GestureState private var dragTracker: CGSize = CGSize.zero
     
     @State private var position: CGFloat = UIScreen.main.bounds.height - 150
-    
     
     func body(content: Content) -> some View {
         
@@ -117,9 +119,3 @@ struct CardView: ViewModifier {
     }
 }
 
-
-struct DropDownReels_Previews: PreviewProvider {
-    static var previews: some View {
-        DropDownReels(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
-    }
-}

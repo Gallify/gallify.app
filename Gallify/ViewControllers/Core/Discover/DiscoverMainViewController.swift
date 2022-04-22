@@ -7,13 +7,13 @@
 import SwiftUI
 import AlgoliaSearchClient
 
-
 struct DiscoverMainView: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @State var searchText = ""
     @State var showCancelButton = false
+    @State var searchType = "User"
     
     var body: some View {
         
@@ -66,28 +66,57 @@ struct DiscoverMainView: View {
                     }
                     .padding(.horizontal, screenWidth / 25)
                     .padding(.top, screenHeight / 54)
-                    
-                
-                
-              //  DiscoverPostsViewTags(screenHeight: screenHeight, screenWidth: screenWidth)
-                   // .offset(y: 100)
                 
                // ScrollView(showsIndicators: false) {
                     
                     if showCancelButton {
                         
-                        if firestoreQuery.searchText == "" {
+                        VStack {
                             
-                            //DiscoverViewRecentSearch()
-                            Spacer()
-                        }
-                        
-                        else {
-                          //  ScrollView(showsIndicators: false) {
-                                DiscoverSearch()
+                            HStack {
                                 
+                                Button(action: {
+                                    
+                                    searchType = "User"
+                                    
+                                }, label: {
+                                    
+                                    Text("User")
+                                        .foregroundColor(searchType == "User" ? Color("Gallify-Pink") : Color.black)
+                                        .font(.system(size: screenWidth / 20, weight: .semibold))
+                                    
+                                })
+                                .padding(.trailing, screenWidth / 25)
                                 
-                          //  }
+                                Button(action: {
+                                    
+                                    searchType = "Artwork"
+                                    
+                                }, label: {
+                                    
+                                    Text("Artwork")
+                                        .foregroundColor(searchType == "Artwork" ? Color("Gallify-Pink") : Color.black)
+                                        .font(.system(size: screenWidth / 20, weight: .semibold))
+                                    
+                                })
+                                .padding(.leading, screenWidth / 25)
+                                
+                            }
+                            .padding(.top, screenHeight / 80)
+                            
+                            if firestoreQuery.searchText == "" {
+                                
+                                //DiscoverViewRecentSearch()
+                                Spacer()
+                                
+                            }
+                            
+                            else {
+                              //  ScrollView(showsIndicators: false) {
+                                DiscoverSearch(searchType: searchType)
+                              //  }
+                                
+                            }
                             
                         }
                         
@@ -97,10 +126,7 @@ struct DiscoverMainView: View {
                         
                         DiscoverPostsView()
                         
-                        
-                        
                     }
-                    
                     
                // }
                // .navigationBarHidden(true)
@@ -113,15 +139,12 @@ struct DiscoverMainView: View {
                         if showCancelButton == false {
 
                             MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
-                         //       .offset(y: 100)
                             
                         }
                         
                     }
                     
                 }
-                
-            
                 
             }
             .navigationBarHidden(true)

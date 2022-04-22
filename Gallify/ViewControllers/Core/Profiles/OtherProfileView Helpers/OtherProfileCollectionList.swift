@@ -41,7 +41,7 @@ struct OtherProfileCollectionList: View {
                         
                         HStack {
                             
-                            SelfProfileCollectionListImage(screenHeight: screenHeight, screenWidth: screenWidth, playlist: playlist)
+                            SelfProfileCollectionListImage(imageHeight: screenHeight / 10.8, imageWidth: screenWidth / 5, playlist: playlist)
                            
                             VStack(alignment: .leading) {
                                     
