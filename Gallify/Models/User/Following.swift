@@ -16,6 +16,16 @@ class Following: Encodable, Decodable, ObservableObject {
     }
     
     @Published var following: [String]
+    
+    /*
+     {
+     {
+       "followerRef": "users/id",
+       "followingRef": "users/id"
+        timestamp
+     }
+     }
+     */
 
     
     init() {

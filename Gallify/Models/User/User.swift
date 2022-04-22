@@ -56,6 +56,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         
         
         
+        
     }
     
     @Published var uid : String   // NOT sure why all of these are published? @Shruti or @Anshul, you know?
@@ -99,6 +100,18 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var review: String
     @Published var created: String
     
+    /*
+     "reviewPlaylistRef": "playlists/id",
+     "featuredPlaylistRef": "playlists/id",
+     "collectedPlaylistRef": "playlists/id",
+     2 others
+     "displayName": "",
+     
+     remove:
+     firstname,
+     lastname,
+     followers and following url
+     */
   
     init() {
         

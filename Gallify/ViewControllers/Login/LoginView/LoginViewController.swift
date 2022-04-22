@@ -10,6 +10,8 @@ import UIKit
 
 class LoginAppViewModel: ObservableObject {
     
+    var walletConnect: WalletConnect!
+    
     let auth = Auth.auth()
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
@@ -367,9 +369,9 @@ class LoginAppViewModel: ObservableObject {
 struct LoginView: View {
     
     @StateObject var viewModel = LoginAppViewModel()
+    let auth = Auth.auth()
     
     var body: some View {
-        
         
         if viewModel.isSignedIn() || viewModel.newUserCreated || viewModel.signedIn {
             

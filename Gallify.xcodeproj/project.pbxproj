@@ -53,6 +53,8 @@
 		3003B00E27EB98A000EA58B6 /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00D27EB98A000EA58B6 /* PlacementSettings.swift */; };
 		3003B01027EB98A700EA58B6 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B00F27EB98A700EA58B6 /* Slider.swift */; };
 		3003B01227EB98BB00EA58B6 /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B01127EB98BB00EA58B6 /* ThresholdPanGesture.swift */; };
+		3003B05C2811F35F00EA58B6 /* WalletConnectSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3003B05B2811F35F00EA58B6 /* WalletConnectSwift */; };
+		3003B05E2811FA1800EA58B6 /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3003B05D2811FA1800EA58B6 /* WalletConnect.swift */; };
 		3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D4B926C82F6B00323BCB /* GallifyApp.swift */; };
 		3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4BD26C82F6D00323BCB /* Assets.xcassets */; };
 		3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004D4C026C82F6D00323BCB /* Preview Assets.xcassets */; };
@@ -290,6 +292,7 @@
 		3003B00F27EB98A700EA58B6 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		3003B01127EB98BB00EA58B6 /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
 		3003B01327F6983E00EA58B6 /* Gallify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gallify.entitlements; sourceTree = "<group>"; };
+		3003B05D2811FA1800EA58B6 /* WalletConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletConnect.swift; sourceTree = "<group>"; };
 		3004D4B626C82F6B00323BCB /* Gallify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3004D4B926C82F6B00323BCB /* GallifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallifyApp.swift; sourceTree = "<group>"; };
 		3004D4BD26C82F6D00323BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -466,6 +469,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3003B05C2811F35F00EA58B6 /* WalletConnectSwift in Frameworks */,
 				FC9EED7C2762AD7E00F831DC /* FocusEntity in Frameworks */,
 				F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */,
 			);
@@ -1138,6 +1142,7 @@
 				316C527027287B6B00E28609 /* VerifyEmailView */,
 				3152F696271747E20061F72E /* PrivacyPolicyView */,
 				3152F697271748150061F72E /* PhoneVerificationView */,
+				3003B05D2811FA1800EA58B6 /* WalletConnect.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1463,6 +1468,7 @@
 			name = Gallify;
 			packageProductDependencies = (
 				FC9EED7B2762AD7E00F831DC /* FocusEntity */,
+				3003B05B2811F35F00EA58B6 /* WalletConnectSwift */,
 			);
 			productName = Gallify;
 			productReference = 3004D4B626C82F6B00323BCB /* Gallify.app */;
@@ -1540,6 +1546,7 @@
 			mainGroup = 3004D4AD26C82F6A00323BCB;
 			packageReferences = (
 				FC9EED7A2762AD7E00F831DC /* XCRemoteSwiftPackageReference "FocusEntity" */,
+				3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */,
 			);
 			productRefGroup = 3004D4B726C82F6B00323BCB /* Products */;
 			projectDirPath = "";
@@ -1847,6 +1854,7 @@
 				30521387278A502700CE0224 /* SelfProfileFeatured.swift in Sources */,
 				3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */,
 				33E41CDF27FFB68E0037FDBC /* Liked.swift in Sources */,
+				3003B05E2811FA1800EA58B6 /* WalletConnect.swift in Sources */,
 				3129ADCC26F40E3B00172808 /* SelfProfileViewController.swift in Sources */,
 				318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */,
 				311E93832752FB1C005DFE12 /* Reels.swift in Sources */,
@@ -2241,6 +2249,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WalletConnect/WalletConnectSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		FC9EED7A2762AD7E00F831DC /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
@@ -2252,6 +2268,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3003B05B2811F35F00EA58B6 /* WalletConnectSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */;
+			productName = WalletConnectSwift;
+		};
 		FC9EED7B2762AD7E00F831DC /* FocusEntity */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FC9EED7A2762AD7E00F831DC /* XCRemoteSwiftPackageReference "FocusEntity" */;

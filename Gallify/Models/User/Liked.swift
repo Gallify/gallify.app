@@ -17,11 +17,18 @@ class Liked: Encodable, Decodable, ObservableObject {
     }
     
     @Published var liked: [String]
+    /*
+     "artId": "art/id",
+     "userId": "users/id"
+   timestamp
+     */
 
     
     init() {
 
         liked = [String]()
+        
+      
 
     }
 
