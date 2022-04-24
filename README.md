@@ -3,7 +3,7 @@
 
 __Mission:__  *To change the art world forever.* . . . . . [Gallify.app](https://www.gallify.app/) , [Litepaper](https://www.canva.com/design/DAEgfhl5PjU/hrzMDeSBWvdyQFlguJovuQ/view?utm_content=DAEgfhl5PjU&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
 
-__Sprint 23:__ pril 24th - May 8th . 14 Days Left!
+__Sprint 23:__ April 24th - May 8th . 14 Days Left!
 
 __Goal:__ 
       
