@@ -4,6 +4,7 @@
 //
 //  Created by Gianluca Profio on 9/26/21.
 //
+
 import SwiftUI
 import SDWebImageSwiftUI
 
@@ -22,22 +23,7 @@ struct CollectionReelListing: View {
     @State var scrollTo = 0
     @State var showThumbnail = true
     @State var text3Dmodel = "Load 3D Artwork"
-    
-//    Add To Collection Pop-Up Integration
-    var actionSheet: ActionSheet {
-        ActionSheet(title: Text("Add to a Collection"), message: Text("Your Collections:"), buttons: [
-            .default(Text("Collection 1")),
-            .default(Text("Collection 2")),
-            .default(Text("Like")) {
-                Task {
-                    await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
-                    //reload library
-                }
-
-            },
-            .destructive(Text("Cancel"))
-        ])
-    }
+    @State var artLiked = false
     
     var body: some View {
         
@@ -87,11 +73,27 @@ struct CollectionReelListing: View {
                                 
                                 Spacer()
                                 
+                                Button(action: {
+                                    
+                                    // Add firebase methods to make changes on backend
+                                    artLiked.toggle()
+                                    
+                                }, label: {
+                                    
+                                    LikeButton(imageHeight: screenHeight / 40, imageWidth: screenWidth / 18.5, liked: artLiked)
+                                        .padding(.vertical, screenWidth / 75)
+                                    
+                                })
+                                
+                                /*Text("$400")
+                                    .font(.system(size: screenWidth / 20, weight: .light))
+                                    .padding(.vertical, screenWidth / 75)*/
+                                
                                 if(artwork.forSale == true) {
                                     
                                     Text("$\(artwork.price)")
                                         .font(.system(size: screenWidth / 20, weight: .light))
-                                        .padding(.trailing, screenWidth / 25)
+                                        .padding(.vertical, screenWidth / 75)
                                     
                                 }
                                 
@@ -104,7 +106,7 @@ struct CollectionReelListing: View {
                                                                 
                                     Image(systemName: "ellipsis")
                                         .foregroundColor(.primary)
-                                        .padding(.trailing, 10)
+                                        .padding(.trailing, screenWidth / 25)
                                                                 
                                 })
                                 .actionSheet(isPresented: $firestoreQuery.showArtOptions) {

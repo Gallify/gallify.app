@@ -9,10 +9,34 @@ import SwiftUI
 
 struct LikeButton: View {
     
+    var imageHeight: CGFloat
+    var imageWidth: CGFloat
+    var liked: Bool
+    
     var body: some View {
         
-        Image(systemName: "heart.fill")
-            .foregroundColor(Color("Gallify-Pink"))
+        /*if liked {
+            
+            Image(systemName: "heart.fill")
+                .resizable()
+                .frame(width: imageWidth, height: imageHeight)
+                .foregroundColor(Color("Gallify-Pink"))
+            
+        }
+        
+        else {
+            
+            Image(systemName: "heart")
+                .resizable()
+                .frame(width: imageWidth, height: imageHeight)
+                .foregroundColor(.black)
+            
+        }*/
+        
+        Image(systemName: liked ? "heart.fill" : "heart")
+            .resizable()
+            .frame(width: imageWidth, height: imageHeight)
+            .foregroundColor(liked ? Color("Gallify-Pink") : Color.black)
         
     }
     
@@ -20,6 +44,6 @@ struct LikeButton: View {
 
 struct LikeButton_Previews: PreviewProvider {
     static var previews: some View {
-        LikeButton()
+        LikeButton(imageHeight: UIScreen.main.bounds.height / 40, imageWidth: UIScreen.main.bounds.width / 18.5, liked: true)
     }
 }
