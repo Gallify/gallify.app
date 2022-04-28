@@ -11,13 +11,12 @@ import FirebaseAuth
 import SDWebImageSwiftUI
 
 @MainActor
-struct SearchResultView: View {
+struct ArtSearchResult: View {
         
     let screenHeight: CGFloat
     let screenWidth: CGFloat
     let artwork: Art
     @State var showingSheet = false
-    
     
     @EnvironmentObject var firestoreQuery: FirestoreQuery
         
@@ -79,14 +78,14 @@ struct SearchResultView: View {
                 
                 
                 Button(action: {
-                    firestoreQuery.showSearchArtOptions = true
+                    firestoreQuery.showArtOptions = true
                 }, label: {
                     
                     Image(systemName: "ellipsis")
                         .foregroundColor(.black)
                     
                 })
-                    .actionSheet(isPresented: $firestoreQuery.showSearchArtOptions) {
+                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
                         ActionSheet(
                             title: Text("Select"),
                             buttons: [
@@ -98,7 +97,7 @@ struct SearchResultView: View {
                                 .default(Text("Cancel")) {
                                     
                                     //firestoreQuery.addToPlaylist(artwork.art_id)
-                                    firestoreQuery.showSearchArtOptions = false
+                                    firestoreQuery.showArtOptions = false
                                 }
                             ]
                         )
@@ -109,20 +108,13 @@ struct SearchResultView: View {
   
             }
             .padding(.horizontal, screenWidth / 25)
-            .padding(.bottom, screenHeight / 80)
-            .padding(.top, (screenHeight / 80)-10)
+            .padding(.top, screenHeight / 80)
             .background(Color.white)
+            
         }
             
     }
     
 }
 
-}
-
-//to be changed.
-struct SearchResultView_Previews: PreviewProvider {
-    static var previews: some View {
-        OtherSearchTemplate(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width, image: Image("umbagog"), title: "Starry Night", searchType: "Art", artistName: "Adele")
-    }
 }

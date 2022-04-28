@@ -12,90 +12,87 @@ import ARKit
 
 struct CollectionReelHeader: View {
     
-    @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @EnvironmentObject var viewModel: TabBarViewModel
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
     @Environment(\.presentationMode) var presentationMode
     
-    
-    @StateObject var modelsViewModel = ModelsViewModel()
-    @StateObject var placementSettings = PlacementSettings()
-    @StateObject var modelDeletionManager = ModelDeletionManager()
+    //@StateObject var modelsViewModel = ModelsViewModel()
+    //@StateObject var placementSettings = PlacementSettings()
 //
 //    @EnvironmentObject var modelsViewModel : ModelsViewModel
 //    @EnvironmentObject var placementSettings : PlacementSettings
     
-    let screenWidth: CGFloat
-    let screenHeight: CGFloat
-    
     var body: some View {
+        
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
+        
         HStack {
             
-            Button{
-                //if else checks if both camera and reels screen are minimized currently.
-                if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
-                    firestoreQuery.bothScreensMinimized = true
-                }
-                else{
-                    firestoreQuery.bothScreensMinimized = false
-                }
-                firestoreQuery.showCameraScreen = false
-                firestoreQuery.showNewScreen = false
+            Button {
+                
+                firestoreQuery.showNewScreen.toggle()
                 firestoreQuery.artPlaying = true
-                firestoreQuery.cameraPlaying = false
+                
             }
                 label: {
+                    
                     Image(systemName: "chevron.down")
-                        .font(.system(size: 30))
-                        .padding(.leading)
+                        .resizable()
+                        .frame(width: screenWidth / 18, height: screenHeight / 54)
+                        .padding(.leading, screenWidth / 25)
+                    
                 }
                 .buttonStyle(ThemeAnimationStyle())
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("")
+                .padding(.vertical, screenHeight / 80)
                 .navigationBarHidden(true)
                 .onTapGesture {
-                    firestoreQuery.showCameraScreen.toggle()
+                    firestoreQuery.showNewScreen.toggle()
                 }
-
-            Spacer() 
             
-
-            if (ARConfiguration.isSupported) {
-                Button{
-                    //if else checks if both camera and reels screen are minimized currently.
-                    if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
-                        firestoreQuery.bothScreensMinimized = true
-                    }
-                    else{
-                        firestoreQuery.bothScreensMinimized = false
-                    }
-                    firestoreQuery.showCameraScreen = true
-                    firestoreQuery.showNewScreen = false
-                    firestoreQuery.cameraPlaying = true
-                    firestoreQuery.artPlaying = false
-                }
+            /*NavigationLink (  //ARViewContainer used to be SwiftUIView()
+                destination: FullARView(screenWidth: screenWidth, screenHeight: screenHeight)
+                    .environmentObject(placementSettings)
+                    .environmentObject(sessionSettings)
+                    .environmentObject(scenemanager)
+                    .environmentObject(modelsViewModel)
+                    .environmentObject(modelDeletionManager)
+                    .edgesIgnoringSafeArea(.all)
+                    //.navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true), //comma?
+                
+                label: {
+                Image (systemName: "arkit")
+                    .resizable()
+                    .foregroundColor(Color.black)
+                    .frame(width: screenWidth / 10, height: screenWidth / 10)
+                    .padding(.trailing, screenWidth / 30)
+                    .animation(.easeInOut)
+                })
+                .buttonStyle(ThemeAnimationStyle())
+                .navigationBarBackButtonHidden(true)
+                .navigationBarTitle("")*/
+                
+            Spacer()
+            
+            /*if (ARConfiguration.isSupported) {
+                 NavigationLink(destination: FullARView()
+                                 .environmentObject(modelsViewModel)
+                                 .environmentObject(placementSettings)
+                                 .environmentObject(firestoreQuery)
+                               // .onAppear{ async{ await firestoreQuery.fetchModelData()}} //called in reels.
+                     
+                 ,
                     label: {
-                        if (ARConfiguration.isSupported) {
-                            Image(systemName: "arkit")
-                                .font(.system(size: 30))
-                                .padding(.leading)
-                                .foregroundColor(.primary)
-                        }
-                    }
-                    .buttonStyle(ThemeAnimationStyle())
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
-                    .onTapGesture {
-                        firestoreQuery.showCameraScreen = true
-                        firestoreQuery.showNewScreen = false
-                    }
-            }
+                     Image(systemName: "arkit")
+                         .font(.system(size: 30))
+                         .padding(.leading)
+                         .foregroundColor(.primary)
+                 })
+             }*/
+
         }
+        
     }
+    
 }
-
-struct CollectionReelHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        CollectionReelHeader(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
-    }
-}
-

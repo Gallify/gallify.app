@@ -12,141 +12,115 @@ import SDWebImageSwiftUI
 struct CollectionsView: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
-    @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @EnvironmentObject var firestoreQuery: FirestoreQuery
     @State var showAddAlert = false
-    @State var showUnapprovedAlert = false
     @Environment(\.dismiss) var dismiss
-
     
     let art : Art
     
     var body: some View {
         
-        let screenHeight = UIScreen.main.bounds.height
-        let screenWidth = UIScreen.main.bounds.width
-        
-        
-       
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
        
         VStack {
             
-            Text("Add to playlist or collection")
-                .underline()
-                .padding(.top, 10)
-                .font(Font.body.bold())
-                .foregroundColor(.primary)
-               
+            Text("Add to collection")
+                .padding(.top, screenHeight / 54)
+                .font(.system(size: screenWidth / 22, weight: .semibold))
             
-            
-            ScrollView{
+            ScrollView {
         
                 ForEach(firestoreQuery.userLibrary){ playlist in
-                
                     
                     //don't show if liked, owned, created, or review.
                     let words = ["Liked", "Owned", "Created", "Review"] //can't add to any of these
                     let combinedResult = words.contains(where: playlist.name.contains)
-                    if(!combinedResult && playlist.creator_url == firestoreQuery.data.uid){ //if it is your playlist/collection
-                            HStack {
+                    
+                    if(!combinedResult && firestoreQuery.playlist.creator_url == firestoreQuery.data.uid){ //if it is your playlist/collection
+                            
+                        HStack {
                                  
-                                SelfProfileCollectionListImage(screenHeight: screenHeight, screenWidth: screenWidth, playlist: playlist)
+                            SelfProfileCollectionListImage(imageHeight: screenHeight / 16.25, imageWidth: screenWidth / 7.5, playlist: playlist)
+                                    
+                            VStack(alignment: .leading) {
+                                    
+                                Text(playlist.name)
+                                    .font(.system(size: screenWidth / 23.5))
                                 
-//                                WebImage(url: URL(string: playlist.cover_art_url))
-//                                    .resizable()
-//                                    .frame(width: screenWidth / 5, height: screenHeight / 10.8)
-                                    
-                                VStack(alignment: .leading) {
-                                    
-                                    Text(playlist.name)
-                                        .font(.system(size: screenWidth / 17, weight: .semibold))
-                                        .foregroundColor(.black)
-                                        .lineLimit(1)
+                                Text("by " + playlist.creator)
+                                    .font(.system(size: screenWidth / 30, weight: .light))
                                         
-                                }
-                                .padding(.leading, screenWidth / 37.5)
-                                    
-                                Spacer()
-                                    
                             }
-                            .padding(.vertical, screenHeight / 160)
-                            .padding(.leading, screenWidth / 15)
-                            .onTapGesture {
+                                    
+                            Spacer()
+                                    
+                        }
+                        .padding(.vertical, screenHeight / 160)
+                        .padding(.leading, screenWidth / 25)
+                        .onTapGesture {
+                            
                                 Task {
                                     
-                                    if(art.searchType != 2){
-                                        //if playlist is a collection, only add if they are owner or creator.
-                                        if(playlist.playlist_type == "Collection"){
-                                            if(art.ownerId==firestoreQuery.data.uid || art.creatorId==firestoreQuery.data.uid ){
-                                                let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
-                                                impactHeavy.impactOccurred()
-                                                
-                                                await firestoreQuery.addArtToPlaylist(art: art, the_playlist: playlist)
-                                                await firestoreQuery.getUserLibrary()
-                                                
-                                                if(playlist.name == "Featured"){
-                                                    await firestoreQuery.getFeaturedPlaylist()
-                                                    await firestoreQuery.getFeaturedArt()
-                                                }
-                                                //dismiss view
-                                                dismiss()
-                                            }
-                                            else{
-                                                //else - alert: not owned or created by you. So cannot add to collection.
-                                                showAddAlert = true
-                                            }
+                                    //if playlist is a collection, only add if they are owner or creator.
+                                    if(playlist.playlist_type == "Collection") {
+                                        
+                                        if(art.ownerId==firestoreQuery.data.uid || art.creatorId==firestoreQuery.data.uid ) {
                                             
-                                        }
-                                        else{
                                             let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
                                             impactHeavy.impactOccurred()
                                             
                                             await firestoreQuery.addArtToPlaylist(art: art, the_playlist: playlist)
                                             await firestoreQuery.getUserLibrary()
+                                            
+                                            if(playlist.name == "Featured") {
+                                                
+                                                await firestoreQuery.getFeaturedPlaylist()
+                                                await firestoreQuery.getFeaturedArt()
+                                                
+                                            }
                                             //dismiss view
                                             dismiss()
-                                        
+                                            
                                         }
+                                        
+                                        else {
+                                            
+                                            //else - alert: not owned or created by you. So cannot add to collection.
+                                            showAddAlert = true
+                                        }
+                                        
                                     }
-                                    else{
-                                        showUnapprovedAlert = true //then user is trying to show unapproved art.
+                                    
+                                    else {
+                                        
+                                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
+                                        impactHeavy.impactOccurred()
+                                        
+                                        await firestoreQuery.addArtToPlaylist(art: art, the_playlist: playlist)
+                                        await firestoreQuery.getUserLibrary()
+                                        //dismiss view
+                                        dismiss()
+                                    
                                     }
+                                    
                                 }
+                                
                             }
                             .alert(isPresented: $showAddAlert) {
                                 Alert(title: Text("Cannot Add to Collection"), message: Text("You can only add content you own or created to a collection"), dismissButton: .default(Text("Cancel")))
-                            }
-                            .alert(isPresented: $showUnapprovedAlert) {
-                                Alert(title: Text("Can't Add Just Yet!"), message: Text("The art your adding has not been reviewed and approved for the public."), dismissButton: .default(Text("Cancel")))
                             }
                     
                     }
             
                 }
-            .padding(.vertical, screenHeight / 80)
-            .navigationBarHidden(true)
-            .onAppear{
-                print(firestoreQuery.userLibrary.count)
+                .padding(.vertical, screenHeight / 80)
+                .navigationBarHidden(true)
+                
             }
             
-                
-    //            Spacer()
-    //
-    //            Button("Press to dismiss") {
-    //                       dismiss()
-    //            }
-            }
         }
         
     }
-
     
 }
-
-
-//struct CollectionsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CollectionsView()
-////            .environmentObject(TabBarViewModel())
-////            .environmentObject(FirestoreQuery())
-//    }
-//}

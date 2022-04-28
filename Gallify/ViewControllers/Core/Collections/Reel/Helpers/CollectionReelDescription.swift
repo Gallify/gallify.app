@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct CollectionReelDescription: View {
-    let screenWidth: CGFloat
-    let screenHeight: CGFloat
+    
     let artDetails: Art
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
@@ -20,159 +19,119 @@ struct CollectionReelDescription: View {
     
     @State var createdString = ""
     @State var latestString = ""
-   
-//    let twoDays: TimeInterval = 2 * 24 * 60 * 60
-//    let date = latestDate.advanced(by: twoDays)
-//
 
     var body: some View {
-        VStack {
+        
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
+        
+        HStack {
             
-            HStack {
-                VStack (alignment: .leading) {
+            VStack (alignment: .leading) {
+                
+                HStack {
                     
-                    HStack{
-                        Text(artDetails.desc)
-                    }
-                    .padding(.bottom, 10)
+                    Text("Owned by:")
+                        .font(.system(size: screenWidth / 25))
                     
-                    HStack {
-                        Text("Owned by •")
-                            .font(.system(size: 16))
+                    NavigationLink (destination: OtherProfileView(otherUserId: artDetails.ownerId), label: {
                         
-                        NavigationLink (
-                            destination: OtherProfileView(otherUserId: artDetails.ownerId),
-                            label: {
-                                Text(artDetails.owner)
-                                    .font(.system(size: 16))
-                                    .foregroundColor(Color("Gallify-Pink"))
-                                    .fontWeight(.bold)
-                            })
-                            .buttonStyle(ThemeAnimationStyle())
-                            .navigationBarBackButtonHidden(true)
-                            .navigationBarTitle("")
-                            .navigationBarHidden(true)
-                    }
-                    
-                    HStack {
-                        Text("Created by •")
-                            .font(.system(size: 16))
+                        Text(artDetails.owner)
+                            .font(.system(size: screenWidth / 25))
+                            .underline()
+                            .foregroundColor(.black)
                         
-                        NavigationLink (
-                            destination: OtherProfileView(otherUserId: artDetails.creatorId),
-                            label: {
-                                Text(artDetails.creator)
-                                    .font(.system(size: 16))
-                                    .foregroundColor(Color(.blue))
-                                    .fontWeight(.bold)
-                            })
-                            .buttonStyle(ThemeAnimationStyle())
-                            .navigationBarBackButtonHidden(true)
-                            .navigationBarTitle("")
-                            .navigationBarHidden(true)
-                    }
-                    
-                    if(artDetails.collection != ""){
-                        HStack {
-                            Text("Collection •")
-                                .font(.system(size: 16))
-                            NavigationLink (
-                               destination: CollectionGenericView(playlist: the_reel_desc_playlist),
-                                label: {
-                                    Text(the_reel_desc_playlist.name)
-                                        .font(.system(size: 16))
-                                        .underline()
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.black)
-                                        .onTapGesture {
-                                            firestoreQuery.playlist = the_reel_desc_playlist
-                                        }
-                                })
-                        }
-                    }
-                    
-                    
-                    HStack {
-                        Text("Recent •")
-                            .font(.system(size: 16))
-                        Text(latestString)
-                            .font(.system(size: 16))
-                    }
-                    
-                    
-                    HStack {
-                        Text("Created •")
-                            .font(.system(size: 16))
-                        Text(createdString)
-                            .font(.system(size: 16))
-                    }
-                    
+                    })
+                    .navigationBarHidden(true)
                     
                 }
-                .padding(.leading)
-                .frame(width: screenWidth / 1.5, height: screenWidth / 1.5)
                 
-                VStack (alignment: .trailing) {
+                HStack {
                     
-                    if(artDetails.forSale){
-                        Button(action: {
-                            
-                            let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
-                            impactHeavy.impactOccurred()
-                            
-                            if let url = URL(string: "https://metamask.app.link/dapp/https://open.gallify.app/market/" + artDetails.artId) {
-                               UIApplication.shared.open(url)
-                            }
-
-                        }) {
-                            ZStack {
-                                Text("Buy")
-//                                    .font(.system(size: 18, weight: .bold))
-//                                    .foregroundColor(Color.white)
-//                                    .padding()
-//                                    .overlay(
-//                                        RoundedRectangle(cornerRadius: 20)
-//                                            .stroke(Color.blue)
-//                                            .frame(width: screenWidth / 5, height: screenWidth / 10)
-//                                            .background(Color.blue)
-//                                    )
-//
-                                    .font(.system(size: screenWidth / 30, weight: .bold))
-                                    .foregroundColor(Color.white)
-                                    .padding(.horizontal, screenWidth / 17)
-                                    .padding(.vertical, screenHeight / 120)
-                                    .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                                    .cornerRadius(screenWidth / 15)
+                    Text("Created by:")
+                        .font(.system(size: screenWidth / 25))
+                    
+                    NavigationLink (destination: OtherProfileView(otherUserId: artDetails.creatorId), label: {
+                        
+                        Text(artDetails.creator)
+                            .font(.system(size: screenWidth / 25))
+                            .underline()
+                            .foregroundColor(.black)
+                        
+                    })
+                    .navigationBarHidden(true)
+                    
+                }
+                
+                if(artDetails.collection != "") {
+                    
+                    HStack {
+                        
+                        Text("Collection:")
+                            .font(.system(size: screenWidth / 25))
+                        
+                        NavigationLink (destination: CollectionGenericView(playlist: the_reel_desc_playlist), label: {
                                 
-                            }
-                            .padding(.trailing, screenWidth / 37.5)
-                        }
+                            Text(the_reel_desc_playlist.name)
+                                .font(.system(size: screenWidth / 25))
+                                .underline()
+                                .foregroundColor(.black)
+                                .onTapGesture {
+                                    firestoreQuery.playlist = the_reel_desc_playlist
+                                }
+                            
+                        })
+                        .navigationBarHidden(true)
+                        
                     }
                     
-                    if(artDetails.tokenId != 0){
-                        Button(action: {
-                            if let url = URL(string: "https://polygonscan.com/token/" + String(artDetails.tokenId)) {
-                               UIApplication.shared.open(url)
-                            }
-                        }) {
-                            HStack {
-                                Text("\(artDetails.tokenId)")
-                                    .font(.system(size: 10))
-                            }
-                        }
-                    }
+                }
+                
+                Text("Description:  " + artDetails.desc)
+                    .font(.system(size: screenWidth / 25))
+                
+            }
+            
+            Spacer()
+            
+            VStack {
+                
+                if(artDetails.forSale) {
                     
-                    Spacer()
+                    Button(action: {
+                        
+                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
+                        impactHeavy.impactOccurred()
+                        
+                        if let url = URL(string: "https://metamask.app.link/dapp/https://open.gallify.app/market/" + artDetails.artId) {
+                           UIApplication.shared.open(url)
+                        }
+                        
+                    }, label: {
+                        
+                        Text("Buy")
+                            .font(.system(size: screenWidth / 25, weight: .light))
+                            .foregroundColor(Color.white)
+                            .padding(.horizontal, screenWidth / 15)
+                            .padding(.vertical, screenHeight / 80)
+                            .background(Color("Gallify-Pink"))
+                            .cornerRadius(screenWidth / 20)
+                            .padding(.vertical, screenHeight / 160)
+                        
+                    })
                     
                 }
                 
             }
+                
         }
-        
-        .onAppear { async {await NetworkingCall()}}
+        .padding(.horizontal, screenWidth / 25)
+        .padding(.vertical, screenHeight / 54)
+        .onAppear { async {await NetworkingCall()} }
 
     }
-     func NetworkingCall() async{
+    
+    func NetworkingCall() async {
          
         //convert recent date
        //  latestDate = artDetails.latestHistoryDate.dateValue()
@@ -186,15 +145,7 @@ struct CollectionReelDescription: View {
          if(artDetails.collection != ""){
              the_reel_desc_playlist = await firestoreQuery.getReelPlaylist(playlist_id: artDetails.collection)
          }
-      
         
     }
     
-    
 }
-
-//struct CollectionReelDescription_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CollectionReelDescription(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
-//    }
-//}

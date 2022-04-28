@@ -7,41 +7,45 @@
 
 import SwiftUI
 
-
-
-
-
 struct DiscoverSearch: View {
     
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @EnvironmentObject var viewModel: TabBarViewModel
-    //@EnvironmentObject var searchModel: SearchViewModel
-    //@Binding var searchText: String
+    
+    let searchType: String
     
     var body: some View {
+        
         let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
         
-        
-        VStack{
+        VStack {
+            
             ScrollView(showsIndicators: false) {
 
-                if(firestoreQuery.foundContacts.count > 0){
-                    if(firestoreQuery.foundContacts.count > 20){
+                if(firestoreQuery.foundContacts.count > 0) {
+                    
+                    if(firestoreQuery.foundContacts.count > 20) {
+                        
                         ForEach(0...19, id: \.self) { i in
-                            
-                            HStack{
-                                Text("\(firestoreQuery.foundContacts.count)")
-                                Spacer()
-                            }
-                            .offset(x: 10)
                             
                             //NavigationLink(destination: OtherProfileViewVerified(), label: {
                                                 
                                 HStack {
                                     
-                                    SearchResultView(screenHeight: screenHeight, screenWidth: screenWidth, artwork: firestoreQuery.foundContacts[i])
+                                    if searchType == "User" {
                                         
+                                        /*UserSearchResult(screenHeight: screenHeight, screenWidth: screenWidth, user: firestoreQuery.foundContacts_users[i])*/
+                                        
+                                        UserSearchResult(screenHeight: screenHeight, screenWidth: screenWidth)
+                                        
+                                    }
+                                    
+                                    else {
+                                        
+                                        ArtSearchResult(screenHeight: screenHeight, screenWidth: screenWidth, artwork: firestoreQuery.foundContacts[i])
+                                        
+                                    }
                                         
                                 }
                                     
@@ -59,21 +63,27 @@ struct DiscoverSearch: View {
                             }
                         }
                     }
-                    else{
-                        
-                        HStack{
-                            Text("\(firestoreQuery.foundContacts.count)")
-                            Spacer()
-                        }
-                        .offset(x: 10)
-                        
+                    
+                    else {
                         
                         ForEach(0...firestoreQuery.foundContacts.count - 1, id: \.self) { i in
                             
                             
                            // NavigationLink(destination: OtherProfileViewVerified(), label: {
                                         
-                                SearchResultView(screenHeight: screenHeight, screenWidth: screenWidth, artwork: firestoreQuery.foundContacts[i])
+                            if searchType == "User" {
+                                
+                                /*UserSearchResult(screenHeight: screenHeight, screenWidth: screenWidth, user: firestoreQuery.foundContacts_users[i])*/
+                                
+                                UserSearchResult(screenHeight: screenHeight, screenWidth: screenWidth)
+                                
+                            }
+                            
+                            else {
+                                
+                                ArtSearchResult(screenHeight: screenHeight, screenWidth: screenWidth, artwork: firestoreQuery.foundContacts[i])
+                                
+                            }
                                 
 //                                HStack {
 //
@@ -88,11 +98,6 @@ struct DiscoverSearch: View {
 //                                }
                                     
                           //  })
-                            
-                            
-                            
-                            
-                            
                             
                         }
                         .listStyle(.plain)
@@ -123,18 +128,10 @@ struct DiscoverSearch: View {
                     
                 }
                 
-                
-               
-
-                
-                
-                
-                
             }
 
         }
         .navigationBarHidden(true)
- 
         
     }
 }

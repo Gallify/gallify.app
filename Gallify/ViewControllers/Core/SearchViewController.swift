@@ -101,10 +101,9 @@ extension View {
 
 }
 
-
-
 //Search/Explore Screen view.
 struct SearchView : View {
+    
     @State var email = ""
     @State var password = ""
     @EnvironmentObject var viewModel : SearchViewModel
