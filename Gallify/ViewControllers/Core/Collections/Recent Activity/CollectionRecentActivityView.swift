@@ -17,19 +17,19 @@ struct CollectionRecentActivityView: View {
         
         NavigationView {
             
-            VStack{
+            VStack {
                 
                 CollectionRecentActivityHeader(screenWidth: screenWidth, screenHeight: screenHeight, presentationMode: _presentationMode)
                 
                 ScrollView (showsIndicators: false) {
                     
-                    CollectionRecentActivityRow(screenWidth: screenWidth, screenHeight: screenHeight)
+                    CollectionRecentActivityRow()
                     
                 }
                 
                 Spacer()
                 
-                CollectionRecentActivityFooter(screenWidth: screenWidth, screenHeight: screenHeight)
+                CollectionRecentActivityFooter()
                 
             }
             

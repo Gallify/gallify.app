@@ -23,7 +23,6 @@ struct OtherProfileCollectionList: View {
                         
                 Text("Collections")
                     .font(.system(size: screenWidth / 12.5, weight: .semibold))
-            
                 
                 Spacer()
                         
@@ -41,7 +40,7 @@ struct OtherProfileCollectionList: View {
                         
                         HStack {
                             
-                            SelfProfileCollectionListImage(screenHeight: screenHeight, screenWidth: screenWidth, playlist: playlist)
+                            SelfProfileCollectionListImage(imageHeight: screenHeight / 10.8, imageWidth: screenWidth / 5, playlist: playlist)
                            
                             VStack(alignment: .leading) {
                                     

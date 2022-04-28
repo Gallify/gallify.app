@@ -16,62 +16,68 @@ import SDWebImageSwiftUI
 
 struct SelfProfileCollectionListImage: View {
     
-    let screenHeight: CGFloat
-    let screenWidth: CGFloat
+    let imageHeight: CGFloat
+    let imageWidth: CGFloat
     let playlist: Playlist
     
     var body: some View {
         
-        if(playlist.name == "Liked"){
+        if(playlist.name == "Liked") {
+            
             WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fliked.png?alt=media&token=653389a3-10c9-4395-babb-791e91227f42"))
                 .resizable()
-                .frame(width: screenWidth / 5, height: screenHeight / 10.8)
-                //.cornerRadius(5)
-                //.overlay(RoundedRectangle(cornerRadius: 10)
-        }
-        else if(playlist.name == "Review"){
-            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Freview.png?alt=media&token=51e5008f-9586-49ba-beec-d28d4b04cc91"))
-                .resizable()
-                .frame(width: screenWidth / 5, height: screenHeight / 10.8)
-                //.cornerRadius(5)
-        }
-        else if(playlist.name == "Created"){
-            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fcreated.png?alt=media&token=bdba6772-b70d-4bc3-9d9d-78e9fb7c0713"))
-                .resizable()
-                .frame(width: screenWidth / 5, height: screenHeight / 10.8)
-                //.cornerRadius(5)
-        }
-        else if(playlist.name == "Owned"){
-            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fowned.jpg?alt=media&token=c7c9f2df-c813-4451-b4e4-ea0f1bc432c1"))
-                .resizable()
-                .frame(width: screenWidth / 5, height: screenHeight / 10.8)
-                //.cornerRadius(5)
-        }
-        else if(playlist.name == "Featured"){
-            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Ffeatured.png?alt=media&token=2e91e5ec-ed5f-4fbc-8e31-f68680d0b434"))
-                .resizable()
-                .frame(width: screenWidth / 5, height: screenHeight / 10.8)
-                //.cornerRadius(5)
-        }
-        else if(playlist.cover_art_url == ""){
-            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d"))
-                .resizable()
-                .frame(width: screenWidth / 5, height: screenHeight / 10.8)
-                //.cornerRadius(5)
+                .frame(width: imageWidth, height: imageHeight)
             
         }
-        else{
+        
+        else if(playlist.name == "Review") {
+            
+            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Freview.png?alt=media&token=51e5008f-9586-49ba-beec-d28d4b04cc91"))
+                .resizable()
+                .frame(width: imageWidth, height: imageHeight)
+            
+        }
+        
+        else if(playlist.name == "Created") {
+            
+            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fcreated.png?alt=media&token=bdba6772-b70d-4bc3-9d9d-78e9fb7c0713"))
+                .resizable()
+                .frame(width: imageWidth, height: imageHeight)
+            
+        }
+        
+        else if(playlist.name == "Owned") {
+            
+            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fowned.jpg?alt=media&token=c7c9f2df-c813-4451-b4e4-ea0f1bc432c1"))
+                .resizable()
+                .frame(width: imageWidth, height: imageHeight)
+                
+        }
+        
+        else if(playlist.name == "Featured") {
+            
+            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Ffeatured.png?alt=media&token=2e91e5ec-ed5f-4fbc-8e31-f68680d0b434"))
+                .resizable()
+                .frame(width: imageWidth, height: imageHeight)
+                
+        }
+        
+        else if(playlist.cover_art_url == "") {
+            
+            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d"))
+                .resizable()
+                .frame(width: imageWidth, height: imageHeight)
+            
+        }
+        
+        else {
+            
             WebImage(url: URL(string: playlist.cover_art_url))
                 .resizable()
-                .frame(width: screenWidth / 5, height: screenHeight / 10.8)
-                //.cornerRadius(5)
+                .frame(width: imageWidth, height: imageHeight)
+            
         }
 
     }
+    
 }
-
-
-
-
-
-

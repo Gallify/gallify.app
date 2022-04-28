@@ -61,15 +61,13 @@ struct SelfProfileCollectionList: View {
             .padding(.top, -screenHeight / 54)
             
             ForEach(firestoreQuery.userLibrary.reversed()){ playlist in
-                
-                
                     
                 NavigationLink(destination: CollectionGenericView(playlist: playlist),
                                label: {
                     
                     HStack {
                         
-                        SelfProfileCollectionListImage(screenHeight: screenHeight, screenWidth: screenWidth, playlist: playlist)
+                        SelfProfileCollectionListImage(imageHeight: screenHeight / 10.8, imageWidth: screenWidth / 5, playlist: playlist)
                        
                         VStack(alignment: .leading) {
                                 
@@ -96,8 +94,6 @@ struct SelfProfileCollectionList: View {
                     firestoreQuery.playlist = playlist
                     
                 })
-                
-                        
                 
             }
             

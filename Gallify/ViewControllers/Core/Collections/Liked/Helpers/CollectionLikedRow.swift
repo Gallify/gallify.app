@@ -9,9 +9,7 @@ import SwiftUI
 
 struct CollectionLikedRow: View {
     
-    let screenWidth: CGFloat
-    let screenHeight: CGFloat
-
+    @EnvironmentObject var viewModel: TabBarViewModel
     
     @State private var animate1 = false
     @State private var animate2 = false
@@ -51,9 +49,13 @@ struct CollectionLikedRow: View {
     
     var body: some View {
         
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
+        
         HStack {
+            
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
+                destination: CollectionReelView(),
                 label: {
                     Image("leonardo")
                         .resizable()
@@ -96,7 +98,7 @@ struct CollectionLikedRow: View {
         
         HStack {
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
+                destination: CollectionReelView(),
                 label: {
                     Image("cat")
                         .resizable()
@@ -142,7 +144,7 @@ struct CollectionLikedRow: View {
         
         HStack {
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
+                destination: CollectionReelView(),
                 label: {
                     Image("starry-night")
                         .resizable()
@@ -190,11 +192,5 @@ struct CollectionLikedRow: View {
         
     }
     
-}
-
-struct CollectionLikedRow_Previews: PreviewProvider {
-    static var previews: some View {
-        CollectionLikedRow(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
-    }
 }
 

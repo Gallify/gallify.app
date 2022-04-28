@@ -12,33 +12,24 @@ struct DiscoverPostsView: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery : FirestoreQuery
-
     
     var body: some View {
         
         let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
         
-
-        
-      //  Text("hi")
-        
         ScrollView(showsIndicators: false) {
             
             LazyVStack {
                 
                 DiscoverPostsViewTags(screenHeight: screenHeight, screenWidth: screenWidth)
-                    .padding(.bottom, 10)
-                
-//                ForEach(firestoreQuery.discoveryPageArt) { i in
-//                    Text("\(i.name)")
-//                }
+                    .padding(.bottom, screenHeight / 160)
                 
                 DiscoverPagePosts()
                 
-                
             }
             .padding(.top, screenHeight / 160)
+            
         }
         
 //        .onRefresh(spinningColor: .primary, text: "Pull Me!", textColor: .primary, backgroundColor: .white) { refreshControl in

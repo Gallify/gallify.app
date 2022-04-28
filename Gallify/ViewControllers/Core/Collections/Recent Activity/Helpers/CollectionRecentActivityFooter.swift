@@ -9,14 +9,17 @@ import SwiftUI
 
 struct CollectionRecentActivityFooter: View {
     
-    let screenWidth: CGFloat
-    let screenHeight: CGFloat
-
+    @EnvironmentObject var viewModel: TabBarViewModel
     
     var body: some View {
+        
+        let screenHeight = viewModel.screenHeight
+        let screenWidth = viewModel.screenWidth
+        
         HStack {
+            
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
+                destination: CollectionReelView(),
                 label: {
                     Image("leonardo")
                         .resizable()
@@ -41,7 +44,7 @@ struct CollectionRecentActivityFooter: View {
                 .multilineTextAlignment(.center)
             
             NavigationLink(
-                destination: CollectionReelView(screenWidth: screenWidth, screenHeight: screenHeight),
+                destination: CollectionReelView(),
                 label: {
                     Image(systemName: "chevron.down.circle")
                         .font(.system(size: 25))
@@ -58,8 +61,3 @@ struct CollectionRecentActivityFooter: View {
     }
 }
 
-struct CollectionRecentActivityFooter_Previews: PreviewProvider {
-    static var previews: some View {
-        CollectionRecentActivityFooter(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
-    }
-}
