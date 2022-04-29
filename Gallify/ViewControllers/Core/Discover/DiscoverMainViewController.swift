@@ -106,9 +106,9 @@ struct DiscoverMainView: View {
                // .navigationBarHidden(true)
                 
                 //this is the minimized view of the reel.
-                if firestoreQuery.showNewScreen == false {
-                    
-                    if firestoreQuery.artPlaying == true {
+//                if firestoreQuery.showNewScreen == false {
+//
+//                    if firestoreQuery.artPlaying == true {
                         
                         if showCancelButton == false {
 
@@ -117,9 +117,9 @@ struct DiscoverMainView: View {
                             
                         }
                         
-                    }
-                    
-                }
+//                    }
+//                    
+//                }
                 
             
                 

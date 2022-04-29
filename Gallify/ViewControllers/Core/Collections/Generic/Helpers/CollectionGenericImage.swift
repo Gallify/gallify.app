@@ -48,6 +48,7 @@ struct CollectionGenericImage: View {
                 .resizable()
                 .frame(width: 200, height: 200)
                 .padding(.top, 20)
+                
         }
 
     }

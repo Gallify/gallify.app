@@ -35,15 +35,15 @@ struct HomeView : View {
                     
                 }
                 
-                if (firestoreQuery.showNewScreen == false) {
-                    
-                    if (firestoreQuery.artPlaying == true) {
+//                if (firestoreQuery.showNewScreen == false) {
+//                    
+//                    if (firestoreQuery.artPlaying == true) {
                         
                         MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
                         
-                    }
-                    
-                }
+//                    }
+//                    
+//                }
                     
             }
             .onAppear(perform: getMuseumCount)
@@ -70,7 +70,7 @@ struct HomeView : View {
     func NetworkingCall() async {
         
         //this gets all the data for the home page.
-       // firestoreQuery.getHome()
+        //firestoreQuery.getHome()
         
         //await firestoreQuery.getHome()
         await firestoreQuery.getHomeMuseumList()
@@ -79,7 +79,7 @@ struct HomeView : View {
         await firestoreQuery.getHomeMuseums()
 
         //getPlaylists. Gets all the data for the playlists. Called once per museum.
-        await firestoreQuery.getHomePlaylists()
+        await firestoreQuery.getHomePlaylists()//, already called in tabbar
         
     }
     

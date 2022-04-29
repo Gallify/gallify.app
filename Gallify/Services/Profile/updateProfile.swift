@@ -198,16 +198,8 @@ extension FirestoreQuery {
             self.otherUserData.followers = self.otherUserData.followers - 1
         }
         
-        
-        
-        
-        
+    
     }
-    
-    
-    
-    
-    
     
     
 }

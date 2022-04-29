@@ -40,6 +40,35 @@ extension FirestoreQuery {
         }
     }
     
+    func checkIfalreadyLiked(art: Art) async {
+        let docRef = try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
+            .collection("profile").whereField("liked", arrayContains: art.artId)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    
+                    DispatchQueue.main.async {
+                        self.isLiked = false
+                    }
+                    
+                } else {
+                    print("Current art has already been liked by user!")
+                    
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.isLiked = true
+                    }
+                    
+                    
+                }
+        }
+//        return self.isLiked
+        
+    }
+    
     func addArtToPlaylist(art: Art, playlistName: String) async {
         
         do {
@@ -49,8 +78,12 @@ extension FirestoreQuery {
                     try await FirestoreQuery.db.collection("playlists").document(p.playlist_id).updateData([
                         "art" : FieldValue.arrayUnion([art.artId])
                     ])
-                    //self.playlist = playlist
-                    //self.playlist.art.append(art.artId)
+                    //add to liked_art subcollection
+                    if(p.name == "Liked") {                         try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
+                            .collection("profile")
+                            .document("liked_art")
+                            .updateData(["liked" : FieldValue.arrayUnion([art.artId])])
+                    }
                 }
             }
             

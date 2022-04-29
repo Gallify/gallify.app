@@ -20,6 +20,15 @@ class Connections: Encodable, Decodable, ObservableObject {
     }
 
     @Published var connections: [String]
+    /*
+     {
+     {
+       "connection Ref": "users/id",
+       "connectedRef": "users/id"
+        timestamp
+     }
+     }
+     */
 
     
     init() {

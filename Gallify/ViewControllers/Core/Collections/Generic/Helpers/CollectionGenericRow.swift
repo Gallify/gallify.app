@@ -148,7 +148,12 @@ struct CollectionGenericRow: View {
                                                 
                         Button(action: {
                                                    
-                           
+                            if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                                firestoreQuery.bothScreensMinimized = true
+                            }
+                            else{
+                                firestoreQuery.bothScreensMinimized = false
+                            }
                             
                             self.art = playlist[i]//<-- update local art var to use later in the code
                             firestoreQuery.artisClicked = playlist[i].artId
@@ -168,6 +173,7 @@ struct CollectionGenericRow: View {
                                 WebImage(url: URL(string: playlist[i].thumbnailUrl))
                                     .resizable()
                                     .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+                                    
                                                                 
                                 VStack(alignment: .leading) {
                                                                     
@@ -226,8 +232,12 @@ struct CollectionGenericRow: View {
                                                             await firestoreQuery.getUserLibrary()
                                                         
                                                             if(thePlaylist.name == "Featured"){
-                                                                await firestoreQuery.getFeaturedPlaylist()
-                                                                await firestoreQuery.getFeaturedArt()
+                                                               
+                                                                    await firestoreQuery.getFeaturedPlaylist()
+                                                                    print(firestoreQuery.featuredArt.count)
+                                                                    await firestoreQuery.getFeaturedArt()
+                                                                    print(firestoreQuery.featuredArt.count)
+                                                                
                                                             }
                                                         }
                                                 },

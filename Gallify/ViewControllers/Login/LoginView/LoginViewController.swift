@@ -10,6 +10,8 @@ import UIKit
 
 class LoginAppViewModel: ObservableObject {
     
+    var walletConnect: WalletConnect!
+    
     let auth = Auth.auth()
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
@@ -183,7 +185,9 @@ class LoginAppViewModel: ObservableObject {
                 let connectionsRef = db.collection("users").document(user.uid).collection("profile").document("connections")
                 try await batch.setData(from: Connections(), forDocument: connectionsRef)
                 
-
+                let likedRef = db.collection("users").document(user.uid).collection("profile").document("liked_art")
+                try await batch.setData(from: Liked(), forDocument: likedRef)
+            
                 batch.updateData(["museums": ["p0lkJFdi7cstCJrAcYMr","oEcIslgNBCQ8RO3PibQT", "1EkOA6d8DXrcHQSGuiNG"]], forDocument: userMuseumRef)
                 
                // userSubCollectionsCreated = true
@@ -365,9 +369,9 @@ class LoginAppViewModel: ObservableObject {
 struct LoginView: View {
     
     @StateObject var viewModel = LoginAppViewModel()
+    let auth = Auth.auth()
     
     var body: some View {
-        
         
         if viewModel.isSignedIn() || viewModel.newUserCreated || viewModel.signedIn {
             
@@ -393,7 +397,15 @@ struct LoginView: View {
                 }//.onAppear{Task{ await NetworkingCall() }}
                 
              }
-            .onAppear{Task{ await NetworkingCall() }}
+            .onAppear{
+                Task{ await NetworkingCall() }
+                
+                // Forcing the rotation to portrait
+                // code locks view in portrait.
+                UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") 
+                AppDelegate.orientationLock = .portrait
+                
+            }
             .navigationBarHidden(true)
             .environmentObject(viewModel)
             

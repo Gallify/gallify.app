@@ -52,7 +52,23 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case thumbnailUrl
         case tokenId
         
-        //case value 
+
+        //case unlockable content
+        //case geographic content
+        //case forfree if near
+        //case forsale if near
+        //case report
+        //what type of licensing does the owner have?
+        //"collectionRef": "collections/id",
+        //  "creatorRef": "users/id",
+       // "ownerRef": "users/id",
+       // "likesCount": 0,
+       // "createdDate": "Timestamp",
+       // "latestHistoryDate": "Timestamp",
+       // "latestPrice": "",
+       // "latestPurchaseDate": "Timestamp",
+       // "latestPurchasePrice": "",
+       // "isListing": false
         
     }
     

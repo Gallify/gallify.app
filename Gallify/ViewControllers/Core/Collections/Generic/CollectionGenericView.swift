@@ -32,15 +32,15 @@ struct CollectionGenericView: View {
                 
                 Spacer()
              
-                if(firestoreQuery.showNewScreen == false) {
-                    
-                    if(firestoreQuery.artPlaying == true) {
+//                if(firestoreQuery.showNewScreen == false) {
+//
+//                    if(firestoreQuery.artPlaying == true) {
                         
                         MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
                         
-                    }
-                    
-                }
+//                    }
+//
+//                }
                 
             }
             .navigationBarTitle("")

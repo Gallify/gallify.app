@@ -35,6 +35,10 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         case searchType //when search, need to know artist, collection, or art
         case playlist_id
         case description
+        //lat
+        //lon
+        //time created
+        //report
 
 
     }
@@ -58,6 +62,21 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var searchType: String
     @Published var playlist_id: String
     @Published var description: String
+    
+    /*
+     "name": "",
+     "coverSrc": "resources/image",
+     "desc": "",
+     "creatorRef": "users/id",
+     "createdDate": "Timestamp",
+     "isPrivate": false,
+     "type": "review|featured|custom|customOwned","singles|album",
+     "latestHistoryDate": "Timestamp",
+     "artCount": 0
+     
+     "address": "",
+     "coverSrc": "resources/image",
+     */
 
     
     init() {

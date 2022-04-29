@@ -35,8 +35,12 @@ class FirestoreQuery : ObservableObject {
     @Published var isClosed = false
     @Published var sheetMode: SheetMode = .none
     
-    @Published var showNewScreen = false
+    //AR Player Camera/Reels
+    @Published var models: [Model] = []
     @Published var showCameraScreen = false
+    @Published var cameraPlaying = false
+    @Published var showNewScreen = false
+    @Published var bothScreensMinimized = true //both = camera/ar player and the reels screen
     
     @Published var artPlaying = false
     @Published var artisClicked = "artisClicked"
@@ -67,7 +71,7 @@ class FirestoreQuery : ObservableObject {
     @Published var followers = Followers()
     @Published var following = Following()
     @Published var isFollowing : Bool = false
-    
+    @Published var isLiked :Bool = false
     //other profile
     @Published var otherUserData : User = User()
     @Published var otherLibrary: [Playlist] = [Playlist]()
@@ -91,10 +95,6 @@ class FirestoreQuery : ObservableObject {
     var lastDocument: QueryDocumentSnapshot!
     var lastDocuments = [QueryDocumentSnapshot]()
     var discoverQuery: Query!
-    
-    //AR Player
-    @Published var models: [Model] = []
-    
     
     //settings
     

@@ -52,6 +52,9 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         case review
         case created
         
+        //disable account bool
+        
+        
         
         
     }
@@ -97,6 +100,18 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var review: String
     @Published var created: String
     
+    /*
+     "reviewPlaylistRef": "playlists/id",
+     "featuredPlaylistRef": "playlists/id",
+     "collectedPlaylistRef": "playlists/id",
+     2 others
+     "displayName": "",
+     
+     remove:
+     firstname,
+     lastname,
+     followers and following url
+     */
   
     init() {
         

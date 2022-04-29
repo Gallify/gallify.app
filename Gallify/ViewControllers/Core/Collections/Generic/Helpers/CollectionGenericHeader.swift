@@ -45,8 +45,18 @@ struct CollectionGenericHeader: View {
                     ActionSheet(
                         title: Text("Select"),
                         buttons: [
-                            .default(Text("Delete " + firestoreQuery.playlist.playlist_type)) {
-                                
+//                        .default(Text("Delete? " + firestoreQuery.playlist.playlist_type)) {
+//
+//
+//                                //await firestoreQuery.getUserLibrary() //updates library
+//                        }
+//                            firestoreQuery.showPlaylistOptions = false
+//                        },
+                        .default(Text("Delete Playlist From Library")) {
+                            
+                            Task{
+//                                await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlist_id)
+
                                 let words = ["Liked", "Owned", "Created", "Review", "Featured"]
                                 let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
                                 if(!combinedResult){
@@ -58,6 +68,8 @@ struct CollectionGenericHeader: View {
                                     }
                                     firestoreQuery.showPlaylistOptions = false
                                 }
+                            }
+
                                 
                                 
                             },

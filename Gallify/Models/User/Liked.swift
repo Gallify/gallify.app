@@ -1,46 +1,44 @@
 //
-//  Following.swift
+//  Liked.swift
 //  Gallify
 //
-//  Created by Tejvir Mann on 1/1/22.
+//  Created by Shruti Sharma on 4/7/22.
 //
+
 import Foundation
 import Swift
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class Following: Encodable, Decodable, ObservableObject {
+class Liked: Encodable, Decodable, ObservableObject {
 
     enum CodingKeys: CodingKey {
-        case following
+        case liked
     }
     
-    @Published var following: [String]
-    
+    @Published var liked: [String]
     /*
-     {
-     {
-       "followerRef": "users/id",
-       "followingRef": "users/id"
-        timestamp
-     }
-     }
+     "artId": "art/id",
+     "userId": "users/id"
+   timestamp
      */
 
     
     init() {
 
-        following = [String]()
+        liked = [String]()
+        
+      
 
     }
 
     init(arr: [String]) {
-        following = arr
+        liked = arr
     }
     required init(from decoder: Decoder) throws {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        following = try container.decode([String].self, forKey: .following)
+        liked = try container.decode([String].self, forKey: .liked)
        
 
 
@@ -49,7 +47,7 @@ class Following: Encodable, Decodable, ObservableObject {
     func encode(to encoder: Encoder) throws {
 
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(following, forKey: .following)
+        try container.encode(liked, forKey: .liked)
 
       
     }

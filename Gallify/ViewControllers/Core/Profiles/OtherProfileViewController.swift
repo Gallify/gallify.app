@@ -41,15 +41,15 @@ struct OtherProfileView : View {
             .navigationBarHidden(true)
             .onAppear{ async{await NetworkingCall() }}
             
-            if(firestoreQuery.showNewScreen == false) {
-                
-                if(firestoreQuery.artPlaying == true) {
+//            if(firestoreQuery.showNewScreen == false) {
+//
+//                if(firestoreQuery.artPlaying == true) {
                     
                     MinimizedView(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
                     
-                }
-                
-            }
+//                }
+//                
+//            }
                 
         }
         .navigationBarHidden(true)

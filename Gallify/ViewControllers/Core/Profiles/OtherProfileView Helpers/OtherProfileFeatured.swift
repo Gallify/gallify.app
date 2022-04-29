@@ -56,6 +56,13 @@ struct OtherProfileFeatured: View {
                                 .padding(.trailing, screenWidth / 50)
                             
                             Button(action: {
+                                
+                                if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                                    firestoreQuery.bothScreensMinimized = true
+                                }
+                                else{
+                                    firestoreQuery.bothScreensMinimized = false
+                                }
                                    
                                 firestoreQuery.artisClicked = artwork.artId
                                 firestoreQuery.artThatsPlaying = artwork
@@ -84,7 +91,6 @@ struct OtherProfileFeatured: View {
                                                 
                                                 Text(artwork.name)
                                                     .foregroundColor(Color("Gallify-Pink"))
-                                                    .fontWeight(.bold)
                                                     .font(.system(size: screenWidth / 20, weight: .medium))
                                                     .lineLimit(1)
                                                 
@@ -93,9 +99,7 @@ struct OtherProfileFeatured: View {
                                             else {
                                                 
                                                 Text(artwork.name)
-                                                    .fontWeight(.bold)
                                                     .font(.system(size: screenWidth / 20, weight: .medium))
-                                                    .foregroundColor(.black)
                                                     .lineLimit(1)
                                                     
                                             }
@@ -104,7 +108,6 @@ struct OtherProfileFeatured: View {
                                                 
                                                 Text("<1000")
                                                     .font(.system(size: screenWidth / 24, weight: .light))
-                                                    .foregroundColor(.black)
                                                     .lineLimit(1)
                                                     
                                             }
@@ -113,7 +116,6 @@ struct OtherProfileFeatured: View {
                                                 
                                                 Text("\(artwork.popularity)")
                                                     .font(.system(size: screenWidth / 24, weight: .light))
-                                                    .foregroundColor(.black)
                                                     .lineLimit(1)
                                                     
                                             }
