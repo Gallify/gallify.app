@@ -28,11 +28,19 @@ struct CollectionReelDescription: View {
     var body: some View {
         VStack {
             
-            HStack {
-                VStack (alignment: .leading) {
+//            HStack {
+//                VStack (alignment: .leading) {
+//
+//
+//                }
+//                .padding(.leading)
+//                .frame(width: screenWidth / 1.5, height: screenWidth / 1.5)
+                
+                VStack (alignment: .center) {
                     
                     HStack{
-                        Text(artDetails.desc)
+                        //Text(artDetails.desc)
+                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum")
                     }
                     .padding(.bottom, 10)
                     
@@ -92,29 +100,27 @@ struct CollectionReelDescription: View {
                     }
                     
                     
-                    HStack {
-                        Text("Recent •")
-                            .font(.system(size: 16))
-                        Text(latestString)
-                            .font(.system(size: 16))
-                    }
+//                    HStack {
+//                        Text("Recent •")
+//                            .font(.system(size: 16))
+//                        Text(latestString)
+//                            .font(.system(size: 16))
+//                    }
+//
+//
+//                    HStack {
+//                        Text("Created •")
+//                            .font(.system(size: 16))
+//                        Text(createdString)
+//                            .font(.system(size: 16))
+//                    }
+//
                     
                     
-                    HStack {
-                        Text("Created •")
-                            .font(.system(size: 16))
-                        Text(createdString)
-                            .font(.system(size: 16))
-                    }
                     
                     
-                }
-                .padding(.leading)
-                .frame(width: screenWidth / 1.5, height: screenWidth / 1.5)
-                
-                VStack (alignment: .trailing) {
                     
-                    if(artDetails.forSale){
+                   // if(artDetails.forSale){
                         Button(action: {
                             
                             let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
@@ -147,7 +153,7 @@ struct CollectionReelDescription: View {
                             }
                             .padding(.trailing, screenWidth / 37.5)
                         }
-                    }
+                   // }
                     
                     if(artDetails.tokenId != 0){
                         Button(action: {
@@ -166,7 +172,7 @@ struct CollectionReelDescription: View {
                     
                 }
                 
-            }
+       //     }
         }
         
         .onAppear { async {await NetworkingCall()}}

@@ -71,6 +71,17 @@ struct CollectionReelHeader: View {
                     firestoreQuery.showNewScreen = false
                     firestoreQuery.cameraPlaying = true
                     firestoreQuery.artPlaying = false
+                    
+                    Task{
+                        
+                        //clears out the old data in the AR session.
+                        firestoreQuery.clearModels()
+                        firestoreQuery.clearModelEntitiesFromMemory()
+                        
+                        if(firestoreQuery.models.isEmpty){
+                            await firestoreQuery.fetchModelData()
+                        }
+                    }
                 }
                     label: {
                         if (ARConfiguration.isSupported) {

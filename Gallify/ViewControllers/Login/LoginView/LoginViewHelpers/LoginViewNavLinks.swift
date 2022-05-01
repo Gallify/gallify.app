@@ -14,11 +14,13 @@ struct LoginViewNavLinks: View, WalletConnectDelegate {
     }
     
     func didConnect() {
-        
+        print("gigigig")
+        print(viewModel.walletConnect.session.walletInfo?.accounts[0])
+        print("h3i")
     }
     
     func didDisconnect() {
-        
+        print("did disconnect")
     }
     
     
@@ -76,33 +78,42 @@ struct LoginViewNavLinks: View, WalletConnectDelegate {
                     
                     Button(action:
                         {
-                        var connectionUrl = ""
+                        
+                        var done = false
                      //call connect wallet
-                        viewModel.walletConnect = WalletConnect(delegate: self)
-                        connectionUrl = viewModel.walletConnect.connect()
+                        //viewModel.walletConnect = WalletConnect(delegate: self)
+                        let connectionUrl = viewModel.walletConnect.connect()
                         viewModel.walletConnect.reconnectIfNeeded()
 
                         /// https://docs.walletconnect.org/mobile-linking#for-ios
                         /// **NOTE**: Majority of wallets support universal links that you should normally use in production application
                         /// Here deep link provided for integration with server test app only
-                       // let deepLinkUrl = "metamask://wc?uri=\(connectionUrl)"
-                        
                         let deepLinkUrl = "wc://wc?uri=\(connectionUrl)"
-                        //let deepLinkUrl = "https://metamask.app.link/wc?uri=\(connectionUrl)"
-                        
-                        print(deepLinkUrl)
-//                        if let url = URL(string: "https://metamask.app.link/dapp/https://open.gallify.app/create") {
-//                           UIApplication.shared.open(url)
-//                        }
 
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             if let url = URL(string: deepLinkUrl), UIApplication.shared.canOpenURL(url) {
                                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                
                             }
                         }
                         
-                     //call the url. If the wallet address is not empty.
+                        print("hi")
                         
+//                        if let oldSessionObject = UserDefaults.standard.object(forKey: sessionKey) as? Data,
+//                            let session = try? JSONDecoder().decode(Session.self, from: oldSessionObject) {
+//                            let client = Client(delegate: self, dAppInfo: session.dAppInfo)
+//                            try? client.reconnect(to: session)
+//                        }
+                       
+                        
+                     //call the url. If the wallet address is not empty.
+                        if(viewModel.walletConnect.session != nil){
+                            if(viewModel.walletConnect.session.walletInfo != nil){
+                                print(viewModel.walletConnect.session.walletInfo?.accounts[0])
+                                print("h2i")
+                            }
+                        }
+                
 //                        if(connectionUrl != ""){
 //                            if(viewModel.walletConnect.session.walletInfo != nil){
 //                                print("hi")
@@ -132,6 +143,34 @@ struct LoginViewNavLinks: View, WalletConnectDelegate {
 
                     }
                 }
+            
+            HStack{
+                
+                Button(action:
+                    {
+                //sign in with token. Set signed in to true.
+                    
+                    guard let session = viewModel.walletConnect.session else { return }
+                    //viewModel.walletConnect.disconnectIfNeeded()
+                    try? viewModel.walletConnect.client.disconnect(from: session)
+                    print("disconnected?")
+                    print(viewModel.walletConnect.session.walletInfo?.accounts[0])
+
+                }) {
+
+                    Text("Disconnect Wallet")
+                        
+                        .font(.system(size: screenWidth / 18.5, weight: .bold))
+                        .foregroundColor(Color.white)
+                        .padding(.horizontal, screenWidth / 3)
+                        .padding(.vertical, screenHeight / 75)
+                        .background(Color.primary)
+                        .cornerRadius(screenWidth / 10)
+                        .padding(.horizontal, screenWidth / 30)
+                        .padding(.vertical, screenHeight / 65)
+
+                }
+            }
                 
                     
 
@@ -142,6 +181,12 @@ struct LoginViewNavLinks: View, WalletConnectDelegate {
             
         }
         .padding(.bottom, screenHeight / 65)
+        .onAppear{
+            //if already connected
+            
+            //else new session
+             viewModel.walletConnect = WalletConnect(delegate: self)
+        }
         
     }
     

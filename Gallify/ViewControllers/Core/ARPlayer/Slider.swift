@@ -15,11 +15,31 @@ struct Slider: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     
     var body: some View {
+        
+       // Text("Mjdfgkjd")
+        
         ScrollView(.horizontal) {
+            
+//            Text("r")
+//            if(firestoreQuery.models.count > 1){
+//            WebImage(url: URL(string: firestoreQuery.models[0].art.thumbnailUrl))
+//                .resizable()
+//                .colorMultiply(Color(.red))
+//                .frame(width: 75, height: 75)
+//                .aspectRatio(1/1, contentMode: .fit)
+//                .background(Color(UIColor.secondarySystemFill))
+//                .clipShape(Circle())
+//
+//
+//            SliderItem(model: firestoreQuery.models[0]){
+//
+//            }
+//            }
+    
             LazyHGrid(rows: [GridItem()]) {
-                // Text("MODELS VIEW MODEL COUNT IS: \(modelsViewModel.models.count)")
-                
-                ForEach(0..<firestoreQuery.models.count) { index in
+//                Text("MODELS VIEW MODEL COUNT IS: \(modelsViewModel.models.count)")
+
+                ForEach(0..<firestoreQuery.models.count, id: \.self) { index in
                     let model = firestoreQuery.models[index]
 
                     SliderItem(model: model) {
@@ -39,14 +59,17 @@ struct Slider: View {
                                 }
                             }
                         }
-                       
+
                         print("BrowseView selected \(model.art.name) for placement")
                     }
                 }
             }
         }
         //.padding(.bottom, 15)
-        .frame(height: 200)
+        //.frame(height: 200)
+//        .onAppear(){
+//            print(firestoreQuery.models.count)
+//        }
     }
     
     private func placeImage(model: Model) {

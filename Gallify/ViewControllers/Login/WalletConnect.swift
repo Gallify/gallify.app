@@ -48,6 +48,16 @@ class WalletConnect {
             try? client.reconnect(to: session)
         }
     }
+    
+    func disconnectIfNeeded() {
+        if let oldSessionObject = UserDefaults.standard.object(forKey: sessionKey) as? Data,
+            let session = try? JSONDecoder().decode(Session.self, from: oldSessionObject) {
+            client = Client(delegate: self, dAppInfo: session.dAppInfo)
+            try? client.disconnect(from: session)
+        }
+    }
+    
+    
 
     // https://developer.apple.com/documentation/security/1399291-secrandomcopybytes
     private func randomKey() throws -> String {

@@ -34,130 +34,108 @@ struct FullARView: View {
         
         
         ZStack(alignment: .bottom) {
-            
+
             ARViewContainer(overlayVisible: $overlayVisible)
                 .edgesIgnoringSafeArea(.all)
                 .navigationBarHidden(true)
-            
 
-            //button to go back
-            HStack{
-                
-            
-                
-             
-                
-                
-                Button(action: {
-//                    //if else checks if both camera and reels screen are minimized currently.
-                    if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
-                        firestoreQuery.bothScreensMinimized = true
-                    }
-                    else{
-                        firestoreQuery.bothScreensMinimized = false
-                    }
+            VStack{
+                HStack{
+                    Button(action: {
+                       //if else checks if both camera and reels screen are minimized currently.
+                        if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                            firestoreQuery.bothScreensMinimized = true
+                        }
+                        else{
+                            firestoreQuery.bothScreensMinimized = false
+                        }
 
-                    firestoreQuery.showCameraScreen = false
-                    firestoreQuery.showNewScreen = false
-                    firestoreQuery.cameraPlaying = true
-                    firestoreQuery.artPlaying = false
-                    firestoreQuery.artisClicked = ""
-                    
-                    
-                    }) {
-                            Image(systemName: "chevron.down")
-                                .font(.system(size: 30))
-                                .foregroundColor(Color.white)
-                                .padding(.leading)
-                                .frame(maxHeight: .infinity, alignment: .top)
-                                .padding(.vertical, screenHeight / 12) //screenHeight / 70
-                                .padding(.horizontal, screenHeight / 75)
+                        firestoreQuery.showCameraScreen = false
+                        firestoreQuery.showNewScreen = false
+                        firestoreQuery.cameraPlaying = true
+                        firestoreQuery.artPlaying = false
+                        firestoreQuery.artisClicked = ""
 
-                    }
-//                    .padding(.vertical, screenHeight / 25) //screenHeight / 70
-//                    .padding(.horizontal, screenHeight / 85)
-                    
-                    
-                
-                Spacer()
-                
-                Button(action: {
-                    //if else checks if both camera and reels screen are minimized currently.
-                    if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
-                        firestoreQuery.bothScreensMinimized = true
-                    }
-                    else{
-                        firestoreQuery.bothScreensMinimized = false
-                    }
-                    firestoreQuery.showCameraScreen = false
-                    firestoreQuery.showNewScreen = true
-                    firestoreQuery.cameraPlaying = false
-                    firestoreQuery.artPlaying = true
-                    
-                    //pause or end session
-                    
-                    
-                    }) {
-                            Image(systemName: "square")
-                                .resizable()
-                                .foregroundColor(Color.white)
-                                .frame(width: screenWidth / 15, height: screenHeight / 32.5)
-                                .padding(.trailing, 4.0)
-                                .padding(.vertical, screenHeight / 12.5)
-                                .padding(.horizontal, screenHeight / 90)
-                                
 
-                    }
-                   
-                    
-                    .frame(maxHeight: .infinity, alignment: .top)
-                    .padding(.trailing, 20)
-                    .onTapGesture {
+                        }) {
+                                Image(systemName: "chevron.down")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(Color.white)
+                                    .padding(.leading)
+                                    .frame(maxHeight: .infinity, alignment: .top)
+                                    .padding(.vertical, screenHeight / 12) //screenHeight / 70
+                                    .padding(.horizontal, screenHeight / 75)
+
+                        }
+
+
+
+                    Spacer()
+
+                    Button(action: {
+                        //if else checks if both camera and reels screen are minimized currently.
+                        if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                            firestoreQuery.bothScreensMinimized = true
+                        }
+                        else{
+                            firestoreQuery.bothScreensMinimized = false
+                        }
                         firestoreQuery.showCameraScreen = false
                         firestoreQuery.showNewScreen = true
                         firestoreQuery.cameraPlaying = false
+                        firestoreQuery.artPlaying = true
+
+                        //pause or end session here
+                        }) {
+                                Image(systemName: "square")
+                                    .resizable()
+                                    .foregroundColor(Color.white)
+                                    .frame(width: screenWidth / 15, height: screenHeight / 32.5)
+                                    .padding(.trailing, 4.0)
+                                    .padding(.vertical, screenHeight / 12.5)
+                                    .padding(.horizontal, screenHeight / 90)
+                        }
+                        .frame(maxHeight: .infinity, alignment: .top)
+                        .padding(.trailing, 20)
+                        .onTapGesture {
+                            firestoreQuery.showCameraScreen = false
+                            firestoreQuery.showNewScreen = true
+                            firestoreQuery.cameraPlaying = false
+                        }
+
+                }
+
+
+                HStack(alignment: .bottom){
+                    if placementSettings.selectedModel == nil {
+                        if placementSettings.selectedModel != nil {
+                            AddModelBar()
+                        }
+                        else if modelDeletionManager.entitySelectedForDeletion != nil {
+
+                            DeletionView()
+                        }
+                        else {
+                            
+                            Slider()
+                            
+                        }
                     }
-                
-                
-//                Button{
-//                    //if else checks if both camera and reels screen are minimized currently.
-//                    if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
-//                        firestoreQuery.bothScreensMinimized = true
-//                    }
-//                    else{
-//                        firestoreQuery.bothScreensMinimized = false
-//                    }
-//
-//                    firestoreQuery.showCameraScreen = false
-//                    firestoreQuery.showNewScreen = false
-//                    firestoreQuery.cameraPlaying = true
-//                    firestoreQuery.artPlaying = false
-//                }
-//                    label: {
-//                        Image(systemName: "chevron.down")
-//                            .font(.system(size: 30))
-//                            .foregroundColor(Color.white)
-//                            .padding(.leading)
-//                    }
-//                    .padding(.vertical, screenHeight / 10) //screenHeight / 70
-//                    .padding(.horizontal, screenHeight / 50)
-//                    .frame(maxHeight: .infinity, alignment: .top)
-//                    .buttonStyle(ThemeAnimationStyle())
-//                    .navigationBarBackButtonHidden(true)
-//                    .navigationBarTitle("")
-//                    .navigationBarHidden(true)
-//                    .onTapGesture {
-//                        //firestoreQuery.showNewScreen = false
-//                        firestoreQuery.showNewScreen.toggle()
-//                    }
-                
-                
+                    else {
+                        AddModelBar()
+                    }
+                }
+
+
+
             }
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
 //            if !overlayVisible {
 //                if placementSettings.selectedModel == nil {
 //                    if placementSettings.selectedModel != nil {
@@ -185,15 +163,13 @@ struct FullARView: View {
 //                } else {
 //                    AddModelBar()
 //                }
-//            }
-        }.task{
-            if(firestoreQuery.models.isEmpty){
-                await firestoreQuery.fetchModelData()
-            }
+ //           }
         }
+        
+        
         //.statusBar(hidden: true)
-        
-        
+
+        //Slider()
         
         
         
@@ -210,7 +186,7 @@ struct ARViewContainer: UIViewRepresentable {
     @EnvironmentObject var modelDeletionManager: ModelDeletionManager
     @Binding var overlayVisible: Bool
     
-    let coachingOverlay = ARCoachingOverlayView()
+    //let coachingOverlay = ARCoachingOverlayView()
     
     func makeUIView(context: Context) -> ARView {
         let arView = CustomARView(frame: .zero, modelDeletionManager: modelDeletionManager)
@@ -222,30 +198,30 @@ struct ARViewContainer: UIViewRepresentable {
             self.updateScene(for: arView)
         })
         
-        self.setupCoachingOverlay(arView: arView)
+       // self.setupCoachingOverlay(arView: arView)
         
         return arView
     }
     
-    func setupCoachingOverlay(arView: CustomARView) {
-        coachingOverlay.session = arView.session
-        coachingOverlay.delegate = arView.session.delegate as? ARCoachingOverlayViewDelegate
-        
-        coachingOverlay.translatesAutoresizingMaskIntoConstraints = false
-        
-        arView.addSubview(coachingOverlay)
-        
-        NSLayoutConstraint.activate([
-            coachingOverlay.centerXAnchor.constraint(equalTo: arView.centerXAnchor),
-            coachingOverlay.centerYAnchor.constraint(equalTo: arView.centerYAnchor),
-            coachingOverlay.widthAnchor.constraint(equalTo: arView.widthAnchor),
-            coachingOverlay.heightAnchor.constraint(equalTo: arView.heightAnchor)
-            ])
-        
-        coachingOverlay.activatesAutomatically = true
-        
-        coachingOverlay.goal = .horizontalPlane
-    }
+//    func setupCoachingOverlay(arView: CustomARView) {
+//        coachingOverlay.session = arView.session
+//        coachingOverlay.delegate = arView.session.delegate as? ARCoachingOverlayViewDelegate
+//
+//        coachingOverlay.translatesAutoresizingMaskIntoConstraints = false
+//
+//        arView.addSubview(coachingOverlay)
+//
+//        NSLayoutConstraint.activate([
+//            coachingOverlay.centerXAnchor.constraint(equalTo: arView.centerXAnchor),
+//            coachingOverlay.centerYAnchor.constraint(equalTo: arView.centerYAnchor),
+//            coachingOverlay.widthAnchor.constraint(equalTo: arView.widthAnchor),
+//            coachingOverlay.heightAnchor.constraint(equalTo: arView.heightAnchor)
+//            ])
+//
+//        coachingOverlay.activatesAutomatically = true
+//
+//        coachingOverlay.goal = .horizontalPlane
+//    }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
@@ -316,5 +292,6 @@ extension ARViewContainer {
         return Coordinator(self)
     }
 }
+
 
 

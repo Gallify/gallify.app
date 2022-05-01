@@ -404,6 +404,7 @@ struct LoginView: View {
                 // code locks view in portrait.
                 UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") 
                 AppDelegate.orientationLock = .portrait
+        
                 
             }
             .navigationBarHidden(true)
