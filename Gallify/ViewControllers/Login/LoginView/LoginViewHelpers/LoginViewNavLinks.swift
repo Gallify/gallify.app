@@ -8,18 +8,7 @@ import SwiftUI
 import WalletConnectSwift
 
 
-struct LoginViewNavLinks: View, WalletConnectDelegate {
-    func failedToConnect() {
-        
-    }
-    
-    func didConnect() {
-        
-    }
-    
-    func didDisconnect() {
-        
-    }
+struct LoginViewNavLinks: View {
     
     
     @EnvironmentObject var viewModel: LoginAppViewModel
@@ -76,50 +65,26 @@ struct LoginViewNavLinks: View, WalletConnectDelegate {
                     
                     Button(action:
                         {
-                        var connectionUrl = ""
-                     //call connect wallet
-                        viewModel.walletConnect = WalletConnect(delegate: self)
-                        connectionUrl = viewModel.walletConnect.connect()
-                        viewModel.walletConnect.reconnectIfNeeded()
+                        
+                        let connectionUrl = viewModel.walletConnect.connect()
 
                         /// https://docs.walletconnect.org/mobile-linking#for-ios
                         /// **NOTE**: Majority of wallets support universal links that you should normally use in production application
                         /// Here deep link provided for integration with server test app only
-                       // let deepLinkUrl = "metamask://wc?uri=\(connectionUrl)"
-                        
-                        let deepLinkUrl = "wc://wc?uri=\(connectionUrl)"
-                        //let deepLinkUrl = "https://metamask.app.link/wc?uri=\(connectionUrl)"
-                        
-                        print(deepLinkUrl)
-//                        if let url = URL(string: "https://metamask.app.link/dapp/https://open.gallify.app/create") {
-//                           UIApplication.shared.open(url)
-//                        }
+                        let deepLinkUrl = "metamask://wc?uri=\(connectionUrl)"
 
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             if let url = URL(string: deepLinkUrl), UIApplication.shared.canOpenURL(url) {
                                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
                             }
+                            else{
+                                print("Didn't open wallet app.")
+                            }
                         }
                         
-                     //call the url. If the wallet address is not empty.
-                        
-//                        if(connectionUrl != ""){
-//                            if(viewModel.walletConnect.session.walletInfo != nil){
-//                                print("hi")
-//                            }
-//                        }
-                        
-
-                    //parse the url. If the url is not empty.
-
-                    //sign in with token. Set signed in to true.
-
-
-                       
-
                     }) {
 
-                        Text("Connect Wallet")
+                        Text("CW")
                             
                             .font(.system(size: screenWidth / 18.5, weight: .bold))
                             .foregroundColor(Color.white)
@@ -132,6 +97,36 @@ struct LoginViewNavLinks: View, WalletConnectDelegate {
 
                     }
                 }
+
+            
+            HStack {
+                
+                Button(action:
+                    {
+                    guard let session = viewModel.walletConnect.session else { return }
+
+                    for session in viewModel.walletConnect.client.openSessions() {
+                        try? viewModel.walletConnect.client.disconnect(from: session)
+                    }
+                    
+                    
+                    //sign out
+                    
+                }) {
+
+                    Text("DW")
+                        
+                        .font(.system(size: screenWidth / 18.5, weight: .bold))
+                        .foregroundColor(Color.white)
+                        .padding(.horizontal, screenWidth / 3)
+                        .padding(.vertical, screenHeight / 75)
+                        .background(Color.primary)
+                        .cornerRadius(screenWidth / 10)
+                        .padding(.horizontal, screenWidth / 30)
+                        .padding(.vertical, screenHeight / 65)
+
+                }
+            }
                 
                     
 

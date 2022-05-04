@@ -241,7 +241,7 @@ struct CollectionGenericRow: View {
                                                             }
                                                         }
                                                 },
-                                                .default(Text("Add to Playlist")) {
+                                                .default(Text("Add to Collection")) {
                                                     showingSheet = true
                                                 },
                                                 .default(Text("Cancel")) {
@@ -269,7 +269,7 @@ struct CollectionGenericRow: View {
                                         ActionSheet(
                                             title: Text("Select"),
                                             buttons: [
-                                                .default(Text("Add to Playlist")) {
+                                                .default(Text("Add to Collection")) {
                                                     showingSheet = true
                                                 },
                                                 .default(Text("Cancel")) {

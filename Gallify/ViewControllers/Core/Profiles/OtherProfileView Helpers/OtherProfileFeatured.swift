@@ -145,7 +145,7 @@ struct OtherProfileFeatured: View {
                             .actionSheet(isPresented: $firestoreQuery.showFeaturedOptions) {
                                 ActionSheet(title: Text("Select"),
                                     buttons: [
-                                        .default(Text("Add to Playlist")) {
+                                        .default(Text("Add to Collection")) {
                                             showingSheet = true
                                             //firestoreQuery.addToPlaylist(artwork.art_id)
                                         },

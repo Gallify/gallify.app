@@ -28,6 +28,8 @@ struct CollectionGenericHeader: View {
             Text(firestoreQuery.playlist.name)
                 .font(.system(size: screenWidth / 20, weight: .semibold))
                 .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.horizontal, screenWidth / 25)
+                
             
             Spacer()
                 
@@ -130,6 +132,17 @@ struct CollectionGenericHeader: View {
                                 //firestoreQuery.addToPlaylist(artwork.art_id)
                             }])
                 }
+            }
+            else{
+                Button(action: {
+                       
+                }, label: {
+                        
+                    Image(systemName: "ellipsis")
+                        .foregroundColor(.white)
+                        .padding(.horizontal, screenWidth / 25)
+                        
+                })
             }
                 
         }

@@ -23,6 +23,7 @@ struct TabBarView: View {
     
     @StateObject var modelsViewModel = ModelsViewModel() //double declared
     @StateObject var placementSettings = PlacementSettings()
+    @StateObject var modelDeletionManager = ModelDeletionManager()
     
     @EnvironmentObject var loginModel : LoginAppViewModel
     
@@ -118,29 +119,37 @@ struct TabBarView: View {
                     
             }
             .accentColor(Color.black)
+            .environmentObject(viewModel)
+            .environmentObject(firestoreQuery)
+            .environmentObject(storageService)
+            .onAppear{ async { await NetworkingCall() } }
+            
             
             ZStack {
-                
-               // if firestoreQuery.showNewScreen && !firestoreQuery.showCameraScreen {
 
                     CollectionReelView()
                         .offset(y: firestoreQuery.showNewScreen ? 0 : UIScreen.main.bounds.height)
-                        .animation(.default) //.spring(response: 0.4)
+                        
+                        //if one of the reel screen and camera screen's are minimized, and both were previously minimized (minimized = false)
+                        .animation(((!firestoreQuery.showNewScreen && firestoreQuery.showCameraScreen && !firestoreQuery.bothScreensMinimized) || (firestoreQuery.showNewScreen && !firestoreQuery.showCameraScreen && !firestoreQuery.bothScreensMinimized)) ? .linear(duration: 0) : .default)
+                        
                         .edgesIgnoringSafeArea(.all)
+                        .environmentObject(firestoreQuery)
+                    
+                    
+                
+                    FullARView()
+                        .offset(y: firestoreQuery.showCameraScreen ? 0 : UIScreen.main.bounds.height)
+                        
+                        //if one of the reel screen and camera screen's are minimized, and both were previously minimized (minimized = false)
+                        .animation(((!firestoreQuery.showNewScreen && firestoreQuery.showCameraScreen && !firestoreQuery.bothScreensMinimized) || (firestoreQuery.showNewScreen && !firestoreQuery.showCameraScreen && !firestoreQuery.bothScreensMinimized)) ? .linear(duration: 0) : .default)
+              
+                        .edgesIgnoringSafeArea(.all)
+                        .environmentObject(modelsViewModel)
+                        .environmentObject(placementSettings)
+                        .environmentObject(modelDeletionManager)
+                        .environmentObject(firestoreQuery)
 
-           //     }
-             //   if firestoreQuery.showNewScreen && firestoreQuery.showCameraScreen {
-                
-//                    FullARView()
-//                        .offset(y: firestoreQuery.showCameraScreen ? 0 : UIScreen.main.bounds.height)
-//                        .animation(.default)
-//                        .edgesIgnoringSafeArea(.all)
-//                        .environmentObject(modelsViewModel)
-//                        .environmentObject(placementSettings)
-//                        .environmentObject(firestoreQuery)
-                
-              //  }
-                      
             }
             .zIndex(3.0)
                 

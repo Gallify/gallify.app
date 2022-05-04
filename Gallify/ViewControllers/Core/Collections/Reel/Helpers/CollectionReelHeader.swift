@@ -12,12 +12,14 @@ import ARKit
 
 struct CollectionReelHeader: View {
     
+    @EnvironmentObject var firestoreQuery : FirestoreQuery
     @EnvironmentObject var viewModel: TabBarViewModel
-    @EnvironmentObject var firestoreQuery: FirestoreQuery
     @Environment(\.presentationMode) var presentationMode
     
-    //@StateObject var modelsViewModel = ModelsViewModel()
-    //@StateObject var placementSettings = PlacementSettings()
+    
+    @StateObject var modelsViewModel = ModelsViewModel()
+    @StateObject var placementSettings = PlacementSettings()
+    @StateObject var modelDeletionManager = ModelDeletionManager()
 //
 //    @EnvironmentObject var modelsViewModel : ModelsViewModel
 //    @EnvironmentObject var placementSettings : PlacementSettings
@@ -27,72 +29,87 @@ struct CollectionReelHeader: View {
         let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
         
+        
         HStack {
             
-            Button {
-                
-                firestoreQuery.showNewScreen.toggle()
+            Button{
+                //if else checks if both camera and reels screen are minimized currently.
+                if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                    firestoreQuery.bothScreensMinimized = true
+                }
+                else{
+                    firestoreQuery.bothScreensMinimized = false
+                }
+                firestoreQuery.showCameraScreen = false
+                firestoreQuery.showNewScreen = false
                 firestoreQuery.artPlaying = true
-                
+                firestoreQuery.cameraPlaying = false
             }
                 label: {
-                    
                     Image(systemName: "chevron.down")
-                        .resizable()
-                        .frame(width: screenWidth / 18, height: screenHeight / 54)
-                        .padding(.leading, screenWidth / 25)
-                    
+                        .font(.system(size: 30))
+                        .padding(.leading)
                 }
-                .buttonStyle(ThemeAnimationStyle())
-                .padding(.vertical, screenHeight / 80)
-                .navigationBarHidden(true)
-                .onTapGesture {
-                    firestoreQuery.showNewScreen.toggle()
-                }
-            
-            /*NavigationLink (  //ARViewContainer used to be SwiftUIView()
-                destination: FullARView(screenWidth: screenWidth, screenHeight: screenHeight)
-                    .environmentObject(placementSettings)
-                    .environmentObject(sessionSettings)
-                    .environmentObject(scenemanager)
-                    .environmentObject(modelsViewModel)
-                    .environmentObject(modelDeletionManager)
-                    .edgesIgnoringSafeArea(.all)
-                    //.navigationBarBackButtonHidden(true)
-                    .navigationBarHidden(true), //comma?
-                
-                label: {
-                Image (systemName: "arkit")
-                    .resizable()
-                    .foregroundColor(Color.black)
-                    .frame(width: screenWidth / 10, height: screenWidth / 10)
-                    .padding(.trailing, screenWidth / 30)
-                    .animation(.easeInOut)
-                })
                 .buttonStyle(ThemeAnimationStyle())
                 .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("")*/
-                
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+                .onTapGesture {
+                    firestoreQuery.showCameraScreen.toggle()
+                }
+
             Spacer()
             
-            /*if (ARConfiguration.isSupported) {
-                 NavigationLink(destination: FullARView()
-                                 .environmentObject(modelsViewModel)
-                                 .environmentObject(placementSettings)
-                                 .environmentObject(firestoreQuery)
-                               // .onAppear{ async{ await firestoreQuery.fetchModelData()}} //called in reels.
-                     
-                 ,
-                    label: {
-                     Image(systemName: "arkit")
-                         .font(.system(size: 30))
-                         .padding(.leading)
-                         .foregroundColor(.primary)
-                 })
-             }*/
 
+            if (ARConfiguration.isSupported) {
+                Button{
+                    //if else checks if both camera and reels screen are minimized currently.
+                    if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                        firestoreQuery.bothScreensMinimized = true
+                    }
+                    else{
+                        firestoreQuery.bothScreensMinimized = false
+                    }
+                    firestoreQuery.showCameraScreen = true
+                    firestoreQuery.showNewScreen = false
+                    firestoreQuery.cameraPlaying = true
+                    firestoreQuery.artPlaying = false
+                    
+                    Task{
+                        
+                        //clears out the old data in the AR session.
+                        firestoreQuery.clearModels()
+                        firestoreQuery.clearModelEntitiesFromMemory()
+                        
+                        if(firestoreQuery.models.isEmpty){
+                            await firestoreQuery.fetchModelData()
+                        }
+                    }
+                }
+                    label: {
+                        if (ARConfiguration.isSupported) {
+                            Image(systemName: "arkit")
+                                .font(.system(size: 30))
+                                .padding(.leading)
+                                .foregroundColor(.primary)
+                        }
+                    }
+                    .buttonStyle(ThemeAnimationStyle())
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                    .onTapGesture {
+                        firestoreQuery.showCameraScreen = true
+                        firestoreQuery.showNewScreen = false
+                    }
+            }
         }
-        
     }
-    
 }
+
+//struct CollectionReelHeader_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CollectionReelHeader(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
+//    }
+//}
+

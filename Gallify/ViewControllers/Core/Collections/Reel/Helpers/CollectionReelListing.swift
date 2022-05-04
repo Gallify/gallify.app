@@ -121,7 +121,7 @@ struct CollectionReelListing: View {
                                                     await firestoreQuery.getUserLibrary()
                                                 }
                                             },
-                                            .default(Text("Add to Playlist")) {
+                                            .default(Text("Add to Collection")) {
                                                 showingSheet = true
                                             },
                                             .default(Text("Cancel")) {

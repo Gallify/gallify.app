@@ -10,7 +10,7 @@ import UIKit
 
 class LoginAppViewModel: ObservableObject {
     
-    var walletConnect: WalletConnect!
+    @Published var walletConnect: WalletConnect!
     
     let auth = Auth.auth()
     let screenWidth = UIScreen.main.bounds.width
@@ -366,7 +366,26 @@ class LoginAppViewModel: ObservableObject {
     
 }
 
-struct LoginView: View {
+struct LoginView: View, WalletConnectDelegate {
+    func failedToConnect() {
+        print("failed to connect")
+        //don't sign in
+        
+    }
+    
+    func didConnect() {
+        print("did connect")
+        print(viewModel.walletConnect.session.walletInfo?.accounts[0])
+        print(viewModel.walletConnect.session.walletInfo?.approved)
+        //do sign in. 
+    }
+    
+    func didDisconnect() {
+        print("did disconnect")
+        print(viewModel.walletConnect.session.walletInfo?.accounts[0])
+        print(viewModel.walletConnect.session.walletInfo?.approved)
+    }
+    
     
     @StateObject var viewModel = LoginAppViewModel()
     let auth = Auth.auth()
@@ -399,6 +418,9 @@ struct LoginView: View {
              }
             .onAppear{
                 Task{ await NetworkingCall() }
+                
+                viewModel.walletConnect = WalletConnect(delegate: self)
+                viewModel.walletConnect.reconnectIfNeeded()
                 
                 // Forcing the rotation to portrait
                 // code locks view in portrait.

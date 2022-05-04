@@ -145,7 +145,7 @@ struct SelfProfileFeatured: View {
                                 .actionSheet(isPresented: $firestoreQuery.showFeaturedOptions) {
                                     ActionSheet(title: Text("Select"),
                                         buttons: [
-                                            .default(Text("Add to Playlist")) {
+                                            .default(Text("Add to Collection")) {
                                                 showingSheet = true
                                                 //firestoreQuery.addToPlaylist(artwork.art_id)
         //                                        async {await firestoreQuery.addArtToPlaylist(art_id: "Q1XgaJ5IE1FyGgtvBpYN", playlist_id: firestoreQuery.featuredPlaylist.id)}

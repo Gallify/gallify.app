@@ -19,7 +19,7 @@ struct Slider: View {
             LazyHGrid(rows: [GridItem()]) {
                 // Text("MODELS VIEW MODEL COUNT IS: \(modelsViewModel.models.count)")
                 
-                ForEach(0..<firestoreQuery.models.count) { index in
+                ForEach(0..<firestoreQuery.models.count, id: \.self) { index in
                     let model = firestoreQuery.models[index]
 
                     SliderItem(model: model) {
