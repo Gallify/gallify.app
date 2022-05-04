@@ -22,6 +22,7 @@ class LoginAppViewModel: ObservableObject {
     @Published var userDocumentNotCreated = false
     @Published var documentCreated = false
     @Published var newUserCreated = false
+    @Published var userData: SignIn = SignIn()
     
     @EnvironmentObject var user: User //to hold user email, pass, and username
     
@@ -362,22 +363,106 @@ class LoginAppViewModel: ObservableObject {
         self.userVerified = false //to check if a users email is verified
         self.userDocumentNotCreated = false
         self.documentCreated = false
+        self.userData = SignIn() //clears data
     }
     
+    /*
+     Start: Wallet methods to sign in, create account.
+     */
+    
+    
+    /*
+     This method gets a json via the Gallify API, then, it converts it to proper objects.
+     */
+    func getCustomToken(walletAddress: String){
+        
+        if(walletAddress == ""){
+            print("Error: wallet Address is empty!")
+        }
+        
+        let apiAddress = "https://api.gallify.app/token/" + walletAddress
+        print(apiAddress)
+        
+        guard let url = URL(string: apiAddress) else { fatalError("Error: Missing URL") }
+
+        let urlRequest = URLRequest(url: url)
+
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if let error = error {
+                print("Request error: ", error)
+                return
+            }
+
+            guard let response = response as? HTTPURLResponse else { return }
+//            print(response.statusCode)
+//            guard let datar = data else { return }
+//            print(datar)
+            
+            if response.statusCode == 200 {
+                guard let data = data else { return }
+                print(data)
+                DispatchQueue.main.async {
+                    do {
+                        let decodedUserData = try JSONDecoder().decode(SignIn.self, from: data)
+                        self.userData = decodedUserData
+                    } catch let error {
+                        print("Error decoding: ", error)
+                    }
+                }
+            }
+        }
+        dataTask.resume()
+    }
+    
+    
+    /*
+     This method takes in the token, and signs in the user.
+     */
+    func tokenSignIn(){
+        
+        //If null, prompt to create account.
+        
+        //create document for account. If null.
+        
+        //sign in
+        
+    }
+    
+    /*
+     End: Wallet methods to sign in, create account.
+     */
+    
+    
+
 }
 
 struct LoginView: View, WalletConnectDelegate {
     func failedToConnect() {
         print("failed to connect")
-        //don't sign in
+
+        //        print(viewModel.walletConnect.session.walletInfo?.approved)
         
     }
     
     func didConnect() {
-        print("did connect")
-        print(viewModel.walletConnect.session.walletInfo?.accounts[0])
-        print(viewModel.walletConnect.session.walletInfo?.approved)
-        //do sign in. 
+        
+        //if signed in is false.
+        
+            //get custom token, convert to swift objects
+            let wallet = viewModel.walletConnect.session.walletInfo?.accounts[0] ?? ""
+            viewModel.getCustomToken(walletAddress: wallet)
+            
+            if(viewModel.userData.token != ""){
+                //we have token, so now sign in.
+                if(viewModel.userData.user.uid == ""){
+                    //create account Page.
+                }
+                else{
+                    //sign in
+                }
+            }
+        
+        
     }
     
     func didDisconnect() {
@@ -385,6 +470,7 @@ struct LoginView: View, WalletConnectDelegate {
         print(viewModel.walletConnect.session.walletInfo?.accounts[0])
         print(viewModel.walletConnect.session.walletInfo?.approved)
     }
+    
     
     
     @StateObject var viewModel = LoginAppViewModel()
