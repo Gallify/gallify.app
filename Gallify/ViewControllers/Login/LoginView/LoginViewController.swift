@@ -370,49 +370,77 @@ class LoginAppViewModel: ObservableObject {
      Start: Wallet methods to sign in, create account.
      */
     
-    
+
     /*
      This method gets a json via the Gallify API, then, it converts it to proper objects.
      */
     func getCustomToken(walletAddress: String){
-        
-        if(walletAddress == ""){
-            print("Error: wallet Address is empty!")
-        }
-        
-        let apiAddress = "https://api.gallify.app/token/" + walletAddress
+
+        let apiAddress = "https://api.gallify.app/v0/token/" + walletAddress
         print(apiAddress)
+
+        let url = URL(string: apiAddress)!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "GET"
         
-        guard let url = URL(string: apiAddress) else { fatalError("Error: Missing URL") }
-
-        let urlRequest = URLRequest(url: url)
-
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            if let error = error {
-                print("Request error: ", error)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data,
+                let response = response as? HTTPURLResponse,
+                error == nil else {                                              // check for fundamental networking error
+                print("error", error ?? "Unknown error")
                 return
             }
 
-            guard let response = response as? HTTPURLResponse else { return }
-//            print(response.statusCode)
-//            guard let datar = data else { return }
-//            print(datar)
-            
-            if response.statusCode == 200 {
-                guard let data = data else { return }
-                print(data)
-                DispatchQueue.main.async {
-                    do {
-                        let decodedUserData = try JSONDecoder().decode(SignIn.self, from: data)
-                        self.userData = decodedUserData
-                    } catch let error {
-                        print("Error decoding: ", error)
+            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
+                return
+            }
+
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(responseString)")
+            DispatchQueue.main.async {
+                
+                
+                let data = Data(responseString!.utf8)
+
+                do {
+                    // make sure this JSON is in the format we expect
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        // try to read out a string array
+                        if let token = json["token"] as? String {
+                            print(token)
+                            self.userData.token = token
+                        }
+                        if let user = json["userData"] as? AnyObject {
+                            print(user)
+                            if user is NSNull{
+                                print("nil")
+                            }
+                            else{
+                                self.userData.userData.uid = "userHasAccount!"
+                            }
+                        }
+                        
                     }
+                } catch let error as NSError {
+                    print("Failed to load: \(error.localizedDescription)")
                 }
             }
+            
         }
-        dataTask.resume()
+
+        task.resume()
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     /*
@@ -454,7 +482,7 @@ struct LoginView: View, WalletConnectDelegate {
             
             if(viewModel.userData.token != ""){
                 //we have token, so now sign in.
-                if(viewModel.userData.user.uid == ""){
+                if(viewModel.userData.userData.uid == ""){
                     //create account Page.
                 }
                 else{
