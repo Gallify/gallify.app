@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct DiscoverSearch: View {
+struct DiscoverUserSearch: View {
     
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @EnvironmentObject var viewModel: TabBarViewModel
     
-   
+    
     
     var body: some View {
         
@@ -23,9 +23,9 @@ struct DiscoverSearch: View {
             
             ScrollView(showsIndicators: false) {
 
-                if(firestoreQuery.foundContacts.count > 0) {
+                if(firestoreQuery.foundContacts_users.count > 0) {
                     
-                    if(firestoreQuery.foundContacts.count > 20) {
+                    if(firestoreQuery.foundContacts_users.count > 20) {
                         
                         ForEach(0...19, id: \.self) { i in
                             
@@ -34,12 +34,13 @@ struct DiscoverSearch: View {
                                 HStack {
                                     
                                     
-                                    
-                                    
                                         
-                                        ArtSearchResult(screenHeight: screenHeight, screenWidth: screenWidth, artwork: firestoreQuery.foundContacts[i])
+                                        UserSearchResult(screenHeight: screenHeight, screenWidth: screenWidth, user: firestoreQuery.foundContacts_users[i])
                                         
-                                    
+                                        /*
+                                        UserSearchResult(screenHeight: screenHeight, screenWidth: screenWidth)*/
+                                        
+                                   
                                         
                                 }
                                     
@@ -50,29 +51,29 @@ struct DiscoverSearch: View {
                         .searchable(text: $firestoreQuery.searchText)
                         .onChange(of: firestoreQuery.searchText){ value in
                             if(!value.isEmpty){ // && value.count > 3
-                                firestoreQuery.search(searchText: value)
+                                firestoreQuery.search_user(searchText: value)
                             }
                             else{
-                                firestoreQuery.foundContacts.removeAll()
+                                firestoreQuery.foundContacts_users.removeAll()
                             }
                         }
                     }
                     
                     else {
                         
-                        ForEach(0...firestoreQuery.foundContacts.count - 1, id: \.self) { i in
+                        ForEach(0...firestoreQuery.foundContacts_users.count - 1, id: \.self) { i in
                             
                             
                            // NavigationLink(destination: OtherProfileViewVerified(), label: {
                                         
                             
                                 
-                             
+                                UserSearchResult(screenHeight: screenHeight, screenWidth: screenWidth, user: firestoreQuery.foundContacts_users[i])
+                                
+//                                UserSearchResult(screenHeight: screenHeight, screenWidth: screenWidth)
+                                
                             
-                           
-                                
-                                ArtSearchResult(screenHeight: screenHeight, screenWidth: screenWidth, artwork: firestoreQuery.foundContacts[i])
-                                
+                            
                             
                                 
 //                                HStack {
@@ -94,10 +95,10 @@ struct DiscoverSearch: View {
                         .searchable(text: $firestoreQuery.searchText)
                         .onChange(of: firestoreQuery.searchText){ value in
                             if(!value.isEmpty){ // && value.count > 3
-                                firestoreQuery.search(searchText: value)
+                                firestoreQuery.search_user(searchText: value)
                             }
                             else{
-                                firestoreQuery.foundContacts.removeAll()
+                                firestoreQuery.foundContacts_users.removeAll()
                             }
                         }
                     }
@@ -109,10 +110,10 @@ struct DiscoverSearch: View {
                     .searchable(text: $firestoreQuery.searchText)
                     .onChange(of: firestoreQuery.searchText){ value in
                         if(!value.isEmpty){ // && value.count > 3
-                            firestoreQuery.search(searchText: value)
+                            firestoreQuery.search_user(searchText: value)
                         }
                         else{
-                            firestoreQuery.foundContacts.removeAll()
+                            firestoreQuery.foundContacts_users.removeAll()
                         }
                     }
                     

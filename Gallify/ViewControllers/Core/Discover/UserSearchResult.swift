@@ -15,14 +15,14 @@ struct UserSearchResult: View {
         
     let screenHeight: CGFloat
     let screenWidth: CGFloat
-    //let user: User
+    let user: User
     @State var showingSheet = false
     
     @EnvironmentObject var firestoreQuery: FirestoreQuery
         
     var body: some View {
         
-        /*HStack {
+        HStack {
                 
             WebImage(url: URL(string: user.profileImageUrl))
                 .resizable()
@@ -41,8 +41,10 @@ struct UserSearchResult: View {
         }
         .padding(.horizontal, screenWidth / 25)
         .padding(.bottom, screenHeight / 80)
-        .background(Color.white)*/
+        .background(Color.white)
         
+        
+        /*
         HStack {
             
             // When integrated with firebase, make CircleImage to accomodate WebImage instead of Image
@@ -65,6 +67,7 @@ struct UserSearchResult: View {
         .padding(.horizontal, screenWidth / 25)
         .padding(.top, screenHeight / 80)
         .background(Color.white)
+        */
         
     }
     
