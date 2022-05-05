@@ -97,7 +97,7 @@ struct TabBarView: View {
                         
                     }
                     
-                    if firestoreQuery.data.email == "info@gallify.app" {
+                    if firestoreQuery.data.uid == "info@gallify.app" {
                         
                         AdminApprovalViewController()
                             .tabItem{

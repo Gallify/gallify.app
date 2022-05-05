@@ -44,33 +44,33 @@ struct PrivacyPolicyViewBody: View {
                 .padding(.leading, screenWidth / 12)
                 .padding(.bottom, screenHeight / 160)
                 
-                HStack {
-                    
-                    Text("Didn't get an email? ")
-                        .font(.system(size: screenWidth / 29))
-                        .foregroundColor(.gray)
-//                        .font(.system(size: screenWidth / 22))
-//                        .padding(.leading, screenWidth / 12)
-                    
-                    Button(action: {
-                        viewModel.sendVerificationEmail()
-                        
-                    }) {
-                        Text("Resend Email")
-                            .font(.system(size: screenWidth / 29))
-                            .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                            .padding(.leading, -screenWidth / 50)
-                            .onTapGesture {
-                                let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                                impactHeavy.impactOccurred()
-                            }
-                    }
-                    
-                    Spacer()
-                    
-                }
-                .padding(.leading, screenWidth / 12)
-                .padding(.bottom, screenHeight / 160)
+//                HStack {
+//
+//                    Text("Didn't get an email? ")
+//                        .font(.system(size: screenWidth / 29))
+//                        .foregroundColor(.gray)
+////                        .font(.system(size: screenWidth / 22))
+////                        .padding(.leading, screenWidth / 12)
+//
+//                    Button(action: {
+//                        viewModel.sendVerificationEmail()
+//
+//                    }) {
+//                        Text("Resend Email")
+//                            .font(.system(size: screenWidth / 29))
+//                            .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+//                            .padding(.leading, -screenWidth / 50)
+//                            .onTapGesture {
+//                                let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+//                                impactHeavy.impactOccurred()
+//                            }
+//                    }
+//
+//                    Spacer()
+//
+//                }
+//                .padding(.leading, screenWidth / 12)
+//                .padding(.bottom, screenHeight / 160)
                 
                 
                 HStack{
@@ -79,20 +79,26 @@ struct PrivacyPolicyViewBody: View {
                      
                         Task{
 
-                            //reload current user
-                            await viewModel.reloadUser()
+//                            //reload current user
+//                            await viewModel.reloadUser()
+//
+//                            //checks if user is verified. Result stored in viewModel.userVerified
+//                            let value = await viewModel.isVerified()
+//
+//                            if(viewModel.userVerified){
+//                                await viewModel.createUserDocument(password: password, user: user) //creates user document
+//                                await viewModel.createUserData(password: password, user: user) //adds data to user document
+//                            }
                             
-                            //checks if user is verified. Result stored in viewModel.userVerified
-                            let value = await viewModel.isVerified()
                             
-                            print("value ")
-                            print(value)
-                            print("user verified? create in")
-                            print(viewModel.userVerified)
-                            if(viewModel.userVerified){
-                                await viewModel.createUserDocument(password: password, user: user) //creates user document
-                                await viewModel.createUserData(password: password, user: user) //adds data to user document
-                            }
+//                            if(viewModel.signedIn){
+//                                if(viewModel.documentCreated == false){
+//                                    await viewModel.createUserDocument(password: password, user: user) //creates user document
+//                                    await viewModel.createUserData(password: password, user: user) //adds data to user document
+//                                }
+//                            }
+                                
+                            
                         }
 
                     }) {

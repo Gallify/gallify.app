@@ -8,15 +8,21 @@ import SwiftUI
 import Firebase
 import UIKit
 
+@MainActor
 class LoginAppViewModel: ObservableObject {
     
     @Published var walletConnect: WalletConnect!
+    @Published var semaphore_WalletConnect = false
+    
+    
     
     let auth = Auth.auth()
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     
+    @Published var createDoc = false
     @Published var signedIn = false
+//    @Published var needToCreateDoc = false
     @State var userAuthenticated = false
     @Published var userVerified = false
     @Published var userDocumentNotCreated = false
@@ -34,6 +40,39 @@ class LoginAppViewModel: ObservableObject {
     @State private var showingConfirmation = false
     
     
+    func issignedin() -> Bool{
+        
+        
+        
+     //   try? auth.signOut()
+        if (auth.currentUser != nil) {
+//            Task{
+//                do{
+//                self.documentCreated = try await documentCreated()
+//
+//                }
+//                catch{
+//                    print("Error: documentCreated() bug")
+//                }
+//            }
+            
+            if(self.newUserCreated == true){
+                return true
+            }
+//            else if(self.documentCreated){
+//                return true
+//            }
+            else{
+                return false
+            }
+        }
+        else {
+            // No user is signed in.
+            return false
+        }
+            
+        
+    }
     
     func isSignedIn() -> Bool{
       
@@ -71,18 +110,18 @@ class LoginAppViewModel: ObservableObject {
     }
         
     
-    func signIn(email: String, password: String) {
-        auth.signIn(withEmail: email, password: password) { [weak self] result, error in
-            guard result != nil, error == nil else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self?.userAuthenticated = true
-               // self?.newUserAuthenticated = true
-            }
-        }
-    }
+//    func signIn(email: String, password: String) {
+//        auth.signIn(withEmail: email, password: password) { [weak self] result, error in
+//            guard result != nil, error == nil else {
+//                return
+//            }
+//
+//            DispatchQueue.main.async {
+//                self?.userAuthenticated = true
+//               // self?.newUserAuthenticated = true
+//            }
+//        }
+//    }
     
     
     /*
@@ -119,7 +158,7 @@ class LoginAppViewModel: ObservableObject {
         
     }
     
-    func createUserDocument(password: String, user: User) async {
+    func createUserDocument(user: User) async {
         let db = Firestore.firestore()
         let userBatch = db.batch()
         
@@ -127,9 +166,14 @@ class LoginAppViewModel: ObservableObject {
         do{
 //            print("username")
 //            print(user.username)
+            
             // Set user data.
-            user.email = self.auth.currentUser!.email!
-            user.uid = self.auth.currentUser!.uid
+//            user.email = self.auth.currentUser!.email!
+//            user.uid = self.auth.currentUser!.uid
+            
+//            user.email = userData.userData.email
+            user.uid = walletConnect.session.walletInfo?.accounts[0] ?? ""
+            print(user.uid)
             
             let userRef = db.collection("users").document(user.uid) //used to be .email
             try await userBatch.setData(from: user, forDocument: userRef)
@@ -149,7 +193,7 @@ class LoginAppViewModel: ObservableObject {
         
     }
     
-    func createUserData(password: String, user: User) async{
+    func createUserData(user: User) async{
     
        // var userSubCollectionsCreated = false
 //        var userPlaylistsCreated = false
@@ -157,6 +201,11 @@ class LoginAppViewModel: ObservableObject {
         
         let db = Firestore.firestore()
         let batch = db.batch()
+        
+        
+        
+        user.uid = walletConnect.session.walletInfo?.accounts[0] ?? ""
+        
         let userRef = db.collection("users").document(user.uid) //used to be .email
         
         do{
@@ -357,6 +406,7 @@ class LoginAppViewModel: ObservableObject {
    
     
     func signOut() {
+        
         try? auth.signOut()
         self.signedIn = false
         self.newUserCreated = false
@@ -364,6 +414,11 @@ class LoginAppViewModel: ObservableObject {
         self.userDocumentNotCreated = false
         self.documentCreated = false
         self.userData = SignIn() //clears data
+        
+        //disconnects from wallet
+        for session in self.walletConnect.client.openSessions() {
+            try? self.walletConnect.client.disconnect(from: session)
+        }
     }
     
     /*
@@ -376,83 +431,98 @@ class LoginAppViewModel: ObservableObject {
      */
     func getCustomToken(walletAddress: String){
 
-        let apiAddress = "https://api.gallify.app/v0/token/" + walletAddress
-        print(apiAddress)
+        if(self.userData.token == ""){
+            let apiAddress = "https://api.gallify.app/v0/token/" + walletAddress
+            print(apiAddress)
 
-        let url = URL(string: apiAddress)!
-        var request = URLRequest(url: url)
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data,
-                let response = response as? HTTPURLResponse,
-                error == nil else {                                              // check for fundamental networking error
-                print("error", error ?? "Unknown error")
-                return
-            }
-
-            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
-                print("statusCode should be 2xx, but is \(response.statusCode)")
-                print("response = \(response)")
-                return
-            }
-
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(responseString)")
-            DispatchQueue.main.async {
-                
-                
-                let data = Data(responseString!.utf8)
-
-                do {
-                    // make sure this JSON is in the format we expect
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        // try to read out a string array
-                        if let token = json["token"] as? String {
-                            print(token)
-                            self.userData.token = token
-                        }
-                        if let user = json["userData"] as? AnyObject {
-                            print(user)
-                            if user is NSNull{
-                                print("nil")
-                            }
-                            else{
-                                self.userData.userData.uid = "userHasAccount!"
-                            }
-                        }
-                        
-                    }
-                } catch let error as NSError {
-                    print("Failed to load: \(error.localizedDescription)")
-                }
-            }
+            let url = URL(string: apiAddress)!
+            var request = URLRequest(url: url)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "GET"
             
-        }
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data,
+                    let response = response as? HTTPURLResponse,
+                    error == nil else {                                              // check for fundamental networking error
+                    print("error", error ?? "Unknown error")
+                    return
+                }
 
-        task.resume()
+                guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+                    print("statusCode should be 2xx, but is \(response.statusCode)")
+                    print("response = \(response)")
+                    return
+                }
+
+                let responseString = String(data: data, encoding: .utf8)
+                print("responseString = \(responseString)")
+                DispatchQueue.main.async {
+                    
+                    
+                    let data = Data(responseString!.utf8)
+
+                    do {
+                        // make sure this JSON is in the format we expect
+                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            // try to read out a string array
+                            if let token = json["token"] as? String {
+                                print(token)
+                                self.userData.token = token
+                            }
+                            if let user = json["userData"] as? AnyObject {
+                                print(user)
+                                if user is NSNull{
+                                    print("nil")
+//                                    self.userData.userData.uid = "newuser"
+//                                    self.needToCreateDoc = true
+                                    DispatchQueue.main.async {
+                                        self.userData.userData.uid = "newuser"
+                                        self.createDoc = true
+                                        
+                                    }
+                                }
+                                else{
+                                    self.userData.userData.uid = "userHasAccount!"
+                                    
+                                    DispatchQueue.main.async {
+                                        self.newUserCreated = true
+                                    }
+                                }
+                                
+                                //sign in with custom token. No matter a new account or already existing. It creates a new authentication account if new account.
+                                self.auth.signIn(withCustomToken: self.userData.token) { user, error in
+                                  
+                                    guard user != nil, error == nil else {
+                                        return
+                                    }
+                                    
+                                    DispatchQueue.main.async {
+                                        self.signedIn = true
+                                    }
+                                }
+                                
+                                
+                            }
+                            
+                        }
+                    } catch let error as NSError {
+                        print("Failed to load: \(error.localizedDescription)")
+                    }
+                }
+                
+            }
+
+            task.resume()
+        }
+        
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     /*
      This method takes in the token, and signs in the user.
      */
     func tokenSignIn(){
         
-        //If null, prompt to create account.
-        
-        //create document for account. If null.
-        
-        //sign in
         
     }
     
@@ -475,22 +545,16 @@ struct LoginView: View, WalletConnectDelegate {
     func didConnect() {
         
         //if signed in is false.
-        
+        if(viewModel.semaphore_WalletConnect){
             //get custom token, convert to swift objects
             let wallet = viewModel.walletConnect.session.walletInfo?.accounts[0] ?? ""
             viewModel.getCustomToken(walletAddress: wallet)
-            
-            if(viewModel.userData.token != ""){
-                //we have token, so now sign in.
-                if(viewModel.userData.userData.uid == ""){
-                    //create account Page.
-                }
-                else{
-                    //sign in
-                }
+            DispatchQueue.main.async {
+                viewModel.semaphore_WalletConnect = false
             }
-        
-        
+            
+        }
+
     }
     
     func didDisconnect() {
@@ -501,17 +565,33 @@ struct LoginView: View, WalletConnectDelegate {
     
     
     
+    
+    
+    
     @StateObject var viewModel = LoginAppViewModel()
     let auth = Auth.auth()
     
     var body: some View {
         
-        if viewModel.isSignedIn() || viewModel.newUserCreated || viewModel.signedIn {
-            
-            TabBarView()
-                .environmentObject(viewModel)
+//        if viewModel.isSignedIn() || viewModel.newUserCreated || viewModel.signedIn {
+//
+//            TabBarView()
+//                .environmentObject(viewModel)
+//        }
+        
+//        if viewModel.signedIn {
+//            if(viewModel.documentCreated || viewModel.newUserCreated ){
+//                TabBarView()
+//                    .environmentObject(viewModel)
+//
+//            }
+//        }
+        
+        if viewModel.issignedin() {
+                TabBarView()
+                    .environmentObject(viewModel)
         }
-            
+        
         else {
             
             NavigationView {

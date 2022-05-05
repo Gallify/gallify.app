@@ -121,7 +121,7 @@ struct SignInViewBody: View {
                     
                     Task{
                         //try to sign in user.
-                        await viewModel.signIn(email: email, password: password)
+//                        await viewModel.signIn(email: email, password: password)
                        
                         //reload current user
                         await viewModel.reloadUser()

@@ -224,10 +224,47 @@ struct CreateAccountViewBody: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                         buttonPressed = false
                     }
+                    
+                    Task{
+                        
+//                        await viewModel.auth.signIn(withCustomToken: viewModel.userData.token) { user, error in
+//
+//                            guard user != nil, error == nil else {
+//                                return
+//                            }
+//                        }
+                    
+                        if (viewModel.auth.currentUser != nil) {
+                            await viewModel.createUserDocument(user: user) //creates user document
+                            await viewModel.createUserData(user: user) //adds data to user document
+                        }
+                        
+//                            if(viewModel.newUserCreated){
+//
+////                                DispatchQueue.main.async {
+////                                    viewModel.needToCreateDoc = true
+////                                }
+////
+//                                //sign in with custom token. No matter a new account or already existing. It creates a new authentication account if new account.
+////                                viewModel.auth.signIn(withCustomToken: viewModel.userData.token) { user, error in
+////
+////                                    guard user != nil, error == nil else {
+////                                        return
+////                                    }
+////
+////                                    DispatchQueue.main.async {
+////                                        viewModel.signedIn = true
+////                                    }
+////                                }
+//                            }
+                        
+                        
+                    }
+                
                         
                 }, label: {
                         
-                    Text("Next")
+                    Text("Create Account")
                         .font(.system(size: screenWidth / 18.5, weight: .bold))
                         .foregroundColor(Color.white)
                         .padding(.horizontal, screenWidth / 8.5)
@@ -238,9 +275,9 @@ struct CreateAccountViewBody: View {
                 })
                 .padding(.vertical, screenHeight / 54)
                     
-                NavigationLink(destination: SetPasswordView(),
-                    tag: true, selection: $goForward) { EmptyView() }
-                    .navigationBarHidden(true)
+//                NavigationLink(destination: SetPasswordView(),
+//                    tag: true, selection: $goForward) { EmptyView() }
+//                    .navigationBarHidden(true)
                     
             }
                 
