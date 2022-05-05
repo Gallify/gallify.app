@@ -136,6 +136,8 @@
 		30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4427BF1E510045EC74 /* postARPlayer.swift */; };
 		30BEBD4727BF1E5C0045EC74 /* updateARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */; };
 		30BEBD4927BF1E660045EC74 /* deleteARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4827BF1E660045EC74 /* deleteARPlayer.swift */; };
+		30EB961F2822F0F1003D0486 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB961E2822F0F1003D0486 /* SignIn.swift */; };
+		30EB9621282437B9003D0486 /* DiscoverUserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB9620282437B9003D0486 /* DiscoverUserSearch.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -385,6 +387,8 @@
 		30BEBD4427BF1E510045EC74 /* postARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4827BF1E660045EC74 /* deleteARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteARPlayer.swift; sourceTree = "<group>"; };
+		30EB961E2822F0F1003D0486 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		30EB9620282437B9003D0486 /* DiscoverUserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserSearch.swift; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -708,6 +712,7 @@
 		3004D4EA26CD3DF100323BCB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				30EB961D2822F0D8003D0486 /* SignIn */,
 				3052136D278A2C3A00CE0224 /* User */,
 				30521368278A2C3100CE0224 /* Discover */,
 				308B4BE42765894C0039B74E /* Art */,
@@ -1061,6 +1066,14 @@
 			path = ARPlayer;
 			sourceTree = "<group>";
 		};
+		30EB961D2822F0D8003D0486 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				30EB961E2822F0F1003D0486 /* SignIn.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 		3103E0DF27112D7200135F08 /* PrivacyPolicyViewHelpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1398,6 +1411,7 @@
 				30836FB8274A046D00E83735 /* DiscoverPosts */,
 				30836FB1274A036E00E83735 /* DiscoverViewRecentSearch.swift */,
 				311E93882753C0BA005DFE12 /* DiscoverSearch.swift */,
+				30EB9620282437B9003D0486 /* DiscoverUserSearch.swift */,
 				30836FB3274A037C00E83735 /* SearchTemplates */,
 				315345762755760A00BD7B54 /* DiscoverBrowse.swift */,
 				315345782755764200BD7B54 /* DiscoverBrowseHelpers */,
@@ -1736,6 +1750,7 @@
 				30001BC62796854200527BF9 /* deleteHome.swift in Sources */,
 				3004D4F826CD4D5F00323BCB /* AuthManager.swift in Sources */,
 				3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */,
+				30EB9621282437B9003D0486 /* DiscoverUserSearch.swift in Sources */,
 				30001BB627921AC900527BF9 /* DropDownReels.swift in Sources */,
 				3003B00827EB984E00EA58B6 /* CustomARView.swift in Sources */,
 				304109F6279D27AC00284446 /* MinimizedView.swift in Sources */,
@@ -1747,6 +1762,7 @@
 				3004D50126CD57A800323BCB /* TabBarViewController.swift in Sources */,
 				3052136B278A2C3100CE0224 /* RecentSearch.swift in Sources */,
 				3004D4E626CC971500323BCB /* Logo.swift in Sources */,
+				30EB961F2822F0F1003D0486 /* SignIn.swift in Sources */,
 				30410A7A27A677EB00284446 /* AccountSettingHeader.swift in Sources */,
 				30001BDF2796868000527BF9 /* deleteList.swift in Sources */,
 				92794D00273811760012B184 /* CollectionRecentActivityFooter.swift in Sources */,

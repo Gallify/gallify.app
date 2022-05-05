@@ -22,6 +22,7 @@ class LoginAppViewModel: ObservableObject {
     @Published var userDocumentNotCreated = false
     @Published var documentCreated = false
     @Published var newUserCreated = false
+    @Published var userData: SignIn = SignIn()
     
     @EnvironmentObject var user: User //to hold user email, pass, and username
     
@@ -362,22 +363,134 @@ class LoginAppViewModel: ObservableObject {
         self.userVerified = false //to check if a users email is verified
         self.userDocumentNotCreated = false
         self.documentCreated = false
+        self.userData = SignIn() //clears data
     }
     
+    /*
+     Start: Wallet methods to sign in, create account.
+     */
+    
+
+    /*
+     This method gets a json via the Gallify API, then, it converts it to proper objects.
+     */
+    func getCustomToken(walletAddress: String){
+
+        let apiAddress = "https://api.gallify.app/v0/token/" + walletAddress
+        print(apiAddress)
+
+        let url = URL(string: apiAddress)!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data,
+                let response = response as? HTTPURLResponse,
+                error == nil else {                                              // check for fundamental networking error
+                print("error", error ?? "Unknown error")
+                return
+            }
+
+            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
+                return
+            }
+
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(responseString)")
+            DispatchQueue.main.async {
+                
+                
+                let data = Data(responseString!.utf8)
+
+                do {
+                    // make sure this JSON is in the format we expect
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        // try to read out a string array
+                        if let token = json["token"] as? String {
+                            print(token)
+                            self.userData.token = token
+                        }
+                        if let user = json["userData"] as? AnyObject {
+                            print(user)
+                            if user is NSNull{
+                                print("nil")
+                            }
+                            else{
+                                self.userData.userData.uid = "userHasAccount!"
+                            }
+                        }
+                        
+                    }
+                } catch let error as NSError {
+                    print("Failed to load: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+
+        task.resume()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+     This method takes in the token, and signs in the user.
+     */
+    func tokenSignIn(){
+        
+        //If null, prompt to create account.
+        
+        //create document for account. If null.
+        
+        //sign in
+        
+    }
+    
+    /*
+     End: Wallet methods to sign in, create account.
+     */
+    
+    
+
 }
 
 struct LoginView: View, WalletConnectDelegate {
     func failedToConnect() {
         print("failed to connect")
-        //don't sign in
+
+        //        print(viewModel.walletConnect.session.walletInfo?.approved)
         
     }
     
     func didConnect() {
-        print("did connect")
-        print(viewModel.walletConnect.session.walletInfo?.accounts[0])
-        print(viewModel.walletConnect.session.walletInfo?.approved)
-        //do sign in. 
+        
+        //if signed in is false.
+        
+            //get custom token, convert to swift objects
+            let wallet = viewModel.walletConnect.session.walletInfo?.accounts[0] ?? ""
+            viewModel.getCustomToken(walletAddress: wallet)
+            
+            if(viewModel.userData.token != ""){
+                //we have token, so now sign in.
+                if(viewModel.userData.userData.uid == ""){
+                    //create account Page.
+                }
+                else{
+                    //sign in
+                }
+            }
+        
+        
     }
     
     func didDisconnect() {
@@ -385,6 +498,7 @@ struct LoginView: View, WalletConnectDelegate {
         print(viewModel.walletConnect.session.walletInfo?.accounts[0])
         print(viewModel.walletConnect.session.walletInfo?.approved)
     }
+    
     
     
     @StateObject var viewModel = LoginAppViewModel()

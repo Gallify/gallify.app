@@ -112,9 +112,15 @@ struct DiscoverMainView: View {
                             }
                             
                             else {
-                              //  ScrollView(showsIndicators: false) {
-                                DiscoverSearch(searchType: searchType)
-                              //  }
+                              
+                                if(searchType == "User"){
+                                    DiscoverUserSearch()
+                                }
+                                else{
+                                    DiscoverSearch()
+                                }
+                                
+                              
                                 
                             }
                             

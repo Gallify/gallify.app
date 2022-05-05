@@ -52,7 +52,7 @@ extension FirestoreQuery {
     }
     
     func search_user(searchText: String){
-        let client = SearchClient(appID: "D1K1VO0U2E", apiKey: "bc7f663e539795736e1fad8c1adaeae1")
+        let client = SearchClient(appID: "D1K1VO0U2E", apiKey: "56942b6aa3836c6e92db370dc5f3452d")
         let index = client.index(withName: "prod_Gallify_users")
         let decoder = JSONDecoder()
         
