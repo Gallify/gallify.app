@@ -174,7 +174,7 @@ struct TabBarView: View {
 //        loginModel.signedIn = false
 //        loginModel.newUserCreated = false
         
-        if(loginModel.newUserCreated || loginModel.signedIn){
+   //     if(loginModel.newUserCreated || loginModel.signedIn){
             
             await firestoreQuery.fetchData()
 
@@ -229,7 +229,7 @@ struct TabBarView: View {
 //            }
 
             doneLoading = true
-        }
+      //  }
             
     }
     

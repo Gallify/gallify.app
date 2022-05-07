@@ -42,28 +42,24 @@ class LoginAppViewModel: ObservableObject {
     
     func issignedin() -> Bool{
         
+        //this runs a background task to see if doc created, self.documentCreated should update.
+        checkIfDocCreated()
         
-        
-     //   try? auth.signOut()
+  //      try? auth.signOut()
         if (auth.currentUser != nil) {
-//            Task{
-//                do{
-//                self.documentCreated = try await documentCreated()
-//
-//                }
-//                catch{
-//                    print("Error: documentCreated() bug")
-//                }
-//            }
             
             if(self.newUserCreated == true){
                 return true
             }
-//            else if(self.documentCreated){
-//                return true
-//            }
             else{
-                return false
+                
+                if(self.documentCreated){
+                    return true
+                }
+                else{
+                    checkIfDocCreated()
+                    return false
+                }
             }
         }
         else {
@@ -72,6 +68,17 @@ class LoginAppViewModel: ObservableObject {
         }
             
         
+    }
+    
+    func checkIfDocCreated(){
+        Task{
+            do{
+                try await documentCreated()
+            }
+            catch{
+                print("Error: documentCreated() bug")
+            }
+        }
     }
     
     func isSignedIn() -> Bool{
@@ -367,30 +374,36 @@ class LoginAppViewModel: ObservableObject {
     
     //this method checks if a document even exists in the first place.
     func documentCreated() async throws -> Bool {
+        
+        
         var exists = false
         
         do {
-          //  var exists = false
-            let userDoc = Auth.auth().currentUser?.uid //used to be email
-            let db = Firestore.firestore()
-            let docRef = try await db.collection("users").document(userDoc ?? "info@gallify.app")
+        
+            if (auth.currentUser != nil) {
             
-            try await docRef.getDocument { (document, error) in
-               if let document = document, document.exists {
-                   exists = true
-                   self.documentCreated = true
-                   DispatchQueue.main.async {
+              //  var exists = false
+                let userDoc = Auth.auth().currentUser?.uid //used to be email
+                let db = Firestore.firestore()
+                let docRef = try await db.collection("users").document(userDoc ?? "info@gallify.app")
+                
+                try await docRef.getDocument { (document, error) in
+                   if let document = document, document.exists {
+                       exists = true
                        self.documentCreated = true
-                   }
-               } else {
-                   print("Document does not exist")
-                   exists = false
-                   self.documentCreated = false
-                   DispatchQueue.main.async {
+                       DispatchQueue.main.async {
+                           self.documentCreated = true
+                       }
+                   } else {
+                       //print("Document does not exist")
+                       exists = false
                        self.documentCreated = false
+                       DispatchQueue.main.async {
+                           self.documentCreated = false
+                       }
                    }
                }
-           }
+            }
             
           
         } catch {

@@ -124,13 +124,6 @@ struct LoginViewNavLinks: View {
                                 //.padding(.horizontal, screenWidth / 30)
                                 .padding(.vertical, screenHeight / 65)
                             }
-                        
-                       
-                        
-
-                       
-                
-
                     }
                 }
             
