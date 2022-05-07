@@ -586,83 +586,58 @@ struct LoginView: View, WalletConnectDelegate {
     
     var body: some View {
         
-//        if viewModel.isSignedIn() || viewModel.newUserCreated || viewModel.signedIn {
-//
-//            TabBarView()
-//                .environmentObject(viewModel)
-//        }
-        
-//        if viewModel.signedIn {
-//            if(viewModel.documentCreated || viewModel.newUserCreated ){
-//                TabBarView()
-//                    .environmentObject(viewModel)
-//
-//            }
-//        }
-        
-        if viewModel.issignedin() {
-                TabBarView()
-                    .environmentObject(viewModel)
-        }
-        
-        else {
+        //VStack{
+            if viewModel.issignedin() {
+                    TabBarView()
+                        .environmentObject(viewModel)
+            }
             
-            NavigationView {
-                    
-                let screenHeight = viewModel.screenHeight
-                let screenWidth = viewModel.screenWidth
-                    
-                VStack {
-                    
-                    LoginViewLogoAndSubtext(screenHeight: screenHeight, screenWidth: screenWidth)
+            else {
+                
+                NavigationView {
                         
-                    Spacer()
+                    let screenHeight = viewModel.screenHeight
+                    let screenWidth = viewModel.screenWidth
+                        
+                    VStack {
+                        
+                        LoginViewLogoAndSubtext(screenHeight: screenHeight, screenWidth: screenWidth)
                             
-                    LoginViewNavLinks()
-                        
-                }//.onAppear{Task{ await NetworkingCall() }}
-                
-             }
-            .onAppear{
-                Task{ await NetworkingCall() }
-                
-                viewModel.walletConnect = WalletConnect(delegate: self)
-                viewModel.walletConnect.reconnectIfNeeded()
-                
-                // Forcing the rotation to portrait
-                // code locks view in portrait.
-                UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") 
-                AppDelegate.orientationLock = .portrait
+                        Spacer()
+                                
+                        LoginViewNavLinks()
+                            
+                    }
+                    
+                 }
+                .onAppear{
+    //                Task{
+    //                    await NetworkingCall()
+    //                }
+                    
+                    viewModel.walletConnect = WalletConnect(delegate: self)
+                    viewModel.walletConnect.reconnectIfNeeded()
+                    
+                    // Forcing the rotation to portrait
+                    // code locks view in portrait.
+                    UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+                    AppDelegate.orientationLock = .portrait
+                    
+                }
+                .navigationBarHidden(true)
+                .environmentObject(viewModel)
                 
             }
-            .navigationBarHidden(true)
-            .environmentObject(viewModel)
-            
-        }
+        
+//        }.onAppear{
+//            viewModel.issignedin()
+//        }
         
     }
     
+    
     func NetworkingCall() async {
         
-        viewModel.isSignedIn()
-        
-//        //try to sign in user.
-//        await viewModel.signIn(email: email, password: password)
-//
-//        //reload current user
-//        await viewModel.reloadUser()
-//
-//        //checks if user is verified. Result stored in viewModel.userVerified
-//        await viewModel.isVerified()
-//
-//        print("user verified? sign in")
-//        print(viewModel.userVerified)
-//        if(viewModel.userVerified){
-//            let created = try await viewModel.documentCreated()
-//            if(created){
-//                viewModel.signedIn = true
-//            }
-//        }
     }
 }
     

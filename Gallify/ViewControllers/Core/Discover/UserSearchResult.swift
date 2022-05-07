@@ -22,26 +22,44 @@ struct UserSearchResult: View {
         
     var body: some View {
         
-        HStack {
-                
-            WebImage(url: URL(string: user.profileImageUrl))
-                .resizable()
-                .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
-                
-            VStack(alignment: .leading) {
-                
-                Text(user.username)
-                    .font(.system(size: screenWidth / 20, weight: .semibold))
-                
-                Text(user.firstName + user.lastName)
-                    .font(.system(size: screenWidth / 25))
+        
+        
+        NavigationLink(destination: OtherProfileView(otherUserId: user.uid), // thePlaylist or playlistOwner.uid
+                    label: {
+                                            
+            HStack {
                     
-            }
+                WebImage(url: URL(string: user.profileImageUrl))
+                    .resizable()
+                    .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+                    .clipShape(Circle())
+                    
+                VStack(alignment: .leading) {
+                    
+                    Text(user.username)
+                        .font(.system(size: screenWidth / 20, weight: .semibold))
+                    
+                    Text(user.firstName + user.lastName)
+                        .font(.system(size: screenWidth / 25))
+                        
+                }
+                
+                Spacer()
 
-        }
-        .padding(.horizontal, screenWidth / 25)
-        .padding(.bottom, screenHeight / 80)
-        .background(Color.white)
+            }
+            .contentShape(Rectangle())
+            .padding(.horizontal, screenWidth / 25)
+            .padding(.bottom, screenHeight / 80)
+            .background(Color.white)
+                                        
+        })
+        .padding(.trailing, -screenWidth / 5)
+        
+
+        
+        
+        
+        
         
         
         /*

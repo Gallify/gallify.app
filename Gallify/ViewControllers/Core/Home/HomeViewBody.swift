@@ -79,7 +79,7 @@ struct HomeViewBody: View {
                                           
                                             .lineLimit(1)
                                                 
-                                        Text(playlist.playlist_type + " • " + playlist.creator)
+                                        Text(playlist.creator + " • " + playlist.playlist_type)
                                             .font(.system(size: screenWidth / 25.5, weight: .regular))
                                             .frame(width: screenWidth / 2.8, alignment: .leading)
                                             .lineLimit(1)

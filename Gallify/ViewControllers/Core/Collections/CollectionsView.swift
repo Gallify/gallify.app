@@ -16,17 +16,19 @@ struct CollectionsView: View {
     @State var showAddAlert = false
     @Environment(\.dismiss) var dismiss
     @State var showUnapprovedAlert = false
-    
+
     let art : Art
     
     var body: some View {
         
         let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
+        var alertText = ""
+        var alertTitle = ""
        
         VStack {
             
-            Text("Add to Collection")
+            Text("Add to Collection or Playlist")
                 .padding(.top, screenHeight / 54)
                 .font(.system(size: screenWidth / 22, weight: .semibold))
             
@@ -59,6 +61,7 @@ struct CollectionsView: View {
                         }
                         .padding(.vertical, screenHeight / 160)
                         .padding(.leading, screenWidth / 25)
+                        .contentShape(Rectangle())
                         .onTapGesture {
                             Task {
                                 
@@ -82,6 +85,8 @@ struct CollectionsView: View {
                                         else{
                                             //else - alert: not owned or created by you. So cannot add to collection.
                                             showAddAlert = true
+                                            
+                                            
                                         }
                                         
                                     }
@@ -97,16 +102,20 @@ struct CollectionsView: View {
                                     }
                                 }
                                 else{
-                                    showUnapprovedAlert = true //then user is trying to show unapproved art.
+                                    showAddAlert = true //then user is trying to show unapproved art.
+                                    
+                                    
                                 }
                             }
                         }
                         .alert(isPresented: $showAddAlert) {
-                            Alert(title: Text("Cannot Add to Collection"), message: Text("You can only add content you own or created to a collection"), dismissButton: .default(Text("Cancel")))
+                            Alert(title: Text("Can't Add Just Yet!"), message: Text("Art must be owned or created by the user to add to a collection. Art must also be approved before adding."), dismissButton: .default(Text("Cancel")))
                         }
-                        .alert(isPresented: $showUnapprovedAlert) {
-                            Alert(title: Text("Can't Add Just Yet!"), message: Text("The art your adding has not been reviewed and approved for the public."), dismissButton: .default(Text("Cancel")))
-                        }
+//                        .alert(isPresented: $showAddAlert) {
+//
+//                            Alert(title: Text("Cannot Add to Collection"), message: Text("You can only add content you own or created to a collection"), dismissButton: .default(Text("Cancel")))
+//                        }
+                        
                     
                     }
             

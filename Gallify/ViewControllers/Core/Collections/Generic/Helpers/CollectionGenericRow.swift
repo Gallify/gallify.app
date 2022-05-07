@@ -81,13 +81,13 @@ struct CollectionGenericRow: View {
                                 .font(.system(size: screenWidth / 20, weight: .light))
                                 .foregroundColor(Color.black)
                                                                 
-                            Image(systemName: "greaterthan")
-                                .resizable()
-                                .frame(width: screenWidth / 37.5, height: screenHeight / 80)
-                                .foregroundColor(Color.primary)
-                                .font(Font.title.weight(.light))
-                                
-                                .padding(.vertical, 20)
+//                            Image(systemName: "greaterthan")
+//                                .resizable()
+//                                .frame(width: screenWidth / 37.5, height: screenHeight / 80)
+//                                .foregroundColor(Color.primary)
+//                                .font(Font.title.weight(.light))
+//
+//                                .padding(.vertical, 20)
                                                             
                         }
                                                     
