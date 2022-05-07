@@ -18,9 +18,14 @@ struct LoginViewLogoAndSubtext: View {
             Logo(height: screenHeight / 3, width: screenWidth / 1.45)
                 .padding(.top, screenHeight / 16.25)
             
-            Text("Gallify")
-                .font(.system(size: screenWidth / 9, weight: .bold))
-                .foregroundColor(Color.black)
+//            Text("Gallify")
+//                .font(.system(size: screenWidth / 9, weight: .bold))
+//                .foregroundColor(Color.black)
+//                .padding(.top, -screenHeight / 54)
+            
+            Image("gallify")
+                .resizable()
+                .frame(width: 150, height: 60)
                 .padding(.top, -screenHeight / 54)
             
             HStack{
