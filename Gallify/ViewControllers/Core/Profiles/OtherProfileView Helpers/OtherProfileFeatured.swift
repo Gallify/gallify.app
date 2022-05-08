@@ -101,6 +101,7 @@ struct OtherProfileFeatured: View {
                                                 Text(artwork.name)
                                                     .font(.system(size: screenWidth / 20, weight: .medium))
                                                     .lineLimit(1)
+                                                    .foregroundColor(.black)
                                                     
                                             }
                                             
@@ -109,6 +110,7 @@ struct OtherProfileFeatured: View {
                                                 Text("<1000")
                                                     .font(.system(size: screenWidth / 24, weight: .light))
                                                     .lineLimit(1)
+                                                    .foregroundColor(.black)
                                                     
                                             }
                                             
@@ -117,6 +119,7 @@ struct OtherProfileFeatured: View {
                                                 Text("\(artwork.popularity)")
                                                     .font(.system(size: screenWidth / 24, weight: .light))
                                                     .lineLimit(1)
+                                                    .foregroundColor(.black)
                                                     
                                             }
                                                         

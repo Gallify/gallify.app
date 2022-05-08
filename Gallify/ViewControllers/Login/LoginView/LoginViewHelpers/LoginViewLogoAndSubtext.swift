@@ -29,7 +29,7 @@ struct LoginViewLogoAndSubtext: View {
                 .padding(.top, -screenHeight / 54)
             
             HStack{
-                Text("Changing the Art World Forever.")
+                Text("Create Your Gallery.")
                     .font(.system(size: screenWidth / 21))
                     .foregroundColor(Color.gray)
                 

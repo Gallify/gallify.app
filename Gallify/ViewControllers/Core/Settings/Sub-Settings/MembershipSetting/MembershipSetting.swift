@@ -12,9 +12,21 @@ struct MembershipSetting: View {
     let screenWidth: CGFloat
     let screenHeight: CGFloat
     
-    var body: some View {
 
-        MembershipSettingHeader(screenWidth: screenWidth, screenHeight: screenHeight)
+    var body: some View {
+        VStack {
+
+            MembershipSettingHeader(screenWidth: screenWidth, screenHeight: screenHeight)
+            
+            ScrollView (showsIndicators: false) {
+                
+                MembershipBody(screenWidth: screenWidth, screenHeight: screenHeight)
+                
+            }
+            
+        }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
         
     }
 }

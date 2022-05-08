@@ -33,12 +33,12 @@ struct MainSettingsViewBody: View {
         .padding(.top)
         
 
-      /*  HStack (alignment: .center) {
-            Text("Account")
+       HStack (alignment: .center) {
+            Text("Report")
                 .padding(.leading, screenWidth/6)
             Spacer()
             NavigationLink(
-                destination: ProfileSetting(screenWidth: screenWidth, screenHeight: screenHeight),
+                destination: MembershipSetting(screenWidth: screenWidth, screenHeight: screenHeight),
                 label: {
                     Image(systemName: "chevron.right")
                 })
@@ -50,7 +50,7 @@ struct MainSettingsViewBody: View {
         }
         .padding(.top)
         
-        
+        /*
         HStack (alignment: .center) {
             Text("Artist Program")
                 .padding(.leading, screenWidth/6)

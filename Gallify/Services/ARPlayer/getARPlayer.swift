@@ -24,14 +24,15 @@ extension FirestoreQuery {
             var model: Model
             
             model = await Model(artwork: art)
+            self.models.append(model)
             
-            model.asyncLoadModelEntity { completed, error in
-                if completed {
-                    //select model for placement
-                    self.models.append(model)
-                    model.contentLoaded = true
-                }
-            }
+//            model.asyncLoadModelEntity { completed, error in
+//                if completed {
+//                    //select model for placement
+//                    self.models.append(model)
+//                    model.contentLoaded = true
+//                }
+//            }
         }
     }
     

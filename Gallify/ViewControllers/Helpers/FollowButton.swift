@@ -54,7 +54,7 @@ struct FollowButton: View {
                 
                 RoundedRectangle(cornerRadius: 3)
                     .foregroundColor(firestoreQuery.isFollowing ? .white : Color("Gallify-Pink"))
-                    .frame(width: buttonWidth, height: buttonHeight)
+                    .frame(width: (buttonWidth), height: buttonHeight)
                     .overlay(firestoreQuery.isFollowing ? RoundedRectangle(cornerRadius: 3) //buttonWidth / 8
                     .stroke(Color.gray, lineWidth: buttonWidth / 125) : RoundedRectangle(cornerRadius: 3)
                     .stroke(Color("Gallify-Pink"), lineWidth: buttonWidth / 70)) //, lineWidth: buttonWidth / 50)

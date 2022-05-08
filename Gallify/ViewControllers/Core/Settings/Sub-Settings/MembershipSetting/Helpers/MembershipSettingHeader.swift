@@ -19,7 +19,7 @@ struct MembershipSettingHeader: View {
             
             HStack {
                 
-                CustomBackButton(buttonHeight: screenHeight / 19.5, buttonWidth: screenWidth / 9, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
+                CustomBackButton(buttonHeight: screenHeight / 32.5, buttonWidth: screenWidth / 15, image: Image(systemName: "chevron.left.circle"), presentationMode: _presentationMode)
                     .padding(.horizontal, screenWidth / 25)
                     .padding(.vertical, screenHeight / 100)
                 
@@ -29,10 +29,12 @@ struct MembershipSettingHeader: View {
             
             HStack {
                         
-                Text("Account")
+                Text("Report")
                     .font(.system(size: screenWidth / 11, weight: .semibold))
                         
                 Spacer()
+                .padding(.leading, screenWidth / 12)
+                .padding(.bottom, screenHeight / 160)
                         
             }
             .padding(.leading, screenWidth / 12)
