@@ -5,9 +5,9 @@ __Mission:__  *To change the art world forever.* . . . . . [Gallify.app](https:/
 
 __Sprint 24:__ May 8th - May 22nd . 7 Days Left!
 
-__Currently:__ Gallify Version 1.0.1 in Beta
+__Currently:__ Version 1.0.1 in Beta
 
-__Goal:__ Gallify Version 2.0.0 in Beta Release.
+__Goal:__ Version 2.0.0 in Beta Release.
       
 ## issue boards
 
