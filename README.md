@@ -7,7 +7,7 @@ __Sprint 24:__ May 8th - May 22nd . 7 Days Left!
 
 __Currently:__ Version 0.1.1 in Beta
 
-__Goal:__ Version 0.2.0 in Beta Release.
+__Goal:__ Version 0.2.0 Beta Release.
       
 ## issue boards
 
