@@ -88,6 +88,8 @@ struct Slider: View {
         }
 }
 
+
+
 struct SliderItem: View {
     var model: Model
     let action: () -> Void

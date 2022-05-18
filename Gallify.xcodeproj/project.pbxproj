@@ -139,6 +139,7 @@
 		30EB961F2822F0F1003D0486 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB961E2822F0F1003D0486 /* SignIn.swift */; };
 		30EB9621282437B9003D0486 /* DiscoverUserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB9620282437B9003D0486 /* DiscoverUserSearch.swift */; };
 		30EB9623282882AA003D0486 /* MembershipBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB9622282882AA003D0486 /* MembershipBody.swift */; };
+		30EB962628288A90003D0486 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 30EB962528288A90003D0486 /* FocusEntity */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -485,6 +486,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EB962628288A90003D0486 /* FocusEntity in Frameworks */,
 				3003B05C2811F35F00EA58B6 /* WalletConnectSwift in Frameworks */,
 				FC9EED7C2762AD7E00F831DC /* FocusEntity in Frameworks */,
 				F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */,
@@ -1517,6 +1519,7 @@
 			packageProductDependencies = (
 				FC9EED7B2762AD7E00F831DC /* FocusEntity */,
 				3003B05B2811F35F00EA58B6 /* WalletConnectSwift */,
+				30EB962528288A90003D0486 /* FocusEntity */,
 			);
 			productName = Gallify;
 			productReference = 3004D4B626C82F6B00323BCB /* Gallify.app */;
@@ -1595,6 +1598,7 @@
 			packageReferences = (
 				FC9EED7A2762AD7E00F831DC /* XCRemoteSwiftPackageReference "FocusEntity" */,
 				3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */,
+				30EB962428288A90003D0486 /* XCRemoteSwiftPackageReference "FocusEntity" */,
 			);
 			productRefGroup = 3004D4B726C82F6B00323BCB /* Products */;
 			projectDirPath = "";
@@ -2127,6 +2131,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Gallify/Gallify.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
 				DEVELOPMENT_TEAM = K35JM9B532;
 				ENABLE_PREVIEWS = YES;
@@ -2138,7 +2143,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -2154,6 +2159,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Gallify/Gallify.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
 				DEVELOPMENT_TEAM = K35JM9B532;
 				ENABLE_PREVIEWS = YES;
@@ -2165,7 +2171,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.1.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2313,6 +2319,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		30EB962428288A90003D0486 /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		FC9EED7A2762AD7E00F831DC /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
@@ -2328,6 +2342,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */;
 			productName = WalletConnectSwift;
+		};
+		30EB962528288A90003D0486 /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30EB962428288A90003D0486 /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
 		};
 		FC9EED7B2762AD7E00F831DC /* FocusEntity */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -13,6 +13,8 @@ import ARKit
  ARPlayerContainer.swift
  FullARView() is called from CollectionReelHeader.swift.
  The FullARView() calls the ARViewContainer view and other views to help with buttons.
+ 
+ UPDATE: //used to be focus entity 2.2.5. as of 05/8/22 it was updated to the Feb28th version. The latest version.
  */
 
 
@@ -26,6 +28,8 @@ struct FullARView: View {
     
     @State private var showSlider: Bool = false
     @State private var overlayVisible: Bool = false //used to be true, wasnt loading so skipped it
+    @State private var showAbout: Bool = false
+    @State private var hideAll: Bool = false
     
     let screenHeight = UIScreen.main.bounds.height
     let screenWidth = UIScreen.main.bounds.width
@@ -62,15 +66,57 @@ struct FullARView: View {
                                     .font(.system(size: 30))
                                     .foregroundColor(Color.white)
                                     .padding(.leading)
-                                    .frame(maxHeight: .infinity, alignment: .top)
+                                    //.frame(maxHeight: .infinity, alignment: .top)
                                     .padding(.vertical, screenHeight / 12) //screenHeight / 70
                                     .padding(.horizontal, screenHeight / 75)
 
                         }
-
-
+                        .frame(maxHeight: .infinity, alignment: .top)
+                    
 
                     Spacer()
+                    
+                    Button(action: {
+                        showAbout =  true
+                        }) {
+                            Text("?")
+                                .font(.system(size: screenWidth / 25, weight: .medium))
+                                .foregroundColor(Color(.white))
+//                                .padding(.horizontal, 20)
+//                                .padding(.vertical, screenHeight / 120)
+                            
+                                //.padding(.leading)
+                                .padding(.vertical, screenHeight / 12) //screenHeight / 70
+                                .padding(.horizontal, screenHeight / 75)
+//                                .overlay(
+//                                    Capsule(style: .continuous)
+//                                        .stroke(Color.white, style: StrokeStyle(lineWidth: 2))
+//                                )
+                        }
+                        .frame(maxHeight: .infinity, alignment: .top)
+                        .alert(isPresented: $showAbout) {
+                            Alert(title: Text("Tips!"), message: Text("Move your device around so it can track your space. Double Tap Art to Delete. Also, saving coming soon!"), dismissButton: .default(Text("Cancel")))
+                        } 
+                    
+                    Button(action: {
+                        
+                        }) {
+                            Text("Save")
+                                .font(.system(size: screenWidth / 25, weight: .medium))
+                                .foregroundColor(Color(.white))
+//                                .padding(.horizontal, 20)
+//                                .padding(.vertical, screenHeight / 120)
+                            
+                                //.padding(.leading)
+                                .padding(.vertical, screenHeight / 12) //screenHeight / 70
+                                .padding(.horizontal, screenHeight / 75)
+//                                .overlay(
+//                                    Capsule(style: .continuous)
+//                                        .stroke(Color.white, style: StrokeStyle(lineWidth: 2))
+//                                )
+                        }
+                        .frame(maxHeight: .infinity, alignment: .top)
+                    
 
                     Button(action: {
                         //if else checks if both camera and reels screen are minimized currently.
@@ -102,8 +148,67 @@ struct FullARView: View {
                             firestoreQuery.showNewScreen = true
                             firestoreQuery.cameraPlaying = false
                         }
+                        
+                        
+                        
+
 
                 }
+                
+            
+                
+//                HStack{
+//
+//                    Spacer()
+//
+//                    Button(action: {
+//
+//                    }) {
+//
+//                        Text("Save")
+//
+//                            .font(.system(size: screenWidth / 25, weight: .medium))
+//                            .foregroundColor(Color(.white))
+//                            .padding(.horizontal, 20)
+//                            .padding(.vertical, screenHeight / 120)
+//                            .overlay(
+//                                Capsule(style: .continuous)
+//                                    .stroke(Color.white, style: StrokeStyle(lineWidth: 2))
+//                            )
+//                            .background(Color.white)
+//                            .opacity(0.3)
+//                    }
+//                    .frame(maxHeight: .infinity, alignment: .top)
+//
+//                }
+                
+//                HStack{
+//
+//                    Spacer()
+//
+//                    Button(action: {
+//                        showAbout =  true
+//                    }) {
+//
+//                        Text("?")
+//
+//                            .font(.system(size: screenWidth / 25, weight: .medium))
+//                            .foregroundColor(Color(.white))
+//                            .padding(.horizontal, 20)
+//                            .padding(.vertical, screenHeight / 120)
+//                            .overlay(
+//                                Capsule(style: .continuous)
+//                                    .stroke(Color.white, style: StrokeStyle(lineWidth: 2))
+//                            )
+//
+//                    }
+//                    .frame(maxHeight: .infinity, alignment: .top)
+//                    .alert(isPresented: $showAbout) {
+//                        Alert(title: Text("Tip!"), message: Text("Move your device around so it can track your space. Double Tap Art to Delete. Also, saving coming soon!"), dismissButton: .default(Text("Cancel")))
+//                    }
+//
+//                }
+                
 
 
                 HStack(alignment: .bottom){
@@ -130,49 +235,8 @@ struct FullARView: View {
 
             }
 
-
-
-
-
-
-
-//            if !overlayVisible {
-//                if placementSettings.selectedModel == nil {
-//                    if placementSettings.selectedModel != nil {
-//                        AddModelBar()
-//                    } else if modelDeletionManager.entitySelectedForDeletion != nil {
-//                        DeletionView()
-//                    } else {
-//                        if showSlider {
-//                            Slider()
-//                        } else {
-//                            HStack{
-//                                Button(action: {
-//                                    print("Toggle slider button pressed!!!")
-//                                    showSlider.toggle()
-//                                }) {
-//                                    Image(systemName: "square")
-//                                        .font(.system(size: 45))
-//                                        .foregroundColor(.white)
-//                                        .buttonStyle(PlainButtonStyle())
-//                                }
-//
-//                            }
-//                        }
-//                    }
-//                } else {
-//                    AddModelBar()
-//                }
- //           }
         }
-        
-        
-        //.statusBar(hidden: true)
 
-        //Slider()
-        
-        
-        
         
         
     }
