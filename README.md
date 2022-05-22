@@ -3,11 +3,11 @@
 
 __Mission:__  *To change the art world forever.* . . . . . [Gallify.app](https://www.gallify.app/) , [Litepaper](https://www.canva.com/design/DAEgfhl5PjU/hrzMDeSBWvdyQFlguJovuQ/view?utm_content=DAEgfhl5PjU&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
 
-__Sprint 24:__ May 8th - May 22nd . 7 Days Left!
+__Sprint 25:__ May 22nd - June 5th . 14 Days Left!
 
-__Currently:__ Version 0.1.1 in Beta
+__Currently:__ Version 0.1.1 in Beta. 
 
-__Goal:__ Version 0.2.0 Beta Release.
+__Goal:__ To Release Version 0.2.0 Beta.
       
 ## issue boards
 
