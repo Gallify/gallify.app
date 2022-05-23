@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseStorage
 import FirebaseFirestore
 import FirebaseAuth
-import FirebaseUI
+//import FirebaseUI
 import SDWebImageSwiftUI
 
 struct OtherProfileViewDetails: View {

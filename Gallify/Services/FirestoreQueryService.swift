@@ -134,7 +134,7 @@ class FirestoreQuery : ObservableObject {
                         //update list in main thread.
                         DispatchQueue.main.async{
                             //set retrieved document to @published data object
-                            self.data = try! document.data(as: User.self)! //this is forceful, and assumes this will always work...
+                            self.data = try! document.data(as: User.self) //this is forceful, and assumes this will always work...
                         }
                         
                     }
@@ -212,7 +212,7 @@ class FirestoreQuery : ObservableObject {
                          //update list in main thread.
                          DispatchQueue.main.async{
                              //set retrieved document to @published data object
-                             self.followers.followers = try! document.data(as: Followers.self)?.followers as! [String] //this is forceful, and assumes this will always work...
+                             self.followers.followers = try! document.data(as: Followers.self).followers as! [String] //this is forceful, and assumes this will always work...
                              print("followers array in firestore query = ", self.followers.followers)
                          }
                          print("followers array in firestore query = ", self.followers.followers)
@@ -299,7 +299,7 @@ class FirestoreQuery : ObservableObject {
                         //update list in main thread.
                         DispatchQueue.main.async{
                             //set retrieved document to @published data object
-                            self.art = try! document.data(as: Art.self)! //this is forceful, and assumes this will always work...
+                            self.art = try! document.data(as: Art.self) //this is forceful, and assumes this will always work...
                         }
                         
                     }
@@ -330,7 +330,7 @@ class FirestoreQuery : ObservableObject {
                         //update list in main thread.
                         DispatchQueue.main.async{
                             //set retrieved document to @published data object
-                            self.playlist = try! document.data(as: Playlist.self)! //this is forceful, and assumes this will always work...
+                            self.playlist = try! document.data(as: Playlist.self) //this is forceful, and assumes this will always work...
                         }
                         
                     }
@@ -360,7 +360,7 @@ class FirestoreQuery : ObservableObject {
                         //update list in main thread.
                         DispatchQueue.main.async{
                             //set retrieved document to @published data object
-                            self.featuredPlaylist = try! document.data(as: Playlist.self)! //this is forceful, and assumes this will always work...
+                            self.featuredPlaylist = try! document.data(as: Playlist.self) //this is forceful, and assumes this will always work...
             
                         }
                         
@@ -400,7 +400,7 @@ class FirestoreQuery : ObservableObject {
                                 print("document")
                                 print(document)
                                 print(library_id)
-                                self.userLibrary.append(try! document.data(as: Playlist.self)!) //this is forceful, and assumes this will always work...
+                                self.userLibrary.append(try! document.data(as: Playlist.self)) //this is forceful, and assumes this will always work...
                             }
                             
                         }
@@ -440,7 +440,7 @@ class FirestoreQuery : ObservableObject {
                             DispatchQueue.main.async{
                                  //set retrieved document to @published data object
                                 
-                                self.featuredArt.append(try! document.data(as: Art.self)!) //this is forceful, and assumes this will always work...
+                                self.featuredArt.append(try! document.data(as: Art.self)) //this is forceful, and assumes this will always work...
                             }
                             
                         }
@@ -481,7 +481,7 @@ class FirestoreQuery : ObservableObject {
                             DispatchQueue.main.async{
                                  //set retrieved document to @published data object
                                 print("GOTTEN 5 ARTS")
-                                self.featuredArt.append(try! document.data(as: Art.self)!) //this is forceful, and assumes this will always work...
+                                self.featuredArt.append(try! document.data(as: Art.self)) //this is forceful, and assumes this will always work...
                             }
                             
                         }

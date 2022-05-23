@@ -163,7 +163,7 @@ extension FirestoreQuery {
         do {
             
             let doc = try await FirestoreQuery.db.collection("users").document(FirestoreQuery.userId ?? "help")
-                .getDocument().data(as: User.self)
+                .getDocument().data(as: User?.self)
             
             guard let theMuseumlist = doc else{
                 throw DatabaseError.failed
@@ -187,7 +187,7 @@ extension FirestoreQuery {
         do {
             let doc = try await FirestoreQuery.db.collection("users")
                 .document(userId ?? "info@gallify.app")
-                .getDocument().data(as: User.self)
+                .getDocument().data(as: User?.self)
 
             print("DOC")
             print(doc)
@@ -206,7 +206,7 @@ extension FirestoreQuery {
 
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(data.featured)
-                .getDocument().data(as: Playlist.self)
+                .getDocument().data(as: Playlist?.self)
 
 
             guard let thefeaturedPlaylist = doc2 else{
@@ -237,7 +237,7 @@ extension FirestoreQuery {
             do {
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(art_id)
-                    .getDocument().data(as: Art.self)
+                    .getDocument().data(as: Art?.self)
                 
                 guard let theArt = doc else{
                     throw DatabaseError.failed
@@ -272,7 +272,7 @@ extension FirestoreQuery {
             do {
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(art_id)
-                    .getDocument().data(as: Art.self)
+                    .getDocument().data(as: Art?.self)
                 
                 guard let theArt = doc else{
                     throw DatabaseError.failed

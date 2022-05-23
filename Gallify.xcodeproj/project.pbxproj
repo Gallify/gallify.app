@@ -147,6 +147,7 @@
 		3111174326EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174426EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */; };
+		3113495E283C13370061FC3F /* getList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3113495D283C13370061FC3F /* getList.swift */; };
 		311E93832752FB1C005DFE12 /* Reels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93822752FB1C005DFE12 /* Reels.swift */; };
 		311E93852752FB3E005DFE12 /* Post_Small.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93842752FB3E005DFE12 /* Post_Small.swift */; };
 		311E93872752FB61005DFE12 /* Post_Large.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93862752FB61005DFE12 /* Post_Large.swift */; };
@@ -397,6 +398,7 @@
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
 		3111174126EC08E6001B8E55 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMuseums.swift; sourceTree = "<group>"; };
+		3113495D283C13370061FC3F /* getList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getList.swift; sourceTree = "<group>"; };
 		311E93822752FB1C005DFE12 /* Reels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reels.swift; sourceTree = "<group>"; };
 		311E93842752FB3E005DFE12 /* Post_Small.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Small.swift; sourceTree = "<group>"; };
 		311E93862752FB61005DFE12 /* Post_Large.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Large.swift; sourceTree = "<group>"; };
@@ -965,6 +967,7 @@
 		30836FA52749E39D00E83735 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3113495B283C0AD00061FC3F /* Admin */,
 				3052137C278A2D5A00CE0224 /* FirestoreQueryService.swift */,
 				33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */,
 				3052137E278A2DCE00CE0224 /* StorageService.swift */,
@@ -1086,6 +1089,22 @@
 				3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */,
 			);
 			path = PrivacyPolicyViewHelpers;
+			sourceTree = "<group>";
+		};
+		3113495B283C0AD00061FC3F /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				3113495C283C0AFD0061FC3F /* Lists */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		3113495C283C0AFD0061FC3F /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				3113495D283C13370061FC3F /* getList.swift */,
+			);
+			path = Lists;
 			sourceTree = "<group>";
 		};
 		311E93812752FAEB005DFE12 /* Posts */ = {
@@ -1510,6 +1529,7 @@
 				3004D4B326C82F6B00323BCB /* Frameworks */,
 				3004D4B426C82F6B00323BCB /* Resources */,
 				DAF5F28BE4B5E37BF0B8EFEE /* [CP] Embed Pods Frameworks */,
+				D3EE45B0FFD7780B30ED6082 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1553,6 +1573,7 @@
 				3004D4CF26C82F6E00323BCB /* Frameworks */,
 				3004D4D026C82F6E00323BCB /* Resources */,
 				F859E3873D82C1A2D33B12C4 /* [CP] Embed Pods Frameworks */,
+				44E46DE4BB4E697D4B9D6BC5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1664,6 +1685,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		44E46DE4BB4E697D4B9D6BC5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		72126595FBE060E7D1CF1E0A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1706,6 +1744,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3EE45B0FFD7780B30ED6082 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DAF5F28BE4B5E37BF0B8EFEE /* [CP] Embed Pods Frameworks */ = {
@@ -1880,6 +1935,7 @@
 				318C16A4281AFA4C00F63C3D /* ArtSearchResult.swift in Sources */,
 				30001BD02796858D00527BF9 /* getProfile.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
+				3113495E283C13370061FC3F /* getList.swift in Sources */,
 				30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
 				30001BD4279685B300527BF9 /* updateProfile.swift in Sources */,
@@ -2133,7 +2189,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = K35JM9B532;
+				DEVELOPMENT_TEAM = W28ZG4ZCTC;
 				ENABLE_PREVIEWS = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Gallify/Info.plist;
@@ -2144,7 +2200,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2161,7 +2217,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = K35JM9B532;
+				DEVELOPMENT_TEAM = W28ZG4ZCTC;
 				ENABLE_PREVIEWS = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Gallify/Info.plist;
@@ -2173,7 +2229,7 @@
 				);
 				MARKETING_VERSION = 0.1.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

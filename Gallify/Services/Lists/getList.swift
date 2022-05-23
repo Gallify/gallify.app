@@ -18,7 +18,7 @@ extension FirestoreQuery {
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(data.featured)
-                .getDocument().data(as: Playlist.self)
+                .getDocument().data(as: Playlist?.self)
 
 
             guard let thefeaturedPlaylist = doc2 else{
@@ -53,7 +53,7 @@ extension FirestoreQuery {
             do {
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(art_id)
-                    .getDocument().data(as: Art.self)
+                    .getDocument().data(as: Art?.self)
                 
                 guard let theArt = doc else{
                     throw DatabaseError.failed
@@ -100,7 +100,7 @@ extension FirestoreQuery {
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(playlist_id)
-                .getDocument().data(as: Playlist.self)
+                .getDocument().data(as: Playlist?.self)
             
                 
             guard let thePlaylist = doc2 else{
@@ -125,7 +125,7 @@ extension FirestoreQuery {
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(playlist_id)
-                .getDocument().data(as: Playlist.self)
+                .getDocument().data(as: Playlist?.self)
             
                 
             guard let thePlaylist = doc2 else{
@@ -167,7 +167,7 @@ extension FirestoreQuery {
                 
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(art_id)
-                    .getDocument().data(as: Art.self)
+                    .getDocument().data(as: Art?.self)
                 
                 print("Art Doc")
                 print(doc)
@@ -195,7 +195,7 @@ extension FirestoreQuery {
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(otherUserData.featured)
-                .getDocument().data(as: Playlist.self)
+                .getDocument().data(as: Playlist?.self)
 
 
             guard let thefeaturedPlaylist = doc2 else{
@@ -227,7 +227,7 @@ extension FirestoreQuery {
             do {
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(art_id)
-                    .getDocument().data(as: Art.self)
+                    .getDocument().data(as: Art?.self)
                 
                 guard let theArt = doc else{
                     throw DatabaseError.failed
