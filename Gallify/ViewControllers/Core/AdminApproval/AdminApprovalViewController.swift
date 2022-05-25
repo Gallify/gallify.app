@@ -34,7 +34,14 @@ struct AdminApprovalViewController: View {
         }
         .navigationBarHidden(true)
         .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            async{ await networkingCall() }
+        }
         
+    }
+    
+    func networkingCall() async {
+        try await firestoreQuery.getArtInReview()
     }
     
 }

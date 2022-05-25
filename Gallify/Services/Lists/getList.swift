@@ -148,16 +148,6 @@ extension FirestoreQuery {
      Always needs to be called after getPlaylist()
      */
     func getPlaylistArt(playlist: Playlist) async {
-        print("playlist IN GET PLAYLIST ART = ", playlist.name)
-    
-        print("is art array in playlist empty? ", playlist.art.isEmpty)
-//        if !(playlistArt.isEmpty){ //if featured playlist isnt empty, then return.
-//            return
-//        }
-        for art in playlist.art {
-            print("art in playlist art = ", art)
-        }
-        
         var art_array = [Art]()
         
         print(playlist.art.count)

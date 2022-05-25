@@ -147,7 +147,7 @@
 		3111174326EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174426EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */; };
-		3113495E283C13370061FC3F /* getList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3113495D283C13370061FC3F /* getList.swift */; };
+		3113495E283C13370061FC3F /* getListAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3113495D283C13370061FC3F /* getListAdmin.swift */; };
 		311E93832752FB1C005DFE12 /* Reels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93822752FB1C005DFE12 /* Reels.swift */; };
 		311E93852752FB3E005DFE12 /* Post_Small.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93842752FB3E005DFE12 /* Post_Small.swift */; };
 		311E93872752FB61005DFE12 /* Post_Large.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93862752FB61005DFE12 /* Post_Large.swift */; };
@@ -398,7 +398,7 @@
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
 		3111174126EC08E6001B8E55 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMuseums.swift; sourceTree = "<group>"; };
-		3113495D283C13370061FC3F /* getList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getList.swift; sourceTree = "<group>"; };
+		3113495D283C13370061FC3F /* getListAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getListAdmin.swift; sourceTree = "<group>"; };
 		311E93822752FB1C005DFE12 /* Reels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reels.swift; sourceTree = "<group>"; };
 		311E93842752FB3E005DFE12 /* Post_Small.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Small.swift; sourceTree = "<group>"; };
 		311E93862752FB61005DFE12 /* Post_Large.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Large.swift; sourceTree = "<group>"; };
@@ -1102,7 +1102,7 @@
 		3113495C283C0AFD0061FC3F /* Lists */ = {
 			isa = PBXGroup;
 			children = (
-				3113495D283C13370061FC3F /* getList.swift */,
+				3113495D283C13370061FC3F /* getListAdmin.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -1935,7 +1935,7 @@
 				318C16A4281AFA4C00F63C3D /* ArtSearchResult.swift in Sources */,
 				30001BD02796858D00527BF9 /* getProfile.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
-				3113495E283C13370061FC3F /* getList.swift in Sources */,
+				3113495E283C13370061FC3F /* getListAdmin.swift in Sources */,
 				30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
 				30001BD4279685B300527BF9 /* updateProfile.swift in Sources */,
@@ -2193,7 +2193,7 @@
 				ENABLE_PREVIEWS = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Gallify/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_DYLIB_INSTALL_NAME = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2221,7 +2221,7 @@
 				ENABLE_PREVIEWS = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Gallify/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_DYLIB_INSTALL_NAME = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2229,7 +2229,7 @@
 				);
 				MARKETING_VERSION = 0.1.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify3;
+				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

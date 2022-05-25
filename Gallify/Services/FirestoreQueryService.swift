@@ -104,6 +104,11 @@ class FirestoreQuery : ObservableObject {
     @Published var playlistArt: [Art] = [Art]()
     @Published var art: Art = Art()
     
+    //In review art
+    @Published var artInReview = [Art]()
+    var inReviewQuery: Query!
+    var getNext = false
+    var lastDoc : QueryDocumentSnapshot!
     
     //basic
     static let db = Firestore.firestore()
@@ -112,12 +117,6 @@ class FirestoreQuery : ObservableObject {
     enum DatabaseError: String, Error{
         case failed = "failed"
     }
-
-    
-    
-    
-    
-    
     
     /*
      Get User information
