@@ -103,6 +103,7 @@ class FirestoreQuery : ObservableObject {
     @Published var playlist: Playlist = Playlist()
     @Published var playlistArt: [Art] = [Art]()
     @Published var art: Art = Art()
+    var playlistImgUrl = ""
     
     //In review art
     @Published var artInReview = [Art]()

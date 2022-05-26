@@ -386,8 +386,8 @@ struct CreatePlaylistSettings: View {
             Button(action: {
                 
                     //haptic feedback
-                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
-                    impactMed.impactOccurred()
+//                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+//                    impactMed.impactOccurred()
                     
                     if(playlistPrivacy == "Private") {
                         privacyNum = 0
@@ -406,8 +406,9 @@ struct CreatePlaylistSettings: View {
                         let playlistRef = await firestoreQuery.create_playlist(name: playlistName, privacy : privacyNum, type: playlistType)
                         
                         if(playlistImageUpdate == true){
-                            await firestoreQuery.updatePlaylistImage(image: self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), uid: playlistRef)
+                            await firestoreQuery.updatePlaylistImage(image: self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), uid: playlistRef, playlistId: playlistRef)
                         }
+                        
                     }
                 
                     //self.presentationMode.wrappedValue.dismiss()

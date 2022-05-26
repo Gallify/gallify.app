@@ -12,6 +12,8 @@ import SwiftUI
 
 extension FirestoreQuery {
     
+    
+    
     /*
      updates the playlist/collection.
      */
@@ -38,7 +40,7 @@ extension FirestoreQuery {
         
     }
     
-    func updatePlaylistImage(image: Data, uid: String) async {
+    func updatePlaylistImage(image: Data, uid: String, playlistId: String) async {
 
         let uploadRef = Storage.storage().reference(withPath: "playlistImages/" + uid)
 
@@ -55,6 +57,7 @@ extension FirestoreQuery {
             }
             uploadRef.downloadURL {
                 (url, error) in
+                self.playlistImgUrl = url?.absoluteString ?? ""
                 //Save to image url in firestore.
                 let db = Firestore.firestore()
                 let docRef = db.collection("playlists").document(uid)
@@ -67,9 +70,14 @@ extension FirestoreQuery {
                         print("Document successfully updated with image url \(url)")
                     }
                 }
-
+                for pl in self.userLibrary{
+                    if(pl.playlist_id == playlistId) {
+                        pl.cover_art_url = self.playlistImgUrl
+                    }
+                }
             }
         }
+
     }
     
     /*
