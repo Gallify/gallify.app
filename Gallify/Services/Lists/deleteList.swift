@@ -27,11 +27,10 @@ extension FirestoreQuery {
             ])
             
             //DispatchQueue.main.async {
-                playlistArt.removeAll { art in
-                    art.artId == art_id
-                }
-        
-//
+            playlistArt.removeAll { art in
+                art.artId == art_id
+            }
+
         }
         catch{
             print("Error")

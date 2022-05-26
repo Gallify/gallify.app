@@ -19,8 +19,6 @@ extension FirestoreQuery {
     func addArtToPlaylist(art: Art, the_playlist: Playlist) async {
                                             
         do {
-            
-            print("PLAYLIST ID = ", the_playlist.playlist_id, "ART ID = ", art.artId)
             let doc = try await FirestoreQuery.db.collection("playlists").document(the_playlist.playlist_id).updateData([
                 "art": FieldValue.arrayUnion([art.artId])
                 ])
@@ -32,8 +30,6 @@ extension FirestoreQuery {
                         "collection": the_playlist.playlist_id])
                 }
             }
-            
-                
         }
         catch{
             print("Error")
@@ -79,7 +75,7 @@ extension FirestoreQuery {
                         "art" : FieldValue.arrayUnion([art.artId])
                     ])
                     //add to liked_art subcollection
-                    if(p.name == "Liked") {                         try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
+                    if(p.name == "Liked") {                   try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
                             .collection("profile")
                             .document("liked_art")
                             .updateData(["liked" : FieldValue.arrayUnion([art.artId])])

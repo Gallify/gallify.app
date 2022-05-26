@@ -36,11 +36,6 @@ extension FirestoreQuery {
                     inReviewArtArr = querySnapshot!.documents.compactMap { querySnapshot -> Art? in
                              return try? querySnapshot.data(as: Art.self)
                     }
-                    //print("is inReviewArtArr empty ? ", inReviewArtArr.isEmpty)
-//                    for art in inReviewArtArr {
-//                        print(art.name, " " , art.artId)
-//                        i += 1
-//                    }
                     self.lastDoc = querySnapshot!.documents.last //get last document for later.
                     self.getNext = true
                     self.artInReview = inReviewArtArr
@@ -49,7 +44,28 @@ extension FirestoreQuery {
         
     }
     
-    func approveArt() async{
+    
+    /*
+     
+     */
+    func approveArt(art: Art) async{
+        let docRef = FirestoreQuery.db.collection("art").document(art.artId)
         
+        //Change firestore doc searchType value
+        docRef.updateData([
+            "searchType" : 1
+        ]) {  err in
+            if let err = err {
+                print("Error updating searchType in art document: \(err)")
+            } else {
+                print("art successfully approved")
+            }
+        }
+        
+        //change local variable value
+        art.searchType = 1
+        artInReview.removeAll { artwork in
+            art.artId == artwork.artId
+        }
     }
 }
