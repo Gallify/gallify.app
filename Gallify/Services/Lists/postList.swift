@@ -30,6 +30,7 @@ extension FirestoreQuery {
                         "collection": the_playlist.playlist_id])
                 }
             }
+
         }
         catch{
             print("Error")
@@ -93,14 +94,15 @@ extension FirestoreQuery {
     
     
     //adds playlist to library
-    func addPlaylistToLibrary(playlist: Playlist) {
+    func addPlaylistToLibrary(playlist: Playlist) async {
 
         do {
-            try FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(["Library" : FieldValue.arrayUnion([playlist.playlist_id])])
+            try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(["Library" : FieldValue.arrayUnion([playlist.playlist_id])])
         } catch {
             print("Error adding playlist to library")
         }
         self.userLibrary.append(playlist)
+        self.data.Library.append(playlist.name)
         
     }
     
@@ -124,7 +126,7 @@ extension FirestoreQuery {
         }
         
         //update library with new playlist
-        addPlaylistToLibrary(playlist: newPlaylist)
+        await addPlaylistToLibrary(playlist: newPlaylist)
         
         return docRef.documentID
     }
