@@ -72,6 +72,7 @@ struct AdminApprovalArtDescription: View {
                 Button(action: {
                     Task {
                         await firestoreQuery.approveArt(art: artDetails)
+                        //await firestoreQuery.getArtInReview()
                     }
                     
                 }, label: {

@@ -145,7 +145,13 @@ struct AdminApprovalBody: View {
             }
             
         }
- 
+        .onAppear {
+            async{ await networkingCall() }
+        }
+
     }
     
+    func networkingCall() async {
+        try await firestoreQuery.getArtInReview()
+    }
 }

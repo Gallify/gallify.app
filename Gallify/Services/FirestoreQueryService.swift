@@ -107,7 +107,7 @@ class FirestoreQuery : ObservableObject {
     //In review art
     @Published var artInReview = [Art]()
     var inReviewQuery: Query!
-    var getNext = false
+    var getNext : Bool = false
     var lastDoc : QueryDocumentSnapshot!
     
     //basic

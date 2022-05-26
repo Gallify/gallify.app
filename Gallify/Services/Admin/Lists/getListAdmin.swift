@@ -16,14 +16,15 @@ extension FirestoreQuery {
      */
     func getArtInReview() async {
         
-        if(self.getNext){ //makes query get next batch of art for review
-            self.inReviewQuery = try? await self.inReviewQuery.start(afterDocument: self.lastDoc)
-        }
-        else{ //This is the first batch to be fetched
+//        if(self.getNext){ //makes query get next batch of art for review
+//            self.inReviewQuery = try? await self.inReviewQuery.start(afterDocument: self.lastDoc)
+//
+//        }
+//        else{ //This is the first batch to be fetched
             self.inReviewQuery = try await FirestoreQuery.db.collection("art").whereField("searchType", isEqualTo: 2)
                               .order(by: "popularity", descending: true)
                               .limit(to: 11)
-        }
+//        }
         
     
         var inReviewArtArr = [Art]()
@@ -36,8 +37,9 @@ extension FirestoreQuery {
                     inReviewArtArr = querySnapshot!.documents.compactMap { querySnapshot -> Art? in
                              return try? querySnapshot.data(as: Art.self)
                     }
-                    self.lastDoc = querySnapshot!.documents.last //get last document for later.
-                    self.getNext = true
+//                    self.lastDoc = querySnapshot!.documents.last //get last document for later.
+//                    print("LAST DOC ART NAME =", self.lastDoc.data()["name"])
+//                    self.getNext = true
                     self.artInReview = inReviewArtArr
                 }
         }
@@ -67,5 +69,7 @@ extension FirestoreQuery {
         artInReview.removeAll { artwork in
             art.artId == artwork.artId
         }
+        
     }
+    
 }
