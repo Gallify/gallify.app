@@ -23,7 +23,10 @@ extension FirestoreQuery {
             
             var model: Model
             
-            model = await Model(artwork: art)
+            model =  Model(artwork: art)
+            
+            //dispatchGroup.enter, .leave. notify after for loop. for await?
+            
             self.models.append(model)
             
 //            model.asyncLoadModelEntity { completed, error in
