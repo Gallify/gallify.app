@@ -97,7 +97,7 @@ struct LoginViewNavLinks: View {
                     }) {
                         
                         ZStack {
-                            Text("X Connect Wallet")
+                            Text("                                             ")
                                 
                                 .font(.system(size: screenWidth / 18.5, weight: .bold))
                                 .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
