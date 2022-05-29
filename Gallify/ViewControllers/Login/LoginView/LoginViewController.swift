@@ -28,6 +28,7 @@ class LoginAppViewModel: ObservableObject {
     @Published var userDocumentNotCreated = false
     @Published var documentCreated = false
     @Published var newUserCreated = false
+    @Published var isGuest = false
     @Published var userData: SignIn = SignIn()
     
     @EnvironmentObject var user: User //to hold user email, pass, and username
@@ -535,18 +536,38 @@ class LoginAppViewModel: ObservableObject {
         
     }
     
-
-    /*
-     This method takes in the token, and signs in the user.
-     */
-    func tokenSignIn(){
-        
-        
-    }
-    
     /*
      End: Wallet methods to sign in, create account.
      */
+    
+    
+    /*
+     This method is anonyomous sign in for guest users.
+     
+     This method is not done. It should set "isGuest" to true if signed in anon. but it doesn't. Yet. 
+     */
+    func enterAsGuest() {
+        
+        if auth.currentUser == nil {
+            auth.signInAnonymously()
+            DispatchQueue.main.async {
+                self.isGuest = true
+            }
+          }
+        
+//         auth.signInAnonymously { authResult, error in
+//
+//            guard let user = authResult?.user else { return }
+//
+//            DispatchQueue.main.async {
+//                self.isGuest = user.isAnonymous  // true, user is anon and a guest.
+//                print(self.isGuest)
+//            }
+//
+//        }
+    
+    }
+    
     
     
 
@@ -592,7 +613,7 @@ struct LoginView: View, WalletConnectDelegate {
     var body: some View {
         
         //VStack{
-            if viewModel.issignedin() {
+        if viewModel.issignedin() || viewModel.isGuest {
                     TabBarView()
                         .environmentObject(viewModel)
             }

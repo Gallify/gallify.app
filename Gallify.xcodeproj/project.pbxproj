@@ -142,6 +142,7 @@
 		30EB962628288A90003D0486 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 30EB962528288A90003D0486 /* FocusEntity */; };
 		30EB96E5284301E7003D0486 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E4284301E7003D0486 /* SaveView.swift */; };
 		30EB96E7284301F6003D0486 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E6284301F6003D0486 /* DownloadView.swift */; };
+		30EB96E92843AEA2003D0486 /* ProfileSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E82843AEA2003D0486 /* ProfileSignIn.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -396,6 +397,7 @@
 		30EB9622282882AA003D0486 /* MembershipBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipBody.swift; sourceTree = "<group>"; };
 		30EB96E4284301E7003D0486 /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		30EB96E6284301F6003D0486 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		30EB96E82843AEA2003D0486 /* ProfileSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSignIn.swift; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -792,6 +794,7 @@
 				3129ADE026F41AB600172808 /* OtherProfileViewController.swift */,
 				30001BF62796961100527BF9 /* OtherProfileViewVerified.swift */,
 				30001BFB279696D100527BF9 /* OtherProfileView Helpers */,
+				30EB96E82843AEA2003D0486 /* ProfileSignIn.swift */,
 			);
 			path = Profiles;
 			sourceTree = "<group>";
@@ -1898,6 +1901,7 @@
 				92794CFF273811760012B184 /* CollectionRecentActivityView.swift in Sources */,
 				31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */,
 				92DB7C6B2731810F0035B788 /* CreateLandingOptions.swift in Sources */,
+				30EB96E92843AEA2003D0486 /* ProfileSignIn.swift in Sources */,
 				31F1530F270B881400238459 /* OvalTextField.swift in Sources */,
 				30BEBD4727BF1E5C0045EC74 /* updateARPlayer.swift in Sources */,
 				92DB7C6F273186330035B788 /* CreatePublishListing.swift in Sources */,

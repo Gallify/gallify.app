@@ -97,6 +97,10 @@ struct SliderItem: View {
     var body: some View {
         Button(action: {
             self.action()
+            
+            let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
+            impactHeavy.impactOccurred()
+            
         }) {
             
             if(model.contentLoaded){

@@ -135,16 +135,25 @@ struct LoginViewNavLinks: View {
             }
             
             HStack{
-                Text("Enter as Guest")
+                
+                
+                Button(action: {
                     
-                    .font(.system(size: screenWidth / 18.5, weight: .medium))
-                    .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                    .padding(.leading, 10)
-                    .padding(.top, screenHeight / 75)
-//                                .background(Color.primary)
-//                    .cornerRadius(screenWidth / 20)
-                    //.padding(.horizontal, screenWidth / 30)
-//                    .padding(.vertical, screenHeight / 65)
+                    Task{
+                        //sign in anonymously
+                        await viewModel.enterAsGuest()
+                    }
+                    
+                    
+                }) {
+
+                    Text("Enter as Guest")
+                        
+                        .font(.system(size: screenWidth / 18.5, weight: .medium))
+                        .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                        .padding(.leading, 10)
+                        .padding(.top, screenHeight / 75)
+                }
             }
                 
             

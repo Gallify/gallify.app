@@ -15,63 +15,48 @@ struct SelfProfileView : View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
+    @EnvironmentObject var loginModel: LoginAppViewModel
     
     var body: some View {
         
-        NavigationView {
-                
-            VStack {
-                        
-                SelfProfileViewHeader()
+        
+        if(!loginModel.isGuest){
+            NavigationView {
                     
-                ScrollView(showsIndicators: false) {
+                VStack {
                             
-                    SelfProfileViewDetails()
+                    SelfProfileViewHeader()
                         
-                    SelfProfileFeatured()
+                    ScrollView(showsIndicators: false) {
+                                
+                        SelfProfileViewDetails()
                             
-                    SelfProfileCollectionList()
-                                            
+                        SelfProfileFeatured()
+                                
+                        SelfProfileCollectionList()
+                                                
+                    }
+                    .navigationBarHidden(true)
+                    
+       
+                            MinimizedView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth)
+                            
+                            
                 }
                 .navigationBarHidden(true)
                 
-//                if(firestoreQuery.showNewScreen == false) {
-//
-//                    if(firestoreQuery.artPlaying == true) {
-                        
-                        MinimizedView(screenHeight: viewModel.screenHeight, screenWidth: viewModel.screenWidth)
-                        
-//                    }
-//                    
-//                }
-                        
+
+                
             }
             .navigationBarHidden(true)
-            
-//                ZStack{
-//                    if(firestoreQuery.showNewScreen){
-//                        //here
-//                        //newscreen()
-//                        CollectionReelView(screenWidth: viewModel.screenWidth, screenHeight: viewModel.screenHeight)
-//                            //.offset(y: 100 )
-//                            //.padding(.top, 100)
-//                            .transition(.move(edge: .bottom))
-//                            //.animation(Animation.spring(response: 0.0, dampingFraction: 0.5))
-//                             .animation(.spring())
-//                             .edgesIgnoringSafeArea(.all)
-////                            .onTapGesture {
-////                                firestoreQuery.showNewScreen.toggle()
-////                            }
-//
-//                    }
-//
-//
-//                }
-//                .zIndex(3.0)
-            
+            .onAppear{ async{await NetworkingCall() }}
         }
-        .navigationBarHidden(true)
-        .onAppear{ async{await NetworkingCall() }}
+        else{
+            ProfileSignIn()
+          //  DownloadView() //placeholder
+        }
+        
+        
         
     }
     

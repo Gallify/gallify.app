@@ -174,18 +174,26 @@ struct TabBarView: View {
 //        loginModel.signedIn = false
 //        loginModel.newUserCreated = false
         
-   //     if(loginModel.newUserCreated || loginModel.signedIn){
-            
-            await firestoreQuery.fetchData()
 
-            //firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
-            //refresh collection list
-            await firestoreQuery.getUserLibrary()
+            if(!loginModel.isGuest){
+                await firestoreQuery.fetchData()
 
-            await firestoreQuery.fetchArt()
+                //firestoreQuery.getLibrary(library_ids: firestoreQuery.data.Library)
+                //refresh collection list
+                await firestoreQuery.getUserLibrary()
 
+                await firestoreQuery.fetchArt()
+                
+                //await firestoreQuery.getHome()
+                await firestoreQuery.getHomeMuseumList()
+            }
+            if(loginModel.isGuest){
+                
+            }
+        
+        
             //await firestoreQuery.getHome()
-            await firestoreQuery.getHomeMuseumList()
+            await firestoreQuery.getHomeMuseumListGuest()
 
             //getMuseums. Gets all these Museums. List of Playlists
             await firestoreQuery.getHomeMuseums()
@@ -194,7 +202,11 @@ struct TabBarView: View {
             await firestoreQuery.getHomePlaylists()
     //
             await firestoreQuery.getDiscoverContent()
-//            print("DONEEE")
+
+        
+        
+        
+        
             
                     //var db = Firestore.firestore()
 //            let userDocRef = try db.collection("users").document(auth.currentUser!.uid)

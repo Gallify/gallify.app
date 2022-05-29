@@ -55,6 +55,22 @@ extension FirestoreQuery {
     /*
      
      */
+    func getHomeMuseumListGuest() async {
+        //let userId = Auth.auth().currentUser?.uid
+        
+        do {
+            
+            self.homeMuseumList.museums = ["p0lkJFdi7cstCJrAcYMr", "oEcIslgNBCQ8RO3PibQT", "1EkOA6d8DXrcHQSGuiNG"]
+            
+        }
+        catch{
+            print("Error in getHomeMuseumList")
+        }
+    }
+    
+    /*
+     
+     */
     func getHomeMuseums() async {
         
         if !(homeMuseums.isEmpty){ //if featured playlist isnt empty, then return.
