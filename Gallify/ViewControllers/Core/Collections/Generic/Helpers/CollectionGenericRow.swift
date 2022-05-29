@@ -66,7 +66,7 @@ struct CollectionGenericRow: View {
                     Spacer()
                                                 
                 }
-                .padding(.horizontal, screenWidth / 20)
+                .padding(.horizontal, screenWidth / 200)
                 .padding(.top, screenHeight / 40)
                 .listRowSeparator(.hidden)
 
@@ -98,7 +98,7 @@ struct CollectionGenericRow: View {
                     Spacer()
                                                 
                 }
-                .padding(.horizontal, screenWidth / 20)
+                .padding(.horizontal, screenWidth / 200)
                 .padding(.top, -screenHeight / 54)
                 .listRowSeparator(.hidden)
                 
@@ -138,7 +138,7 @@ struct CollectionGenericRow: View {
                     Spacer()
                                                 
                 }
-                .padding(.horizontal, screenWidth / 20)
+                .padding(.horizontal, screenWidth / 200)
                 .padding(.top, -screenHeight / 35)
                 .listRowSeparator(.hidden)
                         
@@ -317,7 +317,7 @@ struct CollectionGenericRow: View {
                                 
                             }
                             //.padding(.vertical, screenHeight / 160)
-                            .padding(.horizontal, screenWidth / 20)
+                            .padding(.horizontal, screenWidth / 200)
                             
                         }
                                             

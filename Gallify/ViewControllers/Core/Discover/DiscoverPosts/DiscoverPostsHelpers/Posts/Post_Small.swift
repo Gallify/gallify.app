@@ -24,17 +24,17 @@ struct Post_Small: View {
         
         Button(action: {
             
-            if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+            if firestoreQuery.showCameraScreen == false && firestoreQuery.showNewScreen == false {
                 firestoreQuery.bothScreensMinimized = true
             }
-            else{
+            
+            else {
                 firestoreQuery.bothScreensMinimized = false
             }
                
             firestoreQuery.artisClicked = discover_art.artId
             firestoreQuery.artThatsPlaying = discover_art
             firestoreQuery.artworkThatsPlaying = firestoreQuery.discoveryPageArt
-            
             
             //firestoreQuery.isPresented.toggle()
 //            firestoreQuery.sheetMode = .full
@@ -44,28 +44,19 @@ struct Post_Small: View {
             firestoreQuery.showNewScreen = true
             firestoreQuery.scrollTo = index
                 
-            }){
+        }){
+            
+            WebImage(url: URL(string: discover_art.thumbnailUrl))
+                .resizable()
+            
+                .scaledToFill()
+                .frame(width: screenWidth / 3.1, height: screenHeight / 6.8)
+                .clipped()
+                .padding(.leading, -screenWidth / 75)
+                .padding(.top, -screenHeight / 160)
                 
-                WebImage(url: URL(string: discover_art.thumbnailUrl))
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: screenWidth / 3.1, height: screenHeight / 6.8)
-                    .clipped()
-                    
-                   // .padding(.leading, -screenWidth / 75)
-                   // .padding(.top, -screenHeight / 160)
-                    .border(Color.primary)
-                   // .overlay(Rectangle().frame(width: nil, height: 1, alignment: .top).foregroundColor(Color.black), alignment: .top)
-                
-            }
+        }
         
     }
     
 }
-
-//struct Post_Small_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Post_Small(image: Image("lakemcdonald"))
-//            .environmentObject(TabBarViewModel())
-//    }
-//}

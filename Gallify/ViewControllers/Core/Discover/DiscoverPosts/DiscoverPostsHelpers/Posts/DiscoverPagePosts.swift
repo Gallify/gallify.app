@@ -11,105 +11,119 @@ struct DiscoverPagePosts: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery : FirestoreQuery
-
     
     var body: some View {
         
         let screenWidth = viewModel.screenWidth
+        let screenHeight = viewModel.screenHeight
         
-        
-        if(!firestoreQuery.discoveryPageArt.isEmpty){
+        if !firestoreQuery.discoveryPageArt.isEmpty {
             
             let count = firestoreQuery.discoveryPageArt.count
-            //Text("GI \(firestoreQuery.discoveryPageArt.count)")
+            
+            LazyVStack {
                 
-                VStack {
+                HStack {
                     
-                    HStack {
-                            
-                        VStack {
-                            
-                            
-                                HStack {
-                                    if(0<count){
-                                        Post_Small(discover_art: firestoreQuery.discoveryPageArt[0], index: 0)
-                                    }
-                                    if(1<count){
-                                        Post_Small(discover_art: firestoreQuery.discoveryPageArt[1], index: 1)
-                                    }
-                                    
-                                }
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[count % count], index: count % count)
                     
-                            
-                            if(2<count){
-                                Post_Large(discover_art: firestoreQuery.discoveryPageArt[2], index: 2)
-                            }
-                            
-                        }
-                        
-                        
-                        VStack {
-                            
-                            if(3<count){
-                                Reel(discover_art: firestoreQuery.discoveryPageArt[3], index: 3)
-                            }
-                            
-                            if(4<count){
-                                Post_Small(discover_art: firestoreQuery.discoveryPageArt[4], index: 4)
-                            }
-                            
-                        }
-                        
-                    }
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 1) % count], index: (count + 1) % count)
                     
-                    HStack {
-                        if(5<count){
-                            Post_Small(discover_art: firestoreQuery.discoveryPageArt[5], index: 5)
-                        }
-                        
-                        if(6<count){
-                            Post_Small(discover_art: firestoreQuery.discoveryPageArt[6], index: 6)
-                        }
-                        
-                        if(7<count){
-                            Post_Small(discover_art: firestoreQuery.discoveryPageArt[7], index: 7)
-                        }
-                        
-                        
-                    }
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 2) % count], index: (count + 2) % count)
                     
-                    HStack {
-                        
-                        
-                            VStack {
-                                
-                                if(8<count){
-                                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[8], index: 8)
-                                }
-                                
-                                if(9<count){
-                                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[9], index: 9)
-                                }
-                                
-                            }
+                }
+                
+                HStack {
                     
+                    Post_Large(discover_art: firestoreQuery.discoveryPageArt[(count + 3) % count], index: (count + 3) % count)
+                    
+                    VStack {
                         
-                        if(10<count){
-                            Post_Large(discover_art: firestoreQuery.discoveryPageArt[10], index: 10)
-                        }
+                        Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 4) % count], index: (count + 4) % count)
+                        
+                        Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 5) % count], index: (count + 5) % count)
                         
                     }
                     
                 }
-                .padding(.leading, screenWidth / 75)
+                
+                HStack {
+                    
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 6) % count], index: (count + 6) % count)
+                    
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 7) % count], index: (count + 7) % count)
+                    
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 8) % count], index: (count + 8) % count)
+                    
+                }
+                
+                HStack {
+                    
+                    VStack {
+                        
+                        Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 9) % count], index: (count + 9) % count)
+                        
+                        Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 10) % count], index: (count + 10) % count)
+                        
+                    }
+                    
+                    Post_Large(discover_art: firestoreQuery.discoveryPageArt[(count + 11) % count], index: (count + 11) % count)
+                    
+                }
+                
+                HStack {
+                    
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 12) % count], index: (count + 12) % count)
+                    
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 13) % count], index: (count + 13) % count)
+                    
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 14) % count], index: (count + 14) % count)
+                    
+                }
+                
+                HStack {
+                    
+                    Post_Large(discover_art: firestoreQuery.discoveryPageArt[(count + 15) % count], index: (count + 15) % count)
+                    
+                    VStack {
+                        
+                        Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 16) % count], index: (count + 16) % count)
+                        
+                        Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 17) % count], index: (count + 17) % count)
+                        
+                    }
+                    
+                }
+                
+                HStack {
+                    
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 18) % count], index: (count + 18) % count)
+                    
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 19) % count], index: (count + 19) % count)
+                    
+                    Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 20) % count], index: (count + 20) % count)
+                    
+                }
+                
+                HStack {
+                    
+                    VStack {
+                        
+                        Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 21) % count], index: (count + 21) % count)
+                        
+                        Post_Small(discover_art: firestoreQuery.discoveryPageArt[(count + 22) % count], index: (count + 22) % count)
+                        
+                    }
+                    
+                    Post_Large(discover_art: firestoreQuery.discoveryPageArt[(count + 23) % count], index: (count + 23) % count)
+                    
+                }
+                
             }
+            .padding(.leading, screenWidth / 75)
+            
+        }
+        
     }
+    
 }
-
-struct DiscoverPagePosts_Previews: PreviewProvider {
-    static var previews: some View {
-        DiscoverPagePosts()
-            .environmentObject(TabBarViewModel())
-    }
-}
-

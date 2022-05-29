@@ -277,6 +277,11 @@ class LoginAppViewModel: ObservableObject {
                     else{
                         playlist.playlist_type = "Collection"
                     }
+                    
+                    //these will be public. 
+                    if(playlist.name == "Created" || playlist.name == "Owned" || playlist.name == "Featured"){
+                        playlist.privacy = 1
+                    }
                    
                     
                     try await batch.setData(from: playlist, forDocument: playlistRef)

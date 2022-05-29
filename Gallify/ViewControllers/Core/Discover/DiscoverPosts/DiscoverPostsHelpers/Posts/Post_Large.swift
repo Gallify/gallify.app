@@ -24,10 +24,11 @@ struct Post_Large: View {
         
         Button(action: {
             
-            if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+            if firestoreQuery.showCameraScreen == false && firestoreQuery.showNewScreen == false {
                 firestoreQuery.bothScreensMinimized = true
             }
-            else{
+            
+            else {
                 firestoreQuery.bothScreensMinimized = false
             }
                
@@ -43,25 +44,18 @@ struct Post_Large: View {
             firestoreQuery.showNewScreen = true
             firestoreQuery.scrollTo = index
                 
-            }){
+        }){
+            
+            WebImage(url: URL(string: discover_art.thumbnailUrl))
+                .resizable()
+                .scaledToFill()
+                .frame(width: screenWidth / 1.53, height: screenHeight / 3.38)
+                .clipped()
+                .padding(.leading, -screenWidth / 75)
+                .padding(.top, -screenHeight / 160)
                 
-                WebImage(url: URL(string: discover_art.thumbnailUrl))
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: screenWidth / 1.53, height: screenHeight / 3.38)
-                    .clipped()
-                    .padding(.leading, -screenWidth / 75)
-                    .padding(.top, -screenHeight / 160)
-                    .border(Color.primary)
-            }
+        }
         
     }
     
 }
-
-//struct Post_Large_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Post_Large(image: Image("lakemcdonald"))
-//            .environmentObject(TabBarViewModel())
-//    }
-//}
