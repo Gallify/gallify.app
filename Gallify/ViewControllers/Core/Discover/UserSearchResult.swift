@@ -31,7 +31,9 @@ struct UserSearchResult: View {
                     
                 WebImage(url: URL(string: user.profileImageUrl))
                     .resizable()
+                    .scaledToFill()
                     .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+                    //.clipped()
                     .clipShape(Circle())
                     
                 VStack(alignment: .leading) {

@@ -52,7 +52,9 @@ struct ArtSearchResult: View {
                     
                 WebImage(url: URL(string: artwork.thumbnailUrl))
                     .resizable()
+                    .scaledToFill()
                     .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+                    .clipped()
                     
                 VStack(alignment: .leading) {
                     

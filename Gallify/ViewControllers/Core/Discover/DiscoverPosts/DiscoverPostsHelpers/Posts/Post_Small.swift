@@ -35,6 +35,7 @@ struct Post_Small: View {
             firestoreQuery.artThatsPlaying = discover_art
             firestoreQuery.artworkThatsPlaying = firestoreQuery.discoveryPageArt
             
+            
             //firestoreQuery.isPresented.toggle()
 //            firestoreQuery.sheetMode = .full
 //            firestoreQuery.maximized = true
@@ -47,7 +48,9 @@ struct Post_Small: View {
                 
                 WebImage(url: URL(string: discover_art.thumbnailUrl))
                     .resizable()
+                    .scaledToFill()
                     .frame(width: screenWidth / 3.1, height: screenHeight / 6.8)
+                    .clipped()
                     
                    // .padding(.leading, -screenWidth / 75)
                    // .padding(.top, -screenHeight / 160)

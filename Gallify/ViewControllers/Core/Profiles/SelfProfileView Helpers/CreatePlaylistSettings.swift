@@ -48,8 +48,10 @@ struct CreatePlaylistSettings: View {
                         if pickedImage != nil {
                             Image(uiImage: pickedImage!)
                                 .resizable()
+                                .scaledToFill()
                                 .frame(width: 100,
                                        height: 100)
+                                .clipped()
                                 .padding(.top, 20)
                                 .onTapGesture{
                                     self.showActionSheet = true
@@ -57,9 +59,11 @@ struct CreatePlaylistSettings: View {
                         } else {
                             Image(systemName: "square.fill")
                                     .resizable()
+                                    
                                     .cornerRadius(0)
                                     .frame(width: 100,
                                            height: 100)
+                                    
                                     .padding(.top, 20)
                                     .foregroundColor(Color(red:CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48())))
                                     .onTapGesture {

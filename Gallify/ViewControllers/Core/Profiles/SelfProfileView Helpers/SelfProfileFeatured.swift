@@ -84,8 +84,9 @@ struct SelfProfileFeatured: View {
                                                         
                                             WebImage(url: URL(string: artwork.thumbnailUrl))
                                                 .resizable()
+                                                .scaledToFill()
                                                 .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
-                                                        
+                                                .clipped()
                                             VStack(alignment: .leading) {
                                                             
                                                 if (firestoreQuery.artisClicked == artwork.artId) {

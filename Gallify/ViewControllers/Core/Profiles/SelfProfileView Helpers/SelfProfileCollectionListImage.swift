@@ -74,7 +74,10 @@ struct SelfProfileCollectionListImage: View {
             
             WebImage(url: URL(string: playlist.cover_art_url))
                 .resizable()
+                .scaledToFill()
                 .frame(width: imageWidth, height: imageHeight)
+                .clipped()
+                
             
         }
 

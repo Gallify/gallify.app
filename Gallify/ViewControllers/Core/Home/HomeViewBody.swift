@@ -60,8 +60,10 @@ struct HomeViewBody: View {
                                                 else{
                                                     WebImage(url: URL(string: playlist.cover_art_url))
                                                         .resizable()
+                                                        .scaledToFill()
                                                         .frame(width: screenWidth / 2.8, height: screenHeight / 6)
-                                                        //.cornerRadius(5)
+                                                        .clipped()
+                                                    //.cornerRadius(5)
                                                 }
                                               
                                                       

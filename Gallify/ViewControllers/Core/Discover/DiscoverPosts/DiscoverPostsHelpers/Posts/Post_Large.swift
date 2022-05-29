@@ -47,7 +47,9 @@ struct Post_Large: View {
                 
                 WebImage(url: URL(string: discover_art.thumbnailUrl))
                     .resizable()
+                    .scaledToFill()
                     .frame(width: screenWidth / 1.53, height: screenHeight / 3.38)
+                    .clipped()
                     .padding(.leading, -screenWidth / 75)
                     .padding(.top, -screenHeight / 160)
                     .border(Color.primary)

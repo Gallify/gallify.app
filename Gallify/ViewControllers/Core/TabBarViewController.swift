@@ -140,10 +140,10 @@ struct TabBarView: View {
                 
                     FullARView()
                         .offset(y: firestoreQuery.showCameraScreen ? 0 : UIScreen.main.bounds.height)
-                        
+
                         //if one of the reel screen and camera screen's are minimized, and both were previously minimized (minimized = false)
                         .animation(((!firestoreQuery.showNewScreen && firestoreQuery.showCameraScreen && !firestoreQuery.bothScreensMinimized) || (firestoreQuery.showNewScreen && !firestoreQuery.showCameraScreen && !firestoreQuery.bothScreensMinimized)) ? .linear(duration: 0) : .default)
-              
+
                         .edgesIgnoringSafeArea(.all)
                         .environmentObject(modelsViewModel)
                         .environmentObject(placementSettings)

@@ -15,7 +15,7 @@ struct Slider: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     
     var body: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: [GridItem()]) {
                 // Text("MODELS VIEW MODEL COUNT IS: \(modelsViewModel.models.count)")
                 
@@ -46,7 +46,7 @@ struct Slider: View {
             }
         }
         //.padding(.bottom, 15)
-        .frame(height: 200)
+        .frame(height: 150)
     }
     
     private func placeImage(model: Model) {
@@ -100,54 +100,58 @@ struct SliderItem: View {
         }) {
             
             if(model.contentLoaded){
+                
+//                Circle()
+//                    .frame(width: 70, height: 70)
+//                    .background(Color.white)
+                
                 WebImage(url: URL(string: model.art.thumbnailUrl))
                     .resizable()
-                    .frame(width: 75, height: 75)
-                    .aspectRatio(1/1, contentMode: .fit)
+                
+                    .scaledToFill()
+                    .frame(width: 60, height: 60)
+                    .clipped()
+
                     .background(Color(UIColor.secondarySystemFill))
+                    
                     .clipShape(Circle())
+                    
+                    
+                
                 
             }
             else if(model.isLoading!){
                
                 WebImage(url: URL(string: model.art.thumbnailUrl))
                     .resizable()
-                    .colorMultiply(Color(.red))
-                    .frame(width: 75, height: 75)
-                    .aspectRatio(1/1, contentMode: .fit)
+                    .colorMultiply(Color(.gray))
+                    .scaledToFill()
+                    .frame(width: 60, height: 60)
+                    .clipped()
+                
+                
+//                    .frame(width: 60, height: 60)
+//                    .aspectRatio(1/1, contentMode: .fill)
+//                    .clipped()
+                
                     .background(Color(UIColor.secondarySystemFill))
                     .clipShape(Circle())
-                
-                
-                
-//                ProgressView()
-                
-//                let spinner = UIActivityIndicatorView(style: .white)
-//
-//
-////                spinner.frame = CGRect(x: -20.0, y: 6.0, width: 20.0, height: 20.0) // (or wherever you want it in the button)
-//                 spinner.startAnimating()
-////                spinner.alpha = 0.0
-////
-//
-//
-//              WebImage(url: URL(string: model.art.thumbnail))
-//                    .resizable()
-//                    .colorMultiply(Color(.gray))
-//                    .frame(width: 75, height: 75)
-//                    .aspectRatio(1/1, contentMode: .fit)
-//                    .background(Color(UIColor.secondarySystemFill))
-//                    .clipShape(Circle())
-//                    .spinner.startAnimating()
 
-                
             }
             else{
                 WebImage(url: URL(string: model.art.thumbnailUrl))
                     .resizable()
-                    .colorMultiply(Color(.gray))
-                    .frame(width: 75, height: 75)
-                    .aspectRatio(1/1, contentMode: .fit)
+                    //.colorMultiply(Color(.gray))
+                
+                    .scaledToFill()
+                    .frame(width: 60, height: 60)
+                    .clipped()
+                
+//                    .frame(width: 60, height: 60)
+//                    .aspectRatio(1/1, contentMode: .fill)
+//                    .clipped()
+                
+                
                     .background(Color(UIColor.secondarySystemFill))
                     .clipShape(Circle())
             }
@@ -155,7 +159,7 @@ struct SliderItem: View {
             
     
         }
-        .padding()
+        .padding(.horizontal, 7)
         
         
     }

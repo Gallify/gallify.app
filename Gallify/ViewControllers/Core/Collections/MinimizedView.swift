@@ -59,7 +59,12 @@ struct MinimizedView: View {
                                 
                             WebImage(url: URL(string: firestoreQuery.artThatsPlaying.thumbnailUrl))
                                 .resizable()
+                            
+                                .scaledToFill()
                                 .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+                                .clipped()
+                                
+                            
                                 
                             VStack(alignment: .leading) {
                                     

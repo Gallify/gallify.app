@@ -30,6 +30,8 @@ struct FullARView: View {
     @State private var overlayVisible: Bool = false //used to be true, wasnt loading so skipped it
     @State private var showAbout: Bool = false
     @State private var hideAll: Bool = false
+    @State private var showReferenceImage: Bool = false
+    @State private var saveReferenceImage: Bool = false
     
     let screenHeight = UIScreen.main.bounds.height
     let screenWidth = UIScreen.main.bounds.width
@@ -44,170 +46,178 @@ struct FullARView: View {
                 .navigationBarHidden(true)
 
             VStack{
-                HStack{
-                    Button(action: {
-                       //if else checks if both camera and reels screen are minimized currently.
-                        if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
-                            firestoreQuery.bothScreensMinimized = true
+                
+                if(!hideAll){
+                    HStack{
+                        Button(action: {
+                           //if else checks if both camera and reels screen are minimized currently.
+                            if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                                firestoreQuery.bothScreensMinimized = true
+                            }
+                            else{
+                                firestoreQuery.bothScreensMinimized = false
+                            }
+
+                            firestoreQuery.showCameraScreen = false
+                            firestoreQuery.showNewScreen = false
+                            firestoreQuery.cameraPlaying = true
+                            firestoreQuery.artPlaying = false
+                            firestoreQuery.artisClicked = ""
+
+
+                            }) {
+                                    Image(systemName: "chevron.down")
+                                        .font(.system(size: 30))
+                                        .foregroundColor(Color.white)
+                                        .padding(.leading)
+                                        //.frame(maxHeight: .infinity, alignment: .top)
+                                        .padding(.vertical, screenHeight / 12) //screenHeight / 70
+                                        .padding(.horizontal, screenHeight / 75)
+
+                            }
+                            .frame(maxHeight: .infinity, alignment: .top)
+                        
+
+                        Spacer()
+                        
+                        
+                        //if art is in a playlist/collection, and the playlist has been saved
+                        //checks if there is a playlist playing in the firstpalce.
+                        if(firestoreQuery.playlistThatsPlaying.art.count > 0){
+                            
+                            //checks if the playlist belongs to the art that's playing. Won't always work.
+                            if(firestoreQuery.playlistThatsPlaying.art[0] == firestoreQuery.artworkThatsPlaying[0].artId){
+                                
+                                //this should be .hasSavedGallery? but don't have this param yet.
+                                //if(firestoreQuery.playlistThatsPlaying.auction){
+                        
+                                    //if( the playlist owner is the current user, then they can save.){
+                        
+                                        Button(action: {
+                                            //take picture for reference image.
+                                            //also take the lat and long.
+                                            //save to the playlist.
+                                            
+                                            saveReferenceImage = true
+                                            }) {
+                                                
+                                                Image(systemName: "arrow.down.left")
+                                                    .font(.system(size: 20))
+                                                    .foregroundColor(Color.white)
+                    //                                .padding(.leading)
+                                                    //.frame(maxHeight: .infinity, alignment: .top)
+                                                    .padding(.vertical, screenHeight / 12) //screenHeight / 70
+                                                    .padding(.horizontal, screenHeight / 75)
+                                                
+
+                                            }
+                                            .frame(maxHeight: .infinity, alignment: .top)
+                                            .sheet(isPresented: $saveReferenceImage) {
+                                                SaveView()
+                                
+                                            }
+                                    //}
+                                //}
+                            }
                         }
-                        else{
-                            firestoreQuery.bothScreensMinimized = false
-                        }
+                        
+                        
+                        
+                        
+                        Button(action: {
+                            showAbout =  true
+                            }) {
 
-                        firestoreQuery.showCameraScreen = false
-                        firestoreQuery.showNewScreen = false
-                        firestoreQuery.cameraPlaying = true
-                        firestoreQuery.artPlaying = false
-                        firestoreQuery.artisClicked = ""
-
-
-                        }) {
-                                Image(systemName: "chevron.down")
-                                    .font(.system(size: 30))
+                                Image(systemName: "questionmark")
+                                    .font(.system(size: 16))
                                     .foregroundColor(Color.white)
-                                    .padding(.leading)
-                                    //.frame(maxHeight: .infinity, alignment: .top)
                                     .padding(.vertical, screenHeight / 12) //screenHeight / 70
                                     .padding(.horizontal, screenHeight / 75)
 
-                        }
-                        .frame(maxHeight: .infinity, alignment: .top)
-                    
-
-                    Spacer()
-                    
-                    Button(action: {
-                        showAbout =  true
-                        }) {
-                            Text("?")
-                                .font(.system(size: screenWidth / 25, weight: .medium))
-                                .foregroundColor(Color(.white))
-//                                .padding(.horizontal, 20)
-//                                .padding(.vertical, screenHeight / 120)
-                            
-                                //.padding(.leading)
-                                .padding(.vertical, screenHeight / 12) //screenHeight / 70
-                                .padding(.horizontal, screenHeight / 75)
-//                                .overlay(
-//                                    Capsule(style: .continuous)
-//                                        .stroke(Color.white, style: StrokeStyle(lineWidth: 2))
-//                                )
-                        }
-                        .frame(maxHeight: .infinity, alignment: .top)
-                        .alert(isPresented: $showAbout) {
-                            Alert(title: Text("Tips!"), message: Text("Move your device around so it can track your space. Double Tap Art to Delete. Also, saving coming soon!"), dismissButton: .default(Text("Cancel")))
-                        } 
-                    
-                    Button(action: {
+                            }
+                            .frame(maxHeight: .infinity, alignment: .top)
+                            .alert(isPresented: $showAbout) {
+                                Alert(title: Text("Tips!"), message: Text("Move your device around so it can track your space. Double Tap Art to Delete. Also, saving coming soon!"), dismissButton: .default(Text("Cancel")))
+                            }
                         
-                        }) {
-                            Text("Save")
-                                .font(.system(size: screenWidth / 25, weight: .medium))
-                                .foregroundColor(Color(.white))
-//                                .padding(.horizontal, 20)
-//                                .padding(.vertical, screenHeight / 120)
+                        
+                        //if art is in a playlist/collection, and the playlist has been saved
+                        //checks if there is a playlist playing in the firstpalce.
+                        if(firestoreQuery.playlistThatsPlaying.art.count > 0){
                             
-                                //.padding(.leading)
-                                .padding(.vertical, screenHeight / 12) //screenHeight / 70
-                                .padding(.horizontal, screenHeight / 75)
-//                                .overlay(
-//                                    Capsule(style: .continuous)
-//                                        .stroke(Color.white, style: StrokeStyle(lineWidth: 2))
-//                                )
-                        }
-                        .frame(maxHeight: .infinity, alignment: .top)
-                    
+                            //checks if the playlist belongs to the art that's playing. Won't always work.
+                            if(firestoreQuery.playlistThatsPlaying.art[0] == firestoreQuery.artworkThatsPlaying[0].artId){
+                                
+                                //this should be .hasSavedGallery? but don't have this param yet.
+                                //if(firestoreQuery.playlistThatsPlaying.auction){
+                                    
+                                    Button(action: {
+                                        showReferenceImage = true
+                                        }) {
+                                            
+                                            Image("chincoteague")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .cornerRadius(3.0)
+                                                .foregroundColor(Color.white)
+                                                .frame(width: screenWidth / 16, height: screenHeight / 32.5)
+                                                .padding(.trailing, 4.0)
+                                                .padding(.vertical, screenHeight / 12.5)
+                                                .padding(.horizontal, screenHeight / 90)
+                                                
+                                    }
+                                    .frame(maxHeight: .infinity, alignment: .top)
+                                    .sheet(isPresented: $showReferenceImage) {
+                                            DownloadView()
+                                    }
 
-                    Button(action: {
-                        //if else checks if both camera and reels screen are minimized currently.
-                        if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
-                            firestoreQuery.bothScreensMinimized = true
+                               // }
+                            }
                         }
-                        else{
-                            firestoreQuery.bothScreensMinimized = false
-                        }
-                        firestoreQuery.showCameraScreen = false
-                        firestoreQuery.showNewScreen = true
-                        firestoreQuery.cameraPlaying = false
-                        firestoreQuery.artPlaying = true
-
-                        //pause or end session here
-                        }) {
-                                Image(systemName: "square")
-                                    .resizable()
-                                    .foregroundColor(Color.white)
-                                    .frame(width: screenWidth / 15, height: screenHeight / 32.5)
-                                    .padding(.trailing, 4.0)
-                                    .padding(.vertical, screenHeight / 12.5)
-                                    .padding(.horizontal, screenHeight / 90)
-                        }
-                        .frame(maxHeight: .infinity, alignment: .top)
-                        .padding(.trailing, 20)
-                        .onTapGesture {
+                        
+                        
+                        Button(action: {
+                            //if else checks if both camera and reels screen are minimized currently.
+                            if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                                firestoreQuery.bothScreensMinimized = true
+                            }
+                            else{
+                                firestoreQuery.bothScreensMinimized = false
+                            }
                             firestoreQuery.showCameraScreen = false
                             firestoreQuery.showNewScreen = true
                             firestoreQuery.cameraPlaying = false
-                        }
+                            firestoreQuery.artPlaying = true
+
+                            //pause or end session here
+                            }) {
+                                    Image(systemName: "square")
+                                        .resizable()
+                                        .foregroundColor(Color.white)
+                                        .frame(width: screenWidth / 15, height: screenHeight / 32.5)
+                                        .padding(.trailing, 4.0)
+                                        .padding(.vertical, screenHeight / 12.5)
+                                        .padding(.horizontal, screenHeight / 90)
+                            }
+                            .frame(maxHeight: .infinity, alignment: .top)
+                            .padding(.trailing, 20)
+                            .onTapGesture {
+                                firestoreQuery.showCameraScreen = false
+                                firestoreQuery.showNewScreen = true
+                                firestoreQuery.cameraPlaying = false
+                            }
+
+                            
                         
-                        
-                        
+                            
+                            
 
 
-                }
+                    }
+            }
                 
             
                 
-//                HStack{
-//
-//                    Spacer()
-//
-//                    Button(action: {
-//
-//                    }) {
-//
-//                        Text("Save")
-//
-//                            .font(.system(size: screenWidth / 25, weight: .medium))
-//                            .foregroundColor(Color(.white))
-//                            .padding(.horizontal, 20)
-//                            .padding(.vertical, screenHeight / 120)
-//                            .overlay(
-//                                Capsule(style: .continuous)
-//                                    .stroke(Color.white, style: StrokeStyle(lineWidth: 2))
-//                            )
-//                            .background(Color.white)
-//                            .opacity(0.3)
-//                    }
-//                    .frame(maxHeight: .infinity, alignment: .top)
-//
-//                }
-                
-//                HStack{
-//
-//                    Spacer()
-//
-//                    Button(action: {
-//                        showAbout =  true
-//                    }) {
-//
-//                        Text("?")
-//
-//                            .font(.system(size: screenWidth / 25, weight: .medium))
-//                            .foregroundColor(Color(.white))
-//                            .padding(.horizontal, 20)
-//                            .padding(.vertical, screenHeight / 120)
-//                            .overlay(
-//                                Capsule(style: .continuous)
-//                                    .stroke(Color.white, style: StrokeStyle(lineWidth: 2))
-//                            )
-//
-//                    }
-//                    .frame(maxHeight: .infinity, alignment: .top)
-//                    .alert(isPresented: $showAbout) {
-//                        Alert(title: Text("Tip!"), message: Text("Move your device around so it can track your space. Double Tap Art to Delete. Also, saving coming soon!"), dismissButton: .default(Text("Cancel")))
-//                    }
-//
-//                }
                 
 
 
@@ -222,7 +232,11 @@ struct FullARView: View {
                         }
                         else {
                             
-                            Slider()
+                            if(!hideAll){
+                                Slider()
+                            }
+                            
+                            
                             
                         }
                     }
@@ -230,8 +244,28 @@ struct FullARView: View {
                         AddModelBar()
                     }
                 }
+                
+                if(placementSettings.selectedModel == nil || modelDeletionManager.entitySelectedForDeletion == nil ){
+                    Button(action: {
+                        //if clicked, hides other buttons
+                        hideAll.toggle()
+                        }) {
+                            
+                            Image(systemName: "xmark.circle")
+                                .font(.system(size: 25))
+                                .foregroundColor(Color.white)
+                                
+                    }
+                    .offset(y:-30)
+                }
+                
+                
+                
+                
+                
+                
 
-
+                
 
             }
 

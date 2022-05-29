@@ -140,6 +140,8 @@
 		30EB9621282437B9003D0486 /* DiscoverUserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB9620282437B9003D0486 /* DiscoverUserSearch.swift */; };
 		30EB9623282882AA003D0486 /* MembershipBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB9622282882AA003D0486 /* MembershipBody.swift */; };
 		30EB962628288A90003D0486 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 30EB962528288A90003D0486 /* FocusEntity */; };
+		30EB96E5284301E7003D0486 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E4284301E7003D0486 /* SaveView.swift */; };
+		30EB96E7284301F6003D0486 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E6284301F6003D0486 /* DownloadView.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -392,6 +394,8 @@
 		30EB961E2822F0F1003D0486 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		30EB9620282437B9003D0486 /* DiscoverUserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserSearch.swift; sourceTree = "<group>"; };
 		30EB9622282882AA003D0486 /* MembershipBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipBody.swift; sourceTree = "<group>"; };
+		30EB96E4284301E7003D0486 /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
+		30EB96E6284301F6003D0486 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -631,6 +635,8 @@
 				3003B01127EB98BB00EA58B6 /* ThresholdPanGesture.swift */,
 				FC5DCE5427F9392E00AE345B /* ModelDeletionManager.swift */,
 				FC5DCE5627F951BC00AE345B /* DeletionView.swift */,
+				30EB96E4284301E7003D0486 /* SaveView.swift */,
+				30EB96E6284301F6003D0486 /* DownloadView.swift */,
 			);
 			path = ARPlayer;
 			sourceTree = "<group>";
@@ -1826,6 +1832,7 @@
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
 				3052137D278A2D5A00CE0224 /* FirestoreQueryService.swift in Sources */,
 				3003B00127E6B01200EA58B6 /* CollectionsView.swift in Sources */,
+				30EB96E5284301E7003D0486 /* SaveView.swift in Sources */,
 				31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */,
 				92794D02273811760012B184 /* CollectionRecentActivityHeader.swift in Sources */,
 				30001BD92796865600527BF9 /* getList.swift in Sources */,
@@ -1914,6 +1921,7 @@
 				3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */,
 				33E41CDF27FFB68E0037FDBC /* Liked.swift in Sources */,
 				3003B05E2811FA1800EA58B6 /* WalletConnect.swift in Sources */,
+				30EB96E7284301F6003D0486 /* DownloadView.swift in Sources */,
 				30EB9623282882AA003D0486 /* MembershipBody.swift in Sources */,
 				3129ADCC26F40E3B00172808 /* SelfProfileViewController.swift in Sources */,
 				318B42F026E0190B00D6D722 /* CircleImage.swift in Sources */,
