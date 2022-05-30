@@ -105,12 +105,12 @@ class FirestoreQuery : ObservableObject {
     @Published var art: Art = Art()
     var playlistImgUrl = ""
     
-    //In review art
+    //Admin art Approval
     @Published var artInReview = [Art]()
     var inReviewQuery: Query!
     var getNext : Bool = false
     var lastDoc : QueryDocumentSnapshot!
-    
+   
     //basic
     static let db = Firestore.firestore()
     static let userId = Auth.auth().currentUser?.uid
