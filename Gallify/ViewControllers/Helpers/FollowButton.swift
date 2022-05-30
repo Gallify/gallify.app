@@ -16,7 +16,7 @@ struct FollowButton: View {
     var buttonWidth: CGFloat = UIScreen.main.bounds.width / 3
     var buttonHeight: CGFloat = UIScreen.main.bounds.width / 12
     
-    var firestoreUpload : FirestoreUploadService = FirestoreUploadService()
+    //var firestoreUpload : FirestoreUploadService = FirestoreUploadService()
 
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @State var is_following = false

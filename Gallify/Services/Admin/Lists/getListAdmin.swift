@@ -24,8 +24,7 @@ extension FirestoreQuery {
 //        }
 //        else{ //This is the first batch to be fetched
             self.inReviewQuery = try await FirestoreQuery.db.collection("art").whereField("searchType", isEqualTo: 2)
-                              .order(by: "popularity", descending: true)
-                              .limit(to: 3)
+                                                            .limit(to: 3)
 //        }
         
     
