@@ -70,11 +70,11 @@ extension FirestoreQuery {
                         print("Document successfully updated with image url \(url)")
                     }
                 }
-                for pl in self.userLibrary{
-                    if(pl.playlist_id == playlistId) {
-                        pl.cover_art_url = self.playlistImgUrl
-                    }
-                }
+            }
+        }
+        for pl in self.userLibrary{
+            if(pl.playlist_id == playlistId) {
+                pl.cover_art_url = self.playlistImgUrl
             }
         }
 
