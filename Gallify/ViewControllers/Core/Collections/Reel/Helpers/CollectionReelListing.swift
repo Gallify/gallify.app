@@ -12,6 +12,7 @@ struct CollectionReelListing: View {
     
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @EnvironmentObject var viewModel: TabBarViewModel
+    @EnvironmentObject var loginModel: LoginAppViewModel
     
     @State private var showDetail = false
     @State var showActionSheet: Bool = false
@@ -225,60 +226,70 @@ struct CollectionReelListing: View {
 //
 //                                }
                                 
-                                    Button(action: {
-                                        firestoreQuery.showReelArtOptions = true
-                                        self.art = artwork //Setting art var when ellipses is clicked
-                                    }, label: {
-                                                                
-                                        Image(systemName: "ellipsis")
-                                            .foregroundColor(.primary)
-//                                            .padding(.trailing, 10)
-                                                                
-                                    })
-                                    .actionSheet(isPresented: $firestoreQuery.showReelArtOptions) {
-                                                
-                                        ActionSheet(
-                                            title: Text("Select"),
-                                            buttons: [
-                                                .default(Text("Like")) {
-                                                    Task {
-                                                        await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
-                                                        //reload library
-                                                        await firestoreQuery.getUserLibrary()
-                                                    }
-                                                },
-                                                .default(Text("Add to Collection")) {
-                                                    showingSheet = true
-                                                },
-                                                .default(Text("Cancel")) {
-                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                    firestoreQuery.showReelArtOptions = false
-                                                }])
+                                
+                                
+                                
+                                if(!loginModel.isGuest){
+                                        Button(action: {
+                                            firestoreQuery.showReelArtOptions = true
+                                            self.art = artwork //Setting art var when ellipses is clicked
+                                        }, label: {
                                                                     
-                                    }
-                                    .sheet(isPresented: $showingSheet) {
-                                            CollectionsView(art: art)
-                                    }
-                                    
-                                    
-                                Button(action: {
-                                    // Add firebase methods to make changes on backend
-                                    artLiked.toggle()
-//                                    Task{
+                                            Image(systemName: "ellipsis")
+                                                .foregroundColor(.primary)
+
+                                                                    
+                                        })
+                                        .actionSheet(isPresented: $firestoreQuery.showReelArtOptions) {
+                                                    
+                                            ActionSheet(
+                                                title: Text("Select"),
+                                                buttons: [
+                                                    .default(Text("Like")) {
+                                                        Task {
+                                                            await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+                                                            //reload library
+                                                            await firestoreQuery.getUserLibrary()
+                                                        }
+                                                    },
+                                                    .default(Text("Add to Collection")) {
+                                                        showingSheet = true
+                                                    },
+                                                    .default(Text("Cancel")) {
+                                                        //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                        firestoreQuery.showReelArtOptions = false
+                                                    }])
+                                                                        
+                                        }
+                                        .sheet(isPresented: $showingSheet) {
+                                                CollectionsView(art: art)
+                                        }
+                                
+                                        
+//                                    Button(action: {
+//                                        // Add firebase methods to make changes on backend
+//                                        artLiked.toggle()
+//                                       /* Task{
 //
-//                                        await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
-//                                        //reload library
-//                                        await firestoreQuery.getUserLibrary()
+//                                            await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+//                                            //reload library
+//                                            await firestoreQuery.getUserLibrary()
 //
-//                                    }
-                                    
-                                }, label: {
-                                    
-                                    LikeButton(imageHeight: screenHeight / 40, imageWidth: screenWidth / 18.5, liked: artLiked)
-                                        .padding(.vertical, screenWidth / 75)
-                                        .padding(.horizontal, screenWidth / 30)
-                                    
-                                })
+//                                        }
+//                                        */
+//
+//                                    }, label: {
+//
+//                                        LikeButton(imageHeight: screenHeight / 40, imageWidth: screenWidth / 18.5, liked: artLiked)
+//                                            .padding(.vertical, screenWidth / 75)
+//                                            .padding(.horizontal, screenWidth / 30)
+//
+//                                    })
+                            }
+                                
+                                
+                                
+                                
                                 
 
 //                                if(artwork.forSale == true  ){ //&& artwork.price != ""

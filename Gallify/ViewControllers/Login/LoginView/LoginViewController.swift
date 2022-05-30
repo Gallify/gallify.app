@@ -44,8 +44,11 @@ class LoginAppViewModel: ObservableObject {
     func issignedin() -> Bool{
         
         //this runs a background task to see if doc created, self.documentCreated should update.
-        checkIfDocCreated()
+        if(!self.documentCreated){
+            checkIfDocCreated()
+        }
         
+            
   //      try? auth.signOut()
         if (auth.currentUser != nil) {
             
@@ -517,6 +520,7 @@ class LoginAppViewModel: ObservableObject {
                                     
                                     DispatchQueue.main.async {
                                         self.signedIn = true
+                                        self.isGuest = false // no longer a guest.
                                     }
                                 }
                                 

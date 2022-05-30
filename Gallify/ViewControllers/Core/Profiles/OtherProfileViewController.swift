@@ -29,7 +29,10 @@ struct OtherProfileView : View {
                     
                 OtherProfileViewDetails()
                 
-                OtherProfileFeatured()
+                
+               
+                    OtherProfileFeatured()
+                
                     
                     
                 OtherProfileCollectionList()

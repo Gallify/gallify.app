@@ -16,6 +16,7 @@ struct CollectionGenericRow: View {
     let screenHeight: CGFloat
     let thePlaylist: Playlist
     @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @EnvironmentObject var loginModel: LoginAppViewModel
     
     //state variables. These will be changed. Then will update FirestoreQuery versions. Then the FirestoreQuery versions will be updated.
     @State var playlist: [Art] = [Art]()
@@ -206,89 +207,9 @@ struct CollectionGenericRow: View {
                                                                 
                                 Spacer()
                                
-                                
-                                //if else. If they created the playlist or not.
-                                if(thePlaylist.creator_url == firestoreQuery.data.uid){
-                                    Button(action: {
-                                        firestoreQuery.showGenericArtOptions = true
-                                        self.art = playlist[i] //Setting art var when ellipses is clicked
-                                    }, label: {
-                                                                
-                                        Image(systemName: "ellipsis")
-                                            .foregroundColor(.primary)
-                                                                
-                                    })
-                                    .actionSheet(isPresented: $firestoreQuery.showGenericArtOptions) {
-                                                
-                                        ActionSheet(
-                                            title: Text("Select"),
-                                            buttons: [
-                                                .default(Text("Delete from Playlist")) {
-                                                    Task{
-                                                            //remove from local variable to update view
-                                                            playlist.removeAll { artwork in
-                                                                artwork.artId == art.artId
-                                                            }
-                                                            print("Start Delete")
-                                                            await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist: thePlaylist)
-                                                            print("End Delete")
-                                                            await firestoreQuery.getUserLibrary()
-                                                        
-                                                            if(thePlaylist.name == "Featured"){
-                                                               
-                                                                    await firestoreQuery.getFeaturedPlaylist()
-                                                                    print(firestoreQuery.featuredArt.count)
-                                                                    await firestoreQuery.getFeaturedArt()
-                                                                    print(firestoreQuery.featuredArt.count)
-                                                                
-                                                            }
-                                                        }
-                                                },
-                                                .default(Text("Add to Collection")) {
-                                                    showingSheet = true
-                                                },
-                                                .default(Text("Cancel")) {
-                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                    firestoreQuery.showGenericArtOptions = false
-                                                }])
-                                    }
-                                    .sheet(isPresented: $showingSheet) {
-                                            CollectionsView(art: art)
-                                    }
-                                    
-                                }
-                                else if(thePlaylist.name != "Review"){
-                                    Button(action: {
-                                        firestoreQuery.showGenericArtOptions = true
-                                        self.art = playlist[i] //Setting art var when ellipses is clicked
-                                    }, label: {
-                                                                
-                                        Image(systemName: "ellipsis")
-                                            .foregroundColor(.primary)
-                                                                
-                                    })
-                                    .actionSheet(isPresented: $firestoreQuery.showGenericArtOptions) {
-                                                
-                                        ActionSheet(
-                                            title: Text("Select"),
-                                            buttons: [
-                                                .default(Text("Add to Collection")) {
-                                                    showingSheet = true
-                                                },
-                                                .default(Text("Cancel")) {
-                                                    //firestoreQuery.addToPlaylist(artwork.art_id)
-                                                    firestoreQuery.showGenericArtOptions = false
-                                                }])
-                                                                    
-                                    }
-                                    .sheet(isPresented: $showingSheet) {
-                                            CollectionsView(art: art)
-                                    }
-                                    
-                                    
-                                }
-                                else{
-                                    
+                                if(!loginModel.isGuest){
+                                    //if else. If they created the playlist or not.
+                                    if(thePlaylist.creator_url == firestoreQuery.data.uid){
                                         Button(action: {
                                             firestoreQuery.showGenericArtOptions = true
                                             self.art = playlist[i] //Setting art var when ellipses is clicked
@@ -303,6 +224,58 @@ struct CollectionGenericRow: View {
                                             ActionSheet(
                                                 title: Text("Select"),
                                                 buttons: [
+                                                    .default(Text("Delete from Playlist")) {
+                                                        Task{
+                                                                //remove from local variable to update view
+                                                                playlist.removeAll { artwork in
+                                                                    artwork.artId == art.artId
+                                                                }
+                                                                print("Start Delete")
+                                                                await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist: thePlaylist)
+                                                                print("End Delete")
+                                                                await firestoreQuery.getUserLibrary()
+                                                            
+                                                                if(thePlaylist.name == "Featured"){
+                                                                   
+                                                                        await firestoreQuery.getFeaturedPlaylist()
+                                                                        print(firestoreQuery.featuredArt.count)
+                                                                        await firestoreQuery.getFeaturedArt()
+                                                                        print(firestoreQuery.featuredArt.count)
+                                                                    
+                                                                }
+                                                            }
+                                                    },
+                                                    .default(Text("Add to Collection")) {
+                                                        showingSheet = true
+                                                    },
+                                                    .default(Text("Cancel")) {
+                                                        //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                        firestoreQuery.showGenericArtOptions = false
+                                                    }])
+                                        }
+                                        .sheet(isPresented: $showingSheet) {
+                                                CollectionsView(art: art)
+                                        }
+                                        
+                                    }
+                                    else if(thePlaylist.name != "Review"){
+                                        Button(action: {
+                                            firestoreQuery.showGenericArtOptions = true
+                                            self.art = playlist[i] //Setting art var when ellipses is clicked
+                                        }, label: {
+                                                                    
+                                            Image(systemName: "ellipsis")
+                                                .foregroundColor(.primary)
+                                                                    
+                                        })
+                                        .actionSheet(isPresented: $firestoreQuery.showGenericArtOptions) {
+                                                    
+                                            ActionSheet(
+                                                title: Text("Select"),
+                                                buttons: [
+                                                    .default(Text("Add to Collection")) {
+                                                        showingSheet = true
+                                                    },
                                                     .default(Text("Cancel")) {
                                                         //firestoreQuery.addToPlaylist(artwork.art_id)
                                                         firestoreQuery.showGenericArtOptions = false
@@ -312,6 +285,35 @@ struct CollectionGenericRow: View {
                                         .sheet(isPresented: $showingSheet) {
                                                 CollectionsView(art: art)
                                         }
+                                        
+                                        
+                                    }
+                                    else{
+                                        
+                                            Button(action: {
+                                                firestoreQuery.showGenericArtOptions = true
+                                                self.art = playlist[i] //Setting art var when ellipses is clicked
+                                            }, label: {
+                                                                        
+                                                Image(systemName: "ellipsis")
+                                                    .foregroundColor(.primary)
+                                                                        
+                                            })
+                                            .actionSheet(isPresented: $firestoreQuery.showGenericArtOptions) {
+                                                        
+                                                ActionSheet(
+                                                    title: Text("Select"),
+                                                    buttons: [
+                                                        .default(Text("Cancel")) {
+                                                            //firestoreQuery.addToPlaylist(artwork.art_id)
+                                                            firestoreQuery.showGenericArtOptions = false
+                                                        }])
+                                                                            
+                                            }
+                                            .sheet(isPresented: $showingSheet) {
+                                                    CollectionsView(art: art)
+                                            }
+                                    }
                                 }
                                 
                                 

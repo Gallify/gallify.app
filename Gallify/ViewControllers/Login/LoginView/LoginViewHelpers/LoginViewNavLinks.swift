@@ -61,6 +61,11 @@ struct LoginViewNavLinks: View {
 //            })
 //            .navigationBarHidden(true)
             
+            if(viewModel.isGuest){
+                Text("Want to sign in? Don't have an account?")
+                        .font(Font.headline.weight(.semibold))
+            }
+            
             
             NavigationLink(destination: CreateAccountView(), isActive: ($viewModel.createDoc)){}
             
@@ -127,32 +132,38 @@ struct LoginViewNavLinks: View {
                     }
                 }
             
-            HStack{
-                Text("or")
-                    .font(.system(size: screenWidth / 20, weight: .regular))
-                    .padding(.top, -screenHeight / 75)
-                    .padding(.bottom, -screenHeight / 75)
-            }
             
-            HStack{
+            
+            
+            if(!viewModel.isGuest){
                 
                 
-                Button(action: {
+                HStack{
+                    Text("or")
+                        .font(.system(size: screenWidth / 20, weight: .regular))
+                        .padding(.top, -screenHeight / 75)
+                        .padding(.bottom, -screenHeight / 75)
+                }
+                
+                HStack{
                     
-                    Task{
-                        //sign in anonymously
-                        await viewModel.enterAsGuest()
-                    }
-                    
-                    
-                }) {
-
-                    Text("Enter as Guest")
+                    Button(action: {
                         
-                        .font(.system(size: screenWidth / 18.5, weight: .medium))
-                        .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
-                        .padding(.leading, 10)
-                        .padding(.top, screenHeight / 75)
+                        Task{
+                            //sign in anonymously
+                            await viewModel.enterAsGuest()
+                        }
+                        
+                        
+                    }) {
+
+                        Text("Enter as Guest")
+                            
+                            .font(.system(size: screenWidth / 18.5, weight: .medium))
+                            .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                            .padding(.leading, 10)
+                            .padding(.top, screenHeight / 75)
+                    }
                 }
             }
                 

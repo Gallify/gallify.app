@@ -160,6 +160,7 @@ struct SelfProfileFeatured: View {
                                 .sheet(isPresented: $showingSheet) {
                                         CollectionsView(art: art)
                                 }
+
                                 
                             }
                             .padding(.vertical, screenHeight / 160)
