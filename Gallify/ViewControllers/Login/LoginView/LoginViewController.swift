@@ -270,7 +270,10 @@ class LoginAppViewModel: ObservableObject {
                     let playlistRef = db.collection("playlists").document()
                     playlist.playlist_id = playlistRef.documentID
                     playlist.creator_url = user.uid /*Auth.auth().currentUser?.uid ?? ""*/
-                    playlist.creator = user.firstName + " " + user.lastName
+                    
+                    playlist.creator = user.displayName
+
+                   // playlist.creator = user.firstName + " " + user.lastName
                     
                     if(playlist.name == "Liked"){
                         playlist.playlist_type = "Playlist"

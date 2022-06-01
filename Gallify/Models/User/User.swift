@@ -12,8 +12,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     
     enum CodingKeys: CodingKey {
         case uid
-        case firstName
-        case lastName
+        case displayName
         case email
         case location
         
@@ -52,7 +51,13 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         case review
         case created
         
-        //disable account bool
+        case reviewRef
+        case featuredRef
+        case likedRef
+        case createdRef
+        case ownedRef
+        case deleteAccount
+        case disableAccount
         
         
         
@@ -60,8 +65,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     }
     
     @Published var uid : String   // NOT sure why all of these are published? @Shruti or @Anshul, you know?
-    @Published var firstName: String
-    @Published var lastName: String
+    @Published var displayName: String
     @Published var email: String
     @Published var location: String
     
@@ -83,8 +87,6 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var followers: Int
     @Published var following: Int
     @Published var connections: Int
-    @Published var followersUrl: String
-    @Published var followingUrl: String
     @Published var connectionsUrl: String
     @Published var profileUrl: String
     @Published var shareUrl: String
@@ -100,24 +102,19 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var review: String
     @Published var created: String
     
-    /*
-     "reviewPlaylistRef": "playlists/id",
-     "featuredPlaylistRef": "playlists/id",
-     "collectedPlaylistRef": "playlists/id",
-     2 others
-     "displayName": "",
-     
-     remove:
-     firstname,
-     lastname,
-     followers and following url
-     */
-  
+    @Published var reviewRef: String
+    @Published var featuredRef: String
+    @Published var likedRef: String
+    @Published var createdRef: String
+    @Published var ownedRef: String
+    @Published var deleteAccount: Bool
+    @Published var disableAccount: Bool
+    
+
     init() {
         
         uid = ""
-        firstName = ""
-        lastName = ""
+        displayName = ""
         email = ""
         location = ""
         
@@ -139,8 +136,6 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         followers = 0
         following = 0
         connections = 0
-        followersUrl = ""
-        followingUrl = ""
         connectionsUrl = ""
         profileUrl = ""
         shareUrl = ""
@@ -155,6 +150,15 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         owned = ""
         review = ""
         created = ""
+        
+        reviewRef = ""
+        featuredRef = ""
+        likedRef = ""
+        createdRef = ""
+        ownedRef = ""
+        deleteAccount = false
+        disableAccount = false
+
     }
 
     
@@ -162,8 +166,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         uid = try container.decode(String.self, forKey: .uid)
-        firstName = try container.decode(String.self, forKey: .firstName)
-        lastName = try container.decode(String.self, forKey: .lastName)
+        displayName = try container.decode(String.self, forKey: .displayName)
         email = try container.decode(String.self, forKey: .email)
         location = try container.decode(String.self, forKey: .location)
         
@@ -185,8 +188,6 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         followers = try container.decode(Int.self, forKey: .followers)
         following = try container.decode(Int.self, forKey: .following)
         connections = try container.decode(Int.self, forKey: .connections)
-        followersUrl = try container.decode(String.self, forKey: .followersUrl)
-        followingUrl = try container.decode(String.self, forKey: .followingUrl)
         connectionsUrl = try container.decode(String.self, forKey: .connectionsUrl)
         profileUrl = try container.decode(String.self, forKey: .profileUrl)
         shareUrl = try container.decode(String.self, forKey: .shareUrl)
@@ -202,14 +203,21 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         review = try container.decode(String.self, forKey: .review)
         created = try container.decode(String.self, forKey: .created)
         
+        reviewRef = try container.decode(String.self, forKey: .reviewRef)
+        featuredRef = try container.decode(String.self, forKey: .featuredRef)
+        likedRef = try container.decode(String.self, forKey: .likedRef)
+        createdRef = try container.decode(String.self, forKey: .createdRef)
+        ownedRef = try container.decode(String.self, forKey: .ownedRef)
+        deleteAccount = try container.decode(Bool.self, forKey: .deleteAccount)
+        disableAccount = try container.decode(Bool.self, forKey: .disableAccount)
+
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         try container.encode(uid, forKey: .uid)
-        try container.encode(firstName, forKey: .firstName)
-        try container.encode(lastName, forKey: .lastName)
+        try container.encode(displayName, forKey: .displayName)
         try container.encode(email, forKey: .email)
         try container.encode(location, forKey: .location)
         
@@ -231,8 +239,6 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(followers, forKey: .followers)
         try container.encode(following, forKey: .following)
         try container.encode(connections, forKey: .connections)
-        try container.encode(followersUrl, forKey: .followersUrl)
-        try container.encode(followingUrl, forKey: .followingUrl)
         try container.encode(connectionsUrl, forKey: .connectionsUrl)
         try container.encode(profileUrl, forKey: .profileUrl)
         try container.encode(shareUrl, forKey: .shareUrl)
@@ -247,6 +253,14 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(owned, forKey: .owned)
         try container.encode(review, forKey: .review)
         try container.encode(created, forKey: .created)
+        
+        try container.encode(reviewRef, forKey: .reviewRef)
+        try container.encode(featuredRef, forKey: .featuredRef)
+        try container.encode(likedRef, forKey: .likedRef)
+        try container.encode(createdRef, forKey: .createdRef)
+        try container.encode(ownedRef, forKey: .ownedRef)
+        try container.encode(deleteAccount, forKey: .deleteAccount)
+        try container.encode(disableAccount, forKey: .disableAccount)
 
     }
 

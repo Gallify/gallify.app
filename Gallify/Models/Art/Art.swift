@@ -52,6 +52,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case storageName
         case thumbnailUrl
         case tokenId
+        
         case unlockableContent
         case geoContent
         case claimableIfNearOnly

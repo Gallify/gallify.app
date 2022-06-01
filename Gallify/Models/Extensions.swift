@@ -4,6 +4,9 @@
 //
 //  Created by Shruti Sharma on 10/24/21.
 //
+
+//As of 05/31/22 THIS IS UNUSED.
+
 import Foundation
 
 extension User {

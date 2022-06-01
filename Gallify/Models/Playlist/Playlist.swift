@@ -35,11 +35,13 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         case searchType //when search, need to know artist, collection, or art
         case playlist_id
         case description
-        //lat
-        //lon
-        //time created
-        //report
-
+        case lat
+        case lon
+        case address
+        case latestHistoryDate
+        case createdDate
+        case creatorRef
+        
 
     }
 
@@ -62,6 +64,13 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var searchType: String
     @Published var playlist_id: String
     @Published var description: String
+    
+    @Published var lat: Double //large decimal.
+    @Published var lon: Double
+    @Published var address: String
+    @Published var latestHistoryDate: Timestamp
+    @Published var createdDate: Timestamp
+    @Published var creatorRef: String
     
     /*
      "name": "",
@@ -100,11 +109,20 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         searchType = ""
         playlist_id = ""
         description = ""
+       
+        lat = 0.0
+        lon = 0.0
+        address = ""
+        latestHistoryDate = Timestamp()
+        createdDate = Timestamp()
+        creatorRef = ""
+        
+        
     }
     
     init(newName: String, pri: Int, type: String, the_creator: User) {
           name = newName
-          creator = the_creator.firstName + " " + the_creator.lastName
+          creator = the_creator.displayName
           creator_url = the_creator.uid
           playlist_type = type
           share_url = ""
@@ -122,6 +140,13 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
           searchType = ""
           playlist_id = ""
           description = ""
+          lat = 0.0
+          lon = 0.0
+          address = ""
+          latestHistoryDate = Timestamp()
+          createdDate = Timestamp()
+          creatorRef = ""
+        
       }
 
     required init(from decoder: Decoder) throws {
@@ -147,7 +172,12 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         searchType = try container.decode(String.self, forKey: .searchType)
         playlist_id = try container.decode(String.self, forKey: .playlist_id)
         description = try container.decode(String.self, forKey: .description)
-
+        lat = try container.decode(Double.self, forKey: .lat)
+        lon = try container.decode(Double.self, forKey: .lon)
+        address = try container.decode(String.self, forKey: .lon)
+        latestHistoryDate = try container.decode(Timestamp.self, forKey: .latestHistoryDate)
+        createdDate = try container.decode(Timestamp.self, forKey: .createdDate)
+        creatorRef = try container.decode(String.self, forKey: .creatorRef)
 
     }
     
@@ -173,6 +203,13 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(searchType, forKey: .searchType)
         try container.encode(playlist_id, forKey: .playlist_id)
         try container.encode(description, forKey: .description)
+        try container.encode(lat, forKey: .lat)
+        try container.encode(lon, forKey: .lon)
+        try container.encode(address, forKey: .address)
+        try container.encode(latestHistoryDate, forKey: .latestHistoryDate)
+        try container.encode(createdDate, forKey: .createdDate)
+        try container.encode(creatorRef, forKey: .creatorRef)
+
 
     }
 }

@@ -99,7 +99,7 @@ struct SelfProfileViewDetails: View {
             
             HStack {
                 
-                Text(firestoreQuery.data.firstName + " " + firestoreQuery.data.lastName)
+                Text(firestoreQuery.data.displayName)
                     .font(.system(size: screenWidth / 23.5, weight: .semibold))
                 
                 /*Text("\(firestoreQuery.data.fullName)")

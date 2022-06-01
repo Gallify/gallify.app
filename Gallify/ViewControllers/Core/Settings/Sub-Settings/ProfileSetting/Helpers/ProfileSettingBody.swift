@@ -18,8 +18,9 @@ struct ProfileSettingBody: View {
     @EnvironmentObject var firestoreQuery: FirestoreQuery
     
     @State var newUsername = ""
-    @State var newFirstName = ""
-    @State var newLastName = ""
+    @State var newDisplayName = ""
+    //@State var newFirstName = ""
+    //@State var newLastName = ""
     @State var description = ""
     @State var profileImageUpdate = false
     
@@ -97,25 +98,26 @@ struct ProfileSettingBody: View {
                 //Taking out the formatter parameter because I need text: instead of value: -- Shruti
                 VStack {
                     HStack {
-                        Text("First Name")
+                        Text("Display Name")
                             .padding(.leading)
                         Spacer()
                     }
-                    TextField(firestoreQuery.data.firstName, text: $newFirstName)
+                    TextField(firestoreQuery.data.displayName, text: $newDisplayName)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
                         .padding(.horizontal, screenWidth / 15)
-                    HStack {
-                        Text("Last Name")
-                            .padding(.leading)
-                        Spacer()
-                    }
-                    TextField(firestoreQuery.data.lastName, text: $newLastName)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                        .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
-                        .padding(.horizontal, screenWidth / 15)
+                    
+//                    HStack {
+//                        Text("Last Name")
+//                            .padding(.leading)
+//                        Spacer()
+//                    }
+//                    TextField(firestoreQuery.data.lastName, text: $newLastName)
+//                        .autocapitalization(.none)
+//                        .disableAutocorrection(true)
+//                        .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+//                        .padding(.horizontal, screenWidth / 15)
                     HStack {
                         Text("Username")
                             .padding(.leading)
@@ -159,7 +161,7 @@ struct ProfileSettingBody: View {
 //                            ErrorText(errorText: "Username cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
 //
 //                        }
-                        if(newUsername.isEmpty && newFirstName.isEmpty && newLastName.isEmpty && description.isEmpty && profileImageUpdate == false) {
+                        if(newUsername.isEmpty && newDisplayName.isEmpty && description.isEmpty && profileImageUpdate == false) {
                             ErrorText(errorText: "Please fill out one of the fields above", screenHeight: screenHeight, screenWidth: screenWidth)
                         }
                         
@@ -184,17 +186,17 @@ struct ProfileSettingBody: View {
                             }
                                                         
                         }
-                        if(!newFirstName.isEmpty){
+                        if(!newDisplayName.isEmpty){
                             
                             Task {
-                                await firestoreQuery.updatefirstName(first: newFirstName)
+                                await firestoreQuery.updateDisplayName(name: newDisplayName)
                             }
                         }
-                        if(!newLastName.isEmpty){
-                            Task {
-                                await firestoreQuery.updateLastName(last: newLastName)
-                            }
-                        }
+//                        if(!newLastName.isEmpty){
+//                            Task {
+//                                await firestoreQuery.updateLastName(last: newLastName)
+//                            }
+//                        }
                         if(!description.isEmpty){
                             Task {
                                 await firestoreQuery.updateUserDescription(desc: description)

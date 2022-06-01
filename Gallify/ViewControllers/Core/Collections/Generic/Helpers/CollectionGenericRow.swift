@@ -77,7 +77,7 @@ struct CollectionGenericRow: View {
                                                         
                         HStack {
                                                                 
-                            Text("\(playlistOwner.firstName) " + "\(playlistOwner.lastName)")
+                            Text("\(playlistOwner.displayName)")
                                 .font(.system(size: screenWidth / 20, weight: .light))
                                 .foregroundColor(Color.black)
                                                                 
