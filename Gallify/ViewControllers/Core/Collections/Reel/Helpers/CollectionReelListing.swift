@@ -237,6 +237,8 @@ struct CollectionReelListing: View {
                                                                     
                                             Image(systemName: "ellipsis")
                                                 .foregroundColor(.primary)
+                                                .offset(x: -15)
+                                                
 
                                                                     
                                         })
