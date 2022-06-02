@@ -15,7 +15,7 @@ struct LoadingView: View {
     let screenHeight: CGFloat
     let screenWidth: CGFloat
     @EnvironmentObject var firestoreQuery : FirestoreQuery
-    @Binding var isLoading : Bool
+    //@Binding var isLoading : Bool
     
     
     var body: some View {

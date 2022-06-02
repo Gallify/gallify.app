@@ -30,6 +30,7 @@ class LoginAppViewModel: ObservableObject {
     @Published var newUserCreated = false
     @Published var isGuest = false
     @Published var userData: SignIn = SignIn()
+    @Published var loginLoading = true
     
     @EnvironmentObject var user: User //to hold user email, pass, and username
     
@@ -53,21 +54,24 @@ class LoginAppViewModel: ObservableObject {
         if (auth.currentUser != nil) {
             
             if(self.newUserCreated == true){
+                
                 return true
             }
             else{
                 
                 if(self.documentCreated){
+                    
                     return true
                 }
                 else{
                     checkIfDocCreated()
+                    
                     return false
                 }
             }
         }
         else {
-            // No user is signed in.
+            // No user is signed in
             return false
         }
             
@@ -436,6 +440,7 @@ class LoginAppViewModel: ObservableObject {
         self.userDocumentNotCreated = false
         self.documentCreated = false
         self.userData = SignIn() //clears data
+        self.loginLoading = true
         
         //disconnects from wallet
         for session in self.walletConnect.client.openSessions() {
@@ -608,21 +613,36 @@ struct LoginView: View, WalletConnectDelegate {
     
     
     
-    
-    
-    
     @StateObject var viewModel = LoginAppViewModel()
     let auth = Auth.auth()
     
+    @State private var loadView = true //forces loading screen before picking sign in view or tabbar view.
+    
     var body: some View {
+        
         
         //VStack{
         if viewModel.issignedin() || viewModel.isGuest {
                     TabBarView()
                         .environmentObject(viewModel)
-            }
+        }
+
+        else {
             
-            else {
+            if(self.loadView){
+                VStack {
+                    LoadingView(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
+                        .offset(y:-24)
+                    
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.loadView.toggle()
+                    }
+                }
+                
+            }
+            else{
                 
                 NavigationView {
                         
@@ -658,10 +678,9 @@ struct LoginView: View, WalletConnectDelegate {
                 .environmentObject(viewModel)
                 
             }
+
+        }
         
-//        }.onAppear{
-//            viewModel.issignedin()
-//        }
         
     }
     

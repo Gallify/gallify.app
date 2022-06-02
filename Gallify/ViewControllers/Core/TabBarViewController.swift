@@ -113,7 +113,7 @@ struct TabBarView: View {
                 
                 else {
                     
-                    LoadingView(screenHeight: screenHeight, screenWidth: screenWidth, isLoading: $isLoading)
+                    LoadingView(screenHeight: screenHeight, screenWidth: screenWidth)
                     
                 }
                     
