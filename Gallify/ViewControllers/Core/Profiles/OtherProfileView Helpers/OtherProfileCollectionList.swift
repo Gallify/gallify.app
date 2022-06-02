@@ -49,7 +49,7 @@ struct OtherProfileCollectionList: View {
                                     .foregroundColor(.black)
                                     .lineLimit(1)
                                     
-                                Text(playlist.playlist_type + " • " + playlist.creator)
+                                Text(playlist.playlistType + " • " + playlist.creator)
                                     .font(.system(size: screenWidth / 25.5))
                                     .foregroundColor(.black)
                                     .lineLimit(1)

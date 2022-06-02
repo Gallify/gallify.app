@@ -33,7 +33,7 @@ struct CollectionGenericHeader: View {
             
             Spacer()
                 
-            if(firestoreQuery.data.uid == firestoreQuery.playlist.creator_url){
+            if(firestoreQuery.data.uid == firestoreQuery.playlist.creatorUrl){
                 Button(action: {
                         firestoreQuery.showPlaylistOptions = true
                 }, label: {
@@ -47,7 +47,7 @@ struct CollectionGenericHeader: View {
                     ActionSheet(
                         title: Text("Select"),
                         buttons: [
-//                        .default(Text("Delete? " + firestoreQuery.playlist.playlist_type)) {
+//                        .default(Text("Delete? " + firestoreQuery.playlist.playlistType)) {
 //
 //
 //                                //await firestoreQuery.getUserLibrary() //updates library
@@ -57,14 +57,14 @@ struct CollectionGenericHeader: View {
                         .default(Text("Delete Playlist From Library")) {
                             
                             Task{
-//                                await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlist_id)
+//                                await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlistId)
 
                                 let words = ["Liked", "Owned", "Created", "Review", "Featured"]
                                 let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
                                 if(!combinedResult){
                                     //changed async into Task
                                     Task{
-                                        await firestoreQuery.deletePlaylistFromLibrary(playlist_id: firestoreQuery.playlist.playlist_id)
+                                        await firestoreQuery.deletePlaylistFromLibrary(playlist_id: firestoreQuery.playlist.playlistId)
                                         
                                         await firestoreQuery.getUserLibrary() //updates library
                                     }
@@ -79,7 +79,7 @@ struct CollectionGenericHeader: View {
                                 
                                 if(firestoreQuery.playlist.name != "Review"){
                                     Task{
-                                        await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlist_id)
+                                        await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlistId)
                                         
                                         await firestoreQuery.getUserLibrary() //updates library
                                     }
@@ -91,7 +91,7 @@ struct CollectionGenericHeader: View {
                                 if(firestoreQuery.playlist.name != "Review"){
                                     //updates privacy
                                     Task{
-                                        await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlist_id)
+                                        await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlistId)
                                         
                                         await firestoreQuery.getUserLibrary() //updates library
                                     }

@@ -40,7 +40,7 @@ struct CollectionsView: View {
                     let words = ["Liked", "Owned", "Created", "Review"] //can't add to any of these
                     let combinedResult = words.contains(where: playlist.name.contains)
                     
-                    if(!combinedResult && playlist.creator_url == firestoreQuery.data.uid){ //if it is your playlist/collection
+                    if(!combinedResult && playlist.creatorUrl == firestoreQuery.data.uid){ //if it is your playlist/collection
                             
                         HStack {
                                  
@@ -67,7 +67,7 @@ struct CollectionsView: View {
                                 
                                 if(art.searchType != 2){
                                     //if playlist is a collection, only add if they are owner or creator.
-                                    if(playlist.playlist_type == "Collection"){
+                                    if(playlist.playlistType == "Collection"){
                                         if(art.ownerId==firestoreQuery.data.uid || art.creatorId==firestoreQuery.data.uid ){
                                             let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
                                             impactHeavy.impactOccurred()

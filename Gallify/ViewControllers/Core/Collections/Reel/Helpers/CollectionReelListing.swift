@@ -170,7 +170,7 @@ struct CollectionReelListing: View {
 //                                            self.actionSheet })
                                 
                                 //if else. If they created the playlist or not.
-                                //used to be playlistThatsPlaying.creator_url
+                                //used to be playlistThatsPlaying.creatorUrl
 //                                if(artwork.ownerId == firestoreQuery.data.uid){
 //                                    Button(action: {
 //                                        firestoreQuery.showReelArtOptions = true

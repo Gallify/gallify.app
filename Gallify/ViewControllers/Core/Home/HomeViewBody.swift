@@ -51,14 +51,14 @@ struct HomeViewBody: View {
                                         NavigationLink(destination: CollectionGenericView(playlist: playlist),
                                                         label: {
                                                
-                                                if(playlist.cover_art_url == ""){
+                                                if(playlist.coverArtUrl == ""){
                                                     WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d"))
                                                         .resizable()
                                                         .frame(width: screenWidth / 2.8, height: screenHeight / 6)
                                                         //.cornerRadius(5)
                                                 }
                                                 else{
-                                                    WebImage(url: URL(string: playlist.cover_art_url))
+                                                    WebImage(url: URL(string: playlist.coverArtUrl))
                                                         .resizable()
                                                         .scaledToFill()
                                                         .frame(width: screenWidth / 2.8, height: screenHeight / 6)
@@ -81,7 +81,7 @@ struct HomeViewBody: View {
                                           
                                             .lineLimit(1)
                                                 
-                                        Text(playlist.creator + " • " + playlist.playlist_type)
+                                        Text(playlist.creator + " • " + playlist.playlistType)
                                             .font(.system(size: screenWidth / 25.5, weight: .regular))
                                             .frame(width: screenWidth / 2.8, alignment: .leading)
                                             .lineLimit(1)

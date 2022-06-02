@@ -39,7 +39,7 @@ struct CollectionGenericRow: View {
                                             
                     let words = ["Featured", "featured", "Liked", "liked", "Owned", "owned", "Created", "created", "reviewed","Reviewed", "approved","Approved", "Review", "review", "Publish", "publish", "Published", "published", "unPublished", "unpublished"]
                     let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
-                    if (firestoreQuery.playlist.cover_art_url == "" && !combinedResult ) {
+                    if (firestoreQuery.playlist.coverArtUrl == "" && !combinedResult ) {
                        
                         WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d"))
                             .resizable()
@@ -112,7 +112,7 @@ struct CollectionGenericRow: View {
                             Text(" • ")
                                 .font(.system(size: screenWidth / 30, weight: .medium))
                                 .foregroundColor(Color.primary) +
-                            Text(thePlaylist.playlist_type)
+                            Text(thePlaylist.playlistType)
                                 .font(.system(size: screenWidth / 30, weight: .medium))
                                 .foregroundColor(Color.primary)
                         }
@@ -127,7 +127,7 @@ struct CollectionGenericRow: View {
                             Text(" • ")
                                 .font(.system(size: screenWidth / 30, weight: .medium))
                                 .foregroundColor(Color.primary) +
-                            Text(thePlaylist.playlist_type)
+                            Text(thePlaylist.playlistType)
                                 .font(.system(size: screenWidth / 30, weight: .medium))
                                 .foregroundColor(Color.primary)
                         }
@@ -208,7 +208,7 @@ struct CollectionGenericRow: View {
                                
                                 
                                 //if else. If they created the playlist or not.
-                                if(thePlaylist.creator_url == firestoreQuery.data.uid){
+                                if(thePlaylist.creatorUrl == firestoreQuery.data.uid){
                                     Button(action: {
                                         firestoreQuery.showGenericArtOptions = true
                                         self.art = playlist[i] //Setting art var when ellipses is clicked
@@ -328,7 +328,7 @@ struct CollectionGenericRow: View {
                         if(thePlaylist.name == "Featured"){
                             firestoreQuery.featuredArt = playlist
                             Task {//firestore update here
-                                await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.featuredArt)
+                                await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlistId, art_array: firestoreQuery.featuredArt)
                                 //refresh collection list
                                 await firestoreQuery.getFeaturedPlaylist()
                                 await firestoreQuery.getFeaturedArt()
@@ -338,7 +338,7 @@ struct CollectionGenericRow: View {
                         else{
                             firestoreQuery.playlistArt = playlist
                             Task {//firestore update here
-                                await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlist_id, art_array: firestoreQuery.playlistArt)
+                                await firestoreQuery.updateArtPlaylist(playlist_id: thePlaylist.playlistId, art_array: firestoreQuery.playlistArt)
                                 //refresh collection list
                                 await firestoreQuery.getUserLibrary()
                             }
@@ -354,7 +354,7 @@ struct CollectionGenericRow: View {
             .listStyle(InsetListStyle())
             .toolbar {
                     ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
-                        if(thePlaylist.creator_url == firestoreQuery.data.uid){
+                        if(thePlaylist.creatorUrl == firestoreQuery.data.uid){
                             EditButton()
                         }
                     }
@@ -377,20 +377,20 @@ struct CollectionGenericRow: View {
         func NetworkingCall() async {
             
             //determines the owner of the playlist.
-            if(thePlaylist.creator_url == firestoreQuery.data.uid){
+            if(thePlaylist.creatorUrl == firestoreQuery.data.uid){
                 //then current user created this playlist
                 playlistOwner = firestoreQuery.data
             }
             else{
                 //get the creators info, and set it to playlistInfo
-                await firestoreQuery.getOtherUser(user_id: thePlaylist.creator_url)
+                await firestoreQuery.getOtherUser(user_id: thePlaylist.creatorUrl)
                 playlistOwner = firestoreQuery.otherUserData
             }
             
             
             //shruti
             print("Playlist passed to generic row = ", thePlaylist.name)
-            await firestoreQuery.getPlaylist(playlist_id: thePlaylist.playlist_id)
+            await firestoreQuery.getPlaylist(playlist_id: thePlaylist.playlistId)
             
             await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
             //print("ART: \(firestoreQuery.playlistArt[1].creator)")

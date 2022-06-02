@@ -77,7 +77,7 @@ struct DownloadView: View {
         Text("Point device at this object to load gallery.")
             .font(Font.headline.weight(.semibold))
         
-        WebImage(url: URL(string: firestoreQuery.playlistThatsPlaying.cover_art_url))
+        WebImage(url: URL(string: firestoreQuery.playlistThatsPlaying.coverArtUrl))
         .resizable()
         .scaledToFill()
         .frame(width: screenWidth/1.3, height: screenWidth/1.3)

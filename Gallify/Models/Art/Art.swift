@@ -34,6 +34,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         
         case desc
         case forSale
+        case forBid //NEW
         case genre
         case history
         //case latestHistoryDate
@@ -46,6 +47,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case ownerId
         case popularity
         case price
+        case buyNowPrice //NEW
         
         case searchType
         case shareUrl
@@ -80,6 +82,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     
     @Published var desc: String
     @Published var forSale: Bool
+    @Published var forBid: Bool
     @Published var genre: String
     @Published var history: [String]
    // @Published var latestHistoryDate : Timestamp //String
@@ -90,7 +93,8 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var owner: String
     @Published var ownerId: String
     @Published var popularity: Int
-    @Published var price: Int
+    @Published var price: String
+    @Published var buyNowPrice: String
     
     @Published var searchType: Int
     @Published var shareUrl: String
@@ -127,6 +131,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         createdPrice = 0
         desc = ""
         forSale = false
+        forBid = false
         genre = ""
         history = [String]()
        // latestHistoryDate = Timestamp()
@@ -137,7 +142,8 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         owner = ""
         ownerId = ""
         popularity = 0
-        price = 0
+        price = ""
+        buyNowPrice = ""
         
         searchType = 0
         shareUrl = ""
@@ -179,6 +185,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         
         desc = try container.decode(String.self, forKey: .desc)
         forSale = try container.decode(Bool.self, forKey: .forSale)
+        forBid = try container.decode(Bool.self, forKey: .forBid)
         genre = try container.decode(String.self, forKey: .genre)
         history = try container.decode([String].self, forKey: .history)
    //     latestHistoryDate = try container.decode(Timestamp.self, forKey: .latestHistoryDate)
@@ -190,7 +197,8 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         owner = try container.decode(String.self, forKey: .owner)
         ownerId = try container.decode(String.self, forKey: .ownerId)
         popularity = try container.decode(Int.self, forKey: .popularity)
-        price = try container.decode(Int.self, forKey: .price)
+        price = try container.decode(String.self, forKey: .price)
+        buyNowPrice = try container.decode(String.self, forKey: .buyNowPrice)
         
         searchType = try container.decode(Int.self, forKey: .searchType)
         shareUrl = try container.decode(String.self, forKey: .shareUrl)
@@ -231,6 +239,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         
         try container.encode(desc, forKey: .desc)
         try container.encode(forSale, forKey: .forSale)
+        try container.encode(forBid, forKey: .forBid)
         try container.encode(genre, forKey: .genre)
         try container.encode(history, forKey: .history)
        // try container.encode(latestHistoryDate, forKey: .latestHistoryDate)
@@ -242,6 +251,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(ownerId, forKey: .ownerId)
         try container.encode(popularity, forKey: .popularity)
         try container.encode(price, forKey: .price)
+        try container.encode(buyNowPrice, forKey: .buyNowPrice)
         
         try container.encode(searchType, forKey: .searchType)
         try container.encode(shareUrl, forKey: .shareUrl)
