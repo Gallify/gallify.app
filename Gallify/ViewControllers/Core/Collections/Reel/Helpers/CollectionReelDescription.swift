@@ -4,7 +4,6 @@
 //
 //  Created by Gianluca Profio on 10/3/21.
 //
-
 import SwiftUI
 
 struct CollectionReelDescription: View {
@@ -30,79 +29,65 @@ struct CollectionReelDescription: View {
             VStack (alignment: .leading) {
                 
                 HStack {
-                    Text(artDetails.desc)
-                    .font(.system(size: screenWidth / 25))
                     
-//                    Text("Description" + " • " + artDetails.desc)
-//                    .font(.system(size: screenWidth / 25))
+                    Text("Owned by:")
+                        .font(.system(size: screenWidth / 25))
+                    
+                    NavigationLink (destination: OtherProfileView(otherUserId: artDetails.ownerId), label: {
+                        
+                        Text(artDetails.owner)
+                            .font(.system(size: screenWidth / 25))
+                            .underline()
+                            .foregroundColor(.black)
+                        
+                    })
+                    .navigationBarHidden(true)
+                    
                 }
                 
+                HStack {
+                    
+                    Text("Created by:")
+                        .font(.system(size: screenWidth / 25))
+                    
+                    NavigationLink (destination: OtherProfileView(otherUserId: artDetails.creatorId), label: {
+                        
+                        Text(artDetails.creator)
+                            .font(.system(size: screenWidth / 25))
+                            .underline()
+                            .foregroundColor(.black)
+                        
+                    })
+                    .navigationBarHidden(true)
+                    
+                }
                 
+                if(artDetails.collection != "") {
+                    
                     HStack {
                         
-                        Text("Owner" + " •")
+                        Text("Collection:")
                             .font(.system(size: screenWidth / 25))
                         
-                        NavigationLink (destination: OtherProfileView(otherUserId: artDetails.ownerId), label: {
-                            
-                            Text(artDetails.owner)
-                                .font(.system(size: screenWidth / 25, weight: .medium))
-                                //.underline()
+                        NavigationLink (destination: CollectionGenericView(playlist: the_reel_desc_playlist), label: {
+                                
+                            Text(the_reel_desc_playlist.name)
+                                .font(.system(size: screenWidth / 25))
+                                .underline()
                                 .foregroundColor(.black)
+                                .onTapGesture {
+                                    firestoreQuery.playlist = the_reel_desc_playlist
+                                }
                             
                         })
                         .navigationBarHidden(true)
                         
                     }
                     
-                    HStack {
-                        
-                        Text("Created" + " •")
-                            .font(.system(size: screenWidth / 25))
-                        
-                        NavigationLink (destination: OtherProfileView(otherUserId: artDetails.creatorId), label: {
-                            
-                            Text(artDetails.creator)
-                                .font(.system(size: screenWidth / 25, weight: .medium))
-                                //.underline()
-                                .foregroundColor(.black)
-                            
-                        })
-                        .navigationBarHidden(true)
-                        
-                    }
-                    
-                    
-                    
-                    
+                }
                 
-                
-                
-//                if(artDetails.collection != "") {
-//
-//                    HStack {
-//
-//                        Text("Collection:")
-//                            .font(.system(size: screenWidth / 25))
-//
-//                        NavigationLink (destination: CollectionGenericView(playlist: the_reel_desc_playlist), label: {
-//
-//                            Text(the_reel_desc_playlist.name)
-//                                .font(.system(size: screenWidth / 25))
-//                                .underline()
-//                                .foregroundColor(.black)
-//                                .onTapGesture {
-//                                    firestoreQuery.playlist = the_reel_desc_playlist
-//                                }
-//
-//                        })
-//                        .navigationBarHidden(true)
-//
-//                    }
-//
-//                }
-                
-                
+                Text("Description:  " + artDetails.desc)
+                    .font(.system(size: screenWidth / 25))
                 
             }
             
@@ -110,7 +95,7 @@ struct CollectionReelDescription: View {
             
             VStack {
                 
-               if(artDetails.forSale) {
+                if(artDetails.forSale) {
                     
                     Button(action: {
                         
@@ -124,7 +109,7 @@ struct CollectionReelDescription: View {
                     }, label: {
                         
                         Text("Buy")
-                            .font(.system(size: screenWidth / 25, weight: .regular))
+                            .font(.system(size: screenWidth / 25, weight: .light))
                             .foregroundColor(Color.white)
                             .padding(.horizontal, screenWidth / 15)
                             .padding(.vertical, screenHeight / 80)

@@ -143,6 +143,7 @@
 		30EB96E5284301E7003D0486 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E4284301E7003D0486 /* SaveView.swift */; };
 		30EB96E7284301F6003D0486 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E6284301F6003D0486 /* DownloadView.swift */; };
 		30EB96E92843AEA2003D0486 /* ProfileSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E82843AEA2003D0486 /* ProfileSignIn.swift */; };
+		30EB96F2284A6B21003D0486 /* CollectionReelNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96F1284A6B21003D0486 /* CollectionReelNames.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -398,6 +399,7 @@
 		30EB96E4284301E7003D0486 /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		30EB96E6284301F6003D0486 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		30EB96E82843AEA2003D0486 /* ProfileSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSignIn.swift; sourceTree = "<group>"; };
+		30EB96F1284A6B21003D0486 /* CollectionReelNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReelNames.swift; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -1355,6 +1357,7 @@
 				92794CE6273811760012B184 /* CollectionReelListing.swift */,
 				92794CE7273811760012B184 /* CollectionReelHeader.swift */,
 				92794CE8273811760012B184 /* CollectionReelDescription.swift */,
+				30EB96F1284A6B21003D0486 /* CollectionReelNames.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1834,6 +1837,7 @@
 				30410A7E27A677EB00284446 /* ProfileSetting.swift in Sources */,
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
 				3052137D278A2D5A00CE0224 /* FirestoreQueryService.swift in Sources */,
+				30EB96F2284A6B21003D0486 /* CollectionReelNames.swift in Sources */,
 				3003B00127E6B01200EA58B6 /* CollectionsView.swift in Sources */,
 				30EB96E5284301E7003D0486 /* SaveView.swift in Sources */,
 				31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */,

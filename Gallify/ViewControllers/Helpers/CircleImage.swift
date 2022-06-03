@@ -33,6 +33,34 @@ struct CircleImage: View {
                 .shadow(radius: shadowRadius)
         
         }
+    
+    
+
+/*
+    import SDWebImageSwiftUI
+
+    struct CircleImage: View {
+        
+        var imageURL: String
+        var length: CGFloat
+        var breadth: CGFloat
+        var overlayColor: Color
+        var overlayRadius: CGFloat
+        var shadowRadius: CGFloat
+
+        var body: some View {
+                
+            WebImage(url: URL(string: imageURL))
+                    .resizable()
+                    .frame(width: length, height: breadth)
+                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                    .overlay(Circle().stroke(overlayColor, lineWidth: overlayRadius))
+                    .shadow(radius: shadowRadius)
+            
+        }
+
+    }
+*/
 
 struct CircleImage_Previews: PreviewProvider {
     static var previews: some View {
