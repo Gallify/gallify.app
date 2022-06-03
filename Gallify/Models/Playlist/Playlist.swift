@@ -69,8 +69,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var lat: Double //large decimal.
     @Published var lon: Double
     @Published var address: String
-    @Published var latestHistoryDate: Timestamp
-    @Published var createdDate: Timestamp
+    @Published var latestHistoryDate: String
+    @Published var createdDate: String
     @Published var creatorRef: String
     
     /*
@@ -114,8 +114,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         lat = 0.0
         lon = 0.0
         address = ""
-        latestHistoryDate = Timestamp()
-        createdDate = Timestamp()
+        latestHistoryDate = ""
+        createdDate = ""
         creatorRef = ""
         
         
@@ -144,8 +144,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
           lat = 0.0
           lon = 0.0
           address = ""
-          latestHistoryDate = Timestamp()
-          createdDate = Timestamp()
+          latestHistoryDate = ""
+          createdDate = ""
           creatorRef = ""
         
       }
@@ -176,8 +176,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         lat = try container.decode(Double.self, forKey: .lat)
         lon = try container.decode(Double.self, forKey: .lon)
         address = try container.decode(String.self, forKey: .lon)
-        latestHistoryDate = try container.decode(Timestamp.self, forKey: .latestHistoryDate)
-        createdDate = try container.decode(Timestamp.self, forKey: .createdDate)
+        latestHistoryDate = try container.decode(String.self, forKey: .latestHistoryDate)
+        createdDate = try container.decode(String.self, forKey: .createdDate)
         creatorRef = try container.decode(String.self, forKey: .creatorRef)
 
     }
