@@ -443,6 +443,9 @@ class LoginAppViewModel: ObservableObject {
         self.loginLoading = true
         
         //disconnects from wallet
+        
+        //check if there are any open sessions 
+        
         for session in self.walletConnect.client.openSessions() {
             try? self.walletConnect.client.disconnect(from: session)
         }

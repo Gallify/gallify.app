@@ -28,10 +28,20 @@ class WalletConnect {
         let wcUrl =  WCURL(topic: UUID().uuidString,
                            bridgeURL: URL(string: "https://safe-walletconnect.gnosis.io/")!,
                            key: try! randomKey())
-        let clientMeta = Session.ClientMeta(name: "ExampleDApp",
-                                            description: "WalletConnectSwift",
-                                            icons: [],
-                                            url: URL(string: "https://safe.gnosis.io")!)
+        
+        
+        let clientMeta = Session.ClientMeta(name: "Gallify",
+                                            description: "Instant gallery sharing.",
+                                            icons: [URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d/")!],
+                                            url: URL(string: "https://open.gallify.app")!)
+       
+        //used to be: just in case. 
+//        let clientMeta = Session.ClientMeta(name: "Gallify app",
+//                                            description: "WalletConnectSwift",
+//                                            icons: [],
+//                                            url: URL(string: "https://safe.gnosis.io")!)
+        
+        
         let dAppInfo = Session.DAppInfo(peerId: UUID().uuidString, peerMeta: clientMeta)
         client = Client(delegate: self, dAppInfo: dAppInfo)
 
