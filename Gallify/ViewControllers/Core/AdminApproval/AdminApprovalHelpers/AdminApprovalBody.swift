@@ -32,11 +32,11 @@ struct AdminApprovalBody: View {
             
             ScrollViewReader { value in
                 
-                if(firestoreQuery.artworkThatsPlaying.count > 0){ //if art in array
+                if(firestoreQuery.artInReview.count > 0){ //if art in array
                     
-                    ForEach(0...firestoreQuery.artworkThatsPlaying.count - 1, id: \.self) { i in //for all art in array.
+                    ForEach(0...firestoreQuery.artInReview.count - 1, id: \.self) { i in //for all art in array.
                         
-                        let artwork = firestoreQuery.artworkThatsPlaying[i]
+                        let artwork = firestoreQuery.artInReview[i]
                         
                         VStack {
                                 
@@ -121,31 +121,37 @@ struct AdminApprovalBody: View {
                     .onChange(of: firestoreQuery.scrollTo, perform: { scroll in
                         value.scrollTo(firestoreQuery.scrollTo, anchor: .top)
                     })
-                    .onAppear(perform: {
-                        
-                        var i = 0
-                        for art in firestoreQuery.artworkThatsPlaying {
-                                
-                            if(art.artId == firestoreQuery.artThatsPlaying.artId) {
-                                    
-                                firestoreQuery.scrollTo = i
-                                    
-                            }
-                                
-                            i += 1
-                            
-                        }
-                        
-                        value.scrollTo(firestoreQuery.scrollTo, anchor: .top)
-                        
-                    })
+//                    .onAppear(perform: {
+//
+//                        var i = 0
+//                        for art in firestoreQuery.artworkThatsPlaying {
+//
+//                            if(art.artId == firestoreQuery.artThatsPlaying.artId) {
+//
+//                                firestoreQuery.scrollTo = i
+//
+//                            }
+//
+//                            i += 1
+//
+//                        }
+//
+//                        value.scrollTo(firestoreQuery.scrollTo, anchor: .top)
+//
+//                    })
                     
                 }
             
             }
             
         }
- 
+        .onAppear {
+            async{ await networkingCall() }
+        }
+
     }
     
+    func networkingCall() async {
+        try await firestoreQuery.getArtInReview()
+    }
 }

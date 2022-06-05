@@ -144,6 +144,7 @@
 		30EB96E7284301F6003D0486 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E6284301F6003D0486 /* DownloadView.swift */; };
 		30EB96E92843AEA2003D0486 /* ProfileSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E82843AEA2003D0486 /* ProfileSignIn.swift */; };
 		30EB96F2284A6B21003D0486 /* CollectionReelNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96F1284A6B21003D0486 /* CollectionReelNames.swift */; };
+		30EB96F6284CF63B003D0486 /* getListAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96F5284CF63B003D0486 /* getListAdmin.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -400,6 +401,7 @@
 		30EB96E6284301F6003D0486 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		30EB96E82843AEA2003D0486 /* ProfileSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSignIn.swift; sourceTree = "<group>"; };
 		30EB96F1284A6B21003D0486 /* CollectionReelNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReelNames.swift; sourceTree = "<group>"; };
+		30EB96F5284CF63B003D0486 /* getListAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getListAdmin.swift; sourceTree = "<group>"; };
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -976,6 +978,7 @@
 		30836FA52749E39D00E83735 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				30EB96F3284CF617003D0486 /* Admin */,
 				3052137C278A2D5A00CE0224 /* FirestoreQueryService.swift */,
 				33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */,
 				3052137E278A2DCE00CE0224 /* StorageService.swift */,
@@ -1088,6 +1091,22 @@
 				30EB961E2822F0F1003D0486 /* SignIn.swift */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		30EB96F3284CF617003D0486 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				30EB96F4284CF620003D0486 /* Lists */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		30EB96F4284CF620003D0486 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				30EB96F5284CF63B003D0486 /* getListAdmin.swift */,
+			);
+			path = Lists;
 			sourceTree = "<group>";
 		};
 		3103E0DF27112D7200135F08 /* PrivacyPolicyViewHelpers */ = {
@@ -1774,6 +1793,7 @@
 				3003B00827EB984E00EA58B6 /* CustomARView.swift in Sources */,
 				304109F6279D27AC00284446 /* MinimizedView.swift in Sources */,
 				318C16A8281AFD0800F63C3D /* LikedButton.swift in Sources */,
+				30EB96F6284CF63B003D0486 /* getListAdmin.swift in Sources */,
 				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
 				30410A8127A677EB00284446 /* MembershipSetting.swift in Sources */,
 				3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */,
