@@ -81,12 +81,12 @@ struct CollectionReelListing: View {
                                         // Add firebase methods to make changes on backend
                                         artLiked.toggle()
                                         if(artLiked){
-                                            Task {
-                                                await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
-                                                //reload library
-                                                await firestoreQuery.getUserLibrary()
-                                            }
-                                            
+//                                            Task {
+//                                                await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+//                                                //reload library
+//                                                await firestoreQuery.getUserLibrary()
+//                                            }
+
                                         }
                                         else{
                                             //remove from playlist

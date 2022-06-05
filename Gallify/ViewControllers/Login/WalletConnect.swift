@@ -35,7 +35,7 @@ class WalletConnect {
                                             icons: [URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d/")!],
                                             url: URL(string: "https://open.gallify.app")!)
        
-        //used to be: just in case. 
+        //used to be: just in case.
 //        let clientMeta = Session.ClientMeta(name: "Gallify app",
 //                                            description: "WalletConnectSwift",
 //                                            icons: [],

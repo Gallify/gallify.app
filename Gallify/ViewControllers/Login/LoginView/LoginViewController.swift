@@ -8,7 +8,7 @@ import SwiftUI
 import Firebase
 import UIKit
 
-@MainActor
+//@MainActor
 class LoginAppViewModel: ObservableObject {
     
     @Published var walletConnect: WalletConnect!
@@ -444,11 +444,16 @@ class LoginAppViewModel: ObservableObject {
         
         //disconnects from wallet
         
-        //check if there are any open sessions 
+        //check if there are any open sessions
         
-        for session in self.walletConnect.client.openSessions() {
-            try? self.walletConnect.client.disconnect(from: session)
+        if(self.walletConnect != nil){
+            for session in self.walletConnect.client.openSessions() {
+                try? self.walletConnect.client.disconnect(from: session)
+            }
+            
         }
+        
+        
     }
     
     /*
@@ -471,7 +476,7 @@ class LoginAppViewModel: ObservableObject {
             request.httpMethod = "GET"
             
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let data = data,
+                guard let jsonData = data,
                     let response = response as? HTTPURLResponse,
                     error == nil else {                                              // check for fundamental networking error
                     print("error", error ?? "Unknown error")
@@ -484,9 +489,11 @@ class LoginAppViewModel: ObservableObject {
                     return
                 }
 
-                let responseString = String(data: data, encoding: .utf8)
-                print("responseString = \(responseString)")
-                DispatchQueue.main.async {
+                let responseString = String(data: jsonData, encoding: .utf8)
+                //print("responseString = \(responseString)")
+                
+                
+              //  DispatchQueue.main.async {
                     
                     
                     let data = Data(responseString!.utf8)
@@ -497,10 +504,12 @@ class LoginAppViewModel: ObservableObject {
                             // try to read out a string array
                             if let token = json["token"] as? String {
                                 print(token)
-                                self.userData.token = token
+                                DispatchQueue.main.async {
+                                    self.userData.token = token
+                                }
                             }
                             if let user = json["userData"] as? AnyObject {
-                                print(user)
+                                //print(user)
                                 if user is NSNull{
                                     print("nil")
 //                                    self.userData.userData.uid = "newuser"
@@ -518,6 +527,7 @@ class LoginAppViewModel: ObservableObject {
                                         self.newUserCreated = true
                                     }
                                 }
+                                
                                 
                                 //sign in with custom token. No matter a new account or already existing. It creates a new authentication account if new account.
                                 self.auth.signIn(withCustomToken: self.userData.token) { user, error in
@@ -539,7 +549,7 @@ class LoginAppViewModel: ObservableObject {
                     } catch let error as NSError {
                         print("Failed to load: \(error.localizedDescription)")
                     }
-                }
+               // }
                 
             }
 
