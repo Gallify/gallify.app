@@ -243,6 +243,7 @@ struct CollectionReelListing: View {
                                                 .default(Text("Like")) {
                                                     Task {
                                                         await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+                                                        await firestoreQuery.createLikedDocument(art: art)
                                                         //reload library
                                                         await firestoreQuery.getUserLibrary()
                                                     }

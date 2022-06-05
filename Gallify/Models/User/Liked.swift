@@ -18,8 +18,8 @@ class Liked: Encodable, Decodable, ObservableObject {
         case time
     }
 
-    @Published var artId: DocumentReference
-    @Published var userId: DocumentReference
+    @Published var artId: String
+    @Published var userId: String
     @Published var time: Timestamp
     /*
      "artId": "art/id",
@@ -29,16 +29,16 @@ class Liked: Encodable, Decodable, ObservableObject {
 
     init() {
 
-        artId = NSObject() as! DocumentReference
-        userId = NSObject() as! DocumentReference
+        artId = ""
+        userId = ""
         time = Timestamp()
     }
 
     required init(from decoder: Decoder) throws {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        artId = try container.decode(DocumentReference.self, forKey: .artId)
-        userId = try container.decode(DocumentReference.self, forKey: .userId)
+        artId = try container.decode(String.self, forKey: .artId)
+        userId = try container.decode(String.self, forKey: .userId)
         time = try container.decode(Timestamp.self, forKey: .time)
     }
     

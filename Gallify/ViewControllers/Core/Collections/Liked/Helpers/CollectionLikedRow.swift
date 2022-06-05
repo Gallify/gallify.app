@@ -78,6 +78,7 @@ struct CollectionLikedRow: View {
             
             Button(action: {
                     self.isLiked1.toggle()
+                    
             }) {
                 Image(systemName: isLiked1 ? "heart.circle.fill": "heart.circle")
                     .foregroundColor(isLiked1 ? Color.red: Color.black)

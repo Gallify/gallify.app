@@ -37,9 +37,13 @@ extension FirestoreQuery {
         }
     }
     
+    /*
+        Sets isLiked published variable to true if liked collection contains document with artId;
+        Otherwise sets isLiked to false.
+     */
     func checkIfalreadyLiked(art: Art) async {
-        let docRef = try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
-            .collection("profile").whereField("liked", arrayContains: art.artId)
+        let docRef = try await FirestoreQuery.db.collection("liked")
+            .whereField("artId", isEqualTo: art.artId)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -63,6 +67,21 @@ extension FirestoreQuery {
                 }
         }
 //        return self.isLiked
+        
+    }
+    
+    func createLikedDocument(art: Art) async {
+        let docRef = FirestoreQuery.db.collection("liked").document(art.artId)
+        var liked = Liked()
+        liked.artId = art.artId
+        liked.userId = Auth.auth().currentUser?.uid ?? ""
+        let date = Date.now
+        liked.time =  Timestamp(date: date)//ask RENO about this
+        do {
+            try await docRef.setData(from: liked)
+        } catch {
+            print("Error creating document for liked art \(error.localizedDescription)")
+        }
         
     }
     

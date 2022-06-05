@@ -970,6 +970,7 @@
 		30836FA52749E39D00E83735 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				31AFD1B0284CB8350082FC73 /* Art */,
 				3113495B283C0AD00061FC3F /* Admin */,
 				3052137C278A2D5A00CE0224 /* FirestoreQueryService.swift */,
 				3052137E278A2DCE00CE0224 /* StorageService.swift */,
@@ -1309,6 +1310,13 @@
 				31AFD1AE284CAA6F0082FC73 /* ComposeMailData.swift */,
 			);
 			path = Admin;
+			sourceTree = "<group>";
+		};
+		31AFD1B0284CB8350082FC73 /* Art */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Art;
 			sourceTree = "<group>";
 		};
 		31BDD93B27072B6000AB2CD1 /* LoginViewHelpers */ = {
