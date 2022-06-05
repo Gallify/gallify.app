@@ -14,7 +14,7 @@ extension FirestoreQuery {
     /**
         Gets all art that have not been approved yet
         Stores it in an array form to be displayed in approved screen
-        Unapproved = 2, approved = 1
+        Unapproved = 2, approved = 1, rejected = 0
      */
     func getArtInReview() async {
         
@@ -78,11 +78,6 @@ extension FirestoreQuery {
         let reviewPlaylistId = self.otherUserData.review
         let createdPlaylistId = self.otherUserData.created
         
-//        try await getPlaylist(playlist_id: reviewPlaylistId)
-//        try await getPlaylistArt(playlist: self.playlist)
-//        self.playlistArt.removeAll { artwork in
-//            art.artId == artwork.artId
-//        }
 //
         //Remove art from Review Doc
         do {
@@ -96,9 +91,6 @@ extension FirestoreQuery {
             print("Error deleting art from Review Playlist: \(error.localizedDescription)")
         }
         
-//        try await getPlaylist(playlist_id: createdPlaylistId)
-//        try await getPlaylistArt(playlist: self.playlist)
-//        self.playlistArt.append(art)
 //
         //add art to created doc
         do {
@@ -110,6 +102,29 @@ extension FirestoreQuery {
             print("Error adding art to created Playlist: \(error.localizedDescription)")
         }
        
+        
+    }
+    
+    func rejectArt(art: Art) async {
+        //delete from admin view
+        //remove art from local array
+        artInReview.removeAll { artwork in
+            art.artId == artwork.artId
+        }
+        
+        //change searchType in firestore from 2 to 0
+        let docRef = FirestoreQuery.db.collection("art").document(art.artId)
+        docRef.updateData([
+            "searchType" : 0
+        ]) {  err in
+            if let err = err {
+                print("Error updating searchType in art document: \(err)")
+            } else {
+                print("art rejected")
+            }
+        }
+        
+        //send an email to the user explaining why it was rejected
         
     }
     

@@ -185,6 +185,9 @@
 		31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
 		31AE71AF26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
 		31AE71B026F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
+		31AFD1AA284CA9940082FC73 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFD1A9284CA9940082FC73 /* MailView.swift */; };
+		31AFD1AC284CAA1F0082FC73 /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFD1AB284CAA1F0082FC73 /* MailViewController.swift */; };
+		31AFD1AF284CAA6F0082FC73 /* ComposeMailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFD1AE284CAA6F0082FC73 /* ComposeMailData.swift */; };
 		31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2F1EF272DEC3F007FCF2B /* ErrorText.swift */; };
 		31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */; };
 		31B828C4272376BE0067DB05 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B828C3272376BE0067DB05 /* CustomBackButton.swift */; };
@@ -430,6 +433,9 @@
 		319F25C426E57236009B811E /* HomeViewMadeForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMadeForYou.swift; sourceTree = "<group>"; };
 		319F25C826E572BA009B811E /* HomeViewAuction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAuction.swift; sourceTree = "<group>"; };
 		31AE71AD26F1245600C973E3 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
+		31AFD1A9284CA9940082FC73 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		31AFD1AB284CAA1F0082FC73 /* MailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
+		31AFD1AE284CAA6F0082FC73 /* ComposeMailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeMailData.swift; sourceTree = "<group>"; };
 		31B2F1EF272DEC3F007FCF2B /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewHeader.swift; sourceTree = "<group>"; };
 		31B828C3272376BE0067DB05 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
@@ -714,6 +720,7 @@
 		3004D4EA26CD3DF100323BCB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				31AFD1AD284CAA560082FC73 /* Admin */,
 				30EB961D2822F0D8003D0486 /* SignIn */,
 				3052136D278A2C3A00CE0224 /* User */,
 				30521368278A2C3100CE0224 /* Discover */,
@@ -1089,6 +1096,8 @@
 			isa = PBXGroup;
 			children = (
 				3113495C283C0AFD0061FC3F /* Lists */,
+				31AFD1A9284CA9940082FC73 /* MailView.swift */,
+				31AFD1AB284CAA1F0082FC73 /* MailViewController.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -1292,6 +1301,14 @@
 				3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */,
 			);
 			path = "HomeView Helpers";
+			sourceTree = "<group>";
+		};
+		31AFD1AD284CAA560082FC73 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				31AFD1AE284CAA6F0082FC73 /* ComposeMailData.swift */,
+			);
+			path = Admin;
 			sourceTree = "<group>";
 		};
 		31BDD93B27072B6000AB2CD1 /* LoginViewHelpers */ = {
@@ -1889,6 +1906,7 @@
 				30001BC82796855100527BF9 /* getDiscover.swift in Sources */,
 				30836FAB2749E65200E83735 /* Extensions.swift in Sources */,
 				318C16B2281AFF7C00F63C3D /* AdminApprovalArtDescription.swift in Sources */,
+				31AFD1AA284CA9940082FC73 /* MailView.swift in Sources */,
 				30001BD6279685BB00527BF9 /* deleteProfile.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
 				30410A8427A677EB00284446 /* CuratorProgramSettingHeader.swift in Sources */,
@@ -1986,11 +2004,13 @@
 				3087D26A274ED54C00ECD8CD /* Playlist.swift in Sources */,
 				3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */,
 				30001BCC2796857400527BF9 /* updateDiscover.swift in Sources */,
+				31AFD1AF284CAA6F0082FC73 /* ComposeMailData.swift in Sources */,
 				30BEBD4327BF1E470045EC74 /* getARPlayer.swift in Sources */,
 				30001BF52796954B00527BF9 /* SelfProfileViewVerified.swift in Sources */,
 				30001C032796973C00527BF9 /* OtherProfileViewHeader.swift in Sources */,
 				92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */,
 				30001BE42796870100527BF9 /* getSettings.swift in Sources */,
+				31AFD1AC284CAA1F0082FC73 /* MailViewController.swift in Sources */,
 				92794D03273811760012B184 /* CollectionLikedView.swift in Sources */,
 				92794D06273811760012B184 /* CollectionLikedRow.swift in Sources */,
 				30001B7E278F8E6F00527BF9 /* get.swift in Sources */,
