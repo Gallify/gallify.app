@@ -38,9 +38,10 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         case lat
         case lon
         case address
-        case latestHistoryDate
+        case modifiedDate
         case createdDate
         case creatorRef
+        case isSingles
         
 
 
@@ -69,9 +70,10 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var lat: Double //large decimal.
     @Published var lon: Double
     @Published var address: String
-    @Published var latestHistoryDate: String
+    @Published var modifiedDate: String
     @Published var createdDate: String
     @Published var creatorRef: String
+    @Published var isSingles: Bool
     
     /*
      "name": "",
@@ -114,9 +116,10 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         lat = 0.0
         lon = 0.0
         address = ""
-        latestHistoryDate = ""
+        modifiedDate = ""
         createdDate = ""
         creatorRef = ""
+        isSingles = false
         
         
     }
@@ -144,9 +147,10 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
           lat = 0.0
           lon = 0.0
           address = ""
-          latestHistoryDate = ""
+          modifiedDate = ""
           createdDate = ""
           creatorRef = ""
+          isSingles = false
         
       }
 
@@ -176,9 +180,10 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         lat = try container.decode(Double.self, forKey: .lat)
         lon = try container.decode(Double.self, forKey: .lon)
         address = try container.decode(String.self, forKey: .lon)
-        latestHistoryDate = try container.decode(String.self, forKey: .latestHistoryDate)
+        modifiedDate = try container.decode(String.self, forKey: .modifiedDate)
         createdDate = try container.decode(String.self, forKey: .createdDate)
         creatorRef = try container.decode(String.self, forKey: .creatorRef)
+        isSingles = try container.decode(Bool.self, forKey: .isSingles)
 
     }
     
@@ -207,9 +212,10 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(lat, forKey: .lat)
         try container.encode(lon, forKey: .lon)
         try container.encode(address, forKey: .address)
-        try container.encode(latestHistoryDate, forKey: .latestHistoryDate)
+        try container.encode(modifiedDate, forKey: .modifiedDate)
         try container.encode(createdDate, forKey: .createdDate)
         try container.encode(creatorRef, forKey: .creatorRef)
+        try container.encode(isSingles, forKey: .isSingles)
 
 
     }

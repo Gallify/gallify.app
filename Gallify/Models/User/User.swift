@@ -58,6 +58,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         case ownedRef
         case deleteAccount
         case disableAccount
+        case singlesRef
         
         
         
@@ -110,6 +111,9 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var deleteAccount: Bool
     @Published var disableAccount: Bool
     
+    //as of 06/5/22
+    @Published var singlesRef: String
+    
 
     init() {
         
@@ -158,6 +162,8 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         ownedRef = ""
         deleteAccount = false
         disableAccount = false
+        
+        singlesRef = ""
 
     }
 
@@ -210,6 +216,8 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         ownedRef = try container.decode(String.self, forKey: .ownedRef)
         deleteAccount = try container.decode(Bool.self, forKey: .deleteAccount)
         disableAccount = try container.decode(Bool.self, forKey: .disableAccount)
+        
+        singlesRef = try container.decode(String.self, forKey: .singlesRef)
 
     }
     
@@ -261,7 +269,11 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(ownedRef, forKey: .ownedRef)
         try container.encode(deleteAccount, forKey: .deleteAccount)
         try container.encode(disableAccount, forKey: .disableAccount)
+        try container.encode(singlesRef, forKey: .singlesRef)
 
     }
 
 }
+
+
+//create a singles collection. address empty. isSingle = true

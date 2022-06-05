@@ -37,7 +37,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case forBid //NEW
         case genre
         case history
-        case latestHistoryDate
+        case modifiedDate
         case latestPurchaseDate
         case likes
         case location
@@ -86,7 +86,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var genre: String
     @Published var history: [String]
    // @Published var latestHistoryDate : Timestamp //String
-    @Published var latestHistoryDate : String //String
+    @Published var modifiedDate : String //String
     @Published var likes: Int
     @Published var location: String
     @Published var metadataUrl: String
@@ -136,7 +136,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         genre = ""
         history = [String]()
        // latestHistoryDate = Timestamp()
-        latestHistoryDate = ""
+        modifiedDate = ""
         likes = 0
         location = ""
         metadataUrl = ""
@@ -190,7 +190,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         forBid = try container.decode(Bool.self, forKey: .forBid)
         genre = try container.decode(String.self, forKey: .genre)
         history = try container.decode([String].self, forKey: .history)
-        latestHistoryDate = try container.decode(String.self, forKey: .latestHistoryDate)
+        modifiedDate = try container.decode(String.self, forKey: .modifiedDate)
 
    //     latestHistoryDate = try container.decode(Timestamp.self, forKey: .latestHistoryDate)
 
@@ -246,7 +246,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(forBid, forKey: .forBid)
         try container.encode(genre, forKey: .genre)
         try container.encode(history, forKey: .history)
-        try container.encode(latestHistoryDate, forKey: .latestHistoryDate)
+        try container.encode(modifiedDate, forKey: .modifiedDate)
         try container.encode(likes, forKey: .likes)
         try container.encode(location, forKey: .location)
         try container.encode(metadataUrl, forKey: .metadataUrl)
