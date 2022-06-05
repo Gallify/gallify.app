@@ -125,6 +125,7 @@ extension FirestoreQuery {
         }
         
         //send an email to the user explaining why it was rejected
+        MailViewTest()
         
     }
     
