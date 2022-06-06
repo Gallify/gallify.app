@@ -11,7 +11,7 @@ __Goal:__ To Release Version 0.2.0 Beta.
       
 ## issue boards
 
-[Frontend](https://github.com/orgs/Gallify/projects/1), [Databases](https://github.com/orgs/Gallify/projects/4) , [Marketplace](https://github.com/orgs/Gallify/projects/7) , [Neural Engine](https://github.com/orgs/Gallify/projects/5), [Marketing](https://github.com/orgs/Gallify/projects/8), [Design](https://github.com/orgs/Gallify/projects/9)
+[Frontend](https://github.com/orgs/Gallify/projects/1), [Databases](https://github.com/orgs/Gallify/projects/4) , [Marketplace](https://github.com/orgs/Gallify/projects/7) , [Neural Engine](https://github.com/orgs/Gallify/projects/5), [Marketing](https://github.com/orgs/Gallify/projects/8) , [Design](https://github.com/orgs/Gallify/projects/9)
 
 [Drive](https://drive.google.com/drive/folders/1UyKb6CiN1pJHJfxkywHUzAGlFqLM_7Pe?usp=sharing)
 
