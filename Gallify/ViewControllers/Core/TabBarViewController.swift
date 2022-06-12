@@ -175,7 +175,8 @@ struct TabBarView: View {
 //        loginModel.signedIn = false
 //        loginModel.newUserCreated = false
         
-
+        loginModel.createDoc = false //this is to make sure the create account screen does not show up when logging out. 
+        
             if(!loginModel.isGuest){
                 await firestoreQuery.fetchData()
 

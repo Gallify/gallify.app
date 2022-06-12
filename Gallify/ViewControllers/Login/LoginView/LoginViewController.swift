@@ -269,6 +269,8 @@ class LoginAppViewModel: ObservableObject {
                 
                 for i in 0...4 {
                     
+                    //add singles collection! address is blank. AND it's a collection. 
+                    
                     
                     let playlist = Playlist()
                     playlist.name = libraryPlaylistNames[i]
@@ -508,26 +510,9 @@ class LoginAppViewModel: ObservableObject {
                                     self.userData.token = token
                                 }
                             }
-                            if let user = json["userData"] as? AnyObject {
-                                //print(user)
-                                if user is NSNull{
-                                    print("nil")
-//                                    self.userData.userData.uid = "newuser"
-//                                    self.needToCreateDoc = true
-                                    DispatchQueue.main.async {
-                                        self.userData.userData.uid = "newuser"
-                                        self.createDoc = true
-                                        
-                                    }
-                                }
-                                else{
-                                    self.userData.userData.uid = "userHasAccount!"
-                                    
-                                    DispatchQueue.main.async {
-                                        self.newUserCreated = true
-                                    }
-                                }
-                                
+                            if let userData = json["userData"] as? AnyObject {
+                                print(userData)
+
                                 
                                 //sign in with custom token. No matter a new account or already existing. It creates a new authentication account if new account.
                                 self.auth.signIn(withCustomToken: self.userData.token) { user, error in
@@ -536,11 +521,29 @@ class LoginAppViewModel: ObservableObject {
                                         return
                                     }
                                     
+                                    if userData is NSNull{
+                                        DispatchQueue.main.async {
+                                            self.userData.userData.uid = "newUser"
+                                            self.createDoc = true
+                                            
+                                        }
+                                    }
+                                    else{
+                                        self.userData.userData.uid = "userHasAccount"
+                                        
+                                        DispatchQueue.main.async {
+                                            self.newUserCreated = true
+                                        }
+                                    }
+                                    
                                     DispatchQueue.main.async {
                                         self.signedIn = true
                                         self.isGuest = false // no longer a guest.
                                     }
                                 }
+                                
+                                
+                                
                                 
                                 
                             }
