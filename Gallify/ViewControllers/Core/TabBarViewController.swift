@@ -97,7 +97,8 @@ struct TabBarView: View {
                         
                     }
                     
-                    if firestoreQuery.data.uid == "info@gallify.app" {
+                    //change the string to become the almighty admin. 
+                    if firestoreQuery.data.uid == "0xcc6c17a622a0216568b03477073ab89b8f9312b2" {
                         
                         AdminApprovalViewController()
                             .tabItem{
@@ -113,7 +114,7 @@ struct TabBarView: View {
                 
                 else {
                     
-                    LoadingView(screenHeight: screenHeight, screenWidth: screenWidth, isLoading: $isLoading)
+                    LoadingView(screenHeight: screenHeight, screenWidth: screenWidth)
                     
                 }
                     
@@ -174,7 +175,8 @@ struct TabBarView: View {
 //        loginModel.signedIn = false
 //        loginModel.newUserCreated = false
         
-
+        loginModel.createDoc = false //this is to make sure the create account screen does not show up when logging out. 
+        
             if(!loginModel.isGuest){
                 await firestoreQuery.fetchData()
 

@@ -104,6 +104,12 @@ class FirestoreQuery : ObservableObject {
     @Published var playlistArt: [Art] = [Art]()
     @Published var art: Art = Art()
     
+    //Admin art Approval
+    @Published var artInReview = [Art]()
+    var inReviewQuery: Query!
+    var getNext : Bool = false
+    var lastDoc : QueryDocumentSnapshot!
+    
     
     //basic
     static let db = Firestore.firestore()

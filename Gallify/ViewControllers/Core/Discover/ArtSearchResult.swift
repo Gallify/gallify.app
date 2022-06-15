@@ -19,6 +19,7 @@ struct ArtSearchResult: View {
     @State var showingSheet = false
     
     @EnvironmentObject var firestoreQuery: FirestoreQuery
+    @EnvironmentObject var loginModel: LoginAppViewModel
         
     var body: some View {
 
@@ -79,34 +80,38 @@ struct ArtSearchResult: View {
                 Spacer()
                 
                 
-                Button(action: {
-                    firestoreQuery.showArtOptions = true
-                }, label: {
-                    
-                    Image(systemName: "ellipsis")
-                        .foregroundColor(.black)
-                    
-                })
-                    .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
-                        ActionSheet(
-                            title: Text("Select"),
-                            buttons: [
-                                .default(Text("Add to Collection")) {
-                                    showingSheet = true
-                                    
-                                    //firestoreQuery.addToPlaylist(artwork.art_id)
-                                },
-                                .default(Text("Cancel")) {
-                                    
-                                    //firestoreQuery.addToPlaylist(artwork.art_id)
-                                    firestoreQuery.showArtOptions = false
-                                }
-                            ]
-                        )
-                    }
-                    .sheet(isPresented: $showingSheet) {
-                            CollectionsView(art: artwork)
-                    }
+                if(!loginModel.isGuest){
+                    Button(action: {
+                        firestoreQuery.showArtOptions = true
+                    }, label: {
+                        
+                        Image(systemName: "ellipsis")
+                            .foregroundColor(.black)
+                        
+                    })
+                        .actionSheet(isPresented: $firestoreQuery.showArtOptions) {
+                            ActionSheet(
+                                title: Text("Select"),
+                                buttons: [
+                                    .default(Text("Add to Collection")) {
+                                        showingSheet = true
+                                        
+                                        //firestoreQuery.addToPlaylist(artwork.art_id)
+                                    },
+                                    .default(Text("Cancel")) {
+                                        
+                                        //firestoreQuery.addToPlaylist(artwork.art_id)
+                                        firestoreQuery.showArtOptions = false
+                                    }
+                                ]
+                            )
+                        }
+                        .sheet(isPresented: $showingSheet) {
+                                CollectionsView(art: artwork)
+                        }
+                }
+                
+                
   
             }
             .padding(.horizontal, screenWidth / 25)

@@ -143,9 +143,13 @@
 		30EB96E5284301E7003D0486 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E4284301E7003D0486 /* SaveView.swift */; };
 		30EB96E7284301F6003D0486 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E6284301F6003D0486 /* DownloadView.swift */; };
 		30EB96E92843AEA2003D0486 /* ProfileSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E82843AEA2003D0486 /* ProfileSignIn.swift */; };
+
 		30EB96EE284726BE003D0486 /* connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96EB284726BE003D0486 /* connection.swift */; };
 		30EB96EF284726BE003D0486 /* follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96EC284726BE003D0486 /* follow.swift */; };
 		30EB96F0284726BE003D0486 /* liked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96ED284726BE003D0486 /* liked.swift */; };
+
+		30EB96F2284A6B21003D0486 /* CollectionReelNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96F1284A6B21003D0486 /* CollectionReelNames.swift */; };
+		30EB96F6284CF63B003D0486 /* getListAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96F5284CF63B003D0486 /* getListAdmin.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
@@ -401,9 +405,14 @@
 		30EB96E4284301E7003D0486 /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		30EB96E6284301F6003D0486 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		30EB96E82843AEA2003D0486 /* ProfileSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSignIn.swift; sourceTree = "<group>"; };
+
 		30EB96EB284726BE003D0486 /* connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = connection.swift; sourceTree = "<group>"; };
 		30EB96EC284726BE003D0486 /* follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = follow.swift; sourceTree = "<group>"; };
 		30EB96ED284726BE003D0486 /* liked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = liked.swift; sourceTree = "<group>"; };
+
+		30EB96F1284A6B21003D0486 /* CollectionReelNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReelNames.swift; sourceTree = "<group>"; };
+		30EB96F5284CF63B003D0486 /* getListAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getListAdmin.swift; sourceTree = "<group>"; };
+
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -981,6 +990,7 @@
 		30836FA52749E39D00E83735 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				30EB96F3284CF617003D0486 /* Admin */,
 				3052137C278A2D5A00CE0224 /* FirestoreQueryService.swift */,
 				33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */,
 				3052137E278A2DCE00CE0224 /* StorageService.swift */,
@@ -1095,6 +1105,7 @@
 			path = SignIn;
 			sourceTree = "<group>";
 		};
+
 		30EB96EA2847260F003D0486 /* Pagination Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1103,6 +1114,22 @@
 				30EB96ED284726BE003D0486 /* liked.swift */,
 			);
 			path = "Pagination Models";
+
+		30EB96F3284CF617003D0486 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				30EB96F4284CF620003D0486 /* Lists */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		30EB96F4284CF620003D0486 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				30EB96F5284CF63B003D0486 /* getListAdmin.swift */,
+			);
+			path = Lists;
+
 			sourceTree = "<group>";
 		};
 		3103E0DF27112D7200135F08 /* PrivacyPolicyViewHelpers */ = {
@@ -1372,6 +1399,7 @@
 				92794CE6273811760012B184 /* CollectionReelListing.swift */,
 				92794CE7273811760012B184 /* CollectionReelHeader.swift */,
 				92794CE8273811760012B184 /* CollectionReelDescription.swift */,
+				30EB96F1284A6B21003D0486 /* CollectionReelNames.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1788,6 +1816,7 @@
 				3003B00827EB984E00EA58B6 /* CustomARView.swift in Sources */,
 				304109F6279D27AC00284446 /* MinimizedView.swift in Sources */,
 				318C16A8281AFD0800F63C3D /* LikedButton.swift in Sources */,
+				30EB96F6284CF63B003D0486 /* getListAdmin.swift in Sources */,
 				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
 				30410A8127A677EB00284446 /* MembershipSetting.swift in Sources */,
 				3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */,
@@ -1851,6 +1880,7 @@
 				30410A7E27A677EB00284446 /* ProfileSetting.swift in Sources */,
 				3004D51326CDB91200323BCB /* SellViewController.swift in Sources */,
 				3052137D278A2D5A00CE0224 /* FirestoreQueryService.swift in Sources */,
+				30EB96F2284A6B21003D0486 /* CollectionReelNames.swift in Sources */,
 				3003B00127E6B01200EA58B6 /* CollectionsView.swift in Sources */,
 				30EB96E5284301E7003D0486 /* SaveView.swift in Sources */,
 				31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */,

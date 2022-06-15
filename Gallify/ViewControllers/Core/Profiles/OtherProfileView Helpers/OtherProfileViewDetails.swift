@@ -16,6 +16,8 @@ struct OtherProfileViewDetails: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
+    @EnvironmentObject var loginModel: LoginAppViewModel
+
     
     var body: some View {
         
@@ -115,17 +117,20 @@ struct OtherProfileViewDetails: View {
             .padding(.horizontal, screenWidth / 15)
             
             
-            if(firestoreQuery.otherUserData.uid != firestoreQuery.data.uid ){
-                HStack {
+            if(!loginModel.isGuest){
+                if(firestoreQuery.otherUserData.uid != firestoreQuery.data.uid ){
+                    HStack {
+                            
+                        FollowButton().environmentObject(firestoreQuery)
                         
-                    FollowButton().environmentObject(firestoreQuery)
-                    
-                    Spacer()
-                        
+                        Spacer()
+                            
+                    }
+                    .padding(.horizontal, screenWidth / 15)
+                    .padding(.vertical, screenHeight / 160)
                 }
-                .padding(.horizontal, screenWidth / 15)
-                .padding(.vertical, screenHeight / 160)
             }
+            
             
         }
         .padding(.top, screenHeight / 120)

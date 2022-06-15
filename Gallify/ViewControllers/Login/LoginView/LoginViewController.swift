@@ -8,7 +8,7 @@ import SwiftUI
 import Firebase
 import UIKit
 
-@MainActor
+//@MainActor
 class LoginAppViewModel: ObservableObject {
     
     @Published var walletConnect: WalletConnect!
@@ -30,6 +30,7 @@ class LoginAppViewModel: ObservableObject {
     @Published var newUserCreated = false
     @Published var isGuest = false
     @Published var userData: SignIn = SignIn()
+    @Published var loginLoading = true
     
     @EnvironmentObject var user: User //to hold user email, pass, and username
     
@@ -44,27 +45,33 @@ class LoginAppViewModel: ObservableObject {
     func issignedin() -> Bool{
         
         //this runs a background task to see if doc created, self.documentCreated should update.
-        checkIfDocCreated()
+        if(!self.documentCreated){
+            checkIfDocCreated()
+        }
         
+            
   //      try? auth.signOut()
         if (auth.currentUser != nil) {
             
             if(self.newUserCreated == true){
+                
                 return true
             }
             else{
                 
                 if(self.documentCreated){
+                    
                     return true
                 }
                 else{
                     checkIfDocCreated()
+                    
                     return false
                 }
             }
         }
         else {
-            // No user is signed in.
+            // No user is signed in
             return false
         }
             
@@ -262,6 +269,8 @@ class LoginAppViewModel: ObservableObject {
                 
                 for i in 0...4 {
                     
+                    //add singles collection! address is blank. AND it's a collection. 
+                    
                     
                     let playlist = Playlist()
                     playlist.name = libraryPlaylistNames[i]
@@ -436,11 +445,20 @@ class LoginAppViewModel: ObservableObject {
         self.userDocumentNotCreated = false
         self.documentCreated = false
         self.userData = SignIn() //clears data
+        self.loginLoading = true
         
         //disconnects from wallet
-        for session in self.walletConnect.client.openSessions() {
-            try? self.walletConnect.client.disconnect(from: session)
+        
+        //check if there are any open sessions
+        
+        if(self.walletConnect != nil){
+            for session in self.walletConnect.client.openSessions() {
+                try? self.walletConnect.client.disconnect(from: session)
+            }
+            
         }
+        
+        
     }
     
     /*
@@ -463,7 +481,7 @@ class LoginAppViewModel: ObservableObject {
             request.httpMethod = "GET"
             
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let data = data,
+                guard let jsonData = data,
                     let response = response as? HTTPURLResponse,
                     error == nil else {                                              // check for fundamental networking error
                     print("error", error ?? "Unknown error")
@@ -476,9 +494,11 @@ class LoginAppViewModel: ObservableObject {
                     return
                 }
 
-                let responseString = String(data: data, encoding: .utf8)
-                print("responseString = \(responseString)")
-                DispatchQueue.main.async {
+                let responseString = String(data: jsonData, encoding: .utf8)
+                //print("responseString = \(responseString)")
+                
+                
+              //  DispatchQueue.main.async {
                     
                     
                     let data = Data(responseString!.utf8)
@@ -489,27 +509,13 @@ class LoginAppViewModel: ObservableObject {
                             // try to read out a string array
                             if let token = json["token"] as? String {
                                 print(token)
-                                self.userData.token = token
+                                DispatchQueue.main.async {
+                                    self.userData.token = token
+                                }
                             }
-                            if let user = json["userData"] as? AnyObject {
-                                print(user)
-                                if user is NSNull{
-                                    print("nil")
-//                                    self.userData.userData.uid = "newuser"
-//                                    self.needToCreateDoc = true
-                                    DispatchQueue.main.async {
-                                        self.userData.userData.uid = "newuser"
-                                        self.createDoc = true
-                                        
-                                    }
-                                }
-                                else{
-                                    self.userData.userData.uid = "userHasAccount!"
-                                    
-                                    DispatchQueue.main.async {
-                                        self.newUserCreated = true
-                                    }
-                                }
+                            if let userData = json["userData"] as? AnyObject {
+                                print(userData)
+
                                 
                                 //sign in with custom token. No matter a new account or already existing. It creates a new authentication account if new account.
                                 self.auth.signIn(withCustomToken: self.userData.token) { user, error in
@@ -518,10 +524,29 @@ class LoginAppViewModel: ObservableObject {
                                         return
                                     }
                                     
+                                    if userData is NSNull{
+                                        DispatchQueue.main.async {
+                                            self.userData.userData.uid = "newUser"
+                                            self.createDoc = true
+                                            
+                                        }
+                                    }
+                                    else{
+                                        self.userData.userData.uid = "userHasAccount"
+                                        
+                                        DispatchQueue.main.async {
+                                            self.newUserCreated = true
+                                        }
+                                    }
+                                    
                                     DispatchQueue.main.async {
                                         self.signedIn = true
+                                        self.isGuest = false // no longer a guest.
                                     }
                                 }
+                                
+                                
+                                
                                 
                                 
                             }
@@ -530,7 +555,7 @@ class LoginAppViewModel: ObservableObject {
                     } catch let error as NSError {
                         print("Failed to load: \(error.localizedDescription)")
                     }
-                }
+               // }
                 
             }
 
@@ -607,21 +632,36 @@ struct LoginView: View, WalletConnectDelegate {
     
     
     
-    
-    
-    
     @StateObject var viewModel = LoginAppViewModel()
     let auth = Auth.auth()
     
+    @State private var loadView = true //forces loading screen before picking sign in view or tabbar view.
+    
     var body: some View {
+        
         
         //VStack{
         if viewModel.issignedin() || viewModel.isGuest {
                     TabBarView()
                         .environmentObject(viewModel)
-            }
+        }
+
+        else {
             
-            else {
+            if(self.loadView){
+                VStack {
+                    LoadingView(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
+                        .offset(y:-24)
+                    
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.loadView.toggle()
+                    }
+                }
+                
+            }
+            else{
                 
                 NavigationView {
                         
@@ -657,10 +697,9 @@ struct LoginView: View, WalletConnectDelegate {
                 .environmentObject(viewModel)
                 
             }
+
+        }
         
-//        }.onAppear{
-//            viewModel.issignedin()
-//        }
         
     }
     

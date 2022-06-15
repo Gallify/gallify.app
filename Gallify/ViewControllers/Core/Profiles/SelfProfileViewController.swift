@@ -52,7 +52,12 @@ struct SelfProfileView : View {
             .onAppear{ async{await NetworkingCall() }}
         }
         else{
-            ProfileSignIn()
+           
+            LoginViewNavLinks()
+            
+            //LoginView()
+            
+          //  ProfileSignIn()
           //  DownloadView() //placeholder
         }
         

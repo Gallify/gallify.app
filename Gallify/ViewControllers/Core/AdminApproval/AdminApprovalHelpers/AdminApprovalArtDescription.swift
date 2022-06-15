@@ -70,6 +70,9 @@ struct AdminApprovalArtDescription: View {
             VStack {
                 
                 Button(action: {
+                    Task {
+                        await firestoreQuery.approveArt(art: artDetails)
+                    }
                     
                 }, label: {
                     
@@ -85,6 +88,10 @@ struct AdminApprovalArtDescription: View {
                 })
                 
                 Button(action: {
+                    
+                    Task {
+                        await firestoreQuery.rejectArt(art: artDetails)
+                    }
                     
                 }, label: {
                     

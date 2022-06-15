@@ -4,7 +4,6 @@
 //
 //  Created by Anshul on 4/1/22.
 //
-
 import SwiftUI
 
 struct AdminApprovalViewController: View {
@@ -34,7 +33,14 @@ struct AdminApprovalViewController: View {
         }
         .navigationBarHidden(true)
         .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            async{ await networkingCall() }
+        }
         
+    }
+    
+    func networkingCall() async {
+        try await firestoreQuery.getArtInReview()
     }
     
 }

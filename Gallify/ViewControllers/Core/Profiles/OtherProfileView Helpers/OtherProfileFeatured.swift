@@ -14,6 +14,10 @@ struct OtherProfileFeatured: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
+    @EnvironmentObject var loginModel: LoginAppViewModel
+
+    
+
     
     @State var featuredArtCount = 1
     @State private var sheetMode2: SheetMode = .none
@@ -136,33 +140,38 @@ struct OtherProfileFeatured: View {
                                     
                             }
                             
-                            Button(action: {
-                                
-                                firestoreQuery.showFeaturedOptions = true
-                                self.art = firestoreQuery.otherFeaturedArt[i]
-                                
-                            }, label: {
-                                
-                                Image(systemName: "ellipsis")
-                                    .foregroundColor(.black)
-                                
-                            })
-                            .actionSheet(isPresented: $firestoreQuery.showFeaturedOptions) {
-                                ActionSheet(title: Text("Select"),
-                                    buttons: [
-                                        .default(Text("Add to Collection")) {
-                                            showingSheet = true
-                                            //firestoreQuery.addToPlaylist(artwork.art_id)
-                                        },
-                                        .default(Text("Cancel")) {
-                                            firestoreQuery.showFeaturedOptions = false
-                                            //firestoreQuery.addToPlaylist(artwork.art_id)
-                                        }])
+                            
+                            if(!loginModel.isGuest){
+                                Button(action: {
                                     
+                                    firestoreQuery.showFeaturedOptions = true
+                                    self.art = firestoreQuery.otherFeaturedArt[i]
+                                    
+                                }, label: {
+                                    
+                                    Image(systemName: "ellipsis")
+                                        .foregroundColor(.black)
+                                    
+                                })
+                                .actionSheet(isPresented: $firestoreQuery.showFeaturedOptions) {
+                                    ActionSheet(title: Text("Select"),
+                                        buttons: [
+                                            .default(Text("Add to Collection")) {
+                                                showingSheet = true
+                                                //firestoreQuery.addToPlaylist(artwork.art_id)
+                                            },
+                                            .default(Text("Cancel")) {
+                                                firestoreQuery.showFeaturedOptions = false
+                                                //firestoreQuery.addToPlaylist(artwork.art_id)
+                                            }])
+                                        
+                                }
+                                .sheet(isPresented: $showingSheet) {
+                                        CollectionsView(art: art)
+                                }
                             }
-                            .sheet(isPresented: $showingSheet) {
-                                    CollectionsView(art: art)
-                            }
+                            
+                            
                             
                         }
                         .padding(.vertical, screenHeight / 160)
