@@ -117,11 +117,11 @@ extension FirestoreQuery {
     func updatePlaylistType(newType: String) async {
         do {
             
-            if(newType == "Collection"){
+            if(newType == "Gallify Collection"){
                 if(allArtYours()){
-                    if(playlist.playlistType != "Collection"){
+                    if(playlist.playlistType != "Gallify Collection"){
                         let doc = try await FirestoreQuery.db.collection("playlists").document(self.playlist.playlistId).updateData([
-                            "playlistType": "Collection"
+                            "playlistType": "Gallify Collection"
                         ]) { err in
                             if let err = err {
                                 print("Error updating document: \(err)")
@@ -130,7 +130,7 @@ extension FirestoreQuery {
                             }
                         }
                         DispatchQueue.main.async {
-                            self.playlist.playlistType = "Collection"
+                            self.playlist.playlistType = "Gallify Collection"
                         }
                         
                     }

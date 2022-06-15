@@ -99,14 +99,14 @@ struct CollectionGenericHeader: View {
                                     firestoreQuery.showPlaylistOptions = false
                                 }
                             },
-                            .default(Text("Make Collection")) {
+                            .default(Text("Make Gallify Collection")) {
                                 
                                 let words = ["Liked", "Owned", "Created", "Review", "Featured"]
                                 let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
                                 if(!combinedResult){
                                     //updates privacy
                                     Task{
-                                        await firestoreQuery.updatePlaylistType(newType: "Collection")
+                                        await firestoreQuery.updatePlaylistType(newType: "Gallify Collection")
                                         
                                         await firestoreQuery.getUserLibrary() //updates library
                                     }

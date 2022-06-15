@@ -344,7 +344,7 @@ struct CreatePlaylistSettings: View {
                 
                 HStack {
                     
-                    Text("Collection")
+                    Text("Gallify Collection")
                         .font(.system(size: screenWidth / 20, weight: .semibold))
                         .foregroundColor(.black)
                         .padding(.leading, screenWidth / 25)
@@ -353,11 +353,11 @@ struct CreatePlaylistSettings: View {
                     
                     Button(action: {
                         
-                        playlistType = "Collection"
+                        playlistType = "Gallify Collection"
                         
                     }, label: {
                             
-                        if playlistType == "Collection" {
+                        if playlistType == "Gallify Collection" {
                                 
                             Image(systemName: "circle")
                                 .resizable()

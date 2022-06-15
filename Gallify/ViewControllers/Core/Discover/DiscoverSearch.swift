@@ -77,7 +77,7 @@ struct DiscoverSearch: View {
                                 
 //                                HStack {
 //
-//                                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("charleyrivers"), title: "Dreamy Nights", searchType: "Collection", artistName: "Pablo Escobar")
+//                                    OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("charleyrivers"), title: "Dreamy Nights", searchType: "Gallify Collection", artistName: "Pablo Escobar")
 //
 //                                    Image(systemName: "greaterthan")
 //                                        .resizable()

@@ -66,6 +66,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case collectionRef
         case creatorRef
         case ownerRef
+        case isMinted
 
     }
     
@@ -116,6 +117,10 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var collectionRef: String
     @Published var creatorRef: String
     @Published var ownerRef: String
+    
+    //new params as of 06/15/22
+    @Published var isMinted: Bool
+    
 
     
 
@@ -165,6 +170,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         collectionRef = ""
         creatorRef = ""
         ownerRef = ""
+        isMinted = false
         
        
 
@@ -222,6 +228,8 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         collectionRef = try container.decode(String.self, forKey: .collectionRef)
         creatorRef = try container.decode(String.self, forKey: .creatorRef)
         ownerRef = try container.decode(String.self, forKey: .ownerRef)
+        
+        isMinted = try container.decode(Bool.self, forKey: .isMinted)
 
         
     }
@@ -275,6 +283,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(collectionRef, forKey: .collectionRef)
         try container.encode(creatorRef, forKey: .creatorRef)
         try container.encode(ownerRef, forKey: .ownerRef)
+        try container.encode(isMinted, forKey: .isMinted)
 
         
     }

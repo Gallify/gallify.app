@@ -262,7 +262,7 @@ class LoginAppViewModel: ObservableObject {
 //                //adds the default playlists for the new user
 //            if(userSubCollectionsCreated){
 //
-                let libraryPlaylistNames = ["Liked", "Featured", "Owned", "Created", "Review"]
+                let libraryPlaylistNames = ["Liked", "Featured", "Owned", "Created", "Review", "Singles"]
                 
                 
                // let userDocRef = try await db.collection("users").document(user.uid)
@@ -287,8 +287,12 @@ class LoginAppViewModel: ObservableObject {
                     if(playlist.name == "Liked"){
                         playlist.playlistType = "Playlist"
                     }
-                    else{
+                    else if(playlist.name == "Singles"){
                         playlist.playlistType = "Collection"
+                        playlist.isSingles = true
+                    }
+                    else{
+                        playlist.playlistType = "Gallify Collection"
                     }
                     
                     //these will be public. 
@@ -320,6 +324,10 @@ class LoginAppViewModel: ObservableObject {
                     if(playlist.name == "Liked"){  //this line below should work since the the field should exist.
                         
                         try await batch.updateData(["liked": playlistRef.documentID], forDocument: userRef)
+                    }
+                    if(playlist.name == "Singles"){  //this line below should work since the the field should exist.
+                        
+                        try await batch.updateData(["singlesRef": playlistRef.documentID], forDocument: userRef)
                     }
                 }
 //                userPlaylistsCreated = true

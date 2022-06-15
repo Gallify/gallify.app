@@ -25,13 +25,16 @@ extension FirestoreQuery {
                 "art": FieldValue.arrayUnion([art.artId])
                 ])
             
+            
+            /* Don't need this. Because the collection will always stay the same once minted. 
             //if user is creator, and adding to their own collection. Update "Collection" tab.
             if(self.data.uid == art.creatorId){
-                if(the_playlist.playlistType == "Collection"){
+                if(the_playlist.playlistType == "Gallify Collection"){
                     let artDoc = try await FirestoreQuery.db.collection("art").document(art.artId).updateData([
                         "collection": the_playlist.playlistId])
                 }
             }
+            */
             
                 
         }

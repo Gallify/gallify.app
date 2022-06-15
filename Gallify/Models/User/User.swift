@@ -63,6 +63,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         
         
         
+        
     }
     
     @Published var uid : String   // NOT sure why all of these are published? @Shruti or @Anshul, you know?

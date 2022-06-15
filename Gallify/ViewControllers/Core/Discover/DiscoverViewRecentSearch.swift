@@ -125,7 +125,7 @@ struct DiscoverViewRecentSearch: View {
 //
 //                        NavigationLink(destination: OtherProfileView(), label: {
 //
-//                            OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("twinlake"), title: "Lakes", searchType: "Collection", artistName: "Fisherman")
+//                            OtherSearchTemplate(screenHeight: screenHeight, screenWidth: screenWidth, image: Image("twinlake"), title: "Lakes", searchType: "Gallify Collection", artistName: "Fisherman")
 //                        })
 //
 //                        Button(action: {

@@ -67,7 +67,7 @@ struct CollectionsView: View {
                                 
                                 if(art.searchType != 2){
                                     //if playlist is a collection, only add if they are owner or creator.
-                                    if(playlist.playlistType == "Collection"){
+                                    if(playlist.playlistType == "Gallify Collection"){
                                         if(art.ownerId==firestoreQuery.data.uid || art.creatorId==firestoreQuery.data.uid ){
                                             let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
                                             impactHeavy.impactOccurred()
