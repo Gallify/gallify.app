@@ -19,10 +19,10 @@ extension FirestoreQuery {
     func deleteArtFromPlaylist(art_id: String, playlist: Playlist) async {
                                     
         do {
-            print("PLAYLIST ID RECEIVED IN DELETE = ", playlist.playlist_id)
+            print("PLAYLIST ID RECEIVED IN DELETE = ", playlist.playlistId)
             print("ART ID RECEIVED IN DELETE = ", art_id)
             
-            let doc = try await FirestoreQuery.db.collection("playlists").document(playlist.playlist_id).updateData([
+            let doc = try await FirestoreQuery.db.collection("playlists").document(playlist.playlistId).updateData([
                 "art": FieldValue.arrayRemove([art_id])
             ])
             
@@ -46,16 +46,16 @@ extension FirestoreQuery {
                 ["Library" : FieldValue.arrayRemove([playlist_id])]
             )
             userLibrary.removeAll { pl in
-                pl.playlist_id == playlist_id
+                pl.playlistId == playlist_id
             }
 
             
             //set local variable to ""
-            playlist.cover_art_url = ""
+            playlist.coverArtUrl = ""
             
             //delete cover art url from firestore doc
             let playlistRef = FirestoreQuery.db.collection("playlists").document(playlist_id)
-            try await playlistRef.updateData(["cover_art_url" : ""])
+            try await playlistRef.updateData(["coverArtUrl" : ""])
             
             //delete cover art image from storage
             let storage = Storage.storage()
@@ -79,7 +79,7 @@ extension FirestoreQuery {
             await self.getUserLibrary()
             
 //             //assumes firestorequery.playlist is the playlist to delete
-//             if(self.data.uid == self.playlist.creator_url){
+//             if(self.data.uid == self.playlist.creatorUrl){
 //                 await deletePlaylistFromCollection(playlist_id: playlist_id)
 //             }
             

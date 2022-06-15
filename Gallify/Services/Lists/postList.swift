@@ -20,16 +20,16 @@ extension FirestoreQuery {
                                             
         do {
             
-            print("PLAYLIST ID = ", the_playlist.playlist_id, "ART ID = ", art.artId)
-            let doc = try await FirestoreQuery.db.collection("playlists").document(the_playlist.playlist_id).updateData([
+            print("PLAYLIST ID = ", the_playlist.playlistId, "ART ID = ", art.artId)
+            let doc = try await FirestoreQuery.db.collection("playlists").document(the_playlist.playlistId).updateData([
                 "art": FieldValue.arrayUnion([art.artId])
                 ])
             
             //if user is creator, and adding to their own collection. Update "Collection" tab.
             if(self.data.uid == art.creatorId){
-                if(the_playlist.playlist_type == "Collection"){
+                if(the_playlist.playlistType == "Collection"){
                     let artDoc = try await FirestoreQuery.db.collection("art").document(art.artId).updateData([
-                        "collection": the_playlist.playlist_id])
+                        "collection": the_playlist.playlistId])
                 }
             }
             
@@ -75,7 +75,7 @@ extension FirestoreQuery {
             
             for p in userLibrary {
                 if p.name == playlistName {
-                    try await FirestoreQuery.db.collection("playlists").document(p.playlist_id).updateData([
+                    try await FirestoreQuery.db.collection("playlists").document(p.playlistId).updateData([
                         "art" : FieldValue.arrayUnion([art.artId])
                     ])
                     //add to liked_art subcollection
@@ -100,7 +100,7 @@ extension FirestoreQuery {
     func addPlaylistToLibrary(playlist: Playlist) {
 
         do {
-            try FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(["Library" : FieldValue.arrayUnion([playlist.playlist_id])])
+            try FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(["Library" : FieldValue.arrayUnion([playlist.playlistId])])
         } catch {
             print("Error adding playlist to library")
         }
@@ -117,9 +117,9 @@ extension FirestoreQuery {
         let newPlaylist = Playlist(newName: name, pri: privacy, type: type, the_creator: self.data)
     
         let docRef = try! await Firestore.firestore().collection("playlists").document()
-        newPlaylist.playlist_id = docRef.documentID
+        newPlaylist.playlistId = docRef.documentID
 
-        newPlaylist.creator_url = self.data.uid
+        newPlaylist.creatorUrl = self.data.uid
 
         do {
           try await docRef.setData(from: newPlaylist)
@@ -171,7 +171,7 @@ extension FirestoreQuery {
                  } else {
                      Task {
                          var new_art = Art()
-                         await self.addArtToArtCollection(art: new_art, playlistId: playlist.playlist_id, img: url!.absoluteString)//had to create a new instance of Firestore Query because environment object wasn't being accepted, not sure if this is right
+                         await self.addArtToArtCollection(art: new_art, playlistId: playlist.playlistId, img: url!.absoluteString)//had to create a new instance of Firestore Query because environment object wasn't being accepted, not sure if this is right
                      }
                  }
             }

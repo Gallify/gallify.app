@@ -41,7 +41,7 @@ struct UserSearchResult: View {
                     Text(user.username)
                         .font(.system(size: screenWidth / 20, weight: .semibold))
                     
-                    Text(user.firstName + user.lastName)
+                    Text(user.displayName)
                         .font(.system(size: screenWidth / 25))
                         
                 }

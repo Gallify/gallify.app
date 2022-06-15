@@ -18,50 +18,62 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
 
         case name
         case creator
-        case creator_url
-        case playlist_type //collection, playlist, single, liked, auction, recent activity, owned, query(call to art collection to get list of art documents)
-        case share_url
+        case creatorUrl
+        case playlistType //collection, playlist, single, liked, auction, recent activity, owned, query(call to art collection to get list of art documents)
+        case shareUrl
         case auction
-        case auction_start
-        case auction_end
+        case auctionStart
+        case auctionEnd
         case privacy
-        case cover_art_url
+        case coverArtUrl
         case art
         case location
         case genre
         case popularity
         case likes
-        case followers_url
+        case followersUrl
         case searchType //when search, need to know artist, collection, or art
-        case playlist_id
+        case playlistId
         case description
-        //lat
-        //lon
-        //time created
-        //report
+        case lat
+        case lon
+        case address
+        case modifiedDate
+        case createdDate
+        case creatorRef
+        case isSingles
+        
 
 
     }
 
     @Published var name: String
     @Published var creator: String
-    @Published var creator_url: String
-    @Published var playlist_type: String
-    @Published var share_url: String
+    @Published var creatorUrl: String
+    @Published var playlistType: String
+    @Published var shareUrl: String
     @Published var auction: Bool
-    @Published var auction_start: Int
-    @Published var auction_end: Int
+    @Published var auctionStart: Int
+    @Published var auctionEnd: Int
     @Published var privacy: Int
-    @Published var cover_art_url: String
+    @Published var coverArtUrl: String
     @Published var art: [String]
     @Published var location: String
     @Published var genre: String
     @Published var popularity: Int
     @Published var likes: Int
-    @Published var followers_url: String
+    @Published var followersUrl: String
     @Published var searchType: String
-    @Published var playlist_id: String
+    @Published var playlistId: String
     @Published var description: String
+    
+    @Published var lat: Double //large decimal.
+    @Published var lon: Double
+    @Published var address: String
+    @Published var modifiedDate: String
+    @Published var createdDate: String
+    @Published var creatorRef: String
+    @Published var isSingles: Bool
     
     /*
      "name": "",
@@ -83,45 +95,63 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         
         name = ""
         creator = ""
-        creator_url = ""
-        playlist_type = ""
-        share_url = ""
+        creatorUrl = ""
+        playlistType = ""
+        shareUrl = ""
         auction = false
-        auction_start = 0
-        auction_end = 0
+        auctionStart = 0
+        auctionEnd = 0
         privacy = 0
         genre = ""
         location = ""
-        cover_art_url = ""
+        coverArtUrl = ""
         art = [String]()
         popularity = 0
         likes = 0
-        followers_url = ""
+        followersUrl = ""
         searchType = ""
-        playlist_id = ""
+        playlistId = ""
         description = ""
+       
+        lat = 0.0
+        lon = 0.0
+        address = ""
+        modifiedDate = ""
+        createdDate = ""
+        creatorRef = ""
+        isSingles = false
+        
+        
     }
     
     init(newName: String, pri: Int, type: String, the_creator: User) {
           name = newName
-          creator = the_creator.firstName + " " + the_creator.lastName
-          creator_url = the_creator.uid
-          playlist_type = type
-          share_url = ""
+          creator = the_creator.displayName
+          creatorUrl = the_creator.uid
+          playlistType = type
+          shareUrl = ""
           auction = false
-          auction_start = 0
-          auction_end = 0
+          auctionStart = 0
+          auctionEnd = 0
           privacy = pri
           genre = ""
           location = ""
-          cover_art_url = ""
+          coverArtUrl = ""
           art = [String]()
           popularity = 0
           likes = 0
-          followers_url = ""
+          followersUrl = ""
           searchType = ""
-          playlist_id = ""
+          playlistId = ""
           description = ""
+          lat = 0.0
+          lon = 0.0
+          address = ""
+          modifiedDate = ""
+          createdDate = ""
+          creatorRef = ""
+          isSingles = false
+        
       }
 
     required init(from decoder: Decoder) throws {
@@ -130,24 +160,30 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
      
         name = try container.decode(String.self, forKey: .name)
         creator = try container.decode(String.self, forKey: .creator)
-        creator_url = try container.decode(String.self, forKey: .creator_url)
-        playlist_type = try container.decode(String.self, forKey: .playlist_type)
-        share_url = try container.decode(String.self, forKey: .share_url)
+        creatorUrl = try container.decode(String.self, forKey: .creatorUrl)
+        playlistType = try container.decode(String.self, forKey: .playlistType)
+        shareUrl = try container.decode(String.self, forKey: .shareUrl)
         auction = try container.decode(Bool.self, forKey: .auction)
-        auction_start = try container.decode(Int.self, forKey: .auction_start)
-        auction_end = try container.decode(Int.self, forKey: .auction_end)
+        auctionStart = try container.decode(Int.self, forKey: .auctionStart)
+        auctionEnd = try container.decode(Int.self, forKey: .auctionEnd)
         genre = try container.decode(String.self, forKey: .genre)
         privacy = try container.decode(Int.self, forKey: .privacy)
         location = try container.decode(String.self, forKey: .location)
-        cover_art_url = try container.decode(String.self, forKey: .cover_art_url)
+        coverArtUrl = try container.decode(String.self, forKey: .coverArtUrl)
         art = try container.decode([String].self, forKey: .art)
         popularity = try container.decode(Int.self, forKey: .popularity)
         likes = try container.decode(Int.self, forKey: .likes)
-        followers_url = try container.decode(String.self, forKey: .followers_url)
+        followersUrl = try container.decode(String.self, forKey: .followersUrl)
         searchType = try container.decode(String.self, forKey: .searchType)
-        playlist_id = try container.decode(String.self, forKey: .playlist_id)
+        playlistId = try container.decode(String.self, forKey: .playlistId)
         description = try container.decode(String.self, forKey: .description)
-
+        lat = try container.decode(Double.self, forKey: .lat)
+        lon = try container.decode(Double.self, forKey: .lon)
+        address = try container.decode(String.self, forKey: .lon)
+        modifiedDate = try container.decode(String.self, forKey: .modifiedDate)
+        createdDate = try container.decode(String.self, forKey: .createdDate)
+        creatorRef = try container.decode(String.self, forKey: .creatorRef)
+        isSingles = try container.decode(Bool.self, forKey: .isSingles)
 
     }
     
@@ -156,23 +192,31 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
         try container.encode(creator, forKey: .creator)
-        try container.encode(playlist_type, forKey: .playlist_type)
+        try container.encode(playlistType, forKey: .playlistType)
         try container.encode(auction, forKey: .auction)
-        try container.encode(auction_start, forKey: .auction_start)
-        try container.encode(auction_end, forKey: .auction_end)
+        try container.encode(auctionStart, forKey: .auctionStart)
+        try container.encode(auctionEnd, forKey: .auctionEnd)
         try container.encode(privacy, forKey: .privacy)
         try container.encode(art, forKey: .art)
-        try container.encode(followers_url, forKey: .followers_url)
-        try container.encode(cover_art_url, forKey: .cover_art_url)
+        try container.encode(followersUrl, forKey: .followersUrl)
+        try container.encode(coverArtUrl, forKey: .coverArtUrl)
         try container.encode(popularity, forKey: .popularity)
-        try container.encode(share_url, forKey: .share_url)
+        try container.encode(shareUrl, forKey: .shareUrl)
         try container.encode(likes, forKey: .likes)
         try container.encode(genre, forKey: .genre)
         try container.encode(location, forKey: .location)
-        try container.encode(creator_url, forKey: .creator_url)
+        try container.encode(creatorUrl, forKey: .creatorUrl)
         try container.encode(searchType, forKey: .searchType)
-        try container.encode(playlist_id, forKey: .playlist_id)
+        try container.encode(playlistId, forKey: .playlistId)
         try container.encode(description, forKey: .description)
+        try container.encode(lat, forKey: .lat)
+        try container.encode(lon, forKey: .lon)
+        try container.encode(address, forKey: .address)
+        try container.encode(modifiedDate, forKey: .modifiedDate)
+        try container.encode(createdDate, forKey: .createdDate)
+        try container.encode(creatorRef, forKey: .creatorRef)
+        try container.encode(isSingles, forKey: .isSingles)
+
 
     }
 }

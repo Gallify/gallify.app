@@ -66,17 +66,17 @@ struct CreateAccountViewBody: View {
                 
             if buttonPressed {
                         
-                if user.firstName.isEmpty {
+                if user.displayName.isEmpty {
                         
-                    ErrorText(errorText: "First Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+                    ErrorText(errorText: "Display Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
                         
                 }
                         
-                else if user.lastName.isEmpty {
-                            
-                    ErrorText(errorText: "Last Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
-                            
-                }
+//                else if user.lastName.isEmpty {
+//
+//                    ErrorText(errorText: "Last Name cannot be empty.", screenHeight: screenHeight, screenWidth: screenWidth)
+//
+//                }
                         
                 else if user.email.isEmpty {
                             
@@ -135,26 +135,26 @@ struct CreateAccountViewBody: View {
             }
             .padding(.leading, screenWidth / 12)
      
-            TextField("", text: $user.firstName)
+            TextField("", text: $user.displayName)
                 .disableAutocorrection(true)
                 .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
                 .padding(.horizontal, screenWidth / 15)
 
-            HStack {
-                    
-                Text("Last Name")
-                    .font(.system(size: screenWidth / 22, weight: .semibold))
-                    
-                Spacer()
-                    
-            }
-            .padding(.leading, screenWidth / 12)
-                
-            TextField("", text: $user.lastName)
-                .disableAutocorrection(true)
-                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
-                .padding(.horizontal, screenWidth / 15)
-        
+//            HStack {
+//
+//                Text("Last Name")
+//                    .font(.system(size: screenWidth / 22, weight: .semibold))
+//
+//                Spacer()
+//
+//            }
+//            .padding(.leading, screenWidth / 12)
+//
+//            TextField("", text: $user.lastName)
+//                .disableAutocorrection(true)
+//                .textFieldStyle(OvalTextFieldStyle(screenHeight: screenHeight, screenWidth: screenWidth))
+//                .padding(.horizontal, screenWidth / 15)
+//
             HStack {
                     
                 Text("Email")
@@ -210,8 +210,8 @@ struct CreateAccountViewBody: View {
                 
                 Button(action: {
                         
-                    if !(user.firstName.isEmpty || user.lastName.isEmpty || user.email.isEmpty) { // || user.phoneNumber.isEmpty || user.location.isEmpty
-                        if !(hasDigit(user.firstName) || hasDigit(user.lastName) || !isValidEmail(email: user.email)) { //|| !hasAllDigits(user.phoneNumber)
+                    if !(user.displayName.isEmpty || user.email.isEmpty) { // || user.phoneNumber.isEmpty || user.location.isEmpty
+                        if !(hasDigit(user.displayName) || !isValidEmail(email: user.email)) { //|| !hasAllDigits(user.phoneNumber)
                             //check if username isn't taken here.
                                 goForward = true
                         }

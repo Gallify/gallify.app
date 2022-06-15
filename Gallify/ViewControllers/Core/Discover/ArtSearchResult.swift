@@ -33,7 +33,7 @@ struct ArtSearchResult: View {
             
             //placeholder playlist
             let playlist = Playlist()
-            playlist.creator_url = "search"
+            playlist.creatorUrl = "search"
             firestoreQuery.playlistThatsPlaying = playlist
             
             var i = 0

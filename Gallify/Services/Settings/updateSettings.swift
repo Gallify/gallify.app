@@ -26,30 +26,44 @@ extension FirestoreQuery {
         }
     }
     
-    func updatefirstName(first: String) async {
+    
+    func updateDisplayName(name: String) async {
         do {
             try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(
-                ["firstName" : first]
+                ["displayName" : name]
             )
-            data.firstName = first
-            self.data.firstName = first
+            data.displayName = name
+            self.data.displayName = name
             
         } catch {
-            print("Error updating firstname")
+            print("Error updating display name")
         }
     }
     
-    func updateLastName(last: String) async {
-        do {
-            try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(
-                ["lastName" : last]
-            )
-            data.lastName = last
-            self.data.lastName = last
-        } catch {
-            print("Error updating lastname")
-        }
-    }
+//    func updatefirstName(first: String) async {
+//        do {
+//            try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(
+//                ["firstName" : first]
+//            )
+//            data.firstName = first
+//            self.data.firstName = first
+//
+//        } catch {
+//            print("Error updating firstname")
+//        }
+//    }
+//
+//    func updateLastName(last: String) async {
+//        do {
+//            try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(
+//                ["lastName" : last]
+//            )
+//            data.lastName = last
+//            self.data.lastName = last
+//        } catch {
+//            print("Error updating lastname")
+//        }
+//    }
     
     func updateUserDescription(desc : String) async {
         print(desc)

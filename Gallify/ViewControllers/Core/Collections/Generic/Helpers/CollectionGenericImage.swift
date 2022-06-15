@@ -44,7 +44,7 @@ struct CollectionGenericImage: View {
                 .padding(.top, 20)
         }
         else{
-            WebImage(url: URL(string: playlist.cover_art_url))
+            WebImage(url: URL(string: playlist.coverArtUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(width: 200, height: 200)

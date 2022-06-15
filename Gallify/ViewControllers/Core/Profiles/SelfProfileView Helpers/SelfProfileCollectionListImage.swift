@@ -62,7 +62,7 @@ struct SelfProfileCollectionListImage: View {
                 
         }
         
-        else if(playlist.cover_art_url == "") {
+        else if(playlist.coverArtUrl == "") {
             
             WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d"))
                 .resizable()
@@ -72,7 +72,7 @@ struct SelfProfileCollectionListImage: View {
         
         else {
             
-            WebImage(url: URL(string: playlist.cover_art_url))
+            WebImage(url: URL(string: playlist.coverArtUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(width: imageWidth, height: imageHeight)

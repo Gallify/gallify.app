@@ -29,14 +29,16 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case contentType
         case creator
         case creatorId
-        //case createdDate
+        case createdDate
         case createdPrice
         
         case desc
         case forSale
+        case forBid //NEW
         case genre
         case history
-        //case latestHistoryDate
+        case modifiedDate
+        case latestPurchaseDate
         case likes
         case location
         case metadataUrl
@@ -45,6 +47,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case ownerId
         case popularity
         case price
+        case buyNowPrice //NEW
         
         case searchType
         case shareUrl
@@ -52,24 +55,18 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case thumbnailUrl
         case tokenId
         
+        case unlockableContent
+        case geoContent
+        case claimableIfNearOnly
+        case ownableIfNearOnly
+        case licenseType
+        case latestPurchasePrice
+        case latestPrice
+        case isListing
+        case collectionRef
+        case creatorRef
+        case ownerRef
 
-        //case unlockable content
-        //case geographic content
-        //case forfree if near
-        //case forsale if near
-        //case report
-        //what type of licensing does the owner have?
-        //"collectionRef": "collections/id",
-        //  "creatorRef": "users/id",
-       // "ownerRef": "users/id",
-       // "likesCount": 0,
-       // "createdDate": "Timestamp",
-       // "latestHistoryDate": "Timestamp",
-       // "latestPrice": "",
-       // "latestPurchaseDate": "Timestamp",
-       // "latestPurchasePrice": "",
-       // "isListing": false
-        
     }
     
     
@@ -80,14 +77,16 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var contentType: Int
     @Published var creator: String
     @Published var creatorId: String
-    //@Published var createdDate: Timestamp //String
+    @Published var createdDate: String //String
     @Published var createdPrice: Double
     
     @Published var desc: String
     @Published var forSale: Bool
+    @Published var forBid: Bool
     @Published var genre: String
     @Published var history: [String]
    // @Published var latestHistoryDate : Timestamp //String
+    @Published var modifiedDate : String //String
     @Published var likes: Int
     @Published var location: String
     @Published var metadataUrl: String
@@ -95,7 +94,8 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var owner: String
     @Published var ownerId: String
     @Published var popularity: Int
-    @Published var price: Int
+    @Published var price: String
+    @Published var buyNowPrice: String
     
     @Published var searchType: Int
     @Published var shareUrl: String
@@ -103,8 +103,22 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var thumbnailUrl: String
     @Published var tokenId: Int
     
+    //new params as of 05/20/22
+    @Published var unlockableContent: String
+    @Published var geoContent: String
+    @Published var claimableIfNearOnly: Bool
+    @Published var ownableIfNearOnly: Bool
+    @Published var licenseType: String
+    @Published var latestPurchasePrice: String
+    @Published var latestPrice: String
+    @Published var latestPurchaseDate: String
+    @Published var isListing: Bool
+    @Published var collectionRef: String
+    @Published var creatorRef: String
+    @Published var ownerRef: String
 
     
+
     init() {
     
         artId = ""
@@ -114,13 +128,15 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         contentType = 0
         creator = ""
         creatorId = ""
-        //createdDate = Timestamp()
+        createdDate = ""
         createdPrice = 0
         desc = ""
         forSale = false
+        forBid = false
         genre = ""
         history = [String]()
        // latestHistoryDate = Timestamp()
+        modifiedDate = ""
         likes = 0
         location = ""
         metadataUrl = ""
@@ -128,13 +144,28 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         owner = ""
         ownerId = ""
         popularity = 0
-        price = 0
+        price = ""
+        buyNowPrice = ""
         
         searchType = 0
         shareUrl = ""
         storageName = ""
         thumbnailUrl = ""
         tokenId = 0
+        
+        latestPurchaseDate = ""
+        unlockableContent = ""
+        geoContent = ""
+        claimableIfNearOnly = false
+        ownableIfNearOnly = false
+        licenseType = ""
+        latestPurchasePrice = ""
+        latestPrice = ""
+        isListing = true
+        collectionRef = ""
+        creatorRef = ""
+        ownerRef = ""
+        
        
 
     }
@@ -151,13 +182,16 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         contentType = try container.decode(Int.self, forKey: .contentType)
         creator = try container.decode(String.self, forKey: .creator)
         creatorId = try container.decode(String.self, forKey: .creatorId)
-      //  createdDate = try container.decode(Timestamp.self, forKey: .createdDate) //Timestamp
+        createdDate = try container.decode(String.self, forKey: .createdDate) //Timestamp
         createdPrice = try container.decode(Double.self, forKey: .createdPrice)
         
         desc = try container.decode(String.self, forKey: .desc)
         forSale = try container.decode(Bool.self, forKey: .forSale)
+        forBid = try container.decode(Bool.self, forKey: .forBid)
         genre = try container.decode(String.self, forKey: .genre)
         history = try container.decode([String].self, forKey: .history)
+        modifiedDate = try container.decode(String.self, forKey: .modifiedDate)
+
    //     latestHistoryDate = try container.decode(Timestamp.self, forKey: .latestHistoryDate)
 
         likes = try container.decode(Int.self, forKey: .likes)
@@ -167,13 +201,28 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         owner = try container.decode(String.self, forKey: .owner)
         ownerId = try container.decode(String.self, forKey: .ownerId)
         popularity = try container.decode(Int.self, forKey: .popularity)
-        price = try container.decode(Int.self, forKey: .price)
+        price = try container.decode(String.self, forKey: .price)
+        buyNowPrice = try container.decode(String.self, forKey: .buyNowPrice)
         
         searchType = try container.decode(Int.self, forKey: .searchType)
         shareUrl = try container.decode(String.self, forKey: .shareUrl)
         storageName = try container.decode(String.self, forKey: .storageName)
         thumbnailUrl = try container.decode(String.self, forKey: .thumbnailUrl)
         tokenId = try container.decode(Int.self, forKey: .tokenId)
+        
+        latestPurchaseDate = try container.decode(String.self, forKey: .latestPurchaseDate)
+        unlockableContent = try container.decode(String.self, forKey: .unlockableContent)
+        geoContent = try container.decode(String.self, forKey: .geoContent)
+        claimableIfNearOnly = try container.decode(Bool.self, forKey: .claimableIfNearOnly)
+        ownableIfNearOnly = try container.decode(Bool.self, forKey: .ownableIfNearOnly)
+        licenseType = try container.decode(String.self, forKey: .licenseType)
+        latestPurchasePrice = try container.decode(String.self, forKey: .latestPurchasePrice)
+        latestPrice = try container.decode(String.self, forKey: .latestPrice)
+        isListing = try container.decode(Bool.self, forKey: .unlockableContent)
+        collectionRef = try container.decode(String.self, forKey: .collectionRef)
+        creatorRef = try container.decode(String.self, forKey: .creatorRef)
+        ownerRef = try container.decode(String.self, forKey: .ownerRef)
+
         
     }
     
@@ -189,14 +238,15 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(contentType, forKey: .contentType)
         try container.encode(creator, forKey: .creator)
         try container.encode(creatorId, forKey: .creatorId)
-      //  try container.encode(createdDate, forKey: .createdDate)
+        try container.encode(createdDate, forKey: .createdDate)
         try container.encode(createdPrice, forKey: .createdPrice)
         
         try container.encode(desc, forKey: .desc)
         try container.encode(forSale, forKey: .forSale)
+        try container.encode(forBid, forKey: .forBid)
         try container.encode(genre, forKey: .genre)
         try container.encode(history, forKey: .history)
-       // try container.encode(latestHistoryDate, forKey: .latestHistoryDate)
+        try container.encode(modifiedDate, forKey: .modifiedDate)
         try container.encode(likes, forKey: .likes)
         try container.encode(location, forKey: .location)
         try container.encode(metadataUrl, forKey: .metadataUrl)
@@ -205,6 +255,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(ownerId, forKey: .ownerId)
         try container.encode(popularity, forKey: .popularity)
         try container.encode(price, forKey: .price)
+        try container.encode(buyNowPrice, forKey: .buyNowPrice)
         
         try container.encode(searchType, forKey: .searchType)
         try container.encode(shareUrl, forKey: .shareUrl)
@@ -212,8 +263,19 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(thumbnailUrl, forKey: .thumbnailUrl)
         try container.encode(tokenId, forKey: .tokenId)
         
-        
-        
+        try container.encode(latestPurchaseDate, forKey: .latestPurchaseDate)
+        try container.encode(unlockableContent, forKey: .unlockableContent)
+        try container.encode(geoContent, forKey: .geoContent)
+        try container.encode(claimableIfNearOnly, forKey: .claimableIfNearOnly)
+        try container.encode(ownableIfNearOnly, forKey: .ownableIfNearOnly)
+        try container.encode(licenseType, forKey: .licenseType)
+        try container.encode(latestPrice, forKey: .latestPrice)
+        try container.encode(latestPurchasePrice, forKey: .latestPurchasePrice)
+        try container.encode(isListing, forKey: .isListing)
+        try container.encode(collectionRef, forKey: .collectionRef)
+        try container.encode(creatorRef, forKey: .creatorRef)
+        try container.encode(ownerRef, forKey: .ownerRef)
+
         
     }
     

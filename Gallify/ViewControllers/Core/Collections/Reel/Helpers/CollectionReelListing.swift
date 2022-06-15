@@ -105,7 +105,71 @@ struct CollectionReelListing: View {
                                     .font(.system(size: screenWidth / 20, weight: .light))
                                     .padding(.vertical, screenWidth / 75)*/
                                 
+
+//                                //button to switch from thumbnail to 3d model
+//                                Button(action: {
+//
+//                                    showThumbnail.toggle()
+//
+//                                    if showThumbnail {
+//                                        getModelforArt = ""
+//                                        text3Dmodel = "View Model"
+//
+//                                        //kill thread and stop it from getting model
+//                                    }
+//                                    else {
+//                                        getModelforArt = artwork.artId
+//
+//                                        text3Dmodel = "Loading.."
+//
+//                                        if(!firestoreQuery.models.isEmpty){
+//
+//
+//                                            if(firestoreQuery.models[i] != nil){
+//                                                if(firestoreQuery.models[i].contentLoaded){
+//                                                    text3Dmodel = "Turn Off"
+//                                                }
+//                                                else{
+//                                                    firestoreQuery.getModel(model: firestoreQuery.models[i])
+//                                                }
+//                                            }
+//                                        }
+//                                    }
+//
+//                                }, label: {
+//                                    Text(text3Dmodel)
+//                                })
+                
+//                                //add to playlist button
+//                                Button(action: { // add to playlist, etc
+//                                    self.showActionSheet.toggle()
+//                                    art = artwork
+//                                    print("art in reel listing = ", art.name)
+//                                }) {
+//                                    Image(systemName: "ellipsis")
+//                                        .font(.system(size: 20))
+//                                        .foregroundColor(.black)
+//                                    }
+//                                    .actionSheet(isPresented: $showActionSheet, content: {
+//                                            self.actionSheet })
+                                
+                                //if else. If they created the playlist or not.
+                                //used to be playlistThatsPlaying.creatorUrl
+//                                if(artwork.ownerId == firestoreQuery.data.uid){
+//                                    Button(action: {
+//                                        firestoreQuery.showReelArtOptions = true
+//                                        self.art = artwork //Setting art var when ellipses is clicked
+//                                    }, label: {
+//
+//                                        Image(systemName: "ellipsis")
+//                                            .foregroundColor(.primary)
+//                                            .padding(.trailing, 10)
+//
+//                                    })
+//                                    .actionSheet(isPresented: $firestoreQuery.showReelArtOptions) {
+
 //                                if(artwork.forSale == true) {
+
 //
 //                                    Text("$\(artwork.price)")
 //                                        .font(.system(size: screenWidth / 20, weight: .light))
