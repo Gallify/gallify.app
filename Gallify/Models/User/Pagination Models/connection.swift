@@ -1,4 +1,8 @@
 //
-//@Published var recieverRef: DocumentReference
-//@Published var senderRef: DocumentReference
-//@Published var time: Timestamp
+//  connection.swift
+//  Gallify
+//
+//  Created by Tejvir Mann on 6/15/22.
+//
+
+import Foundation

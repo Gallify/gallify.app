@@ -132,6 +132,9 @@
 		308B4BEB27658A040039B74E /* Museum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B4BEA27658A040039B74E /* Museum.swift */; };
 		308B4BED27658A710039B74E /* MuseumList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B4BEC27658A710039B74E /* MuseumList.swift */; };
 		308B4BF127658B8F0039B74E /* ArtDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B4BF027658B8F0039B74E /* ArtDetails.swift */; };
+		30A0AB89285A78460055905C /* connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0AB88285A78460055905C /* connection.swift */; };
+		30A0AB8B285A784C0055905C /* follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0AB8A285A784C0055905C /* follow.swift */; };
+		30A0AB8D285A78520055905C /* liked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0AB8C285A78520055905C /* liked.swift */; };
 		30BEBD4327BF1E470045EC74 /* getARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4227BF1E470045EC74 /* getARPlayer.swift */; };
 		30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4427BF1E510045EC74 /* postARPlayer.swift */; };
 		30BEBD4727BF1E5C0045EC74 /* updateARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */; };
@@ -143,11 +146,6 @@
 		30EB96E5284301E7003D0486 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E4284301E7003D0486 /* SaveView.swift */; };
 		30EB96E7284301F6003D0486 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E6284301F6003D0486 /* DownloadView.swift */; };
 		30EB96E92843AEA2003D0486 /* ProfileSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96E82843AEA2003D0486 /* ProfileSignIn.swift */; };
-
-		30EB96EE284726BE003D0486 /* connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96EB284726BE003D0486 /* connection.swift */; };
-		30EB96EF284726BE003D0486 /* follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96EC284726BE003D0486 /* follow.swift */; };
-		30EB96F0284726BE003D0486 /* liked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96ED284726BE003D0486 /* liked.swift */; };
-
 		30EB96F2284A6B21003D0486 /* CollectionReelNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96F1284A6B21003D0486 /* CollectionReelNames.swift */; };
 		30EB96F6284CF63B003D0486 /* getListAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB96F5284CF63B003D0486 /* getListAdmin.swift */; };
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
@@ -395,6 +393,9 @@
 		308B4BEA27658A040039B74E /* Museum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Museum.swift; sourceTree = "<group>"; };
 		308B4BEC27658A710039B74E /* MuseumList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumList.swift; sourceTree = "<group>"; };
 		308B4BF027658B8F0039B74E /* ArtDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetails.swift; sourceTree = "<group>"; };
+		30A0AB88285A78460055905C /* connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connection.swift; sourceTree = "<group>"; };
+		30A0AB8A285A784C0055905C /* follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = follow.swift; sourceTree = "<group>"; };
+		30A0AB8C285A78520055905C /* liked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liked.swift; sourceTree = "<group>"; };
 		30BEBD4227BF1E470045EC74 /* getARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4427BF1E510045EC74 /* postARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateARPlayer.swift; sourceTree = "<group>"; };
@@ -405,14 +406,8 @@
 		30EB96E4284301E7003D0486 /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		30EB96E6284301F6003D0486 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		30EB96E82843AEA2003D0486 /* ProfileSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSignIn.swift; sourceTree = "<group>"; };
-
-		30EB96EB284726BE003D0486 /* connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = connection.swift; sourceTree = "<group>"; };
-		30EB96EC284726BE003D0486 /* follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = follow.swift; sourceTree = "<group>"; };
-		30EB96ED284726BE003D0486 /* liked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = liked.swift; sourceTree = "<group>"; };
-
 		30EB96F1284A6B21003D0486 /* CollectionReelNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReelNames.swift; sourceTree = "<group>"; };
 		30EB96F5284CF63B003D0486 /* getListAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getListAdmin.swift; sourceTree = "<group>"; };
-
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
@@ -974,7 +969,7 @@
 		3052136D278A2C3A00CE0224 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				30EB96EA2847260F003D0486 /* Pagination Models */,
+				30A0AB87285A78310055905C /* Pagination Models */,
 				3052136E278A2C3A00CE0224 /* UserLight.swift */,
 				3052136F278A2C3A00CE0224 /* Pending.swift */,
 				30521370278A2C3A00CE0224 /* GetUser.swift */,
@@ -1086,6 +1081,16 @@
 			path = MuseumList;
 			sourceTree = "<group>";
 		};
+		30A0AB87285A78310055905C /* Pagination Models */ = {
+			isa = PBXGroup;
+			children = (
+				30A0AB88285A78460055905C /* connection.swift */,
+				30A0AB8A285A784C0055905C /* follow.swift */,
+				30A0AB8C285A78520055905C /* liked.swift */,
+			);
+			path = "Pagination Models";
+			sourceTree = "<group>";
+		};
 		30BEBD4127BF1E330045EC74 /* ARPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1105,16 +1110,6 @@
 			path = SignIn;
 			sourceTree = "<group>";
 		};
-
-		30EB96EA2847260F003D0486 /* Pagination Models */ = {
-			isa = PBXGroup;
-			children = (
-				30EB96EB284726BE003D0486 /* connection.swift */,
-				30EB96EC284726BE003D0486 /* follow.swift */,
-				30EB96ED284726BE003D0486 /* liked.swift */,
-			);
-			path = "Pagination Models";
-
 		30EB96F3284CF617003D0486 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
@@ -1129,7 +1124,6 @@
 				30EB96F5284CF63B003D0486 /* getListAdmin.swift */,
 			);
 			path = Lists;
-
 			sourceTree = "<group>";
 		};
 		3103E0DF27112D7200135F08 /* PrivacyPolicyViewHelpers */ = {
@@ -1820,6 +1814,7 @@
 				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
 				30410A8127A677EB00284446 /* MembershipSetting.swift in Sources */,
 				3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */,
+				30A0AB89285A78460055905C /* connection.swift in Sources */,
 				30001BFD2796970B00527BF9 /* OtherProfileCollectionList.swift in Sources */,
 				3004D50126CD57A800323BCB /* TabBarViewController.swift in Sources */,
 				3052136B278A2C3100CE0224 /* RecentSearch.swift in Sources */,
@@ -1900,7 +1895,6 @@
 				30001BD6279685BB00527BF9 /* deleteProfile.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
 				30410A8427A677EB00284446 /* CuratorProgramSettingHeader.swift in Sources */,
-				30EB96EF284726BE003D0486 /* follow.swift in Sources */,
 				30410A7D27A677EB00284446 /* ArtistProgramSettingHeader.swift in Sources */,
 				30410A3B27A671AB00284446 /* MainSettingsViewHeader.swift in Sources */,
 				30410A3927A6719E00284446 /* MainSettingsViewBody.swift in Sources */,
@@ -1917,6 +1911,7 @@
 				30001BED2796947D00527BF9 /* SelfProfileViewHeader.swift in Sources */,
 				3004D4BA26C82F6B00323BCB /* GallifyApp.swift in Sources */,
 				30001C052796974B00527BF9 /* OtherProfileViewVerifiedDetails.swift in Sources */,
+				30A0AB8B285A784C0055905C /* follow.swift in Sources */,
 				3003B00A27EB987C00EA58B6 /* FullARView.swift in Sources */,
 				3153458027557BA500BD7B54 /* Slabs.swift in Sources */,
 				30001C44279C710500527BF9 /* FlexibleSheet.swift in Sources */,
@@ -1937,6 +1932,7 @@
 				30836FB7274A043300E83735 /* OtherSearchTemplate.swift in Sources */,
 				318C16A4281AFA4C00F63C3D /* ArtSearchResult.swift in Sources */,
 				30001BD02796858D00527BF9 /* getProfile.swift in Sources */,
+				30A0AB8D285A78520055905C /* liked.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
 				30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
@@ -1961,7 +1957,6 @@
 				30001BCA2796856B00527BF9 /* postDiscover.swift in Sources */,
 				30521378278A2C3A00CE0224 /* Connections.swift in Sources */,
 				30001BF1279694A800527BF9 /* SelfProfileViewVerifiedDetails.swift in Sources */,
-				30EB96EE284726BE003D0486 /* connection.swift in Sources */,
 				FC5DCE5527F9392E00AE345B /* ModelDeletionManager.swift in Sources */,
 				30836FC0274A050800E83735 /* DiscoverPostsViewTags.swift in Sources */,
 				311E93872752FB61005DFE12 /* Post_Large.swift in Sources */,
@@ -2014,7 +2009,6 @@
 				92DB7C6D273181240035B788 /* CreatePublishHeader.swift in Sources */,
 				30521385278A35C100CE0224 /* UrlImageModel.swift in Sources */,
 				319F25C926E572BA009B811E /* HomeViewAuction.swift in Sources */,
-				30EB96F0284726BE003D0486 /* liked.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

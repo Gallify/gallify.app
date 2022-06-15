@@ -1,3 +1,8 @@
-//@Published var artId: DocumentReference
-//@Published var userId: DocumentReference
-//@Published var time: Timestamp
+//
+//  liked.swift
+//  Gallify
+//
+//  Created by Tejvir Mann on 6/15/22.
+//
+
+import Foundation

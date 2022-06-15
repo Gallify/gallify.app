@@ -1,4 +1,8 @@
 //
-//@Published var followerRef: DocumentReference
-//@Published var followingRef: DocumentReference
-//@Published var time: Timestamp
+//  follow.swift
+//  Gallify
+//
+//  Created by Tejvir Mann on 6/15/22.
+//
+
+import Foundation
