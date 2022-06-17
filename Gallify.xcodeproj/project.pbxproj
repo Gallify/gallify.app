@@ -195,6 +195,7 @@
 		31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */; };
 		31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */; };
 		31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */; };
+		31CE2781285D405B00983C1E /* postListAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE2780285D405B00983C1E /* postListAdmin.swift */; };
 		31F1530F270B881400238459 /* OvalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1530E270B881400238459 /* OvalTextField.swift */; };
 		31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */; };
 		31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15314270CF3E000238459 /* CreateAccountViewBody.swift */; };
@@ -443,6 +444,7 @@
 		31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewNavLinks.swift; sourceTree = "<group>"; };
 		31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewHeader.swift; sourceTree = "<group>"; };
 		31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewBody.swift; sourceTree = "<group>"; };
+		31CE2780285D405B00983C1E /* postListAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postListAdmin.swift; sourceTree = "<group>"; };
 		31F1530E270B881400238459 /* OvalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalTextField.swift; sourceTree = "<group>"; };
 		31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewHeader.swift; sourceTree = "<group>"; };
 		31F15314270CF3E000238459 /* CreateAccountViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewBody.swift; sourceTree = "<group>"; };
@@ -1107,6 +1109,7 @@
 			isa = PBXGroup;
 			children = (
 				3113495D283C13370061FC3F /* getListAdmin.swift */,
+				31CE2780285D405B00983C1E /* postListAdmin.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -1857,6 +1860,7 @@
 				3153458227557F2300BD7B54 /* RecommendedSlabsView.swift in Sources */,
 				319F25C526E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
 				30410A7F27A677EB00284446 /* ProfileSettingHeader.swift in Sources */,
+				31CE2781285D405B00983C1E /* postListAdmin.swift in Sources */,
 				92794CFD273811760012B184 /* CollectionReelHeader.swift in Sources */,
 				30001BE62796871200527BF9 /* postSettings.swift in Sources */,
 				31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */,
