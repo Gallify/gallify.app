@@ -21,6 +21,9 @@ import FirebaseFirestoreSwift
 class Art: Encodable, Decodable, ObservableObject, Identifiable {
    
     enum CodingKeys: CodingKey {
+        
+        //marketplaceAddress //store address of the that it is being listed on.. String.
+
 
         case artId
         case collection
@@ -67,6 +70,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case creatorRef
         case ownerRef
         case isMinted
+        case marketplaceAddress
 
     }
     
@@ -78,7 +82,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var contentType: Int
     @Published var creator: String
     @Published var creatorId: String
-    @Published var createdDate: String //String
+    @Published var createdDate: Int //String
     @Published var createdPrice: Double
     
     @Published var desc: String
@@ -87,7 +91,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var genre: String
     @Published var history: [String]
    // @Published var latestHistoryDate : Timestamp //String
-    @Published var modifiedDate : String //String
+    @Published var modifiedDate : Int //String
     @Published var likes: Int
     @Published var location: String
     @Published var metadataUrl: String
@@ -112,7 +116,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var licenseType: String
     @Published var latestPurchasePrice: String
     @Published var latestPrice: String
-    @Published var latestPurchaseDate: String
+    @Published var latestPurchaseDate: Int
     @Published var isListing: Bool
     @Published var collectionRef: String
     @Published var creatorRef: String
@@ -120,7 +124,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     
     //new params as of 06/15/22
     @Published var isMinted: Bool
-    
+    @Published var marketplaceAddress: String
 
     
 
@@ -133,7 +137,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         contentType = 0
         creator = ""
         creatorId = ""
-        createdDate = ""
+        createdDate = 0
         createdPrice = 0
         desc = ""
         forSale = false
@@ -141,7 +145,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         genre = ""
         history = [String]()
        // latestHistoryDate = Timestamp()
-        modifiedDate = ""
+        modifiedDate = 0
         likes = 0
         location = ""
         metadataUrl = ""
@@ -158,7 +162,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         thumbnailUrl = ""
         tokenId = 0
         
-        latestPurchaseDate = ""
+        latestPurchaseDate = 0
         unlockableContent = ""
         geoContent = ""
         claimableIfNearOnly = false
@@ -171,7 +175,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         creatorRef = ""
         ownerRef = ""
         isMinted = false
-        
+        marketplaceAddress = ""
        
 
     }
@@ -188,7 +192,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         contentType = try container.decode(Int.self, forKey: .contentType)
         creator = try container.decode(String.self, forKey: .creator)
         creatorId = try container.decode(String.self, forKey: .creatorId)
-        createdDate = try container.decode(String.self, forKey: .createdDate) //Timestamp
+        createdDate = try container.decode(Int.self, forKey: .createdDate) //Timestamp
         createdPrice = try container.decode(Double.self, forKey: .createdPrice)
         
         desc = try container.decode(String.self, forKey: .desc)
@@ -196,7 +200,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         forBid = try container.decode(Bool.self, forKey: .forBid)
         genre = try container.decode(String.self, forKey: .genre)
         history = try container.decode([String].self, forKey: .history)
-        modifiedDate = try container.decode(String.self, forKey: .modifiedDate)
+        modifiedDate = try container.decode(Int.self, forKey: .modifiedDate)
 
    //     latestHistoryDate = try container.decode(Timestamp.self, forKey: .latestHistoryDate)
 
@@ -216,7 +220,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         thumbnailUrl = try container.decode(String.self, forKey: .thumbnailUrl)
         tokenId = try container.decode(Int.self, forKey: .tokenId)
         
-        latestPurchaseDate = try container.decode(String.self, forKey: .latestPurchaseDate)
+        latestPurchaseDate = try container.decode(Int.self, forKey: .latestPurchaseDate)
         unlockableContent = try container.decode(String.self, forKey: .unlockableContent)
         geoContent = try container.decode(String.self, forKey: .geoContent)
         claimableIfNearOnly = try container.decode(Bool.self, forKey: .claimableIfNearOnly)
@@ -230,6 +234,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         ownerRef = try container.decode(String.self, forKey: .ownerRef)
         
         isMinted = try container.decode(Bool.self, forKey: .isMinted)
+        marketplaceAddress = try container.decode(String.self, forKey: .marketplaceAddress)
 
         
     }
@@ -284,7 +289,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(creatorRef, forKey: .creatorRef)
         try container.encode(ownerRef, forKey: .ownerRef)
         try container.encode(isMinted, forKey: .isMinted)
-
+        try container.encode(marketplaceAddress, forKey: .marketplaceAddress)
         
     }
     
