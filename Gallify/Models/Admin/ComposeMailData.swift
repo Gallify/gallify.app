@@ -1,23 +1,23 @@
+////
+////  ComposeMailData.swift
+////  Gallify
+////
+////  Created by shruti on 6/5/22.
+////
 //
-//  ComposeMailData.swift
-//  Gallify
+//import Foundation
+//import FirebaseFirestore
+//import FirebaseFirestoreSwift
 //
-//  Created by shruti on 6/5/22.
+//struct ComposeMailData {
+//  let subject: String
+//  let recipients: [String]?
+//  let message: String
+//  let attachments: [AttachmentData]?
+//}
 //
-
-import Foundation
-import FirebaseFirestore
-import FirebaseFirestoreSwift
-
-struct ComposeMailData {
-  let subject: String
-  let recipients: [String]?
-  let message: String
-  let attachments: [AttachmentData]?
-}
-
-struct AttachmentData {
-  let data: Data
-  let mimeType: String
-  let fileName: String
-}
+//struct AttachmentData {
+//  let data: Data
+//  let mimeType: String
+//  let fileName: String
+//}

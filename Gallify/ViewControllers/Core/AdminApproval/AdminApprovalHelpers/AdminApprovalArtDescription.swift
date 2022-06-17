@@ -88,13 +88,14 @@ struct AdminApprovalArtDescription: View {
                 })
                 
                 Button(action: {
+                    MailViewTest()
                     
                     Task {
                         await firestoreQuery.rejectArt(art: artDetails)
                     }
                     
                     //send an email to the user explaining why it was rejected
-                    MailViewTest()
+                    
                     
                 }, label: {
                     
