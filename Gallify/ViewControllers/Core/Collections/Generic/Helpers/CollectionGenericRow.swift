@@ -210,7 +210,7 @@ struct CollectionGenericRow: View {
 
                                 if(!loginModel.isGuest){
                                     //if else. If they created the playlist or not.
-                                    if(thePlaylist.creator_url == firestoreQuery.data.uid){
+                                    if(thePlaylist.creatorUrl == firestoreQuery.data.uid){
                                         Button(action: {
                                             firestoreQuery.showGenericArtOptions = true
                                             self.art = playlist[i] //Setting art var when ellipses is clicked
