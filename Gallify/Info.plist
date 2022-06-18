@@ -21,6 +21,8 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Wallet Connect</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wc</string>
@@ -29,9 +31,21 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Metamask</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>metamask</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Bundle ID</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>beta.gallify.app</string>
 			</array>
 		</dict>
 	</array>
