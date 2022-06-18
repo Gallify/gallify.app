@@ -90,9 +90,7 @@ struct CollectionReelListing: View {
                             
                             
                             HStack {
-                                if(firestoreQuery.isLiked == true && showActionSheet == true && like  == true) {
-                                    Text("You have already liked this art before!")
-                                }
+                              
                                 VStack{ //name and creator
                                     
                                     NavigationLink (
@@ -242,10 +240,15 @@ struct CollectionReelListing: View {
                                             buttons: [
                                                 .default(Text("Like")) {
                                                     Task {
+                                                        await firestoreQuery.checkIfalreadyLiked(art: art)
+                                                        if firestoreQuery.isLiked == true {
+                                                            await firestoreQuery.unlikeArt()
+                                                        }
                                                         await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
                                                         await firestoreQuery.createLikedDocument(art: art)
                                                         //reload library
                                                         await firestoreQuery.getUserLibrary()
+                                                        
                                                     }
                                                 },
                                                 .default(Text("Add to Collection")) {

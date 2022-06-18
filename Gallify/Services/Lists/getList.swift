@@ -243,13 +243,9 @@ extension FirestoreQuery {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
+    func fetchLikedArt() async {
+        
+    }
     
     
     
