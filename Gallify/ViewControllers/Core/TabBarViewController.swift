@@ -170,7 +170,7 @@ struct TabBarView: View {
             
         UITabBar.appearance().isHidden = firestoreQuery.showNewScreen
 //
-//        let auth = Auth.auth()
+        let auth = Auth.auth()
 //        try? auth.signOut()
 //        loginModel.signedIn = false
 //        loginModel.newUserCreated = false
@@ -208,39 +208,42 @@ struct TabBarView: View {
         
         
         
+    /*
+            var db = Firestore.firestore()
+            let userDocRef = try db.collection("users").document(auth.currentUser!.uid)
+            do{
+                let libraryPlaylistNames = ["Collection3", "Aphex", "Collection4"]
+                for i in 0...2 {
+                  let playlist = Playlist()
+                  playlist.name = libraryPlaylistNames[i]
+                  let playlistRef = try db.collection("playlists").document()
+                  try playlistRef.setData(from: playlist)
+                    try await userDocRef.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])])
+
+                }
+            }
+            catch{
+
+            }
+
+            do{
+                let libraryArtNames = ["test30" , "test31"]
+                for i in 0...1{
+                  let art = Art()
+                  art.name = libraryArtNames[i]
+                  let artRef = try db.collection("art").document()
+                    art.artId = artRef.documentID
+                  try artRef.setData(from: art)
+
+                }
+            }
+            catch{
+
+            }
+        */
         
-            
-                    //var db = Firestore.firestore()
-//            let userDocRef = try db.collection("users").document(auth.currentUser!.uid)
-//            do{
-//                let libraryPlaylistNames = ["Collection1", "Donda", "Collection2"]
-//                for i in 0...2 {
-//                  let playlist = Playlist()
-//                  playlist.name = libraryPlaylistNames[i]
-//                  let playlistRef = try db.collection("playlists").document()
-//                  try playlistRef.setData(from: playlist)
-//                    try await userDocRef.updateData(["Library": FieldValue.arrayUnion([playlistRef.documentID])])
-//
-//                }
-//            }
-//            catch{
-//
-//            }
-//
-//            do{
-//                let libraryArtNames = ["test23" , "test24", "test25", "test26"]
-//                for i in 0...3{
-//                  let art = Art()
-//                  art.name = libraryArtNames[i]
-//                  let artRef = try db.collection("art").document()
-//                    art.artId = artRef.documentID
-//                  try artRef.setData(from: art)
-//
-//                }
-//            }
-//            catch{
-//
-//            }
+        
+        
 
             doneLoading = true
       //  }

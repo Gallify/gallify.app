@@ -34,7 +34,28 @@ struct SelfProfileViewDetails: View {
             HStack {
                 
                 if firestoreQuery.data.profileImageUrl == "" {
+                    /*
                     CircleImage(image: Image(systemName: "circle"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
+                    */
+                    
+                    //SVG's don't work in swift atm. Need a library to use this.
+                    let defaultImage = "https://avatar.tobi.sh/" + "\(firestoreQuery.data.uid)" + ".svg"
+                    WebImage(url: URL(string: defaultImage))
+                       // Supports options and context, like `.delayPlaceholder` to show placeholder only when error
+                       .onSuccess { image, data, cacheType in
+                           // Success
+                           // Note: Data exist only when queried from disk cache or network. Use `.queryMemoryData` if you really need data
+                       }
+                       .resizable()
+                        .placeholder(Image("logo")) // Placeholder Image
+                       .indicator(.activity) // Activity Indicator
+                       .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                       .scaledToFill()
+                       .frame(width: screenWidth / 4, height: screenHeight / 8.65)
+                       .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                       .overlay(Circle().stroke(.white, lineWidth: 4))
+                    
+                    
                 }
                 else {
                     WebImage(url: URL(string: firestoreQuery.data.profileImageUrl))

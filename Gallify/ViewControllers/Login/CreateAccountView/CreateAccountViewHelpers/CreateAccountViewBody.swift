@@ -127,7 +127,7 @@ struct CreateAccountViewBody: View {
                 
             HStack {
                     
-                Text("First Name")
+                Text("Display Name")
                     .font(.system(size: screenWidth / 22, weight: .semibold))
                     
                 Spacer()
