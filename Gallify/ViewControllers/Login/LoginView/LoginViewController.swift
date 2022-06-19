@@ -267,7 +267,7 @@ class LoginAppViewModel: ObservableObject {
                 
                // let userDocRef = try await db.collection("users").document(user.uid)
                 
-                for i in 0...4 {
+                for i in 0...5 {
                     
                     //add singles collection! address is blank. AND it's a collection. 
                     
