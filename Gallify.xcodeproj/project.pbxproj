@@ -206,6 +206,9 @@
 		33C12AEB27E8039C00CC34A8 /* FirebaseStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */; };
 		33E41CDF27FFB68E0037FDBC /* Liked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E41CDE27FFB68E0037FDBC /* Liked.swift */; };
 		49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */; };
+		641D51B5285D5B860035F1E2 /* AROverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D51B4285D5B860035F1E2 /* AROverlayView.swift */; };
+		641D51B7285D5BA90035F1E2 /* ARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D51B6285D5BA90035F1E2 /* ARViewModel.swift */; };
+		647BC6C9285D635C00748413 /* ARDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647BC6C8285D635C00748413 /* ARDisplayView.swift */; };
 		8F74D4B0DD6ECDB488245090 /* Pods_Gallify_GallifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */; };
 		92794CFB273811760012B184 /* CollectionReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CE4273811760012B184 /* CollectionReelView.swift */; };
 		92794CFC273811760012B184 /* CollectionReelListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CE6273811760012B184 /* CollectionReelListing.swift */; };
@@ -457,6 +460,9 @@
 		33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageHelper.swift; sourceTree = "<group>"; };
 		33E41CDE27FFB68E0037FDBC /* Liked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liked.swift; sourceTree = "<group>"; };
 		41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		641D51B4285D5B860035F1E2 /* AROverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AROverlayView.swift; sourceTree = "<group>"; };
+		641D51B6285D5BA90035F1E2 /* ARViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
+		647BC6C8285D635C00748413 /* ARDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDisplayView.swift; sourceTree = "<group>"; };
 		65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GallifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.debug.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		92794CE4273811760012B184 /* CollectionReelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReelView.swift; sourceTree = "<group>"; };
@@ -744,6 +750,7 @@
 			isa = PBXGroup;
 			children = (
 				318C16A9281AFECA00F63C3D /* AdminApproval */,
+				641D51B12852BDB30035F1E2 /* SARPlayer */,
 				3003B00427EB983900EA58B6 /* ARPlayer */,
 				92794CE2273811760012B184 /* Collections */,
 				92DB7C52273167F90035B788 /* Create */,
@@ -1347,6 +1354,16 @@
 			path = SetPasswordViewHelpers;
 			sourceTree = "<group>";
 		};
+		641D51B12852BDB30035F1E2 /* SARPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				641D51B4285D5B860035F1E2 /* AROverlayView.swift */,
+				641D51B6285D5BA90035F1E2 /* ARViewModel.swift */,
+				647BC6C8285D635C00748413 /* ARDisplayView.swift */,
+			);
+			path = SARPlayer;
+			sourceTree = "<group>";
+		};
 		92794CE2273811760012B184 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
@@ -1821,6 +1838,7 @@
 				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
 				3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */,
 				3003AFFF27E4EF7600EA58B6 /* CollectionGenericImage.swift in Sources */,
+				641D51B7285D5BA90035F1E2 /* ARViewModel.swift in Sources */,
 				30410A0627A1E7D000284446 /* USDZPostHelper.swift in Sources */,
 				30001BF3279694B600527BF9 /* SelfProfileCollectionList.swift in Sources */,
 				30001BE82796871C00527BF9 /* updateSettings.swift in Sources */,
@@ -1897,6 +1915,7 @@
 				3153458027557BA500BD7B54 /* Slabs.swift in Sources */,
 				30001C44279C710500527BF9 /* FlexibleSheet.swift in Sources */,
 				3003B00C27EB989200EA58B6 /* ModelViewModel.swift in Sources */,
+				647BC6C9285D635C00748413 /* ARDisplayView.swift in Sources */,
 				30001BD22796859600527BF9 /* postProfile.swift in Sources */,
 				30410A8027A677EB00284446 /* ProfileSettingBody.swift in Sources */,
 				30410A7B27A677EB00284446 /* AccountSettingBody.swift in Sources */,
@@ -1936,6 +1955,7 @@
 				30001BCE2796857F00527BF9 /* deleteDiscover.swift in Sources */,
 				30001BCA2796856B00527BF9 /* postDiscover.swift in Sources */,
 				30521378278A2C3A00CE0224 /* Connections.swift in Sources */,
+				641D51B5285D5B860035F1E2 /* AROverlayView.swift in Sources */,
 				30001BF1279694A800527BF9 /* SelfProfileViewVerifiedDetails.swift in Sources */,
 				FC5DCE5527F9392E00AE345B /* ModelDeletionManager.swift in Sources */,
 				30836FC0274A050800E83735 /* DiscoverPostsViewTags.swift in Sources */,
@@ -2169,7 +2189,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = K35JM9B532;
+				DEVELOPMENT_TEAM = 5XCZQ7C9J7;
 				ENABLE_PREVIEWS = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Gallify/Info.plist;
@@ -2180,7 +2200,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify.sahil.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2197,7 +2217,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = K35JM9B532;
+				DEVELOPMENT_TEAM = 5XCZQ7C9J7;
 				ENABLE_PREVIEWS = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Gallify/Info.plist;
@@ -2209,7 +2229,7 @@
 				);
 				MARKETING_VERSION = 0.1.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify.sahil.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

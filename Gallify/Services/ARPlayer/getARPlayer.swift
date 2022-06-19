@@ -15,25 +15,9 @@ extension FirestoreQuery {
     /*
      This methods fethches the data models and metadata from firebase.
      */
-    func fetchModelData() async {
-        
-        //call firebase here.
-        
-        for art in self.artworkThatsPlaying {
-            
-            var model: Model
-            
-            model = await Model(artwork: art)
-            self.models.append(model)
-            
-//            model.asyncLoadModelEntity { completed, error in
-//                if completed {
-//                    //select model for placement
-//                    self.models.append(model)
-//                    model.contentLoaded = true
-//                }
-//            }
-        }
+    
+    func fetchModelData() -> [Model] {
+        return artworkThatsPlaying.map { Model(artwork: $0) }
     }
     
     /*
