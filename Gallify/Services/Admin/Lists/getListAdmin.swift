@@ -77,7 +77,7 @@ extension FirestoreQuery {
         await getOtherUser(user_id: otherUserId)
         let reviewPlaylistId = self.otherUserData.review
         let createdPlaylistId = self.otherUserData.created
-        
+        let ownedPlaylistId = self.otherUserData.owned
 //
         //Remove art from Review Doc
         do {
@@ -100,6 +100,19 @@ extension FirestoreQuery {
             
         } catch {
             print("Error adding art to created Playlist: \(error.localizedDescription)")
+        }
+        
+        
+        if(art.owner == otherUserId){ //added 06/19/22 by Tejvir
+            //add art to created doc
+            do {
+                try await FirestoreQuery.db.collection("playlists").document(ownedPlaylistId).updateData([
+                    "art": FieldValue.arrayUnion([art.artId])
+                ])
+                
+            } catch {
+                print("Error adding art to owned Playlist: \(error.localizedDescription)")
+            }
         }
        
         

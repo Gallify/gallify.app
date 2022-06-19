@@ -217,6 +217,7 @@ extension FirestoreQuery {
                 //
             }
             catch{
+                
                 print("Error")
             }
         }
