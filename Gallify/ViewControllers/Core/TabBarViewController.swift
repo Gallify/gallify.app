@@ -190,12 +190,12 @@ struct TabBarView: View {
                 await firestoreQuery.getHomeMuseumList()
             }
             if(loginModel.isGuest){
-                
+                await firestoreQuery.getHomeMuseumListGuest()
             }
         
         
             //await firestoreQuery.getHome()
-            await firestoreQuery.getHomeMuseumListGuest()
+            //await firestoreQuery.getHomeMuseumListGuest()
 
             //getMuseums. Gets all these Museums. List of Playlists
             await firestoreQuery.getHomeMuseums()
