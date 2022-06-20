@@ -7,6 +7,9 @@
 import SwiftUI
 import Firebase
 import UIKit
+import CryptoSwift
+//import Checksum
+import web3
 
 //@MainActor
 class LoginAppViewModel: ObservableObject {
@@ -43,6 +46,9 @@ class LoginAppViewModel: ObservableObject {
     
     
     func issignedin() -> Bool{
+        
+//        let auth = Auth.auth()
+//        try? auth.signOut()
         
         //this runs a background task to see if doc created, self.documentCreated should update.
         if(!self.documentCreated){
@@ -179,16 +185,11 @@ class LoginAppViewModel: ObservableObject {
         
         
         do{
-//            print("username")
-//            print(user.username)
-            
-            // Set user data.
-//            user.email = self.auth.currentUser!.email!
-//            user.uid = self.auth.currentUser!.uid
-            
-//            user.email = userData.userData.email
-            user.uid = walletConnect.session.walletInfo?.accounts[0] ?? ""
-            print(user.uid)
+
+            //convert to checksum address.
+            let checkSumWallet = EthereumAddress(walletConnect.session.walletInfo?.accounts[0] ?? "No Wallet")
+            let wallet = EthereumAddress.toChecksumAddress(checkSumWallet)()
+            user.uid = wallet
             
             let userRef = db.collection("users").document(user.uid) //used to be .email
             try await userBatch.setData(from: user, forDocument: userRef)
@@ -218,10 +219,15 @@ class LoginAppViewModel: ObservableObject {
         let batch = db.batch()
         
         
-        
-        user.uid = walletConnect.session.walletInfo?.accounts[0] ?? ""
+        //convert to checksum address.
+        let checkSumWallet = EthereumAddress(walletConnect.session.walletInfo?.accounts[0] ?? "No Wallet")
+        let wallet = EthereumAddress.toChecksumAddress(checkSumWallet)()
+        user.uid = wallet
+       
+       // print(walletConnect.session.walletInfo?.accounts[0])
         
         let userRef = db.collection("users").document(user.uid) //used to be .email
+        
         
         do{
             
@@ -503,7 +509,7 @@ class LoginAppViewModel: ObservableObject {
                 }
 
                 let responseString = String(data: jsonData, encoding: .utf8)
-                //print("responseString = \(responseString)")
+                print("responseString = \(responseString)")
                 
                 
               //  DispatchQueue.main.async {
@@ -622,7 +628,14 @@ struct LoginView: View, WalletConnectDelegate {
         //if signed in is false.
         if(viewModel.semaphore_WalletConnect){
             //get custom token, convert to swift objects
-            let wallet = viewModel.walletConnect.session.walletInfo?.accounts[0] ?? ""
+            var wallet = viewModel.walletConnect.session.walletInfo?.accounts[0] ?? ""
+           
+            //convert to checksum address.
+//            let checkSumWallet = EthereumAddress(wallet)
+//            wallet = EthereumAddress.toChecksumAddress(checkSumWallet)()
+//
+            
+            
             viewModel.getCustomToken(walletAddress: wallet)
             DispatchQueue.main.async {
                 viewModel.semaphore_WalletConnect = false

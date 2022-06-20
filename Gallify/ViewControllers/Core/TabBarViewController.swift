@@ -170,7 +170,7 @@ struct TabBarView: View {
             
         UITabBar.appearance().isHidden = firestoreQuery.showNewScreen
 //
-        let auth = Auth.auth()
+//        let auth = Auth.auth()
 //        try? auth.signOut()
 //        loginModel.signedIn = false
 //        loginModel.newUserCreated = false
