@@ -226,6 +226,7 @@ struct CollectionReelListing: View {
                                     Button(action: {
                                         firestoreQuery.showReelArtOptions = true
                                         self.art = artwork //Setting art var when ellipses is clicked
+                                        firestoreQuery.artThatsPlaying = self.art
                                     }, label: {
                                                                 
                                         Image(systemName: "ellipsis")
@@ -242,7 +243,7 @@ struct CollectionReelListing: View {
                                                     Task {
                                                         await firestoreQuery.checkIfalreadyLiked(art: art)
                                                         if firestoreQuery.isLiked == true {
-                                                            await firestoreQuery.unlikeArt()
+                                                            await firestoreQuery.unlikeArt(art: art)
                                                         }
                                                         await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
                                                         await firestoreQuery.createLikedDocument(art: art)

@@ -445,6 +445,8 @@
 		31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewHeader.swift; sourceTree = "<group>"; };
 		31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewBody.swift; sourceTree = "<group>"; };
 		31CE2780285D405B00983C1E /* postListAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postListAdmin.swift; sourceTree = "<group>"; };
+		31CE2782285D4EA800983C1E /* deeplinktest.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; name = deeplinktest.mobileprovision; path = ../../../deeplinktest.mobileprovision; sourceTree = "<group>"; };
+		31CE2783285D4EBD00983C1E /* deeplinktest.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = deeplinktest.mobileprovision; sourceTree = "<group>"; };
 		31F1530E270B881400238459 /* OvalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalTextField.swift; sourceTree = "<group>"; };
 		31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewHeader.swift; sourceTree = "<group>"; };
 		31F15314270CF3E000238459 /* CreateAccountViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewBody.swift; sourceTree = "<group>"; };
@@ -644,6 +646,7 @@
 		3004D4AD26C82F6A00323BCB = {
 			isa = PBXGroup;
 			children = (
+				31CE2783285D4EBD00983C1E /* deeplinktest.mobileprovision */,
 				3004D4B826C82F6B00323BCB /* Gallify */,
 				3004D4CA26C82F6E00323BCB /* GallifyTests */,
 				3004D4D526C82F6E00323BCB /* GallifyUITests */,
@@ -666,6 +669,7 @@
 		3004D4B826C82F6B00323BCB /* Gallify */ = {
 			isa = PBXGroup;
 			children = (
+				31CE2782285D4EA800983C1E /* deeplinktest.mobileprovision */,
 				3003B01327F6983E00EA58B6 /* Gallify.entitlements */,
 				30836FA52749E39D00E83735 /* Services */,
 				3004D4F626CD4D3F00323BCB /* Managers */,

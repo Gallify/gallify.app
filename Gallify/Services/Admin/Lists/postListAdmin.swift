@@ -70,14 +70,13 @@ func approveArt(art: Art) async{
    
 }
 
-    
 func postArtToMarketplace(collectionId : String, artId:String) async  {
     let apiAddress = "api.gallify.app/v0/mint/\(collectionId)/\(artId)"
     print(apiAddress)
 
     let url = URL(string: apiAddress)!
     var request = URLRequest(url: url)
-    request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//    request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "POST"
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
