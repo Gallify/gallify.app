@@ -157,6 +157,53 @@ class LoginAppViewModel: ObservableObject {
         
     }
     
+    
+    /*
+     06/20/22
+     This function calls the gallify.api via /v0/timenow to get the current time.
+     
+     Unix
+     */
+    func timeNow() -> Int {
+        
+        var time = 0
+        let apiAddress = "https://api.gallify.app/v0/timenow/"
+        let url = URL(string: apiAddress)!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            //get data
+            //print(data)
+            guard let jsonData = data,
+                let response = response as? HTTPURLResponse,
+                error == nil else {      // check for fundamental networking error
+                print("error", error ?? "Unknown error")
+                return
+            }
+
+            guard (200 ... 299) ~= response.statusCode else { // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
+                return
+            }
+
+            let responseString = String(data: jsonData, encoding: .utf8)
+            time = Int(responseString ?? "0")!
+//            print(time)
+//            print("responseString = \(responseString)")
+            
+        }
+        task.resume()
+        
+        return time
+
+    }
+    
+    
+    
     func createAccount(password: String, user: User) {
         //var userEmailAdded = false
         
@@ -209,6 +256,7 @@ class LoginAppViewModel: ObservableObject {
         
     }
     
+    
     func createUserData(user: User) async{
     
        // var userSubCollectionsCreated = false
@@ -227,6 +275,8 @@ class LoginAppViewModel: ObservableObject {
        // print(walletConnect.session.walletInfo?.accounts[0])
         
         let userRef = db.collection("users").document(user.uid) //used to be .email
+        
+        let time = timeNow()
         
         
         do{
@@ -285,6 +335,10 @@ class LoginAppViewModel: ObservableObject {
                     let playlistRef = db.collection("playlists").document()
                     playlist.playlistId = playlistRef.documentID
                     playlist.creatorUrl = user.uid /*Auth.auth().currentUser?.uid ?? ""*/
+                    playlist.creatorRef = user.uid
+                    
+                    playlist.createdDate = time
+                    playlist.modifiedDate = time
                     
                     playlist.creator = user.displayName
 

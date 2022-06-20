@@ -117,12 +117,19 @@ extension FirestoreQuery {
      */
     func create_playlist(name: String, privacy: Int, type: String) async -> String  {
         
+        let time = timeNow()
+        print(time)
+        
+        
         let newPlaylist = Playlist(newName: name, pri: privacy, type: type, the_creator: self.data)
     
         let docRef = try! await Firestore.firestore().collection("playlists").document()
         newPlaylist.playlistId = docRef.documentID
 
         newPlaylist.creatorUrl = self.data.uid
+        newPlaylist.creatorRef = self.data.uid
+        newPlaylist.createdDate = time
+        newPlaylist.modifiedDate = time
 
         do {
           try await docRef.setData(from: newPlaylist)
@@ -134,6 +141,53 @@ extension FirestoreQuery {
         addPlaylistToLibrary(playlist: newPlaylist)
         
         return docRef.documentID
+    }
+    
+    /*
+     06/20/22
+     This function calls the gallify.api via /v0/timenow to get the current time.
+     
+     Also in login view model. Kind of inefficient if you ask me.
+     
+     Unix
+     */
+    func timeNow() -> Int {
+        
+        var time = 0
+        let apiAddress = "https://api.gallify.app/v0/timenow/"
+        let url = URL(string: apiAddress)!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            //get data
+            //print(data)
+            guard let jsonData = data,
+                let response = response as? HTTPURLResponse,
+                error == nil else {      // check for fundamental networking error
+                print("error", error ?? "Unknown error")
+                return
+            }
+
+            guard (200 ... 299) ~= response.statusCode else { // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
+                return
+            }
+
+            let responseString = String(data: jsonData, encoding: .utf8)
+            time = Int(responseString ?? "0")!
+//            print(time)
+//            print("responseString = \(responseString)")
+            
+        }
+        task.resume()
+        
+        print(time)
+        return time
+
     }
     
     /*
