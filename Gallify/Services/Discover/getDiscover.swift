@@ -93,7 +93,7 @@ extension FirestoreQuery {
             
             let doc = try await FirestoreQuery.db.collection("users").document(FirestoreQuery.userId ?? "help").collection("discover")
                 .document("recentsearch")
-                .getDocument().data(as: [Art].self)
+                .getDocument().data(as: [Art]?.self)
             
             guard let recentSearches = doc else{
                 throw DatabaseError.failed

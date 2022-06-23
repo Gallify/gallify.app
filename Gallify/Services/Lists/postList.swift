@@ -19,8 +19,6 @@ extension FirestoreQuery {
     func addArtToPlaylist(art: Art, the_playlist: Playlist) async {
                                             
         do {
-            
-            print("PLAYLIST ID = ", the_playlist.playlist_id, "ART ID = ", art.artId)
             let doc = try await FirestoreQuery.db.collection("playlists").document(the_playlist.playlist_id).updateData([
                 "art": FieldValue.arrayUnion([art.artId])
                 ])
@@ -32,17 +30,20 @@ extension FirestoreQuery {
                         "collection": the_playlist.playlist_id])
                 }
             }
-            
-                
+
         }
         catch{
             print("Error")
         }
     }
     
+    /*
+        Sets isLiked published variable to true if liked collection contains document with artId;
+        Otherwise sets isLiked to false.
+     */
     func checkIfalreadyLiked(art: Art) async {
-        let docRef = try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
-            .collection("profile").whereField("liked", arrayContains: art.artId)
+        let docRef = try await FirestoreQuery.db.collection("liked")
+            .whereField("artId", isEqualTo: art.artId)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -68,6 +69,54 @@ extension FirestoreQuery {
 //        return self.isLiked
         
     }
+    /**
+     Creates a new document per like
+     Increases art likes number by 1
+     */
+    func createLikedDocument(art: Art) async {
+        let docRef = FirestoreQuery.db.collection("liked").document() //document has random id
+        var liked = Liked()
+        liked.artId = art.artId
+        liked.userId = Auth.auth().currentUser?.uid ?? ""
+        let date = Date.now
+        liked.time =  Timestamp(date: date)//ask RENO about this
+        do {
+            try await docRef.setData(from: liked)
+        } catch {
+            print("Error creating document for liked art \(error.localizedDescription)")
+        }
+        
+        //increase likes counter by 1 in firestore doc
+        var prevLikes = art.likes
+        do {
+            let artDoc = try await FirestoreQuery.db.collection("art").document(art.artId)
+                .updateData([
+                    "likes" : prevLikes + 1
+                ])
+        } catch {
+            print("Couldn't increase likes for art");
+        }
+        
+        //update likes locally
+        
+        
+    }
+    /**
+        Reduces art likes by 1
+     */
+    func unlikeArt(art: Art) async {
+        var prevLikes = art.likes
+        do {
+            let artDoc = try await FirestoreQuery.db.collection("art").document(art.artId)
+                .updateData([
+                    "likes" : prevLikes - 1
+                ])
+        } catch {
+            print("Couldn't increase likes for art");
+        }
+        
+        //update likes locally
+    }
     
     func addArtToPlaylist(art: Art, playlistName: String) async {
         
@@ -79,7 +128,7 @@ extension FirestoreQuery {
                         "art" : FieldValue.arrayUnion([art.artId])
                     ])
                     //add to liked_art subcollection
-                    if(p.name == "Liked") {                         try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
+                    if(p.name == "Liked") {                   try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
                             .collection("profile")
                             .document("liked_art")
                             .updateData(["liked" : FieldValue.arrayUnion([art.artId])])
@@ -97,14 +146,15 @@ extension FirestoreQuery {
     
     
     //adds playlist to library
-    func addPlaylistToLibrary(playlist: Playlist) {
+    func addPlaylistToLibrary(playlist: Playlist) async {
 
         do {
-            try FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(["Library" : FieldValue.arrayUnion([playlist.playlist_id])])
+            try await FirestoreQuery.db.collection("users").document((Auth.auth().currentUser?.uid)!).updateData(["Library" : FieldValue.arrayUnion([playlist.playlist_id])])
         } catch {
             print("Error adding playlist to library")
         }
         self.userLibrary.append(playlist)
+        self.data.Library.append(playlist.name)
         
     }
     
@@ -128,7 +178,7 @@ extension FirestoreQuery {
         }
         
         //update library with new playlist
-        addPlaylistToLibrary(playlist: newPlaylist)
+        await addPlaylistToLibrary(playlist: newPlaylist)
         
         return docRef.documentID
     }

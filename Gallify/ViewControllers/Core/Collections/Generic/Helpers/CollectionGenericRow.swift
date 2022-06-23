@@ -384,21 +384,12 @@ struct CollectionGenericRow: View {
                 playlistOwner = firestoreQuery.otherUserData
             }
             
-            
-            //shruti
-            print("Playlist passed to generic row = ", thePlaylist.name)
             await firestoreQuery.getPlaylist(playlist_id: thePlaylist.playlist_id)
             
             await firestoreQuery.getPlaylistArt(playlist: firestoreQuery.playlist)
-            //print("ART: \(firestoreQuery.playlistArt[1].creator)")
             
             playlist = firestoreQuery.playlistArt
-            //
-            
-            // code before
-            //await firestoreQuery.getPlaylistArt(playlist: thePlaylist)
-            //playlist = firestoreQuery.playlistArt
-            
+
             
         }
     

@@ -18,7 +18,7 @@ extension FirestoreQuery {
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(data.featured)
-                .getDocument().data(as: Playlist.self)
+                .getDocument().data(as: Playlist?.self)
 
 
             guard let thefeaturedPlaylist = doc2 else{
@@ -53,7 +53,7 @@ extension FirestoreQuery {
             do {
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(art_id)
-                    .getDocument().data(as: Art.self)
+                    .getDocument().data(as: Art?.self)
                 
                 guard let theArt = doc else{
                     throw DatabaseError.failed
@@ -100,7 +100,7 @@ extension FirestoreQuery {
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(playlist_id)
-                .getDocument().data(as: Playlist.self)
+                .getDocument().data(as: Playlist?.self)
             
                 
             guard let thePlaylist = doc2 else{
@@ -115,6 +115,8 @@ extension FirestoreQuery {
         }
     }
     
+    
+    
     /*
      gets a playlist given id. This is used in ReelDescription only!
      */
@@ -125,7 +127,7 @@ extension FirestoreQuery {
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(playlist_id)
-                .getDocument().data(as: Playlist.self)
+                .getDocument().data(as: Playlist?.self)
             
                 
             guard let thePlaylist = doc2 else{
@@ -148,16 +150,6 @@ extension FirestoreQuery {
      Always needs to be called after getPlaylist()
      */
     func getPlaylistArt(playlist: Playlist) async {
-        print("playlist IN GET PLAYLIST ART = ", playlist.name)
-    
-        print("is art array in playlist empty? ", playlist.art.isEmpty)
-//        if !(playlistArt.isEmpty){ //if featured playlist isnt empty, then return.
-//            return
-//        }
-        for art in playlist.art {
-            print("art in playlist art = ", art)
-        }
-        
         var art_array = [Art]()
         
         print(playlist.art.count)
@@ -167,7 +159,7 @@ extension FirestoreQuery {
                 
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(art_id)
-                    .getDocument().data(as: Art.self)
+                    .getDocument().data(as: Art?.self)
                 
                 print("Art Doc")
                 print(doc)
@@ -195,7 +187,7 @@ extension FirestoreQuery {
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(otherUserData.featured)
-                .getDocument().data(as: Playlist.self)
+                .getDocument().data(as: Playlist?.self)
 
 
             guard let thefeaturedPlaylist = doc2 else{
@@ -227,7 +219,7 @@ extension FirestoreQuery {
             do {
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(art_id)
-                    .getDocument().data(as: Art.self)
+                    .getDocument().data(as: Art?.self)
                 
                 guard let theArt = doc else{
                     throw DatabaseError.failed
@@ -251,13 +243,9 @@ extension FirestoreQuery {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
+    func fetchLikedArt() async {
+        
+    }
     
     
     

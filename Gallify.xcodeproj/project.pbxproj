@@ -78,7 +78,6 @@
 		3004D51326CDB91200323BCB /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51226CDB91200323BCB /* SellViewController.swift */; };
 		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
 		304109F6279D27AC00284446 /* MinimizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304109F5279D27AC00284446 /* MinimizedView.swift */; };
-		304109F8279E24EC00284446 /* FirestoreUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304109F7279E24EC00284446 /* FirestoreUploadService.swift */; };
 		30410A0427A1E7BE00284446 /* USDZPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A0327A1E7BE00284446 /* USDZPost.swift */; };
 		30410A0627A1E7D000284446 /* USDZPostHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A0527A1E7D000284446 /* USDZPostHelper.swift */; };
 		30410A0827A1E7FD00284446 /* AirForce.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30410A0727A1E7FD00284446 /* AirForce.usdz */; };
@@ -147,6 +146,7 @@
 		3111174326EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174426EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */; };
+		3113495E283C13370061FC3F /* getListAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3113495D283C13370061FC3F /* getListAdmin.swift */; };
 		311E93832752FB1C005DFE12 /* Reels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93822752FB1C005DFE12 /* Reels.swift */; };
 		311E93852752FB3E005DFE12 /* Post_Small.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93842752FB3E005DFE12 /* Post_Small.swift */; };
 		311E93872752FB61005DFE12 /* Post_Large.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93862752FB61005DFE12 /* Post_Large.swift */; };
@@ -185,6 +185,9 @@
 		31AE71AE26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
 		31AE71AF26F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
 		31AE71B026F1245600C973E3 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AE71AD26F1245600C973E3 /* FollowButton.swift */; };
+		31AFD1AA284CA9940082FC73 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFD1A9284CA9940082FC73 /* MailView.swift */; };
+		31AFD1AC284CAA1F0082FC73 /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFD1AB284CAA1F0082FC73 /* MailViewController.swift */; };
+		31AFD1AF284CAA6F0082FC73 /* ComposeMailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFD1AE284CAA6F0082FC73 /* ComposeMailData.swift */; };
 		31B2F1F0272DEC3F007FCF2B /* ErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2F1EF272DEC3F007FCF2B /* ErrorText.swift */; };
 		31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */; };
 		31B828C4272376BE0067DB05 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B828C3272376BE0067DB05 /* CustomBackButton.swift */; };
@@ -192,12 +195,12 @@
 		31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */; };
 		31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */; };
 		31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */; };
+		31CE2781285D405B00983C1E /* postListAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE2780285D405B00983C1E /* postListAdmin.swift */; };
 		31F1530F270B881400238459 /* OvalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1530E270B881400238459 /* OvalTextField.swift */; };
 		31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */; };
 		31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15314270CF3E000238459 /* CreateAccountViewBody.swift */; };
 		31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1531A270CFB8100238459 /* SetPasswordViewHeader.swift */; };
 		3309962E277BC2670040D099 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309962D277BC2660040D099 /* ImageLoader.swift */; };
-		33099634277BC2980040D099 /* FirestoreSubcollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */; };
 		33C12AEB27E8039C00CC34A8 /* FirebaseStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */; };
 		33E41CDF27FFB68E0037FDBC /* Liked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E41CDE27FFB68E0037FDBC /* Liked.swift */; };
 		49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */; };
@@ -331,7 +334,6 @@
 		3004D51226CDB91200323BCB /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
 		304109F5279D27AC00284446 /* MinimizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimizedView.swift; sourceTree = "<group>"; };
-		304109F7279E24EC00284446 /* FirestoreUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUploadService.swift; sourceTree = "<group>"; };
 		30410A0327A1E7BE00284446 /* USDZPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZPost.swift; sourceTree = "<group>"; };
 		30410A0527A1E7D000284446 /* USDZPostHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZPostHelper.swift; sourceTree = "<group>"; };
 		30410A0727A1E7FD00284446 /* AirForce.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = AirForce.usdz; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
 		3111174126EC08E6001B8E55 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMuseums.swift; sourceTree = "<group>"; };
+		3113495D283C13370061FC3F /* getListAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getListAdmin.swift; sourceTree = "<group>"; };
 		311E93822752FB1C005DFE12 /* Reels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reels.swift; sourceTree = "<group>"; };
 		311E93842752FB3E005DFE12 /* Post_Small.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Small.swift; sourceTree = "<group>"; };
 		311E93862752FB61005DFE12 /* Post_Large.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Large.swift; sourceTree = "<group>"; };
@@ -431,6 +434,9 @@
 		319F25C426E57236009B811E /* HomeViewMadeForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMadeForYou.swift; sourceTree = "<group>"; };
 		319F25C826E572BA009B811E /* HomeViewAuction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAuction.swift; sourceTree = "<group>"; };
 		31AE71AD26F1245600C973E3 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
+		31AFD1A9284CA9940082FC73 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		31AFD1AB284CAA1F0082FC73 /* MailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
+		31AFD1AE284CAA6F0082FC73 /* ComposeMailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeMailData.swift; sourceTree = "<group>"; };
 		31B2F1EF272DEC3F007FCF2B /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		31B4BC09271B82C7002D8370 /* ForgotPasswordViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewHeader.swift; sourceTree = "<group>"; };
 		31B828C3272376BE0067DB05 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
@@ -438,12 +444,14 @@
 		31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewNavLinks.swift; sourceTree = "<group>"; };
 		31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewHeader.swift; sourceTree = "<group>"; };
 		31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewBody.swift; sourceTree = "<group>"; };
+		31CE2780285D405B00983C1E /* postListAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postListAdmin.swift; sourceTree = "<group>"; };
+		31CE2782285D4EA800983C1E /* deeplinktest.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; name = deeplinktest.mobileprovision; path = ../../../deeplinktest.mobileprovision; sourceTree = "<group>"; };
+		31CE2783285D4EBD00983C1E /* deeplinktest.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = deeplinktest.mobileprovision; sourceTree = "<group>"; };
 		31F1530E270B881400238459 /* OvalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalTextField.swift; sourceTree = "<group>"; };
 		31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewHeader.swift; sourceTree = "<group>"; };
 		31F15314270CF3E000238459 /* CreateAccountViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewBody.swift; sourceTree = "<group>"; };
 		31F1531A270CFB8100238459 /* SetPasswordViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewHeader.swift; sourceTree = "<group>"; };
 		3309962D277BC2660040D099 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreSubcollectionService.swift; sourceTree = "<group>"; };
 		33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageHelper.swift; sourceTree = "<group>"; };
 		33E41CDE27FFB68E0037FDBC /* Liked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liked.swift; sourceTree = "<group>"; };
 		41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -638,6 +646,7 @@
 		3004D4AD26C82F6A00323BCB = {
 			isa = PBXGroup;
 			children = (
+				31CE2783285D4EBD00983C1E /* deeplinktest.mobileprovision */,
 				3004D4B826C82F6B00323BCB /* Gallify */,
 				3004D4CA26C82F6E00323BCB /* GallifyTests */,
 				3004D4D526C82F6E00323BCB /* GallifyUITests */,
@@ -660,6 +669,7 @@
 		3004D4B826C82F6B00323BCB /* Gallify */ = {
 			isa = PBXGroup;
 			children = (
+				31CE2782285D4EA800983C1E /* deeplinktest.mobileprovision */,
 				3003B01327F6983E00EA58B6 /* Gallify.entitlements */,
 				30836FA52749E39D00E83735 /* Services */,
 				3004D4F626CD4D3F00323BCB /* Managers */,
@@ -716,6 +726,7 @@
 		3004D4EA26CD3DF100323BCB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				31AFD1AD284CAA560082FC73 /* Admin */,
 				30EB961D2822F0D8003D0486 /* SignIn */,
 				3052136D278A2C3A00CE0224 /* User */,
 				30521368278A2C3100CE0224 /* Discover */,
@@ -965,11 +976,11 @@
 		30836FA52749E39D00E83735 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				31AFD1B0284CB8350082FC73 /* Art */,
+				3113495B283C0AD00061FC3F /* Admin */,
 				3052137C278A2D5A00CE0224 /* FirestoreQueryService.swift */,
-				33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */,
 				3052137E278A2DCE00CE0224 /* StorageService.swift */,
 				30001B7D278F8E6F00527BF9 /* get.swift */,
-				304109F7279E24EC00284446 /* FirestoreUploadService.swift */,
 				30BEBD4127BF1E330045EC74 /* ARPlayer */,
 				30001BE2279686E500527BF9 /* Settings */,
 				30001BD7279685C300527BF9 /* Lists */,
@@ -1086,6 +1097,25 @@
 				3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */,
 			);
 			path = PrivacyPolicyViewHelpers;
+			sourceTree = "<group>";
+		};
+		3113495B283C0AD00061FC3F /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				3113495C283C0AFD0061FC3F /* Lists */,
+				31AFD1A9284CA9940082FC73 /* MailView.swift */,
+				31AFD1AB284CAA1F0082FC73 /* MailViewController.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		3113495C283C0AFD0061FC3F /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				3113495D283C13370061FC3F /* getListAdmin.swift */,
+				31CE2780285D405B00983C1E /* postListAdmin.swift */,
+			);
+			path = Lists;
 			sourceTree = "<group>";
 		};
 		311E93812752FAEB005DFE12 /* Posts */ = {
@@ -1279,6 +1309,21 @@
 				3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */,
 			);
 			path = "HomeView Helpers";
+			sourceTree = "<group>";
+		};
+		31AFD1AD284CAA560082FC73 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				31AFD1AE284CAA6F0082FC73 /* ComposeMailData.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		31AFD1B0284CB8350082FC73 /* Art */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Art;
 			sourceTree = "<group>";
 		};
 		31BDD93B27072B6000AB2CD1 /* LoginViewHelpers */ = {
@@ -1510,6 +1555,7 @@
 				3004D4B326C82F6B00323BCB /* Frameworks */,
 				3004D4B426C82F6B00323BCB /* Resources */,
 				DAF5F28BE4B5E37BF0B8EFEE /* [CP] Embed Pods Frameworks */,
+				D3EE45B0FFD7780B30ED6082 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1553,6 +1599,7 @@
 				3004D4CF26C82F6E00323BCB /* Frameworks */,
 				3004D4D026C82F6E00323BCB /* Resources */,
 				F859E3873D82C1A2D33B12C4 /* [CP] Embed Pods Frameworks */,
+				44E46DE4BB4E697D4B9D6BC5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1664,6 +1711,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		44E46DE4BB4E697D4B9D6BC5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		72126595FBE060E7D1CF1E0A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1706,6 +1770,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3EE45B0FFD7780B30ED6082 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DAF5F28BE4B5E37BF0B8EFEE /* [CP] Embed Pods Frameworks */ = {
@@ -1783,6 +1864,7 @@
 				3153458227557F2300BD7B54 /* RecommendedSlabsView.swift in Sources */,
 				319F25C526E57236009B811E /* HomeViewMadeForYou.swift in Sources */,
 				30410A7F27A677EB00284446 /* ProfileSettingHeader.swift in Sources */,
+				31CE2781285D405B00983C1E /* postListAdmin.swift in Sources */,
 				92794CFD273811760012B184 /* CollectionReelHeader.swift in Sources */,
 				30001BE62796871200527BF9 /* postSettings.swift in Sources */,
 				31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */,
@@ -1840,6 +1922,7 @@
 				30001BC82796855100527BF9 /* getDiscover.swift in Sources */,
 				30836FAB2749E65200E83735 /* Extensions.swift in Sources */,
 				318C16B2281AFF7C00F63C3D /* AdminApprovalArtDescription.swift in Sources */,
+				31AFD1AA284CA9940082FC73 /* MailView.swift in Sources */,
 				30001BD6279685BB00527BF9 /* deleteProfile.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
 				30410A8427A677EB00284446 /* CuratorProgramSettingHeader.swift in Sources */,
@@ -1867,7 +1950,6 @@
 				30410A8027A677EB00284446 /* ProfileSettingBody.swift in Sources */,
 				30410A7B27A677EB00284446 /* AccountSettingBody.swift in Sources */,
 				92794D0F273814B80012B184 /* DiscoveryCategoryView.swift in Sources */,
-				304109F8279E24EC00284446 /* FirestoreUploadService.swift in Sources */,
 				30001C07279699A900527BF9 /* ConnectButton.swift in Sources */,
 				318C16A6281AFA6900F63C3D /* UserSearchResult.swift in Sources */,
 				3003B00E27EB98A000EA58B6 /* PlacementSettings.swift in Sources */,
@@ -1880,6 +1962,7 @@
 				318C16A4281AFA4C00F63C3D /* ArtSearchResult.swift in Sources */,
 				30001BD02796858D00527BF9 /* getProfile.swift in Sources */,
 				3004D50326CD57C100323BCB /* SearchViewController.swift in Sources */,
+				3113495E283C13370061FC3F /* getListAdmin.swift in Sources */,
 				30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */,
 				3004D4FA26CD4D7A00323BCB /* APICaller.swift in Sources */,
 				30001BD4279685B300527BF9 /* updateProfile.swift in Sources */,
@@ -1937,12 +2020,13 @@
 				3087D26A274ED54C00ECD8CD /* Playlist.swift in Sources */,
 				3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */,
 				30001BCC2796857400527BF9 /* updateDiscover.swift in Sources */,
+				31AFD1AF284CAA6F0082FC73 /* ComposeMailData.swift in Sources */,
 				30BEBD4327BF1E470045EC74 /* getARPlayer.swift in Sources */,
 				30001BF52796954B00527BF9 /* SelfProfileViewVerified.swift in Sources */,
 				30001C032796973C00527BF9 /* OtherProfileViewHeader.swift in Sources */,
-				33099634277BC2980040D099 /* FirestoreSubcollectionService.swift in Sources */,
 				92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */,
 				30001BE42796870100527BF9 /* getSettings.swift in Sources */,
+				31AFD1AC284CAA1F0082FC73 /* MailViewController.swift in Sources */,
 				92794D03273811760012B184 /* CollectionLikedView.swift in Sources */,
 				92794D06273811760012B184 /* CollectionLikedRow.swift in Sources */,
 				30001B7E278F8E6F00527BF9 /* get.swift in Sources */,
@@ -2133,18 +2217,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = K35JM9B532;
+				DEVELOPMENT_TEAM = W28ZG4ZCTC;
 				ENABLE_PREVIEWS = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Gallify/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_DYLIB_INSTALL_NAME = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2161,11 +2245,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Gallify/Preview Content\"";
-				DEVELOPMENT_TEAM = K35JM9B532;
+				DEVELOPMENT_TEAM = W28ZG4ZCTC;
 				ENABLE_PREVIEWS = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Gallify/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_DYLIB_INSTALL_NAME = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2173,7 +2257,7 @@
 				);
 				MARKETING_VERSION = 0.1.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
+				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -97,7 +97,7 @@ struct TabBarView: View {
                         
                     }
                     
-                    if firestoreQuery.data.uid == "info@gallify.app" {
+                    if firestoreQuery.data.uid == "0xd906b54c6e1c9d237c9a9b87a9cb71fb1be150c2" {
                         
                         AdminApprovalViewController()
                             .tabItem{
@@ -138,17 +138,17 @@ struct TabBarView: View {
                     
                     
                 
-                    FullARView()
-                        .offset(y: firestoreQuery.showCameraScreen ? 0 : UIScreen.main.bounds.height)
-                        
-                        //if one of the reel screen and camera screen's are minimized, and both were previously minimized (minimized = false)
-                        .animation(((!firestoreQuery.showNewScreen && firestoreQuery.showCameraScreen && !firestoreQuery.bothScreensMinimized) || (firestoreQuery.showNewScreen && !firestoreQuery.showCameraScreen && !firestoreQuery.bothScreensMinimized)) ? .linear(duration: 0) : .default)
-              
-                        .edgesIgnoringSafeArea(.all)
-                        .environmentObject(modelsViewModel)
-                        .environmentObject(placementSettings)
-                        .environmentObject(modelDeletionManager)
-                        .environmentObject(firestoreQuery)
+//                    FullARView()
+//                        .offset(y: firestoreQuery.showCameraScreen ? 0 : UIScreen.main.bounds.height)
+//                        
+//                        //if one of the reel screen and camera screen's are minimized, and both were previously minimized (minimized = false)
+//                        .animation(((!firestoreQuery.showNewScreen && firestoreQuery.showCameraScreen && !firestoreQuery.bothScreensMinimized) || (firestoreQuery.showNewScreen && !firestoreQuery.showCameraScreen && !firestoreQuery.bothScreensMinimized)) ? .linear(duration: 0) : .default)
+//              
+//                        .edgesIgnoringSafeArea(.all)
+//                        .environmentObject(modelsViewModel)
+//                        .environmentObject(placementSettings)
+//                        .environmentObject(modelDeletionManager)
+//                        .environmentObject(firestoreQuery)
 
             }
             .zIndex(3.0)
