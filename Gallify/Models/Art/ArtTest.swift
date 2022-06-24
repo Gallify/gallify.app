@@ -18,7 +18,7 @@ import FirebaseFirestoreSwift
 //import CodableFirebase
 
 
-class Art: Encodable, Decodable, ObservableObject, Identifiable {
+class ArtTest: Encodable, Decodable, ObservableObject, Identifiable {
    
     enum CodingKeys: CodingKey {
         
@@ -228,7 +228,9 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         licenseType = try container.decode(String.self, forKey: .licenseType)
         latestPurchasePrice = try container.decode(String.self, forKey: .latestPurchasePrice)
         latestPrice = try container.decode(String.self, forKey: .latestPrice)
+        
         isListing = try container.decode(Bool.self, forKey: .isListing)
+        
         collectionRef = try container.decode(String.self, forKey: .collectionRef)
         creatorRef = try container.decode(String.self, forKey: .creatorRef)
         ownerRef = try container.decode(String.self, forKey: .ownerRef)

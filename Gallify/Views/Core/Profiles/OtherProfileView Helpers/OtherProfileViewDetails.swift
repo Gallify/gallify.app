@@ -1,10 +1,9 @@
 //
-//  SelfProfileViewDetails.swift
+//  OtherProfileViewDetails.swift
 //  Gallify
 //
 //  Created by Anshul on 9/13/21.
 //
-
 import UIKit
 import SwiftUI
 import FirebaseStorage
@@ -13,33 +12,27 @@ import FirebaseAuth
 import FirebaseUI
 import SDWebImageSwiftUI
 
-
-struct SelfProfileViewDetails: View {
+struct OtherProfileViewDetails: View {
     
     @EnvironmentObject var viewModel: TabBarViewModel
     @EnvironmentObject var firestoreQuery: FirestoreQuery
-    //@ObservedObject var urlImageModel : UrlImageModel = UrlImageModel(urlString: nil)
-    
-    let db = Firestore.firestore()
-    
-    @State var photoUrl: String = ""
+    @EnvironmentObject var loginModel: LoginAppViewModel
+
     
     var body: some View {
         
-        let screenHeight = viewModel.screenHeight
-        let screenWidth = viewModel.screenWidth
+        let screenHeight = UIScreen.main.bounds.height //viewModel.screenHeight
+        let screenWidth = UIScreen.main.bounds.width //viewModel.screenWidth
         
         VStack {
                 
             HStack {
                 
-                if firestoreQuery.data.profileImageUrl == "" {
+                if firestoreQuery.otherUserData.profileImageUrl == "" {
                     /*
                     CircleImage(image: Image(systemName: "circle"), length: screenWidth / 4, breadth: screenHeight / 8.65, overlayColor: Color.white, overlayRadius: screenWidth / 125, shadowRadius: screenWidth / 125)
                     */
-                    
-                    //SVG's don't work in swift atm. Need a library to use this.
-                    let defaultImage = "https://avatar.tobi.sh/" + "\(firestoreQuery.data.uid)" + ".svg"
+                    let defaultImage = "https://avatar.tobi.sh/" + "\(firestoreQuery.otherUserData.uid)" + ".png"
                     WebImage(url: URL(string: defaultImage))
                        // Supports options and context, like `.delayPlaceholder` to show placeholder only when error
                        .onSuccess { image, data, cacheType in
@@ -47,37 +40,36 @@ struct SelfProfileViewDetails: View {
                            // Note: Data exist only when queried from disk cache or network. Use `.queryMemoryData` if you really need data
                        }
                        .resizable()
-                        .placeholder(Image("logo")) // Placeholder Image
-                       .indicator(.activity) // Activity Indicator
-                       .transition(.fade(duration: 0.5)) // Fade Transition with duration
-                       .scaledToFill()
-                       .frame(width: screenWidth / 4, height: screenHeight / 8.65)
-                       .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                       .overlay(Circle().stroke(.white, lineWidth: 4))
-                    
-                    
-                }
-                else {
-                    WebImage(url: URL(string: firestoreQuery.data.profileImageUrl))
-                       // Supports options and context, like `.delayPlaceholder` to show placeholder only when error
-                       .onSuccess { image, data, cacheType in
-                           // Success
-                           // Note: Data exist only when queried from disk cache or network. Use `.queryMemoryData` if you really need data
-                       }
-                       .resizable() // Resizable like SwiftUI.Image, you must use this modifier or the view will use the image bitmap size
                        .placeholder(Image("logo")) // Placeholder Image
-                       // Supports ViewBuilder as well
-//                       .placeholder {
-//                           Circle().foregroundColor(.gray)
-//                       }
                        .indicator(.activity) // Activity Indicator
                        .transition(.fade(duration: 0.5)) // Fade Transition with duration
                        .scaledToFill()
                        .frame(width: screenWidth / 4, height: screenHeight / 8.65)
                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                        .overlay(Circle().stroke(.white, lineWidth: 4))
+                    
+                    
+                    
+                    
+                    
+                    
+                } else {
+                    WebImage(url: URL(string: firestoreQuery.otherUserData.profileImageUrl))
+                           .onSuccess { image, data, cacheType in
+                               
+                           }
+                           .resizable()
+                           .placeholder(Image("logo"))
+                           .placeholder {
+                               Circle().foregroundColor(.gray)
+                           }
+                           .indicator(.activity) // Activity Indicator
+                           .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                           .scaledToFill()
+                           .frame(width: screenWidth / 4, height: screenHeight / 8.65)
+                           .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                           .overlay(Circle().stroke(.white, lineWidth: 4))
                 }
-                
                 
                 VStack {
                         
@@ -87,7 +79,7 @@ struct SelfProfileViewDetails: View {
                             
                         VStack {
                                 
-                            Text("\(firestoreQuery.data.followers)")
+                            Text("\(firestoreQuery.otherUserData.followers)")
                                 .font(.system(size: screenWidth / 18))
                                 
                             Text("Followers")
@@ -100,7 +92,7 @@ struct SelfProfileViewDetails: View {
                             
                         VStack {
                                 
-                            Text("\(firestoreQuery.data.following)")
+                            Text("\(firestoreQuery.otherUserData.following)")
                                 .font(.system(size: screenWidth / 18))
                                 
                             Text("Following")
@@ -120,7 +112,7 @@ struct SelfProfileViewDetails: View {
             
             HStack {
                 
-                Text(firestoreQuery.data.displayName)
+                Text(firestoreQuery.otherUserData.displayName)
                     .font(.system(size: screenWidth / 23.5, weight: .semibold))
                 
                 /*Text("\(firestoreQuery.data.fullName)")
@@ -134,42 +126,46 @@ struct SelfProfileViewDetails: View {
             
             HStack {
                 
-                Text(firestoreQuery.data.description)
+                
+                Text(firestoreQuery.otherUserData.description)
                     .font(.system(size: screenWidth / 23.5, weight: .light))
                 
                 /*Text("\(firestoreQuery.data.userBio)")
                     .font(.system(size: screenWidth / 23.5, weight: .light))*/
                 // Add a field in the User class called userBio which will be used to display user's bio
                 
-                
                 Spacer()
                 
             }
             .padding(.horizontal, screenWidth / 15)
             
-//            Link("\(firestoreQuery.data.shareUrl)", destination: URL(string: firestoreQuery.data.shareUrl)!)
-//                .environment(\.openURL, OpenURLAction { url in
-//                    print("Open \(url)")
-//                    return .handled
-//                })
+            
+            if(!loginModel.isGuest){
+                if(firestoreQuery.otherUserData.uid != firestoreQuery.data.uid ){
+                    HStack {
+                            
+                        FollowButton().environmentObject(firestoreQuery)
+                        
+                        Spacer()
+                            
+                    }
+                    .padding(.horizontal, screenWidth / 15)
+                    .padding(.vertical, screenHeight / 160)
+                }
+            }
+            
             
         }
         .padding(.top, screenHeight / 120)
-        .padding(.bottom, 10)
-        
-        Spacer()
                 
     }
-                
+    
 }
-        
-struct SelfProfileViewDetails_Previews: PreviewProvider {
+
+struct OtherProfileViewDetails_Previews: PreviewProvider {
     static var previews: some View {
-        SelfProfileViewDetails()
+        OtherProfileViewDetails()
             .environmentObject(TabBarViewModel())
             .environmentObject(FirestoreQuery())
-
     }
 }
-            
-

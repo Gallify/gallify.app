@@ -245,12 +245,13 @@ extension FirestoreQuery {
                 
                // self.featuredArt.append(theArt)
                 //art_array.append(doc!)
+            //    print(theArt)
                 art_array.append(theArt)
                 
                 //
             }
             catch{
-                print("Error")
+                print("Error: Fetch Art")
             }
         }
         

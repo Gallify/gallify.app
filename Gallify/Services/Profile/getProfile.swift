@@ -206,7 +206,7 @@ extension FirestoreQuery {
                     .document(playlist_id)
                     .getDocument().data(as: Playlist.self)
                 
-                print(doc)
+                //print(doc)
                 
                 guard let thePlaylist = doc else{
                     throw DatabaseError.failed

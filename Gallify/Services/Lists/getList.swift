@@ -98,6 +98,16 @@ extension FirestoreQuery {
         let userId = Auth.auth().currentUser?.uid
         
         do {
+            
+            let dataDescription = try await FirestoreQuery.db.collection("playlists")
+                .document(playlist_id)
+                .getDocument()
+            
+           // print(doc3.getData())
+            
+            let dataDescription2 = dataDescription.data().map(String.init(describing:)) ?? "nil"
+            print("Cached document datao: \(dataDescription2)")
+            
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(playlist_id)
                 .getDocument().data(as: Playlist.self)
@@ -107,13 +117,15 @@ extension FirestoreQuery {
                 throw DatabaseError.failed
             }
 
-            self.playlist = thePlaylist
+           
+           self.playlist = thePlaylist
             
         }
         catch{
             print("Error in getPlaylist while fetching playlist with id \(playlist_id)")
         }
     }
+    
     
     /*
      gets a playlist given id. This is used in ReelDescription only!

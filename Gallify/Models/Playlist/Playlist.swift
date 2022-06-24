@@ -10,7 +10,9 @@
 
 import Foundation
 import Swift
+import Firebase
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
 
@@ -40,7 +42,7 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         case description
         case lat
         case lon
-        case address //to view on polyscan. 
+        case address //to view on polyscan.
         case modifiedDate
         case createdDate
         case creatorRef
@@ -69,9 +71,9 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var searchType: String
     @Published var playlistId: String
     @Published var description: String
-    
-    @Published var lat: Double //large decimal.
-    @Published var lon: Double
+
+    @Published var lat: Int //large decimal.
+    @Published var lon: Int
     @Published var address: String
     @Published var modifiedDate: Int
     @Published var createdDate: Int
@@ -115,9 +117,9 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         searchType = ""
         playlistId = ""
         description = ""
-       
-        lat = 0.0
-        lon = 0.0
+
+        lat = 0
+        lon = 0
         address = ""
         modifiedDate = 0
         createdDate = 0
@@ -147,8 +149,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
           searchType = ""
           playlistId = ""
           description = ""
-          lat = 0.0
-          lon = 0.0
+          lat = 0
+          lon = 0
           address = ""
           modifiedDate = 0
           createdDate = 0
@@ -180,9 +182,9 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         searchType = try container.decode(String.self, forKey: .searchType)
         playlistId = try container.decode(String.self, forKey: .playlistId)
         description = try container.decode(String.self, forKey: .description)
-        lat = try container.decode(Double.self, forKey: .lat)
-        lon = try container.decode(Double.self, forKey: .lon)
-        address = try container.decode(String.self, forKey: .lon)
+        lat = try container.decode(Int.self, forKey: .lat)
+        lon = try container.decode(Int.self, forKey: .lon)
+        address = try container.decode(String.self, forKey: .address)
         modifiedDate = try container.decode(Int.self, forKey: .modifiedDate)
         createdDate = try container.decode(Int.self, forKey: .createdDate)
         creatorRef = try container.decode(String.self, forKey: .creatorRef)

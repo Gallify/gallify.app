@@ -98,7 +98,7 @@ struct TabBarView: View {
                     }
                     
                     //change the string to become the almighty admin. 
-                    if firestoreQuery.data.uid == "0xcc6c17a622a0216568b03477073ab89b8f9312b2" {
+                    if firestoreQuery.data.uid == "0x38cAebF9e30d90d4A9f4A2f2611535D4c36E3a37" {
                         
                         AdminApprovalViewController()
                             .tabItem{
@@ -184,7 +184,11 @@ struct TabBarView: View {
                 //refresh collection list
                 await firestoreQuery.getUserLibrary()
 
+                await firestoreQuery.getPlaylist(playlist_id: "8CgPCsbVsmvPsfy5aVOu")
+
+                
                 await firestoreQuery.fetchArt()
+                
                 
                 //await firestoreQuery.getHome()
                 await firestoreQuery.getHomeMuseumList()
@@ -192,7 +196,6 @@ struct TabBarView: View {
             if(loginModel.isGuest){
                 await firestoreQuery.getHomeMuseumListGuest()
             }
-        
         
             //await firestoreQuery.getHome()
             //await firestoreQuery.getHomeMuseumListGuest()
@@ -202,7 +205,9 @@ struct TabBarView: View {
 
             //getPlaylists. Gets all the data for the playlists. Called once per museum.
             await firestoreQuery.getHomePlaylists()
-    //
+        
+            
+    
             await firestoreQuery.getDiscoverContent()
 
         

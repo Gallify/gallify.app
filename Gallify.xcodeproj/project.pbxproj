@@ -136,6 +136,7 @@
 		30A0AB8B285A784C0055905C /* follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0AB8A285A784C0055905C /* follow.swift */; };
 		30A0AB8D285A78520055905C /* liked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0AB8C285A78520055905C /* liked.swift */; };
 		30A0AB932860B0E00055905C /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 30A0AB922860B0E00055905C /* web3.swift */; };
+		30A0AB972866670B0055905C /* ArtTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0AB962866670B0055905C /* ArtTest.swift */; };
 		30BEBD4327BF1E470045EC74 /* getARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4227BF1E470045EC74 /* getARPlayer.swift */; };
 		30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4427BF1E510045EC74 /* postARPlayer.swift */; };
 		30BEBD4727BF1E5C0045EC74 /* updateARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */; };
@@ -397,6 +398,7 @@
 		30A0AB88285A78460055905C /* connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connection.swift; sourceTree = "<group>"; };
 		30A0AB8A285A784C0055905C /* follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = follow.swift; sourceTree = "<group>"; };
 		30A0AB8C285A78520055905C /* liked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liked.swift; sourceTree = "<group>"; };
+		30A0AB962866670B0055905C /* ArtTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtTest.swift; sourceTree = "<group>"; };
 		30BEBD4227BF1E470045EC74 /* getARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4427BF1E510045EC74 /* postARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateARPlayer.swift; sourceTree = "<group>"; };
@@ -684,7 +686,7 @@
 				30836FA52749E39D00E83735 /* Services */,
 				3004D4F626CD4D3F00323BCB /* Managers */,
 				3004D4F526CD49AD00323BCB /* Resources */,
-				3004D4E926CD3DDB00323BCB /* ViewControllers */,
+				3004D4E926CD3DDB00323BCB /* Views */,
 				3004D4EA26CD3DF100323BCB /* Models */,
 				3004D4BD26C82F6D00323BCB /* Assets.xcassets */,
 				3004D4C226C82F6D00323BCB /* Info.plist */,
@@ -721,7 +723,7 @@
 			path = GallifyUITests;
 			sourceTree = "<group>";
 		};
-		3004D4E926CD3DDB00323BCB /* ViewControllers */ = {
+		3004D4E926CD3DDB00323BCB /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				3087D284275D4C3700ECD8CD /* Loading */,
@@ -730,7 +732,7 @@
 				3004D4FD26CD506800323BCB /* Transactions */,
 				3004D4EC26CD402A00323BCB /* Core */,
 			);
-			path = ViewControllers;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3004D4EA26CD3DF100323BCB /* Models */ = {
@@ -1055,6 +1057,7 @@
 			children = (
 				3004D4F126CD407600323BCB /* Art.swift */,
 				308B4BF027658B8F0039B74E /* ArtDetails.swift */,
+				30A0AB962866670B0055905C /* ArtTest.swift */,
 			);
 			path = Art;
 			sourceTree = "<group>";
@@ -1826,6 +1829,7 @@
 				30EB961F2822F0F1003D0486 /* SignIn.swift in Sources */,
 				30410A7A27A677EB00284446 /* AccountSettingHeader.swift in Sources */,
 				30001BDF2796868000527BF9 /* deleteList.swift in Sources */,
+				30A0AB972866670B0055905C /* ArtTest.swift in Sources */,
 				92794D00273811760012B184 /* CollectionRecentActivityFooter.swift in Sources */,
 				92794CFC273811760012B184 /* CollectionReelListing.swift in Sources */,
 				30001BC22796852D00527BF9 /* postHome.swift in Sources */,
