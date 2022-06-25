@@ -116,7 +116,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var licenseType: String
     @Published var latestPurchasePrice: String
     @Published var latestPrice: String
-    @Published var latestPurchaseDate: Int
+    @Published var latestPurchaseDate: String
     @Published var isListing: Bool
     @Published var collectionRef: String
     @Published var creatorRef: String
@@ -162,7 +162,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         thumbnailUrl = ""
         tokenId = 0
         
-        latestPurchaseDate = 0
+        latestPurchaseDate = ""
         unlockableContent = ""
         geoContent = ""
         claimableIfNearOnly = false
@@ -220,7 +220,7 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         thumbnailUrl = try container.decode(String.self, forKey: .thumbnailUrl)
         tokenId = try container.decode(Int.self, forKey: .tokenId)
         
-        latestPurchaseDate = try container.decode(Int.self, forKey: .latestPurchaseDate)
+        latestPurchaseDate = try container.decode(String.self, forKey: .latestPurchaseDate)
         unlockableContent = try container.decode(String.self, forKey: .unlockableContent)
         geoContent = try container.decode(String.self, forKey: .geoContent)
         claimableIfNearOnly = try container.decode(Bool.self, forKey: .claimableIfNearOnly)
