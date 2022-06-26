@@ -77,6 +77,9 @@
 		3004D51126CDB90100323BCB /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51026CDB90100323BCB /* BuyViewController.swift */; };
 		3004D51326CDB91200323BCB /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51226CDB91200323BCB /* SellViewController.swift */; };
 		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
+		30075E5D286898D900B59E1E /* AROverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E5C286898D900B59E1E /* AROverlayView.swift */; };
+		30075E5F286898E100B59E1E /* ARDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E5E286898E100B59E1E /* ARDisplayView.swift */; };
+		30075E61286898EA00B59E1E /* ARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E60286898EA00B59E1E /* ARViewModel.swift */; };
 		304109F6279D27AC00284446 /* MinimizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304109F5279D27AC00284446 /* MinimizedView.swift */; };
 		304109F8279E24EC00284446 /* FirestoreUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304109F7279E24EC00284446 /* FirestoreUploadService.swift */; };
 		30410A0427A1E7BE00284446 /* USDZPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A0327A1E7BE00284446 /* USDZPost.swift */; };
@@ -340,6 +343,9 @@
 		3004D51026CDB90100323BCB /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		3004D51226CDB91200323BCB /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
+		30075E5C286898D900B59E1E /* AROverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AROverlayView.swift; sourceTree = "<group>"; };
+		30075E5E286898E100B59E1E /* ARDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDisplayView.swift; sourceTree = "<group>"; };
+		30075E60286898EA00B59E1E /* ARViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
 		304109F5279D27AC00284446 /* MinimizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimizedView.swift; sourceTree = "<group>"; };
 		304109F7279E24EC00284446 /* FirestoreUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUploadService.swift; sourceTree = "<group>"; };
 		30410A0327A1E7BE00284446 /* USDZPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZPost.swift; sourceTree = "<group>"; };
@@ -754,6 +760,7 @@
 			isa = PBXGroup;
 			children = (
 				318C16A9281AFECA00F63C3D /* AdminApproval */,
+				30075E5B286898BA00B59E1E /* SARPlayer */,
 				3003B00427EB983900EA58B6 /* ARPlayer */,
 				92794CE2273811760012B184 /* Collections */,
 				92DB7C52273167F90035B788 /* Create */,
@@ -797,6 +804,16 @@
 				3004D51426CDB92300323BCB /* BidViewController.swift */,
 			);
 			path = Transactions;
+			sourceTree = "<group>";
+		};
+		30075E5B286898BA00B59E1E /* SARPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				30075E5C286898D900B59E1E /* AROverlayView.swift */,
+				30075E5E286898E100B59E1E /* ARDisplayView.swift */,
+				30075E60286898EA00B59E1E /* ARViewModel.swift */,
+			);
+			path = SARPlayer;
 			sourceTree = "<group>";
 		};
 		303DB8CE26F97C9C0005AC51 /* Profiles */ = {
@@ -1820,6 +1837,7 @@
 				30EB96F6284CF63B003D0486 /* getListAdmin.swift in Sources */,
 				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
 				30410A8127A677EB00284446 /* MembershipSetting.swift in Sources */,
+				30075E61286898EA00B59E1E /* ARViewModel.swift in Sources */,
 				3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */,
 				30A0AB89285A78460055905C /* connection.swift in Sources */,
 				30001BFD2796970B00527BF9 /* OtherProfileCollectionList.swift in Sources */,
@@ -1890,6 +1908,7 @@
 				92794D02273811760012B184 /* CollectionRecentActivityHeader.swift in Sources */,
 				30001BD92796865600527BF9 /* getList.swift in Sources */,
 				3004D50F26CD7EF800323BCB /* SignInViewController.swift in Sources */,
+				30075E5F286898E100B59E1E /* ARDisplayView.swift in Sources */,
 				3003B00627EB984600EA58B6 /* AddModelBar.swift in Sources */,
 				92794D09273811760012B184 /* CollectionGenericHeader.swift in Sources */,
 				30521381278A2DDA00CE0224 /* ImageCache.swift in Sources */,
@@ -1938,6 +1957,7 @@
 				3052137A278A2C3A00CE0224 /* Following.swift in Sources */,
 				3087D286275D4C4D00ECD8CD /* LoadingView.swift in Sources */,
 				30836FB7274A043300E83735 /* OtherSearchTemplate.swift in Sources */,
+				30075E5D286898D900B59E1E /* AROverlayView.swift in Sources */,
 				318C16A4281AFA4C00F63C3D /* ArtSearchResult.swift in Sources */,
 				30001BD02796858D00527BF9 /* getProfile.swift in Sources */,
 				30A0AB8D285A78520055905C /* liked.swift in Sources */,

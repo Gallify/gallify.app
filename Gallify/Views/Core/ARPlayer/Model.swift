@@ -10,7 +10,11 @@ import ARKit
 import RealityKit
 import Combine
 
-class Model: Encodable, Decodable {
+class Model: Encodable, Decodable, Equatable {
+    static func == (lhs: Model, rhs: Model) -> Bool {
+        lhs.art.id == rhs.art.id
+    }
+    
     
     enum CodingKeys: CodingKey {
         case art
@@ -52,6 +56,7 @@ class Model: Encodable, Decodable {
     
     //Create a method to async load model Entity
     func asyncLoadModelEntity(handler: @escaping (_ completed: Bool, _ error: Error?) -> Void){
+        print(self.art.contentType, contentLoaded, "HHH")
         if(self.art.contentType == 1 && self.contentLoaded==false){
             FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: "\(self.art.storageName)") { localUrl in //models/
                 print("LOCAL URL")
@@ -72,6 +77,7 @@ class Model: Encodable, Decodable {
                         self.modelURL = localUrl
                         print("MODEL URL L")
                         print(self.modelURL)
+                        print(localUrl)
                         self.modelEntity = modelEntity
                        // self.modelEntity?.scale *= self.scaleCompensation //scale?
                         
@@ -102,4 +108,3 @@ class Model: Encodable, Decodable {
     
 
 }
-

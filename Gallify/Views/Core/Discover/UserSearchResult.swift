@@ -28,13 +28,34 @@ struct UserSearchResult: View {
                     label: {
                                             
             HStack {
+
+                if(user.profileImageUrl == ""){
+                    let defaultImage = "https://avatar.tobi.sh/" + "\(user.uid)" + ".png"
+                    WebImage(url: URL(string: defaultImage))
+                       // Supports options and context, like `.delayPlaceholder` to show placeholder only when error
+                       .onSuccess { image, data, cacheType in
+                           // Success
+                           // Note: Data exist only when queried from disk cache or network. Use `.queryMemoryData` if you really need data
+                       }
+                       .resizable()
+                       .placeholder(Image("logo")) // Placeholder Image
+                       .indicator(.activity) // Activity Indicator
+                       .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                       .scaledToFill()
+                       .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+                       .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                       .overlay(Circle().stroke(.white, lineWidth: 4))
                     
-                WebImage(url: URL(string: user.profileImageUrl))
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
-                    //.clipped()
-                    .clipShape(Circle())
+                }
+                else{
+                    WebImage(url: URL(string: user.profileImageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+                        //.clipped()
+                        .clipShape(Circle())
+                }
+                
                     
                 VStack(alignment: .leading) {
                     
