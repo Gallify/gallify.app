@@ -145,8 +145,6 @@ struct AdminApprovalBody: View {
             }
             
         }
-//        .navigationBarHidden(true)
-//        .navigationBarTitle("")
         .onAppear {
             async{ await networkingCall() }
         }

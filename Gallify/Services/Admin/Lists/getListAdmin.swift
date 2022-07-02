@@ -23,23 +23,22 @@ extension FirestoreQuery {
 //
 //        }
 //        else{ //This is the first batch to be fetched
-            self.inReviewQuery = try await FirestoreQuery.db.collection("art").whereField("searchType", isEqualTo: 2)
-                                                            .limit(to: 4)
+            self.inReviewQuery = try await FirestoreQuery.db.collection("art").whereField("searchType", isEqualTo: 2) //.limit(to: 4)
 //        }
         
-    
+       
         var inReviewArtArr = [Art]()
         
         try await self.inReviewQuery.addSnapshotListener() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    var i = 0
+                    //var i = 0
                     inReviewArtArr = querySnapshot!.documents.compactMap { querySnapshot -> Art? in
                              return try? querySnapshot.data(as: Art.self)
                     }
 //                  self.lastDoc = querySnapshot!.documents.last //get last document for later.
-//                  print("LAST DOC ART NAME =", self.lastDoc.data()["name"])
+//                    print("LAST DOC ART NAME =", self.lastDoc.data()["name"])
 //                  self.getNext = true
                     self.artInReview = inReviewArtArr
                 }

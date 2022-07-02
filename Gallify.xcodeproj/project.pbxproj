@@ -1006,12 +1006,12 @@
 		30836FA52749E39D00E83735 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				30EB96F3284CF617003D0486 /* Admin */,
 				3052137C278A2D5A00CE0224 /* FirestoreQueryService.swift */,
 				33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */,
 				3052137E278A2DCE00CE0224 /* StorageService.swift */,
 				30001B7D278F8E6F00527BF9 /* get.swift */,
 				304109F7279E24EC00284446 /* FirestoreUploadService.swift */,
+				30EB96F3284CF617003D0486 /* Admin */,
 				30BEBD4127BF1E330045EC74 /* ARPlayer */,
 				30001BE2279686E500527BF9 /* Settings */,
 				30001BD7279685C300527BF9 /* Lists */,

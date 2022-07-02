@@ -21,10 +21,8 @@ struct AdminApprovalViewController: View {
                 
             VStack {
                 
-                Text("Admin")
+                Text("Admin View")
                     .font(.system(size: viewModel.screenWidth / 20, weight: .semibold))
-//                    .navigationBarHidden(true)
-//                    .navigationBarTitle("")
                 
                 AdminApprovalBody()
                 
@@ -33,8 +31,7 @@ struct AdminApprovalViewController: View {
             }
             
         }
-//        .navigationBarHidden(true)
-//        .navigationBarTitle("")
+        .navigationBarHidden(true)
         .edgesIgnoringSafeArea(.all)
         .onAppear {
             async{ await networkingCall() }
