@@ -71,6 +71,7 @@ struct FollowButton: View {
     func NetworkingCall() async{
         
         //checks if the current user is a follow of the OtherUser.
+      //  print(firestoreQuery.otherUserData.uid)
         await firestoreQuery.checkIfFollowing(otherUserId: firestoreQuery.otherUserData.uid)
         
         

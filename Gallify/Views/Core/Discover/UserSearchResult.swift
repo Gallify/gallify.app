@@ -28,6 +28,8 @@ struct UserSearchResult: View {
                     label: {
                                             
             HStack {
+                
+                
 
                 if(user.profileImageUrl == ""){
                     let defaultImage = "https://avatar.tobi.sh/" + "\(user.uid)" + ".png"

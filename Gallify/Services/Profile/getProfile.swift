@@ -485,7 +485,8 @@ extension FirestoreQuery {
     func checkIfFollowing(otherUserId: String) async {
         let userId = Auth.auth().currentUser?.uid
     
-                
+        print("USER ID" + "\(userId)")
+        print("OTHERUSER ID" + "\(otherUserId)")
         try await FirestoreQuery.db.collection("users").document(userId!).collection("profile").whereField("following", arrayContains: otherUserId)
             .getDocuments() { (querySnapshot, err) in
               //  for document in querySnapshot!.documents {

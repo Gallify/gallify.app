@@ -61,6 +61,9 @@ struct OtherProfileView : View {
     
     func NetworkingCall() async{
         
+        //Added in order for "Follow Button" View to work in the OtherProfile View Controller. 
+        firestoreQuery.otherUserData.uid = otherUserId
+        
         //get other user data
         await firestoreQuery.getOtherUser(user_id: otherUserId)
 

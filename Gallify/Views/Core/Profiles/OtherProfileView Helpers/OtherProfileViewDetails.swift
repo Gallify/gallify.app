@@ -143,7 +143,8 @@ struct OtherProfileViewDetails: View {
             if(!loginModel.isGuest){
                 if(firestoreQuery.otherUserData.uid != firestoreQuery.data.uid ){
                     HStack {
-                            
+                        
+                       
                         FollowButton().environmentObject(firestoreQuery)
                         
                         Spacer()
