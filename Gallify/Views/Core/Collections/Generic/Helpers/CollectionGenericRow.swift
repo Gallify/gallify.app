@@ -38,7 +38,7 @@ struct CollectionGenericRow: View {
 
                     Spacer()
                                             
-                    let words = ["Featured", "featured", "Liked", "liked", "Owned", "owned", "Created", "created", "reviewed","Reviewed", "approved","Approved", "Review", "review", "Publish", "publish", "Published", "published", "unPublished", "unpublished"]
+                    let words = ["Featured", "featured", "Liked", "liked", "Owned", "owned", "Created", "created", "reviewed","Reviewed", "approved","Approved", "Review", "review", "Publish", "publish", "Published", "published", "unPublished", "unpublished", "Singles"]
                     let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
                     if (firestoreQuery.playlist.coverArtUrl == "" && !combinedResult ) {
                        
@@ -226,28 +226,36 @@ struct CollectionGenericRow: View {
                                             ActionSheet(
                                                 title: Text("Select"),
                                                 buttons: [
-                                                    .default(Text("Delete from Playlist")) {
-                                                        Task{
-                                                                //remove from local variable to update view
-                                                                playlist.removeAll { artwork in
-                                                                    artwork.artId == art.artId
+                                                    .default(Text("Delete from List")) {
+                                                        
+                                                        
+                                                        let words = ["Created", "Owned"]
+                                                        let combinedResult = words.contains(where: thePlaylist.name.contains)
+                                                        
+                                                        if(thePlaylist.playlistType != "Collection" && !combinedResult){ //combined result because cannot delete from created or owned collections.
+                                                            Task{
+                                                                    //remove from local variable to update view
+                                                                    playlist.removeAll { artwork in
+                                                                        artwork.artId == art.artId
+                                                                    }
+                                                                    print("Start Delete")
+                                                                    await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist: thePlaylist)
+                                                                    print("End Delete")
+                                                                    await firestoreQuery.getUserLibrary()
+                                                                
+                                                                    if(thePlaylist.name == "Featured"){
+                                                                       
+                                                                            await firestoreQuery.getFeaturedPlaylist()
+                                                                            print(firestoreQuery.featuredArt.count)
+                                                                            await firestoreQuery.getFeaturedArt()
+                                                                            print(firestoreQuery.featuredArt.count)
+                                                                        
+                                                                    }
                                                                 }
-                                                                print("Start Delete")
-                                                                await firestoreQuery.deleteArtFromPlaylist(art_id: art.artId, playlist: thePlaylist)
-                                                                print("End Delete")
-                                                                await firestoreQuery.getUserLibrary()
-                                                            
-                                                                if(thePlaylist.name == "Featured"){
-                                                                   
-                                                                        await firestoreQuery.getFeaturedPlaylist()
-                                                                        print(firestoreQuery.featuredArt.count)
-                                                                        await firestoreQuery.getFeaturedArt()
-                                                                        print(firestoreQuery.featuredArt.count)
-                                                                    
-                                                                }
-                                                            }
+                                                        }
+                                                        
                                                     },
-                                                    .default(Text("Add to Collection")) {
+                                                    .default(Text("Add to List")) {
                                                         showingSheet = true
                                                     },
                                                     .default(Text("Cancel")) {
@@ -275,7 +283,7 @@ struct CollectionGenericRow: View {
                                             ActionSheet(
                                                 title: Text("Select"),
                                                 buttons: [
-                                                    .default(Text("Add to Collection")) {
+                                                    .default(Text("Add to List")) {
                                                         showingSheet = true
                                                     },
                                                     .default(Text("Cancel")) {

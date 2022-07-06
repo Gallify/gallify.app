@@ -43,6 +43,12 @@ struct CollectionGenericImage: View {
                 .frame(width: 200, height: 200)
                 .padding(.top, 20)
         }
+        else if(playlist.name == "Singles"){
+            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fsingles.png?alt=media&token=7a9013a2-6245-4e85-999c-17ba379f3f32"))
+                .resizable()
+                .frame(width: 200, height: 200)
+                .padding(.top, 20)
+        }
         else{
             WebImage(url: URL(string: playlist.coverArtUrl))
                 .resizable()

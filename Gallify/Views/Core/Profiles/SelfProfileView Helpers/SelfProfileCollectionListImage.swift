@@ -62,6 +62,14 @@ struct SelfProfileCollectionListImage: View {
                 
         }
         
+        else if(playlist.name == "Singles") {
+            
+            WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fsingles.png?alt=media&token=7a9013a2-6245-4e85-999c-17ba379f3f32"))
+                .resizable()
+                .frame(width: imageWidth, height: imageHeight)
+                
+        }
+        
         else if(playlist.coverArtUrl == "") {
             
             WebImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d"))

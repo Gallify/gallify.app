@@ -68,10 +68,13 @@ class FirestoreQuery : ObservableObject {
     @Published var userLibrary: [Playlist] = [Playlist]()
     @Published var featuredPlaylist: Playlist = Playlist()
     @Published var featuredArt: [Art] = [Art]()
+    @Published var likedArt: [Art] = [Art]()
     @Published var followers = Followers()
     @Published var following = Following()
     @Published var isFollowing : Bool = false
     @Published var isLiked :Bool = false
+    
+    
     //other profile
     @Published var otherUserData : User = User()
     @Published var otherLibrary: [Playlist] = [Playlist]()

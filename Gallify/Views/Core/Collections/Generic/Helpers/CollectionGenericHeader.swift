@@ -59,7 +59,7 @@ struct CollectionGenericHeader: View {
                             Task{
 //                                await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlistId)
 
-                                let words = ["Liked", "Owned", "Created", "Review", "Featured"]
+                                let words = ["Liked", "Owned", "Created", "Review", "Featured", "Singles"]
                                 let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
                                 if(!combinedResult){
                                     //changed async into Task
@@ -75,7 +75,7 @@ struct CollectionGenericHeader: View {
                                 
                                 
                             },
-                            .default(Text("Make Public")) {
+                            .default(Text("Switch Privacy")) {
                                 
                                 if(firestoreQuery.playlist.name != "Review"){
                                     Task{
@@ -87,21 +87,21 @@ struct CollectionGenericHeader: View {
                                     firestoreQuery.showPlaylistOptions = false
                                 }
                             },
-                            .default(Text("Make Private")) {
-                                if(firestoreQuery.playlist.name != "Review"){
-                                    //updates privacy
-                                    Task{
-                                        await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlistId)
-                                        
-                                        await firestoreQuery.getUserLibrary() //updates library
-                                    }
-                                    
-                                    firestoreQuery.showPlaylistOptions = false
-                                }
-                            },
+//                            .default(Text("Make Private")) {
+//                                if(firestoreQuery.playlist.name != "Review"){
+//                                    //updates privacy
+//                                    Task{
+//                                        await firestoreQuery.updatePlaylistPrivacy(playlist_id: firestoreQuery.playlist.playlistId)
+//
+//                                        await firestoreQuery.getUserLibrary() //updates library
+//                                    }
+//
+//                                    firestoreQuery.showPlaylistOptions = false
+//                                }
+//                            },
                             .default(Text("Make Gallify Collection")) {
                                 
-                                let words = ["Liked", "Owned", "Created", "Review", "Featured"]
+                                let words = ["Liked", "Owned", "Created", "Review", "Featured", "Singles"]
                                 let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
                                 if(!combinedResult){
                                     //updates privacy
@@ -116,7 +116,7 @@ struct CollectionGenericHeader: View {
                             },
                             .default(Text("Make Playlist")) {
                                 
-                                let words = ["Liked", "Owned", "Created", "Review", "Featured"]
+                                let words = ["Liked", "Owned", "Created", "Review", "Featured", "Singles"]
                                 let combinedResult = words.contains(where: firestoreQuery.playlist.name.contains)
                                 if(!combinedResult){
                                     Task{

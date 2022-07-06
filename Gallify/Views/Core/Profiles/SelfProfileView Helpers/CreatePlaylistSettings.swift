@@ -49,8 +49,8 @@ struct CreatePlaylistSettings: View {
                             Image(uiImage: pickedImage!)
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 100,
-                                       height: 100)
+                                .frame(width: 200,
+                                       height: 200)
                                 .clipped()
                                 .padding(.top, 20)
                                 .onTapGesture{
@@ -59,12 +59,22 @@ struct CreatePlaylistSettings: View {
                         } else {
                             Image(systemName: "square.fill")
                                     .resizable()
-                                    
+                                    .overlay(
+                                        Text("Select Image")
+                                            .fontWeight(.bold)
+                                           .foregroundColor(.white)
+                                           //.padding()
+                                          // .background(Color.blue)
+                                           //.cornerRadius(15)
+                                           //.padding()
+                                      // alignment: .top
+                                    )
                                     .cornerRadius(0)
                                     .frame(width: 100,
                                            height: 100)
                                     
                                     .padding(.top, 20)
+                                    .padding(.bottom, 40)
                                     .foregroundColor(Color(red:CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48())))
                                     .onTapGesture {
                                        self.showActionSheet = true
@@ -115,7 +125,7 @@ struct CreatePlaylistSettings: View {
                 HStack {
                     
                     Text("Public")
-                        .font(.system(size: screenWidth / 20, weight: .semibold))
+                        .font(.system(size: screenWidth / 25, weight: .semibold))
                         .foregroundColor(.black)
                         .padding(.leading, screenWidth / 25)
                     
@@ -158,7 +168,7 @@ struct CreatePlaylistSettings: View {
                 HStack {
                     
                     Text("Private")
-                        .font(.system(size: screenWidth / 20, weight: .semibold))
+                        .font(.system(size: screenWidth / 25, weight: .semibold))
                         .foregroundColor(.black)
                         .padding(.leading, screenWidth / 25)
                     
@@ -303,7 +313,7 @@ struct CreatePlaylistSettings: View {
                 HStack {
                     
                     Text("Playlist")
-                        .font(.system(size: screenWidth / 20, weight: .semibold))
+                        .font(.system(size: screenWidth / 25, weight: .semibold))
                         .foregroundColor(.black)
                         .padding(.leading, screenWidth / 25)
                     
@@ -345,7 +355,7 @@ struct CreatePlaylistSettings: View {
                 HStack {
                     
                     Text("Gallify Collection")
-                        .font(.system(size: screenWidth / 20, weight: .semibold))
+                        .font(.system(size: screenWidth / 25, weight: .semibold))
                         .foregroundColor(.black)
                         .padding(.leading, screenWidth / 25)
                     

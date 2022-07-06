@@ -15,7 +15,7 @@ extension FirestoreQuery {
     /*
      updates the playlist
      */
-    @MainActor
+    //@MainActor
     func deleteArtFromPlaylist(art_id: String, playlist: Playlist) async {
                                     
         do {
@@ -35,6 +35,41 @@ extension FirestoreQuery {
         }
         catch{
             print("Error")
+        }
+    }
+    
+    /*
+     Remove from playlist
+     */
+    func removeArtFromPlaylist(art: Art, playlistName: String) async {
+        
+        print(art)
+        
+        do {
+            
+            for p in userLibrary {
+                if p.name == playlistName {
+                    try await FirestoreQuery.db.collection("playlists").document(p.playlistId).updateData([
+                        "art" : FieldValue.arrayRemove([art.artId])
+                    ])
+                    //add to liked_art subcollection
+                    if(p.name == "Liked") {
+                        try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
+                            .collection("profile")
+                            .document("liked_art")
+                            .updateData(["liked" : FieldValue.arrayRemove([art.artId])])
+                    }
+                }
+            }
+            
+            //reload library
+            self.likedArt.removeAll { artwork in
+                artwork.artId == art.artId
+            }
+            
+            
+        } catch {
+            print("Error adding art to Liked PLaylist in user library")
         }
     }
     

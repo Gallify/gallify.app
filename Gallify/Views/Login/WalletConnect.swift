@@ -32,8 +32,8 @@ class WalletConnect {
         
         let clientMeta = Session.ClientMeta(name: "Gallify",
                                             description: "Instant gallery sharing.",
-                                            icons: [URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fplaylist.jpg?alt=media&token=5b40c6fe-8de6-4c70-8496-6e6896fdc71d/")!],
-                                            url: URL(string: "https://open.gallify.app")!)
+                                            icons: [URL(string: "https://firebasestorage.googleapis.com/v0/b/gallify-64bbb.appspot.com/o/defaultImages%2Fliked.png?alt=media&token=653389a3-10c9-4395-babb-791e91227f42")!],
+                                            url: URL(string: "https://www.gallify.app/")!)
        
         //used to be: just in case.
 //        let clientMeta = Session.ClientMeta(name: "Gallify app",

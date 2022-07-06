@@ -31,6 +31,7 @@ struct CollectionReelListing: View {
         
         let screenHeight = viewModel.screenHeight
         let screenWidth = viewModel.screenWidth
+        var likedArt = firestoreQuery.likedArt
        
         ScrollView {
             
@@ -76,28 +77,48 @@ struct CollectionReelListing: View {
                                 Spacer()
                                 
                                 if(!loginModel.isGuest){
+                                    /*
                                     Button(action: {
                                         
                                         // Add firebase methods to make changes on backend
+                                        
+                                        
                                         artLiked.toggle()
-                                        if(artLiked){
+                                        
+                                        //artLiked = true.
+                                        
+                                        
+                                        
+//                                        if(artLiked){
+//
 //                                            Task {
 //                                                await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
 //                                                //reload library
 //                                                await firestoreQuery.getUserLibrary()
 //                                            }
-
-                                        }
-                                        else{
-                                            //remove from playlist
-                                        }
+//
+//                                        }
+//                                        else{
+//                                            //remove from playlist
+//                                            Task {
+//                                                await firestoreQuery.removeArtFromPlaylist(art: art, playlistName: "Liked")
+//                                                //reload library
+//                                                await firestoreQuery.getUserLibrary()
+//                                            }
+//                                        }
                                         
                                     }, label: {
                                         
-                                        LikeButton(imageHeight: screenHeight / 40, imageWidth: screenWidth / 18.5, liked: artLiked)
+//                                        LikeButton(imageHeight: screenHeight / 40, imageWidth: screenWidth / 18.5, liked: (artLiked || firestoreQuery.likedArt.contains(artwork.artId)))
+//                                            .padding(.vertical, screenWidth / 75)
+                                        
+                                        LikeButton(imageHeight: screenHeight / 40, imageWidth: screenWidth / 18.5, liked: (artLiked))
                                             .padding(.vertical, screenWidth / 75)
                                         
                                     })
+                                    */
+                                    
+                                    
                                 }
                                 
                                 
@@ -203,7 +224,7 @@ struct CollectionReelListing: View {
                                                         await firestoreQuery.getUserLibrary()
                                                     }
                                                 },
-                                                .default(Text("Add to Playlist")) {
+                                                .default(Text("Add to List")) {
                                                     showingSheet = true
                                                 },
                                                 .default(Text("Cancel")) {

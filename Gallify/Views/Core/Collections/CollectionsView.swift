@@ -40,7 +40,7 @@ struct CollectionsView: View {
                     let words = ["Liked", "Owned", "Created", "Review"] //can't add to any of these
                     let combinedResult = words.contains(where: playlist.name.contains)
                     
-                    if(!combinedResult && playlist.creatorUrl == firestoreQuery.data.uid){ //if it is your playlist/collection
+                    if(!combinedResult && playlist.creatorUrl == firestoreQuery.data.uid && playlist.playlistType != "Collection"){ //if it is your playlist/collection
                             
                         HStack {
                                  
