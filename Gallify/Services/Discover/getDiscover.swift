@@ -146,13 +146,25 @@ extension FirestoreQuery {
                 
                 print("Discover CONTENT Count")
                 print(self.discoveryPageArt.count)
+                
                 if(discoveryPageArtArray.count > 1){
                     if(discoveryPageArtArray.count > 50){
                         self.discoveryPageArt = discoveryPageArtArray
                     }
                     else{
-                        self.discoveryPageArt.append(contentsOf: discoveryPageArtArray)
-                        self.discoveryPageArt.reverse()
+                        
+                        //check if old array contains what's in the new array.
+                        let containsRepetitiveArt = self.discoveryPageArt.contains(where: { $0.artId == discoveryPageArtArray[0].artId }) // Returns true
+                        
+                        if (containsRepetitiveArt) {
+                            
+                        }
+                        else{
+                            self.discoveryPageArt.append(contentsOf: discoveryPageArtArray)
+                            self.discoveryPageArt.reverse()
+                        }
+                        
+                        
                     }
                     
                     print("Discover CONTENT Count")

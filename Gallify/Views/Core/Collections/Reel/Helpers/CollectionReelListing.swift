@@ -58,6 +58,7 @@ struct CollectionReelListing: View {
                                     .frame(width: nil, height: 1, alignment: .top)
                                     .foregroundColor(Color.black), alignment: .top)
                                 .scaledToFit()
+                                
                                         
                             }
                             

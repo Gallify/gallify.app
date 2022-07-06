@@ -80,6 +80,7 @@
 		30075E5D286898D900B59E1E /* AROverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E5C286898D900B59E1E /* AROverlayView.swift */; };
 		30075E5F286898E100B59E1E /* ARDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E5E286898E100B59E1E /* ARDisplayView.swift */; };
 		30075E61286898EA00B59E1E /* ARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E60286898EA00B59E1E /* ARViewModel.swift */; };
+		30075E6628761BD500B59E1E /* postListAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E6528761BD500B59E1E /* postListAdmin.swift */; };
 		304109F6279D27AC00284446 /* MinimizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304109F5279D27AC00284446 /* MinimizedView.swift */; };
 		304109F8279E24EC00284446 /* FirestoreUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304109F7279E24EC00284446 /* FirestoreUploadService.swift */; };
 		30410A0427A1E7BE00284446 /* USDZPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A0327A1E7BE00284446 /* USDZPost.swift */; };
@@ -346,6 +347,7 @@
 		30075E5C286898D900B59E1E /* AROverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AROverlayView.swift; sourceTree = "<group>"; };
 		30075E5E286898E100B59E1E /* ARDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDisplayView.swift; sourceTree = "<group>"; };
 		30075E60286898EA00B59E1E /* ARViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
+		30075E6528761BD500B59E1E /* postListAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postListAdmin.swift; sourceTree = "<group>"; };
 		304109F5279D27AC00284446 /* MinimizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimizedView.swift; sourceTree = "<group>"; };
 		304109F7279E24EC00284446 /* FirestoreUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUploadService.swift; sourceTree = "<group>"; };
 		30410A0327A1E7BE00284446 /* USDZPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZPost.swift; sourceTree = "<group>"; };
@@ -1144,6 +1146,7 @@
 			isa = PBXGroup;
 			children = (
 				30EB96F5284CF63B003D0486 /* getListAdmin.swift */,
+				30075E6528761BD500B59E1E /* postListAdmin.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -1995,6 +1998,7 @@
 				31BDD938270723E000AB2CD1 /* LoginViewLogoAndSubtext.swift in Sources */,
 				30521387278A502700CE0224 /* SelfProfileFeatured.swift in Sources */,
 				3004D50926CD586A00323BCB /* LoginViewController.swift in Sources */,
+				30075E6628761BD500B59E1E /* postListAdmin.swift in Sources */,
 				33E41CDF27FFB68E0037FDBC /* Liked.swift in Sources */,
 				3003B05E2811FA1800EA58B6 /* WalletConnect.swift in Sources */,
 				30EB96E7284301F6003D0486 /* DownloadView.swift in Sources */,

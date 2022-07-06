@@ -207,8 +207,6 @@ struct TabBarView: View {
             //getPlaylists. Gets all the data for the playlists. Called once per museum.
             await firestoreQuery.getHomePlaylists()
         
-            
-    
             await firestoreQuery.getDiscoverContent()
 
         
