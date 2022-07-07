@@ -65,7 +65,7 @@ struct CollectionsView: View {
                         .onTapGesture {
                             Task {
                                 
-                                if(art.searchType != 2){
+                                if(art.searchType != 2 || art.searchType != 0 ){ //so art is neither unapproved or rejected.
                                     //if playlist is a collection, only add if they are owner or creator.
                                     if(playlist.playlistType == "Gallify Collection"){
                                         if(art.ownerId==firestoreQuery.data.uid || art.creatorId==firestoreQuery.data.uid ){

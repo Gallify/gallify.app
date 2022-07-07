@@ -76,6 +76,10 @@ struct LoginViewNavLinks: View {
                 
                     Button(action:
                         {
+                        
+                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy) //haptic feedback!
+                        impactHeavy.impactOccurred()
+                        
                         viewModel.userData.token = ""
                         
                         let connectionUrl = viewModel.walletConnect.connect()
