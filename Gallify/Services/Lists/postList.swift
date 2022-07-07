@@ -146,6 +146,52 @@ extension FirestoreQuery {
         return docRef.documentID
     }
     
+    
+    func createLikedDocument(art: Art) async {
+        let docRef = FirestoreQuery.db.collection("liked").document(art.artId)
+        var liked = Liked()
+        liked.artId = art.artId
+        liked.userId = Auth.auth().currentUser?.uid ?? ""
+        let date = Date.now
+        liked.time =  timeNow()
+        do {
+            try await docRef.setData(from: liked)
+        } catch {
+            print("Error creating document for liked art \(error.localizedDescription)")
+        }
+        
+        //increase likes counter by 1 in firestore doc
+        var prevLikes = art.likes
+        do {
+            let artDoc = try await FirestoreQuery.db.collection("art").document(art.artId)
+                .updateData([
+                    "likes" : prevLikes + 1
+                ])
+        } catch {
+            print("Couldn't increase likes for art");
+        }
+        
+        //update likes locally
+        self.artThatsPlaying.likes = self.artThatsPlaying.likes + 1
+        
+    }
+    /**
+        Reduces art likes by 1
+     */
+    func unlikeArt(art: Art) async {
+        var prevLikes = art.likes
+        do {
+            let artDoc = try await FirestoreQuery.db.collection("art").document(art.artId)
+                .updateData([
+                    "likes" : prevLikes - 1
+                ])
+        } catch {
+            print("Couldn't increase likes for art");
+        }
+        
+        //update likes locally
+        self.artThatsPlaying.likes = self.artThatsPlaying.likes - 1
+    }
    
     
     /*

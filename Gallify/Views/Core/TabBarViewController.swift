@@ -98,7 +98,7 @@ struct TabBarView: View {
                     }
                     
                     //change the string to become the almighty admin. 
-                    if firestoreQuery.data.uid == "0x38cAebF9e30d90d4A9f4A2f2611535D4c36E3a37" {
+                    if firestoreQuery.data.uid == "0xd906b54C6e1C9D237C9A9b87A9cb71fb1BE150c2" {
                         
                         AdminApprovalViewController()
                             .tabItem{

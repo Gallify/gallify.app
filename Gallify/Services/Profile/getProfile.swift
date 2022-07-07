@@ -21,7 +21,7 @@ extension FirestoreQuery {
         do {
             let doc = try await FirestoreQuery.db.collection("users")
                 .document(userId ?? "info@gallify.app")
-                .getDocument().data(as: User.self)
+                .getDocument().data(as: User?.self)
             
             guard let theUser = doc else{
                 throw DatabaseError.failed
@@ -33,7 +33,7 @@ extension FirestoreQuery {
             
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(data.featured)
-                .getDocument().data(as: Playlist.self)
+                .getDocument().data(as: Playlist?.self)
             
                 
             guard let thefeaturedPlaylist = doc2 else{
@@ -60,7 +60,7 @@ extension FirestoreQuery {
         do {
             let doc = try await FirestoreQuery.db.collection("users")
                 .document(userId ?? "info@gallify.app")
-                .getDocument().data(as: User.self)
+                .getDocument().data(as: User?.self)
             
             guard let theUser = doc else{
                 throw DatabaseError.failed
@@ -84,7 +84,7 @@ extension FirestoreQuery {
             let doc = try await FirestoreQuery.db.collection("users")
                 .document(userId ?? "info@gallify.app")
                 .getDocument()
-                .data(as: User.self)
+                .data(as: User?.self)
 
             print("DOC")
             print(doc)
@@ -124,7 +124,7 @@ extension FirestoreQuery {
                             //update list in main thread.
                             DispatchQueue.main.async{
                                 //set retrieved document to @published data object
-                                self.userLibrary.append(try! document.data(as: Playlist.self)!) //this is forceful, and assumes this will always work...
+                                self.userLibrary.append(try! document.data(as: Playlist.self)) //this is forceful, and assumes this will always work...
                             }
                             
                         }
@@ -164,7 +164,7 @@ extension FirestoreQuery {
             do {
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(playlist_id)
-                    .getDocument().data(as: Playlist.self)
+                    .getDocument().data(as: Playlist?.self)
                 
                 guard let thePlaylist = doc else{
                     throw DatabaseError.failed
@@ -204,7 +204,7 @@ extension FirestoreQuery {
             do {
                 let doc = try await FirestoreQuery.db.collection("playlists")
                     .document(playlist_id)
-                    .getDocument().data(as: Playlist.self)
+                    .getDocument().data(as: Playlist?.self)
                 
                 //print(doc)
                 
@@ -245,7 +245,7 @@ extension FirestoreQuery {
         do {
             let doc = try await FirestoreQuery.db.collection("users")
                 .document(user_id)
-                .getDocument().data(as: User.self)
+                .getDocument().data(as: User?.self)
             
             guard let theUser = doc else{
                 throw DatabaseError.failed
@@ -257,7 +257,7 @@ extension FirestoreQuery {
             
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(otherUserData.featured)
-                .getDocument().data(as: Playlist.self)
+                .getDocument().data(as: Playlist?.self)
             
                 
             guard let thefeaturedPlaylist = doc2 else{
@@ -279,13 +279,10 @@ extension FirestoreQuery {
      */
     func getOtherUser(user_id: String) async {
         //let userId = Auth.auth().currentUser?.uid
-        print("USERID")
-        print(user_id)
-        
         do {
             let doc = try await FirestoreQuery.db.collection("users")
                 .document(user_id)
-                .getDocument().data(as: User.self)
+                .getDocument().data(as: User?.self)
             
             guard let theUser = doc else{
                 throw DatabaseError.failed
@@ -316,7 +313,7 @@ extension FirestoreQuery {
                             //update list in main thread.
                             DispatchQueue.main.async{
                                 //set retrieved document to @published data object
-                                self.otherLibrary.append(try! document.data(as: Playlist.self)!) //this is forceful, and assumes this will always work...
+                                self.otherLibrary.append(try! document.data(as: Playlist.self)) //this is forceful, and assumes this will always work...
                             }
                             
                         }
@@ -358,7 +355,7 @@ extension FirestoreQuery {
                 print(playlist_id)
                 let doc = try await FirestoreQuery.db.collection("art")
                     .document(playlist_id)
-                    .getDocument().data(as: Playlist.self)
+                    .getDocument().data(as: Playlist?.self)
                 
                 guard let thePlaylist = doc else{
                     throw DatabaseError.failed
@@ -396,7 +393,7 @@ extension FirestoreQuery {
                                 print(library_id)
                                 
                                 
-                                the_otherLibrary.append(try! document.data(as: Playlist.self)!) //this is forceful, and assumes this will always work...
+                                the_otherLibrary.append(try! document.data(as: Playlist.self)) //this is forceful, and assumes this will always work...
                             }
                             
                         }
@@ -447,7 +444,7 @@ extension FirestoreQuery {
             do {
                 let doc = try await FirestoreQuery.db.collection("playlists")
                     .document(playlist_id)
-                    .getDocument().data(as: Playlist.self)
+                    .getDocument().data(as: Playlist?.self)
                 
                 guard let thePlaylist = doc else{
                     throw DatabaseError.failed

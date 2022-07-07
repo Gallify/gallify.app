@@ -19,6 +19,7 @@ target 'Gallify' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'Firebase/Core'
+  pod 'FirebaseUI'
   pod 'FirebaseUI/Storage'
   pod 'FirebaseFirestoreSwift'
 
