@@ -124,6 +124,7 @@ extension FirestoreQuery {
         }
         else{
             self.discoverQuery = try await FirestoreQuery.db.collection("art") //if first call.
+                              .whereField("searchType", isEqualTo: 1)
                               .order(by: "popularity", descending: true)
                               .limit(to: 24)
         }

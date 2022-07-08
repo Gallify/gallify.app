@@ -102,17 +102,31 @@ extension FirestoreQuery {
         }
 
 
-        if(art.owner == otherUserId){ //added 06/19/22 by Tejvir
-            //add art to created doc
-            do {
-                try await FirestoreQuery.db.collection("playlists").document(ownedPlaylistId).updateData([
-                    "art": FieldValue.arrayUnion([art.artId])
-                ])
+        //add art to created doc
+        do {
+            try await FirestoreQuery.db.collection("playlists").document(ownedPlaylistId).updateData([
+                "art": FieldValue.arrayUnion([art.artId])
+            ])
 
-            } catch {
-                print("Error adding art to owned Playlist: \(error.localizedDescription)")
-            }
+        } catch {
+            print("Error adding art to owned Playlist: \(error.localizedDescription)")
         }
+        
+        
+        /*
+        //Adds to "collection" after approval. Uncomment when website is fixed.
+        do {
+            try await FirestoreQuery.db.collection("playlists").document(art.collectionRef).updateData([
+                "art": FieldValue.arrayUnion([art.artId])
+            ])
+
+        } catch {
+            print("Error adding art to owned Playlist: \(error.localizedDescription)")
+        }
+        */
+        
+        
+        
 
         //Post to marketplace
         await postArtToMarketplace(collectionId: art.collection, artId: art.artId)
