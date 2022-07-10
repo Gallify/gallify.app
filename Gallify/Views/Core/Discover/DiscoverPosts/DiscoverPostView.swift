@@ -22,10 +22,11 @@ struct DiscoverPostsView: View {
             
             LazyVStack {
                 
+                DiscoverPagePosts()
+                
                 DiscoverPostsViewTags(screenHeight: screenHeight, screenWidth: screenWidth)
                     .padding(.bottom, screenHeight / 160)
                 
-                DiscoverPagePosts()
                 
             }
             .padding(.top, screenHeight / 160)

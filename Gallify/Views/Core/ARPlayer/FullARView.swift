@@ -287,7 +287,7 @@ struct ARViewContainer: UIViewRepresentable {
     //let coachingOverlay = ARCoachingOverlayView()
     
     func makeUIView(context: Context) -> ARView {
-        let arView = CustomARView(frame: .zero, modelDeletionManager: modelDeletionManager)
+        let arView = CustomARView2(frame: .zero, modelDeletionManager: modelDeletionManager)
         
         arView.session.delegate = context.coordinator
         
@@ -323,7 +323,7 @@ struct ARViewContainer: UIViewRepresentable {
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
-    private func updateScene(for arView: CustomARView) {
+    private func updateScene(for arView: CustomARView2) {
         
         // Only display focusEntity when the user has selected a model for placement
         arView.focusEntity?.isEnabled = self.placementSettings.selectedModel != nil
@@ -345,7 +345,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         // 2. Enable translation and rotation gestures
         clonedEntity.generateCollisionShapes(recursive: true)
-        arView.installGestures([.translation, .rotation, .scale], for: clonedEntity)
+        arView.installGestures([.all], for: clonedEntity)
         
         // 3. Create an anchorEntity and add clonedEntity to the anchorEntity.
         let anchorEntity = AnchorEntity(plane: .any)

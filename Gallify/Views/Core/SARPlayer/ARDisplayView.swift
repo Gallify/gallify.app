@@ -11,7 +11,7 @@ import SwiftUI
 import RealityKit
 import ARKit
 import FocusEntity
-
+/*
 struct ARDisplayView: UIViewRepresentable {
     
     @EnvironmentObject var arVM: ARViewModel
@@ -114,3 +114,4 @@ class SCustomARView: ARView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+*/

@@ -12,7 +12,8 @@ import FocusEntity
 
 import SceneKit
 
-class CustomARView: ARView {
+// Commented out because DARPLayer uses same name.
+class CustomARView2: ARView {
     
     var focusEntity: FocusEntity?
     var modelDeletionManager: ModelDeletionManager
@@ -160,7 +161,7 @@ class CustomARView: ARView {
 }
 
 // MARK: - Object Deletion Methods
-extension CustomARView {
+extension CustomARView2 {
     func enableObjectDeletion() {
         //let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(recognizer:)))
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(recognizer:)))
@@ -184,3 +185,4 @@ extension CustomARView {
         }
     }
 }
+ 

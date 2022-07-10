@@ -79,7 +79,7 @@ struct CollectionGenericRow: View {
                         HStack {
                                                                 
                             Text("\(playlistOwner.displayName)")
-                                .font(.system(size: screenWidth / 20, weight: .light))
+                                .font(.system(size: screenWidth / 25, weight: .semibold))
                                 .foregroundColor(Color.black)
                                                                 
 //                            Image(systemName: "greaterthan")
@@ -139,10 +139,14 @@ struct CollectionGenericRow: View {
                     Spacer()
                                                 
                 }
+                .padding(.trailing, -screenWidth / 5)
                 .padding(.horizontal, screenWidth / 200)
                 .padding(.top, -screenHeight / 35)
                 .listRowSeparator(.hidden)
                         
+                
+                
+                
                 if(playlist.count > 0) {
                                             
                     ForEach(0...playlist.count - 1, id: \.self) { i in

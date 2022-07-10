@@ -92,6 +92,7 @@ struct CollectionReelHeader: View {
                                 .font(.system(size: 30))
                                 .padding(.leading)
                                 .foregroundColor(.primary)
+                                .padding(.horizontal, magik(15))
                         }
                     }
                     .buttonStyle(ThemeAnimationStyle())
@@ -103,6 +104,7 @@ struct CollectionReelHeader: View {
                         firestoreQuery.showNewScreen = false
                     }
             }
+            
         }
     }
 }

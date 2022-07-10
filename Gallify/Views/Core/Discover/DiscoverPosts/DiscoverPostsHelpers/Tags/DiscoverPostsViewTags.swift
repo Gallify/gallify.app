@@ -5,6 +5,7 @@
 //  Created by Anshul on 11/14/21.
 //
 import SwiftUI
+import ARKit
 
 struct DiscoverPostsViewTags: View {
     
@@ -14,9 +15,12 @@ struct DiscoverPostsViewTags: View {
     
     var body: some View {
         
-        ScrollView(.horizontal, showsIndicators: false) {
+        
+      //  ScrollView(.horizontal, showsIndicators: false) {
             
             HStack {
+                
+                Spacer()
                 
                 Button(action: {
                     
@@ -49,18 +53,66 @@ struct DiscoverPostsViewTags: View {
                 }
                 .buttonStyle(ThemeAnimationStyle_refresh())
                 
+                Spacer()
+                
+                /*
+                if (ARConfiguration.isSupported) {
+                    
+                    
+                    Button{
+                        //if else checks if both camera and reels screen are minimized currently.
+                        if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                            firestoreQuery.bothScreensMinimized = true
+                        }
+                        else{
+                            firestoreQuery.bothScreensMinimized = false
+                        }
+                        firestoreQuery.showCameraScreen = true
+                        firestoreQuery.showNewScreen = false
+                        firestoreQuery.cameraPlaying = true
+                        firestoreQuery.artPlaying = false
+                        
+                        Task{
+                            
+                            //clears out the old data in the AR session.
+                            firestoreQuery.clearModels()
+                            firestoreQuery.clearModelEntitiesFromMemory()
+                            
+                            if(firestoreQuery.models.isEmpty){
+                                await firestoreQuery.fetchModelData()
+                            }
+                        }
+                    }
+                        label: {
+                            if (ARConfiguration.isSupported) {
+                                Image(systemName: "arkit")
+                                    .font(.system(size: 30))
+                                    //.padding(.leading)
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        .buttonStyle(ThemeAnimationStyle())
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true)
+                        .onTapGesture {
+                            firestoreQuery.showCameraScreen = true
+                            firestoreQuery.showNewScreen = false
+                        }
+                }
+                
             }
             .padding(.horizontal, screenWidth / 25)
             .padding(.vertical, screenHeight / 160)
-            
+            */
         }
         
+      //  }
     }
-    
 }
 
-struct DiscoverPostsViewTags_Previews: PreviewProvider {
-    static var previews: some View {
-        DiscoverPostsViewTags(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
-    }
-}
+//struct DiscoverPostsViewTags_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DiscoverPostsViewTags(screenHeight: UIScreen.main.bounds.height, screenWidth: UIScreen.main.bounds.width)
+//    }
+//}

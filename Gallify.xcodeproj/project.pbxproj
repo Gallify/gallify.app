@@ -79,8 +79,23 @@
 		3004D51526CDB92300323BCB /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004D51426CDB92300323BCB /* BidViewController.swift */; };
 		30075E5D286898D900B59E1E /* AROverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E5C286898D900B59E1E /* AROverlayView.swift */; };
 		30075E5F286898E100B59E1E /* ARDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E5E286898E100B59E1E /* ARDisplayView.swift */; };
-		30075E61286898EA00B59E1E /* ARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E60286898EA00B59E1E /* ARViewModel.swift */; };
+		30075E61286898EA00B59E1E /* ARViewModel_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E60286898EA00B59E1E /* ARViewModel_old.swift */; };
 		30075E6628761BD500B59E1E /* postListAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E6528761BD500B59E1E /* postListAdmin.swift */; };
+		30075E692878A00600B59E1E /* ARPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E682878A00600B59E1E /* ARPlayerView.swift */; };
+		30075E6B2878A02900B59E1E /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E6A2878A02900B59E1E /* OverlayView.swift */; };
+		30075E6D2878A03300B59E1E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E6C2878A03300B59E1E /* View.swift */; };
+		30075E6F2878A04100B59E1E /* ARCamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E6E2878A04100B59E1E /* ARCamView.swift */; };
+		30075E712878A04E00B59E1E /* ARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E702878A04E00B59E1E /* ARViewModel.swift */; };
+		30075E732878A05B00B59E1E /* ARModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30075E722878A05B00B59E1E /* ARModel.swift */; };
+		30075E802878BBB600B59E1E /* chair_swan.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30075E772878BBB600B59E1E /* chair_swan.usdz */; };
+		30075E812878BBB600B59E1E /* toy_drummer.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30075E782878BBB600B59E1E /* toy_drummer.usdz */; };
+		30075E822878BBB600B59E1E /* toy_robot_vintage.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30075E792878BBB600B59E1E /* toy_robot_vintage.usdz */; };
+		30075E842878BBB600B59E1E /* donut.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30075E7B2878BBB600B59E1E /* donut.usdz */; };
+		30075E852878BBB600B59E1E /* hab_en in Resources */ = {isa = PBXBuildFile; fileRef = 30075E7C2878BBB600B59E1E /* hab_en */; };
+		30075E872878BBB600B59E1E /* toy_biplane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30075E7E2878BBB600B59E1E /* toy_biplane.usdz */; };
+		30075E882878BBB600B59E1E /* elephant.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30075E7F2878BBB600B59E1E /* elephant.usdz */; };
+		30075E8C287A31FB00B59E1E /* x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 30075E8B287A31FB00B59E1E /* x.gif */; };
+		30075E93287A425F00B59E1E /* testt.mov in Resources */ = {isa = PBXBuildFile; fileRef = 30075E92287A425F00B59E1E /* testt.mov */; };
 		304109F6279D27AC00284446 /* MinimizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304109F5279D27AC00284446 /* MinimizedView.swift */; };
 		304109F8279E24EC00284446 /* FirestoreUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304109F7279E24EC00284446 /* FirestoreUploadService.swift */; };
 		30410A0427A1E7BE00284446 /* USDZPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30410A0327A1E7BE00284446 /* USDZPost.swift */; };
@@ -346,8 +361,25 @@
 		3004D51426CDB92300323BCB /* BidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
 		30075E5C286898D900B59E1E /* AROverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AROverlayView.swift; sourceTree = "<group>"; };
 		30075E5E286898E100B59E1E /* ARDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDisplayView.swift; sourceTree = "<group>"; };
-		30075E60286898EA00B59E1E /* ARViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
+		30075E60286898EA00B59E1E /* ARViewModel_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel_old.swift; sourceTree = "<group>"; };
 		30075E6528761BD500B59E1E /* postListAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postListAdmin.swift; sourceTree = "<group>"; };
+		30075E682878A00600B59E1E /* ARPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlayerView.swift; sourceTree = "<group>"; };
+		30075E6A2878A02900B59E1E /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		30075E6C2878A03300B59E1E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		30075E6E2878A04100B59E1E /* ARCamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCamView.swift; sourceTree = "<group>"; };
+		30075E702878A04E00B59E1E /* ARViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
+		30075E722878A05B00B59E1E /* ARModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModel.swift; sourceTree = "<group>"; };
+		30075E772878BBB600B59E1E /* chair_swan.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = chair_swan.usdz; sourceTree = "<group>"; };
+		30075E782878BBB600B59E1E /* toy_drummer.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer.usdz; sourceTree = "<group>"; };
+		30075E792878BBB600B59E1E /* toy_robot_vintage.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_robot_vintage.usdz; sourceTree = "<group>"; };
+		30075E7B2878BBB600B59E1E /* donut.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = donut.usdz; sourceTree = "<group>"; };
+		30075E7C2878BBB600B59E1E /* hab_en */ = {isa = PBXFileReference; lastKnownFileType = file; path = hab_en; sourceTree = "<group>"; };
+		30075E7E2878BBB600B59E1E /* toy_biplane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane.usdz; sourceTree = "<group>"; };
+		30075E7F2878BBB600B59E1E /* elephant.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = elephant.usdz; sourceTree = "<group>"; };
+		30075E8A287937BF00B59E1E /* cos.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = cos.reality; sourceTree = "<group>"; };
+		30075E8B287A31FB00B59E1E /* x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = x.gif; sourceTree = "<group>"; };
+		30075E8D287A3F5C00B59E1E /* graph.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = graph.mp4; sourceTree = "<group>"; };
+		30075E92287A425F00B59E1E /* testt.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = testt.mov; sourceTree = "<group>"; };
 		304109F5279D27AC00284446 /* MinimizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimizedView.swift; sourceTree = "<group>"; };
 		304109F7279E24EC00284446 /* FirestoreUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUploadService.swift; sourceTree = "<group>"; };
 		30410A0327A1E7BE00284446 /* USDZPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZPost.swift; sourceTree = "<group>"; };
@@ -697,6 +729,7 @@
 				3004D4E926CD3DDB00323BCB /* Views */,
 				3004D4EA26CD3DF100323BCB /* Models */,
 				3004D4BD26C82F6D00323BCB /* Assets.xcassets */,
+				30075E762878BBB600B59E1E /* 3DAssets */,
 				3004D4C226C82F6D00323BCB /* Info.plist */,
 				3067FBE427460D5C009B5D4D /* Main.storyboard */,
 				3004D4E726CC97F400323BCB /* GoogleService-Info.plist */,
@@ -761,6 +794,7 @@
 		3004D4EC26CD402A00323BCB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				30075E6728789F3A00B59E1E /* DARPlayer */,
 				318C16A9281AFECA00F63C3D /* AdminApproval */,
 				30075E5B286898BA00B59E1E /* SARPlayer */,
 				3003B00427EB983900EA58B6 /* ARPlayer */,
@@ -813,9 +847,40 @@
 			children = (
 				30075E5C286898D900B59E1E /* AROverlayView.swift */,
 				30075E5E286898E100B59E1E /* ARDisplayView.swift */,
-				30075E60286898EA00B59E1E /* ARViewModel.swift */,
+				30075E60286898EA00B59E1E /* ARViewModel_old.swift */,
 			);
 			path = SARPlayer;
+			sourceTree = "<group>";
+		};
+		30075E6728789F3A00B59E1E /* DARPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				30075E682878A00600B59E1E /* ARPlayerView.swift */,
+				30075E6A2878A02900B59E1E /* OverlayView.swift */,
+				30075E6C2878A03300B59E1E /* View.swift */,
+				30075E6E2878A04100B59E1E /* ARCamView.swift */,
+				30075E702878A04E00B59E1E /* ARViewModel.swift */,
+				30075E722878A05B00B59E1E /* ARModel.swift */,
+				30075E8D287A3F5C00B59E1E /* graph.mp4 */,
+				30075E92287A425F00B59E1E /* testt.mov */,
+			);
+			path = DARPlayer;
+			sourceTree = "<group>";
+		};
+		30075E762878BBB600B59E1E /* 3DAssets */ = {
+			isa = PBXGroup;
+			children = (
+				30075E8B287A31FB00B59E1E /* x.gif */,
+				30075E772878BBB600B59E1E /* chair_swan.usdz */,
+				30075E8A287937BF00B59E1E /* cos.reality */,
+				30075E782878BBB600B59E1E /* toy_drummer.usdz */,
+				30075E792878BBB600B59E1E /* toy_robot_vintage.usdz */,
+				30075E7B2878BBB600B59E1E /* donut.usdz */,
+				30075E7C2878BBB600B59E1E /* hab_en */,
+				30075E7E2878BBB600B59E1E /* toy_biplane.usdz */,
+				30075E7F2878BBB600B59E1E /* elephant.usdz */,
+			);
+			path = 3DAssets;
 			sourceTree = "<group>";
 		};
 		303DB8CE26F97C9C0005AC51 /* Profiles */ = {
@@ -1693,10 +1758,19 @@
 			files = (
 				3004D4C126C82F6D00323BCB /* Preview Assets.xcassets in Resources */,
 				30410A0827A1E7FD00284446 /* AirForce.usdz in Resources */,
+				30075E822878BBB600B59E1E /* toy_robot_vintage.usdz in Resources */,
+				30075E852878BBB600B59E1E /* hab_en in Resources */,
 				3004D4BE26C82F6D00323BCB /* Assets.xcassets in Resources */,
+				30075E872878BBB600B59E1E /* toy_biplane.usdz in Resources */,
+				30075E93287A425F00B59E1E /* testt.mov in Resources */,
+				30075E812878BBB600B59E1E /* toy_drummer.usdz in Resources */,
+				30075E8C287A31FB00B59E1E /* x.gif in Resources */,
 				3004D4E826CC97F400323BCB /* GoogleService-Info.plist in Resources */,
 				3067FBE227460D5C009B5D4D /* Main.storyboard in Resources */,
 				30410A0A27A1E80700284446 /* toy_car.usdz in Resources */,
+				30075E882878BBB600B59E1E /* elephant.usdz in Resources */,
+				30075E842878BBB600B59E1E /* donut.usdz in Resources */,
+				30075E802878BBB600B59E1E /* chair_swan.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1840,7 +1914,7 @@
 				30EB96F6284CF63B003D0486 /* getListAdmin.swift in Sources */,
 				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
 				30410A8127A677EB00284446 /* MembershipSetting.swift in Sources */,
-				30075E61286898EA00B59E1E /* ARViewModel.swift in Sources */,
+				30075E61286898EA00B59E1E /* ARViewModel_old.swift in Sources */,
 				3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */,
 				30A0AB89285A78460055905C /* connection.swift in Sources */,
 				30001BFD2796970B00527BF9 /* OtherProfileCollectionList.swift in Sources */,
@@ -1851,6 +1925,7 @@
 				30410A7A27A677EB00284446 /* AccountSettingHeader.swift in Sources */,
 				30001BDF2796868000527BF9 /* deleteList.swift in Sources */,
 				30A0AB972866670B0055905C /* ArtTest.swift in Sources */,
+				30075E6B2878A02900B59E1E /* OverlayView.swift in Sources */,
 				92794D00273811760012B184 /* CollectionRecentActivityFooter.swift in Sources */,
 				92794CFC273811760012B184 /* CollectionReelListing.swift in Sources */,
 				30001BC22796852D00527BF9 /* postHome.swift in Sources */,
@@ -1883,6 +1958,7 @@
 				3052137B278A2C3A00CE0224 /* Followers.swift in Sources */,
 				30001BDD2796867100527BF9 /* updateList.swift in Sources */,
 				92794D13273814EB0012B184 /* DiscoveryCategoryContent.swift in Sources */,
+				30075E712878A04E00B59E1E /* ARViewModel.swift in Sources */,
 				92794D07273811760012B184 /* CollectionGenericView.swift in Sources */,
 				30410A8327A677EB00284446 /* CuratorProgramSetting.swift in Sources */,
 				308B4BF127658B8F0039B74E /* ArtDetails.swift in Sources */,
@@ -1924,6 +2000,7 @@
 				318C16B2281AFF7C00F63C3D /* AdminApprovalArtDescription.swift in Sources */,
 				30001BD6279685BB00527BF9 /* deleteProfile.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,
+				30075E732878A05B00B59E1E /* ARModel.swift in Sources */,
 				30410A8427A677EB00284446 /* CuratorProgramSettingHeader.swift in Sources */,
 				30410A7D27A677EB00284446 /* ArtistProgramSettingHeader.swift in Sources */,
 				30410A3B27A671AB00284446 /* MainSettingsViewHeader.swift in Sources */,
@@ -1975,6 +2052,7 @@
 				3004D50D26CD6CF400323BCB /* PhoneVerificationViewController.swift in Sources */,
 				92794CFF273811760012B184 /* CollectionRecentActivityView.swift in Sources */,
 				31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */,
+				30075E6D2878A03300B59E1E /* View.swift in Sources */,
 				92DB7C6B2731810F0035B788 /* CreateLandingOptions.swift in Sources */,
 				30EB96E92843AEA2003D0486 /* ProfileSignIn.swift in Sources */,
 				31F1530F270B881400238459 /* OvalTextField.swift in Sources */,
@@ -1983,6 +2061,7 @@
 				30836FBA274A048B00E83735 /* DiscoverPostView.swift in Sources */,
 				30836FBD274A04C900E83735 /* DiscoverPagePosts.swift in Sources */,
 				30521375278A2C3A00CE0224 /* UserLight.swift in Sources */,
+				30075E6F2878A04100B59E1E /* ARCamView.swift in Sources */,
 				92794CFE273811760012B184 /* CollectionReelDescription.swift in Sources */,
 				30001BCE2796857F00527BF9 /* deleteDiscover.swift in Sources */,
 				30001BCA2796856B00527BF9 /* postDiscover.swift in Sources */,
@@ -2017,6 +2096,7 @@
 				30521377278A2C3A00CE0224 /* GetUser.swift in Sources */,
 				30493BBA27CB328200CD985B /* CreatePlaylistSettings.swift in Sources */,
 				3004D4FC26CD4D9A00323BCB /* HapticsManager.swift in Sources */,
+				30075E692878A00600B59E1E /* ARPlayerView.swift in Sources */,
 				FC5DCE5727F951BC00AE345B /* DeletionView.swift in Sources */,
 				30836FB5274A041600E83735 /* ArtistSearchTemplate.swift in Sources */,
 				3003AFF127E40B7C00EA58B6 /* Model.swift in Sources */,

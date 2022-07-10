@@ -125,16 +125,13 @@ extension FirestoreQuery {
         }
         */
         
-        
-        
-
         //Post to marketplace
         await postArtToMarketplace(collectionId: art.collection, artId: art.artId)
 
     }
     
     func postArtToMarketplace(collectionId : String, artId:String) async  {
-        let apiAddress = "api.gallify.app/v0/mint/\(collectionId)/\(artId)"
+        let apiAddress = "https://api.gallify.app/v0/mint/\(collectionId)/\(artId)"
         print(apiAddress)
 
         let url = URL(string: apiAddress)!

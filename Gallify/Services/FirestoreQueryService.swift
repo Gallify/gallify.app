@@ -37,6 +37,10 @@ class FirestoreQuery : ObservableObject {
     
     //AR Player Camera/Reels
     @Published var models: [Model] = []
+    
+    @Published var ARModels: [ARModel] = []
+    
+    
     @Published var showCameraScreen = false
     @Published var cameraPlaying = false
     @Published var showNewScreen = false

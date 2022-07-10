@@ -140,7 +140,8 @@ struct TabBarView: View {
                     
                 
                     //FullARView()
-                    AROverlayView()
+                    //AROverlayView()
+                    ARPlayerView()
                         .offset(y: firestoreQuery.showCameraScreen ? 0 : UIScreen.main.bounds.height)
 
                         //if one of the reel screen and camera screen's are minimized, and both were previously minimized (minimized = false)

@@ -764,8 +764,9 @@ struct LoginView: View, WalletConnectDelegate {
                     
                     // Forcing the rotation to portrait
                     // code locks view in portrait.
-                    UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-                    AppDelegate.orientationLock = .portrait
+                    
+//                    UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+//                    AppDelegate.orientationLock = .portrait
                     
                 }
                 .navigationBarHidden(true)
