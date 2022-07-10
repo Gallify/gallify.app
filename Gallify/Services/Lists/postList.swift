@@ -43,11 +43,10 @@ extension FirestoreQuery {
         }
     }
     
-    func checkIfalreadyLiked(art: Art) async{
+    func checkIfalreadyLiked(art: Art) async {
+        var isLiked = false
         try await FirestoreQuery.db.collection("liked").whereField("artId", isEqualTo: art.artId).getDocuments() { (querySnapshot, err) in
             if (querySnapshot?.count == 0) {
-                print("COUNT OF DOCUMENTS IN QUERY SNAPSHOT = ", querySnapshot?.count)
-                
                     print("No documents in Liked collection with this art id, error = \(err)")
                     
                     DispatchQueue.main.async {
@@ -62,13 +61,13 @@ extension FirestoreQuery {
                     }
                     
                     DispatchQueue.main.async {
-                        self.isLiked = true
+                        Task {
+                            await self.unlikeArt(art:art)
+                        }
                     }
-                    
                     
                 }
         }
-        
     }
     
     func addArtToPlaylist(art: Art, playlistName: String) async {
@@ -80,7 +79,7 @@ extension FirestoreQuery {
                     ])
                     if(p.name == "Liked") {
                         try await createLikedDocument(art: art)
-                        self.isLiked = true
+                        //self.isLiked = true
                     }
                     p.art.append(art.artId)
                    
@@ -142,7 +141,7 @@ extension FirestoreQuery {
         liked.artId = art.artId
         liked.userId = Auth.auth().currentUser?.uid ?? ""
         print("fetching time now = ", timeNow())
-        liked.time = self.timeNow()
+        liked.time = timeNow()
         do {
             try await docRef.setData(from: liked)
         } catch {
@@ -170,7 +169,7 @@ extension FirestoreQuery {
         Removed liked document from Liked collection
      */
     func unlikeArt(art: Art) async {
-        self.isLiked = false
+        //self.isLiked = false
         var prevLikes = art.likes
         do {
             let artDoc = try await FirestoreQuery.db.collection("art").document(art.artId)

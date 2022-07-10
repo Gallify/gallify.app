@@ -220,15 +220,14 @@ struct CollectionReelListing: View {
                                             buttons: [
                                                 .default(Text("Like")) {
                                                     Task {
+                                                        
+                                                    }
+                                                    Task {
                                                         await firestoreQuery.checkIfalreadyLiked(art: art)
-                                                        if(firestoreQuery.isLiked) {
-                                                            //remove from liked playlist
-                                                            await firestoreQuery.unlikeArt(art: art)
-                                                        } else {
-                                                            await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
-                                                            //reload library
-                                                            await firestoreQuery.getUserLibrary()
-                                                        }
+                                                        await firestoreQuery.addArtToPlaylist(art: art, playlistName: "Liked")
+                                                        //reload library
+                                                        await firestoreQuery.getUserLibrary()
+                                                        
                                                     }
                                                 },
                                                 .default(Text("Add to List")) {
