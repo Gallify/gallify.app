@@ -72,26 +72,46 @@ extension FirestoreQuery {
 
 func postArtToMarketplace(collectionId : String, artId:String) async  {
     let apiAddress = "https://api.gallify.app/v0/mint/\(collectionId)/\(artId)"
-    print(apiAddress)
-
     let url = URL(string: apiAddress)!
+//    let body = "\(collectionId)/\(artId)"
+//
+//    let finalBody = body.data(using: .utf8)
     var request = URLRequest(url: url)
-//    request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "POST"
+//    request.httpBody = finalBody
+
     
-    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-        guard let data = data,
-            let response = response as? HTTPURLResponse,
-            error == nil else { // check for fundamental networking error
-                print("error", error ?? "Unknown error")
-                return
-            }
-        
-        if response.statusCode == 200 {
-            print("Successfully posted art to marketplace");
-        }
-    }
-    task.resume()
+   // var request = URLRequest(url: url)
+//    request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+    //request.httpMethod = "POST"
+    
+//    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+//        if let error = error {
+//            print( "DataTask error: " + error.localizedDescription + "\n")
+//        } else if
+//            let data = data,
+//            let response = response as? HTTPURLResponse,
+//            response.statusCode == 200 {
+//                DispatchQueue.main.async {
+//                    print("Successfully posted art to marketplace");
+//                }
+//            }
+//    }
+//    task.resume()
+    
+    URLSession.shared.dataTask(with: request){
+               (data, response, error) in
+               print(response as Any)
+               if let error = error {
+                   print(error)
+                   return
+               }
+               guard let data = data else{
+                   return
+               }
+               print(data, String(data: data, encoding: .utf8) ?? "*unknown encoding*")
+               
+           }.resume()
 }
     
 //func rejectArt(art: Art) async {

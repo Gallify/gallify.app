@@ -114,7 +114,7 @@ extension FirestoreQuery {
             }
         }
         
-        await postArtToMarketplace(collectionId: art.collection, artId: art.artId)
+        await postArtToMarketplace(collectionId: art.collectionRef, artId: art.artId)
     }
 
     func rejectArt(art: Art) async {
