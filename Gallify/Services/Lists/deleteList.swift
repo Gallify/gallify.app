@@ -19,60 +19,41 @@ extension FirestoreQuery {
     func deleteArtFromPlaylist(art_id: String, playlist: Playlist) async {
                                     
         do {
-            print("PLAYLIST ID RECEIVED IN DELETE = ", playlist.playlistId)
-            print("ART ID RECEIVED IN DELETE = ", art_id)
-            
+           
             let doc = try await FirestoreQuery.db.collection("playlists").document(playlist.playlistId).updateData([
                 "art": FieldValue.arrayRemove([art_id])
             ])
+            
+            if(playlist.name == "Liked") {
+                //delete from Liked document also
+                await deleteFromLikedCollection(id: art_id)
+            }
             
             //DispatchQueue.main.async {
                 playlistArt.removeAll { art in
                     art.artId == art_id
                 }
         
-//
         }
         catch{
-            print("Error")
+            print("Error while delete art from \(playlist.name)")
         }
     }
-    
-    /*
-     Remove from playlist
-     */
-    func removeArtFromPlaylist(art: Art, playlistName: String) async {
-        
-        print(art)
-        
-        do {
-            
-            for p in userLibrary {
-                if p.name == playlistName {
-                    try await FirestoreQuery.db.collection("playlists").document(p.playlistId).updateData([
-                        "art" : FieldValue.arrayRemove([art.artId])
-                    ])
-                    //add to liked_art subcollection
-                    if(p.name == "Liked") {
-                        try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
-                            .collection("profile")
-                            .document("liked_art")
-                            .updateData(["liked" : FieldValue.arrayRemove([art.artId])])
-                    }
+
+    func deleteFromLikedCollection(id: String) async {
+        FirestoreQuery.db.collection("liked").whereField("artId", isEqualTo: id).getDocuments { (snapshot, error) in
+            for document in snapshot!.documents {
+                let docId = document.documentID
+                FirestoreQuery.db.collection("liked").document(docId).delete { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
                 }
             }
-            
-            //reload library
-            self.likedArt.removeAll { artwork in
-                artwork.artId == art.artId
-            }
-            
-            
-        } catch {
-            print("Error adding art to Liked PLaylist in user library")
         }
     }
-    
     
     func deletePlaylistFromLibrary(playlist_id: String) async {
         do {

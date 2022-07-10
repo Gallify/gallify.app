@@ -43,13 +43,12 @@ extension FirestoreQuery {
         }
     }
     
-    func checkIfalreadyLiked(art: Art) async {
-        let docRef = try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
-            .collection("profile").whereField("liked", arrayContains: art.artId)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
+    func checkIfalreadyLiked(art: Art) async{
+        try await FirestoreQuery.db.collection("liked").whereField("artId", arrayContains: art.artId).getDocuments() { (querySnapshot, err) in
+            if (querySnapshot?.count == 0) {
+                    print("No documents in Liked collection with this art id, error = \(err)")
                     
+                    //Art not found in collection, so can be added so set isLiked to true
                     DispatchQueue.main.async {
                         self.isLiked = false
                     }
@@ -68,39 +67,28 @@ extension FirestoreQuery {
                     
                 }
         }
-//        return self.isLiked
         
     }
     
     func addArtToPlaylist(art: Art, playlistName: String) async {
-        
-        print(art)
-        
-        do {
-            
-            for p in userLibrary {
-                if p.name == playlistName {
+        for p in userLibrary {
+           if p.name == playlistName {
+               do {
                     try await FirestoreQuery.db.collection("playlists").document(p.playlistId).updateData([
                         "art" : FieldValue.arrayUnion([art.artId])
                     ])
-                    //add to liked_art subcollection
-                    if(p.name == "Liked") {                         try await FirestoreQuery.db.collection("users").document(Auth.auth().currentUser?.uid ?? "help")
-                            .collection("profile")
-                            .document("liked_art")
-                            .updateData(["liked" : FieldValue.arrayUnion([art.artId])])
+                    if(p.name == "Liked") {
+                        try await createLikedDocument(art: art)
+                        self.isLiked = true
                     }
-                }
-            }
-            
-            //reload library
-            self.likedArt.append(art)
-            
-            
-        } catch {
-            print("Error adding art to Liked PLaylist in user library")
-        }
-    }
-    
+                    p.art.append(art.artId)
+                   
+               } catch {
+                   
+               }
+          }
+      }
+  }
     
     //adds playlist to library
     func addPlaylistToLibrary(playlist: Playlist) {
@@ -148,12 +136,12 @@ extension FirestoreQuery {
     
     
     func createLikedDocument(art: Art) async {
-        let docRef = FirestoreQuery.db.collection("liked").document(art.artId)
+        let docRef = FirestoreQuery.db.collection("liked").document(UUID().uuidString)
         var liked = Liked()
         liked.artId = art.artId
         liked.userId = Auth.auth().currentUser?.uid ?? ""
-        let date = Date.now
-        liked.time =  timeNow()
+        print("fetching time now = ", timeNow())
+        liked.time = self.timeNow()
         do {
             try await docRef.setData(from: liked)
         } catch {
@@ -177,8 +165,11 @@ extension FirestoreQuery {
     }
     /**
         Reduces art likes by 1
+        deletes art from liked playlist
+        Removed liked document from Liked collection
      */
     func unlikeArt(art: Art) async {
+        self.isLiked = false
         var prevLikes = art.likes
         do {
             let artDoc = try await FirestoreQuery.db.collection("art").document(art.artId)
@@ -191,9 +182,15 @@ extension FirestoreQuery {
         
         //update likes locally
         self.artThatsPlaying.likes = self.artThatsPlaying.likes - 1
+        
+        //remove art from liked playlist
+        for playlist in self.userLibrary {
+            if playlist.name == "Liked" {
+                await self.deleteArtFromPlaylist(art_id: art.artId, playlist: playlist)
+            }
+        }
     }
    
-    
     /*
     /*
         Add art to art collection
