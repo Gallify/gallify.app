@@ -220,7 +220,7 @@ struct CollectionReelListing: View {
                                             buttons: [
                                                 .default(Text("Like")) {
                                                     Task {
-                                                        //await firestoreQuery.checkIfalreadyLiked(art: art)
+                                                        await firestoreQuery.checkIfalreadyLiked(art: art)
                                                         if(firestoreQuery.isLiked) {
                                                             //remove from liked playlist
                                                             await firestoreQuery.unlikeArt(art: art)

@@ -44,11 +44,12 @@ extension FirestoreQuery {
     }
     
     func checkIfalreadyLiked(art: Art) async{
-        try await FirestoreQuery.db.collection("liked").whereField("artId", arrayContains: art.artId).getDocuments() { (querySnapshot, err) in
+        try await FirestoreQuery.db.collection("liked").whereField("artId", isEqualTo: art.artId).getDocuments() { (querySnapshot, err) in
             if (querySnapshot?.count == 0) {
+                print("COUNT OF DOCUMENTS IN QUERY SNAPSHOT = ", querySnapshot?.count)
+                
                     print("No documents in Liked collection with this art id, error = \(err)")
                     
-                    //Art not found in collection, so can be added so set isLiked to true
                     DispatchQueue.main.async {
                         self.isLiked = false
                     }

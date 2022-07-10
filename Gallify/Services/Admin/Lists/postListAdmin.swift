@@ -43,6 +43,7 @@ func postArtToMarketplace(collectionId : String, artId:String) async  {
 //    }
 //    task.resume()
     
+
     URLSession.shared.dataTask(with: request){
                (data, response, error) in
                print(response as Any)
