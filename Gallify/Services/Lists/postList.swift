@@ -134,7 +134,9 @@ extension FirestoreQuery {
         return docRef.documentID
     }
     
-    
+    /*
+        Creates a document for the like of an art
+     */
     func createLikedDocument(art: Art) async {
         let docRef = FirestoreQuery.db.collection("liked").document(UUID().uuidString)
         var liked = Liked()
@@ -191,6 +193,37 @@ extension FirestoreQuery {
         }
     }
    
+    
+    /*
+     Sets location of playist using given lat and lon params
+     */
+    func setLocation(lat: Int, lon: Int, playlist: Playlist) async {
+        do {
+           let docRef = try await FirestoreQuery.db.collection("playlists").document(playlist.playlistId)
+            playlist.lat = lat
+            playlist.lon = lon
+            do {
+                try docRef.setData(from: playlist)
+            }catch {
+                
+            }
+            
+        } catch {
+            print("Error setting location for playlist \(playlist.name)")
+        }
+       
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /*
     /*
         Add art to art collection
