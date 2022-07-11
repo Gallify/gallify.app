@@ -281,7 +281,9 @@ extension FirestoreQuery {
 
         let playlistDoc = FirestoreQuery.db.collection("playlists").document(playlist.playlistId)
         playlistDoc.updateData(documentData) { error in
-            // ...
+            if error != nil {
+                print("Error adding geohash value to playlist doc in firestore, Error = \(error?.localizedDescription)")
+            }
         }
     }
     
