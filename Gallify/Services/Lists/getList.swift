@@ -320,11 +320,6 @@ extension FirestoreQuery {
                }
            }
        }
-
-       // After all callbacks have executed, matchingDocs contains the result.
-       for query in queries {
-           query.getDocuments(completion: getDocumentsCompletion)
-       }
         
        return matchingDocs
     }
