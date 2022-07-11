@@ -1585,6 +1585,7 @@
 				3004D4B326C82F6B00323BCB /* Frameworks */,
 				3004D4B426C82F6B00323BCB /* Resources */,
 				DAF5F28BE4B5E37BF0B8EFEE /* [CP] Embed Pods Frameworks */,
+				48970E18E5789AF6F9FDD964 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1629,6 +1630,7 @@
 				3004D4CF26C82F6E00323BCB /* Frameworks */,
 				3004D4D026C82F6E00323BCB /* Resources */,
 				F859E3873D82C1A2D33B12C4 /* [CP] Embed Pods Frameworks */,
+				78604FCBAB8245657A521300 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1673,9 +1675,9 @@
 			mainGroup = 3004D4AD26C82F6A00323BCB;
 			packageReferences = (
 				FC9EED7A2762AD7E00F831DC /* XCRemoteSwiftPackageReference "FocusEntity" */,
-				3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */,
+				3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift.git" */,
 				30EB962428288A90003D0486 /* XCRemoteSwiftPackageReference "FocusEntity" */,
-				30A0AB912860B0E00055905C /* XCRemoteSwiftPackageReference "web3" */,
+				30A0AB912860B0E00055905C /* XCRemoteSwiftPackageReference "web3.swift" */,
 			);
 			productRefGroup = 3004D4B726C82F6B00323BCB /* Products */;
 			projectDirPath = "";
@@ -1741,6 +1743,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		48970E18E5789AF6F9FDD964 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		72126595FBE060E7D1CF1E0A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1761,6 +1780,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78604FCBAB8245657A521300 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7B51DA813A6A610FAECDF7D1 /* [CP] Check Pods Manifest.lock */ = {
@@ -2401,7 +2437,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */ = {
+		3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WalletConnect/WalletConnectSwift.git";
 			requirement = {
@@ -2409,7 +2445,7 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		30A0AB912860B0E00055905C /* XCRemoteSwiftPackageReference "web3" */ = {
+		30A0AB912860B0E00055905C /* XCRemoteSwiftPackageReference "web3.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/argentlabs/web3.swift";
 			requirement = {
@@ -2438,12 +2474,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		3003B05B2811F35F00EA58B6 /* WalletConnectSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */;
+			package = 3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift.git" */;
 			productName = WalletConnectSwift;
 		};
 		30A0AB922860B0E00055905C /* web3.swift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 30A0AB912860B0E00055905C /* XCRemoteSwiftPackageReference "web3" */;
+			package = 30A0AB912860B0E00055905C /* XCRemoteSwiftPackageReference "web3.swift" */;
 			productName = web3.swift;
 		};
 		30EB962528288A90003D0486 /* FocusEntity */ = {

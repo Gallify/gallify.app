@@ -224,6 +224,7 @@ extension FirestoreQuery {
     
     
     
+    
     /*
     /*
         Add art to art collection
