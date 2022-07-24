@@ -46,7 +46,8 @@ struct Post_Small: View {
                 
         }){
             
-            WebImage(url: URL(string: discover_art.thumbnailUrl))
+            AnimatedImage(url: URL(string: discover_art.thumbnailUrl))
+            //WebImage(url: URL(string: discover_art.thumbnailUrl))
                 .resizable()
             
                 .scaledToFill()

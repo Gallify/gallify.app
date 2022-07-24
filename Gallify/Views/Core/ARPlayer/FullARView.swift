@@ -328,8 +328,8 @@ struct ARViewContainer: UIViewRepresentable {
         // Only display focusEntity when the user has selected a model for placement
         arView.focusEntity?.isEnabled = self.placementSettings.selectedModel != nil
         
-        // Add model to scene if confirmed for placement
-        if let confirmedModel = self.placementSettings.confirmedModel, let modelEntity = confirmedModel.modelEntity {
+        // Add model to scene if confirmed for placement        //model entity changed to entity because we are now using AR Model.
+        if let confirmedModel = self.placementSettings.confirmedModel, let modelEntity = confirmedModel.entity {
             
             confirmedModel.modelAnchor = ARAnchor(transform: getTransformForPlacement(in: arView)!)
             self.place(modelEntity, anchor: confirmedModel.modelAnchor!, in: arView)
@@ -339,13 +339,13 @@ struct ARViewContainer: UIViewRepresentable {
         }
     }
     
-    private func place(_ modelEntity: ModelEntity, anchor: ARAnchor, in arView: ARView) {
+    private func place(_ modelEntity: Entity, anchor: ARAnchor, in arView: ARView) {
         // 1. Clone modelEntity. This creates an identical copy of modelEntity and references the same model. This also allows us ot have mulitple models of the same asset in our scene.
         let clonedEntity = modelEntity.clone(recursive: true)
         
         // 2. Enable translation and rotation gestures
         clonedEntity.generateCollisionShapes(recursive: true)
-        arView.installGestures([.all], for: clonedEntity)
+       // arView.installGestures([.all], for: clonedEntity)
         
         // 3. Create an anchorEntity and add clonedEntity to the anchorEntity.
         let anchorEntity = AnchorEntity(plane: .any)

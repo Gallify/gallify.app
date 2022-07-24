@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import RealityKit
+import ARKit
 import Combine
 import AVFoundation
 
@@ -16,10 +17,10 @@ class ARModel: Equatable {
         ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
     }
     
-    
     //var image: UIImage
     var name: String
     var entity: Entity?
+    var modelAnchor: ARAnchor? //just so error for old ar player go away.
     
     var art : Art
     var modelURL : URL?
@@ -37,9 +38,7 @@ class ARModel: Equatable {
         self.isLoading = false
     }
     
-    
-    
-    
+    /*
     func loadEntity(completion: @escaping (Entity?) -> () = { _ in }) {
         cancellable = ModelEntity.loadAsync(named: name + ".usdz")
             .sink { status in
@@ -56,6 +55,139 @@ class ARModel: Equatable {
             }
 
     }
+    */
+    
+    func loadEntity(completion: @escaping (Entity?) -> () = { _ in }) {
+        
+        let type = art.contentType
+        let loaded = contentLoaded
+       
+        //if image
+        if(type==0 && !loaded){
+            
+            //Test: https://cdn.britannica.com/45/5645-050-B9EC0205/head-treasure-flower-disk-flowers-inflorescence-ray.jpg
+            print(art.contentUrl)
+            let remoteURL = URL(string: String(art.contentUrl))!
+            
+            // Create a temporary file URL to store the image at the remote URL.
+            let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+            // Download contents of imageURL as Data.  Use a URLSession if you want to do this asynchronously.
+            let data = try! Data(contentsOf: remoteURL)
+            
+            // Write the image Data to the file URL.
+            try! data.write(to: fileURL)
+            
+            let imgTexture = try! MaterialParameters.Texture.init(.load(contentsOf: fileURL))
+            let longerLength: Float = 0.5
+            var planeHeight: Float? = nil
+            var planeWidth: Float? = nil
+            if imgTexture.resource.height > imgTexture.resource.width {
+                planeHeight = longerLength
+                planeWidth = Float(imgTexture.resource.width) / (Float(imgTexture.resource.height) / longerLength)
+            } else {
+                planeWidth = longerLength
+                planeHeight = Float(imgTexture.resource.height) / (Float(imgTexture.resource.width) / longerLength)
+            }
+            
+            var material = SimpleMaterial()
+            material.color = .init(tint: .init(hue: 1, saturation: 0, brightness: 5, alpha: 1), texture: imgTexture)
+//            material.roughness = 1
+//            material.metallic = 1
+            
+            let mesh = MeshResource.generatePlane(width: planeWidth!, depth: planeHeight!)
+            let entity = ModelEntity(mesh: mesh, materials: [material])
+        
+            self.entity = entity
+            self.contentLoaded = true
+            completion(entity)
+            
+        }
+        if(type==0 && loaded){
+            let entity = self.entity
+            completion(entity)
+        }
+        
+        //if usdz
+        if(type==1 && !loaded){
+            //"/models/toy_robot_vintage.usdz"
+            //"/model/cc8e6efa-3d77-43b9-9938-37c37357db6c"
+            
+            //parse path name from url
+            let pathName = ""
+            
+            //        var pictureItem = "https://firebasestorage.googleapis.com/v0/b/<your project>/o/images%2FREOXjfQrYmXFSKFVItoQqnzSCYs1%2F717752.jpg?alt=media&token=1cff5b5c-8d10-40d8-8fd1-98720983c44b"
+            //        var url_token = pictureItem.split('?');
+            //        var url = url_token[0].split('/');
+            //        var filePath = url[url.length - 1].replaceAll("%2F", "/");
+            
+            
+            FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: pathName) { localUrl in
+                self.cancellable = ModelEntity.loadAsync(contentsOf: localUrl)
+                    .sink { status in
+                        switch status {
+                        case .failure(let error):
+                            completion(nil)
+                            print(error.localizedDescription)
+                        case .finished:
+                            print("Entity Loaded")
+                        }
+                    } receiveValue: { entity in
+                        self.entity = entity
+                        self.modelURL = localUrl
+                        self.contentLoaded = true
+                        completion(entity)
+                    }
+            }
+        }
+        
+        //if video
+        if(type==2 && !loaded){
+            FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: "\(art.storageName)") { localUrl in
+                    
+                    //grabs the localURL
+                    // Create an AVPlayer instance to control playback of that movie.
+                    let player = AVPlayer(url: localUrl)
+
+                    // Instantiate and configure the video material.
+                    let material = VideoMaterial(avPlayer: player)
+
+                    // Configure audio playback mode.
+                    material.controller.audioInputMode = .spatial
+                    let planeHeight: Float = 1
+                    let planeWidth: Float = 1
+                    
+                    /*
+                    let imgTexture = try! MaterialParameters.Texture.init(.load(contentsOf: url)) //change gallify name.
+
+                    let longerLength: Float = 0.5
+                    if imgTexture.resource.height > imgTexture.resource.width {
+                        planeHeight = longerLength
+                        planeWidth = Float(imgTexture.resource.width) / (Float(imgTexture.resource.height) / longerLength)
+                    } else {
+                        planeWidth = longerLength
+                        planeHeight = Float(imgTexture.resource.height) / (Float(imgTexture.resource.width) / longerLength)
+                    }
+                     */
+                    
+                    // Create a new model entity using the video material.
+                    let modelEntity = ModelEntity(mesh: MeshResource.generatePlane(width: planeHeight, height: planeWidth), materials: [material])
+                    
+                    // Start playing the video.
+                    player.play()
+                    
+                    self.entity = modelEntity
+                    completion(modelEntity)
+                
+            }
+        }
+        
+        //if gif
+        if(type==3 && !loaded){
+            //todo
+        }
+
+    }
+    
     
     //Create a method to async load model Entity
     func asyncLoadModelEntity(handler: @escaping (_ completed: Bool, _ error: Error?) -> Void){
@@ -64,6 +196,7 @@ class ARModel: Equatable {
             FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: "\(self.art.storageName)") { localUrl in //models/
                 print("LOCAL URL")
                 print(localUrl)
+                
                 self.isLoading = true
                 self.cancellable = ModelEntity.loadModelAsync(contentsOf: localUrl) //loadModelAsync
                     .sink(receiveCompletion: { loadCompletion in
@@ -103,27 +236,28 @@ class ARModel: Equatable {
 
 
 
-class ARVideoModel: ARModel {
-    override func loadEntity(completion: @escaping (Entity?) -> () = { _ in }) {
-        print(name)
-        if let url = Bundle.main.url(forResource: name, withExtension: "mov") {
-            print(url.absoluteString)
-            // Create an AVPlayer instance to control playback of that movie.
-            let player = AVPlayer(url: url)
-
-            // Instantiate and configure the video material.
-            let material = VideoMaterial(avPlayer: player)
-
-            // Configure audio playback mode.
-            material.controller.audioInputMode = .spatial
-            
-            
-//get custom width and height
+//class ARVideoModel: ARModel {
+//    override func loadEntity(completion: @escaping (Entity?) -> () = { _ in }) {
+//        print(name)
+//
+//
+//        if let url = Bundle.main.url(forResource: name, withExtension: "mov") {
+//            print(url.absoluteString)
+//            // Create an AVPlayer instance to control playback of that movie.
+//            let player = AVPlayer(url: url)
+//
+//            // Instantiate and configure the video material.
+//            let material = VideoMaterial(avPlayer: player)
+//
+//            // Configure audio playback mode.
+//            material.controller.audioInputMode = .spatial
+//            let planeHeight: Float = 1
+//            let planeWidth: Float = 1
+//
+//            /*
 //            let imgTexture = try! MaterialParameters.Texture.init(.load(contentsOf: url)) //change gallify name.
 //
 //            let longerLength: Float = 0.5
-            let planeHeight: Float = 1
-            let planeWidth: Float = 1
 //            if imgTexture.resource.height > imgTexture.resource.width {
 //                planeHeight = longerLength
 //                planeWidth = Float(imgTexture.resource.width) / (Float(imgTexture.resource.height) / longerLength)
@@ -131,70 +265,72 @@ class ARVideoModel: ARModel {
 //                planeWidth = longerLength
 //                planeHeight = Float(imgTexture.resource.height) / (Float(imgTexture.resource.width) / longerLength)
 //            }
-            
+//             */
+//
+//            // Create a new model entity using the video material.
+//            let modelEntity = ModelEntity(mesh: MeshResource.generatePlane(width: planeHeight, height: planeWidth), materials: [material])
+//
+//            // Start playing the video.
+//            player.play()
+//
+//            self.entity = modelEntity
+//            completion(modelEntity)
+//        } else {
+//            print("ERROR")
+//        }
+//
+////        cancellable = ModelEntity.loadModelAsync(named: name + ".mp4")
+////            .sink { status in
+////                switch status {
+////                case .failure(let error):
+////                    completion(nil)
+////                    print(error.localizedDescription)
+////                case .finished:
+////                    print("Entity Loaded")
+////                }
+////            } receiveValue: { entity in
+////                self.entity = entity
+////                completion(entity)
+////            }
+//    }
+//}
 
-            // Create a new model entity using the video material.
-            let modelEntity = ModelEntity(mesh: MeshResource.generatePlane(width: planeHeight, height: planeWidth), materials: [material])
-            
-            // Start playing the video.
-            player.play()
-            
-            self.entity = modelEntity
-            completion(modelEntity)
-        } else {
-            print("ERROR")
-        }
-//        cancellable = ModelEntity.loadModelAsync(named: name + ".mp4")
-//            .sink { status in
-//                switch status {
-//                case .failure(let error):
-//                    completion(nil)
-//                    print(error.localizedDescription)
-//                case .finished:
-//                    print("Entity Loaded")
-//                }
-//            } receiveValue: { entity in
-//                self.entity = entity
-//                completion(entity)
+//class ARImageModel: ARModel {
+//    override func loadEntity(completion: @escaping (Entity?) -> () = { _ in }) {
+//
+//        let remoteURL = URL(string: String("https://www.sourish.dev/resources/images/CenterPiecePhoto.JPG"))! //String(model.art.contentUrl) //https://www.sourish.dev/resources/images/CenterPiecePhoto.JPG
+//        // Create a temporary file URL to store the image at the remote URL.
+//        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+//        // Download contents of imageURL as Data.  Use a URLSession if you want to do this asynchronously.
+//        let data = try! Data(contentsOf: remoteURL)
+//
+//        // Write the image Data to the file URL.
+//        try! data.write(to: fileURL)
+//
+//        let imgTexture = try! MaterialParameters.Texture.init(.load(contentsOf: fileURL)) //change gallify name.
+//
+//            let longerLength: Float = 0.5
+//            var planeHeight: Float? = nil
+//            var planeWidth: Float? = nil
+//            if imgTexture.resource.height > imgTexture.resource.width {
+//                planeHeight = longerLength
+//                planeWidth = Float(imgTexture.resource.width) / (Float(imgTexture.resource.height) / longerLength)
+//            } else {
+//                planeWidth = longerLength
+//                planeHeight = Float(imgTexture.resource.height) / (Float(imgTexture.resource.width) / longerLength)
 //            }
-    }
-}
-class ARImageModel: ARModel {
-    override func loadEntity(completion: @escaping (Entity?) -> () = { _ in }) {
-         
-        let remoteURL = URL(string: String("https://www.sourish.dev/resources/images/CenterPiecePhoto.JPG"))! //String(model.art.contentUrl) //https://www.sourish.dev/resources/images/CenterPiecePhoto.JPG
-        // Create a temporary file URL to store the image at the remote URL.
-        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
-        // Download contents of imageURL as Data.  Use a URLSession if you want to do this asynchronously.
-        let data = try! Data(contentsOf: remoteURL)
-        
-        // Write the image Data to the file URL.
-        try! data.write(to: fileURL)
-        
-        let imgTexture = try! MaterialParameters.Texture.init(.load(contentsOf: fileURL)) //change gallify name.
-            
-            let longerLength: Float = 0.5
-            var planeHeight: Float? = nil
-            var planeWidth: Float? = nil
-            if imgTexture.resource.height > imgTexture.resource.width {
-                planeHeight = longerLength
-                planeWidth = Float(imgTexture.resource.width) / (Float(imgTexture.resource.height) / longerLength)
-            } else {
-                planeWidth = longerLength
-                planeHeight = Float(imgTexture.resource.height) / (Float(imgTexture.resource.width) / longerLength)
-            }
-            
-            var material = SimpleMaterial()
-            material.color = .init(tint: .white, texture: imgTexture)
-            material.roughness = 1
-            material.metallic = 1
-            
-            let mesh = MeshResource.generatePlane(width: planeWidth!, depth: planeHeight!)
-            let modelEntity = ModelEntity(mesh: mesh, materials: [material])
-        
-            completion(modelEntity)
-    }
-}
+//
+//            var material = SimpleMaterial()
+//            material.color = .init(tint: .white, texture: imgTexture)
+//            material.roughness = 1
+//            material.metallic = 1
+//
+//            let mesh = MeshResource.generatePlane(width: planeWidth!, depth: planeHeight!)
+//            let modelEntity = ModelEntity(mesh: mesh, materials: [material])
+//
+//            completion(modelEntity)
+//    }
+//}
 
 
 

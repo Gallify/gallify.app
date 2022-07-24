@@ -12,7 +12,7 @@ struct USDZPost: View {
     @State var isMovable = false
     @State var text = "Check out 3-D model"
     
-    let model: Model
+    let model: ARModel
         
     var body: some View {
         

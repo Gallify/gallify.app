@@ -10,7 +10,7 @@ import SDWebImage
 
 struct USDZPostHelper: UIViewRepresentable {
     
-    let modelName: Model
+    let modelName: ARModel
     let isMovable: Bool
     let url = URL(string: "http://www.example.com/image.jpg")
     

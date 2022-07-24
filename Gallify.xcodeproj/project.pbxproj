@@ -136,6 +136,11 @@
 		30521385278A35C100CE0224 /* UrlImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30521384278A35C100CE0224 /* UrlImageModel.swift */; };
 		30521387278A502700CE0224 /* SelfProfileFeatured.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30521386278A502700CE0224 /* SelfProfileFeatured.swift */; };
 		3067FBE227460D5C009B5D4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3067FBE427460D5C009B5D4D /* Main.storyboard */; };
+		307AAC60288B750400D66C28 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307AAC5F288B750400D66C28 /* MapView.swift */; };
+		307AAC62288B759300D66C28 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307AAC61288B759300D66C28 /* TempView.swift */; };
+		307AAC64288B75AA00D66C28 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307AAC63288B75AA00D66C28 /* LocationViewModel.swift */; };
+		307AAC66288B75CB00D66C28 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307AAC65288B75CB00D66C28 /* Location.swift */; };
+		307AAC68288D1E1A00D66C28 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307AAC67288D1E1A00D66C28 /* LocationManager.swift */; };
 		30836FAB2749E65200E83735 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FAA2749E65200E83735 /* Extensions.swift */; };
 		30836FAD2749E77800E83735 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FAC2749E77800E83735 /* ImagePicker.swift */; };
 		30836FB0274A035D00E83735 /* DiscoverMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FAF274A035D00E83735 /* DiscoverMainViewController.swift */; };
@@ -172,9 +177,6 @@
 		3103E0DD2711108E00135F08 /* SetPasswordViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */; };
 		3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */; };
 		3103E0E3271344C300135F08 /* PrivacyPolicyViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */; };
-		3111174226EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
-		3111174326EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
-		3111174426EC08E6001B8E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174126EC08E6001B8E55 /* Location.swift */; };
 		3111174626EC2AA3001B8E55 /* HomeViewMuseums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */; };
 		311E93832752FB1C005DFE12 /* Reels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93822752FB1C005DFE12 /* Reels.swift */; };
 		311E93852752FB3E005DFE12 /* Post_Small.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E93842752FB3E005DFE12 /* Post_Small.swift */; };
@@ -420,6 +422,11 @@
 		30521384278A35C100CE0224 /* UrlImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImageModel.swift; sourceTree = "<group>"; };
 		30521386278A502700CE0224 /* SelfProfileFeatured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileFeatured.swift; sourceTree = "<group>"; };
 		3067FBE327460D5C009B5D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		307AAC5F288B750400D66C28 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		307AAC61288B759300D66C28 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
+		307AAC63288B75AA00D66C28 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		307AAC65288B75CB00D66C28 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		307AAC67288D1E1A00D66C28 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		30836FAA2749E65200E83735 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		30836FAC2749E77800E83735 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		30836FAF274A035D00E83735 /* DiscoverMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMainViewController.swift; sourceTree = "<group>"; };
@@ -454,7 +461,6 @@
 		3103E0DC2711108E00135F08 /* SetPasswordViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewBody.swift; sourceTree = "<group>"; };
 		3103E0E027112D9200135F08 /* PrivacyPolicyViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewHeader.swift; sourceTree = "<group>"; };
 		3103E0E2271344C200135F08 /* PrivacyPolicyViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewBody.swift; sourceTree = "<group>"; };
-		3111174126EC08E6001B8E55 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3111174526EC2AA3001B8E55 /* HomeViewMuseums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMuseums.swift; sourceTree = "<group>"; };
 		311E93822752FB1C005DFE12 /* Reels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reels.swift; sourceTree = "<group>"; };
 		311E93842752FB3E005DFE12 /* Post_Small.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Small.swift; sourceTree = "<group>"; };
@@ -794,6 +800,7 @@
 		3004D4EC26CD402A00323BCB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				307AAC5E288B74FC00D66C28 /* Map */,
 				30075E6728789F3A00B59E1E /* DARPlayer */,
 				318C16A9281AFECA00F63C3D /* AdminApproval */,
 				30075E5B286898BA00B59E1E /* SARPlayer */,
@@ -855,6 +862,7 @@
 		30075E6728789F3A00B59E1E /* DARPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				30075E9B28835F5900B59E1E /* Gif */,
 				30075E682878A00600B59E1E /* ARPlayerView.swift */,
 				30075E6A2878A02900B59E1E /* OverlayView.swift */,
 				30075E6C2878A03300B59E1E /* View.swift */,
@@ -881,6 +889,13 @@
 				30075E7F2878BBB600B59E1E /* elephant.usdz */,
 			);
 			path = 3DAssets;
+			sourceTree = "<group>";
+		};
+		30075E9B28835F5900B59E1E /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Gif;
 			sourceTree = "<group>";
 		};
 		303DB8CE26F97C9C0005AC51 /* Profiles */ = {
@@ -1068,6 +1083,18 @@
 				33E41CDE27FFB68E0037FDBC /* Liked.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		307AAC5E288B74FC00D66C28 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				307AAC5F288B750400D66C28 /* MapView.swift */,
+				307AAC61288B759300D66C28 /* TempView.swift */,
+				307AAC63288B75AA00D66C28 /* LocationViewModel.swift */,
+				307AAC65288B75CB00D66C28 /* Location.swift */,
+				307AAC67288D1E1A00D66C28 /* LocationManager.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		30836FA52749E39D00E83735 /* Services */ = {
@@ -1366,7 +1393,6 @@
 				318B42EF26E0190B00D6D722 /* CircleImage.swift */,
 				31B828C3272376BE0067DB05 /* CustomBackButton.swift */,
 				31B2F1EF272DEC3F007FCF2B /* ErrorText.swift */,
-				3111174126EC08E6001B8E55 /* Location.swift */,
 				31AE71AD26F1245600C973E3 /* FollowButton.swift */,
 				31F1530E270B881400238459 /* OvalTextField.swift */,
 				92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */,
@@ -1913,6 +1939,7 @@
 				318C16A8281AFD0800F63C3D /* LikedButton.swift in Sources */,
 				30EB96F6284CF63B003D0486 /* getListAdmin.swift in Sources */,
 				31F1531B270CFB8100238459 /* SetPasswordViewHeader.swift in Sources */,
+				307AAC64288B75AA00D66C28 /* LocationViewModel.swift in Sources */,
 				30410A8127A677EB00284446 /* MembershipSetting.swift in Sources */,
 				30075E61286898EA00B59E1E /* ARViewModel_old.swift in Sources */,
 				3193B9BA26FA697200BFDDE7 /* AuctionTab.swift in Sources */,
@@ -1940,6 +1967,7 @@
 				92794CFD273811760012B184 /* CollectionReelHeader.swift in Sources */,
 				30001BE62796871200527BF9 /* postSettings.swift in Sources */,
 				31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */,
+				307AAC62288B759300D66C28 /* TempView.swift in Sources */,
 				3004D50B26CD588500323BCB /* CreateAccountViewController.swift in Sources */,
 				3103E0E127112D9200135F08 /* PrivacyPolicyViewHeader.swift in Sources */,
 				3003AFFF27E4EF7600EA58B6 /* CollectionGenericImage.swift in Sources */,
@@ -1949,7 +1977,6 @@
 				319F25B926E56A95009B811E /* HomeViewPortfolio.swift in Sources */,
 				92794D05273811760012B184 /* CollectionLikedFooter.swift in Sources */,
 				316C527527287C2800E28609 /* VerifyEmailHeader.swift in Sources */,
-				3111174226EC08E6001B8E55 /* Location.swift in Sources */,
 				30001BDB2796865E00527BF9 /* postList.swift in Sources */,
 				3309962E277BC2670040D099 /* ImageLoader.swift in Sources */,
 				31B4BC0A271B82C7002D8370 /* ForgotPasswordViewHeader.swift in Sources */,
@@ -1992,6 +2019,7 @@
 				92794D09273811760012B184 /* CollectionGenericHeader.swift in Sources */,
 				30521381278A2DDA00CE0224 /* ImageCache.swift in Sources */,
 				3004D51526CDB92300323BCB /* BidViewController.swift in Sources */,
+				307AAC66288B75CB00D66C28 /* Location.swift in Sources */,
 				3004D50726CD581600323BCB /* HomeViewController.swift in Sources */,
 				30836FC2274A053900E83735 /* DiscoverViewTag.swift in Sources */,
 				311E93892753C0BB005DFE12 /* DiscoverSearch.swift in Sources */,
@@ -2059,9 +2087,11 @@
 				30BEBD4727BF1E5C0045EC74 /* updateARPlayer.swift in Sources */,
 				92DB7C6F273186330035B788 /* CreatePublishListing.swift in Sources */,
 				30836FBA274A048B00E83735 /* DiscoverPostView.swift in Sources */,
+				307AAC60288B750400D66C28 /* MapView.swift in Sources */,
 				30836FBD274A04C900E83735 /* DiscoverPagePosts.swift in Sources */,
 				30521375278A2C3A00CE0224 /* UserLight.swift in Sources */,
 				30075E6F2878A04100B59E1E /* ARCamView.swift in Sources */,
+				307AAC68288D1E1A00D66C28 /* LocationManager.swift in Sources */,
 				92794CFE273811760012B184 /* CollectionReelDescription.swift in Sources */,
 				30001BCE2796857F00527BF9 /* deleteDiscover.swift in Sources */,
 				30001BCA2796856B00527BF9 /* postDiscover.swift in Sources */,
@@ -2128,7 +2158,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3111174326EC08E6001B8E55 /* Location.swift in Sources */,
 				3004D4CC26C82F6E00323BCB /* GallifyTests.swift in Sources */,
 				318B42F126E0190B00D6D722 /* CircleImage.swift in Sources */,
 				31AE71AF26F1245600C973E3 /* FollowButton.swift in Sources */,
@@ -2139,7 +2168,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3111174426EC08E6001B8E55 /* Location.swift in Sources */,
 				3004D4D726C82F6E00323BCB /* GallifyUITests.swift in Sources */,
 				318B42F226E0190B00D6D722 /* CircleImage.swift in Sources */,
 				31AE71B026F1245600C973E3 /* FollowButton.swift in Sources */,

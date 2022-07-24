@@ -6,6 +6,18 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+
+
+//extension Image {
+//    func data(url:URL) -> Self {.
+//        let data = try? Data(contentsOf: url) {
+//            return Image(uiImage: UIImage(data: data)!)
+//                .resizable()
+//        }
+//    return self.resizable()
+//    }
+//}
 
 struct OverlayView: View {
     
@@ -101,6 +113,9 @@ struct OverlayView: View {
                 .padding(.top, magik(30))
                 .padding(.horizontal, magik(15))
                 //END Header
+                
+                
+                
                 
                 
                 //SIDEMENU:
@@ -230,7 +245,7 @@ struct OverlayView: View {
                                         let posX = proxy.frame(in: .global).origin.x + magik(64) / 2
                                         let selected = abs(posX - UIScreen.main.bounds.width / 2) < 40
                                         
-                                        Image(uiImage: model.image)
+                                        WebImage(url: URL(string: model.art.thumbnailUrl))
                                             .resizable()
                                             .frame(width: selected ? magik(64) : magik(42), height: selected ? magik(64) : magik(42))
                                             .clipShape(RoundedRectangle(cornerRadius: magik(30)))
@@ -252,9 +267,14 @@ struct OverlayView: View {
                                                     }
                                                     arVM.select(model: model)
                                                     loadingModel = true
+        
+                                                    //get model async first.
+                                                    
+                                                    //load model
                                                     model.loadEntity { _ in
                                                         loadingModel = false
                                                     }
+                                                    
                                                 } else if arVM.selectedModel == model && selected {
                                                     arVM.place(model: arVM.selectedModel!)
                                                 }
@@ -291,7 +311,7 @@ struct OverlayView: View {
                 .onChange(of: firestoreQuery.showCameraScreen, perform: { newValue in
                     if newValue == true {
                         // Load models
-                        //arVM.loadModels(models: firestoreQuery.fetchModelData())
+                        arVM.loadModels(models: firestoreQuery.fetchModelData())
                     }
                 })
             }

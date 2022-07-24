@@ -56,8 +56,9 @@ struct MinimizedView: View {
                     ZStack{
 
                         HStack {
-                                
-                            WebImage(url: URL(string: firestoreQuery.artThatsPlaying.thumbnailUrl))
+                            
+                            AnimatedImage(url: URL(string: firestoreQuery.artThatsPlaying.thumbnailUrl))
+                            //WebImage(url: URL(string: firestoreQuery.artThatsPlaying.thumbnailUrl))
                                 .resizable()
                             
                                 .scaledToFill()

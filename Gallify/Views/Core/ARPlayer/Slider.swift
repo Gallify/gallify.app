@@ -49,7 +49,7 @@ struct Slider: View {
         .frame(height: 150)
     }
     
-    private func placeImage(model: Model) {
+    private func placeImage(model: ARModel) {
         print(model.art.contentUrl)
         let remoteURL = URL(string: String(model.art.contentUrl))! //https://www.sourish.dev/resources/images/CenterPiecePhoto.JPG
         // Create a temporary file URL to store the image at the remote URL.
@@ -82,7 +82,8 @@ struct Slider: View {
             let object = ModelEntity(mesh: mesh, materials: [material])
             
             //let model = Model(name: "image", modelEntity: object)
-            model.modelEntity = object
+            model.entity = object //used to be ModelEntity for Model.
+            
             model.contentLoaded = true
             placementSettings.selectedModel = model
         }
@@ -91,7 +92,7 @@ struct Slider: View {
 
 
 struct SliderItem: View {
-    var model: Model
+    var model: ARModel
     let action: () -> Void
     
     var body: some View {

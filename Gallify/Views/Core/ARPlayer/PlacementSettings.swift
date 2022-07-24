@@ -12,14 +12,14 @@ import Combine
 class PlacementSettings: ObservableObject {
     
     // When the user selects a model in ContentView, this property is set
-    @Published var selectedModel: Model? {
+    @Published var selectedModel: ARModel? {
         willSet(newValue) {
             print("Setting selectedModel to \(String(describing: newValue?.art.name))")
         }
     }
     
     // When the user taps confirm in PlacementView, the value of selectedModel is assigned to confirmedModel
-    @Published var confirmedModel: Model? {
+    @Published var confirmedModel: ARModel? {
         willSet(newValue) {
             guard let model = newValue else {
                 print("Clearing confirmedModel")

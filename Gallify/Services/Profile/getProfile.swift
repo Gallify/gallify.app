@@ -214,6 +214,7 @@ extension FirestoreQuery {
                 
                // self.featuredArt.append(theArt)
                 //art_array.append(doc!)
+                print(thePlaylist.name)
                 user_library_array.append(thePlaylist)
                 
                 //

@@ -27,6 +27,7 @@ struct LoginViewLogoAndSubtext: View {
                 .resizable()
                 .frame(width: 150, height: 60)
                 .padding(.top, -screenHeight / 54)
+                .scaledToFit()
             
             HStack{
                 Text("Create Your Gallery.")

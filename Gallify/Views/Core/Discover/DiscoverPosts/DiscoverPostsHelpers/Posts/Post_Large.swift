@@ -45,8 +45,8 @@ struct Post_Large: View {
             firestoreQuery.scrollTo = index
                 
         }){
-            
-            WebImage(url: URL(string: discover_art.thumbnailUrl))
+            AnimatedImage(url: URL(string: discover_art.thumbnailUrl))
+           // WebImage(url: URL(string: discover_art.thumbnailUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth / 1.53, height: screenHeight / 3.38)

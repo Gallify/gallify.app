@@ -25,6 +25,9 @@ struct TabBarView: View {
     @StateObject var placementSettings = PlacementSettings()
     @StateObject var modelDeletionManager = ModelDeletionManager()
     
+    @StateObject var locationViewModel = LocationViewModel()
+    @StateObject var locationManager = LocationManager()
+    
     @EnvironmentObject var loginModel : LoginAppViewModel
     
     @State private var doneLoading = false
@@ -71,6 +74,64 @@ struct TabBarView: View {
                             Label("Discover", systemImage: "magnifyingglass")
                                 .font(.system(size: screenWidth / 15, weight: .semibold))
                                 
+                    }
+                   
+                    switch locationViewModel.authorizationStatus {
+                        
+                        case .notDetermined:
+                        
+                            TempMapView()
+                                .environmentObject(locationManager)
+                                .tabItem {
+                                        
+                                    Label("Map", systemImage: "mappin")
+                                        .font(.system(size: screenWidth / 15, weight: .semibold))
+                                    
+                            }
+                        
+                        case .restricted:
+                        
+                            TempMapView()
+                                .environmentObject(locationManager)
+                                .tabItem {
+                                        
+                                    Label("Map", systemImage: "mappin")
+                                        .font(.system(size: screenWidth / 15, weight: .semibold))
+                                    
+                            }
+                        
+                        case .denied:
+                        
+                            TempMapView()
+                                .environmentObject(locationManager)
+                                .tabItem {
+                                        
+                                    Label("Map", systemImage: "mappin")
+                                        .font(.system(size: screenWidth / 15, weight: .semibold))
+                                    
+                            }
+                        
+                        case .authorizedAlways, .authorizedWhenInUse:
+                        
+                            MapView()
+                                .tabItem {
+                                        
+                                    Label("Map", systemImage: "mappin")
+                                        .font(.system(size: screenWidth / 15, weight: .semibold))
+                                    
+                            }
+                        
+                        default:
+                        
+                            TempMapView()
+                                .environmentObject(locationManager)
+                                .tabItem {
+                                        
+                                    Label("Map", systemImage: "mappin")
+                                        .font(.system(size: screenWidth / 15, weight: .semibold))
+                                    
+                            }
+                        
                     }
                         
                     if (firestoreQuery.data.skill == 0) {

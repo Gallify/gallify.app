@@ -51,8 +51,9 @@ struct CollectionReelListing: View {
                             }
                                 
                             else {
-                                        
-                                WebImage(url: URL(string: artwork.thumbnailUrl))
+                                
+                                AnimatedImage(url: URL(string: artwork.thumbnailUrl))
+                               // WebImage(url: URL(string: artwork.thumbnailUrl))
                                 .resizable()
                                 .overlay(Rectangle()
                                     .frame(width: nil, height: 1, alignment: .top)

@@ -24,7 +24,7 @@ class FirestoreQuery : ObservableObject {
      
      
      PRIVACY: 0 = private, 1= public
-     CONTENTTYPE: 0=image/gif, 1=usdz, 2=video, 3=attack-helicopter.
+     CONTENTTYPE: 0=image, 1=usdz, 2=video, 3=gif, 4=attack-helicopter.
         
      */
     
@@ -36,9 +36,9 @@ class FirestoreQuery : ObservableObject {
     @Published var sheetMode: SheetMode = .none
     
     //AR Player Camera/Reels
-    @Published var models: [Model] = []
+    @Published var models: [ARModel] = []
     
-    @Published var ARModels: [ARModel] = []
+    //@Published var ARModels: [ARModel] = []
     
     
     @Published var showCameraScreen = false

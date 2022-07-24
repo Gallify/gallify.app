@@ -25,8 +25,18 @@ struct ArtSearchResult: View {
 
         Button(action: {
             
-            UIApplication.shared.endEditing(true)
+            //start: statements deal with changing to the correct view with the correct animation.
+            if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                firestoreQuery.bothScreensMinimized = true
+            }
+            else{
+                firestoreQuery.bothScreensMinimized = false
+            }
             firestoreQuery.showNewScreen = true
+            //end
+            
+            UIApplication.shared.endEditing(true)
+            //firestoreQuery.showNewScreen = true
             firestoreQuery.artisClicked = artwork.artId
             firestoreQuery.artThatsPlaying = artwork
             firestoreQuery.artworkThatsPlaying = firestoreQuery.foundContacts
@@ -87,6 +97,8 @@ struct ArtSearchResult: View {
                         
                         Image(systemName: "ellipsis")
                             .foregroundColor(.black)
+                            .frame(width: 20, height: 10)
+                            .contentShape(Rectangle())
                         
                     })
                         .actionSheet(isPresented: $firestoreQuery.showArtOptions) {

@@ -19,14 +19,18 @@ class ARViewModel: ObservableObject {
     @Published var models: [ARModel]
     @Published var pauseAR = false
     
+    
     init() {
-         self.models = [ARModel(name: "chair_swan"), ARModel(name: "toy_robot_vintage"), ARModel(name: "elephant"), ARVideoModel(name: "testt"), ARModel(name: "toy_biplane"), ARModel(name: "toy_car"), ARModel(name: "toy_drummer")]
+         //self.models = [ARModel(name: "chair_swan"), ARModel(name: "toy_robot_vintage"), ARModel(name: "elephant"), ARVideoModel(name: "testt"), ARModel(name: "toy_biplane"), ARModel(name: "toy_car"), ARModel(name: "toy_drummer")]
+        
+        self.models = []
         
     }
     
-//    func loadModels(models: [Model]) {
-//        self.models = models
-//    }
+    
+    func loadModels(models: [ARModel]) {
+        self.models = models
+    }
     
     func select(model: ARModel) {
         selectedModel = model

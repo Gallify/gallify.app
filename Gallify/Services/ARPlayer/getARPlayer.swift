@@ -16,8 +16,8 @@ extension FirestoreQuery {
      This methods fethches the data models and metadata from firebase.
      */
     
-    func fetchModelData() -> [Model] {
-        return artworkThatsPlaying.map { Model(artwork: $0) }
+    func fetchModelData() -> [ARModel] {
+        return artworkThatsPlaying.map { ARModel(artwork: $0) }
     }
     
     /*
@@ -29,9 +29,9 @@ extension FirestoreQuery {
         
         for art in self.artworkThatsPlaying {
             
-            var model: Model
+            var model: ARModel
             
-            model = Model(artwork: art)
+            model = ARModel(artwork: art)
             
             self.models.append(model)
             
@@ -41,7 +41,7 @@ extension FirestoreQuery {
     /*
      This method gets the 3d model for a single piece of art.
      */
-    func getModel(model: Model) {
+    func getModel(model: ARModel) {
         
         //call firebase here.
         
@@ -62,7 +62,8 @@ extension FirestoreQuery {
     
     func clearModelEntitiesFromMemory() {
         for model in models {
-            model.modelEntity = nil
+            //model.modelEntity = nil
+            model.entity = nil
         }
     }
         

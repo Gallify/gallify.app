@@ -16,6 +16,7 @@ struct Logo: View {
         Image("logo")
             .resizable()
             .frame(width: width, height: height)
+            .scaledToFit()
         
     }
 }

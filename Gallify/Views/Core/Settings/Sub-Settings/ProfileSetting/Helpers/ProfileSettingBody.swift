@@ -41,9 +41,11 @@ struct ProfileSettingBody: View {
                         if pickedImage != nil {
                             Image(uiImage: pickedImage!)
                                 .resizable()
-                                .frame(width: 100,
-                                       height: 100)
+                                .frame(width: 200,
+                                       height: 200)
                                 .padding(.top, 20)
+                                .padding(.bottom, 20)
+                                .scaledToFit()
                                 .onTapGesture{
                                     self.showActionSheet = true
                                 }
