@@ -59,7 +59,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locations.last.map {
             region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
-                span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             )
         }
         locationManager.stopUpdatingLocation()

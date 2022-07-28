@@ -102,7 +102,7 @@ extension FirestoreQuery {
         }
 
 
-        //add art to created doc
+        //add art to owned doc
         do {
             try await FirestoreQuery.db.collection("playlists").document(ownedPlaylistId).updateData([
                 "art": FieldValue.arrayUnion([art.artId])
@@ -130,29 +130,29 @@ extension FirestoreQuery {
 
     }
     
-    func postArtToMarketplace(collectionId : String, artId:String) async  {
-        let apiAddress = "https://api.gallify.app/v0/mint/\(collectionId)/\(artId)"
-        print(apiAddress)
-
-        let url = URL(string: apiAddress)!
-        var request = URLRequest(url: url)
-    //    request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data,
-                let response = response as? HTTPURLResponse,
-                error == nil else { // check for fundamental networking error
-                    print("error", error ?? "Unknown error")
-                    return
-                }
-
-            if response.statusCode == 200 {
-                print("Successfully posted art to marketplace");
-            }
-        }
-        task.resume()
-    }
+//    func postArtToMarketplace(collectionId : String, artId:String) async  {
+//        let apiAddress = "https://api.gallify.app/v0/mint/\(collectionId)/\(artId)"
+//        print(apiAddress)
+//
+//        let url = URL(string: apiAddress)!
+//        var request = URLRequest(url: url)
+//    //    request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//        request.httpMethod = "POST"
+//
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard let data = data,
+//                let response = response as? HTTPURLResponse,
+//                error == nil else { // check for fundamental networking error
+//                    print("error", error ?? "Unknown error")
+//                    return
+//                }
+//
+//            if response.statusCode == 200 {
+//                print("Successfully posted art to marketplace");
+//            }
+//        }
+//        task.resume()
+//    }
 
     func rejectArt(art: Art) async {
         //delete from admin view

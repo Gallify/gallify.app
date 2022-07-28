@@ -141,6 +141,7 @@
 		307AAC64288B75AA00D66C28 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307AAC63288B75AA00D66C28 /* LocationViewModel.swift */; };
 		307AAC66288B75CB00D66C28 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307AAC65288B75CB00D66C28 /* Location.swift */; };
 		307AAC68288D1E1A00D66C28 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307AAC67288D1E1A00D66C28 /* LocationManager.swift */; };
+		307AAC6B289342EB00D66C28 /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = 307AAC6A289342EB00D66C28 /* HalfASheet */; };
 		30836FAB2749E65200E83735 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FAA2749E65200E83735 /* Extensions.swift */; };
 		30836FAD2749E77800E83735 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FAC2749E77800E83735 /* ImagePicker.swift */; };
 		30836FB0274A035D00E83735 /* DiscoverMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30836FAF274A035D00E83735 /* DiscoverMainViewController.swift */; };
@@ -556,6 +557,7 @@
 				FC9EED7C2762AD7E00F831DC /* FocusEntity in Frameworks */,
 				30A0AB932860B0E00055905C /* web3.swift in Frameworks */,
 				F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */,
+				307AAC6B289342EB00D66C28 /* HalfASheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1685,6 +1687,7 @@
 				3003B05B2811F35F00EA58B6 /* WalletConnectSwift */,
 				30EB962528288A90003D0486 /* FocusEntity */,
 				30A0AB922860B0E00055905C /* web3.swift */,
+				307AAC6A289342EB00D66C28 /* HalfASheet */,
 			);
 			productName = Gallify;
 			productReference = 3004D4B626C82F6B00323BCB /* Gallify.app */;
@@ -1765,6 +1768,7 @@
 				3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */,
 				30EB962428288A90003D0486 /* XCRemoteSwiftPackageReference "FocusEntity" */,
 				30A0AB912860B0E00055905C /* XCRemoteSwiftPackageReference "web3" */,
+				307AAC69289342EB00D66C28 /* XCRemoteSwiftPackageReference "HalfASheet" */,
 			);
 			productRefGroup = 3004D4B726C82F6B00323BCB /* Products */;
 			projectDirPath = "";
@@ -2515,6 +2519,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		307AAC69289342EB00D66C28 /* XCRemoteSwiftPackageReference "HalfASheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/franklynw/HalfASheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		30A0AB912860B0E00055905C /* XCRemoteSwiftPackageReference "web3" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/argentlabs/web3.swift";
@@ -2546,6 +2558,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3003B05A2811F35F00EA58B6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */;
 			productName = WalletConnectSwift;
+		};
+		307AAC6A289342EB00D66C28 /* HalfASheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 307AAC69289342EB00D66C28 /* XCRemoteSwiftPackageReference "HalfASheet" */;
+			productName = HalfASheet;
 		};
 		30A0AB922860B0E00055905C /* web3.swift */ = {
 			isa = XCSwiftPackageProductDependency;

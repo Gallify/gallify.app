@@ -27,7 +27,7 @@ struct TempMapView: View {
         
         VStack {
             
-            Text("In order to use this feature, you need to share your location with the Gallify App.")
+            Text("To use the Gallify Map, update your location settings.")
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, screenWidth / 25)
                 .padding(.vertical, screenHeight / 54)
@@ -35,10 +35,11 @@ struct TempMapView: View {
             Button(action: {
                 
             //    locationManager.requestPermission()
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                 
             }, label: {
                 
-                Text("Share location")
+                Text("Share Location")
                     .font(.system(size: screenWidth / 25, weight: .semibold))
                     .padding()
                     .foregroundColor(.white)

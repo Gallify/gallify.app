@@ -24,7 +24,9 @@ class FirestoreQuery : ObservableObject {
      
      
      PRIVACY: 0 = private, 1= public
+     SEARCHTYPE: 1 = approved, 2 = unapproved, 0 = rejected
      CONTENTTYPE: 0=image, 1=usdz, 2=video, 3=gif, 4=attack-helicopter.
+     USER: Membership Status: 0=member, default, 2=banned.
         
      */
     

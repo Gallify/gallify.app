@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import SDWebImageSwiftUI
+import HalfASheet
 
 struct CollectionReelListing: View {
     
@@ -54,9 +55,10 @@ struct CollectionReelListing: View {
                                 
                                 AnimatedImage(url: URL(string: artwork.thumbnailUrl))
                                // WebImage(url: URL(string: artwork.thumbnailUrl))
+
                                 .resizable()
                                 .overlay(Rectangle()
-                                    .frame(width: nil, height: 1, alignment: .top)
+                                    .frame(width: nil, height: 4, alignment: .top)
                                     .foregroundColor(Color.black), alignment: .top)
                                 .scaledToFit()
                                 
@@ -247,6 +249,7 @@ struct CollectionReelListing: View {
                                     
                                     showDetail.toggle()
                                     art_popup = artwork.artId
+                                   
 
                                     if(showDetail == false) {
                                         art_popup = ""
@@ -270,10 +273,11 @@ struct CollectionReelListing: View {
                                 
                             }
                             
+                            
                             if (showDetail && artwork.artId == art_popup) {
-                                
+
                                 CollectionReelDescription(artDetails: artwork)
-                                
+
                             }
                    
                         }
@@ -306,7 +310,7 @@ struct CollectionReelListing: View {
             }
             
         }
- 
+        
     }
     
 }

@@ -9,6 +9,8 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 import SwiftUI
+//import GeoFire
+import CoreLocation
 
 extension FirestoreQuery {
     
@@ -188,6 +190,37 @@ extension FirestoreQuery {
             }
         }
     }
+    
+    
+    /* geofire pod not working yet.
+    
+    /*
+     This stores a lat, lon and geohash for a particular playlist.
+     */
+    func storeGeohash(latitude: Int, longitude: Int, playlist: Playlist) {
+        // Compute the GeoHash for a lat/lng point
+       
+        let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
+
+        let hash = GFUtils.geoHash(forLocation: location)
+
+        // Add the hash and the lat/lng to the document. We will use the hash
+        // for queries and the lat/lng for distance comparisons.
+        let documentData: [String: Any] = [
+            "geohash": hash,
+            "lat": latitude,
+            "lng": longitude
+        ]
+
+        let playlistDoc = FirestoreQuery.db.collection("playlists").document(playlist.playlistId)
+        playlistDoc.updateData(documentData) { error in
+            if error != nil {
+                print("Error adding geohash value to playlist doc in firestore, Error = \(error?.localizedDescription)")
+            }
+        }
+    }
+    
+    */
     
     
 }

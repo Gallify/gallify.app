@@ -150,7 +150,7 @@ struct CollectionGenericRow: View {
                 if(playlist.count > 0) {
                                             
                     ForEach(0...playlist.count - 1, id: \.self) { i in
-                                                
+                                    
                         Button(action: {
                                                    
                             if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
@@ -172,6 +172,7 @@ struct CollectionGenericRow: View {
                             firestoreQuery.scrollTo = i
                             
                         }){
+                            
                                                     
                             HStack {
                                                             
@@ -336,6 +337,7 @@ struct CollectionGenericRow: View {
                             .padding(.horizontal, screenWidth / 200)
                             
                         }
+                    
                                             
                     }
                     .onMove { indexSet, offset in
@@ -359,11 +361,11 @@ struct CollectionGenericRow: View {
                                 await firestoreQuery.getUserLibrary()
                             }
                         }
-                    
+                        
                         
                     }
                     .listRowSeparator(.hidden)
-                        
+                    
                 }
                         
             }

@@ -8,6 +8,8 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+//import GeoFire
+import CoreLocation
 
 extension FirestoreQuery {
     
@@ -261,6 +263,54 @@ extension FirestoreQuery {
         self.otherFeaturedArt = art_array
         
     }
+    
+    
+    
+    /*
+     
+
+    /*
+     This method grabs all playlists within a certain radius, given the lat and lon. 
+     */
+    func getPlaylistsInLocation(lat:Int, lon: Int) async -> [QueryDocumentSnapshot] {
+        let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon))
+        let radiusInM: Double = 50 * 1000 // i am not sure what the radius is meant to be?
+        let queryBounds = GFUtils.queryBounds(forLocation: center,
+                                              withRadius: radiusInM)
+        let queries = queryBounds.map { bound -> Query in
+            return FirestoreQuery.db.collection("playlists")
+                .order(by: "geohash")
+                .start(at: [bound.startValue])
+                .end(at: [bound.endValue])
+        }
+        
+        var matchingDocs = [QueryDocumentSnapshot]()
+        // Collect all the query results together into a single list
+        func getDocumentsCompletion(snapshot: QuerySnapshot?, error: Error?) -> () {
+            guard let documents = snapshot?.documents else {
+               print("Unable to fetch snapshot data. \(String(describing: error))")
+               return
+            }
+
+            for document in documents {
+               let lat = document.data()["lat"] as? Double ?? 0
+               let lng = document.data()["lng"] as? Double ?? 0
+               let coordinates = CLLocation(latitude: lat, longitude: lng)
+               let centerPoint = CLLocation(latitude: center.latitude, longitude: center.longitude)
+
+               // We have to filter out a few false positives due to GeoHash accuracy, but
+               // most will match
+               let distance = GFUtils.distance(from: centerPoint, to: coordinates)
+               if distance <= radiusInM {
+                   matchingDocs.append(document)
+               }
+           }
+       }
+        
+       return matchingDocs
+    }
+     
+    */
     
     /*
      06/20/22

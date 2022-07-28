@@ -21,10 +21,15 @@ extension FirestoreQuery {
         do {
             
             print("PLAYLIST ID = ", the_playlist.playlistId, "ART ID = ", art.artId)
-            let doc = try await FirestoreQuery.db.collection("playlists").document(the_playlist.playlistId).updateData([
-                "art": FieldValue.arrayUnion([art.artId])
-                ])
             
+            if(art.artId != ""){
+                let doc = try await FirestoreQuery.db.collection("playlists").document(the_playlist.playlistId).updateData([
+                    "art": FieldValue.arrayUnion([art.artId])
+                    ])
+            }
+            else{
+                print("Error: Art ID is empty, so did not add to playlist.")
+            }
             
             /* Don't need this. Because the collection will always stay the same once minted. 
             //if user is creator, and adding to their own collection. Update "Collection" tab.

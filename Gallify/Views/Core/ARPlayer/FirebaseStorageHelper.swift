@@ -14,10 +14,15 @@ class FirebaseStorageHelper {
     
     class func asyncDownloadToFilesystem(relativePath: String, handler: @escaping (_ fileURL: URL) -> Void) {
         let docsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
+        var localPath = relativePath //path that the storagePath writes to locally.
 
-        print(relativePath)
-        let fileUrl = docsUrl.appendingPathComponent(relativePath)
+        //check if relative path contains '.usdz' if not. Then append that to the file path.
+        if !relativePath.contains(".usdz") {
+            localPath = relativePath + ".usdz"
+        }
+        
+       
+        let fileUrl = docsUrl.appendingPathComponent(localPath) //add usdz to this
          
         if FileManager.default.fileExists(atPath: fileUrl.path) {
             handler(fileUrl)

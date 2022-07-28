@@ -109,25 +109,30 @@ class ARModel: Equatable {
         
         //if usdz
         if(type==1 && !loaded){
-            //"/models/toy_robot_vintage.usdz"
-            //"/model/cc8e6efa-3d77-43b9-9938-37c37357db6c"
             
-            //parse path name from url
-            let pathName = ""
+            //Get Content Path. ex. "/models/toy_robot_vintage.usdz", "/model/cc8e6efa-3d77-43b9-9938-37c37357db6c"
+            let pictureItem = art.contentUrl
+            let url_token = pictureItem.split(separator: "?")
+            var url = url_token[0].split(separator: "/")
+            url.reverse()
+        
+            let path = url[0].components(separatedBy: "%2F")
+           
             
-            //        var pictureItem = "https://firebasestorage.googleapis.com/v0/b/<your project>/o/images%2FREOXjfQrYmXFSKFVItoQqnzSCYs1%2F717752.jpg?alt=media&token=1cff5b5c-8d10-40d8-8fd1-98720983c44b"
-            //        var url_token = pictureItem.split('?');
-            //        var url = url_token[0].split('/');
-            //        var filePath = url[url.length - 1].replaceAll("%2F", "/");
+            let contentPath = "/" + "\(path[0])" + "/" + "\(path[1])"
             
-            
-            FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: pathName) { localUrl in
+            FirebaseStorageHelper.asyncDownloadToFilesystem(relativePath: contentPath) { localUrl in
+                
+                print("jnjn")
+                
                 self.cancellable = ModelEntity.loadAsync(contentsOf: localUrl)
                     .sink { status in
                         switch status {
                         case .failure(let error):
                             completion(nil)
+                            print("starrt")
                             print(error.localizedDescription)
+                            print("starrt")
                         case .finished:
                             print("Entity Loaded")
                         }

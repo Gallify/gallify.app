@@ -7,6 +7,8 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import AVFoundation
+
 
 
 //extension Image {
@@ -36,6 +38,10 @@ struct OverlayView: View {
     @State private var saveReferenceImage: Bool = false
     
     var body: some View {
+        
+        let screenHeight = UIScreen.main.bounds.height
+        let screenWidth = UIScreen.main.bounds.width
+        
         VStack {
             
             
@@ -115,6 +121,36 @@ struct OverlayView: View {
                 //END Header
                 
                 
+                switch AVCaptureDevice.authorizationStatus(for: .video) {
+                    case .denied, .restricted, .notDetermined:
+                    
+                        Text("To use the Gallify Camera, update your camera settings.")
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.white)
+                            .padding(.horizontal, screenWidth / 25)
+                            .padding(.vertical, screenHeight / 54)
+                        
+                        Button(action: {
+                            
+                        //    locationManager.requestPermission()
+                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                            
+                        }, label: {
+                            
+                            Text("Share Camera")
+                                .font(.system(size: screenWidth / 25, weight: .semibold))
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.blue)
+                                .cornerRadius(screenWidth / 10)
+                                .padding(.horizontal, screenWidth / 25)
+                                .padding(.vertical, screenHeight / 54)
+                            
+                        })
+
+                    case .authorized:
+                        Text("")
+                }
                 
                 
                 
