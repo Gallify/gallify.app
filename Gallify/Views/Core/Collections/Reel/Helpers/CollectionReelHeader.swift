@@ -15,11 +15,14 @@ struct CollectionReelHeader: View {
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     @EnvironmentObject var viewModel: TabBarViewModel
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var arVM: ARViewModel
     
     
     @StateObject var modelsViewModel = ModelsViewModel()
     @StateObject var placementSettings = PlacementSettings()
     @StateObject var modelDeletionManager = ModelDeletionManager()
+    
+   // var showDescription: Binding<Bool>
 //
 //    @EnvironmentObject var modelsViewModel : ModelsViewModel
 //    @EnvironmentObject var placementSettings : PlacementSettings
@@ -85,6 +88,8 @@ struct CollectionReelHeader: View {
                             await firestoreQuery.fetchModelData()
                         }
                     }
+                    
+                    arVM.pauseAR = false //unpause AR because now its view is being summoned.
                 }
                     label: {
                         if (ARConfiguration.isSupported) {

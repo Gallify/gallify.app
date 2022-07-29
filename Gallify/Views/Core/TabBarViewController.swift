@@ -29,6 +29,8 @@ struct TabBarView: View {
     @StateObject var locationManager = LocationManager()
     
     @EnvironmentObject var loginModel : LoginAppViewModel
+//    @EnvironmentObject var arVM: ARViewModel
+    @StateObject var arVM = ARViewModel()
     
     @State private var doneLoading = false
     @State var isLoading = false
@@ -197,6 +199,7 @@ struct TabBarView: View {
                         
                         .edgesIgnoringSafeArea(.all)
                         .environmentObject(firestoreQuery)
+                        .environmentObject(arVM)
                     
                     
                 
@@ -213,6 +216,7 @@ struct TabBarView: View {
                         .environmentObject(placementSettings)
                         .environmentObject(modelDeletionManager)
                         .environmentObject(firestoreQuery)
+                        .environmentObject(arVM)
 
             }
             .zIndex(3.0)
@@ -270,6 +274,9 @@ struct TabBarView: View {
             await firestoreQuery.getHomePlaylists()
         
             await firestoreQuery.getDiscoverContent()
+        
+            //to pause the AR session
+            arVM.pauseAR = true
 
         
         

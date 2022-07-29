@@ -22,6 +22,7 @@ struct MinimizedView: View {
 //    let artistName: String
     
     @EnvironmentObject var firestoreQuery: FirestoreQuery
+   
         
     var body: some View {
         
@@ -110,6 +111,8 @@ struct MinimizedView: View {
         if (firestoreQuery.cameraPlaying == true) {
             
             Button(action: {
+                
+                //start: for correctly transitioning view
                 if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
                     firestoreQuery.bothScreensMinimized = true
                 }
@@ -118,6 +121,8 @@ struct MinimizedView: View {
                 }
                 
                 firestoreQuery.showCameraScreen = true
+                //end: for correctly transitioning view.
+                
                 
             }){
             

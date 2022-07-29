@@ -21,11 +21,14 @@ struct CollectionReelListing: View {
     @State var art_popup = ""
     //@State var art = Art()
     @State var art: Art = Art()
+    @State var artForDescription: Art = Art()
     @State var getModelforArt = ""
     @State var scrollTo = 0
     @State var showThumbnail = true
     @State var text3Dmodel = "Load 3D Artwork"
     @State var artLiked = false
+    
+   // var showDescription: Binding<Bool>
     
     
     var body: some View {
@@ -77,6 +80,7 @@ struct CollectionReelListing: View {
 
                                 }
                                 .padding(.leading, screenWidth / 25)
+                                .padding(.bottom, screenWidth / 25)
                                 
                                 Spacer()
                                 
@@ -241,44 +245,47 @@ struct CollectionReelListing: View {
                                             CollectionsView(art: art)
                                     }
                                 }
-                            }
                             
-                            Button {
-                                
-                                withAnimation(.easeInOut(duration: 0.2)) {
+                            
+                                Button {
                                     
-                                    showDetail.toggle()
-                                    art_popup = artwork.artId
-                                   
+                                    withAnimation(.easeInOut(duration: 0.2)) {
+                                        
+                                        showDetail.toggle()
+                                        art_popup = artwork.artId
+                                        self.artForDescription = artwork
+                                       
 
-                                    if(showDetail == false) {
-                                        art_popup = ""
+                                        if(showDetail == false) {
+                                            art_popup = ""
+                                        }
+                                        
+                                    }
+                                    
+                                } label: {
+                                        
+                                    VStack {
+
+                                        Label("", systemImage: "chevron.down.circle")
+                                            .imageScale(.large)
+                                            .rotationEffect(.degrees((showDetail && artwork.artId == art_popup) ? -180 : 0))
+                                            .animation(.linear, value: showDetail)
+                                            .font(.system(size: screenWidth / 20))
+                                            .foregroundColor(.black)
+                                            .padding(.trailing, screenWidth / 15)
+                                            //.padding(.vertical, screenHeight / 160)
+                                        
                                     }
                                     
                                 }
-                                
-                            } label: {
-                                    
-                                VStack {
-
-                                    Label("", systemImage: "chevron.down.circle")
-                                        .imageScale(.large)
-                                        .rotationEffect(.degrees((showDetail && artwork.artId == art_popup) ? -180 : 0))
-                                        .animation(.linear, value: showDetail)
-                                        .font(.system(size: screenWidth / 20))
-                                        .foregroundColor(.black)
-                                        .padding(.vertical, screenHeight / 160)
-                                    
-                                }
-                                
                             }
                             
                             
-                            if (showDetail && artwork.artId == art_popup) {
-
-                                CollectionReelDescription(artDetails: artwork)
-
-                            }
+//                            if (showDetail && artwork.artId == art_popup) {
+//
+//                                CollectionReelDescription(artDetails: artwork)
+//
+//                            }
                    
                         }
                         
@@ -310,6 +317,35 @@ struct CollectionReelListing: View {
             }
             
         }
+//        .simultaneousGesture(
+//               DragGesture().onChanged({
+//                   showDetail = false
+//               }))
+        
+        if (showDetail) {
+            CollectionReelDescription(artDetails: self.artForDescription)
+                .animation(.default)
+                .gesture(
+                    DragGesture()
+                        .onChanged { gesture in
+                     
+                            showDetail = false
+                        }
+                        .onEnded { gesture in
+                     
+                            showDetail = false
+                        }
+                )
+                .gesture(
+                    TapGesture()
+                        .onEnded { _ in
+                            showDetail = false
+                        }
+                )
+
+        }
+        
+        
         
     }
     

@@ -15,6 +15,7 @@ struct HomeView : View {
     
     @EnvironmentObject var viewModel : TabBarViewModel
     @EnvironmentObject var firestoreQuery : FirestoreQuery
+    @EnvironmentObject var arVM: ARViewModel
     @State var museumCount = 1
     
     var body: some View {
@@ -40,6 +41,7 @@ struct HomeView : View {
 //                    if (firestoreQuery.artPlaying == true) {
                         
                         MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
+                            
                         
 //                    }
 //                    

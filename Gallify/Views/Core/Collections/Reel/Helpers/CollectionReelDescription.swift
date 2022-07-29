@@ -124,8 +124,9 @@ struct CollectionReelDescription: View {
             }
                 
         }
-        .padding(.horizontal, screenWidth / 25)
-        .padding(.vertical, screenHeight / 54)
+        .background(Color.purple)
+//        .padding(.horizontal, screenWidth / 25)
+//        .padding(.vertical, screenHeight / 54)
         .onAppear { async {await NetworkingCall()} }
 
     }

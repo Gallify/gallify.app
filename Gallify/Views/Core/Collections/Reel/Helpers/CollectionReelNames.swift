@@ -17,7 +17,7 @@ struct CollectionReelNames: View {
         
 
         Text("\(artwork.name)")
-            .font(.system(size: screenWidth / 17).bold())
+            .font(.system(size: screenWidth / 20).bold())
 
 
         NavigationLink ( destination: OtherProfileView(otherUserId: artwork.creatorId),
@@ -29,6 +29,7 @@ struct CollectionReelNames: View {
         })
 
     }
+    
     
 }
 

@@ -44,6 +44,7 @@ struct ARCamView: UIViewRepresentable {
             uiView.session.pause()
         } else {
             configure(our: uiView)
+            
         }
     }
     

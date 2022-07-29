@@ -10,7 +10,8 @@ import Combine
 
 struct ARPlayerView: View {
     
-    @StateObject var arVM = ARViewModel()
+    //@StateObject var arVM = ARViewModel()
+    @EnvironmentObject var arVM: ARViewModel
     @State var pos: String = ""
     @State var showAR: Bool = true
     

@@ -13,6 +13,7 @@ struct HomeViewHeader: View {
     let screenWidth: CGFloat
     @EnvironmentObject var firestoreQuery : FirestoreQuery
     
+    
     var body: some View {
         
         HStack {
@@ -57,6 +58,7 @@ struct HomeViewHeader: View {
                         firestoreQuery.artThatsPlaying = discoverArray[0]
                         firestoreQuery.artworkThatsPlaying = discoverArray
                     }
+                    
                    
                     
                 }

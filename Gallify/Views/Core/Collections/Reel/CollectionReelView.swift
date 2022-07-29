@@ -13,7 +13,8 @@ struct CollectionReelView: View {
     @Environment(\.presentationMode) var presentationMode
     
     //@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    //@Binding var isPresented: Bool
+    //@Binding var showDescription: Bool
+    
     
     var body: some View {
         
@@ -24,8 +25,10 @@ struct CollectionReelView: View {
                 VStack {
                     
                     CollectionReelHeader()
+                        
                     
                     CollectionReelListing()
+                
                     
                     Spacer()
                     
