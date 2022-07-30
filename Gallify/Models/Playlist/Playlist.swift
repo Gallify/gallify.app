@@ -18,9 +18,6 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
 
     enum CodingKeys: CodingKey {
 
-        
-        
-        
         case name
         case creator
         case creatorUrl
@@ -47,6 +44,12 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         case createdDate
         case creatorRef
         case isSingles
+        
+        case hasGallery
+        case galleryId
+        case geoHash
+        case hideLocation
+        case hasLocation
         
 
 
@@ -80,15 +83,12 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var creatorRef: String
     @Published var isSingles: Bool
     
-    /*
-     hasGallery bool
-     galleryId string
-     geoHash string
-     hideLocation bool
-     hasLocation bool
-     
-     
-     */
+    @Published var hasGallery: Bool
+    @Published var galleryId: String
+    @Published var geoHash: String
+    @Published var hideLocation: Bool
+    @Published var hasLocation: Bool
+
     
     /*
      "name": "",
@@ -136,6 +136,12 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         creatorRef = ""
         isSingles = false
         
+        hasGallery = false
+        galleryId = ""
+        geoHash = ""
+        hideLocation = false
+        hasLocation = false
+        
         
     }
     
@@ -166,6 +172,12 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
           createdDate = 0
           creatorRef = ""
           isSingles = false
+        
+          hasGallery = false
+          galleryId = ""
+          geoHash = ""
+          hideLocation = false
+          hasLocation = false
         
       }
 
@@ -199,6 +211,14 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         createdDate = try container.decode(Int.self, forKey: .createdDate)
         creatorRef = try container.decode(String.self, forKey: .creatorRef)
         isSingles = try container.decode(Bool.self, forKey: .isSingles)
+        
+        hasGallery = try container.decode(Bool.self, forKey: .hasGallery)
+        galleryId = try container.decode(String.self, forKey: .galleryId)
+        geoHash = try container.decode(String.self, forKey: .geoHash)
+        hideLocation = try container.decode(Bool.self, forKey: .hideLocation)
+        hasLocation = try container.decode(Bool.self, forKey: .hasLocation)
+
+      
 
     }
     
@@ -231,6 +251,11 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(createdDate, forKey: .createdDate)
         try container.encode(creatorRef, forKey: .creatorRef)
         try container.encode(isSingles, forKey: .isSingles)
+        try container.encode(hasGallery, forKey: .hasGallery)
+        try container.encode(galleryId, forKey: .galleryId)
+        try container.encode(geoHash, forKey: .geoHash)
+        try container.encode(hideLocation, forKey: .hideLocation)
+        try container.encode(hasLocation, forKey: .hasLocation)
 
 
     }
