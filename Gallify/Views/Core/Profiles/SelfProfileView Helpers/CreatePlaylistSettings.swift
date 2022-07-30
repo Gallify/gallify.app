@@ -12,9 +12,13 @@ struct CreatePlaylistSettings: View {
     @EnvironmentObject var viewModel: TabBarViewModel
     @State var playlistPrivacy = "Public"
     @State var playlistType = "Playlist"
+    @State var addPlaylistLocation = false
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var firestoreQuery: FirestoreQuery
+   // @EnvironmentObject var locationManager: LocationManager
+    @StateObject var locationManager = LocationManager()
+    
     let playlistName: String
     
     //image set
@@ -24,6 +28,7 @@ struct CreatePlaylistSettings: View {
     @State var pickedImage: UIImage?
     @State var showActionSheet = false
     @State var privacyNum = -1
+    
     var body: some View {
         
         let screenWidth = viewModel.screenWidth
@@ -395,7 +400,66 @@ struct CreatePlaylistSettings: View {
                 .padding(.horizontal, screenWidth / 12)
             }
             
+            HStack {
+
+               Text("Location")
+                   .font(.system(size: screenWidth / 15, weight: .bold))
+
+               Spacer()
+
+           }
+           .padding(.leading, screenWidth / 12)
+           .padding(.bottom, screenHeight / 80)
+            
+           VStack {
+
+               HStack {
+
+                   Text("Share Location")
+                       .font(.system(size: screenWidth / 25, weight: .semibold))
+                       .foregroundColor(.black)
+                       .padding(.leading, screenWidth / 25)
+
+                   Spacer()
+
+                   Button(action: {
+
+                       addPlaylistLocation.toggle()
+
+                   }, label: {
+
+                       if addPlaylistLocation {
+
+                           Image(systemName: "circle")
+                               .resizable()
+                               .frame(width: screenWidth / 20, height: screenHeight / 43)
+                               .foregroundColor(.black)
+                               .background(Circle()
+                                               .frame(width: screenWidth / 37.5, height: screenHeight / 80)
+                                               .foregroundColor(.green))
+
+
+                       }
+
+                       else {
+
+                           Image(systemName: "circle")
+                               .resizable()
+                               .frame(width: screenWidth / 20, height: screenHeight / 43)
+                               .foregroundColor(.black)
+
+                       }
+
+                   })
+
+               }
+               .padding(.horizontal, screenWidth / 12)
+           }
+            
+            
+            
             Spacer()
+            
             
             Button(action: {
                 
@@ -416,8 +480,11 @@ struct CreatePlaylistSettings: View {
                 
                     Task {
                         
+                        let latitude = locationManager.lastLocation?.coordinate.latitude ?? 0
+                        let longitude = locationManager.lastLocation?.coordinate.longitude ?? 0
+                        
                        // await firestoreQuery.updatePlaylistImage(image: self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data())
-                        let playlistRef = await firestoreQuery.create_playlist(name: playlistName, privacy : privacyNum, type: playlistType)
+                        let playlistRef = await firestoreQuery.create_playlist(name: playlistName, privacy : privacyNum, type: playlistType, locationPref: addPlaylistLocation, lat: latitude, lon: longitude)
                         
                         if(playlistImageUpdate == true){
                             await firestoreQuery.updatePlaylistImage(image: self.pickedImage!.jpegData(compressionQuality: 0.5) ?? Data(), uid: playlistRef)

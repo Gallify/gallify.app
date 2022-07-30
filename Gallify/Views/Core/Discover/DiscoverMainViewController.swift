@@ -139,7 +139,9 @@ struct DiscoverMainView: View {
                 
                 
                 //this is the minimized view of the reel.
-                            MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
+                if !showCancelButton {
+                    MinimizedView(screenHeight: screenHeight, screenWidth: screenWidth)
+                }
                 
             }
             .navigationBarHidden(true)

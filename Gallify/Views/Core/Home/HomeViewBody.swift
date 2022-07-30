@@ -58,10 +58,10 @@ struct HomeViewBody: View {
                                                         //.cornerRadius(5)
                                                 }
                                                 else{
-                                                    WebImage(url: URL(string: playlist.coverArtUrl))
+                                                    AnimatedImage(url: URL(string: playlist.coverArtUrl))
                                                         .resizable()
                                                         .scaledToFill()
-                                                        .frame(width: screenWidth / 2.8, height: screenHeight / 6)
+                                                        .frame(width: 150, height: 150)
                                                         .clipped()
                                                     //.cornerRadius(5)
                                                 }
@@ -81,7 +81,7 @@ struct HomeViewBody: View {
                                           
                                             .lineLimit(1)
                                                 
-                                        Text(playlist.creator + " • " + playlist.playlistType)
+                                        Text(playlist.creator + "• " + playlist.playlistType)
                                             .font(.system(size: screenWidth / 25.5, weight: .regular))
                                             .frame(width: screenWidth / 2.8, alignment: .leading)
                                             .lineLimit(1)

@@ -10,6 +10,8 @@ import FirebaseAuth
 import FirebaseStorage
 import UIKit
 import SwiftUI
+import CoreLocation
+//import GeoFire
 
 extension FirestoreQuery {
     
@@ -123,11 +125,15 @@ extension FirestoreQuery {
         Creates new empty playlist
         calls addPlaylistToLibrary
      */
-    func create_playlist(name: String, privacy: Int, type: String) async -> String  {
+    func create_playlist(name: String, privacy: Int, type: String, locationPref: Bool, lat: Double, lon: Double) async -> String  {
         
-        let time = timeNow()
+        let time = Int(Date().timeIntervalSince1970)
+        //timeNow()
         print(time)
         
+        //geoHash
+        let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon))
+        //let hash = GFUtils.geoHash(forLocation: location)
         
         let newPlaylist = Playlist(newName: name, pri: privacy, type: type, the_creator: self.data)
     
@@ -138,6 +144,15 @@ extension FirestoreQuery {
         newPlaylist.creatorRef = self.data.uid
         newPlaylist.createdDate = time
         newPlaylist.modifiedDate = time
+        if(locationPref){
+            newPlaylist.lat = lat
+            newPlaylist.lon = lon
+            //newPlaylist.geoHash = hash
+            newPlaylist.hasLocation = true
+        }
+        else{
+            newPlaylist.hasLocation = false
+        }
 
         do {
           try await docRef.setData(from: newPlaylist)

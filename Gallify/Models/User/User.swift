@@ -118,7 +118,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var singlesRef: String
     
     //as of 7/29/22
-    @Published var createdTimestamp: Int
+   // @Published var createdTimestamp: Int
     
 
     init() {
@@ -170,7 +170,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         disableAccount = false
         
         singlesRef = ""
-        createdTimestamp = Int(Date().timeIntervalSince1970)
+       // createdTimestamp = Int(Date().timeIntervalSince1970)
 
     }
 
@@ -226,7 +226,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         
         singlesRef = try container.decode(String.self, forKey: .singlesRef)
 
-        createdTimestamp = try container.decode(Int.self, forKey: .createdTimestamp)
+        //createdTimestamp = try container.decode(Int.self, forKey: .createdTimestamp)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -278,7 +278,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(deleteAccount, forKey: .deleteAccount)
         try container.encode(disableAccount, forKey: .disableAccount)
         try container.encode(singlesRef, forKey: .singlesRef)
-        try container.encode(createdTimestamp, forKey: .createdTimestamp)
+        //try container.encode(createdTimestamp, forKey: .createdTimestamp)
 
     }
 
