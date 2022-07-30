@@ -115,6 +115,9 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     //as of 06/5/22
     @Published var singlesRef: String
     
+    //as of 7/29/22
+    //createdTimestamp int
+    
 
     init() {
         

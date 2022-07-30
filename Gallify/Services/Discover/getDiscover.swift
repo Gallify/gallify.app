@@ -187,7 +187,12 @@ extension FirestoreQuery {
                
                */
                 
-                self.lastDocument = querySnapshot!.documents.last //get last document for later.
+                
+                if(querySnapshot!.documents.last != nil){
+                    self.lastDocument = querySnapshot!.documents.last //get last document for later.
+                }
+                
+                print(self.lastDocument)
                 self.getNextBatch = true
               
                  

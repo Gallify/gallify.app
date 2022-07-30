@@ -81,6 +81,16 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var isSingles: Bool
     
     /*
+     hasGallery bool
+     galleryId string
+     geoHash string
+     hideLocation bool
+     hasLocation bool
+     
+     
+     */
+    
+    /*
      "name": "",
      "coverSrc": "resources/image",
      "desc": "",

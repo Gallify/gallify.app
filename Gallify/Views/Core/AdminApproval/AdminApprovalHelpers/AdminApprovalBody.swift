@@ -47,11 +47,12 @@ struct AdminApprovalBody: View {
                                 
                             else {
                                         
-                                WebImage(url: URL(string: artwork.thumbnailUrl))
+                                //WebImage(url: URL(string: artwork.thumbnailUrl))
+                                AnimatedImage(url: URL(string: artwork.thumbnailUrl))
                                 .resizable()
                                 .overlay(Rectangle()
                                     .frame(width: nil, height: 1, alignment: .top)
-                                    .foregroundColor(Color.black), alignment: .top)
+                                    .foregroundColor(Color.white), alignment: .top)
                                 .scaledToFit()
                                         
                             }

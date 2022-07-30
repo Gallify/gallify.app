@@ -57,14 +57,15 @@ struct CollectionReelListing: View {
                             else {
                                 
                                 AnimatedImage(url: URL(string: artwork.thumbnailUrl))
+                                    .resizable()
+                                    .overlay(Rectangle()
+                                        .frame(width: nil, height: 4, alignment: .top)
+                                        .foregroundColor(Color.white), alignment: .top)
+                                    .scaledToFit()
+                                    .clipped()
                                // WebImage(url: URL(string: artwork.thumbnailUrl))
 
-                                .resizable()
-                                .overlay(Rectangle()
-                                    .frame(width: nil, height: 4, alignment: .top)
-                                    .foregroundColor(Color.black), alignment: .top)
-                                .scaledToFit()
-                                
+                               
                                         
                             }
                             
@@ -317,10 +318,10 @@ struct CollectionReelListing: View {
             }
             
         }
-//        .simultaneousGesture(
-//               DragGesture().onChanged({
-//                   showDetail = false
-//               }))
+        .simultaneousGesture(
+            DragGesture().onChanged({_ in
+                   showDetail = false
+               }))
         
         if (showDetail) {
             CollectionReelDescription(artDetails: self.artForDescription)

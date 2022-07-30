@@ -30,7 +30,7 @@ struct CollectionReelDescription: View {
                 
                 HStack {
                     
-                    Text("Owned by:")
+                    Text("Owner")
                         .font(.system(size: screenWidth / 25))
                     
                     NavigationLink (destination: OtherProfileView(otherUserId: artDetails.ownerId), label: {
@@ -47,7 +47,7 @@ struct CollectionReelDescription: View {
                 
                 HStack {
                     
-                    Text("Created by:")
+                    Text("Creator")
                         .font(.system(size: screenWidth / 25))
                     
                     NavigationLink (destination: OtherProfileView(otherUserId: artDetails.creatorId), label: {
@@ -66,7 +66,7 @@ struct CollectionReelDescription: View {
                     
                     HStack {
                         
-                        Text("Collection:")
+                        Text("Collection")
                             .font(.system(size: screenWidth / 25))
                         
                         NavigationLink (destination: CollectionGenericView(playlist: the_reel_desc_playlist), label: {
@@ -86,7 +86,7 @@ struct CollectionReelDescription: View {
                     
                 }
                 
-                Text("Description:  " + artDetails.desc)
+                Text(artDetails.desc)
                     .font(.system(size: screenWidth / 25))
                 
             }
@@ -94,6 +94,8 @@ struct CollectionReelDescription: View {
             Spacer()
             
             VStack {
+                
+
                 
                 if(artDetails.forSale) {
                     
@@ -124,7 +126,7 @@ struct CollectionReelDescription: View {
             }
                 
         }
-        .background(Color.purple)
+        .background(Color("Whitish"))
 //        .padding(.horizontal, screenWidth / 25)
 //        .padding(.vertical, screenHeight / 54)
         .onAppear { async {await NetworkingCall()} }

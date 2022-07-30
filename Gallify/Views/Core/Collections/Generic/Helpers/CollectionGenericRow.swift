@@ -175,8 +175,9 @@ struct CollectionGenericRow: View {
                             
                                                     
                             HStack {
-                                                            
-                                WebImage(url: URL(string: playlist[i].thumbnailUrl))
+                                               
+     
+                                AnimatedImage(url: URL(string: playlist[i].thumbnailUrl))
                                     .resizable()
                                 
                                     .scaledToFill()

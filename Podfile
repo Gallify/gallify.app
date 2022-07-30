@@ -22,6 +22,7 @@ target 'Gallify' do
   pod 'FirebaseUI/Storage'
   pod 'FirebaseFirestoreSwift'
 
+
     # For images
   pod 'SDWebImageSwiftUI'
    

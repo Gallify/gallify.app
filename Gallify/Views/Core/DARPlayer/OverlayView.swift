@@ -48,36 +48,33 @@ struct OverlayView: View {
             // Header
             if(!hideAll){
                 HStack {
-                    // Icon - Hide
-                    if loadingModel {
-                        LoadingIcon()
-                    } else {
-                        Image(systemName: "chevron.down")
-                            .resizable()
-                            .frame(width: magik(27), height: magik(15))
-                            .frame(width: 70, height: 70)
-                            .contentShape(Rectangle())
-                            .foregroundColor(Color.white)
-                            .onTapGesture {
-                                withAnimation(.spring()) {
-                                    //if else checks if both camera and reels screen are minimized currently.
-                                     if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
-                                         firestoreQuery.bothScreensMinimized = true
-                                     }
-                                     else{
-                                         firestoreQuery.bothScreensMinimized = false
-                                     }
+                    
+                    Image(systemName: "chevron.down")
+                        .resizable()
+                        .frame(width: magik(27), height: magik(15))
+                        .frame(width: 70, height: 70)
+                        .contentShape(Rectangle())
+                        .foregroundColor(Color.white)
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                //if else checks if both camera and reels screen are minimized currently.
+                                 if(firestoreQuery.showCameraScreen==false && firestoreQuery.showNewScreen==false){
+                                     firestoreQuery.bothScreensMinimized = true
+                                 }
+                                 else{
+                                     firestoreQuery.bothScreensMinimized = false
+                                 }
 
-                                     firestoreQuery.showCameraScreen = false
-                                     firestoreQuery.showNewScreen = false
-                                     firestoreQuery.cameraPlaying = true
-                                     firestoreQuery.artPlaying = false
-                                     firestoreQuery.artisClicked = ""
-                                    
-                                     pauseAR = true
-                                }
+                                 firestoreQuery.showCameraScreen = false
+                                 firestoreQuery.showNewScreen = false
+                                 firestoreQuery.cameraPlaying = true
+                                 firestoreQuery.artPlaying = false
+                                 firestoreQuery.artisClicked = ""
+                                
+                                 pauseAR = true
                             }
-                    }
+                        }
+                    
                     
                     // Spacer - Icon and Icon
                     Spacer()
@@ -238,6 +235,11 @@ struct OverlayView: View {
                     
                     // Spacer - Icon and Icon
                     //Spacer()
+                        
+                    // Icon - Hide
+                    if loadingModel {
+                        LoadingIcon()
+                    }
                         
                     // Icon - About
                     Image(systemName: "questionmark")

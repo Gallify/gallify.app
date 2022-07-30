@@ -112,18 +112,16 @@ extension FirestoreQuery {
             print("Error adding art to owned Playlist: \(error.localizedDescription)")
         }
         
-        
-        /*
-        //Adds to "collection" after approval. Uncomment when website is fixed.
+    
+        //Adds to "collection" after approval. ex. Singles
         do {
             try await FirestoreQuery.db.collection("playlists").document(art.collectionRef).updateData([
                 "art": FieldValue.arrayUnion([art.artId])
             ])
-
         } catch {
-            print("Error adding art to owned Playlist: \(error.localizedDescription)")
+            print("Error adding art to collection: \(error.localizedDescription)")
         }
-        */
+        
         
         //Post to marketplace
         await postArtToMarketplace(collectionId: art.collection, artId: art.artId)

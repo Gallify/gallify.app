@@ -65,43 +65,63 @@ class ARModel: Equatable {
         //if image
         if(type==0 && !loaded){
             
-            //Test: https://cdn.britannica.com/45/5645-050-B9EC0205/head-treasure-flower-disk-flowers-inflorescence-ray.jpg
-            print(art.contentUrl)
-            let remoteURL = URL(string: String(art.contentUrl))!
             
-            // Create a temporary file URL to store the image at the remote URL.
-            let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
-            // Download contents of imageURL as Data.  Use a URLSession if you want to do this asynchronously.
-            let data = try! Data(contentsOf: remoteURL)
+            //DispatchQueue.global().async{
+                //Test: https://cdn.britannica.com/45/5645-050-B9EC0205/head-treasure-flower-disk-flowers-inflorescence-ray.jpg
+                print(self.art.contentUrl)
+                let remoteURL = URL(string: String(self.art.contentUrl))!
+                
+                // Create a temporary file URL to store the image at the remote URL.
+                let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+                // Download contents of imageURL as Data.  Use a URLSession if you want to do this asynchronously.
+                let data = try! Data(contentsOf: remoteURL)
+                
+                // Write the image Data to the file URL.
+                try! data.write(to: fileURL)
+                
+                let imgTexture = try! MaterialParameters.Texture.init(.load(contentsOf: fileURL))
+                
+//                var textureRequest: AnyCancellable? = nil
+//                textureRequest = TextureResource.loadAsync(contentsOf: fileURL).sink { (error) in
+//                    print(error)
+//                    textureRequest?.cancel()
+//                } receiveValue: { (texture) in
+//                    var material = UnlitMaterial()
+//                    material.baseColor = MaterialColorParameter.texture(texture)
+//                    // Do another setup
+//                    textureRequest?.cancel()
+//                }
+                
+                let longerLength: Float = 0.5
+                var planeHeight: Float? = nil
+                var planeWidth: Float? = nil
+                if imgTexture.resource.height > imgTexture.resource.width {
+                    planeHeight = longerLength
+                    planeWidth = Float(imgTexture.resource.width) / (Float(imgTexture.resource.height) / longerLength)
+                } else {
+                    planeWidth = longerLength
+                    planeHeight = Float(imgTexture.resource.height) / (Float(imgTexture.resource.width) / longerLength)
+                }
+                
+                var material = SimpleMaterial()
+                material.color = .init(tint: .init(hue: 1, saturation: 0, brightness: 5, alpha: 1), texture: imgTexture)
+    //            material.roughness = 1
+    //            material.metallic = 1
+                
+                let mesh = MeshResource.generatePlane(width: planeWidth!, depth: planeHeight!)
+                let entity = ModelEntity(mesh: mesh, materials: [material])
             
-            // Write the image Data to the file URL.
-            try! data.write(to: fileURL)
-            
-            let imgTexture = try! MaterialParameters.Texture.init(.load(contentsOf: fileURL))
-            let longerLength: Float = 0.5
-            var planeHeight: Float? = nil
-            var planeWidth: Float? = nil
-            if imgTexture.resource.height > imgTexture.resource.width {
-                planeHeight = longerLength
-                planeWidth = Float(imgTexture.resource.width) / (Float(imgTexture.resource.height) / longerLength)
-            } else {
-                planeWidth = longerLength
-                planeHeight = Float(imgTexture.resource.height) / (Float(imgTexture.resource.width) / longerLength)
-            }
-            
-            var material = SimpleMaterial()
-            material.color = .init(tint: .init(hue: 1, saturation: 0, brightness: 5, alpha: 1), texture: imgTexture)
-//            material.roughness = 1
-//            material.metallic = 1
-            
-            let mesh = MeshResource.generatePlane(width: planeWidth!, depth: planeHeight!)
-            let entity = ModelEntity(mesh: mesh, materials: [material])
-        
-            self.entity = entity
-            self.contentLoaded = true
-            completion(entity)
+                self.entity = entity
+                self.contentLoaded = true
+                
+              //  DispatchQueue.main.async{
+                    completion(entity)
+             //   }
+            //}
             
         }
+        
+        //if image already loaded.
         if(type==0 && loaded){
             let entity = self.entity
             completion(entity)
