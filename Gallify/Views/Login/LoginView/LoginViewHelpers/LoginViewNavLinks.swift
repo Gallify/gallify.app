@@ -73,7 +73,6 @@ struct LoginViewNavLinks: View {
                 
                 HStack {
                     
-                
                     Button(action:
                         {
                         
@@ -109,10 +108,12 @@ struct LoginViewNavLinks: View {
                             Text("                                             ")
                                 
                                 .font(.system(size: screenWidth / 18.5, weight: .bold))
-                                .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                                .foregroundColor(.black)
+//                                .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
                                 .padding(.horizontal, 40)
                                 .padding(.vertical, screenHeight / 80)
-                                .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                                .background(.black)
+//                                .background(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
                                 .cornerRadius(20)
                                 //.padding(.horizontal, screenWidth / 30)
                                 //.padding(.vertical, screenHeight / 65)
@@ -145,6 +146,7 @@ struct LoginViewNavLinks: View {
                 HStack{
                     Text("or")
                         .font(.system(size: screenWidth / 20, weight: .regular))
+                        //.foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
                         .padding(.top, -screenHeight / 75)
                         .padding(.bottom, -screenHeight / 75)
                 }
@@ -164,7 +166,8 @@ struct LoginViewNavLinks: View {
                         Text("Enter as Guest")
                             
                             .font(.system(size: screenWidth / 18.5, weight: .medium))
-                            .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
+                            .foregroundColor(.primary)
+//                            .foregroundColor(Color(hue: 0.862, saturation: 1.0, brightness: 1.0))
                             .padding(.leading, 10)
                             .padding(.top, screenHeight / 75)
                     }

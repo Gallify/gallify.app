@@ -34,7 +34,8 @@ struct SelfProfileCollectionList: View {
                     ZStack {
                                     
                         RoundedRectangle(cornerRadius: screenWidth / 50)
-                            .foregroundColor(Color("Gallify-Pinkish"))
+                            .foregroundColor(.primary)
+//                            .foregroundColor(Color("Gallify-Pinkish"))
                             .padding(.horizontal, screenWidth / 55)
                             .padding(.vertical, screenHeight / 120)
                             .frame(width: screenWidth / 8.3, height: screenHeight / 18)

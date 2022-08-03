@@ -136,6 +136,7 @@ extension FirestoreQuery {
         let userId = Auth.auth().currentUser?.uid
         var reelPlaylist = Playlist()
         
+        
         do {
             let doc2 = try await FirestoreQuery.db.collection("playlists")
                 .document(playlist_id)
@@ -147,6 +148,7 @@ extension FirestoreQuery {
             }
 
             reelPlaylist = thePlaylist
+            
             
         }
         catch{

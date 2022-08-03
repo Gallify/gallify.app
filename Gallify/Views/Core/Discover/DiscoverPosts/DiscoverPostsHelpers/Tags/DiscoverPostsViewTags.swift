@@ -38,7 +38,8 @@ struct DiscoverPostsViewTags: View {
                     ZStack {
                         
                         RoundedRectangle(cornerRadius: 5)
-                            .foregroundColor(Color("Gallify-Pinkish"))
+                            .foregroundColor(.primary)
+//                            .foregroundColor(Color("Gallify-Pinkish"))
                             .frame(width: screenWidth / 10.5, height: screenWidth / 10.5)
                             .cornerRadius(screenWidth / 50)
                         

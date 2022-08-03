@@ -60,7 +60,7 @@ extension FirestoreQuery {
         
         do {
             
-            self.homeMuseumList.museums = ["p0lkJFdi7cstCJrAcYMr", "oEcIslgNBCQ8RO3PibQT", "1EkOA6d8DXrcHQSGuiNG"]
+            self.homeMuseumList.museums = ["06tgdTeoDhhI9U0qpaFz", "0Nzhs8EXCrAxZUCIDDhH", "0c16Z9ZayYx1Pu66HQIl"]
             
         }
         catch{

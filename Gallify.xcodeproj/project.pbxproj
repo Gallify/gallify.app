@@ -224,6 +224,7 @@
 		31BDD93A2707283F00AB2CD1 /* LoginViewNavLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9392707283F00AB2CD1 /* LoginViewNavLinks.swift */; };
 		31BDD93E2707723300AB2CD1 /* SignInViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD93D2707723300AB2CD1 /* SignInViewHeader.swift */; };
 		31BDD9452709F3BA00AB2CD1 /* SignInViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD9442709F3BA00AB2CD1 /* SignInViewBody.swift */; };
+		31E477C1CC5D277F6287D622 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EB9ED8CDA4278796C50D43 /* Pods_Gallify.framework */; };
 		31F1530F270B881400238459 /* OvalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1530E270B881400238459 /* OvalTextField.swift */; };
 		31F15312270CDEE400238459 /* CreateAccountViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15311270CDEE400238459 /* CreateAccountViewHeader.swift */; };
 		31F15315270CF3E000238459 /* CreateAccountViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F15314270CF3E000238459 /* CreateAccountViewBody.swift */; };
@@ -232,8 +233,7 @@
 		33099634277BC2980040D099 /* FirestoreSubcollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */; };
 		33C12AEB27E8039C00CC34A8 /* FirebaseStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */; };
 		33E41CDF27FFB68E0037FDBC /* Liked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E41CDE27FFB68E0037FDBC /* Liked.swift */; };
-		49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */; };
-		8F74D4B0DD6ECDB488245090 /* Pods_Gallify_GallifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */; };
+		4BF293BE0AB80BB3A513D809 /* Pods_Gallify_GallifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E277CD4B144B501F5D9014 /* Pods_Gallify_GallifyUITests.framework */; };
 		92794CFB273811760012B184 /* CollectionReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CE4273811760012B184 /* CollectionReelView.swift */; };
 		92794CFC273811760012B184 /* CollectionReelListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CE6273811760012B184 /* CollectionReelListing.swift */; };
 		92794CFD273811760012B184 /* CollectionReelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92794CE7273811760012B184 /* CollectionReelHeader.swift */; };
@@ -259,7 +259,7 @@
 		92DB7C6D273181240035B788 /* CreatePublishHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C6C273181240035B788 /* CreatePublishHeader.swift */; };
 		92DB7C6F273186330035B788 /* CreatePublishListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C6E273186330035B788 /* CreatePublishListing.swift */; };
 		92DB7C812731B6440035B788 /* NavigationViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */; };
-		F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */; };
+		E98BA2AFFB5A76662F54EE25 /* Pods_GallifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6935699728538C6E3BB9D76 /* Pods_GallifyTests.framework */; };
 		FC5DCE5527F9392E00AE345B /* ModelDeletionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5DCE5427F9392E00AE345B /* ModelDeletionManager.swift */; };
 		FC5DCE5727F951BC00AE345B /* DeletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5DCE5627F951BC00AE345B /* DeletionView.swift */; };
 		FC9EED7C2762AD7E00F831DC /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = FC9EED7B2762AD7E00F831DC /* FocusEntity */; };
@@ -283,9 +283,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DC08BFB2C764F85E922F716 /* Pods-Gallify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify.debug.xcconfig"; path = "Target Support Files/Pods-Gallify/Pods-Gallify.debug.xcconfig"; sourceTree = "<group>"; };
-		2E7780D649915F9CC1596DBF /* Pods-Gallify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify.release.xcconfig"; path = "Target Support Files/Pods-Gallify/Pods-Gallify.release.xcconfig"; sourceTree = "<group>"; };
+		0B1336FE277590F0983F88D7 /* Pods-GallifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.debug.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0C3611DB927B5BF1BD080A5D /* Pods-Gallify-GallifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.release.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		30001B7D278F8E6F00527BF9 /* get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = get.swift; sourceTree = "<group>"; };
 		30001BB527921AC900527BF9 /* DropDownReels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownReels.swift; sourceTree = "<group>"; };
 		30001BBF2796851300527BF9 /* getHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getHome.swift; sourceTree = "<group>"; };
@@ -512,9 +511,8 @@
 		33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreSubcollectionService.swift; sourceTree = "<group>"; };
 		33C12AEA27E8039C00CC34A8 /* FirebaseStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageHelper.swift; sourceTree = "<group>"; };
 		33E41CDE27FFB68E0037FDBC /* Liked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liked.swift; sourceTree = "<group>"; };
-		41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GallifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.debug.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		359994E98C814525F33EB2CA /* Pods-GallifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.release.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.release.xcconfig"; sourceTree = "<group>"; };
+		50E277CD4B144B501F5D9014 /* Pods_Gallify_GallifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify_GallifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92794CE4273811760012B184 /* CollectionReelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReelView.swift; sourceTree = "<group>"; };
 		92794CE6273811760012B184 /* CollectionReelListing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReelListing.swift; sourceTree = "<group>"; };
 		92794CE7273811760012B184 /* CollectionReelHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReelHeader.swift; sourceTree = "<group>"; };
@@ -540,11 +538,13 @@
 		92DB7C6C273181240035B788 /* CreatePublishHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublishHeader.swift; sourceTree = "<group>"; };
 		92DB7C6E273186330035B788 /* CreatePublishListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublishListing.swift; sourceTree = "<group>"; };
 		92DB7C802731B6440035B788 /* NavigationViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewAnimation.swift; sourceTree = "<group>"; };
-		9B47B46B9072CE5E90CC4719 /* Pods-Gallify-GallifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.release.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GallifyTests.release.xcconfig"; path = "Target Support Files/Pods-GallifyTests/Pods-GallifyTests.release.xcconfig"; sourceTree = "<group>"; };
+		A9EB9ED8CDA4278796C50D43 /* Pods_Gallify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C23E03518BC86731CDDBD36C /* Pods-Gallify-GallifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify-GallifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F4376D7C62A96118E3A47193 /* Pods-Gallify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify.release.xcconfig"; path = "Target Support Files/Pods-Gallify/Pods-Gallify.release.xcconfig"; sourceTree = "<group>"; };
+		F6935699728538C6E3BB9D76 /* Pods_GallifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GallifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB8CB3BCF9323466AD61959E /* Pods-Gallify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallify.debug.xcconfig"; path = "Target Support Files/Pods-Gallify/Pods-Gallify.debug.xcconfig"; sourceTree = "<group>"; };
 		FC5DCE5427F9392E00AE345B /* ModelDeletionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDeletionManager.swift; sourceTree = "<group>"; };
 		FC5DCE5627F951BC00AE345B /* DeletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletionView.swift; sourceTree = "<group>"; };
-		FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallify_GallifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -556,8 +556,8 @@
 				3003B05C2811F35F00EA58B6 /* WalletConnectSwift in Frameworks */,
 				FC9EED7C2762AD7E00F831DC /* FocusEntity in Frameworks */,
 				30A0AB932860B0E00055905C /* web3.swift in Frameworks */,
-				F03FB3EB54D0DDD02CF7EB28 /* Pods_Gallify.framework in Frameworks */,
 				307AAC6B289342EB00D66C28 /* HalfASheet in Frameworks */,
+				31E477C1CC5D277F6287D622 /* Pods_Gallify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,7 +565,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49BDCD669CC27EB7504C365C /* Pods_GallifyTests.framework in Frameworks */,
+				E98BA2AFFB5A76662F54EE25 /* Pods_GallifyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,7 +573,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F74D4B0DD6ECDB488245090 /* Pods_Gallify_GallifyUITests.framework in Frameworks */,
+				4BF293BE0AB80BB3A513D809 /* Pods_Gallify_GallifyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,12 +583,12 @@
 		1835EAB9B3C746C57E654419 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1DC08BFB2C764F85E922F716 /* Pods-Gallify.debug.xcconfig */,
-				2E7780D649915F9CC1596DBF /* Pods-Gallify.release.xcconfig */,
-				41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */,
-				9B47B46B9072CE5E90CC4719 /* Pods-Gallify-GallifyUITests.release.xcconfig */,
-				67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */,
-				F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */,
+				FB8CB3BCF9323466AD61959E /* Pods-Gallify.debug.xcconfig */,
+				F4376D7C62A96118E3A47193 /* Pods-Gallify.release.xcconfig */,
+				C23E03518BC86731CDDBD36C /* Pods-Gallify-GallifyUITests.debug.xcconfig */,
+				0C3611DB927B5BF1BD080A5D /* Pods-Gallify-GallifyUITests.release.xcconfig */,
+				0B1336FE277590F0983F88D7 /* Pods-GallifyTests.debug.xcconfig */,
+				359994E98C814525F33EB2CA /* Pods-GallifyTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -713,7 +713,7 @@
 				3004D4D526C82F6E00323BCB /* GallifyUITests */,
 				3004D4B726C82F6B00323BCB /* Products */,
 				1835EAB9B3C746C57E654419 /* Pods */,
-				A96154C97DFA996DB49CA66E /* Frameworks */,
+				8360A09C012D83BEADEDE5DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1482,6 +1482,16 @@
 			path = SetPasswordViewHelpers;
 			sourceTree = "<group>";
 		};
+		8360A09C012D83BEADEDE5DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9EB9ED8CDA4278796C50D43 /* Pods_Gallify.framework */,
+				50E277CD4B144B501F5D9014 /* Pods_Gallify_GallifyUITests.framework */,
+				F6935699728538C6E3BB9D76 /* Pods_GallifyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		92794CE2273811760012B184 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
@@ -1654,16 +1664,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		A96154C97DFA996DB49CA66E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1B7DE8918535E022924F6BBF /* Pods_Gallify.framework */,
-				FC653F91B4BB8B8320F1A7EF /* Pods_Gallify_GallifyUITests.framework */,
-				65C393E207B8F8FB1859D904 /* Pods_GallifyTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1671,11 +1671,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3004D4DB26C82F6E00323BCB /* Build configuration list for PBXNativeTarget "Gallify" */;
 			buildPhases = (
-				10966089275BB1E489B0205A /* [CP] Check Pods Manifest.lock */,
+				1C7636F791DB3171E2C9D08B /* [CP] Check Pods Manifest.lock */,
 				3004D4B226C82F6B00323BCB /* Sources */,
 				3004D4B326C82F6B00323BCB /* Frameworks */,
 				3004D4B426C82F6B00323BCB /* Resources */,
-				DAF5F28BE4B5E37BF0B8EFEE /* [CP] Embed Pods Frameworks */,
+				F942AF898FA810CA06B8A541 /* [CP] Embed Pods Frameworks */,
+				C44558C241CA1BC5CF8ECDAC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1697,7 +1698,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3004D4DE26C82F6E00323BCB /* Build configuration list for PBXNativeTarget "GallifyTests" */;
 			buildPhases = (
-				7B51DA813A6A610FAECDF7D1 /* [CP] Check Pods Manifest.lock */,
+				3546FEB309412AAEF072B1CE /* [CP] Check Pods Manifest.lock */,
 				3004D4C326C82F6E00323BCB /* Sources */,
 				3004D4C426C82F6E00323BCB /* Frameworks */,
 				3004D4C526C82F6E00323BCB /* Resources */,
@@ -1716,11 +1717,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3004D4E126C82F6E00323BCB /* Build configuration list for PBXNativeTarget "GallifyUITests" */;
 			buildPhases = (
-				72126595FBE060E7D1CF1E0A /* [CP] Check Pods Manifest.lock */,
+				076A51C7895D8C9B803EB9B2 /* [CP] Check Pods Manifest.lock */,
 				3004D4CE26C82F6E00323BCB /* Sources */,
 				3004D4CF26C82F6E00323BCB /* Frameworks */,
 				3004D4D026C82F6E00323BCB /* Resources */,
-				F859E3873D82C1A2D33B12C4 /* [CP] Embed Pods Frameworks */,
+				C1BD79459BA3C5F0F2F60F5C /* [CP] Embed Pods Frameworks */,
+				FD5C7A36E91A417EC6EA3A40 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1821,29 +1823,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10966089275BB1E489B0205A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Gallify-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		72126595FBE060E7D1CF1E0A /* [CP] Check Pods Manifest.lock */ = {
+		076A51C7895D8C9B803EB9B2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1865,7 +1845,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7B51DA813A6A610FAECDF7D1 /* [CP] Check Pods Manifest.lock */ = {
+		1C7636F791DB3171E2C9D08B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gallify-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3546FEB309412AAEF072B1CE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1887,7 +1889,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DAF5F28BE4B5E37BF0B8EFEE /* [CP] Embed Pods Frameworks */ = {
+		C1BD79459BA3C5F0F2F60F5C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C44558C241CA1BC5CF8ECDAC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F942AF898FA810CA06B8A541 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1904,21 +1940,21 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify/Pods-Gallify-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F859E3873D82C1A2D33B12C4 /* [CP] Embed Pods Frameworks */ = {
+		FD5C7A36E91A417EC6EA3A40 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallify-GallifyUITests/Pods-Gallify-GallifyUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2325,7 +2361,7 @@
 		};
 		3004D4DC26C82F6E00323BCB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DC08BFB2C764F85E922F716 /* Pods-Gallify.debug.xcconfig */;
+			baseConfigurationReference = FB8CB3BCF9323466AD61959E /* Pods-Gallify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2347,13 +2383,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		3004D4DD26C82F6E00323BCB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E7780D649915F9CC1596DBF /* Pods-Gallify.release.xcconfig */;
+			baseConfigurationReference = F4376D7C62A96118E3A47193 /* Pods-Gallify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2376,13 +2412,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = beta.app.gallify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		3004D4DF26C82F6E00323BCB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 67F298377B0F9007B0FC7374 /* Pods-GallifyTests.debug.xcconfig */;
+			baseConfigurationReference = 0B1336FE277590F0983F88D7 /* Pods-GallifyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2405,7 +2441,7 @@
 		};
 		3004D4E026C82F6E00323BCB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5EDAC892307BA21BD4682C9 /* Pods-GallifyTests.release.xcconfig */;
+			baseConfigurationReference = 359994E98C814525F33EB2CA /* Pods-GallifyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2429,7 +2465,7 @@
 		};
 		3004D4E226C82F6E00323BCB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41A27B039D1CA347FDC98A15 /* Pods-Gallify-GallifyUITests.debug.xcconfig */;
+			baseConfigurationReference = C23E03518BC86731CDDBD36C /* Pods-Gallify-GallifyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2450,7 +2486,7 @@
 		};
 		3004D4E326C82F6E00323BCB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B47B46B9072CE5E90CC4719 /* Pods-Gallify-GallifyUITests.release.xcconfig */;
+			baseConfigurationReference = 0C3611DB927B5BF1BD080A5D /* Pods-Gallify-GallifyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

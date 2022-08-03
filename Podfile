@@ -19,12 +19,12 @@ target 'Gallify' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'Firebase/Core'
+  pod 'FirebaseUI'
   pod 'FirebaseUI/Storage'
-  pod 'FirebaseFirestoreSwift'
-
-
-    # For location
- # pod 'GeoFire', '~> 4.0'
+  pod 'FirebaseFirestoreSwift', '= 7.5.0-beta'
+  #pod 'FirebaseFirestoreSwift'
+  pod 'GeoFire/Utils'
+  #pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
 
     # For images
   pod 'SDWebImageSwiftUI'

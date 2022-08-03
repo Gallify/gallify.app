@@ -82,7 +82,7 @@ struct HomeViewHeader: View {
             
             Button(action: {
 
-                if let url = URL(string: "https://metamask.app.link/dapp/https://open.gallify.app/create") {
+                if let url = URL(string: "https://metamask.app.link/dapp/https://open.gallify.app/create/art/") {
                    UIApplication.shared.open(url)
                 }
                 
@@ -91,7 +91,8 @@ struct HomeViewHeader: View {
                 ZStack {
                     
                     RoundedRectangle(cornerRadius: 5)
-                        .foregroundColor(Color("Gallify-Pinkish"))
+                        .foregroundColor(.primary)
+//                        .foregroundColor(Color("Gallify-Pinkish"))
                         .padding(.all, screenWidth / 55)
                         .frame(width: screenWidth / 9, height: screenWidth / 9)
                     

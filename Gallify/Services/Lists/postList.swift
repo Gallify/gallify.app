@@ -11,7 +11,7 @@ import FirebaseStorage
 import UIKit
 import SwiftUI
 import CoreLocation
-//import GeoFire
+import GeoFire
 
 extension FirestoreQuery {
     
@@ -133,7 +133,7 @@ extension FirestoreQuery {
         
         //geoHash
         let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon))
-        //let hash = GFUtils.geoHash(forLocation: location)
+        let hash = GFUtils.geoHash(forLocation: location)
         
         let newPlaylist = Playlist(newName: name, pri: privacy, type: type, the_creator: self.data)
     
@@ -147,7 +147,7 @@ extension FirestoreQuery {
         if(locationPref){
             newPlaylist.lat = lat
             newPlaylist.lon = lon
-            //newPlaylist.geoHash = hash
+            newPlaylist.geoHash = hash
             newPlaylist.hasLocation = true
         }
         else{

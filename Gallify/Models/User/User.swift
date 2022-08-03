@@ -60,8 +60,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         case disableAccount
         case singlesRef
         
-        case createdTimestamp
-        
+        case createdDate
         
         
         
@@ -118,7 +117,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var singlesRef: String
     
     //as of 7/29/22
-   // @Published var createdTimestamp: Int
+    @Published var createdDate: Int
     
 
     init() {
@@ -170,7 +169,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         disableAccount = false
         
         singlesRef = ""
-       // createdTimestamp = Int(Date().timeIntervalSince1970)
+        createdDate = Int(Date().timeIntervalSince1970)
 
     }
 
@@ -226,7 +225,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         
         singlesRef = try container.decode(String.self, forKey: .singlesRef)
 
-        //createdTimestamp = try container.decode(Int.self, forKey: .createdTimestamp)
+        createdDate = try container.decode(Int.self, forKey: .createdDate)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -278,7 +277,7 @@ class User: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(deleteAccount, forKey: .deleteAccount)
         try container.encode(disableAccount, forKey: .disableAccount)
         try container.encode(singlesRef, forKey: .singlesRef)
-        //try container.encode(createdTimestamp, forKey: .createdTimestamp)
+        try container.encode(createdDate, forKey: .createdDate)
 
     }
 

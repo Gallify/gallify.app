@@ -111,7 +111,9 @@ struct CollectionReelHeader: View {
             }
             
         }
+
     }
+
 }
 
 //struct CollectionReelHeader_Previews: PreviewProvider {

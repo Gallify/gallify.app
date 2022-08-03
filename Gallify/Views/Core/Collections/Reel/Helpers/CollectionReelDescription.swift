@@ -29,65 +29,167 @@ struct CollectionReelDescription: View {
             VStack (alignment: .leading) {
                 
                 HStack {
-                    
+
                     Text("Owner")
                         .font(.system(size: screenWidth / 25))
-                    
+
                     NavigationLink (destination: OtherProfileView(otherUserId: artDetails.ownerId), label: {
-                        
+
                         Text(artDetails.owner)
                             .font(.system(size: screenWidth / 25))
                             .underline()
                             .foregroundColor(.black)
-                        
+
                     })
                     .navigationBarHidden(true)
+
+                }
+                
+                HStack {
+
+                    Text("Creator")
+                        .font(.system(size: screenWidth / 25))
+
+                    NavigationLink (destination: OtherProfileView(otherUserId: artDetails.creatorId), label: {
+
+                        Text(artDetails.creator)
+                            .font(.system(size: screenWidth / 25))
+                            .underline()
+                            .foregroundColor(.black)
+
+                    })
+                    .navigationBarHidden(true)
+
+                }
+
+                HStack {
+                    
+                    Text("Address")
+                        .font(.system(size: screenWidth / 25))
+                    
+                  
+                        Text(the_reel_desc_playlist.address)
+                            .font(.system(size: screenWidth / 25))
+                            .underline()
+                            .foregroundColor(.black)
+                        
+                  
                     
                 }
                 
                 HStack {
                     
-                    Text("Creator")
+                    Text("Created Date")
                         .font(.system(size: screenWidth / 25))
                     
-                    NavigationLink (destination: OtherProfileView(otherUserId: artDetails.creatorId), label: {
-                        
-                        Text(artDetails.creator)
+                  
+                        Text(createdString)
                             .font(.system(size: screenWidth / 25))
                             .underline()
                             .foregroundColor(.black)
                         
-                    })
-                    .navigationBarHidden(true)
+                  
                     
                 }
                 
-                if(artDetails.collection != "") {
+                HStack {
                     
+                    Text("Modifed Date")
+                        .font(.system(size: screenWidth / 25))
+                    
+                  
+                        Text(latestString)
+                            .font(.system(size: screenWidth / 25))
+                            .underline()
+                            .foregroundColor(.black)
+                        
+                  
+                    
+                }
+                
+                HStack {
+                    
+                    Text("Polyscan")
+                        .font(.system(size: screenWidth / 25))
+                    
+                  
+                        Text(the_reel_desc_playlist.address)
+                            .font(.system(size: screenWidth / 25))
+                            .underline()
+                            .foregroundColor(.black)
+                }
+                
+                HStack {
+                    
+                    Text("Token #")
+                        .font(.system(size: screenWidth / 25))
+                    
+                  
+                        Text("\(artDetails.tokenId)")
+                            .font(.system(size: screenWidth / 25))
+                            .underline()
+                            .foregroundColor(.black)
+                }
+                
+                HStack {
+                    
+                    Text("Address")
+                        .font(.system(size: screenWidth / 25))
+                    
+                  
+                        Text(the_reel_desc_playlist.address)
+                            .font(.system(size: screenWidth / 25))
+                            .underline()
+                            .foregroundColor(.black)
+                        
+                }
+                
+                
+                if(the_reel_desc_playlist.address != "" && artDetails.tokenId != 0){
                     HStack {
                         
+                        Button(action: {
+                            
+                            let polyString = "https://polygonscan.com/token/" + the_reel_desc_playlist.address + "?a" + "\(artDetails.tokenId)"
+
+                            if let url = URL(string: polyString ) {
+                               UIApplication.shared.open(url)
+                            }
+                            
+                            
+                        }) {
+                            
+                            Text("View on Polyscan")
+                                .font(.system(size: screenWidth / 25))
+                        }
+                    }
+                }
+                
+                
+                if(artDetails.collection != "") {
+
+                    
+                    HStack {
+
                         Text("Collection")
                             .font(.system(size: screenWidth / 25))
-                        
+
                         NavigationLink (destination: CollectionGenericView(playlist: the_reel_desc_playlist), label: {
-                                
+
                             Text(the_reel_desc_playlist.name)
                                 .font(.system(size: screenWidth / 25))
                                 .underline()
                                 .foregroundColor(.black)
-                                .onTapGesture {
-                                    firestoreQuery.playlist = the_reel_desc_playlist
-                                }
-                            
+
                         })
                         .navigationBarHidden(true)
-                        
+
                     }
                     
                 }
-                
-                Text(artDetails.desc)
-                    .font(.system(size: screenWidth / 25))
+//
+//            Text("\(artDetails.desc)")
+//                .font(.system(size: screenWidth / 25))
                 
             }
             
@@ -135,17 +237,20 @@ struct CollectionReelDescription: View {
     
     func NetworkingCall() async {
          
-        //convert recent date
-       //  latestDate = artDetails.latestHistoryDate.dateValue()
-        // latestString = latestDate.formatted()
-         
-         //convert created date
-       //  createdDate = artDetails.createdDate.dateValue()
-        // createdString = createdDate.formatted()
-         
+        let epochModTime = TimeInterval(artDetails.modifiedDate) / 1000
+        let dateMod = Date(timeIntervalSince1970: epochModTime)
+        latestString = dateMod.formatted()
+        
+        let epochCreateTime = TimeInterval(artDetails.createdDate) / 1000
+        let dateCreate = Date(timeIntervalSince1970: epochCreateTime)
+        createdString = dateCreate.formatted()
+
          //get the collection the art is apart of
          if(artDetails.collection != ""){
+             
+             print(artDetails.collection)
              the_reel_desc_playlist = await firestoreQuery.getReelPlaylist(playlist_id: artDetails.collection)
+             
          }
         
     }

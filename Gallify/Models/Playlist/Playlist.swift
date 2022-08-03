@@ -45,8 +45,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         case creatorRef
         case isSingles
         
-        case hasGallery
-        case galleryId
+        case hasScene
+        case sceneId
         case geoHash
         case hideLocation
         case hasLocation
@@ -83,8 +83,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var creatorRef: String
     @Published var isSingles: Bool
     
-    @Published var hasGallery: Bool
-    @Published var galleryId: String
+    @Published var hasScene: Bool
+    @Published var sceneId: String
     @Published var geoHash: String
     @Published var hideLocation: Bool
     @Published var hasLocation: Bool
@@ -136,8 +136,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         creatorRef = ""
         isSingles = false
         
-        hasGallery = false
-        galleryId = ""
+        hasScene = false
+        sceneId = ""
         geoHash = ""
         hideLocation = false
         hasLocation = false
@@ -173,8 +173,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
           creatorRef = ""
           isSingles = false
         
-          hasGallery = false
-          galleryId = ""
+          hasScene = false
+          sceneId = ""
           geoHash = ""
           hideLocation = false
           hasLocation = false
@@ -212,8 +212,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         creatorRef = try container.decode(String.self, forKey: .creatorRef)
         isSingles = try container.decode(Bool.self, forKey: .isSingles)
         
-        hasGallery = try container.decode(Bool.self, forKey: .hasGallery)
-        galleryId = try container.decode(String.self, forKey: .galleryId)
+        hasScene = try container.decode(Bool.self, forKey: .hasScene)
+        sceneId = try container.decode(String.self, forKey: .sceneId)
         geoHash = try container.decode(String.self, forKey: .geoHash)
         hideLocation = try container.decode(Bool.self, forKey: .hideLocation)
         hasLocation = try container.decode(Bool.self, forKey: .hasLocation)
@@ -251,8 +251,8 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(createdDate, forKey: .createdDate)
         try container.encode(creatorRef, forKey: .creatorRef)
         try container.encode(isSingles, forKey: .isSingles)
-        try container.encode(hasGallery, forKey: .hasGallery)
-        try container.encode(galleryId, forKey: .galleryId)
+        try container.encode(hasScene, forKey: .hasScene)
+        try container.encode(sceneId, forKey: .sceneId)
         try container.encode(geoHash, forKey: .geoHash)
         try container.encode(hideLocation, forKey: .hideLocation)
         try container.encode(hasLocation, forKey: .hasLocation)
