@@ -282,11 +282,28 @@ struct CollectionReelListing: View {
                             }
                             
                             
-//                            if (showDetail && artwork.artId == art_popup) {
-//
-//                                CollectionReelDescription(artDetails: artwork)
-//
-//                            }
+                            if (showDetail && artwork.artId == art_popup) {
+                                CollectionReelDescription(artDetails: self.artForDescription)
+                                    .animation(.default)
+                                    .gesture(
+                                        DragGesture()
+                                            .onChanged { gesture in
+                                         
+                                                showDetail = false
+                                            }
+                                            .onEnded { gesture in
+                                         
+                                                showDetail = false
+                                            }
+                                    )
+                                    .gesture(
+                                        TapGesture()
+                                            .onEnded { _ in
+                                                showDetail = false
+                                            }
+                                    )
+
+                            }
                    
                         }
                         
@@ -323,28 +340,28 @@ struct CollectionReelListing: View {
                    showDetail = false
                }))
         
-        if (showDetail) {
-            CollectionReelDescription(artDetails: self.artForDescription)
-                .animation(.default)
-                .gesture(
-                    DragGesture()
-                        .onChanged { gesture in
-                     
-                            showDetail = false
-                        }
-                        .onEnded { gesture in
-                     
-                            showDetail = false
-                        }
-                )
-                .gesture(
-                    TapGesture()
-                        .onEnded { _ in
-                            showDetail = false
-                        }
-                )
-
-        }
+//        if (showDetail) {
+//            CollectionReelDescription(artDetails: self.artForDescription)
+//                .animation(.default)
+//                .gesture(
+//                    DragGesture()
+//                        .onChanged { gesture in
+//
+//                            showDetail = false
+//                        }
+//                        .onEnded { gesture in
+//
+//                            showDetail = false
+//                        }
+//                )
+//                .gesture(
+//                    TapGesture()
+//                        .onEnded { _ in
+//                            showDetail = false
+//                        }
+//                )
+//
+//        }
         
         
         

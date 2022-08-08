@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
-//import GeoFire
+import GeoFire
 import CoreLocation
 
 extension FirestoreQuery {
@@ -266,24 +266,23 @@ extension FirestoreQuery {
         
     }
     
-    
-    
     /*
-     
-
     /*
      This method grabs all playlists within a certain radius, given the lat and lon. 
      */
     func getPlaylistsInLocation(lat:Int, lon: Int) async -> [QueryDocumentSnapshot] {
+        
         let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon))
         let radiusInM: Double = 50 * 1000 // i am not sure what the radius is meant to be?
         let queryBounds = GFUtils.queryBounds(forLocation: center,
                                               withRadius: radiusInM)
+        
         let queries = queryBounds.map { bound -> Query in
             return FirestoreQuery.db.collection("playlists")
-                .order(by: "geohash")
+                .order(by: "geoHash")
                 .start(at: [bound.startValue])
                 .end(at: [bound.endValue])
+                .limit(to: 3)
         }
         
         var matchingDocs = [QueryDocumentSnapshot]()
@@ -308,11 +307,18 @@ extension FirestoreQuery {
                }
            }
        }
+    
+        // After all callbacks have executed, matchingDocs contains the result. Note that this
+        // sample does not demonstrate how to wait on all callbacks to complete.
+        for query in queries {
+            query.getDocuments(completion: getDocumentsCompletion)
+        }
+        print("Docs: \(matchingDocs.count)")
         
        return matchingDocs
     }
-     
     */
+    
     
     /*
      06/20/22

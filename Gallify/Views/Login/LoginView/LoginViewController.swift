@@ -588,9 +588,9 @@ class LoginAppViewModel: ObservableObject {
                                 //sign in with custom token. No matter a new account or already existing. It creates a new authentication account if new account.
                                 self.auth.signIn(withCustomToken: self.userData.token) { user, error in
                                   
-                                    guard user != nil, error == nil else {
-                                        return
-                                    }
+//                                    guard user != nil, error == nil else {
+//                                        return
+//                                    }
                                     
                                     if userData is NSNull{
                                         DispatchQueue.main.async {
@@ -644,6 +644,7 @@ class LoginAppViewModel: ObservableObject {
      */
     func enterAsGuest() {
         
+        print(auth.currentUser)
         if auth.currentUser == nil {
             auth.signInAnonymously()
             DispatchQueue.main.async {

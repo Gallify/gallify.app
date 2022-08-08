@@ -26,7 +26,7 @@ struct LoadingView: View {
                 .padding(.top, screenHeight / 16.25)
             
             HStack{
-                Text("Beta v0.1.2")
+                Text("beta v0.1.2")
                     .font(.system(size: screenWidth / 21))
                     .foregroundColor(Color.gray)
                 
