@@ -43,7 +43,7 @@ struct TempMapView: View {
                     .font(.system(size: screenWidth / 25, weight: .semibold))
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color.blue)
+                    .background(Color.black)
                     .cornerRadius(screenWidth / 10)
                     .padding(.horizontal, screenWidth / 25)
                     .padding(.vertical, screenHeight / 54)

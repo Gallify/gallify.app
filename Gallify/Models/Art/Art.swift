@@ -71,6 +71,8 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         case ownerRef
         case isMinted
         case marketplaceAddress
+        
+        case hash
 
     }
     
@@ -126,6 +128,8 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
     @Published var isMinted: Bool
     @Published var marketplaceAddress: String
 
+    //new params as of 08/12/22
+    @Published var hash: String
     
 
     init() {
@@ -176,6 +180,8 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         ownerRef = ""
         isMinted = false
         marketplaceAddress = ""
+        
+        hash = ""
        
 
     }
@@ -235,6 +241,9 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         
         isMinted = try container.decode(Bool.self, forKey: .isMinted)
         marketplaceAddress = try container.decode(String.self, forKey: .marketplaceAddress)
+        
+        hash = try container.decode(String.self, forKey: .hash)
+
 
         
     }
@@ -290,6 +299,8 @@ class Art: Encodable, Decodable, ObservableObject, Identifiable {
         try container.encode(ownerRef, forKey: .ownerRef)
         try container.encode(isMinted, forKey: .isMinted)
         try container.encode(marketplaceAddress, forKey: .marketplaceAddress)
+        
+        try container.encode(hash, forKey: .hash)
         
     }
     

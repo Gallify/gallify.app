@@ -166,6 +166,7 @@
 		30BEBD4527BF1E510045EC74 /* postARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4427BF1E510045EC74 /* postARPlayer.swift */; };
 		30BEBD4727BF1E5C0045EC74 /* updateARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */; };
 		30BEBD4927BF1E660045EC74 /* deleteARPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEBD4827BF1E660045EC74 /* deleteARPlayer.swift */; };
+		30C73AF028A8560D00280987 /* MapQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C73AEF28A8560D00280987 /* MapQueryService.swift */; };
 		30EB961F2822F0F1003D0486 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB961E2822F0F1003D0486 /* SignIn.swift */; };
 		30EB9621282437B9003D0486 /* DiscoverUserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB9620282437B9003D0486 /* DiscoverUserSearch.swift */; };
 		30EB9623282882AA003D0486 /* MembershipBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB9622282882AA003D0486 /* MembershipBody.swift */; };
@@ -450,6 +451,7 @@
 		30BEBD4427BF1E510045EC74 /* postARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4627BF1E5C0045EC74 /* updateARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateARPlayer.swift; sourceTree = "<group>"; };
 		30BEBD4827BF1E660045EC74 /* deleteARPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteARPlayer.swift; sourceTree = "<group>"; };
+		30C73AEF28A8560D00280987 /* MapQueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapQueryService.swift; sourceTree = "<group>"; };
 		30EB961E2822F0F1003D0486 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		30EB9620282437B9003D0486 /* DiscoverUserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserSearch.swift; sourceTree = "<group>"; };
 		30EB9622282882AA003D0486 /* MembershipBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipBody.swift; sourceTree = "<group>"; };
@@ -1102,6 +1104,7 @@
 		30836FA52749E39D00E83735 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				30C73AEF28A8560D00280987 /* MapQueryService.swift */,
 				3052137C278A2D5A00CE0224 /* FirestoreQueryService.swift */,
 				33099633277BC2980040D099 /* FirestoreSubcollectionService.swift */,
 				3052137E278A2DCE00CE0224 /* StorageService.swift */,
@@ -2065,6 +2068,7 @@
 				311E93892753C0BB005DFE12 /* DiscoverSearch.swift in Sources */,
 				30001BC82796855100527BF9 /* getDiscover.swift in Sources */,
 				30836FAB2749E65200E83735 /* Extensions.swift in Sources */,
+				30C73AF028A8560D00280987 /* MapQueryService.swift in Sources */,
 				318C16B2281AFF7C00F63C3D /* AdminApprovalArtDescription.swift in Sources */,
 				30001BD6279685BB00527BF9 /* deleteProfile.swift in Sources */,
 				319F25BD26E56D57009B811E /* HomeViewRecent.swift in Sources */,

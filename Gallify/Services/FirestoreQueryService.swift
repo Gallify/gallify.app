@@ -30,6 +30,9 @@ class FirestoreQuery : ObservableObject {
         
      */
     
+    //Map
+    @Published var mapPlaylists: [Playlist] = [Playlist]()
+    
     
     //for drop down reeels
     @Published var maximized = false

@@ -18,6 +18,7 @@ class TabBarViewModel: UITabBarController, ObservableObject {
 struct TabBarView: View {
     
     @StateObject var firestoreQuery = FirestoreQuery()
+    @StateObject var mapQuery = MapQuery()
     @StateObject var storageService = StorageService()
     @StateObject var viewModel = TabBarViewModel()
     
@@ -185,6 +186,7 @@ struct TabBarView: View {
             .accentColor(Color.black)
             .environmentObject(viewModel)
             .environmentObject(firestoreQuery)
+            .environmentObject(mapQuery)
             .environmentObject(storageService)
             .onAppear{ async { await NetworkingCall() } }
             

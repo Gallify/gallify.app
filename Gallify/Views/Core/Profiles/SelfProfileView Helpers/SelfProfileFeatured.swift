@@ -82,11 +82,19 @@ struct SelfProfileFeatured: View {
                                         
                                         HStack {
                                                         
-                                            WebImage(url: URL(string: artwork.thumbnailUrl))
+                                            AnimatedImage(url: URL(string: artwork.thumbnailUrl))
                                                 .resizable()
                                                 .scaledToFill()
                                                 .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
                                                 .clipped()
+                                            
+                                            
+//                                            WebImage(url: URL(string: artwork.thumbnailUrl))
+//                                                .resizable()
+//                                                .scaledToFill()
+//                                                .frame(width: screenWidth / 7.5, height: screenHeight / 16.25)
+//                                                .clipped()
+                                            
                                             VStack(alignment: .leading) {
                                                             
                                                 if (firestoreQuery.artisClicked == artwork.artId) {

@@ -180,6 +180,44 @@ class Playlist: Encodable, Decodable, ObservableObject, Identifiable {
           hasLocation = false
         
       }
+    
+    init(lati: Double, long: Double) {
+          name = ""
+          creator = ""
+          creatorUrl = ""
+          playlistType = "Playlist"
+          shareUrl = ""
+          auction = false
+          auctionStart = 0
+          auctionEnd = 0
+          privacy = 0
+          genre = ""
+          location = ""
+          coverArtUrl = "https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=800"
+          art = [String]()
+          popularity = 0
+          likes = 0
+          followersUrl = ""
+          searchType = ""
+          playlistId = ""
+          description = ""
+          lat = lati
+          lon = long
+          address = ""
+          modifiedDate = 0
+          createdDate = 0
+          creatorRef = ""
+          isSingles = false
+        
+          hasScene = false
+          sceneId = ""
+          geoHash = ""
+          hideLocation = false
+          hasLocation = false
+        
+      }
+    
+    
 
     required init(from decoder: Decoder) throws {
 

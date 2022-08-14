@@ -317,7 +317,128 @@ extension FirestoreQuery {
         
        return matchingDocs
     }
-    */
+     */
+    
+    
+    
+    func getPlaylistNearby2(lat:Int, lon: Int, radius: Double) async {
+        
+        
+    }
+    
+    
+    func getPlaylistNearby(lat:Int, lon: Int, radius: Double) async {
+
+        
+        // Find cities within 50km of London
+        let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon))
+        let radiusInM = radius
+        // Each item in 'bounds' represents a startAt/endAt pair. We have to issue
+        // a separate query for each pair. There can be up to 9 pairs of bounds
+        // depending on overlap, but in most cases there are 4.
+        let queryBounds = GFUtils.queryBounds(forLocation: center,
+                                              withRadius: radiusInM)
+        
+        
+        let queries = queryBounds.map { bound -> Query in
+            print(bound.startValue)
+            print(bound.endValue)
+            return FirestoreQuery.db.collection("playlists")
+                .order(by: "geohash")
+                .start(at: [bound.startValue])
+                .end(at: [bound.endValue])
+                .limit(to: 3)
+        }
+        
+        print(queries)
+
+        for query in queries {
+            
+            
+            try await query.addSnapshotListener() { (querySnapshot, err) in
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                        } else {
+                            let value = querySnapshot!.documents.compactMap { querySnapshot -> Playlist? in
+                                     return try? querySnapshot.data(as: Playlist.self)
+                            }
+                            print("hellotherek")
+                            print(value)
+                        }
+            }
+            
+            
+            
+            query.getDocuments() { (querySnapshot, err) in
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                        } else {
+                            for document in querySnapshot!.documents {
+                                print("\(document.documentID) => \(document.data())")
+                            }
+                            print("hellothere")
+                        }
+            }
+        }
+        
+            
+        /*
+        var nearbyPlaylists = [Playlist]()
+        var matchingDocs = [QueryDocumentSnapshot]()
+        
+        print(queries)
+        
+        for query in queries {
+            //query.getDocuments(completion: getDocumentsCompletion)
+            
+            try await query.getDocuments { (querySnapshot, err) in
+                Task{
+                    guard let documents = await querySnapshot?.documents else {
+                            print("Unable to fetch snapshot data. \(String(describing: err))")
+                            return
+                        }
+                
+                
+                print(documents)
+
+                    for document in documents {
+                        let lat = document.data()["lat"] as? Double ?? 0
+                        let lng = document.data()["lon"] as? Double ?? 0
+                        let coordinates = CLLocation(latitude: lat, longitude: lng)
+                        let centerPoint = CLLocation(latitude: center.latitude, longitude: center.longitude)
+
+                        // We have to filter out a few false positives due to GeoHash accuracy, but
+                        // most will match
+                        let distance = GFUtils.distance(from: centerPoint, to: coordinates)
+                        if distance <= radiusInM {
+                            matchingDocs.append(document)
+                            
+                        }
+                        print(matchingDocs)
+                    }
+                }
+            }
+            
+        }
+         
+         */
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     /*

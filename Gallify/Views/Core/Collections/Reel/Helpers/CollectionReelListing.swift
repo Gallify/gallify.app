@@ -325,7 +325,8 @@ struct CollectionReelListing: View {
                             i += 1
                             
                         }
-                        
+                        print("hiii")
+                        print(firestoreQuery.scrollTo)
                         value.scrollTo(firestoreQuery.scrollTo, anchor: .top)
                         
                     })
